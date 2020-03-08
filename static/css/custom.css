@@ -32,6 +32,13 @@ figcaption {
   color: #282c34;
 }
 
+label {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
 .imgHoverLogo {
   border-radius: 4px;
 }
@@ -170,6 +177,10 @@ body {
 }
 
 input[type=text] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 50px;
   padding: 12px 20px;
@@ -181,6 +192,10 @@ input[type=text] {
 }
 
 input[type=tel] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 50px;
   padding: 12px 20px;
@@ -192,6 +207,10 @@ input[type=tel] {
 }
 
 input[type=email] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 50px;
   padding: 12px 20px;
@@ -203,6 +222,10 @@ input[type=email] {
 }
 
 input[type=number] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 50px;
   padding: 12px 20px;
@@ -214,6 +237,10 @@ input[type=number] {
 }
 
 input[type=url] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 50px;
   padding: 12px 20px;
@@ -225,6 +252,10 @@ input[type=url] {
 }
 
 textarea {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
   width: 100%;
   height: 150px;
   padding: 12px 20px;
@@ -236,22 +267,17 @@ textarea {
 }
 
 .cookie-banner {
-  position: fixed;
-  bottom: 40px;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  padding: 5px 14px;
+  text-align: center;
+  bottom: 60px;
+  padding: 5px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #eee;
-  border-radius: 5px;
+  background-color: gray;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 .close {
   height: 20px;
-  background-color: #777;
+  background-color: black;
   border: none;
   color: white;
   border-radius: 2px;

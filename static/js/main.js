@@ -189,3 +189,12 @@ $('#vasectomy_reversal').on('change', function(){
     $('#js_vasectomy_reversal').hide();
   }
 });
+
+if (localStorage.getItem('cookieSeen') != 'shown') {
+  $('.cookie-banner').delay(2000).show();
+  localStorage.setItem('cookieSeen','shown')
+};
+
+$('.close').click(function() {
+  $('.cookie-banner').hide(1000);
+})

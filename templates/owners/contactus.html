@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Contact us</h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container py-4">
+  <main role="main">
+    <div class="container" style="max-width: 70rem">
+      <div class="container" style="text-align: center">
+        <form method='POST' enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.errors }}
+          {{ form.as_p }}
+          <br>
+          <input class="btn btn-dark" type='submit' value='Send' />
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+<br>
+{% endblock  %}

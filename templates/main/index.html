@@ -1,0 +1,197 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}2020 | Fertility-Community{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block content %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility clinics near me</h1>
+    <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a cost comparison.</p>
+  </div>
+  <div class="container">
+    <div class="searchBox">
+      <div class="mainbanner" id="mainhpbanner">
+        <form action="{% url 'search' %}">
+          <div class="form-group" style="padding-top:3rem">
+            <div class="card" style="border-radius: 8px;">
+              <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                <select id="States" name="States" class="form-control" required>
+                  <option value="" selected>Select state</option>
+                  {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                  <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="padding-top:1rem">
+            <div class="accordion" id="accordionExample">
+              <div class="card" id="cardBox" style="border-radius: 8px;">
+                <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                  <button id="treatmentsBtn" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Types of treatments
+                  </button>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments">
+                          <label class="form-check-label" for="IVF treatment">All treatments</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="IVF treatment">IVF treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Egg donation recipients">Egg donation recipients</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Sperm donation recipients">Sperm donation recipients</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Embryo donation recipients">Embryo donation recipients</label>
+                        </div>
+                      </div>
+
+                      <div class="col">
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Fertility preservation" value="Fertilitypreservationtrue" name="treatments">
+                          <label class="form-check-label" for="Fertility preservation">Fertility preservation (freezing)</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments">
+                          <label class="form-check-label" for="Surrogacy">Surrogacy</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments">
+                          <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:7rem">
+            <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
+            <br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Types of treatments-->
+<br>
+
+<div hidden class="container py-4">
+  <h2>Types of fertility treatments</h2>
+  <br>
+  <div class="card-deck">
+    <br>
+    <div class="card">
+      <div class="card-header" style="background-color: #34393f">
+        <h5 class="card-title" style="color: white">In Vitro fertilisation (IVF)</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'fertilityClinicuk' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">View more</button>
+        </a>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-header" style="background-color: #34393f">
+        <h5 class="card-title" style="color: white">Egg donations</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'fertilityClinicLondon' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">View more</button>
+        </a>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-header" style="background-color: #34393f">
+        <h5 class="card-title" style="color: white">Embryo donations</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'search' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">View more</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Interesting things-->
+<br>
+
+<div class="background py-5" style="background-color: #286DA8">
+  <div class="container">
+    <h2 class="card-title" style="color: white">Presenting IVF locations</h2>
+    <p class="card-text" style="color: white">Learn interesting things about IVF in different countries!</p>
+    <br>
+    <a href="{% url 'locations' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Read more</button>
+    </a>
+  </div>
+</div>
+
+<br>
+<!--Location links-->
+<br>
+
+<div hidden class="container">
+  <h2><i class="fas fa-search-location"></i> Popular Fertility Clinics Locations</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicLondon' %}">United Kingdom Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicManchester' %}">Czech Republic Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicManchester' %}">Spain Fertility Clinics</a></li>
+      </ul>
+    </div>
+    <div hidden class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

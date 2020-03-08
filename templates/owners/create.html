@@ -1,0 +1,250 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Add new clinic</h1>
+    <br>
+  </div>
+</div>
+<div class="container py-4">
+  <br>
+  <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-sm">
+        <p>Name of clinic*</p>
+        <input type="text" name="name" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>Title of clinic*</p>
+        <input type="text" name="title" required>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <p>Description of clinic*</p>
+        <textarea name="description" required>Enter text here...</textarea>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <p>Street address of clinic*</p>
+        <input type="text" name="address" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>City of clinic*</p>
+        <input type="text" name="city" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>State of clinic*</p>
+        <input type="text" name="state" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>Zipcode of clinic*</p>
+        <input type="number" name="zipcode" required>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <p>Logo of clinic*</p>
+        <input type="file" name="logo_pic" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>Main pic of clinic*</p>
+        <input type="file" name="main_pic" required>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-sm">
+        <p>Contact URL of your clinic*</p>
+        <input type="url" name="contact_url" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>Contact phone of your clinic*</p>
+        <input type="tel" name="contact_phone" required>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm">
+        <p>Contact email of your clinic*</p>
+        <input type="email" name="contact_email" required>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <p>What treatments can you offer?</p>
+    <div class="row">
+      <div class="col-sm">
+        <label>
+          <input id="ivf_treatment" type="checkbox" name="ivf_treatment" class="checkbox_check"> IVF Treatment
+        </label>
+        <div id="js_ivf_cost" name="js_ivf_cost1" style="display: none">
+          <br>
+          <p>Cost of IVF Treatment<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="ivf_treatment_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="iui_treatment" type="checkbox" name="iui_treatment" class="checkbox_check"> IUI Treatment
+        </label>
+        <div id="js_iui_cost" name="js_iui_cost1" style="display: none">
+          <br>
+          <p>Cost of IUI Treatment<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="iui_treatment_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="icsi_treatment" type="checkbox" name="icsi_treatment" class="checkbox_check"> ICSI Treatment
+        </label>
+        <div id="js_icsi_cost" name="js_icsi_cost1" style="display: none">
+          <br>
+          <p>Cost of ICSI Treatment<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="icsi_treatment_cost">
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-sm">
+        <label>
+          <input id="egg_donation" type="checkbox" name="egg_donation"> Egg donation
+        </label>
+        <div id="js_egg_cost" style="display: none">
+          <br>
+          <p>Cost of Egg donation<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="egg_donation_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="sperm_donation" type="checkbox" name="sperm_donation"> Sperm donation
+        </label>
+        <div id="js_sperm_cost" style="display: none">
+          <br>
+          <p>Cost of Sperm donation<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="sperm_donation_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="embryo_donation" type="checkbox" name="embryo_donation"> Embryo donation
+        </label>
+        <div id="js_embryo_cost" style="display: none">
+          <br>
+          <p>Cost of Embryo donation<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="embryo_donation_cost">
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <p>What additional treatments can you offer?</p>
+    <div class="row">
+      <div class="col-sm">
+        <label>
+          <input id="egg_freezing" type="checkbox" name="egg_freezing"> Egg Freezing
+        </label>
+        <div id="js_egg_freezing" style="display: none">
+          <br>
+          <p>Cost of Egg Freezing<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="egg_freezing_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="embryo_freezing" type="checkbox" name="embryo_freezing"> Embryo freezing
+        </label>
+        <div id="js_embryo_freezing" style="display: none">
+          <br>
+          <p>Cost of Embryo Freezing<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="embryo_freezing_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="assisted_hatching" type="checkbox" name="assisted_hatching"> Assisted hatching
+        </label>
+        <div id="js_assisted_hatching" style="display: none">
+          <br>
+          <p>Cost of Assisted hatching<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="assisted_hatching_cost">
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <label>
+          <input id="surrogacy" type="checkbox" name="surrogacy"> Surrogacy
+        </label>
+        <div id="js_surrogacy_cost" style="display: none">
+          <br>
+          <p>Cost of Surrogacy<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="surrogacy_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="pgd" type="checkbox" name="pgd"> PGD (Pre-Implantation Genetic Diagnosis)
+        </label>
+        <div id="js_pgd_cost" style="display: none">
+          <br>
+          <p>Cost of PGD<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="pgd_cost">
+        </div>
+      </div>
+      <div class="col-sm">
+        <label>
+          <input id="vasectomy_reversal" type="checkbox" name="vasectomy_reversal"> Vasectomy Reversal
+        </label>
+        <div id="js_vasectomy_reversal" style="display: none">
+          <br>
+          <p>Cost of Vasectomy Reversal<i> (No package costs + the currency of your country)</i></p>
+          <input type="number" name="vasectomy_reversal">
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <button id="brandButton" type="submit" value="Create clinic" class="btn btn-outline-success btn-lg">Create clinic</button>
+  </form>
+</div>
+
+
+{% endblock  %}

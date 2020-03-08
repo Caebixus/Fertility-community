@@ -1,0 +1,109 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container py-4">
+  {% include 'partials/_alerts.html' %}
+  <div class="clinics" style="padding-bottom: 3rem">
+    <!-- Alerts -->
+    {% if listings %}
+    {% for listings in listings.all %}
+    {% if listings.is_published == True and listings.pro_is_published == False %}
+    <span class="badge badge-warning">Basic account</span>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+        <p>{{ listings.clinicTitle }}</p>
+      </div>
+    </div>
+    {% elif listings.is_published == True and listings.pro_is_published == True %}
+    <span class="badge badge-primary">PRO account</span>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+        <p>{{ listings.clinicTitle }}</p>
+      </div>
+    </div>
+    {% elif listings.is_published == False and listings.pro_is_published == False %}
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+        <p>{{ listings.clinicTitle }}</p>
+      </div>
+    </div>
+    {% endif %}
+    <br>
+    <div class="row" style="text-align:left">
+      {% if listings.is_published == True and listings.pro_is_published == False %}
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{% url 'update' listings.id %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Clinic information</button>
+        </a>
+      </div>
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{% url 'updatePricing' listings.id %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Treatments & pricing</button>
+        </a>
+      </div>
+      {% elif listings.is_published == True and listings.pro_is_published == True %}
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{% url 'updatePro' listings.id %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Clinic information</button>
+        </a>
+      </div>
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{% url 'updatePricingPro' listings.id %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Treatments & pricing</button>
+        </a>
+      </div>
+      {% endif %}
+      {% if listings.is_published == True and listings.pro_is_published == False %}
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{{ listings.clinic_url }}">
+          <button type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">View clinic</button>
+        </a>
+      </div>
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{% url 'upgrade' %}">
+          <button type="button" class="btn btn-outline-primary btn-lg" style="width: 15rem">Upgrade to PRO</button>
+        </a>
+      </div>
+      {% elif listings.is_published == True and listings.pro_is_published == True %}
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{{ listings.clinic_url }}">
+          <button type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">View clinic</button>
+        </a>
+      </div>
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="">
+          <button type="button" class="btn btn-outline-primary btn-lg" style="width: 15rem">PRO Features</button>
+        </a>
+      </div>
+      {% else %}
+      <div class="col-sm" style="padding-bottom:1rem">
+        <a href="{{ listings.clinic_url }}">
+          <button type="button" class="btn btn-outline-success btn-lg" style="width: 15rem" disabled>View clinic</button>
+        </a>
+        <p style="text-align:left"><i>Clinic waiting for review</i></p>
+      </div>
+      {% endif %}
+    </div>
+    <hr>
+    <br>
+    {% endfor %}
+    {% else %}
+    <p>There is no clinic connected to you account. Claim or add new one</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock  %}

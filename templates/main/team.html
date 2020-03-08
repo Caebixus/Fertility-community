@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}2020 | Fertility-Community Team{% endblock %}
+{% block description %}TEAM{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">About our team</h1>
+    <p class="lead" style="color:white">Providing you with the most actionable Fertility clinic search engine</p>
+    <br>
+  </div>
+</div>
+<div class="container marketing" style="text-align: center">
+  <div class="row" >
+    <div class="col-lg-4" style="padding-top:4rem">
+      <img class="rounded-circle" src="{% static 'img/4.jpg' %}" alt="Team Founder" width="140" height="140">
+      <h2 style="padding-top:2rem; text-align: center">David Langr</h2>
+      <p style="text-align: center">Project lead & development</p>
+      <a href="#"><i class="fab fa-linkedin" style="font-size:36px"></i></a>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4" style="padding-top:4rem">
+      <img class="rounded-circle" src="{% static 'img/5.jpg' %}" alt="team manager" width="140" height="140">
+      <h2 style="padding-top:2rem; text-align: center"">Denisa Schreiberová</h2>
+      <p style="text-align: center">PR & Communications</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4" style="padding-top:4rem">
+      <img class="rounded-circle" src="{% static 'img/6.jpg' %}" alt="Team part time" width="140" height="140">
+      <h2 style="padding-top:2rem; text-align: center"">Simona Matúšová</h2>
+      <p style="text-align: center">Administrative</p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+</div>
+
+{% endblock  %}

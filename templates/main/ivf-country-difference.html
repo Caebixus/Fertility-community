@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="background-color:white; padding-top:3rem;">
+  <h2>Informations about different IVF destinations</h2>
+  <div class="card-deck">
+    <div class="card">
+      <img src="{% static 'img/ukmapicon.png' %}" class="card-img-top" alt="...">
+      <div class="card-header" style="background-color: #286DA8">
+        <h5 class="card-title" style="color: white">IVF in UK</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer" style="background-color: white">
+        <a href="{% url 'fertilityClinicuk' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Read more</button>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'img/usamapicon.png' %}" class="card-img-top" alt="...">
+      <div class="card-header" style="background-color: #286DA8">
+        <h5 class="card-title" style="color: white">IVF in USA</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer" style="background-color: white">
+        <a href="{% url 'fertilityClinicuk' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Read more</button>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'img/canadamapicon.png' %}" class="card-img-top" alt="...">
+      <div class="card-header" style="background-color: #286DA8">
+        <h5 class="card-title" style="color: white">IVF in Canada</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer" style="background-color: white">
+        <a href="{% url 'fertilityClinicuk' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Read more</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

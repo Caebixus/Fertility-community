@@ -1,0 +1,204 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}Search and find the best fertility Clinic | 2020{% endblock %}
+{% block description %}Best IVF ever UK{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:5rem; padding-bottom:4rem; color: white">Compare Fertility treatments and average costs by countries best fertility clinics</h1>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">IVF procedure</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-icsi-tab" data-toggle="pill" href="#pills-icsi" role="tab" aria-controls="pills-icsi" aria-selected="false">ICSI procedure</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-iui-tab" data-toggle="pill" href="#pills-iui" role="tab" aria-controls="pills-iui" aria-selected="false">IUI procedure</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-egg-tab" data-toggle="pill" href="#pills-egg" role="tab" aria-controls="pills-egg" aria-selected="false">Egg Donation procedure</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-embryo-tab" data-toggle="pill" href="#pills-embryo" role="tab" aria-controls="pills-embryo" aria-selected="false">Embryo Donation procedure</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-sperm-tab" data-toggle="pill" href="#pills-sperm" role="tab" aria-controls="pills-sperm" aria-selected="false">Sperm Donation procedure</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF procedures compared by TOP countries</h2>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">USD</th>
+              <th scope="col">EUR</th>
+              <th scope="col">GBP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">United Kingdom</th>
+              <td>{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
+              <td>{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
+              <td>{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-icsi" role="tabpanel" aria-labelledby="pills-icsi-tab">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2 style="padding-top:3rem">Average prices of ICSI procedures compared by TOP countries</h2>
+        <div class="table-responsive-xl">
+          <table class="table table-hover">
+            <thead class="thead" style="background-color: #286DA8; color: white">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">USD</th>
+                <th scope="col">EUR</th>
+                <th scope="col">GBP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">United Kingdom</th>
+                <td>{{ usdCurrency_uk_icsi|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-iui" role="tabpanel" aria-labelledby="pills-iui-tab">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2 style="padding-top:3rem">Average prices of IUI procedures compared by TOP countries</h2>
+        <div class="table-responsive-xl">
+          <table class="table table-hover">
+            <thead class="thead" style="background-color: #286DA8; color: white">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">USD</th>
+                <th scope="col">EUR</th>
+                <th scope="col">GBP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">United Kingdom</th>
+                <td>{{ usdCurrency_uk_iui|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-egg" role="tabpanel" aria-labelledby="pills-egg-tab">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2 style="padding-top:3rem">Average prices of Egg Donation procedures compared by TOP countries</h2>
+        <div class="table-responsive-xl">
+          <table class="table table-hover">
+            <thead class="thead" style="background-color: #286DA8; color: white">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">USD</th>
+                <th scope="col">EUR</th>
+                <th scope="col">GBP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">United Kingdom</th>
+                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-embryo" role="tabpanel" aria-labelledby="pills-embryo-tab">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2 style="padding-top:3rem">Average prices of Embryo Donation procedures compared by TOP countries</h2>
+        <div class="table-responsive-xl">
+          <table class="table table-hover">
+            <thead class="thead" style="background-color: #286DA8; color: white">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">USD</th>
+                <th scope="col">EUR</th>
+                <th scope="col">GBP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">United Kingdom</th>
+                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-sperm" role="tabpanel" aria-labelledby="pills-sperm-tab">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2 style="padding-top:3rem">Average prices of Sperm Donation procedures compared by TOP countries</h2>
+        <div class="table-responsive-xl">
+          <table class="table table-hover">
+            <thead class="thead" style="background-color: #286DA8; color: white">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">USD</th>
+                <th scope="col">EUR</th>
+                <th scope="col">GBP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">United Kingdom</th>
+                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<div class="container py-5">
+  <a class="nav-link" href="{% url 'travelCalculator' %}">
+    <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Calculate travel costs</button>
+  </a>
+</div>
+
+
+
+
+
+{% endblock  %}

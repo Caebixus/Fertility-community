@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:5rem; padding-bottom:4rem; color: white">Plan your travel costs!</h1>
+  </div>
+</div>
+
+<div class="container" style="padding-top:3rem">
+  <div data-skyscanner-widget="FlightSearchWidget" data-locale="en-US" data-market="COM" data-currency="USD" data-button-colour="#CD5360" data-button-font-colour="white" data-flight-type="return"></div>
+  <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
+</div>
+
+
+
+
+
+
+{% endblock  %}

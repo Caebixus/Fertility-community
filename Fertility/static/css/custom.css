@@ -1,0 +1,285 @@
+h1 {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+  text-align: left;
+}
+
+h2 {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+  text-align: left;
+}
+
+h3 {
+  font-family: 'Josefin Sans';
+  text-align: left;
+}
+
+h4 {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+  text-align: left;
+}
+
+h5 {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+  text-align: left;
+}
+
+figcaption {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+}
+
+label {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
+.imgHoverLogo {
+  border-radius: 4px;
+}
+
+.imgHover{
+  border-radius: 8px;
+}
+
+.jumbotron {
+  background-color: white;
+  border-radius: 8px;
+  border-style: groove;
+  border-width: 1px;
+  border-color: #286da8;
+}
+
+.form-check-label {
+  font-family: 'Josefin Sans';
+  color: #282c34;
+}
+
+.headingOne {
+  background-color: white;
+  color: white;
+}
+
+.cardBox {
+  background-color: white;
+  color: white;
+}
+
+.header #imgInfo {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.header #nameInfo {
+  position: relative;
+  padding-left: 75px;
+}
+
+#States {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
+#inputGroupSelect01 {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
+#inputGroupSelect02 {
+  font-family: 'Josefin Sans';
+}
+
+#brandButton {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#baseBrandButton {
+  border-color: #ffffff;
+  border-radius: 8px;
+  border-width:2px;
+  color: #ffffff;
+}
+
+#brandButton:hover {
+  background-color: #CD5360;
+  border-radius: 8px;
+  color: white;
+}
+
+#baseBrandButton:hover {
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: black;
+}
+
+p {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
+ul {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
+.badge {
+    color: white;
+}
+
+a {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: black;
+  text-align: left;
+}
+
+body {
+  position: relative;
+}
+
+#carouselHP {
+  border-radius: 15px;
+  background-color: #282c34;
+}
+
+#mainhpbanner {
+  max-width: 450px;
+  max-height: auto;
+}
+
+#treatmentsBtn {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
+input[type=text] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input[type=tel] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input[type=email] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input[type=number] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input[type=url] {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+textarea {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.cookie-banner {
+  text-align: center;
+  bottom: 60px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: gray;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.close {
+  height: 20px;
+  background-color: black;
+  border: none;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}

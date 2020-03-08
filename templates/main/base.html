@@ -1,0 +1,145 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <!-- Favicons -->
+  <link rel="icon" href="{% static 'img/LOGO32.svg' %}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{% static 'img/LOGO57.svg' %}" sizes="57x57">
+  <link rel="icon" href="{% static 'img/LOGO76.svg' %}" sizes="76x76">
+  <link rel="icon" href="{% static 'img/LOGO96.svg' %}" sizes="96x96">
+  <link rel="icon" href="{% static 'img/LOGO120.svg' %}" sizes="120x120">
+  <link rel="icon" href="{% static 'img/LOGO128.svg' %}" sizes="128x128">
+  <link rel="icon" href="{% static 'img/LOGO144.svg' %}" sizes="144x144">
+  <link rel="icon" href="{% static 'img/LOGO228.svg' %}" sizes="228x228">
+  <link rel="apple-touch-icon" href="{% static 'img/LOGO32.svg'%}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/LOGO120.svg' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/LOGO152.svg'%}">
+  <link rel="apple-touch-icon" sizes="167x167" href="{% static 'img/LOGO167.svg'%}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/LOGO180.svg'%}">
+  <link rel="icon" sizes="192x192" href="{% static 'img/LOGO192.svg'%}">
+  <meta name="msapplication-square310x310logo" content="{% static 'img/LOGO310.svg'%}">
+  <meta name="google-site-verification" content="oLHEr8KY8jOSuFT7XUYzcTBI0kInhkPGZ8u4pRNSONc" />
+  <link rel="apple-touch-icon" href="{% static 'favicon-120.png' %}" sizes="120x120">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/pricing/">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/ecffc5a96c.js" crossorigin="anonymous"></script>
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PGKDGQV');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <div class="cookie-banner" style="display: none">
+    <p style="color: white; margin-bottom: 0px;">This&nbsp;website is&nbsp;using&nbsp;cookies. <a href="{% url 'cookies' %}"><u>More&nbsp;details</u></a></p>
+    <button class="close">&times;</button>
+  </div>
+
+  <nav id="mainNavContent" class="navbar navbar-expand-lg navbar-light" style="background-color: white">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/LOGO-FertilityCommunity.svg' %}" alt="Logo Fertility Community">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+
+          <a hidden class="nav-item nav-link" href="#"><i class="far fa-question-circle"></i> FAQ</a>
+          {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
+          <a class="nav-item nav-link" href="{% url 'create' %}"><i class="fas fa-plus-circle"></i> Add clinic</a>
+          <a class="nav-item nav-link" href="{% url 'claim' %}"><i class="fas fa-exclamation-triangle"></i> Claim clinic</a>
+          <a class="nav-item nav-link" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
+          <li>
+            <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <form id="logout" action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+          </li>
+          {% else %}
+          <a class="nav-item nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a class="nav-item nav-link" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
+          <a href="{% url 'register' %}">
+            <button id="ButtonAdd" class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-plus-circle"></i> Add clinic</button>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGKDGQV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</body>
+
+
+<!-- FOOTER -->
+<div class="container" style="padding-top:4rem">
+  <hr>
+  <footer class="my-md-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p>Fertility-Community <small class="d-block mb-3 text-muted">&copy; 2017-2019</small></p>
+      </div>
+      <div hidden class="col-6 col-md">
+        <h5><u>Interesting stuff</u></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Want to be informed?</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5><u>For clinics</u></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="{% url 'register' %}">Add or claim your clinic</a></li>
+        </ul>
+      </div>
+      <div hidden class="col-6 col-md">
+        <h5><u>Community</u></h5>
+        <ul class="list-unstyled text-small">
+          <li ><a class="text-muted" href="{% url 'ivf-country-difference' %}">Helpful IVF information</a></li>
+          <li><a class="text-muted" href="{% url 'locations' %}">Locations</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5><u>About</u></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="{% url 'team' %}">Team</a></li>
+          <li><a class="text-muted" href="{% url 'privacy' %}">Privacy</a></li>
+          <li><a hidden class="text-muted" href="#">Terms</a></li>
+          <li><a class="text-muted" href="{% url 'cookies' %}">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script language="JavaScript" type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</html>

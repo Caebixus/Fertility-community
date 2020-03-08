@@ -39,6 +39,15 @@ label {
   text-align: left;
 }
 
+select {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
 .imgHoverLogo {
   border-radius: 4px;
 }

@@ -58,6 +58,7 @@ class BasicClinic(models.Model):
         ('State', 'State'),
         )
     clinicOwn = models.CharField(max_length=40, choices=CATEGORY_CHOICES_OWN, null = True)
+    no_waiting_list = models.BooleanField(default=False)
 
     ### Clinic Language
     clinicEnglish = models.BooleanField(default=False)

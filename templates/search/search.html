@@ -276,6 +276,7 @@
           {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
           {% if order_datas.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
           {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+          {% if order_datas.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
           {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
         </div>
         <div class="row-md">
@@ -337,6 +338,7 @@
           {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
           {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
           {% if order_datas.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+          {% if order_datas.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         </div>
         <div class="row-md">
           {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}

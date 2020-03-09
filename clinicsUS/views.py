@@ -7,7 +7,7 @@ from clinic.models import BasicClinic
 from django.utils import timezone
 
 # Create your views here.
-def WesternFertilityInstitute(request):
+def wfi(request):
     listing = BasicClinic.objects.get(pk=1)
     context = {
         'listing': listing,

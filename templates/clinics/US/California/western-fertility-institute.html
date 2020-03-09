@@ -17,6 +17,7 @@
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
         {% if listing.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
         {% if listing.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
       </div>
@@ -33,6 +34,7 @@
       <div class="row">
         {% if listing.clinicHfea %}<span class="badge badge-info"><i class="fas fa-user-check"></i> HFAE</span>{% else %}{% endif %}
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
@@ -307,10 +309,16 @@
         </li>
         {% endif %}
 
-        <!-- reciprocal_treatment -->
+        <!-- waiting list -->
+        {% if listing.sex_selection == True %}
         <li class="list-group-item">
-          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">No waiting list
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Sex/Gender selection
         </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
+        </li>
+        {% endif %}
 
       </ul>
     </div>

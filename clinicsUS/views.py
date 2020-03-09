@@ -14,3 +14,11 @@ def wfi(request):
         }
 
     return render(request, 'clinics/US/California/western-fertility-institute.html', context)
+
+def cifc(request):
+    listing = BasicClinic.objects.get(pk=2)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/California/california-ivf-fertility-center.html', context)

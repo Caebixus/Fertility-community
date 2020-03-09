@@ -115,6 +115,7 @@ class BasicClinic(models.Model):
     single_woman_treatment = models.BooleanField(default=False)
     reciprocal_treatment = models.BooleanField(default=False)
     hiv_patients_treatment = models.BooleanField(default=False)
+    sex_selection = models.BooleanField(default=False)
 
     ### Admin publish controll
     is_published = models.BooleanField(default=False)

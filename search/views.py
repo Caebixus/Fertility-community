@@ -19,18 +19,14 @@ def search(request):
             queryset_list = BasicClinic.objects.all()
             queryset_list = queryset_list.filter(is_published=True)
             queryset_list = queryset_list.filter(pro_is_published=False)
-            queryset_list = queryset_list.filter(clinicState__iexact='United States')
 
             pro_listings = BasicClinic.objects.all()
 
             pro_queryset_list = BasicClinic.objects.order_by('?')
             pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-            pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
 
             my_total_count = BasicClinic.objects.all()
             my_total_count = my_total_count.filter(is_published=True)
-            my_total_count = my_total_count.filter(clinicState__iexact='United States')
-            my_total_count = my_total_count.count()
 
             averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ivf_treatment_cost'))
             averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -38,16 +34,15 @@ def search(request):
             averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
             averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-            queryset_list = queryset_list.filter(clinicRegion__iexact='California')
-            pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
-
 
             if 'Region' in request.GET:
                 region = request.GET['Region']
 
-                if 'AL' in request.GET:
+                if region == 'AL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alabama')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alabama')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -406,9 +401,13 @@ def search(request):
                             }
 
                         return render(request, 'search/search.html', context)
-                elif 'AK' in request.GET:
+
+
+                elif region == 'AK':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alaska')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alaska')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Alaska')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -768,9 +767,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'CA' in request.GET:
+                elif region == 'CA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='California')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -1130,9 +1131,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'CO' in request.GET:
+                elif region == 'CO':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Colorado')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Colorado')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Colorado')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -1492,9 +1495,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'CT' in request.GET:
+                elif region == 'CT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Connecticut')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Connecticut')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Connecticut')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -1854,9 +1859,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'DE' in request.GET:
+                elif region == 'DE':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Delaware')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Delaware')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Delaware')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -2216,9 +2223,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'FL' in request.GET:
+                elif region == 'FL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Florida')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Florida')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Florida')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -2578,9 +2587,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'GA' in request.GET:
+                elif region == 'GA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Georgia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Georgia')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Georgia')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -2940,9 +2951,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'HI' in request.GET:
+                elif region == 'HI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Hawaii')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hawaii')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Hawaii')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -3302,9 +3315,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'ID' in request.GET:
+                elif region == 'ID':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Idaho')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Idaho')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Idaho')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -3664,9 +3679,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'IL' in request.GET:
+                elif region == 'IL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Illinois')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Illinois')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Illinois')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -4026,9 +4043,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'IN' in request.GET:
+                elif region == 'IN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Indiana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Indiana')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Indiana')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -4388,9 +4407,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'IA' in request.GET:
+                elif region == 'IA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Iowa')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Iowa')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Iowa')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -4750,9 +4771,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'KS' in request.GET:
+                elif region == 'KS':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Kansas')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kansas')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Kansas')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -5112,9 +5135,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'KY' in request.GET:
+                elif region == 'KY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Kentucky')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kentucky')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Kentucky')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -5474,9 +5499,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'LA' in request.GET:
+                elif region == 'LA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Louisiana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Louisiana')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Louisiana')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -5836,9 +5863,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'ME' in request.GET:
+                elif region == 'ME':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Maine')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maine')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Maine')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -6198,9 +6227,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MD' in request.GET:
+                elif region == 'MD':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Maryland')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maryland')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Maryland')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -6560,9 +6591,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MA' in request.GET:
+                elif region == 'MA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Massachusetts')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Massachusetts')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Massachusetts')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -6922,9 +6955,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MI' in request.GET:
+                elif region == 'MI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Michigan')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Michigan')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Michigan')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -7284,9 +7319,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MN' in request.GET:
+                elif region == 'MN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Minnesota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Minnesota')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Minnesota')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -7646,9 +7683,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MS' in request.GET:
+                elif region == 'MS':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Mississippi')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Mississippi')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Mississippi')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -8008,9 +8047,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MO' in request.GET:
+                elif region == 'MO':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Missouri')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Missouri')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Missouri')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -8370,9 +8411,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'MT' in request.GET:
+                elif region == 'MT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Montana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Montana')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Montana')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -8732,9 +8775,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NE' in request.GET:
+                elif region == 'NE':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Nebraska')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nebraska')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Nebraska')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -9094,9 +9139,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NV' in request.GET:
+                elif region == 'NV':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Nevada')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nevada')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Nevada')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -9456,9 +9503,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NH' in request.GET:
+                elif region == 'NH':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Hampshire')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Hampshire')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='New Hampshire')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -9818,9 +9867,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NJ' in request.GET:
+                elif region == 'NJ':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Jersey')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Jersey')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='New Jersey')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -10180,9 +10231,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NM' in request.GET:
+                elif region == 'NM':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Mexico')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Mexico')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='New Mexico')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -10542,9 +10595,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NY' in request.GET:
+                elif region == 'NY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New York')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New York')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='New York')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -10904,9 +10959,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'NC' in request.GET:
+                elif region == 'NC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='North Carolina')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Carolina')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='North Carolina')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -11266,9 +11323,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'ND' in request.GET:
+                elif region == 'ND':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='North Dakota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Dakota')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='North Dakota')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -11628,9 +11687,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'OH' in request.GET:
+                elif region == 'OH':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Ohio')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Ohio')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Ohio')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -11990,9 +12051,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'OK' in request.GET:
+                elif region == 'OK':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Oklahoma')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oklahoma')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Oklahoma')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -12352,9 +12415,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'OR' in request.GET:
+                elif region == 'OR':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Oregon')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oregon')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Oregon')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -12714,9 +12779,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'PA' in request.GET:
+                elif region == 'PA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Pennsylvania')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Pennsylvania')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -13076,9 +13143,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'RI' in request.GET:
+                elif region == 'RI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Rhode Island')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Rhode Island')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Rhode Island')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -13438,9 +13507,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'SC' in request.GET:
+                elif region == 'SC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='South Carolina')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Carolina')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='South Carolina')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -13800,9 +13871,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'SD' in request.GET:
+                elif region == 'SD':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='South Dakota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Dakota')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='South Dakota')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -14162,9 +14235,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'TN' in request.GET:
+                elif region == 'TN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Tennessee')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Tennessee')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Tennessee')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -14524,9 +14599,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'TX' in request.GET:
+                elif region == 'TX':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Texas')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Texas')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Texas')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -14886,9 +14963,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'UT' in request.GET:
+                elif region == 'UT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Utah')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Utah')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Utah')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -15248,9 +15327,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'VT' in request.GET:
+                elif region == 'VT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Vermont')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Vermont')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Vermont')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -15610,9 +15691,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'VA' in request.GET:
+                elif region == 'VA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Virginia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -15972,9 +16055,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'WA' in request.GET:
+                elif region == 'WA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Washington')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Washington')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Washington')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -16334,9 +16419,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'WV' in request.GET:
+                elif region == 'WV':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='West Virginia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='West Virginia')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='West Virginia')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -16696,9 +16783,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'WI' in request.GET:
+                elif region == 'WI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Wisconsin')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wisconsin')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Wisconsin')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -17058,9 +17147,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'WY' in request.GET:
+                elif region == 'WY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Wyoming')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wyoming')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Wyoming')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -17420,9 +17511,11 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-                elif 'DC' in request.GET:
+                elif region == 'DC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='District of Columbia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='District of Columbia')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='District of Columbia')
+                    my_total_count = my_total_count.count()
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
@@ -17783,6 +17876,10 @@ def search(request):
                         return render(request, 'search/search.html', context)
 
                 else:
+                    queryset_list = queryset_list.filter(clinicState__iexact='United States')
+                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
+                    my_total_count = my_total_count.filter(clinicState__iexact='United States')
+                    my_total_count = my_total_count.count()
                     order_data = list(pro_queryset_list) + list(queryset_list)
 
                     paginator = Paginator(order_data, 12)
@@ -17808,6 +17905,10 @@ def search(request):
                     return render(request, 'search/search.html', context)
 
             else:
+                queryset_list = queryset_list.filter(clinicState__iexact='United States')
+                pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
+                my_total_count = my_total_count.filter(clinicState__iexact='United States')
+                my_total_count = my_total_count.count()
                 order_data = list(pro_queryset_list) + list(queryset_list)
 
                 paginator = Paginator(order_data, 12)

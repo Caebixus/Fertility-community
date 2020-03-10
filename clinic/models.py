@@ -9,7 +9,7 @@ from ckeditor.fields import RichTextField
 class BasicClinic(models.Model):
     ### Basic information
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
-    clinicName = models.CharField(max_length=35)
+    clinicName = models.CharField(max_length=80)
     clinicTitle = models.CharField(max_length=70, blank=True)
     clinicGoogleReviewsUrl = models.URLField(null=True, blank=True)
 

@@ -12,7 +12,107 @@
     <h1 class="display-4" style="padding-top:3rem; padding-bottom:1rem; color:white">
       {% if values.States == None %}Fertility clinics near me{% endif %}
       {% if values.States == 'UK' %}Fertility clinics in United Kingdom{% endif %}
-      {% if values.States == 'US' %}Fertility clinics in United States{% endif %}
+      {% if values.States == 'US' %}
+        {% if values.Region == '' %}
+          Fertility clinics in United States
+        {% elif values.Region == None %}
+          Fertility clinics in United States
+        {% elif values.Region == 'AL'%}
+          Fertility clinics in Alabama, United States
+        {% elif values.Region == 'AK'%}
+          Fertility clinics in Alaska, United States
+        {% elif values.Region == 'AZ'%}
+          Fertility clinics in Arkansas, United States
+        {% elif values.Region == 'CA'%}
+          Fertility clinics in California, United States
+        {% elif values.Region == 'CO'%}
+          Fertility clinics in Colorado, United States
+        {% elif values.Region == 'CT'%}
+          Fertility clinics in Connecticut, United States
+        {% elif values.Region == 'DE'%}
+          Fertility clinics in Delaware, United States
+        {% elif values.Region == 'GA'%}
+          Fertility clinics in Georgia, United States
+        {% elif values.Region == 'HI'%}
+          Fertility clinics in Hawaii, United States
+        {% elif values.Region == 'ID'%}
+          Fertility clinics in Idaho, United States
+        {% elif values.Region == 'IL'%}
+          Fertility clinics in Illinois, United States
+        {% elif values.Region == 'IN'%}
+          Fertility clinics in Indiana, United States
+        {% elif values.Region == 'IA'%}
+          Fertility clinics in Iowa, United States
+        {% elif values.Region == 'KS'%}
+          Fertility clinics in Kansas, United States
+        {% elif values.Region == 'KY'%}
+          Fertility clinics in Kentucky, United States
+        {% elif values.Region == 'LA'%}
+          Fertility clinics in Louisiana, United States
+        {% elif values.Region == 'ME'%}
+          Fertility clinics in Maine, United States
+        {% elif values.Region == 'MD'%}
+          Fertility clinics in Maryland, United States
+        {% elif values.Region == 'MA'%}
+          Fertility clinics in Massachusetts, United States
+        {% elif values.Region == 'MI'%}
+          Fertility clinics in Michigan, United States
+        {% elif values.Region == 'MN'%}
+          Fertility clinics in Minnesota, United States
+        {% elif values.Region == 'MS'%}
+          Fertility clinics in Mississippi, United States
+        {% elif values.Region == 'MO'%}
+          Fertility clinics in Missouri, United States
+        {% elif values.Region == 'NE'%}
+          Fertility clinics in Nebraska, United States
+        {% elif values.Region == 'NH'%}
+          Fertility clinics in New Hampshire, United States
+        {% elif values.Region == 'NJ'%}
+          Fertility clinics in New Jersey, United States
+        {% elif values.Region == 'NM'%}
+          Fertility clinics in New Mexico, United States
+        {% elif values.Region == 'NY'%}
+          Fertility clinics in New York, United States
+        {% elif values.Region == 'NC'%}
+          Fertility clinics in North Carolina, United States
+        {% elif values.Region == 'ND'%}
+          Fertility clinics in North Dakota, United States
+        {% elif values.Region == 'OH'%}
+          Fertility clinics in Ohio, United States
+        {% elif values.Region == 'OK'%}
+          Fertility clinics in Oklahoma, United States
+        {% elif values.Region == 'OR'%}
+          Fertility clinics in Oregon, United States
+        {% elif values.Region == 'PA'%}
+          Fertility clinics in Pennsylvania, United States
+        {% elif values.Region == 'RI'%}
+          Fertility clinics in Rhode Island, United States
+        {% elif values.Region == 'SC'%}
+          Fertility clinics in South Carolina, United States
+        {% elif values.Region == 'SD'%}
+          Fertility clinics in South Dakota, United States
+        {% elif values.Region == 'TN'%}
+          Fertility clinics in Tennessee, United States
+        {% elif values.Region == 'TX'%}
+          Fertility clinics in Texas, United States
+        {% elif values.Region == 'UT'%}
+          Fertility clinics in Utah, United States
+        {% elif values.Region == 'VT'%}
+          Fertility clinics in Vermont, United States
+        {% elif values.Region == 'VA'%}
+          Fertility clinics in Virginia, United States
+        {% elif values.Region == 'WA'%}
+          Fertility clinics in Washington, United States
+        {% elif values.Region == 'WV'%}
+          Fertility clinics in West Virginia, United States
+        {% elif values.Region == 'WI'%}
+          Fertility clinics in Wisconsin, United States
+        {% elif values.Region == 'WY'%}
+          Fertility clinics in Wyoming, United States
+        {% elif values.Region == 'DC'%}
+          Fertility clinics in District of Columbia, United States
+        {% endif %}
+      {% endif %}
       {% if values.States == 'CZ' %}Fertility clinics in Czech Republic{% endif %}
     </h1>
     {% if values.States != None %}
@@ -40,6 +140,18 @@
                     <option value="" selected>Select state</option>
                     {% for key, value in CATEGORY_CHOICES_STATES.items %}
                     <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="padding-top:1rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select region</option>
+                    {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
                   </select>
                 </div>

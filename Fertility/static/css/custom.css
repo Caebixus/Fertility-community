@@ -90,6 +90,15 @@ select {
   padding-left: 75px;
 }
 
+#Region {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
 #States {
   font-family: 'Josefin Sans';
   font-style: normal;

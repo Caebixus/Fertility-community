@@ -22,3 +22,11 @@ def cifc(request):
         }
 
     return render(request, 'clinics/US/California/california-ivf-fertility-center.html', context)
+
+def ncfmc(request):
+    listing = BasicClinic.objects.get(pk=3)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/California/northern-california-fertility-medical-center.html', context)

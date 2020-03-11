@@ -232,6 +232,7 @@ class UpdatePrice(forms.ModelForm):
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     is_published = forms.BooleanField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
@@ -263,6 +264,7 @@ class UpdatePrice(forms.ModelForm):
         'single_woman_treatment',
         'reciprocal_ivf',
         'hiv_patients',
+        'sex_selection',
         'is_published',
         'is_published_list_date',
         ]

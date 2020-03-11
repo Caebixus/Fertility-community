@@ -49,7 +49,7 @@
                 </div>
               {% endif %}
             </div>
-            
+
             <div class="col-sm py-4">
               {{ form.iui_treatment.errors }}
               <div class="row">
@@ -333,6 +333,17 @@
                 </div>
                 <div class="col-2 col-md">
                   {{ form.hiv_patients }}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm py-4">
+              {{ form.sex_selection.errors }}
+              <div class="row">
+                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+                  Sex / Gender selection
+                </div>
+                <div class="col-2 col-md">
+                  {{ form.sex_selection }}
                 </div>
               </div>
             </div>

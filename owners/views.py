@@ -205,7 +205,6 @@ def update(request, listing_id):
             )
 
         messages.success(request, '- Clinics information succesfully updated')
-        messages.warning(request, '- Sorry, something went wrong. Please try later.')
         return redirect(dashboard)
 
     context = {
@@ -237,7 +236,6 @@ def updatePricing(request, listing_id):
             )
 
         messages.success(request, '- Clinics pricing succesfully updated')
-        messages.warning(request, '- Sorry, something went wrong. Please try later.')
         return redirect(dashboard)
 
     context = {

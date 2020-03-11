@@ -243,7 +243,7 @@ def updatePricing(request, listing_id):
         'form': form,
     }
 
-    return render(request, 'owners/updatePrice.html', context)
+    return render(request, 'owners/updateprice.html', context)
 
 @login_required
 def updatePro(request, listing_id):

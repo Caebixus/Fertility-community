@@ -30,4 +30,4 @@ class contactWebsite(models.Model):
     contact_email = models.EmailField(max_length=60, blank=True)
 
     def __str__(self):
-        return str(self.clinicOwner)
+        return str(self.contactTitle)

@@ -38,3 +38,11 @@ def ncfmcs(request):
         }
 
     return render(request, 'clinics/US/California/northern-california-fertility-medical-center-sacramento.html', context)
+
+def liwla(request):
+    listing = BasicClinic.objects.get(pk=5)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/California/la-ivf-west-los-angeles.html', context)

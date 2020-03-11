@@ -8,9 +8,9 @@ from ckeditor.widgets import CKEditorWidget
 
 class PostForm(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
-    clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Title'))
-    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'))
-    treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics treatment limitations'))
+    clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
+    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics Description'))
+    treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics treatment limitations'))
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
 
@@ -20,7 +20,63 @@ class PostForm(forms.ModelForm):
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics street address'))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics city'))
-    clinicState = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics state'))
+
+    CATEGORY_CHOICES_STATES = (
+        ('United States', 'United States'),
+        ('United Kingdom', 'United Kingdom'),
+    )
+    clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
+
+    CATEGORY_CHOICES_US_REGIONS = (
+        ('Alabama', 'Alabama'),
+        ('Alaska', 'Alaska'),
+        ('Arkansas', 'Arkansas'),
+        ('California', 'California'),
+        ('Colorado', 'Colorado'),
+        ('Connecticut', 'Connecticut'),
+        ('Delaware', 'Delaware'),
+        ('Georgia', 'Georgia'),
+        ('HHawaiiI', 'Hawaii'),
+        ('Idaho', 'Idaho'),
+        ('Illinois', 'Illinois'),
+        ('Indiana', 'Indiana'),
+        ('Iowa', 'Iowa'),
+        ('Kansas', 'Kansas'),
+        ('Kentucky', 'Kentucky'),
+        ('Louisiana', 'Louisiana'),
+        ('Maine', 'Maine'),
+        ('Maryland', 'Maryland'),
+        ('Massachusetts', 'Massachusetts'),
+        ('Michigan', 'Michigan'),
+        ('Minnesota', 'Minnesota'),
+        ('Mississippi', 'Mississippi'),
+        ('Missouri', 'Missouri'),
+        ('Nebraska', 'Nebraska'),
+        ('New Hampshire', 'New Hampshire'),
+        ('New Jersey', 'New Jersey'),
+        ('New Mexico', 'New Mexico'),
+        ('New York', 'New York'),
+        ('North Carolina', 'North Carolina'),
+        ('North Dakota', 'North Dakota'),
+        ('Ohio', 'Ohio'),
+        ('Oklahoma', 'Oklahoma'),
+        ('Oregon', 'Oregon'),
+        ('Pennsylvania', 'Pennsylvania'),
+        ('Rhode Island', 'Rhode Island'),
+        ('South Carolina', 'South Carolina'),
+        ('South Dakota', 'South Dakota'),
+        ('Tennessee', 'Tennessee'),
+        ('Texas', 'Texas'),
+        ('Utah', 'Utah'),
+        ('Vermont', 'Vermont'),
+        ('Virginia', 'Virginia'),
+        ('Washington', 'Washington'),
+        ('West Virginia', 'West Virginia'),
+        ('Wisconsin', 'Wisconsin'),
+        ('Wyoming', 'Wyoming'),
+        ('District of Columbia', 'District of Columbia'),
+        )
+    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGIONS, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics postal code'))
 
     clinicEnglish = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('English speaking personal'))
@@ -120,6 +176,7 @@ class PostForm(forms.ModelForm):
         'clinicStreetAddress',
         'clinicCity',
         'clinicState',
+        'clinicRegion',
         'clinicPostalCode',
         'clinicEnglish',
         'clinicSpanish',

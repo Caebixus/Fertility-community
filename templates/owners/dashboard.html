@@ -30,14 +30,12 @@
     <div class="row">
       <div class="col-sm-9">
         <h3>{{ listings.clinicName }}</h3>
-        <p>{{ listings.clinicTitle }}</p>
       </div>
     </div>
     {% elif listings.is_published == False and listings.pro_is_published == False %}
     <div class="row">
       <div class="col-sm-9">
         <h3>{{ listings.clinicName }}</h3>
-        <p>{{ listings.clinicTitle }}</p>
       </div>
     </div>
     {% endif %}
@@ -91,7 +89,7 @@
       {% else %}
       <div class="col-sm" style="padding-bottom:1rem">
         <a href="{{ listings.clinic_url }}">
-          <button type="button" class="btn btn-outline-success btn-lg" style="width: 15rem" disabled>View clinic</button>
+          <button type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">View clinic</button>
         </a>
         <p style="text-align:left"><i>Clinic waiting for review</i></p>
       </div>

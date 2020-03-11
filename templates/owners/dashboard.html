@@ -33,6 +33,7 @@
       </div>
     </div>
     {% elif listings.is_published == False and listings.pro_is_published == False %}
+    <span class="badge badge-warning">Basic account</span>
     <div class="row">
       <div class="col-sm-9">
         <h3>{{ listings.clinicName }}</h3>

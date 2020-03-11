@@ -204,6 +204,7 @@ def update(request, listing_id):
             fail_silently=False,
             )
 
+        messages.success(request, '- Clinics information succesfully updated')
         return redirect(dashboard)
 
     context = {
@@ -234,6 +235,7 @@ def updatePricing(request, listing_id):
             fail_silently=False,
             )
 
+        messages.success(request, '- Clinics pricing succesfully updated')
         return redirect(dashboard)
 
     context = {

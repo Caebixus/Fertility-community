@@ -8,7 +8,7 @@ from .models import ownerProInterested
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
@@ -182,6 +182,35 @@ def create(request):
     else:
         return render(request, 'owners/create.html')
     return render(request, 'owners/create.html')
+
+@login_required
+def create1(request):
+    form = CreateClinic(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.is_published_list_date = datetime.now()
+        form.clinicOwner = request.user
+        form.save()
+
+        klinika = form.clinicName
+
+        send_mail(
+            'New Clinic Registration',
+            'Právě se vytvořila nová klinika ' +
+            '\nClinic username: ' + str(klinika),
+            'info@fertilitycommunity.com',
+            ['info@fertilitycommunity.com'],
+            fail_silently=False,
+            )
+
+        messages.success(request, '- Clinic created - please check additional information + treatment pricing')
+        return redirect(dashboard)
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'owners/create1.html', context)
 
 @login_required
 def update(request, listing_id):

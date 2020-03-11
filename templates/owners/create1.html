@@ -1,0 +1,265 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Create new clinic</h1>
+    <br>
+  </div>
+</div>
+<br>
+<main role="main">
+  <div class="container" style="max-width: 70rem; text-align: center">
+    <form method='POST' enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      {{ form.source.errors }}
+      {{ form.source }}
+      <h2>Clinics Basic Information</h2>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicName.errors }}
+        <label for="{{ form.clinicName.id_for_label}}">Name:</label>
+        {{ form.clinicName }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicTitle.errors }}
+        <label for="{{ form.clinicTitle.id_for_label}}">Title:</label>
+        {{ form.clinicTitle }}
+      </div>
+      <br>
+      <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+      <div class="fieldWrapper" style="text-align:">
+        {{ form.description.errors }}
+        <p>Description:</p>
+        {{ form.description }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.defaultClinicCurrency.errors }}
+        <label for="{{ form.defaultClinicCurrency.id_for_label}}">Primarily accepted currency</label>
+        <div class="fieldWrapper" style="max-width:6rem">
+          {{ form.defaultClinicCurrency }}
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <h2>Clinics Contact Information</h2>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.contact_url.errors }}
+        <label for="{{ form.contact_url.id_for_label}}">URL:</label>
+        {{ form.contact_url }}
+      </div>
+      <br>
+      <hr>
+      <br>
+      <h2>Clinics Address</h2>
+      <div class="row">
+        <div class="col-md-6" style="padding-top:1rem">
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.clinicStreetAddress.errors }}
+            <label for="{{ form.clinicStreetAddress.id_for_label}}">Street address:</label>
+            {{ form.clinicStreetAddress }}
+          </div>
+          <br>
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.clinicCity.errors }}
+            <label for="{{ form.clinicCity.id_for_label}}">City:</label>
+            {{ form.clinicCity }}
+          </div>
+        </div>
+        <div class="col-md-6" style="padding-top:1rem">
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.clinicState.errors }}
+            <label for="{{ form.clinicState.id_for_label}}">State:</label>
+            {{ form.clinicState }}
+          </div>
+          <br>
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.clinicPostalCode.errors }}
+            <label for="{{ form.clinicPostalCode.id_for_label}}">Postal Code:</label>
+            {{ form.clinicPostalCode }}
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <h2>Clinics Opening Hours</h2>
+
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.mondayOpens.id_for_label}}">Monday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.mondayOpens.errors }}
+            {{ form.mondayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.mondayCloses.errors }}
+            {{ form.mondayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.tuesdayOpens.id_for_label}}">Tuesday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.tuesdayOpens.errors }}
+            {{ form.tuesdayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.tuesdayCloses.errors }}
+            {{ form.tuesdayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.wednesdayOpens.id_for_label}}">Wednesday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.wednesdayOpens.errors }}
+            {{ form.wednesdayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.wednesdayCloses.errors }}
+            {{ form.wednesdayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.thursdayOpens.id_for_label}}">Thursday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.thursdayOpens.errors }}
+            {{ form.thursdayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.thursdayCloses.errors }}
+            {{ form.thursdayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.fridayOpens.id_for_label}}">Friday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.fridayOpens.errors }}
+            {{ form.fridayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.fridayCloses.errors }}
+            {{ form.fridayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.saturdayOpens.id_for_label}}">Saturday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.saturdayOpens.errors }}
+            {{ form.saturdayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.saturdayCloses.errors }}
+            {{ form.saturdayCloses }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <label for="{{ form.sundayOpens.id_for_label}}">Sunday Opening Hours</label>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.sundayOpens.errors }}
+            {{ form.sundayOpens }}
+          </div>
+        </div>
+        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+          <div class="fieldWrapper" style="max-width:6rem">
+            {{ form.sundayCloses.errors }}
+            {{ form.sundayCloses }}
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <h2>Clinics Languages</h2>
+      <br>
+      <div class="row">
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          English
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicEnglish }}
+        </div>
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          Spanish
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicSpanish }}
+        </div>
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          Portuguese
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicPortuguese }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          Russian
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicRussian }}
+        </div>
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          German
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicGerman }}
+        </div>
+        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+          Chinese
+        </div>
+        <div class="col-2 col-md">
+          {{ form.clinicChinese }}
+        </div>
+      </div>
+      <br>
+      <input class="btn btn-dark" type='submit' value='Create' />
+    </form>
+  </div>
+</main>
+<br>
+{% endblock  %}

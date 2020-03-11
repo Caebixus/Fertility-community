@@ -10,7 +10,7 @@ class BasicClinic(models.Model):
     ### Basic information
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
     clinicName = models.CharField(max_length=80)
-    clinicTitle = models.CharField(max_length=70, blank=True)
+    clinicTitle = models.CharField(max_length=100, blank=True, null = True)
     clinicGoogleReviewsUrl = models.URLField(null=True, blank=True)
     TYPE = (
         ('Clinic', 'Clinic'),
@@ -19,8 +19,8 @@ class BasicClinic(models.Model):
     type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
 
     ### Users option to promote their clinic & treatments
-    description = models.TextField(max_length=800, blank=True)
-    treatmentLimitations = models.TextField(max_length=800, blank=True)
+    description = models.TextField(max_length=800, blank=True, null = True)
+    treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
     ### Clinics Doctors & Staff
     clinic_staff = RichTextField(blank=True, null=True)

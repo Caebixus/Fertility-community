@@ -12,6 +12,11 @@ class BasicClinic(models.Model):
     clinicName = models.CharField(max_length=80)
     clinicTitle = models.CharField(max_length=70, blank=True)
     clinicGoogleReviewsUrl = models.URLField(null=True, blank=True)
+    TYPE = (
+        ('Clinic', 'Clinic'),
+        ('Agency', 'Agency'),
+        )
+    type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
 
     ### Users option to promote their clinic & treatments
     description = models.TextField(max_length=800, blank=True)

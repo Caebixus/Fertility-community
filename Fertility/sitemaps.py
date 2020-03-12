@@ -4,10 +4,19 @@ from base import views
 
 class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
-    priority = 1
+    priority = 1.0
+    protocol = "https"
 
     def items(self):
-        return ['index', 'about', 'ivf-country-difference', 'team', 'travelCalculator', 'contact', 'search']
+        return [
+        'index',
+        'about',
+        'ivf-country-difference',
+        'team',
+        'travelCalculator',
+        'contact',
+        'search'
+        ]
 
     def location(self, item):
         return reverse(item)

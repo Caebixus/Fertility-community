@@ -12,7 +12,10 @@
     <h1 class="display-4" style="padding-top:3rem; color:white">
       <u>{{ listing.clinicName }}</u>
     </h1>
-    <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
+    {% if listing.clinicTitle %}
+      <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
+    {% else %}
+    {% endif %}
     {% if listing.pro_is_published %}
     <div class="container">
       <div class="row">

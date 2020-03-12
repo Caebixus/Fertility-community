@@ -46,3 +46,19 @@ def liwla(request):
         }
 
     return render(request, 'clinics/US/California/la-ivf-west-los-angeles.html', context)
+
+def lip(request):
+    listing = BasicClinic.objects.get(pk=7)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/California/la-ivf-pasadena.html', context)
+
+def lich(request):
+    listing = BasicClinic.objects.get(pk=8)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/California/la-ivf-chino-hills.html', context)

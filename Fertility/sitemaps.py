@@ -10,7 +10,6 @@ class StaticViewSitemap(sitemaps.Sitemap):
     def items(self):
         return [
         'index',
-        'about',
         'ivf-country-difference',
         'team',
         'travelCalculator',

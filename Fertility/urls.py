@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('location.urls')),
     path('', include('searchLocationsCities.urls')),
     path('', include('searchLocationsCountries.urls')),
+    path('', include('searchLocationsRegionsUS.urls')),
     path('account/', include('owners.urls')),
     path('', include('clinicsUK.urls')),
     path('', include('clinicsUS.urls')),

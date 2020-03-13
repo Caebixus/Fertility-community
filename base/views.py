@@ -20,6 +20,12 @@ def index(request):
 def businessinsiderbacklink(request):
     return HttpResponsePermanentRedirect(reverse('index'))
 
+def backlink2(request):
+    return HttpResponsePermanentRedirect(reverse('index'))
+
+def backlink3(request):
+    return HttpResponsePermanentRedirect(reverse('index'))
+
 def about(request):
     return render(request, 'main/about.html')
 

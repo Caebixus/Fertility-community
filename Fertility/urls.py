@@ -29,4 +29,5 @@ urlpatterns = [
     path('', include('agenciesUS.urls')),
     path('cookies/', include('cookie_consent.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

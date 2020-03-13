@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import (HttpResponse, HttpResponseNotFound, Http404,
+HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.urls import reverse
 from django.core.paginator import Paginator
 from search.choices import CATEGORY_CHOICES_STATES
@@ -14,6 +16,9 @@ def index(request):
     }
 
     return render(request, 'main/index.html', context)
+
+def businessinsiderbacklink(request):
+    return HttpResponsePermanentRedirect(reverse('index'))
 
 def about(request):
     return render(request, 'main/about.html')

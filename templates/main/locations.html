@@ -8,7 +8,9 @@
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-5" style="padding-top:5rem; padding-bottom:4rem; color: white">Compare Fertility treatments and average costs by countries best fertility clinics</h1>
+    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs</h1>
+    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by global IVF & fertility clinics</p>
+    <br>
   </div>
 </div>
 
@@ -51,10 +53,16 @@
           </thead>
           <tbody>
             <tr>
+              <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+              <td>{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} $</td>
+              <td>{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €</td>
+              <td>{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £</td>
+            </tr>
+            <tr>
               <th scope="row">United Kingdom</th>
               <td>{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
               <td>{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
-              <td>{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
+              <td>{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £</td>
             </tr>
           </tbody>
         </table>
@@ -75,10 +83,16 @@
             </thead>
             <tbody>
               <tr>
+                <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+                <td>{{ usdCurrency_us_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_us_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_us_egg|floatformat:'0'|intcomma }} £</td>
+              </tr>
+              <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_icsi|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
+                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -100,10 +114,16 @@
             </thead>
             <tbody>
               <tr>
+                <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+                <td>{{ usdCurrency_us_embryo|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_us_embryo|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_us_embryo|floatformat:'0'|intcomma }} £</td>
+              </tr>
+              <tr>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_iui|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
+                <td>{{ usdCurrency_uk_embryo|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_embryo|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_embryo|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -125,10 +145,16 @@
             </thead>
             <tbody>
               <tr>
+                <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+                <td>{{ usdCurrency_us_sperm|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_us_sperm|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_us_sperm|floatformat:'0'|intcomma }} £</td>
+              </tr>
+              <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ usdCurrency_uk_sperm|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_sperm|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_sperm|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -150,10 +176,16 @@
             </thead>
             <tbody>
               <tr>
+                <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+                <td>{{ usdCurrency_us_icsi|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_us_icsi|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_us_icsi|floatformat:'0'|intcomma }} £</td>
+              </tr>
+              <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ usdCurrency_uk_icsi|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -175,10 +207,16 @@
             </thead>
             <tbody>
               <tr>
+                <th scope="row">United States (<a href="{% url 'locationsRegions' %}">Detail</a>)</th>
+                <td>{{ usdCurrency_us_iui|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_us_iui|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_us_iui|floatformat:'0'|intcomma }} £</td>
+              </tr>
+              <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ usdCurrency_uk_iui|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>

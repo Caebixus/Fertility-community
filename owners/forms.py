@@ -559,7 +559,7 @@ class PostForm(forms.ModelForm):
         ('Connecticut', 'Connecticut'),
         ('Delaware', 'Delaware'),
         ('Georgia', 'Georgia'),
-        ('HHawaiiI', 'Hawaii'),
+        ('Hawaii', 'Hawaii'),
         ('Idaho', 'Idaho'),
         ('Illinois', 'Illinois'),
         ('Indiana', 'Indiana'),

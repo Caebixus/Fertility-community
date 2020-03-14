@@ -2,123 +2,18 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}2020 | Search and find the best fertility Clinics{% endblock %}
-{% block description %}Choose a location around the globe as well as IVF treatment of your need and find the best fertility clinics that suits your conditions.{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/search{% endblock %}
-{% block meta_keywords %}search fertility clinic near me, search ivf clinics near me, search fertility doctor near me, search fertility specialist near me, search fertility center near me, search private fertility clinic near me{% endblock %}
+{% block title %}Fertility clinics in Wisconsin | 2020{% endblock %}
+{% block description %}Search and find the best Wisconsin fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinics that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/regions/fertility-clinics-wisconsin{% endblock %}
+{% block meta_keywords %}search fertility clinic wisconsin, search ivf clinics wisconsin, search fertility doctor wisconsin, search fertility specialist wisconsin, search fertility center wisconsin, search private fertility clinic wisconsin{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      {% if values.States == None %}Fertility clinics & agencies near me{% endif %}
-      {% if values.States == 'UK' %}Fertility clinics & agencies in United Kingdom{% endif %}
-      {% if values.States == 'US' %}
-        {% if values.Region == '' %}
-          Fertility clinics & agencies in United States
-        {% elif values.Region == None %}
-          Fertility clinics & agencies in United States
-        {% elif values.Region == 'AL'%}
-          Fertility clinics & agencies in Alabama, United States
-        {% elif values.Region == 'AK'%}
-          Fertility clinics & agencies in Alaska, United States
-        {% elif values.Region == 'AZ'%}
-          Fertility clinics & agencies in Arkansas, United States
-        {% elif values.Region == 'CA'%}
-          Fertility clinics & agencies in California, United States
-        {% elif values.Region == 'CO'%}
-          Fertility clinics & agencies in Colorado, United States
-        {% elif values.Region == 'CT'%}
-          Fertility clinics & agencies in Connecticut, United States
-        {% elif values.Region == 'DE'%}
-          Fertility clinics & agencies in Delaware, United States
-        {% elif values.Region == 'GA'%}
-          Fertility clinics & agencies in Georgia, United States
-        {% elif values.Region == 'HI'%}
-          Fertility clinics & agencies in Hawaii, United States
-        {% elif values.Region == 'ID'%}
-          Fertility clinics & agencies in Idaho, United States
-        {% elif values.Region == 'IL'%}
-          Fertility clinics & agencies in Illinois, United States
-        {% elif values.Region == 'IN'%}
-          Fertility clinics & agencies in Indiana, United States
-        {% elif values.Region == 'IA'%}
-          Fertility clinics & agencies in Iowa, United States
-        {% elif values.Region == 'KS'%}
-          Fertility clinics & agencies in Kansas, United States
-        {% elif values.Region == 'KY'%}
-          Fertility clinics & agencies in Kentucky, United States
-        {% elif values.Region == 'LA'%}
-          Fertility clinics & agencies in Louisiana, United States
-        {% elif values.Region == 'ME'%}
-          Fertility clinics & agencies in Maine, United States
-        {% elif values.Region == 'MD'%}
-          Fertility clinics & agencies in Maryland, United States
-        {% elif values.Region == 'MA'%}
-          Fertility clinics & agencies in Massachusetts, United States
-        {% elif values.Region == 'MI'%}
-          Fertility clinics & agencies in Michigan, United States
-        {% elif values.Region == 'MN'%}
-          Fertility clinics & agencies in Minnesota, United States
-        {% elif values.Region == 'MS'%}
-          Fertility clinics & agencies in Mississippi, United States
-        {% elif values.Region == 'MO'%}
-          Fertility clinics & agencies in Missouri, United States
-        {% elif values.Region == 'NE'%}
-          Fertility clinics & agencies in Nebraska, United States
-        {% elif values.Region == 'NH'%}
-          Fertility clinics & agencies in New Hampshire, United States
-        {% elif values.Region == 'NJ'%}
-          Fertility clinics & agencies in New Jersey, United States
-        {% elif values.Region == 'NM'%}
-          Fertility clinics & agencies in New Mexico, United States
-        {% elif values.Region == 'NY'%}
-          Fertility clinics & agencies in New York, United States
-        {% elif values.Region == 'NC'%}
-          Fertility clinics & agencies in North Carolina, United States
-        {% elif values.Region == 'ND'%}
-          Fertility clinics & agencies in North Dakota, United States
-        {% elif values.Region == 'OH'%}
-          Fertility clinics & agencies in Ohio, United States
-        {% elif values.Region == 'OK'%}
-          Fertility clinics & agencies in Oklahoma, United States
-        {% elif values.Region == 'OR'%}
-          Fertility clinics & agencies in Oregon, United States
-        {% elif values.Region == 'PA'%}
-          Fertility clinics & agencies in Pennsylvania, United States
-        {% elif values.Region == 'RI'%}
-          Fertility clinics & agencies in Rhode Island, United States
-        {% elif values.Region == 'SC'%}
-          Fertility clinics & agencies in South Carolina, United States
-        {% elif values.Region == 'SD'%}
-          Fertility clinics & agencies in South Dakota, United States
-        {% elif values.Region == 'TN'%}
-          Fertility clinics & agencies in Tennessee, United States
-        {% elif values.Region == 'TX'%}
-          Fertility clinics & agencies in Texas, United States
-        {% elif values.Region == 'UT'%}
-          Fertility clinics & agencies in Utah, United States
-        {% elif values.Region == 'VT'%}
-          Fertility clinics & agencies in Vermont, United States
-        {% elif values.Region == 'VA'%}
-          Fertility clinics & agencies in Virginia, United States
-        {% elif values.Region == 'WA'%}
-          Fertility clinics & agencies in Washington, United States
-        {% elif values.Region == 'WV'%}
-          Fertility clinics & agencies in West Virginia, United States
-        {% elif values.Region == 'WI'%}
           Fertility clinics & agencies in Wisconsin, United States
-        {% elif values.Region == 'WY'%}
-          Fertility clinics & agencies in Wyoming, United States
-        {% elif values.Region == 'DC'%}
-          Fertility clinics & agencies in District of Columbia, United States
-        {% endif %}
-      {% endif %}
-      {% if values.States == 'CZ' %}Fertility clinics & agencies in Czech Republic{% endif %}
     </h1>
-    {% if values.States != None %}
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
-    {% endif %}
   </div>
 
   <!-- Filter section -->
@@ -228,25 +123,6 @@
 <!-- Interesting links section -->
 
 <div class="container">
-  {% if values.States == 'UK' %}
-  <ul class="nav justify-content-left">
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link active" href="#" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF UK Group</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#locationsReferer" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in UK</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
-    </li>
-  </ul>
-  {% elif values.States == 'US' %}
   <ul class="nav justify-content-left">
     <li hidden class="nav-item">
       <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
@@ -264,25 +140,6 @@
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
     </li>
   </ul>
-  {% elif values.States == 'CZ' %}
-  <ul class="nav justify-content-left">
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link active" href="#" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF CZ Group</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#locationsReferer" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in CZ</a>
-    </li>
-    <li hidden class="nav-item">
-      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
-    </li>
-  </ul>
-  {% endif %}
   <hr>
 </div>
 <br>
@@ -376,7 +233,7 @@
             <div class="container" id="nameInfo">
               <div class="row-md">
                 <a href="{{ order_datas.clinic_url }}">
-                  <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  <h2 class="display-5" style="margin-bottom: 0px; color: white">{{ order_datas.clinicName }}</h2>
                 </a>
               </div>
               <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
@@ -439,7 +296,7 @@
             <div class="container" id="nameInfo">
               <div class="row-md">
                 <a href="{{ order_datas.clinic_url }}">
-                  <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d">{{ order_datas.clinicName }}</h2>
                 </a>
               </div>
               <p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>
@@ -494,63 +351,11 @@
     </div>
 
     <!-- Treatment average prices -->
-    {% if values.States != None %}
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          {% if values.States == 'UK' %}
-          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2020:</h2>
-          {% elif values.States == 'US' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2020:</h2>
-          {% endif %}
           <br>
-          {% if values.States == 'UK' %}
-          {% for k in averageIVFPrice %}
-          {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-
-          {% for k in averageICSIPrice %}
-          {% if averageICSIPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-
-          {% for k in averageEggPrice %}
-          {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-
-          {% for k in averageEmbryoPrice %}
-          {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-
-          {% for k in averageSpermPrice %}
-          {% if averageSpermPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Sperm donation recipients price: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          <br>
-          {% elif values.States == 'US' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
@@ -587,64 +392,11 @@
           {% endif  %}
           {% endfor %}
           <br>
-          {% elif values.States == 'CZ' %}
-          {% for k in averageIVFPrice %}
-          {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageICSIPrice %}
-          {% if averageICSIPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageEggPrice %}
-          {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageEmbryoPrice %}
-          {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageSpermPrice %}
-          {% if averageSpermPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Sperm donation recipients price: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% endif %}
-          <br>
           <div hidden class="row">
             <div class="col-6 col-md">
-              {% if values.States == 'UK' %}
-              <a href="#locationsReferer" style="font-size: 14px !important;">
-                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-flag"></i> Other UK locations
-                </button>
-              </a>
-              {% elif values.States == 'US' %}
               <a href="#locationsReferer" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-flag"></i> Other US locations
-                </button>
-              </a>
-              {% endif %}
-            </div>
-            <div hidden class="col-6 col-md">
-              <a href="{% url 'locations' %}">
-                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="fas fa-globe"></i> Other countries
                 </button>
               </a>
             </div>
@@ -652,15 +404,12 @@
         </div>
       </div>
     </div>
-    {% else %}
-    {% endif %}
   </div>
 </div>
 <br>
 <br>
 
 <!-- Clinic additional locations -->
-{% if values.States != None %}
 <div class="container" style="text-align: center">
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
@@ -688,35 +437,9 @@
     </ul>
   </nav>
 </div>
-{% endif %}
 
 <!-- Clinic additional locations -->
-
-{% if values.States == 'UK' %}
-<div hidden class="container" id="locationsReferer" style="padding-top:3rem">
-  <hr>
-  <br>
-  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United Kingdom</h2>
-  <br>
-  <div class="row">
-    <div class="col-6 col-md">
-      <ul class="list-unstyled text-small">
-        <li><a href="{% url 'fertilityClinicLondon' %}">London clinics</a></li>
-        <li><a href="#">Manchester clinics</a></li>
-        <li><a href="#">Edinburg clinics</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <ul class="list-unstyled text-small">
-        <li><a href="#">Birmingham clinics</a></li>
-        <li><a href="#">Glasgow clinics</a></li>
-        <li><a href="#">Liverpool clinics</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-{% elif values.States == 'US' %}
-<div hidden class="container" id="locationsReferer" style="padding-top:3rem">
+<div class="container" id="locationsReferer" style="padding-top:3rem">
   <hr>
   <br>
   <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United States</h2>
@@ -744,26 +467,5 @@
     </div>
   </div>
 </div>
-{% elif values.States == 'CZ' %}
-<div class="container" id="locationsReferer" style="padding-top:3rem">
-  <hr>
-  <br>
-  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Czech Republic</h2>
-  <br>
-  <div class="row">
-    <div class="col-6 col-md">
-      <ul class="list-unstyled text-small">
-        <li><a href="#">Prague IVF clinics</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <ul class="list-unstyled text-small">
-        <li><a href="#">Brno IVF clinics</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-{% endif %}
-
 
 {% endblock  %}

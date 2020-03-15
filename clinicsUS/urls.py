@@ -10,4 +10,6 @@ urlpatterns = [
     path('clinics/us/california/la-ivf-west-los-angeles', views.liwla, name='liwla'),
     path('clinics/us/california/la-ivf-pasadena', views.lip, name='lip'),
     path('clinics/us/california/la-ivf-chino-hills', views.lich, name='lich'),
+    path('clinics/us/alabama/center-for-reproductive-medicine', views.tcfrm, name='tcfrm'),
+    path('clinics/us/alabama/alabama-fertility', views.af, name='af'),
 ]

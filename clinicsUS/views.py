@@ -62,3 +62,19 @@ def lich(request):
         }
 
     return render(request, 'clinics/US/California/la-ivf-chino-hills.html', context)
+
+def tcfrm(request):
+    listing = BasicClinic.objects.get(pk=9)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Alabama/center-for-reproductive-medicine.html', context)
+
+def af(request):
+    listing = BasicClinic.objects.get(pk=10)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Alabama/alabama-fertility.html', context)

@@ -5,7 +5,8 @@ CATEGORY_CHOICES_STATES = {
 CATEGORY_CHOICES_US_REGION = {
     'AL': 'Alabama',
     'AK': 'Alaska',
-    'AZ': 'Arkansas',
+    'AZ': 'Arizona',
+    'AR': 'Arkansas',
     'CA': 'California',
     'CO': 'Colorado',
     'CT': 'Connecticut',

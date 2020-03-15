@@ -78,3 +78,139 @@ def af(request):
         }
 
     return render(request, 'clinics/US/Alabama/alabama-fertility.html', context)
+
+def tfc(request):
+    listing = BasicClinic.objects.get(pk=11)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/troche-fertility-scottsdale.html', context)
+
+def tfg(request):
+    listing = BasicClinic.objects.get(pk=12)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/troche-fertility-glendale.html', context)
+
+def tfm(request):
+    listing = BasicClinic.objects.get(pk=13)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/troche-fertility-mesa.html', context)
+
+def sfc(request):
+    listing = BasicClinic.objects.get(pk=14)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/southwest-fertility-center.html', context)
+
+def afcs(request):
+    listing = BasicClinic.objects.get(pk=15)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/advanced-fertility-care-scottsdale.html', context)
+
+def afcm(request):
+    listing = BasicClinic.objects.get(pk=16)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/advanced-fertility-care-mesa.html', context)
+
+def aafrhs(request):
+    listing = BasicClinic.objects.get(pk=17)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/arizona-associates-for-reproductive-health-scottsdale.html', context)
+
+def aafrhg(request):
+    listing = BasicClinic.objects.get(pk=18)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/arizona-associates-for-reproductive-health-gilbert.html', context)
+
+def bris(request):
+    listing = BasicClinic.objects.get(pk=19)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/bloom-reproductive-institute-scottsdale.html', context)
+
+def brig(request):
+    listing = BasicClinic.objects.get(pk=20)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/bloom-reproductive-institute-gilbert.html', context)
+
+def biacs(request):
+    listing = BasicClinic.objects.get(pk=21)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-scottsdale.html', context)
+
+def biacch(request):
+    listing = BasicClinic.objects.get(pk=22)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-chandler.html', context)
+
+def biacp(request):
+    listing = BasicClinic.objects.get(pk=23)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-peoria.html', context)
+
+def biacf(request):
+    listing = BasicClinic.objects.get(pk=24)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-flagstaff.html', context)
+
+def ip(request):
+    listing = BasicClinic.objects.get(pk=25)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/ivf-phoenix.html', context)
+
+def ftc(request):
+    listing = BasicClinic.objects.get(pk=26)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/fertility-treatment-center.html', context)
+
+def arifc(request):
+    listing = BasicClinic.objects.get(pk=27)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arizona/arizona-reproductive-institute-fertility-clinic.html', context)

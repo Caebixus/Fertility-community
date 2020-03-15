@@ -85,9 +85,17 @@
 
                 <div class="col">
                   <div class="form-group form-check">
-                    <input type="radio" class="form-check-input" id="Fertility preservation" value="Fertilitypreservationtrue" name="treatments" {% if values.treatments == 'Fertilitypreservationtrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Fertility preservation" style="color: white">Fertility preservation (freezing)</label>
+                    <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="Egg freezing" style="color: white">Egg freezing</label>
                   </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="Embryo freezing" style="color: white">Embryo freezing</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="Sperm freezing" style="color: white">Sperm freezing</label>
+                  </div>s
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
                     <label class="form-check-label" for="Surrogacy" style="color: white">Surrogacy</label>

@@ -68,6 +68,13 @@
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicsAlaska' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Alaska IVF Clinics</button></a></td>
             </tr>
             <tr>
+              <th scope="row">Arizona</th>
+              <td style="font-size: 14px">{% if usdCurrency_arizona_ivf %}{{ usdCurrency_arizona_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_arizona_ivf %}{{ eurCurrency_arizona_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_arizona_ivf %}{{ gbpCurrency_arizona_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsAlaska' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Arizona IVF Clinics</button></a></td>
+            </tr>
+            <tr>
               <th scope="row">Arkansas</th>
               <td style="font-size: 14px">{% if usdCurrency_arkansas_ivf %}{{ usdCurrency_arkansas_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_arkansas_ivf %}{{ eurCurrency_arkansas_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
@@ -110,6 +117,12 @@
                 <td>{{ usdCurrency_alaska_icsi|floatformat:'0'|intcomma }} $</td>
                 <td>{{ eurCurrency_alaska_icsi|floatformat:'0'|intcomma }} €</td>
                 <td>{{ gbpCurrency_alaska_icsi|floatformat:'0'|intcomma }} €</td>
+              </tr>
+              <tr>
+                <th scope="row">Arizona</th>
+                <td>{{ usdCurrency_arizona_icsi|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_arizona_icsi|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_arizona_icsi|floatformat:'0'|intcomma }} €</td>
               </tr>
               <tr>
                 <th scope="row">Arkansas</th>
@@ -155,6 +168,12 @@
                 <td>{{ gbpCurrency_alaska_iui|floatformat:'0'|intcomma }} €</td>
               </tr>
               <tr>
+                <th scope="row">Arizona</th>
+                <td>{{ usdCurrency_arizona_iui|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_arizona_iui|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_arizona_iui|floatformat:'0'|intcomma }} €</td>
+              </tr>
+              <tr>
                 <th scope="row">Arkansas</th>
                 <td>{{ usdCurrency_arkansas_iui|floatformat:'0'|intcomma }} $</td>
                 <td>{{ eurCurrency_arkansas_iui|floatformat:'0'|intcomma }} €</td>
@@ -196,6 +215,12 @@
                 <td>{{ usdCurrency_alaska_egg|floatformat:'0'|intcomma }} $</td>
                 <td>{{ eurCurrency_alaska_egg|floatformat:'0'|intcomma }} €</td>
                 <td>{{ gbpCurrency_alaska_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+              <tr>
+                <th scope="row">Arizona</th>
+                <td>{{ usdCurrency_arizona_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
               </tr>
               <tr>
                 <th scope="row">Arkansas</th>
@@ -241,6 +266,12 @@
                 <td>{{ gbpCurrency_alaska_egg|floatformat:'0'|intcomma }} €</td>
               </tr>
               <tr>
+                <th scope="row">Arizona</th>
+                <td>{{ usdCurrency_arizona_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+              <tr>
                 <th scope="row">Arkansas</th>
                 <td>{{ usdCurrency_arkansas_egg|floatformat:'0'|intcomma }} $</td>
                 <td>{{ eurCurrency_arkansas_egg|floatformat:'0'|intcomma }} €</td>
@@ -282,6 +313,12 @@
                 <td>{{ usdCurrency_alaska_egg|floatformat:'0'|intcomma }} $</td>
                 <td>{{ eurCurrency_alaska_egg|floatformat:'0'|intcomma }} €</td>
                 <td>{{ gbpCurrency_alaska_egg|floatformat:'0'|intcomma }} €</td>
+              </tr>
+              <tr>
+                <th scope="row">Arizona</th>
+                <td>{{ usdCurrency_arizona_egg|floatformat:'0'|intcomma }} $</td>
+                <td>{{ eurCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
+                <td>{{ gbpCurrency_arizona_egg|floatformat:'0'|intcomma }} €</td>
               </tr>
               <tr>
                 <th scope="row">Arkansas</th>

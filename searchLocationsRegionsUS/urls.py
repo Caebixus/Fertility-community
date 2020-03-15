@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('locations/us-regions/fertility-clinics-alabama', views.fertilityClinicsAlabama, name='fertilityClinicsAlabama'),
     path('locations/us-regions/fertility-clinics-alaska', views.fertilityClinicsAlaska, name='fertilityClinicsAlaska'),
+    path('locations/us-regions/fertility-clinics-arizona', views.fertilityClinicsArizona, name='fertilityClinicsArizona'),
     path('locations/us-regions/fertility-clinics-arkansas', views.fertilityClinicsArkansas, name='fertilityClinicsArkansas'),
     path('locations/us-regions/fertility-clinics-california', views.fertilityClinicsCalifornia, name='fertilityClinicsCalifornia'),
     path('locations/us-regions/fertility-clinics-colorado', views.fertilityClinicsColorado, name='fertilityClinicsColorado'),

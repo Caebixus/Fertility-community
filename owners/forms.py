@@ -553,6 +553,7 @@ class PostForm(forms.ModelForm):
     CATEGORY_CHOICES_US_REGIONS = (
         ('Alabama', 'Alabama'),
         ('Alaska', 'Alaska'),
+        ('Arizona', 'Arizona'),
         ('Arkansas', 'Arkansas'),
         ('California', 'California'),
         ('Colorado', 'Colorado'),

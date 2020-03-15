@@ -310,6 +310,68 @@ def locationsRegions(request):
             eurCurrency_alaska_iui = None
 
     #--------------------------------------------------------------------------
+    queryset_list_arizona = queryset_list_us.filter(clinicRegion__iexact='Arizona')
+    queryset_list_arizona_ivf = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_arizona_ivf.items():
+        usdCurrency_arizona_ivf = val
+        if usdCurrency_arizona_ivf is not None:
+            gbpCurrency_arizona_ivf = val * usdToGbp
+            eurCurrency_arizona_ivf = val * usdToEur
+        else:
+            gbpCurrency_arizona_ivf = None
+            eurCurrency_arizona_ivf = None
+
+    queryset_list_arizona_egg = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_arizona_egg.items():
+        usdCurrency_arizona_egg = val
+        if usdCurrency_arizona_egg is not None:
+            gbpCurrency_arizona_egg = val * usdToGbp
+            eurCurrency_arizona_egg = val * usdToEur
+        else:
+            gbpCurrency_arizona_egg = None
+            eurCurrency_arizona_egg = None
+
+    queryset_list_arizona_embryo = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_arizona_embryo.items():
+        usdCurrency_arizona_embryo = val
+        if usdCurrency_arizona_embryo is not None:
+            gbpCurrency_arizona_embryo = val * usdToGbp
+            eurCurrency_arizona_embryo = val * usdToEur
+        else:
+            gbpCurrency_arizona_embryo = None
+            eurCurrency_arizona_embryo = None
+
+    queryset_list_arizona_sperm = queryset_list_alaska.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_arizona_sperm.items():
+        usdCurrency_arizona_sperm = val
+        if usdCurrency_arizona_sperm is not None:
+            gbpCurrency_arizona_sperm = val * usdToGbp
+            eurCurrency_arizona_sperm = val * usdToEur
+        else:
+            gbpCurrency_arizona_sperm = None
+            eurCurrency_arizona_sperm = None
+
+    queryset_list_arizona_icsi = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_arizona_icsi.items():
+        usdCurrency_arizona_icsi = val
+        if usdCurrency_arizona_icsi is not None:
+            gbpCurrency_arizona_icsi = val * usdToGbp
+            eurCurrency_arizona_icsi = val * usdToEur
+        else:
+            gbpCurrency_arizona_icsi = None
+            eurCurrency_arizona_icsi = None
+
+    queryset_list_arizona_iui = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_arizona_iui.items():
+        usdCurrency_arizona_iui = val
+        if usdCurrency_arizona_iui is not None:
+            gbpCurrency_arizona_iui = val * usdToGbp
+            eurCurrency_arizona_iui = val * usdToEur
+        else:
+            gbpCurrency_arizona_iui = None
+            eurCurrency_arizona_iui = None
+
+    #--------------------------------------------------------------------------
     queryset_list_arkansas = queryset_list_us.filter(clinicRegion__iexact='Arkansas')
     queryset_list_arkansas_ivf = queryset_list_arkansas.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
     for key,val in queryset_list_arkansas_ivf.items():

@@ -6,4 +6,4 @@ Disallow: /404.html
 Disallow: /400.html
 Disallow: /500.html
 
-Sitemap: http://www.fertilitycommunity.com/sitemap.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap.xml

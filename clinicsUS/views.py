@@ -214,3 +214,75 @@ def arifc(request):
         }
 
     return render(request, 'clinics/US/Arizona/arizona-reproductive-institute-fertility-clinic.html', context)
+
+def irmsco(request):
+    listing = BasicClinic.objects.get(pk=28)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-clark-office.html', context)
+
+def irmsewo(request):
+    listing = BasicClinic.objects.get(pk=29)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-east-windsor-office.html', context)
+
+def irmsho(request):
+    listing = BasicClinic.objects.get(pk=30)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-hackensack-office.html', context)
+
+def irmshbo(request):
+    listing = BasicClinic.objects.get(pk=31)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-hoboken-office.html', context)
+
+def irmsnjo(request):
+    listing = BasicClinic.objects.get(pk=32)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-new-jersey-office.html', context)
+
+def irmslo(request):
+    listing = BasicClinic.objects.get(pk=33)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-livingston-office.html', context)
+
+def irmsobo(request):
+    listing = BasicClinic.objects.get(pk=34)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-Jersey/irms-old-bridge-office.html', context)
+
+def cfnyc(request):
+    listing = BasicClinic.objects.get(pk=35)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-York/chelsea-fertility-nyc.html', context)
+
+def ccrmnyfc(request):
+    listing = BasicClinic.objects.get(pk=36)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-York/ccrm-new-york-fertility-clinic.html', context)

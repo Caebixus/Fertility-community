@@ -512,11 +512,12 @@
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2020:</h2>
           {% endif %}
           <p><i>Medications, pretests and additional procedures not included</i></p>
+          <p><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
           <br>
           {% if values.States == 'UK' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average standard IVF price: </p>
           <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
           <hr>
           {% else %}
@@ -534,7 +535,7 @@
 
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Egg donation cycle: </p>
           <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
           <hr>
           {% else %}
@@ -543,7 +544,7 @@
 
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Embryo donation cycle: </p>
           <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
           <hr>
           {% else %}
@@ -562,7 +563,7 @@
           {% elif values.States == 'US' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average standard IVF price: </p>
           <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
@@ -576,14 +577,14 @@
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Egg donation cycle: </p>
           <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Embryo donation cycle: </p>
           <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
@@ -599,7 +600,7 @@
           {% elif values.States == 'CZ' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average standard IVF price: </p>
           <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
@@ -613,14 +614,14 @@
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Egg donation cycle: </p>
           <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Embryo donation cycle: </p>
           <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}

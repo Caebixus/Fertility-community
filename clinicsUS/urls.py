@@ -29,4 +29,13 @@ urlpatterns = [
     path('clinics/us/arizona/ivf-phoenix', views.ip, name='ip'),
     path('clinics/us/arizona/fertility-treatment-center', views.ftc, name='ftc'),
     path('clinics/us/arizona/arizona-reproductive-institute-fertility-clinic', views.arifc, name='arifc'),
+    path('clinics/us/new-jersey/irms-clark-office', views.irmsco, name='irmsco'),
+    path('clinics/us/new-jersey/irms-east-windsor-office', views.irmsewo, name='irmsewo'),
+    path('clinics/us/new-jersey/irms-hackensack-office', views.irmsho, name='irmsho'),
+    path('clinics/us/new-jersey/irms-hoboken-office', views.irmshbo, name='irmshbo'),
+    path('clinics/us/new-jersey/irms-new-jersey-office', views.irmsnjo, name='irmsnjo'),
+    path('clinics/us/new-jersey/irms-livingston-office', views.irmslo, name='irmslo'),
+    path('clinics/us/new-jersey/irms-old-bridge-office', views.irmsobo, name='irmsobo'),
+    path('clinics/us/new-york/ccrm-new-york-fertility-clinic', views.ccrmnyfc, name='ccrmnyfc'),
+    path('clinics/us/new-york/chelsea-fertility-nyc', views.cfnyc, name='cfnyc'),
 ]

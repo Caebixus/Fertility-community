@@ -182,7 +182,7 @@ def locations(request):
     return render(request, 'main/locations.html', context)
 
 
-def locationsRegions(request):
+def locationsUSRegions(request):
     queryset_list_us = BasicClinic.objects.all()
 
     #--------------------------------------------------------------------------

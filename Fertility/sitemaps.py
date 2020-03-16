@@ -18,7 +18,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'contact',
         'search',
         'locations',
-        'locationsUsRegions',
+        'locationsUSRegions',
         'fertilityClinicsAlabama',
         'fertilityClinicsAlaska',
         'fertilityClinicsArizona',

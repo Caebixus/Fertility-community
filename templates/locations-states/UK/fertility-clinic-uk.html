@@ -1,15 +1,17 @@
 {% extends "main/base.html" %}
-{% load static %}
 {% load filter_pagination_tag %}
-{% block title %}2020 | Top IVF & Fertility clinics in UK{% endblock %}
-{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics-uk{% endblock %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Best fertility clinic in UK{% endblock %}
+{% block description %}Search and find the best UK fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-uk{% endblock %}
+{% block meta_keywords %}best fertility clinic in uk, best ivf clinics in uk, fertility clinics united kingdom, fertility clinic uk, best fertility doctor in uk, best ivf center in uk{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in United Kingdom
+    <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
+          Fertility clinics & agencies UK
     </h1>
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
   </div>
@@ -21,7 +23,7 @@
       <div class="lol" style="background-color: #286DA8">
         <h5 class="mb-0 text-left" id="headingOne">
           <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Main Filter
+            <i class="fas fa-filter"></i> Main Filter
           </button>
         </h5>
 
@@ -30,10 +32,22 @@
             <div class="form-group" style="padding-top:3rem">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
-                  <select id="States" name="States" class="form-control">
+                  <select id="States" name="States" class="form-control" required>
                     <option value="" selected>Select state</option>
                     {% for key, value in CATEGORY_CHOICES_STATES.items %}
                     <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="padding-top:1rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select region</option>
+                    {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -118,129 +132,212 @@
 
 <div class="container">
   <ul class="nav justify-content-left">
-    <li class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><strong>How to increase IVF success?</strong></a>
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><strong>Good to know about IVF</strong></a>
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#" style="font-size: 14px !important;"><strong>Facebook IVF UK Groups</strong></a>
+    <li hidden class="nav-item">
+      <a class="nav-link active" href="#" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF UK Group</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><strong>IVF Clinic locations in UK</strong></a>
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#locationsReferer" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in UK</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#locationsReferer" style="font-size: 14px !important;"><strong>Global IVF clinic locations</strong></a>
+    <li hidden class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
     </li>
   </ul>
   <hr>
 </div>
 <br>
 
+<!-- PRO Clinic listings section -->
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
       {% if paginationing %}
       {% for order_datas in order_data %}
+
+      <script type="application/ld+json">
+        {
+          "name" : "{{ order_datas.clinicName }}",
+          "address" : {
+            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
+            "addressLocality" : "{{ order_datas.clinicCity }}",
+            "postalCode" : "{{ order_datas.clinicPostalCode }}",
+            "addressRegion" : "{{ order_datas.clinicRegion }}",
+            "addressCountry" : "{{ order_datas.clinicState }}",
+            "@type" : "PostalAddress"
+          },
+          {% if order_datas.mondayOpens %}
+          "openingHoursSpecification" : [ {
+          "dayOfWeek" : [ "MONDAY" ],
+          "opens" : "{{ order_datas.mondayOpens }}",
+          "closes" : "{{ order_datas.mondayCloses }}",
+          "@type" : "OpeningHoursSpecification"
+          {% else %}
+          {% endif %}
+          }, {
+          {% if order_datas.tuesdayOpens %}
+          "dayOfWeek" : [ "TUESDAY" ],
+          "opens" : "{{ order_datas.tuesdayOpens }}",
+          "closes" : "{{ order_datas.tuesdayCloses }}",
+          "@type" : "OpeningHoursSpecification"
+          {% else %}
+          {% endif %}
+          }, {
+          {% if order_datas.wednesdayOpens %}
+          "dayOfWeek" : [ "WEDNESDAY" ],
+          "opens" : "{{ order_datas.wednesdayOpens }}",
+          "closes" : "{{ order_datas.wednesdayCloses }}",
+          "@type" : "OpeningHoursSpecification"
+          {% else %}
+          {% endif %}
+          }, {
+          {% if order_datas.thursdayOpens %}
+          "dayOfWeek" : [ "THURSDAY" ],
+          "opens" : "{{ order_datas.thursdayOpens }}",
+          "closes" : "{{ order_datas.thursdayCloses }}",
+          "@type" : "OpeningHoursSpecification"
+          {% else %}
+          {% endif %}
+          }, {
+          {% if order_datas.fridayOpens %}
+          "dayOfWeek" : [ "FRIDAY" ],
+          "opens" : "{{ order_datas.fridayOpens }}",
+          "closes" : "{{ order_datas.fridayCloses }}",
+          "@type" : "OpeningHoursSpecification"
+          {% else %}
+          {% endif %}
+          }, ],
+          "@type" : "MedicalClinic",
+          "@context" : "http://schema.org"
+        }
+      </script>
+
+
       {% if order_datas.pro_is_published == True %}
-      <div class="jumbotron jumbotron-fluid" style="padding-top: 0px; padding-bottom: 25px;">
 
-        <!-- Clinic listings header -->
+      <!-- Clinic listings header -->
 
-        <div class="container" style="background-color: #286DA8; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
-          <div class="container" style="padding-top: 20px">
-            <div class="header">
-              {% if order_datas.clinic_pro_logo_pic %}
-              <div id="imgInfo" class="img align-self-center align-items-center">
-                <a target="_blank" href="">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="" style="height:50px; width:50px">
+      <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            {% if order_datas.clinic_pro_logo_pic %}
+            <div id="imgInfo" class="img align-self-center align-items-center">
+              <a target="_blank" href="{{ order_datas.clinic_url }}">
+                <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:50px; width:50px">
+              </a>
+            </div>
+            {% else %}
+            <div id="imgInfo" class="img align-self-center align-items-center">
+              <a target="_blank" href="{{ order_datas.clinic_url }}">
+                <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:50px; width:50px">
+              </a>
+            </div>
+            {% endif %}
+            <div class="container" id="nameInfo">
+              <div class="row-md">
+                <a href="{{ order_datas.clinic_url }}">
+                  <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
                 </a>
               </div>
-              {% else %}
-              {% endif %}
-
-              <div class="container" id="nameInfo">
-                <div class="row align-self-center align-items-center">
-                  <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white">{{ order_datas.clinicName }}</h2>
-                  </a>
-                </div>
-
-                <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
-
-                <div class="row" style="padding-bottom: 20px">
-                  {% if order_datas.verified_is_published == True %}<span class="badge badge-success">Verified</span>{% else %}{% endif %}
-                  {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px">Popular</span>{% else %}{% endif %}
-                  {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-warning" style="margin-left: 10px"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}">Promotion available</a></span>{% else %}{% endif %}
-                </div>
-              </div>
+              <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
             </div>
           </div>
         </div>
-
-        <!-- Clinic listings body -->
-
-        <div class="body">
-          <div class="container" style="padding-top:20px">
-            {{ order_datas.description|safe }}
-          </div>
+        <hr noshade style="border-top: 1px solid white">
+        <div class="row-md">
+          {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+          {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+          {% if order_datas.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+          {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+          {% if order_datas.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+          {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
         </div>
-
-        <!-- Clinic listings footer -->
-
-        <div class="footer">
-          <div class="container">
-            <br>
-            <br>
-            <br>
-            <a href="{{ pro_listing.clinic_url }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 10rem">Clinic detail</button>
+        <div class="row-md">
+          {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+          {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        </div>
+        <hr noshade style="border-top: 1px solid white">
+        <div class="row">
+          <div class="col-6 col-md">
+            <a href="{{ order_datas.clinic_url }}">
+              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-info-circle"></i> Clinic detail</button>
+            </a>
+          </div>
+          <div class="col-6 col-md">
+            <a href="{{ order_datas.clinic_url }}#pricing">
+              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
         </div>
+        <br>
       </div>
+      <br>
+
+      <!-- Clinic listings footer -->
+
+
       {% else %}
       <!-- BASIC Clinic listings header -->
-      <div class="jumbotron jumbotron-fluid" style="padding-top: 0px; padding-bottom: 25px;">
 
-        <!-- Clinic listings header -->
-        <div class="container" style="background-color: #a2a2a2; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
-          <div class="container" style="padding-top: 20px">
-            <div class="header">
-              <div class="container" id="nameInfo">
-                <div class="row align-self-center align-items-center">
-                  <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white">{{ order_datas.clinicName }}</h2>
-                  </a>
-                </div>
-                <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
+      <!-- Clinic listings header -->
+      <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            {% if order_datas.clinic_pro_logo_pic %}
+            <div id="imgInfo" class="img align-self-center align-items-center">
+              <a target="_blank" href="{{ order_datas.clinic_url }}">
+                <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:50px; width:50px">
+              </a>
+            </div>
+            {% else %}
+            <div id="imgInfo" class="img align-self-center align-items-center">
+              <a target="_blank" href="{{ order_datas.clinic_url }}">
+                <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="height:50px; width:50px">
+              </a>
+            </div>
+            {% endif %}
+            <div class="container" id="nameInfo">
+              <div class="row-md">
+                <a href="{{ order_datas.clinic_url }}">
+                  <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                </a>
               </div>
+              <p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>
             </div>
           </div>
         </div>
-
-        <!-- Clinic listings body -->
-
-        <div class="body">
-          <div class="container" style="padding-top:20px">
-            {{ order_datas.description|safe }}
-          </div>
+        <hr noshade>
+        <div class="row-md">
+          {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+          {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+          {% if order_datas.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+          {% if order_datas.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         </div>
-
-        <!-- Clinic listings footer -->
-
-        <div class="footer">
-          <div class="container">
-            <br>
-            <br>
-            <br>
-            <a href="{{ listing.clinic_url }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 10rem">Clinic detail</button>
+        <div class="row-md">
+          {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+          {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        </div>
+        <hr noshade>
+        <div class="row">
+          <div class="col-6 col-md">
+            <a href="{{ order_datas.clinic_url }}">
+              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-info-circle"></i> Clinic detail</button>
+            </a>
+          </div>
+          <div class="col-6 col-md">
+            <a href="{{ order_datas.clinic_url }}#pricing">
+              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
         </div>
       </div>
+      <br>
+      <!-- Clinic listings footer -->
       {% endif %}
       {% endfor %}
       {% else %}
@@ -252,7 +349,7 @@
             <div class="container" id="nameInfo" style="padding-bottom:5rem">
               <div class="row align-self-center align-items-center">
                 <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search querry.</h2>
-                <p>Please try different country.</p>
+                <p>Please try different country or treatment option.</p>
               </div>
             </div>
           </div>
@@ -262,44 +359,58 @@
     </div>
 
     <!-- Treatment average prices -->
-
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <p style="font-size: 22px !important;">Quick info - <strong>UK fertility treatments in 2020:</strong></p>
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2020:</h2>
+          <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
+          <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
           <br>
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p>Average IVF price: {{ averageIVFPrice.average|floatformat:'0' }}£</p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
-          <p>Average ICSI price: {{ averageICSIPrice.average|floatformat:'0' }}£</p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p>Average Egg donation recipients price: {{ averageEggPrice.average|floatformat:'0' }}£</p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p>Average Embryo donation recipients price: {{ averageEmbryoPrice.average|floatformat:'0' }}£</p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
-          <p>Average Sperm donation recipients price: {{ averageSpermPrice.average|floatformat:'0' }}£</p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Sperm donation recipients price: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           <br>
-          <a href="#locationsReferer" style="font-size: 14px !important;"><strong>Other UK locations</strong></a>
+          <div hidden class="row">
+            <div class="col-6 col-md">
+              <a href="#locationsReferer" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-flag"></i> Other UK locations
+                </button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -308,6 +419,7 @@
 <br>
 <br>
 
+<!-- Clinic additional locations -->
 <div class="container" style="text-align: center">
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
@@ -317,7 +429,7 @@
       </li>
       <li class="page-item">
         {% if page_obj.previous_page_number != 1 %}
-          <a class="page-link" href="?{% param_replace page=paginationing.previous_page_number %}">Previous</a>
+        <a class="page-link" href="?{% param_replace page=paginationing.previous_page_number %}">Previous</a>
         {% endif %}
       </li>
       {% endif %}
@@ -337,34 +449,27 @@
 </div>
 
 <!-- Clinic additional locations -->
-
 <div class="container" id="locationsReferer" style="padding-top:3rem">
   <hr>
   <br>
-  <h2>Specific fertility clinics locations in United Kingdom</h2>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United Kingdom</h2>
   <br>
   <div class="row">
     <div class="col-6 col-md">
+      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="{% url 'fertilityClinicLondon' %}">London clinics</a></li>
-        <li><a href="#">Manchester clinics</a></li>
-        <li><a href="#">Edinburg clinics</a></li>
+        <li><a href="#">Fertility clinic London</a></li>
+        <li><a href="#">Fertility clinic Manchester</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
+      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Birmingham clinics</a></li>
-        <li><a href="#">Glasgow clinics</a></li>
-        <li><a href="#">Liverpool clinics</a></li>
+        <li><a href="#">Fertility clinic Nottingham</a></li>
+        <li><a href="#">Fertility clinic Oxfordshire</a></li>
       </ul>
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 {% endblock  %}

@@ -4,8 +4,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import handler404, handler400, handler500
 from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import views
 from django.contrib import sitemaps
 from .sitemaps import StaticViewSitemap
+from .sitemapsRegions import RegionsViewSitemap
+from .sitemapsCountries import CountriesViewSitemap
+from .sitemapsCities import CitiesViewSitemap
 
 handler404 = 'base.views.error404'
 handler400 = 'base.views.error400'
@@ -13,6 +17,9 @@ handler500 = 'base.views.error500'
 
 sitemaps = {
     'static': StaticViewSitemap,
+    'regions': RegionsViewSitemap,
+    'cities': CitiesViewSitemap,
+    'countries': CountriesViewSitemap,
 }
 
 urlpatterns = [
@@ -28,6 +35,7 @@ urlpatterns = [
     path('', include('clinicsUS.urls')),
     path('', include('agenciesUS.urls')),
     path('cookies/', include('cookie_consent.urls')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', views.index, {'sitemaps': sitemaps}),
+    path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

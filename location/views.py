@@ -158,7 +158,6 @@ def locations(request):
         'gbpCurrency_uk_iui': gbpCurrency_uk_iui,
         'usdCurrency_uk_iui': usdCurrency_uk_iui,
         'eurCurrency_uk_iui': eurCurrency_uk_iui,
-
         'gbpCurrency_us_ivf': gbpCurrency_us_ivf,
         'usdCurrency_us_ivf': usdCurrency_us_ivf,
         'eurCurrency_us_ivf': eurCurrency_us_ivf,
@@ -514,7 +513,6 @@ def locationsUSRegions(request):
         'gbpCurrency_alabama_iui': gbpCurrency_alabama_iui,
         'usdCurrency_alabama_iui': usdCurrency_alabama_iui,
         'eurCurrency_alabama_iui': eurCurrency_alabama_iui,
-
         'gbpCurrency_alaska_ivf': gbpCurrency_alaska_ivf,
         'usdCurrency_alaska_ivf': usdCurrency_alaska_ivf,
         'eurCurrency_alaska_ivf': eurCurrency_alaska_ivf,
@@ -533,7 +531,6 @@ def locationsUSRegions(request):
         'gbpCurrency_alaska_iui': gbpCurrency_alaska_iui,
         'usdCurrency_alaska_iui': usdCurrency_alaska_iui,
         'eurCurrency_alaska_iui': eurCurrency_alaska_iui,
-
         'gbpCurrency_arkansas_ivf': gbpCurrency_arkansas_ivf,
         'usdCurrency_arkansas_ivf': usdCurrency_arkansas_ivf,
         'eurCurrency_arkansas_ivf': eurCurrency_arkansas_ivf,
@@ -552,7 +549,6 @@ def locationsUSRegions(request):
         'gbpCurrency_arkansas_iui': gbpCurrency_arkansas_iui,
         'usdCurrency_arkansas_iui': usdCurrency_arkansas_iui,
         'eurCurrency_arkansas_iui': eurCurrency_arkansas_iui,
-
         'gbpCurrency_california_ivf': gbpCurrency_california_ivf,
         'usdCurrency_california_ivf': usdCurrency_california_ivf,
         'eurCurrency_california_ivf': eurCurrency_california_ivf,

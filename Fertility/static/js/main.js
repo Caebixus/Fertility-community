@@ -1,3 +1,15 @@
+<!-- DISPLAY NONE US REGIONS IF UNITED STATES IS SELECTED--->
+
+function showDiv(){
+       getSelectValue = document.getElementById("States").value;
+       if(getSelectValue == "US"){
+           document.getElementById("regions").style.display="block";
+       }else{
+           document.getElementById("regions").style.display="none";
+       }
+   }
+
+
 <!-- ADD CLINIC FORMULÁŘ --->
 <!-- 1. řádka --->
 $('#ivf_treatment').on('change', function(){

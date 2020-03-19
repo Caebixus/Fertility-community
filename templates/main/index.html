@@ -19,10 +19,22 @@
           <div class="form-group" style="padding-top:3rem">
             <div class="card" style="border-radius: 8px;">
               <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
-                <select id="States" name="States" class="form-control" required>
+                <select id="States" name="States" class="form-control" onchange="showDiv()" required>
                   <option value="" selected>Select state</option>
                   {% for key, value in CATEGORY_CHOICES_STATES.items %}
                   <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="padding-top:1rem; display: none" id="regions">
+            <div class="card" style="border-radius: 8px;">
+              <div class="card-header" style="background-color: white; border-radius: 8px;">
+                <select id="Region" name="Region" class="form-control">
+                  <option value="" selected>Select region</option>
+                  {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                  <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                   {% endfor %}
                 </select>
               </div>

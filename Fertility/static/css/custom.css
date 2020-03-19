@@ -150,13 +150,13 @@ select {
 
 p {
   font-family: 'Josefin Sans';
-  font-style: normal;
+  font-weight: 300;
   color: #282c34;
   text-align: left;
 }
 
 ul {
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
   color: #282c34;
   text-align: left;

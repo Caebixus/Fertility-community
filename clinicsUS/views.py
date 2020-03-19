@@ -48,7 +48,7 @@ def liwla(request):
     return render(request, 'clinics/US/California/la-ivf-west-los-angeles.html', context)
 
 def lip(request):
-    listing = BasicClinic.objects.get(pk=7)
+    listing = BasicClinic.objects.get(pk=6)
     context = {
         'listing': listing,
         }
@@ -56,7 +56,7 @@ def lip(request):
     return render(request, 'clinics/US/California/la-ivf-pasadena.html', context)
 
 def lich(request):
-    listing = BasicClinic.objects.get(pk=8)
+    listing = BasicClinic.objects.get(pk=7)
     context = {
         'listing': listing,
         }
@@ -64,7 +64,7 @@ def lich(request):
     return render(request, 'clinics/US/California/la-ivf-chino-hills.html', context)
 
 def tcfrm(request):
-    listing = BasicClinic.objects.get(pk=9)
+    listing = BasicClinic.objects.get(pk=8)
     context = {
         'listing': listing,
         }
@@ -72,7 +72,7 @@ def tcfrm(request):
     return render(request, 'clinics/US/Alabama/center-for-reproductive-medicine.html', context)
 
 def af(request):
-    listing = BasicClinic.objects.get(pk=10)
+    listing = BasicClinic.objects.get(pk=9)
     context = {
         'listing': listing,
         }
@@ -80,7 +80,7 @@ def af(request):
     return render(request, 'clinics/US/Alabama/alabama-fertility.html', context)
 
 def tfc(request):
-    listing = BasicClinic.objects.get(pk=11)
+    listing = BasicClinic.objects.get(pk=10)
     context = {
         'listing': listing,
         }
@@ -88,7 +88,7 @@ def tfc(request):
     return render(request, 'clinics/US/Arizona/troche-fertility-scottsdale.html', context)
 
 def tfg(request):
-    listing = BasicClinic.objects.get(pk=12)
+    listing = BasicClinic.objects.get(pk=11)
     context = {
         'listing': listing,
         }
@@ -96,7 +96,7 @@ def tfg(request):
     return render(request, 'clinics/US/Arizona/troche-fertility-glendale.html', context)
 
 def tfm(request):
-    listing = BasicClinic.objects.get(pk=13)
+    listing = BasicClinic.objects.get(pk=12)
     context = {
         'listing': listing,
         }
@@ -104,7 +104,7 @@ def tfm(request):
     return render(request, 'clinics/US/Arizona/troche-fertility-mesa.html', context)
 
 def sfc(request):
-    listing = BasicClinic.objects.get(pk=14)
+    listing = BasicClinic.objects.get(pk=13)
     context = {
         'listing': listing,
         }
@@ -112,7 +112,7 @@ def sfc(request):
     return render(request, 'clinics/US/Arizona/southwest-fertility-center.html', context)
 
 def afcs(request):
-    listing = BasicClinic.objects.get(pk=15)
+    listing = BasicClinic.objects.get(pk=14)
     context = {
         'listing': listing,
         }
@@ -120,7 +120,7 @@ def afcs(request):
     return render(request, 'clinics/US/Arizona/advanced-fertility-care-scottsdale.html', context)
 
 def afcm(request):
-    listing = BasicClinic.objects.get(pk=16)
+    listing = BasicClinic.objects.get(pk=15)
     context = {
         'listing': listing,
         }
@@ -128,7 +128,7 @@ def afcm(request):
     return render(request, 'clinics/US/Arizona/advanced-fertility-care-mesa.html', context)
 
 def aafrhs(request):
-    listing = BasicClinic.objects.get(pk=17)
+    listing = BasicClinic.objects.get(pk=16)
     context = {
         'listing': listing,
         }
@@ -136,7 +136,7 @@ def aafrhs(request):
     return render(request, 'clinics/US/Arizona/arizona-associates-for-reproductive-health-scottsdale.html', context)
 
 def aafrhg(request):
-    listing = BasicClinic.objects.get(pk=18)
+    listing = BasicClinic.objects.get(pk=17)
     context = {
         'listing': listing,
         }
@@ -144,7 +144,7 @@ def aafrhg(request):
     return render(request, 'clinics/US/Arizona/arizona-associates-for-reproductive-health-gilbert.html', context)
 
 def bris(request):
-    listing = BasicClinic.objects.get(pk=19)
+    listing = BasicClinic.objects.get(pk=18)
     context = {
         'listing': listing,
         }
@@ -152,7 +152,7 @@ def bris(request):
     return render(request, 'clinics/US/Arizona/bloom-reproductive-institute-scottsdale.html', context)
 
 def brig(request):
-    listing = BasicClinic.objects.get(pk=20)
+    listing = BasicClinic.objects.get(pk=19)
     context = {
         'listing': listing,
         }
@@ -160,7 +160,7 @@ def brig(request):
     return render(request, 'clinics/US/Arizona/bloom-reproductive-institute-gilbert.html', context)
 
 def biacs(request):
-    listing = BasicClinic.objects.get(pk=21)
+    listing = BasicClinic.objects.get(pk=20)
     context = {
         'listing': listing,
         }
@@ -168,7 +168,7 @@ def biacs(request):
     return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-scottsdale.html', context)
 
 def biacch(request):
-    listing = BasicClinic.objects.get(pk=22)
+    listing = BasicClinic.objects.get(pk=21)
     context = {
         'listing': listing,
         }
@@ -176,7 +176,7 @@ def biacch(request):
     return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-chandler.html', context)
 
 def biacp(request):
-    listing = BasicClinic.objects.get(pk=23)
+    listing = BasicClinic.objects.get(pk=22)
     context = {
         'listing': listing,
         }
@@ -184,7 +184,7 @@ def biacp(request):
     return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-peoria.html', context)
 
 def biacf(request):
-    listing = BasicClinic.objects.get(pk=24)
+    listing = BasicClinic.objects.get(pk=23)
     context = {
         'listing': listing,
         }
@@ -192,7 +192,7 @@ def biacf(request):
     return render(request, 'clinics/US/Arizona/boston-ivf-arizona-center-flagstaff.html', context)
 
 def ip(request):
-    listing = BasicClinic.objects.get(pk=25)
+    listing = BasicClinic.objects.get(pk=24)
     context = {
         'listing': listing,
         }
@@ -200,7 +200,7 @@ def ip(request):
     return render(request, 'clinics/US/Arizona/ivf-phoenix.html', context)
 
 def ftc(request):
-    listing = BasicClinic.objects.get(pk=26)
+    listing = BasicClinic.objects.get(pk=25)
     context = {
         'listing': listing,
         }
@@ -208,7 +208,7 @@ def ftc(request):
     return render(request, 'clinics/US/Arizona/fertility-treatment-center.html', context)
 
 def arifc(request):
-    listing = BasicClinic.objects.get(pk=27)
+    listing = BasicClinic.objects.get(pk=26)
     context = {
         'listing': listing,
         }
@@ -216,7 +216,7 @@ def arifc(request):
     return render(request, 'clinics/US/Arizona/arizona-reproductive-institute-fertility-clinic.html', context)
 
 def irmsco(request):
-    listing = BasicClinic.objects.get(pk=28)
+    listing = BasicClinic.objects.get(pk=27)
     context = {
         'listing': listing,
         }
@@ -224,7 +224,7 @@ def irmsco(request):
     return render(request, 'clinics/US/New-Jersey/irms-clark-office.html', context)
 
 def irmsewo(request):
-    listing = BasicClinic.objects.get(pk=29)
+    listing = BasicClinic.objects.get(pk=28)
     context = {
         'listing': listing,
         }
@@ -232,7 +232,7 @@ def irmsewo(request):
     return render(request, 'clinics/US/New-Jersey/irms-east-windsor-office.html', context)
 
 def irmsho(request):
-    listing = BasicClinic.objects.get(pk=30)
+    listing = BasicClinic.objects.get(pk=29)
     context = {
         'listing': listing,
         }
@@ -240,7 +240,7 @@ def irmsho(request):
     return render(request, 'clinics/US/New-Jersey/irms-hackensack-office.html', context)
 
 def irmshbo(request):
-    listing = BasicClinic.objects.get(pk=31)
+    listing = BasicClinic.objects.get(pk=30)
     context = {
         'listing': listing,
         }
@@ -248,7 +248,7 @@ def irmshbo(request):
     return render(request, 'clinics/US/New-Jersey/irms-hoboken-office.html', context)
 
 def irmsnjo(request):
-    listing = BasicClinic.objects.get(pk=32)
+    listing = BasicClinic.objects.get(pk=31)
     context = {
         'listing': listing,
         }
@@ -256,7 +256,7 @@ def irmsnjo(request):
     return render(request, 'clinics/US/New-Jersey/irms-new-jersey-office.html', context)
 
 def irmslo(request):
-    listing = BasicClinic.objects.get(pk=33)
+    listing = BasicClinic.objects.get(pk=32)
     context = {
         'listing': listing,
         }
@@ -264,7 +264,7 @@ def irmslo(request):
     return render(request, 'clinics/US/New-Jersey/irms-livingston-office.html', context)
 
 def irmsobo(request):
-    listing = BasicClinic.objects.get(pk=34)
+    listing = BasicClinic.objects.get(pk=33)
     context = {
         'listing': listing,
         }
@@ -272,7 +272,7 @@ def irmsobo(request):
     return render(request, 'clinics/US/New-Jersey/irms-old-bridge-office.html', context)
 
 def cfnyc(request):
-    listing = BasicClinic.objects.get(pk=35)
+    listing = BasicClinic.objects.get(pk=34)
     context = {
         'listing': listing,
         }
@@ -280,7 +280,7 @@ def cfnyc(request):
     return render(request, 'clinics/US/New-York/chelsea-fertility-nyc.html', context)
 
 def ccrmnyfc(request):
-    listing = BasicClinic.objects.get(pk=36)
+    listing = BasicClinic.objects.get(pk=35)
     context = {
         'listing': listing,
         }

@@ -7,26 +7,3 @@ from clinic.models import BasicClinic
 from django.utils import timezone
 
 # Create your views here.
-def iviLondon(request):
-    listing = BasicClinic.objects.get(pk=1)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'clinics/UK/ivi-london.html', context)
-
-def hsfc(request):
-    listing = BasicClinic.objects.get(pk=3)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'clinics/UK/harley-street-fertility-clinic.html', context)
-
-def crgh(request):
-    listing = BasicClinic.objects.get(pk=2)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'clinics/UK/crgh.html', context)

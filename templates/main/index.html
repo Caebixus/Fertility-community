@@ -211,21 +211,50 @@
   <h2><i class="fas fa-search-location"></i> Popular Fertility Clinics Locations</h2>
   <br>
   <div class="row">
-    <div hidden class="col-6 col-md">
+    <div class="col-6 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="">United Kingdom Fertility Clinics</a></li>
-        <li><a class="text-muted" href="">Czech Republic Fertility Clinics</a></li>
-        <li><a class="text-muted" href="">Spain Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicUK' %}">UK Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicCzech' %}">Czech Republic Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicSpain' %}">Spain Fertility Clinics</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h4>US Regions:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="{% url 'fertilityClinicsCalifornia' %}">California clinics</a></li>
-        <li><a hidden href="#">Texas clinics</a></li>
-        <li><a hidden href="#">New York clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicUSA' %}">USA Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicGreece' %}">Greece fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicIndia' %}">India fertility clinics</a></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i> US Regions:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsCalifornia' %}">California fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsAlabama' %}">Alabama fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArizona' %}">Arizona fertility clinics</a></li>
         <br>
-        <li><a hidden href="#"><u>All region list</u></a></li>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>All US region list</u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNewYork' %}">New York fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArkansas' %}">Arkansas fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsColorado' %}">Colorado fertility clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>All US region list</u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsConnecticut' %}">Connecticut fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsDelaware' %}">Delaware fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsGeorgia' %}">Georgia fertility clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>All US region list</u></a></li>
       </ul>
     </div>
   </div>

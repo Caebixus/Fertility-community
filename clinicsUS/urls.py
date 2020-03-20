@@ -36,6 +36,6 @@ urlpatterns = [
     path('clinics/us/new-jersey/irms-new-jersey-office', views.irmsnjo, name='irmsnjo'),
     path('clinics/us/new-jersey/irms-livingston-office', views.irmslo, name='irmslo'),
     path('clinics/us/new-jersey/irms-old-bridge-office', views.irmsobo, name='irmsobo'),
-    path('clinics/us/new-york/ccrm-new-york-fertility-clinic', views.ccrmnyfc, name='ccrmnyfc'),
     path('clinics/us/new-york/chelsea-fertility-nyc', views.cfnyc, name='cfnyc'),
+    path('clinics/us/new-york/ccrm-new-york-fertility-clinic', views.ccrmnyfc, name='ccrmnyfc'),
 ]

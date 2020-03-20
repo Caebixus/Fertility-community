@@ -9,6 +9,6 @@ Disallow: /tos
 Disallow: /c/*
 Disallow: /t/*
 Disallow: /u/*
-disallow: /fertility/*
+Disallow: /fertility/*
 
 Sitemap: https://www.fertilitycommunity.com/sitemap.xml

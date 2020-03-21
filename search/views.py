@@ -6,6 +6,7 @@ from django.db.models import Avg
 from .choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from random import shuffle
 
 
 # Create your views here.
@@ -52,6 +53,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -79,6 +81,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -107,6 +110,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -135,6 +139,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -163,6 +168,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -191,6 +197,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -219,6 +226,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -247,6 +255,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -275,6 +284,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -303,6 +313,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -331,6 +342,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -359,6 +371,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -387,6 +400,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -413,6 +427,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -438,6 +453,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -474,6 +490,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -501,6 +518,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -529,6 +547,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -557,6 +576,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -585,6 +605,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -613,6 +634,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -641,6 +663,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -669,6 +692,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -697,6 +721,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -725,6 +750,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -753,6 +779,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -781,6 +808,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -809,6 +837,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -835,6 +864,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -860,6 +890,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -894,6 +925,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -921,6 +953,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -949,6 +982,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -977,6 +1011,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1005,6 +1040,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1033,6 +1069,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1061,6 +1098,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1089,6 +1127,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1117,6 +1156,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1145,6 +1185,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1173,6 +1214,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1201,6 +1243,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1229,6 +1272,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1255,6 +1299,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -1280,6 +1325,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -1314,6 +1360,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -1341,6 +1388,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1369,6 +1417,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1397,6 +1446,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1425,6 +1475,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1453,6 +1504,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1481,6 +1533,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1509,6 +1562,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1537,6 +1591,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1565,6 +1620,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1593,6 +1649,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1621,6 +1678,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1649,6 +1707,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1675,6 +1734,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -1700,6 +1760,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -1734,6 +1795,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -1761,6 +1823,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1789,6 +1852,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1817,6 +1881,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1845,6 +1910,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1873,6 +1939,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1901,6 +1968,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1929,6 +1997,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1957,6 +2026,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -1985,6 +2055,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2013,6 +2084,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2041,6 +2113,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2069,6 +2142,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2095,6 +2169,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2120,6 +2195,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -2154,6 +2230,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2181,6 +2258,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2209,6 +2287,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2237,6 +2316,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2265,6 +2345,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2293,6 +2374,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2321,6 +2403,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2349,6 +2432,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2377,6 +2461,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2405,6 +2490,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2433,6 +2519,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2461,6 +2548,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2489,6 +2577,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2515,6 +2604,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2540,6 +2630,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -2574,6 +2665,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2601,6 +2693,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2629,6 +2722,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2657,6 +2751,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2685,6 +2780,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2713,6 +2809,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2741,6 +2838,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2769,6 +2867,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2797,6 +2896,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2825,6 +2925,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2853,6 +2954,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2881,6 +2983,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2909,6 +3012,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -2935,6 +3039,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2960,6 +3065,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -2994,6 +3100,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3021,6 +3128,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3049,6 +3157,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3077,6 +3186,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3105,6 +3215,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3133,6 +3244,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3161,6 +3273,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3189,6 +3302,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3217,6 +3331,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3245,6 +3360,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3273,6 +3389,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3301,6 +3418,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3329,6 +3447,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3355,7 +3474,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
-
+                            shuffle(order_data)
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
                             paginationing = paginator.get_page(page)
@@ -3380,6 +3499,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -3414,6 +3534,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3441,6 +3562,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3469,6 +3591,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3497,6 +3620,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3525,6 +3649,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3553,6 +3678,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3581,6 +3707,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3609,6 +3736,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3637,6 +3765,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3665,6 +3794,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3693,6 +3823,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3721,6 +3852,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3749,6 +3881,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3775,6 +3908,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3800,6 +3934,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -3834,6 +3969,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3861,6 +3997,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3889,6 +4026,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3917,6 +4055,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3945,6 +4084,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -3973,6 +4113,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4001,6 +4142,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4029,6 +4171,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4057,6 +4200,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4085,6 +4229,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4113,6 +4258,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4141,6 +4287,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4169,6 +4316,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4195,6 +4343,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4220,6 +4369,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -4254,6 +4404,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4281,6 +4432,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4309,6 +4461,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4337,6 +4490,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4365,6 +4519,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4393,6 +4548,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4421,6 +4577,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4449,6 +4606,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4477,6 +4635,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4505,6 +4664,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4533,6 +4693,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4561,6 +4722,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4589,6 +4751,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4615,6 +4778,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4640,6 +4804,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -4674,6 +4839,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4701,6 +4867,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4729,6 +4896,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4757,6 +4925,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4785,6 +4954,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4813,6 +4983,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4841,6 +5012,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4869,6 +5041,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4897,6 +5070,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4925,6 +5099,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4953,6 +5128,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -4981,6 +5157,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5009,6 +5186,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5035,6 +5213,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5060,6 +5239,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -5094,6 +5274,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5121,6 +5302,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5149,6 +5331,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5177,6 +5360,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5205,6 +5389,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5233,6 +5418,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5261,6 +5447,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5289,6 +5476,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5317,6 +5505,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5345,6 +5534,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5373,6 +5563,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5401,6 +5592,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5429,6 +5621,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5455,6 +5648,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5480,6 +5674,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -5514,6 +5709,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5541,6 +5737,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5569,6 +5766,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5597,6 +5795,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5625,6 +5824,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5653,6 +5853,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5681,6 +5882,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5709,6 +5911,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5737,6 +5940,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5765,6 +5969,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5793,6 +5998,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5821,6 +6027,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5849,6 +6056,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5875,6 +6083,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5900,6 +6109,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -5934,6 +6144,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5961,6 +6172,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -5989,6 +6201,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6017,6 +6230,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6045,6 +6259,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6073,6 +6288,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6101,6 +6317,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6129,6 +6346,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6157,6 +6375,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6185,6 +6404,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6213,6 +6433,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6241,6 +6462,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6269,6 +6491,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6295,6 +6518,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6320,6 +6544,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -6354,6 +6579,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6381,6 +6607,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6409,6 +6636,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6437,6 +6665,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6465,6 +6694,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6493,6 +6723,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6521,6 +6752,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6549,6 +6781,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6577,6 +6810,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6605,6 +6839,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6633,6 +6868,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6661,6 +6897,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6689,6 +6926,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6715,6 +6953,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6740,6 +6979,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -6774,6 +7014,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6801,6 +7042,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6829,6 +7071,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6857,6 +7100,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6885,6 +7129,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6913,6 +7158,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6941,6 +7187,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6969,6 +7216,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -6997,6 +7245,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7025,6 +7274,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7053,6 +7303,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7081,6 +7332,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7109,6 +7361,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7135,6 +7388,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7160,6 +7414,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -7194,6 +7449,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7221,6 +7477,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7249,6 +7506,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7277,6 +7535,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7305,6 +7564,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7333,6 +7593,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7361,6 +7622,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7389,6 +7651,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7417,6 +7680,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7445,6 +7709,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7473,6 +7738,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7501,6 +7767,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7529,6 +7796,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7555,6 +7823,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7580,6 +7849,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -7614,6 +7884,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7641,6 +7912,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7669,6 +7941,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7697,6 +7970,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7725,6 +7999,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7753,6 +8028,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7781,6 +8057,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7809,6 +8086,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7837,6 +8115,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7865,6 +8144,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7893,6 +8173,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7921,6 +8202,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7949,6 +8231,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -7975,6 +8258,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8000,6 +8284,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -8034,6 +8319,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8061,6 +8347,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8089,6 +8376,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8117,6 +8405,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8145,6 +8434,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8173,6 +8463,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8201,6 +8492,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8229,6 +8521,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8257,6 +8550,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8285,6 +8579,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8313,6 +8608,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8341,6 +8637,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8369,6 +8666,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8395,6 +8693,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8420,6 +8719,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -8454,6 +8754,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8481,6 +8782,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8509,6 +8811,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8537,6 +8840,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8565,6 +8869,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8593,6 +8898,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8621,6 +8927,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8649,6 +8956,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8677,6 +8985,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8705,6 +9014,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8733,6 +9043,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8761,6 +9072,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8789,6 +9101,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8815,6 +9128,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8840,6 +9154,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -8874,6 +9189,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8901,6 +9217,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8929,6 +9246,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8957,6 +9275,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -8985,6 +9304,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9013,6 +9333,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9041,6 +9362,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9069,6 +9391,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9097,6 +9420,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9125,6 +9449,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9153,6 +9478,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9181,6 +9507,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9209,6 +9536,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9235,6 +9563,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9260,6 +9589,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -9294,6 +9624,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9321,6 +9652,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9349,6 +9681,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9377,6 +9710,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9405,6 +9739,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9433,6 +9768,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9461,6 +9797,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9489,6 +9826,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9517,6 +9855,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9545,6 +9884,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9573,6 +9913,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9601,6 +9942,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9629,6 +9971,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9655,6 +9998,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9680,6 +10024,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -9714,6 +10059,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9741,6 +10087,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9769,6 +10116,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9797,6 +10145,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9825,6 +10174,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9853,6 +10203,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9881,6 +10232,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9909,6 +10261,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9937,6 +10290,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9965,6 +10319,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -9993,6 +10348,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10021,6 +10377,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10049,6 +10406,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10075,6 +10433,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10100,6 +10459,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -10134,6 +10494,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10161,6 +10522,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10189,6 +10551,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10217,6 +10580,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10245,6 +10609,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10273,6 +10638,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10301,6 +10667,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10329,6 +10696,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10357,6 +10725,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10385,6 +10754,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10413,6 +10783,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10441,6 +10812,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10469,6 +10841,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10495,6 +10868,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10520,6 +10894,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -10554,6 +10929,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10581,6 +10957,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10609,6 +10986,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10637,6 +11015,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10665,6 +11044,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10693,6 +11073,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10721,6 +11102,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10749,6 +11131,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10777,6 +11160,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10805,6 +11189,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10833,6 +11218,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10861,6 +11247,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10889,6 +11276,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -10915,6 +11303,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10940,6 +11329,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -10974,6 +11364,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11001,6 +11392,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11029,6 +11421,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11057,6 +11450,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11085,6 +11479,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11113,6 +11508,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11141,6 +11537,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11169,6 +11566,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11197,6 +11595,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11225,6 +11624,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11253,6 +11653,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11281,6 +11682,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11309,6 +11711,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11335,6 +11738,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11360,6 +11764,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -11394,6 +11799,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11421,6 +11827,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11449,6 +11856,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11477,6 +11885,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11505,6 +11914,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11533,6 +11943,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11561,6 +11972,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11589,6 +12001,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11617,6 +12030,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11645,6 +12059,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11673,6 +12088,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11701,6 +12117,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11729,6 +12146,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11755,6 +12173,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11780,6 +12199,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -11814,6 +12234,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11841,6 +12262,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11869,6 +12291,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11897,6 +12320,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11925,6 +12349,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11953,6 +12378,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -11981,6 +12407,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12009,6 +12436,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12037,6 +12465,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12065,6 +12494,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12093,6 +12523,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12121,6 +12552,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12149,6 +12581,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12175,6 +12608,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12200,6 +12634,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -12234,6 +12669,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12261,6 +12697,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12289,6 +12726,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12317,6 +12755,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12345,6 +12784,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12373,6 +12813,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12401,6 +12842,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12429,6 +12871,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12457,6 +12900,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12485,6 +12929,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12513,6 +12958,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12541,6 +12987,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12569,6 +13016,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12595,6 +13043,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12620,6 +13069,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -12654,6 +13104,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12681,6 +13132,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12709,6 +13161,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12737,6 +13190,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12765,6 +13219,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12793,6 +13248,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12821,6 +13277,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12849,6 +13306,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12877,6 +13335,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12905,6 +13364,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12933,6 +13393,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12961,6 +13422,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -12989,6 +13451,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13015,6 +13478,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13040,6 +13504,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -13074,6 +13539,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13101,6 +13567,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13129,6 +13596,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13157,6 +13625,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13185,6 +13654,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13213,6 +13683,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13241,6 +13712,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13269,6 +13741,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13297,6 +13770,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13325,6 +13799,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13353,6 +13828,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13381,6 +13857,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13409,6 +13886,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13435,6 +13913,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13460,6 +13939,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -13494,6 +13974,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13521,6 +14002,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13549,6 +14031,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13577,6 +14060,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13605,6 +14089,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13633,6 +14118,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13661,6 +14147,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13689,6 +14176,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13717,6 +14205,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13745,6 +14234,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13773,6 +14263,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13801,6 +14292,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13829,6 +14321,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13855,6 +14348,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13880,6 +14374,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -13914,6 +14409,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13941,6 +14437,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13969,6 +14466,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -13997,6 +14495,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14025,6 +14524,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14053,6 +14553,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14081,6 +14582,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14109,6 +14611,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14137,6 +14640,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14165,6 +14669,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14193,6 +14698,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14221,6 +14727,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14249,6 +14756,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14275,6 +14783,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14300,6 +14809,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -14334,6 +14844,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14361,6 +14872,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14389,6 +14901,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14417,6 +14930,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14445,6 +14959,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14473,6 +14988,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14501,6 +15017,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14529,6 +15046,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14557,6 +15075,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14585,6 +15104,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14613,6 +15133,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14641,6 +15162,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14669,6 +15191,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14695,6 +15218,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14720,6 +15244,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -14754,6 +15279,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14781,6 +15307,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14809,6 +15336,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14837,6 +15365,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14865,6 +15394,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14893,6 +15423,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14921,6 +15452,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14949,6 +15481,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -14977,6 +15510,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15005,6 +15539,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15033,6 +15568,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15061,6 +15597,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15089,6 +15626,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15115,6 +15653,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15140,6 +15679,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -15174,6 +15714,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15201,6 +15742,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15229,6 +15771,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15257,6 +15800,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15285,6 +15829,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15313,6 +15858,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15341,6 +15887,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15369,6 +15916,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15397,6 +15945,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15425,6 +15974,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15453,6 +16003,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15481,6 +16032,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15509,6 +16061,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15535,6 +16088,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15560,6 +16114,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -15594,6 +16149,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15621,6 +16177,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15649,6 +16206,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15677,6 +16235,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15705,6 +16264,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15733,6 +16293,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15761,6 +16322,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15789,6 +16351,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15817,6 +16380,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15845,6 +16409,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15873,6 +16438,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15901,6 +16467,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15929,6 +16496,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -15955,6 +16523,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15980,6 +16549,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -16014,6 +16584,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16041,6 +16612,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16069,6 +16641,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16097,6 +16670,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16125,6 +16699,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16153,6 +16728,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16181,6 +16757,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16209,6 +16786,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16237,6 +16815,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16265,6 +16844,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16293,6 +16873,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16321,6 +16902,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16349,6 +16931,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16375,6 +16958,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16400,6 +16984,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -16434,6 +17019,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16461,6 +17047,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16489,6 +17076,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16517,6 +17105,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16545,6 +17134,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16573,6 +17163,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16601,6 +17192,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16629,6 +17221,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16657,6 +17250,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16685,6 +17279,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16713,6 +17308,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16741,6 +17337,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16769,6 +17366,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16795,6 +17393,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16820,6 +17419,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -16854,6 +17454,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16881,6 +17482,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16909,6 +17511,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16937,6 +17540,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16965,6 +17569,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -16993,6 +17598,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17021,6 +17627,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17049,6 +17656,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17077,6 +17685,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17105,6 +17714,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17133,6 +17743,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17161,6 +17772,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17189,6 +17801,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17215,6 +17828,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17240,6 +17854,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -17274,6 +17889,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17301,6 +17917,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17329,6 +17946,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17357,6 +17975,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17385,6 +18004,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17413,6 +18033,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17441,6 +18062,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17469,6 +18091,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17497,6 +18120,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17525,6 +18149,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17553,6 +18178,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17581,6 +18207,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17609,6 +18236,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17635,6 +18263,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17660,6 +18289,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -17694,6 +18324,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17721,6 +18352,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17749,6 +18381,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17777,6 +18410,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17805,6 +18439,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17833,6 +18468,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17861,6 +18497,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17889,6 +18526,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17917,6 +18555,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17945,6 +18584,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -17973,6 +18613,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18001,6 +18642,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18029,6 +18671,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18055,6 +18698,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18080,6 +18724,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -18114,6 +18759,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18141,6 +18787,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18169,6 +18816,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18197,6 +18845,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18225,6 +18874,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18253,6 +18903,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18281,6 +18932,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18309,6 +18961,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18337,6 +18990,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18365,6 +19019,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18393,6 +19048,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18421,6 +19077,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18449,6 +19106,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18475,6 +19133,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18500,6 +19159,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -18534,6 +19194,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18561,6 +19222,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18589,6 +19251,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18617,6 +19280,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18645,6 +19309,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18673,6 +19338,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18701,6 +19367,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18729,6 +19396,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18757,6 +19425,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18785,6 +19454,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18813,6 +19483,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18841,6 +19512,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18869,6 +19541,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -18895,6 +19568,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18920,6 +19594,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -18954,6 +19629,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18981,6 +19657,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19009,6 +19686,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19037,6 +19715,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19065,6 +19744,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19093,6 +19773,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19121,6 +19802,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19149,6 +19831,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19177,6 +19860,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19205,6 +19889,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19233,6 +19918,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19261,6 +19947,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19289,6 +19976,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19315,6 +20003,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19340,6 +20029,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -19374,6 +20064,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19401,6 +20092,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19429,6 +20121,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19457,6 +20150,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19485,6 +20179,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19513,6 +20208,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19541,6 +20237,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19569,6 +20266,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19597,6 +20295,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19625,6 +20324,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19653,6 +20353,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19681,6 +20382,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19709,6 +20411,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19735,6 +20438,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19760,6 +20464,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -19794,6 +20499,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19821,6 +20527,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19849,6 +20556,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19877,6 +20585,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19905,6 +20614,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19933,6 +20643,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19961,6 +20672,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -19989,6 +20701,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20017,6 +20730,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20045,6 +20759,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20073,6 +20788,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20101,6 +20817,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20129,6 +20846,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20155,6 +20873,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20180,6 +20899,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -20214,6 +20934,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20241,6 +20962,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20269,6 +20991,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20297,6 +21020,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20325,6 +21049,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20353,6 +21078,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20381,6 +21107,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20409,6 +21136,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20437,6 +21165,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20465,6 +21194,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20493,6 +21223,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20521,6 +21252,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20549,6 +21281,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20575,6 +21308,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20600,6 +21334,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -20634,6 +21369,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20661,6 +21397,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20689,6 +21426,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20717,6 +21455,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20745,6 +21484,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20773,6 +21513,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20801,6 +21542,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20829,6 +21571,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20857,6 +21600,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20885,6 +21629,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20913,6 +21658,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20941,6 +21687,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20969,6 +21716,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -20995,6 +21743,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21020,6 +21769,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -21054,6 +21804,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21081,6 +21832,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21109,6 +21861,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21137,6 +21890,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21165,6 +21919,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21193,6 +21948,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21221,6 +21977,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21249,6 +22006,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21277,6 +22035,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21305,6 +22064,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21333,6 +22093,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21361,6 +22122,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21389,6 +22151,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21415,6 +22178,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21440,6 +22204,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -21469,6 +22234,7 @@ def search(request):
 
                         if treatments == 'Alltreatmentstrue':
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21496,6 +22262,7 @@ def search(request):
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21524,6 +22291,7 @@ def search(request):
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21552,6 +22320,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21580,6 +22349,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21608,6 +22378,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21636,6 +22407,7 @@ def search(request):
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21664,6 +22436,7 @@ def search(request):
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21692,6 +22465,7 @@ def search(request):
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21720,6 +22494,7 @@ def search(request):
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21748,6 +22523,7 @@ def search(request):
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21776,6 +22552,7 @@ def search(request):
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21804,6 +22581,7 @@ def search(request):
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
                             my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
@@ -21830,6 +22608,7 @@ def search(request):
 
                         else:
                             order_data = list(pro_queryset_list) + list(queryset_list)
+                            shuffle(order_data)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21858,6 +22637,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicState__iexact='United States')
                     my_total_count = my_total_count.count()
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -21890,6 +22670,7 @@ def search(request):
 
                     if treatments == 'Alltreatmentstrue':
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -21919,6 +22700,7 @@ def search(request):
                         pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
 
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -21947,6 +22729,7 @@ def search(request):
                         queryset_list = queryset_list.filter(icsi_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -21975,6 +22758,7 @@ def search(request):
                         queryset_list = queryset_list.filter(egg_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22003,6 +22787,7 @@ def search(request):
                         queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22031,6 +22816,7 @@ def search(request):
                         queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22059,6 +22845,7 @@ def search(request):
                         queryset_list = queryset_list.filter(egg_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22087,6 +22874,7 @@ def search(request):
                         queryset_list = queryset_list.filter(embryo_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22115,6 +22903,7 @@ def search(request):
                         queryset_list = queryset_list.filter(sperm_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22143,6 +22932,7 @@ def search(request):
                         queryset_list = queryset_list.filter(surrogacy=True)
                         pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22171,6 +22961,7 @@ def search(request):
                         queryset_list = queryset_list.filter(iui_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22199,6 +22990,7 @@ def search(request):
                         queryset_list = queryset_list.filter(single_woman_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22227,6 +23019,7 @@ def search(request):
                         queryset_list = queryset_list.filter(reciprocal_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
                         my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
@@ -22253,6 +23046,7 @@ def search(request):
 
                     else:
                         order_data = list(pro_queryset_list) + list(queryset_list)
+                        shuffle(order_data)
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -22281,6 +23075,7 @@ def search(request):
                 my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                 order_data = list(pro_queryset_list) + list(queryset_list)
+                shuffle(order_data)
 
                 paginator = Paginator(order_data, 12)
                 page = request.GET.get('page')
@@ -22324,6 +23119,7 @@ def search(request):
 
                 if treatments == 'Alltreatmentstrue':
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -22345,6 +23141,7 @@ def search(request):
                     queryset_list = queryset_list.filter(ivf_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22367,6 +23164,7 @@ def search(request):
                     queryset_list = queryset_list.filter(icsi_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22389,6 +23187,7 @@ def search(request):
                     queryset_list = queryset_list.filter(egg_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22411,6 +23210,7 @@ def search(request):
                     queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22433,6 +23233,7 @@ def search(request):
                     queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22455,6 +23256,7 @@ def search(request):
                     queryset_list = queryset_list.filter(egg_freezing=True)
                     pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22477,6 +23279,7 @@ def search(request):
                     queryset_list = queryset_list.filter(sperm_freezing=True)
                     pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22499,6 +23302,7 @@ def search(request):
                     queryset_list = queryset_list.filter(fertility_preservation=True)
                     pro_queryset_list = pro_queryset_list.filter(fertility_preservation=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22521,6 +23325,7 @@ def search(request):
                     queryset_list = queryset_list.filter(surrogacy=True)
                     pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22543,6 +23348,7 @@ def search(request):
                     queryset_list = queryset_list.filter(iui_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22564,6 +23370,7 @@ def search(request):
                     queryset_list = queryset_list.filter(single_woman_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22586,6 +23393,7 @@ def search(request):
                     queryset_list = queryset_list.filter(reciprocal_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
                     my_total_count = queryset_list.count() + pro_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
@@ -22606,6 +23414,7 @@ def search(request):
 
                 else:
                     order_data = list(pro_queryset_list) + list(queryset_list)
+                    shuffle(order_data)
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -22624,6 +23433,7 @@ def search(request):
                     return render(request, 'search/search.html', context)
 
                 order_data = list(pro_queryset_list) + list(queryset_list)
+                shuffle(order_data)
 
                 paginator = Paginator(order_data, 12)
                 page = request.GET.get('page')

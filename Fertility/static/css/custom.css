@@ -162,6 +162,13 @@ ul {
   text-align: left;
 }
 
+ol {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  color: #282c34;
+  text-align: left;
+}
+
 .badge {
     color: white;
 }

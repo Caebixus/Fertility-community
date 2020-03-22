@@ -83,6 +83,8 @@ class BasicClinic(models.Model):
 
     ### Basic fertility treatments
     ivf_treatment = models.BooleanField(default=False)
+    mild_ivf_treatment = models.BooleanField(default=False)
+    ovarian_ivf_treatment = models.BooleanField(default=False)
     icsi_treatment = models.BooleanField(default=False)
     egg_donor_recipients = models.BooleanField(default=False)
     sperm_donor_recipients = models.BooleanField(default=False)
@@ -90,6 +92,8 @@ class BasicClinic(models.Model):
 
     ### Basic fertility treatments costs
     ivf_treatment_cost = models.FloatField(blank=True, null=True)
+    mild_ivf_treatment_cost = models.FloatField(blank=True, null=True)
+    ovarian_ivf_treatment_cost = models.FloatField(blank=True, null=True)
     icsi_treatment_cost = models.FloatField(blank=True, null=True)
     egg_donor_recipients_cost = models.FloatField(blank=True, null=True)
     sperm_donor_recipients_cost = models.FloatField(blank=True, null=True)

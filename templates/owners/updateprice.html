@@ -37,19 +37,75 @@
                 <div id="js_ivf_cost" style="padding-top:1rem;">
                   <br>
                   <p>Cost of IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.ivf_treatment.errors }}
+                  {{ form.ivf_treatment_cost.errors }}
                   {{ form.ivf_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_ivf_cost" style="padding-top:1rem; display: none">
                   <br>
                   <p>Cost of IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.ivf_treatment.errors }}
+                  {{ form.ivf_treatment_cost.errors }}
                   {{ form.ivf_treatment_cost }}
                 </div>
               {% endif %}
             </div>
+            <div class="col-sm py-4">
+              {{ form.mild_ivf_treatment.errors }}
+              <div class="row">
+                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+                  Mild IVF Treatment
+                </div>
+                <div class="col-2 col-md">
+                  {{ form.mild_ivf_treatment }}
+                </div>
+              </div>
+              {% if form.mild_ivf_treatment.value == True %}
+                <div id="js_mild_ivf_cost" style="padding-top:1rem;">
+                  <br>
+                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  {{ form.mild_ivf_treatment_cost.errors }}
+                  {{ form.mild_ivf_treatment_cost }}
+                </div>
+              {% else %}
+                <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
+                  <br>
+                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  {{ form.mild_ivf_treatment_cost.errors }}
+                  {{ form.mild_ivf_treatment_cost }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="col-sm py-4">
+              {{ form.ovarian_ivf_treatment.errors }}
+              <div class="row">
+                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+                  IVF using ovarian hyperstimulation
+                </div>
+                <div class="col-2 col-md">
+                  {{ form.ovarian_ivf_treatment }}
+                </div>
+              </div>
+              {% if form.ovarian_ivf_treatment.value == True %}
+                <div id="js_ovarian_ivf_cost" style="padding-top:1rem;">
+                  <br>
+                  <p>Cost of IVF using ovarian hyperstimulation<i> (Single treatment cost only, use your selected currency)</i></p>
+                  {{ form.ovarian_ivf_treatment_cost.errors }}
+                  {{ form.ovarian_ivf_treatment_cost }}
+                </div>
+              {% else %}
+                <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
+                  <br>
+                  <p>Cost of IVF using ovarian hyperstimulation<i> (Single treatment cost only, use your selected currency)</i></p>
+                  {{ form.ovarian_ivf_treatment_cost.errors }}
+                  {{ form.ovarian_ivf_treatment_cost }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
 
+
+
+          <div class="row">
             <div class="col-sm py-4">
               {{ form.iui_treatment.errors }}
               <div class="row">
@@ -64,14 +120,14 @@
                 <div id="js_iui_cost" style="padding-top:1rem">
                   <br>
                   <p>Cost of IUI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.iui_treatment.errors }}
+                  {{ form.iui_treatment_cost.errors }}
                   {{ form.iui_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_iui_cost" style="padding-top:1rem; display: none">
                   <br>
                   <p>Cost of IUI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.iui_treatment.errors }}
+                  {{ form.iui_treatment_cost.errors }}
                   {{ form.iui_treatment_cost }}
                 </div>
               {% endif %}

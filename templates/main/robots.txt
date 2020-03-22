@@ -5,10 +5,5 @@ Disallow: /account
 Disallow: /404.html
 Disallow: /400.html
 Disallow: /500.html
-Disallow: /tos
-Disallow: /c/*
-Disallow: /t/*
-Disallow: /u/*
-Disallow: /fertility/*
 
 Sitemap: https://www.fertilitycommunity.com/sitemap.xml

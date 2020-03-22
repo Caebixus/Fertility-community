@@ -730,12 +730,16 @@ class PostForm(forms.ModelForm):
 class UpdatePrice(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
     ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    mild_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    ovarian_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
@@ -765,11 +769,15 @@ class UpdatePrice(forms.ModelForm):
         fields = [
         'clinicName',
         'ivf_treatment',
+        'mild_ivf_treatment',
+        'ovarian_ivf_treatment',
         'icsi_treatment',
         'iui_treatment',
         'egg_donor_recipients',
         'embryo_donor_recipients',
         'ivf_treatment_cost',
+        'mild_ivf_treatment_cost',
+        'ovarian_ivf_treatment_cost',
         'icsi_treatment_cost',
         'iui_treatment_cost',
         'egg_donor_recipients_cost',
@@ -788,7 +796,6 @@ class UpdatePrice(forms.ModelForm):
         'reciprocal_ivf',
         'hiv_patients',
         'sex_selection',
-        'is_published',
         'is_published_list_date',
         ]
 
@@ -945,12 +952,16 @@ class PostFormPro(forms.ModelForm):
 class UpdatePricePro(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
     ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    mild_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    ovarian_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
     egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
@@ -979,11 +990,15 @@ class UpdatePricePro(forms.ModelForm):
         fields = [
         'clinicName',
         'ivf_treatment',
+        'mild_ivf_treatment',
+        'ovarian_ivf_treatment',
         'icsi_treatment',
         'iui_treatment',
         'egg_donor_recipients',
         'embryo_donor_recipients',
         'ivf_treatment_cost',
+        'mild_ivf_treatment_cost',
+        'ovarian_ivf_treatment_cost',
         'icsi_treatment_cost',
         'iui_treatment_cost',
         'egg_donor_recipients_cost',

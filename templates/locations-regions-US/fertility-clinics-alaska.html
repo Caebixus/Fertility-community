@@ -262,15 +262,37 @@
           {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         </div>
         <hr noshade style="border-top: 1px solid white">
+        <p style="color: white">Speak and ask consultants directly</p>
+        <div class="row" style="text-align: center">
+          <div class="col-4 col-md">
+            <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="border-radius: 50%; height:50px; width:50px">
+            <p class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px; text-align: center">Jaroslav Novotný</p>
+            <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-envelope"></i> Email</button>
+          </div>
+          <div class="col-4 col-md">
+
+          </div>
+          <div class="col-4 col-md">
+
+          </div>
+        </div>
+
+        <hr noshade style="border-top: 1px solid white">
+        <p style="color: white">Clinic details</p>
         <div class="row">
-          <div class="col-6 col-md">
+          <div class="col-4 col-md">
             <a href="{{ order_datas.clinic_url }}">
               <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-info-circle"></i> Clinic detail</button>
             </a>
           </div>
-          <div class="col-6 col-md">
+          <div class="col-4 col-md">
             <a href="{{ order_datas.clinic_url }}#pricing">
               <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-tags"></i> Pricing</button>
+            </a>
+          </div>
+          <div class="col-4 col-md">
+            <a href="{{ order_datas.clinic_url }}#pricing">
+              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-archive"></i> Package</button>
             </a>
           </div>
         </div>

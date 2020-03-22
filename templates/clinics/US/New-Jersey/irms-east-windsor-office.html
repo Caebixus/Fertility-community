@@ -367,7 +367,7 @@
           <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
         </div>
         <div class="col-8">
-          <p style="font-size: 202px">Egg freezing</p>
+          <p style="font-size: 20px">Egg freezing</p>
         </div>
         <div class="col-3">
           {% if listing.egg_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>

@@ -11,6 +11,7 @@ CATEGORY_CHOICES_US_REGION = {
     'CO': 'Colorado',
     'CT': 'Connecticut',
     'DE': 'Delaware',
+    'FL': 'Florida',
     'GA': 'Georgia',
     'HI': 'Hawaii',
     'ID': 'Idaho',

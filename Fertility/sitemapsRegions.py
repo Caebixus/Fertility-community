@@ -19,6 +19,7 @@ class RegionsViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsColorado',
         'fertilityClinicsConnecticut',
         'fertilityClinicsDelaware',
+        'fertilityClinicsFlorida',
         'fertilityClinicsGeorgia',
         'fertilityClinicsHawaii',
         'fertilityClinicsIdaho',

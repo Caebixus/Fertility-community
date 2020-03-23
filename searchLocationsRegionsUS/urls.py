@@ -10,6 +10,7 @@ urlpatterns = [
     path('locations/us-regions/fertility-clinics-colorado', views.fertilityClinicsColorado, name='fertilityClinicsColorado'),
     path('locations/us-regions/fertility-clinics-connecticut', views.fertilityClinicsConnecticut, name='fertilityClinicsConnecticut'),
     path('locations/us-regions/fertility-clinics-delaware', views.fertilityClinicsDelaware, name='fertilityClinicsDelaware'),
+    path('locations/us-regions/fertility-clinics-florida', views.fertilityClinicsFlorida, name='fertilityClinicsFlorida'),
     path('locations/us-regions/fertility-clinics-georgia', views.fertilityClinicsGeorgia, name='fertilityClinicsGeorgia'),
     path('locations/us-regions/fertility-clinics-hawaii', views.fertilityClinicsHawaii, name='fertilityClinicsHawaii'),
     path('locations/us-regions/fertility-clinics-idaho', views.fertilityClinicsIdaho, name='fertilityClinicsIdaho'),

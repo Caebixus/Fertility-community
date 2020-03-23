@@ -159,10 +159,11 @@
     <div class="col-sm-8">
       {% if paginationing %}
       {% for order_datas in order_data %}
-      {% if order_datas.mondayOpens and order_datas.tuesdayOpens and order_datas.wednesdayOpens and order_datas.thursdayOpens and order_datas.fridayOpens %}
+      {% if order_datas.clinic_pro_logo_pic %}
       <script type="application/ld+json">
         {
           "name" : "{{ order_datas.clinicName }}",
+          "image" : "{{ order_datas.clinic_pro_logo_pic }}",
           "address" : {
             "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
             "addressLocality" : "{{ order_datas.clinicCity }}",
@@ -171,42 +172,6 @@
             "addressCountry" : "{{ order_datas.clinicState }}",
             "@type" : "PostalAddress"
           },
-          "openingHoursSpecification" : [ {
-          "dayOfWeek" : [ "MONDAY" ],
-          "opens" : "{{ order_datas.mondayOpens }}",
-          "closes" : "{{ order_datas.mondayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "TUESDAY" ],
-          "opens" : "{{ order_datas.tuesdayOpens }}",
-          "closes" : "{{ order_datas.tuesdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "WEDNESDAY" ],
-          "opens" : "{{ order_datas.wednesdayOpens }}",
-          "closes" : "{{ order_datas.wednesdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "THURSDAY" ],
-          "opens" : "{{ order_datas.thursdayOpens }}",
-          "closes" : "{{ order_datas.thursdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "FRIDAY" ],
-          "opens" : "{{ order_datas.fridayOpens }}",
-          "closes" : "{{ order_datas.fridayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "SATURDAY" ],
-          "opens" : "23:58:00",
-          "closes" : "23:59:00",
-          "@type" : "OpeningHoursSpecification"
-          }, {
-          "dayOfWeek" : [ "SUNDAY" ],
-          "opens" : "23:58:00",
-          "closes" : "23:59:00",
-          "@type" : "OpeningHoursSpecification"
-          }, ],
           "@type" : "MedicalClinic",
           "@context" : "http://schema.org"
         }
@@ -215,6 +180,7 @@
       <script type="application/ld+json">
         {
           "name" : "{{ order_datas.clinicName }}",
+          "image" : "{% static 'img/hospital.svg' %}",
           "address" : {
             "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
             "addressLocality" : "{{ order_datas.clinicCity }}",

@@ -159,7 +159,7 @@
     <div class="col-sm-8">
       {% if paginationing %}
       {% for order_datas in order_data %}
-
+      {% if order_datas.mondayOpens and order_datas.tuesdayOpens and order_datas.wednesdayOpens and order_datas.thursdayOpens and order_datas.fridayOpens %}
       <script type="application/ld+json">
         {
           "name" : "{{ order_datas.clinicName }}",
@@ -171,7 +171,6 @@
             "addressCountry" : "{{ order_datas.clinicState }}",
             "@type" : "PostalAddress"
           },
-          {% if order_datas.mondayOpens and order_datas.tuesdayOpens and order_datas.wednesdayOpens and order_datas.thursdayOpens and order_datas.fridayOpens %}
           "openingHoursSpecification" : [ {
           "dayOfWeek" : [ "MONDAY" ],
           "opens" : "{{ order_datas.mondayOpens }}",
@@ -198,14 +197,27 @@
           "closes" : "{{ order_datas.fridayCloses }}",
           "@type" : "OpeningHoursSpecification"
           }, ],
-          {% else %}
-          {% endif %}
-
-        {
           "@type" : "MedicalClinic",
           "@context" : "http://schema.org"
         }
       </script>
+      {% else %}
+      <script type="application/ld+json">
+        {
+          "name" : "{{ order_datas.clinicName }}",
+          "address" : {
+            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
+            "addressLocality" : "{{ order_datas.clinicCity }}",
+            "postalCode" : "{{ order_datas.clinicPostalCode }}",
+            "addressRegion" : "{{ order_datas.clinicRegion }}",
+            "addressCountry" : "{{ order_datas.clinicState }}",
+            "@type" : "PostalAddress"
+          },
+          "@type" : "MedicalClinic",
+          "@context" : "http://schema.org"
+        }
+      </script>
+      {% endif %}
 
 
       {% if order_datas.pro_is_published == True %}

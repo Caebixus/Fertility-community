@@ -197,10 +197,11 @@
           "opens" : "{{ order_datas.fridayOpens }}",
           "closes" : "{{ order_datas.fridayCloses }}",
           "@type" : "OpeningHoursSpecification"
+          }, ],
           {% else %}
           {% endif %}
-          }, ],
-        {  
+
+        {
           "@type" : "MedicalClinic",
           "@context" : "http://schema.org"
         }

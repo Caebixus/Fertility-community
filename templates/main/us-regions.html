@@ -111,6 +111,13 @@
               <td style="font-size: 14px"<a href="{% url 'fertilityClinicsDelaware' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Delaware IVF Clinics</button></a></td>
             </tr>
             <tr>
+              <th scope="row">Florida</th>
+              <td style="font-size: 14px">{% if usdCurrency_florida_ivf %}{{ usdCurrency_florida_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_florida_ivf %}{{ eurCurrency_florida_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_florida_ivf %}{{ gbpCurrency_florida_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px"<a href="{% url 'fertilityClinicsFlorida' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Florida IVF Clinics</button></a></td>
+            </tr>
+            <tr>
               <th scope="row">Georgia</th>
               <td style="font-size: 14px">{% if usdCurrency_georgia_ivf %}{{ usdCurrency_georgia_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_georgia_ivf %}{{ eurCurrency_georgia_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>

@@ -36,6 +36,7 @@ urlpatterns = [
     path('', include('clinicsUK.urls')),
     path('', include('clinicsUS.urls')),
     path('', include('agenciesUS.urls')),
+    path('', include('agenciesCZ.urls')),
     path('cookies/', include('cookie_consent.urls')),
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),

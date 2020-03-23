@@ -681,6 +681,68 @@ def locationsUSRegions(request):
             eurCurrency_delaware_iui = None
 
     #--------------------------------------------------------------------------
+    queryset_list_florida = queryset_list_us.filter(clinicRegion__iexact='Florida')
+    queryset_list_florida_ivf = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_florida_ivf.items():
+        usdCurrency_florida_ivf = val
+        if usdCurrency_florida_ivf is not None:
+            gbpCurrency_florida_ivf = val * usdToGbp
+            eurCurrency_florida_ivf = val * usdToEur
+        else:
+            gbpCurrency_florida_ivf = None
+            eurCurrency_florida_ivf = None
+
+    queryset_list_florida_egg = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_florida_egg.items():
+        usdCurrency_florida_egg = val
+        if usdCurrency_florida_egg is not None:
+            gbpCurrency_florida_egg = val * usdToGbp
+            eurCurrency_florida_egg = val * usdToEur
+        else:
+            gbpCurrency_florida_egg = None
+            eurCurrency_florida_egg = None
+
+    queryset_list_florida_embryo = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_florida_embryo.items():
+        usdCurrency_florida_embryo = val
+        if usdCurrency_florida_embryo is not None:
+            gbpCurrency_florida_embryo = val * usdToGbp
+            eurCurrency_florida_embryo = val * usdToEur
+        else:
+            gbpCurrency_florida_embryo = None
+            eurCurrency_florida_embryo = None
+
+    queryset_list_florida_sperm = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_florida_sperm.items():
+        usdCurrency_florida_sperm = val
+        if usdCurrency_florida_sperm is not None:
+            gbpCurrency_florida_sperm = val * usdToGbp
+            eurCurrency_florida_sperm = val * usdToEur
+        else:
+            gbpCurrency_florida_sperm = None
+            eurCurrency_florida_sperm = None
+
+    queryset_list_florida_icsi = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_florida_icsi.items():
+        usdCurrency_florida_icsi = val
+        if usdCurrency_florida_icsi is not None:
+            gbpCurrency_florida_icsi = val * usdToGbp
+            eurCurrency_florida_icsi = val * usdToEur
+        else:
+            gbpCurrency_florida_icsi = None
+            eurCurrency_florida_icsi = None
+
+    queryset_list_florida_iui = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_florida_iui.items():
+        usdCurrency_florida_iui = val
+        if usdCurrency_florida_iui is not None:
+            gbpCurrency_florida_iui = val * usdToGbp
+            eurCurrency_florida_iui = val * usdToEur
+        else:
+            gbpCurrency_florida_iui = None
+            eurCurrency_florida_iui = None
+
+    #--------------------------------------------------------------------------
     queryset_list_georgia = queryset_list_us.filter(clinicRegion__iexact='Georgia')
     queryset_list_georgia_ivf = queryset_list_georgia.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
     for key,val in queryset_list_georgia_ivf.items():
@@ -2113,6 +2175,25 @@ def locationsUSRegions(request):
         'gbpCurrency_delaware_iui': gbpCurrency_delaware_iui,
         'usdCurrency_delaware_iui': usdCurrency_delaware_iui,
         'eurCurrency_delaware_iui': eurCurrency_delaware_iui,
+
+        'gbpCurrency_florida_ivf': gbpCurrency_florida_ivf,
+        'usdCurrency_florida_ivf': usdCurrency_florida_ivf,
+        'eurCurrency_florida_ivf': eurCurrency_florida_ivf,
+        'gbpCurrency_florida_egg': gbpCurrency_florida_egg,
+        'usdCurrency_florida_egg': usdCurrency_florida_egg,
+        'eurCurrency_florida_egg': eurCurrency_florida_egg,
+        'gbpCurrency_florida_embryo': gbpCurrency_florida_embryo,
+        'usdCurrency_florida_embryo': usdCurrency_florida_embryo,
+        'eurCurrency_florida_embryo': eurCurrency_florida_embryo,
+        'gbpCurrency_florida_sperm': gbpCurrency_florida_sperm,
+        'usdCurrency_florida_sperm': usdCurrency_florida_sperm,
+        'eurCurrency_florida_sperm': eurCurrency_florida_sperm,
+        'gbpCurrency_florida_icsi': gbpCurrency_florida_icsi,
+        'usdCurrency_florida_icsi': usdCurrency_florida_icsi,
+        'eurCurrency_florida_icsi': eurCurrency_florida_icsi,
+        'gbpCurrency_florida_iui': gbpCurrency_florida_iui,
+        'usdCurrency_florida_iui': usdCurrency_florida_iui,
+        'eurCurrency_florida_iui': eurCurrency_florida_iui,
 
         'gbpCurrency_georgia_ivf': gbpCurrency_georgia_ivf,
         'usdCurrency_georgia_ivf': usdCurrency_georgia_ivf,

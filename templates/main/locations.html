@@ -55,17 +55,17 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-              <td>{% if usdCurrency_us_ivf %}{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-              <td>{% if eurCurrency_us_ivf %}{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-              <td>{% if gbpCurrency_us_ivf %}{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+              <th scope="row">United States</th>
+              <td style="font-size: 14px">{% if usdCurrency_us_ivf %}{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_us_ivf %}{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_us_ivf %}{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
             </tr>
             <tr hidden>
               <th scope="row">United Kingdom</th>
-              <td>{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
-              <td>{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
-              <td>{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £</td>
+              <td style="font-size: 14px">{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
+              <td style="font-size: 14px">{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
+              <td style="font-size: 14px">{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £</td>
             </tr>
           </tbody>
         </table>
@@ -88,17 +88,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-                <td>{% if usdCurrency_us_icsi %}{{ usdCurrency_us_icsi|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-                <td>{% if eurCurrency_us_icsi %}{{ eurCurrency_us_icsi|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-                <td>{% if gbpCurrency_us_icsi %}{{ gbpCurrency_us_icsi|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+                <th scope="row">United States</th>
+                <td style="font-size: 14px">{% if usdCurrency_us_icsi %}{{ usdCurrency_us_icsi|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_us_icsi %}{{ eurCurrency_us_icsi|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_us_icsi %}{{ gbpCurrency_us_icsi|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
               </tr>
               <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} £</td>
+                <td style="font-size: 14px">{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} $</td>
+                <td style="font-size: 14px">{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €</td>
+                <td style="font-size: 14px">{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -122,17 +122,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-                <td>{% if usdCurrency_us_iui %}{{ usdCurrency_us_iui|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-                <td>{% if eurCurrency_us_iui %}{{ eurCurrency_us_iui|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-                <td>{% if gbpCurrency_us_iui %}{{ gbpCurrency_us_iui|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+                <th scope="row">United States</th>
+                <td style="font-size: 14px">{% if usdCurrency_us_iui %}{{ usdCurrency_us_iui|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_us_iui %}{{ eurCurrency_us_iui|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_us_iui %}{{ gbpCurrency_us_iui|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
               </tr>
               <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_embryo|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_embryo|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_embryo|floatformat:'0'|intcomma }} £</td>
+                <td style="font-size: 14px">{{ usdCurrency_uk_embryo|floatformat:'0'|intcomma }} $</td>
+                <td style="font-size: 14px">{{ eurCurrency_uk_embryo|floatformat:'0'|intcomma }} €</td>
+                <td style="font-size: 14px">{{ gbpCurrency_uk_embryo|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -157,16 +157,16 @@
             <tbody>
               <tr>
                 <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-                <td>{% if usdCurrency_us_egg %}{{ usdCurrency_us_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-                <td>{% if eurCurrency_us_egg %}{{ eurCurrency_us_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-                <td>{% if gbpCurrency_us_egg %}{{ gbpCurrency_us_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if usdCurrency_us_egg %}{{ usdCurrency_us_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_us_egg %}{{ eurCurrency_us_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_us_egg %}{{ gbpCurrency_us_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
               </tr>
               <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_sperm|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_sperm|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_sperm|floatformat:'0'|intcomma }} £</td>
+                <td style="font-size: 14px">{{ usdCurrency_uk_sperm|floatformat:'0'|intcomma }} $</td>
+                <td style="font-size: 14px">{{ eurCurrency_uk_sperm|floatformat:'0'|intcomma }} €</td>
+                <td style="font-size: 14px">{{ gbpCurrency_uk_sperm|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -190,17 +190,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-                <td>{% if usdCurrency_us_embryo %}{{ usdCurrency_us_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-                <td>{% if eurCurrency_us_embryo %}{{ eurCurrency_us_embryo|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-                <td>{% if gbpCurrency_us_embryo %}{{ gbpCurrency_us_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+                <th scope="row">United States</th>
+                <td style="font-size: 14px">{% if usdCurrency_us_embryo %}{{ usdCurrency_us_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_us_embryo %}{{ eurCurrency_us_embryo|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_us_embryo %}{{ gbpCurrency_us_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
               </tr>
               <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_icsi|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} £</td>
+                <td style="font-size: 14px">{{ usdCurrency_uk_icsi|floatformat:'0'|intcomma }} $</td>
+                <td style="font-size: 14px">{{ eurCurrency_uk_icsi|floatformat:'0'|intcomma }} €</td>
+                <td style="font-size: 14px">{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>
@@ -224,17 +224,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
-                <td>{% if usdCurrency_us_sperm %}{{ usdCurrency_us_sperm|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
-                <td>{% if eurCurrency_us_sperm %}{{ eurCurrency_us_sperm|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
-                <td>{% if gbpCurrency_us_sperm %}{{ gbpCurrency_us_sperm|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
+                <th scope="row">United States</th>
+                <td style="font-size: 14px">{% if usdCurrency_us_sperm %}{{ usdCurrency_us_sperm|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_us_sperm %}{{ eurCurrency_us_sperm|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_us_sperm %}{{ gbpCurrency_us_sperm|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
               </tr>
               <tr hidden>
                 <th scope="row">United Kingdom</th>
-                <td>{{ usdCurrency_uk_iui|floatformat:'0'|intcomma }} $</td>
-                <td>{{ eurCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
-                <td>{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} £</td>
+                <td style="font-size: 14px">{{ usdCurrency_uk_iui|floatformat:'0'|intcomma }} $</td>
+                <td style="font-size: 14px">{{ eurCurrency_uk_iui|floatformat:'0'|intcomma }} €</td>
+                <td style="font-size: 14px">{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} £</td>
               </tr>
             </tbody>
           </table>

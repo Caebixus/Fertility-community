@@ -53,9 +53,12 @@
   <br>
   <br>
 </div>
+
+{% if listing.clinic_pro_logo_pic %}
 <script type="application/ld+json">
   {
     "name" : "{{ listing.clinicName }}",
+    "image" : "{{ listing.clinic_pro_logo_pic }}",
     "address" : {
       "streetAddress" : "{{ listing.clinicStreetAddress }}",
       "addressLocality" : "{{ listing.clinicCity }}",
@@ -64,51 +67,28 @@
       "addressCountry" : "{{ listing.clinicState }}",
       "@type" : "PostalAddress"
     },
-    {% if listing.mondayOpens %}
-    "openingHoursSpecification" : [ {
-    "dayOfWeek" : [ "MONDAY" ],
-    "opens" : "{{ listing.mondayOpens }}",
-    "closes" : "{{ listing.mondayCloses }}",
-    "@type" : "OpeningHoursSpecification"
-    {% else %}
-    {% endif %}
-    }, {
-    {% if listing.tuesdayOpens %}
-    "dayOfWeek" : [ "TUESDAY" ],
-    "opens" : "{{ listing.tuesdayOpens }}",
-    "closes" : "{{ listing.tuesdayCloses }}",
-    "@type" : "OpeningHoursSpecification"
-    {% else %}
-    {% endif %}
-    }, {
-    {% if listing.wednesdayOpens %}
-    "dayOfWeek" : [ "WEDNESDAY" ],
-    "opens" : "{{ listing.wednesdayOpens }}",
-    "closes" : "{{ listing.wednesdayCloses }}",
-    "@type" : "OpeningHoursSpecification"
-    {% else %}
-    {% endif %}
-    }, {
-    {% if listing.thursdayOpens %}
-    "dayOfWeek" : [ "THURSDAY" ],
-    "opens" : "{{ listing.thursdayOpens }}",
-    "closes" : "{{ listing.thursdayCloses }}",
-    "@type" : "OpeningHoursSpecification"
-    {% else %}
-    {% endif %}
-    }, {
-    {% if listing.fridayOpens %}
-    "dayOfWeek" : [ "FRIDAY" ],
-    "opens" : "{{ listing.fridayOpens }}",
-    "closes" : "{{ listing.fridayCloses }}",
-    "@type" : "OpeningHoursSpecification"
-    {% else %}
-    {% endif %}
-    }, ],
     "@type" : "MedicalClinic",
     "@context" : "http://schema.org"
   }
 </script>
+{% else %}
+<script type="application/ld+json">
+  {
+    "name" : "{{ listing.clinicName }}",
+    "image" : "{% static 'img/hospital.svg' %}",
+    "address" : {
+      "streetAddress" : "{{ listing.clinicStreetAddress }}",
+      "addressLocality" : "{{ listing.clinicCity }}",
+      "postalCode" : "{{ listing.clinicPostalCode }}",
+      "addressRegion" : "{{ listing.clinicRegion }}",
+      "addressCountry" : "{{ listing.clinicState }}",
+      "@type" : "PostalAddress"
+    },
+    "@type" : "MedicalClinic",
+    "@context" : "http://schema.org"
+  }
+</script>
+{% endif %}
 {% if listing.description %}
 <div class="container">
   <br>

@@ -1,7 +1,7 @@
 # Skupina 1
 User-agent: Googlebot
 Disallow: /search/*
-Disallow: /account
+Disallow: /account/*
 Disallow: /404.html
 Disallow: /400.html
 Disallow: /500.html

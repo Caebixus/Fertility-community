@@ -171,47 +171,35 @@
             "addressCountry" : "{{ order_datas.clinicState }}",
             "@type" : "PostalAddress"
           },
-          {% if order_datas.mondayOpens %}
+          {% if order_datas.mondayOpens and order_datas.tuesdayOpens and order_datas.wednesdayOpens and order_datas.thursdayOpens and order_datas.fridayOpens %}
           "openingHoursSpecification" : [ {
           "dayOfWeek" : [ "MONDAY" ],
           "opens" : "{{ order_datas.mondayOpens }}",
           "closes" : "{{ order_datas.mondayCloses }}",
           "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
           }, {
-          {% if order_datas.tuesdayOpens %}
           "dayOfWeek" : [ "TUESDAY" ],
           "opens" : "{{ order_datas.tuesdayOpens }}",
           "closes" : "{{ order_datas.tuesdayCloses }}",
           "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
           }, {
-          {% if order_datas.wednesdayOpens %}
           "dayOfWeek" : [ "WEDNESDAY" ],
           "opens" : "{{ order_datas.wednesdayOpens }}",
           "closes" : "{{ order_datas.wednesdayCloses }}",
           "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
           }, {
-          {% if order_datas.thursdayOpens %}
           "dayOfWeek" : [ "THURSDAY" ],
           "opens" : "{{ order_datas.thursdayOpens }}",
           "closes" : "{{ order_datas.thursdayCloses }}",
           "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
           }, {
-          {% if order_datas.fridayOpens %}
           "dayOfWeek" : [ "FRIDAY" ],
           "opens" : "{{ order_datas.fridayOpens }}",
           "closes" : "{{ order_datas.fridayCloses }}",
           "@type" : "OpeningHoursSpecification"
           {% else %}
           {% endif %}
-          }, ],
+          },
           "@type" : "MedicalClinic",
           "@context" : "http://schema.org"
         }

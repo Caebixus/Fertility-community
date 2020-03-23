@@ -388,7 +388,7 @@
           <br>
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average IVF price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average natural (standard) IVF price: </p>
           <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
@@ -402,7 +402,7 @@
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Egg donation cycle: </p>
           <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}

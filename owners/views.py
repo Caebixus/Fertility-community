@@ -224,17 +224,18 @@ def update(request, listing_id):
         data = form.cleaned_data
         klinika = instance.clinicName
 
-        send_mail(
-            'Change of clinics information',
-            'Someone just changed information detail in ' +
-            '\nClinic username: ' + str(klinika),
-            'info@fertilitycommunity.com',
-            ['info@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Clinics information succesfully updated')
-        return redirect(dashboard)
+        if instance.is_claimed == True:
+            send_mail(
+                'Change of clinics information',
+                'Someone just changed information detail in ' +
+                '\nClinic username: ' + str(klinika),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
+        else:
+            messages.success(request, '- Clinics information succesfully updated')
+            return redirect(dashboard)
 
     context = {
         'instance': instance,
@@ -255,17 +256,18 @@ def updatePricing(request, listing_id):
         data = form.cleaned_data
         klinika = instance.clinicName
 
-        send_mail(
-            'Change of clinic pricing detail',
-            'Someone just changed pricing detail in ' +
-            '\nClinic username: ' + str(klinika),
-            'info@fertilitycommunity.com',
-            ['info@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Clinics pricing succesfully updated')
-        return redirect(dashboard)
+        if instance.is_claimed == True:
+            send_mail(
+                'Change of clinic pricing detail',
+                'Someone just changed pricing detail in ' +
+                '\nClinic username: ' + str(klinika),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
+        else:
+            messages.success(request, '- Clinics pricing succesfully updated')
+            return redirect(dashboard)
 
     context = {
         'instance': instance,
@@ -286,16 +288,19 @@ def updatePro(request, listing_id):
         data = form.cleaned_data
         klinika = instance.clinicName
 
-        send_mail(
-            'Change of clinic PRO information',
-            'Someone just changed information in ' +
-            '\nClinic username: ' + str(klinika),
-            'info@fertilitycommunity.com',
-            ['info@fertilitycommunity.com'],
-            fail_silently=False,
-            )
+        if instance.is_claimed == True:
+            send_mail(
+                'Change of clinic PRO information',
+                'Someone just changed information in ' +
+                '\nClinic username: ' + str(klinika),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
 
-        return redirect(dashboard)
+        else:
+            messages.success(request, '- Clinics information succesfully updated')
+            return redirect(dashboard)
 
     context = {
         'instance': instance,
@@ -316,16 +321,18 @@ def updatePricingPro(request, listing_id):
         data = form.cleaned_data
         klinika = instance.clinicName
 
-        send_mail(
-            'Change of clinic pricing detail',
-            'Someone just changed pricing detail in ' +
-            '\nClinic username: ' + str(klinika),
-            'info@fertilitycommunity.com',
-            ['info@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        return redirect(dashboard)
+        if instance.is_claimed == True:
+            send_mail(
+                'Change of clinic pricing detail',
+                'Someone just changed pricing detail in ' +
+                '\nClinic username: ' + str(klinika),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
+        else:
+            messages.success(request, '- Clinics pricing succesfully updated')
+            return redirect(dashboard)
 
     context = {
         'instance': instance,

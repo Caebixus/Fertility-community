@@ -15,5 +15,4 @@ urlpatterns = [
     path('travel-calculator', views.travelCalculator, name='travelCalculator'),
     path('cookies', views.cookies, name='cookies'),
     path('privacy', views.privacy, name='privacy'),
-    path('ivf-country-difference', views.ivf_country_difference, name='ivf-country-difference'),
 ]

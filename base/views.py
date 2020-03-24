@@ -30,9 +30,6 @@ def backlink3(request):
 def about(request):
     return render(request, 'main/about.html')
 
-def ivf_country_difference(request):
-    return render(request, 'main/ivf-country-difference.html')
-
 def robots(request):
     return render(request, 'main/robots.txt')
 

@@ -194,12 +194,12 @@
         }
       </script>
       {% endif %}
+      {% endfor %}
 
 
+      {% for order_datas in order_data %}
       {% if order_datas.pro_is_published == True %}
-
-      <!-- Clinic listings header -->
-
+      <!-- PRO Clinic listings header -->
       <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
         <div class="container" style="padding-top: 20px">
           <div class="header">
@@ -222,7 +222,7 @@
                   <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
                 </a>
               </div>
-              <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
+              {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
             </div>
           </div>
         </div>
@@ -241,38 +241,30 @@
         </div>
 
         <hr noshade style="border-top: 1px solid white">
-        <p style="color: white">Speak and ask consultants directly</p>
-        <div class="row" style="text-align: center">
-          <div class="col-4 col-md">
-            <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="border-radius: 50%; height:50px; width:50px">
-            <p class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px; text-align: center">Jaroslav Novotný</p>
-            <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-envelope"></i> Email</button>
-          </div>
-          <div class="col-4 col-md">
-
-          </div>
-          <div class="col-4 col-md">
-
-          </div>
-        </div>
-
-        <hr noshade style="border-top: 1px solid white">
-        <p style="color: white">Clinic details</p>
+        <p style="color: white">Detailed information</p>
         <div class="row">
-          <div class="col-4 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-info-circle"></i> Clinic detail</button>
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
-          <div class="col-4 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-tags"></i> Pricing</button>
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
-          <div class="col-4 col-md">
-            <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-archive"></i> Package</button>
+          {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title %}
+          <div class="col-3 col-sm" style="padding-top:1rem">
+            <a href="{{ order_datas.clinic_url }}#Packages">
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Package</button>
             </a>
+          </div>
+          {% else %}
+          <div class="col-3 col-sm" style="padding-top:1rem">
+          </div>
+          {% endif %}
+          <div class="col-3 col-sm" style="padding-top:1rem">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Quick Contact</button>
           </div>
         </div>
         <br>
@@ -320,17 +312,21 @@
           {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         </div>
         <hr noshade>
-        <p>Clinic details</p>
+        <p>Detailed information</p>
         <div class="row">
-          <div class="col-6 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
-              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-info-circle"></i> Clinic detail</button>
+              <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
-          <div class="col-6 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-tags"></i> Pricing</button>
+              <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
+          </div>
+          <div class="col-3 col-sm" style="padding-top:1rem">
+          </div>
+          <div class="col-3 col-sm" style="padding-top:1rem">
           </div>
         </div>
       </div>

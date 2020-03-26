@@ -21,7 +21,7 @@
           <div hidden class="clinicnaming">
             {{ form.clinicName }}
           </div>
-
+          <h2>Primary treatments & costs</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.ivf_treatment.errors }}
@@ -218,6 +218,7 @@
           <br>
           <hr>
           <br>
+          <h2>Additional treatments & costs</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.egg_freezing.errors }}
@@ -358,6 +359,7 @@
           <br>
           <hr>
           <br>
+          <h2>Conditions</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.single_woman_treatment.errors }}
@@ -402,6 +404,35 @@
                   {{ form.sex_selection }}
                 </div>
               </div>
+            </div>
+          </div>
+          <br>
+          <hr>
+          <br>
+          <h2>Packages</h2>
+          <div class="row">
+            <div class="col-sm py-4">
+              <div class="fieldWrapper" style="text-align: left">
+                {{ form.package1title.errors }}
+                <p style="font-weight:400"> Package title</p>
+                {{ form.package1title }}
+              </div>
+              <br>
+              <div class="fieldWrapper" style="text-align: left">
+                {{ form.package1desc.errors }}
+                <p style="font-weight:400"> Information about Package (up to 300 characters)</p>
+                {{ form.package1desc }}
+              </div>
+              <br>
+              <div class="fieldWrapper" style="text-align: left">
+                {{ form.package1cost.errors }}
+                <p style="font-weight:400"> Package cost</p>
+                {{ form.package1cost }}
+              </div>
+            </div>
+            <div class="col-sm py-4">
+            </div>
+            <div class="col-sm py-4">
             </div>
           </div>
           <br>

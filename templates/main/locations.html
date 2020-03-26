@@ -55,7 +55,7 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">United States</th>
+              <th scope="row">United States <a href="{% url 'locationsUSRegions' %}">(All US states)</a></th>
               <td style="font-size: 14px">{% if usdCurrency_us_ivf %}{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_us_ivf %}{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_us_ivf %}{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -66,6 +66,13 @@
               <td style="font-size: 14px">{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
               <td style="font-size: 14px">{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
               <td style="font-size: 14px">{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £</td>
+            </tr>
+            <tr>
+              <th scope="row">Czech Republic</th>
+              <td style="font-size: 14px">{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} $</td>
+              <td style="font-size: 14px">{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €</td>
+              <td style="font-size: 14px">{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>

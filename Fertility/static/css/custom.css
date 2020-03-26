@@ -56,6 +56,20 @@ select {
   border-radius: 8px;
 }
 
+.imgHoverTeam {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+
+@media (max-width: 480px) {
+  .imgHoverTeam {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+}
+
 .jumbotron {
   background-color: white;
   border-radius: 8px;

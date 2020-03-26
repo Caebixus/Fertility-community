@@ -7,10 +7,3 @@ from clinic.models import BasicClinic
 from django.utils import timezone
 
 # Create your views here.
-def tcffag(request):
-    listing = BasicClinic.objects.get(pk=6)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'agencies/US/California/the-center-for-fertility-and-gynecology.html', context)

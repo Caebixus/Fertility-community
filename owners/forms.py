@@ -762,6 +762,10 @@ class UpdatePrice(forms.ModelForm):
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
+    package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package1desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package1cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
     class Meta:
@@ -797,6 +801,9 @@ class UpdatePrice(forms.ModelForm):
         'hiv_patients',
         'sex_selection',
         'is_published_list_date',
+        'package1title',
+        'package1desc',
+        'package1cost',
         ]
 
 
@@ -828,6 +835,13 @@ class PostFormPro(forms.ModelForm):
     clinicRussian = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Russian speaking personal'))
     clinicGerman = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('German speaking personal'))
     clinicChinese = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Chinese speaking personal'))
+
+    team1name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('First team member'))
+    team1pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    team2name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Second team member'))
+    team2pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of second team member'))
+    team3name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Third team member'))
+    team3pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of third team member'))
 
     CATEGORY_CHOICES_CURRENCY = (
         ('USD', 'USD'),
@@ -947,6 +961,12 @@ class PostFormPro(forms.ModelForm):
         'saturdayCloses',
         'sundayOpens',
         'sundayCloses',
+        'team1name',
+        'team1pic',
+        'team2name',
+        'team2pic',
+        'team3name',
+        'team3pic',
         ]
 
 class UpdatePricePro(forms.ModelForm):
@@ -983,6 +1003,30 @@ class UpdatePricePro(forms.ModelForm):
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
+    package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package1desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package1cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
+    package2title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package2desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package2cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
+    package3title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package3desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package3cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
+    package4title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package4desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package4cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
+    package5title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package5desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package5cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
+    package6title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package6desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False)
+    package6cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+
     pro_is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
     class Meta:
@@ -1018,6 +1062,24 @@ class UpdatePricePro(forms.ModelForm):
         'hiv_patients',
         'pro_is_published',
         'pro_is_published_list_date',
+        'package1title',
+        'package1desc',
+        'package1cost',
+        'package2title',
+        'package2desc',
+        'package2cost',
+        'package3title',
+        'package3desc',
+        'package3cost',
+        'package4title',
+        'package4desc',
+        'package4cost',
+        'package5title',
+        'package5desc',
+        'package5cost',
+        'package6title',
+        'package6desc',
+        'package6cost',
         ]
 
 class OwnerProInterestedForm(forms.ModelForm):

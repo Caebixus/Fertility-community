@@ -514,6 +514,92 @@
   {% else %}
   {% endif %}
 
+  {% if listing.package1title and listing.package1desc and listing.package1cost %}
+  <h2>Packages</h2>
+  <div class="row">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">1. {{ listing.package1title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package1desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% if listing.package2title and listing.package2desc and listing.package2cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">2. {{ listing.package2title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package2desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package2cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package3title and listing.package3desc and listing.package3cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">3. {{ listing.package3title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package3desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package3cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="card-deck mb-3 text-center">
+      {% if listing.package4title and listing.package4desc and listing.package4cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">4. {{ listing.package4title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package4desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package4cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package5title and listing.package5desc and listing.package5cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">5. {{ listing.package5title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package5desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package5cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package6title and listing.package6desc and listing.package6cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">6. {{ listing.package6title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package6desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package6cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+
+  <br>
+  <br>
+  {% else %}
+  {% endif %}
+
   <h2>Conditions</h2>
   <div class="row">
     <hr class="featurette-divider">

@@ -137,6 +137,34 @@ class BasicClinic(models.Model):
     ### BUILD FOR PRO FEATURES ###
     ### ------------------------------------------------ ###
 
+    ### Packages
+    package1title = models.CharField(max_length=20, blank=True, null = True)
+    package1desc = models.TextField(max_length=300, blank=True, null = True)
+    package1cost = models.FloatField(blank=True, null=True)
+    package2title = models.CharField(max_length=20, blank=True, null = True)
+    package2desc = models.TextField(max_length=300, blank=True, null = True)
+    package2cost = models.FloatField(blank=True, null=True)
+    package3title = models.CharField(max_length=20, blank=True, null = True)
+    package3desc = models.TextField(max_length=300, blank=True, null = True)
+    package3cost = models.FloatField(blank=True, null=True)
+    package4title = models.CharField(max_length=20, blank=True, null = True)
+    package4desc = models.TextField(max_length=300, blank=True, null = True)
+    package4cost = models.FloatField(blank=True, null=True)
+    package5title = models.CharField(max_length=20, blank=True, null = True)
+    package5desc = models.TextField(max_length=300, blank=True, null = True)
+    package5cost = models.FloatField(blank=True, null=True)
+    package6title = models.CharField(max_length=20, blank=True, null = True)
+    package6desc = models.TextField(max_length=300, blank=True, null = True)
+    package6cost = models.FloatField(blank=True, null=True)
+
+    ### Consultants
+    team1name = models.CharField(max_length=25, blank=True, null=True)
+    team1pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team2name = models.CharField(max_length=25, blank=True, null=True)
+    team2pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team3name = models.CharField(max_length=25, blank=True, null=True)
+    team3pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+
     ### Promotions
     clinic_pro_promotion_name = models.CharField(max_length=80, blank=True, null=True)
     clinic_pro_promotion_description = models.TextField(max_length=800, blank=True, null=True)

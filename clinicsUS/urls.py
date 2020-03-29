@@ -38,4 +38,11 @@ urlpatterns = [
     path('clinics/us/new-jersey/irms-old-bridge-office', views.irmsobo, name='irmsobo'),
     path('clinics/us/new-york/chelsea-fertility-nyc', views.cfnyc, name='cfnyc'),
     path('clinics/us/new-york/ccrm-new-york-fertility-clinic', views.ccrmnyfc, name='ccrmnyfc'),
+    path('clinics/us/arkansas/arkansas-fertility-gynecology', views.afg, name='afg'),
+    path('clinics/us/colorado/ccrm-colorado-main-center-lone-tree', views.ccrmcmclt, name='ccrmcmclt'),
+    path('clinics/us/colorado/ccrm-colorado-denver-office', views.ccrmcdo, name='ccrmcdo'),
+    path('clinics/us/colorado/ccrm-colorado-louisville-office', views.ccrmclo, name='ccrmclo'),
+    path('clinics/us/colorado/uc-advanced-reproductive-medicine-denver', views.ucarmd, name='ucarmd'),
+    path('clinics/us/colorado/uc-advanced-reproductive-medicine-co-springs', views.ucarmcos, name='ucarmcos'),
+    path('clinics/us/colorado/rocky-mountain-center-reproductive-medicine', views.rmcrm, name='rmcrm'),
 ]

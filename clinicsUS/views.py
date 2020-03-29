@@ -286,3 +286,59 @@ def ccrmnyfc(request):
         }
 
     return render(request, 'clinics/US/New-York/ccrm-new-york-fertility-clinic.html', context)
+
+def afg(request):
+    listing = BasicClinic.objects.get(pk=37)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Arkansas/arkansas-fertility-gynecology.html', context)
+
+def ccrmcmclt(request):
+    listing = BasicClinic.objects.get(pk=38)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/ccrm-colorado-main-center-lone-tree.html', context)
+
+def ccrmcdo(request):
+    listing = BasicClinic.objects.get(pk=39)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/ccrm-colorado-denver-office.html', context)
+
+def ccrmclo(request):
+    listing = BasicClinic.objects.get(pk=40)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/ccrm-colorado-louisville-office.html', context)
+
+def ucarmd(request):
+    listing = BasicClinic.objects.get(pk=41)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/uc-advanced-reproductive-medicine-denver.html', context)
+
+def ucarmcos(request):
+    listing = BasicClinic.objects.get(pk=42)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/uc-advanced-reproductive-medicine-co-springs.html', context)
+
+def rmcrm(request):
+    listing = BasicClinic.objects.get(pk=43)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Colorado/rocky-mountain-center-reproductive-medicine.html', context)

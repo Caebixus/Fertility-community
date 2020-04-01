@@ -63,7 +63,15 @@
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="IVF treatment" style="color: white">IVF treatment</label>
+                    <label class="form-check-label" for="IVF treatment" style="color: white">Natural IVF</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="IVF treatment mild" style="color: white">Mild IVF</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="IVF treatment ovarian" style="color: white">IVF with ovarian stimulation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
@@ -71,15 +79,15 @@
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Egg donation recipients" style="color: white">Egg donation recipients</label>
+                    <label class="form-check-label" for="Egg donation recipients" style="color: white">IVF with Egg donation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Sperm donation recipients" style="color: white">Sperm donation recipients</label>
+                    <label class="form-check-label" for="Sperm donation recipients" style="color: white">IVF with Sperm donation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Embryo donation recipients" style="color: white">Embryo donation recipients</label>
+                    <label class="form-check-label" for="Embryo donation recipients" style="color: white">IVF with Embryo donation</label>
                   </div>
                 </div>
 
@@ -313,7 +321,7 @@
           {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         </div>
         <hr noshade>
-        <p>Detailed information</p>
+
         <div class="row">
           <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
@@ -439,6 +447,49 @@
       </li>
     </ul>
   </nav>
+</div>
+
+<!-- Location - intro -->
+<div class="container">
+  <h2></h2>
+</div>
+
+
+<!-- Location quick guide -->
+
+<!-- Location top tips -->
+
+<!-- Location FAQs -->
+
+<!-- Location for tourist -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" style="padding-top:2rem">
+      <h3>Calculate costs of flight tickets</h3>
+      <p>This tool calculates the flight costs for any location/airport in the world. Simply select the desired airport of departure and destination and price is calculated, also with possible flights.</p>
+      <div class="lol" style="padding-bottom: 1rem">
+        <a href="{% url 'travelCalculator' %}" style="color: white">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Calculate</button>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-4" style="padding-top:2rem">
+      <h3>Accommodation</h3>
+      <p>I recommend staying with locals using Airbnb, so you can fully absorb the atmosphere of a city.</p>
+      <br>
+      <div class="lol" style="padding-bottom: 1rem">
+        <a href="https://www.airbnb.cz/c/davidl6528?currency=CZK" rel="nofollow" style="color: white">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Discount</button>
+        </a>
+      </div>
+      <p><i>You will receive up to <u>$40</u> off your first trip, and honestly, we’ll get $15 for every person who will complete stay through this link.</i></p>
+    </div>
+    <div class="col-sm-4" style="padding-top:2rem">
+      <h3>Transportation</h3>
+      <p>There are numerous transportation options available, including: airport buses, door-to-door shuttle vans, local buses, light rail, taxicabs and rental cars.</p>
+      <p>There are even several apps to get you from A to B. For example <u><a href="https://gocurb.com/" rel="nofollow">CURB</a></u>, <u><a href="https://www.uber.com/global/cs/cities/los-angeles/" rel="nofollow">UBER</a></u> or <u><a href="https://www.lyft.com/rider/cities/los-angeles-ca" rel="nofollow">LYFT</a></u> and car rental <u><a href="https://turo.com/" rel="nofollow">TURO</a></u>.</p>
+    </div>
+  </div>
 </div>
 
 <!-- Clinic additional locations -->

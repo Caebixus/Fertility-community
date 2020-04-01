@@ -342,3 +342,107 @@ def rmcrm(request):
         }
 
     return render(request, 'clinics/US/Colorado/rocky-mountain-center-reproductive-medicine.html', context)
+
+def carsf(request):
+    listing = BasicClinic.objects.get(pk=44)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/cars-farmington.html', context)
+
+def carsh(request):
+    listing = BasicClinic.objects.get(pk=45)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/cars-hartford.html', context)
+
+def carsnl(request):
+    listing = BasicClinic.objects.get(pk=46)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/cars-new-london.html', context)
+
+def carsb(request):
+    listing = BasicClinic.objects.get(pk=47)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/cars-branford.html', context)
+
+def gfg(request):
+    listing = BasicClinic.objects.get(pk=48)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/greenwich-fertility-greenwich.html', context)
+
+def gfs(request):
+    listing = BasicClinic.objects.get(pk=49)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/greenwich-fertility-stamford.html', context)
+
+def rmactn(request):
+    listing = BasicClinic.objects.get(pk=50)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/rmact-norwalk.html', context)
+
+def rmacts(request):
+    listing = BasicClinic.objects.get(pk=51)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/rmact-stamford.html', context)
+
+def rmactd(request):
+    listing = BasicClinic.objects.get(pk=52)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/rmact-danbury.html', context)
+
+def rmactt(request):
+    listing = BasicClinic.objects.get(pk=53)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/rmact-trumbull.html', context)
+
+def paft(request):
+    listing = BasicClinic.objects.get(pk=54)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/park-avenue-fertility-trumbull.html', context)
+
+def paff(request):
+    listing = BasicClinic.objects.get(pk=55)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/park-avenue-fertility-fairfield.html', context)
+
+def pafn(request):
+    listing = BasicClinic.objects.get(pk=56)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Connecticut/park-avenue-fertility-norwalk.html', context)

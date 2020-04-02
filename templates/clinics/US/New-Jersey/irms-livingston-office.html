@@ -768,7 +768,7 @@
 
 <div class="container">
   <hr>
-  <h2>Travelling information for abroad clients</h2>
+  <h2>Clinics Location</h2>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.931015347442!2d-74.30711468419325!3d40.76354197932622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3abf8f49beb01%3A0xef0ce4e38dc4c19b!2sIRMS%20Institute%20for%20Reproductive%20Medicine%20and%20Science!5e0!3m2!1scs!2scz!4v1584372134714!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
@@ -779,30 +779,112 @@
       <p>{{ listing.clinicState }}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Calculate costs of flight tickets</h3>
-      <p>This tool calculates the flight costs for any location/airport in the world. Simply select the desired airport of departure and destination and price is calculated, also with possible flights.</p>
-      <div class="lol" style="padding-bottom: 1rem">
-        <a href="{% url 'travelCalculator' %}" style="color: white">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Calculate</button>
-        </a>
+  <br>
+  <hr>
+  <br>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Monday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.mondayOpens }}
       </div>
     </div>
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Accommodation</h3>
-      <p>I recommend staying with locals using Airbnb, so you can fully absorb the atmosphere of a city.</p>
-      <br>
-      <div class="lol" style="padding-bottom: 1rem">
-        <a href="https://www.airbnb.cz/c/davidl6528?currency=CZK" rel="nofollow" style="color: white">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Discount</button>
-        </a>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.mondayCloses }}
       </div>
-      <p><i>You will receive up to <u>£34</u> off your first trip, and honestly, we’ll get £15 for every person who will complete stay through this link.</i></p>
     </div>
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Transportation</h3>
-      <p>There are several apps to get you from A to B. For example <u><a href="https://www.uber.com/" rel="nofollow">UBER</a></u> or <u><a href="https://www.lyft.com/" rel="nofollow">LYFT</a></u> and car rental <u><a href="https://turo.com/" rel="nofollow">TURO</a></u>.</p>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Tuesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.tuesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.tuesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Wednesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.wednesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.wednesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Thursday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.thursdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.thursdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Friday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.fridayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.fridayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Saturday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.saturdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.saturdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Sunday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.sundayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.sundayCloses }}
+      </div>
     </div>
   </div>
   <br>

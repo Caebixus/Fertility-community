@@ -446,3 +446,43 @@ def pafn(request):
         }
 
     return render(request, 'clinics/US/Connecticut/park-avenue-fertility-norwalk.html', context)
+
+def dirmn(request):
+    listing = BasicClinic.objects.get(pk=57)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Delaware/dirm-newark.html', context)
+
+def dirmm(request):
+    listing = BasicClinic.objects.get(pk=58)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Delaware/dirm-milford.html', context)
+
+def radfn(request):
+    listing = BasicClinic.objects.get(pk=59)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Delaware/radfertility-newark.html', context)
+
+def radfw(request):
+    listing = BasicClinic.objects.get(pk=60)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Delaware/radfertility-wilmington.html', context)
+
+def radfd(request):
+    listing = BasicClinic.objects.get(pk=61)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Delaware/radfertility-dover.html', context)

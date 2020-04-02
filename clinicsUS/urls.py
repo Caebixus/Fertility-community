@@ -58,4 +58,9 @@ urlpatterns = [
     path('clinics/us/connecticut/park-avenue-fertility-trumbull', views.paft, name='paft'),
     path('clinics/us/connecticut/park-avenue-fertility-fairfield', views.paff, name='paff'),
     path('clinics/us/connecticut/park-avenue-fertility-norwalk', views.pafn, name='pafn'),
+    path('clinics/us/delaware/dirm-newark', views.dirmn, name='dirmn'),
+    path('clinics/us/delaware/dirm-milford', views.dirmm, name='dirmm'),
+    path('clinics/us/delaware/radfertility-newark', views.radfn, name='radfn'),
+    path('clinics/us/delaware/radfertility-wilmington', views.radfw, name='radfw'),
+    path('clinics/us/delaware/radfertility-dover', views.radfd, name='radfd'),
 ]

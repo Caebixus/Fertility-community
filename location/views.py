@@ -1821,6 +1821,68 @@ def locationsUSRegions(request):
             eurCurrency_missouri_iui = None
 
     #--------------------------------------------------------------------------
+    queryset_list_montana = queryset_list_us.filter(clinicRegion__iexact='Montana')
+    queryset_list_montana_ivf = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_missouri_ivf.items():
+        usdCurrency_montana_ivf = val
+        if usdCurrency_montana_ivf is not None:
+            gbpCurrency_montana_ivf = val * usdToGbp
+            eurCurrency_montana_ivf = val * usdToEur
+        else:
+            gbpCurrency_montana_ivf = None
+            eurCurrency_montana_ivf = None
+
+    queryset_list_montana_egg = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_montana_egg.items():
+        usdCurrency_montana_egg = val
+        if usdCurrency_montana_egg is not None:
+            gbpCurrency_montana_egg = val * usdToGbp
+            eurCurrency_montana_egg = val * usdToEur
+        else:
+            gbpCurrency_montana_egg = None
+            eurCurrency_montana_egg = None
+
+    queryset_list_montana_embryo = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_montana_embryo.items():
+        usdCurrency_montana_embryo = val
+        if usdCurrency_montana_embryo is not None:
+            gbpCurrency_montana_embryo = val * usdToGbp
+            eurCurrency_montana_embryo = val * usdToEur
+        else:
+            gbpCurrency_montana_embryo = None
+            eurCurrency_montana_embryo = None
+
+    queryset_list_montana_sperm = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_montana_sperm.items():
+        usdCurrency_montana_sperm = val
+        if usdCurrency_montana_sperm is not None:
+            gbpCurrency_montana_sperm = val * usdToGbp
+            eurCurrency_montana_sperm = val * usdToEur
+        else:
+            gbpCurrency_montana_sperm = None
+            eurCurrency_montana_sperm = None
+
+    queryset_list_montana_icsi = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_montana_icsi.items():
+        usdCurrency_montana_icsi = val
+        if usdCurrency_montana_icsi is not None:
+            gbpCurrency_montana_icsi = val * usdToGbp
+            eurCurrency_montana_icsi = val * usdToEur
+        else:
+            gbpCurrency_montana_icsi = None
+            eurCurrency_montana_icsi = None
+
+    queryset_list_montana_iui = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_montana_iui.items():
+        usdCurrency_montana_iui = val
+        if usdCurrency_montana_iui is not None:
+            gbpCurrency_montana_iui = val * usdToGbp
+            eurCurrency_montana_iui = val * usdToEur
+        else:
+            gbpCurrency_montana_iui = None
+            eurCurrency_montana_iui = None
+
+    #--------------------------------------------------------------------------
     queryset_list_nebraska = queryset_list_us.filter(clinicRegion__iexact='Nebraska')
     queryset_list_nebraska_ivf = queryset_list_nebraska.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
     for key,val in queryset_list_nebraska_ivf.items():
@@ -2129,6 +2191,1308 @@ def locationsUSRegions(request):
         else:
             gbpCurrency_newyork_iui = None
             eurCurrency_newyork_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_northcarolina = queryset_list_us.filter(clinicRegion__iexact='North Carolina')
+    queryset_list_northcarolina_ivf = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_northcarolina_ivf.items():
+        usdCurrency_northcarolina_ivf = val
+        if usdCurrency_northcarolina_ivf is not None:
+            gbpCurrency_northcarolina_ivf = val * usdToGbp
+            eurCurrency_northcarolina_ivf = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_ivf = None
+            eurCurrency_northcarolina_ivf = None
+
+    queryset_list_northcarolina_egg = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_northcarolina_egg.items():
+        usdCurrency_northcarolina_egg = val
+        if usdCurrency_northcarolina_egg is not None:
+            gbpCurrency_northcarolina_egg = val * usdToGbp
+            eurCurrency_northcarolina_egg = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_egg = None
+            eurCurrency_northcarolina_egg = None
+
+    queryset_list_northcarolina_embryo = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_northcarolina_embryo.items():
+        usdCurrency_northcarolina_embryo = val
+        if usdCurrency_northcarolina_embryo is not None:
+            gbpCurrency_northcarolina_embryo = val * usdToGbp
+            eurCurrency_northcarolina_embryo = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_embryo = None
+            eurCurrency_northcarolina_embryo = None
+
+    queryset_list_northcarolina_sperm = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_northcarolina_sperm.items():
+        usdCurrency_northcarolina_sperm = val
+        if usdCurrency_northcarolina_sperm is not None:
+            gbpCurrency_northcarolina_sperm = val * usdToGbp
+            eurCurrency_northcarolina_sperm = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_sperm = None
+            eurCurrency_northcarolina_sperm = None
+
+    queryset_list_northcarolina_icsi = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_northcarolina_icsi.items():
+        usdCurrency_northcarolina_icsi = val
+        if usdCurrency_northcarolina_icsi is not None:
+            gbpCurrency_northcarolina_icsi = val * usdToGbp
+            eurCurrency_northcarolina_icsi = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_icsi = None
+            eurCurrency_northcarolina_icsi = None
+
+    queryset_list_northcarolina_iui = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_northcarolina_iui.items():
+        usdCurrency_northcarolina_iui = val
+        if usdCurrency_northcarolina_iui is not None:
+            gbpCurrency_northcarolina_iui = val * usdToGbp
+            eurCurrency_northcarolina_iui = val * usdToEur
+        else:
+            gbpCurrency_northcarolina_iui = None
+            eurCurrency_northcarolina_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_northdakota = queryset_list_us.filter(clinicRegion__iexact='North Dakota')
+    queryset_list_northdakota_ivf = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_northdakota_ivf.items():
+        usdCurrency_northdakota_ivf = val
+        if usdCurrency_northdakota_ivf is not None:
+            gbpCurrency_northdakota_ivf = val * usdToGbp
+            eurCurrency_northdakota_ivf = val * usdToEur
+        else:
+            gbpCurrency_northdakota_ivf = None
+            eurCurrency_northdakota_ivf = None
+
+    queryset_list_northdakota_egg = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_northdakota_egg.items():
+        usdCurrency_northdakota_egg = val
+        if usdCurrency_northdakota_egg is not None:
+            gbpCurrency_northdakota_egg = val * usdToGbp
+            eurCurrency_northdakota_egg = val * usdToEur
+        else:
+            gbpCurrency_northdakota_egg = None
+            eurCurrency_northdakota_egg = None
+
+    queryset_list_northdakota_embryo = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_northdakota_embryo.items():
+        usdCurrency_northdakota_embryo = val
+        if usdCurrency_northdakota_embryo is not None:
+            gbpCurrency_northdakota_embryo = val * usdToGbp
+            eurCurrency_northdakota_embryo = val * usdToEur
+        else:
+            gbpCurrency_northdakota_embryo = None
+            eurCurrency_northdakota_embryo = None
+
+    queryset_list_northdakota_sperm = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_northdakota_sperm.items():
+        usdCurrency_northdakota_sperm = val
+        if usdCurrency_northdakota_sperm is not None:
+            gbpCurrency_northdakota_sperm = val * usdToGbp
+            eurCurrency_northdakota_sperm = val * usdToEur
+        else:
+            gbpCurrency_northdakota_sperm = None
+            eurCurrency_northdakota_sperm = None
+
+    queryset_list_northdakota_icsi = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_northdakota_icsi.items():
+        usdCurrency_northdakota_icsi = val
+        if usdCurrency_northdakota_icsi is not None:
+            gbpCurrency_northdakota_icsi = val * usdToGbp
+            eurCurrency_northdakota_icsi = val * usdToEur
+        else:
+            gbpCurrency_northdakota_icsi = None
+            eurCurrency_northdakota_icsi = None
+
+    queryset_list_northdakota_iui = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_northdakota_iui.items():
+        usdCurrency_northdakota_iui = val
+        if usdCurrency_northdakota_iui is not None:
+            gbpCurrency_northdakota_iui = val * usdToGbp
+            eurCurrency_northdakota_iui = val * usdToEur
+        else:
+            gbpCurrency_northdakota_iui = None
+            eurCurrency_northdakota_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_nevada = queryset_list_us.filter(clinicRegion__iexact='Nevada')
+    queryset_list_nevada_ivf = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_nevada_ivf.items():
+        usdCurrency_nevada_ivf = val
+        if usdCurrency_nevada_ivf is not None:
+            gbpCurrency_nevada_ivf = val * usdToGbp
+            eurCurrency_nevada_ivf = val * usdToEur
+        else:
+            gbpCurrency_nevada_ivf = None
+            eurCurrency_nevada_ivf = None
+
+    queryset_list_nevada_egg = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_nevada_egg.items():
+        usdCurrency_nevada_egg = val
+        if usdCurrency_nevada_egg is not None:
+            gbpCurrency_nevada_egg = val * usdToGbp
+            eurCurrency_nevada_egg = val * usdToEur
+        else:
+            gbpCurrency_nevada_egg = None
+            eurCurrency_nevada_egg = None
+
+    queryset_list_nevada_embryo = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_nevada_embryo.items():
+        usdCurrency_nevada_embryo = val
+        if usdCurrency_nevada_embryo is not None:
+            gbpCurrency_nevada_embryo = val * usdToGbp
+            eurCurrency_nevada_embryo = val * usdToEur
+        else:
+            gbpCurrency_nevada_embryo = None
+            eurCurrency_nevada_embryo = None
+
+    queryset_list_nevada_sperm = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_nevada_sperm.items():
+        usdCurrency_nevada_sperm = val
+        if usdCurrency_nevada_sperm is not None:
+            gbpCurrency_nevada_sperm = val * usdToGbp
+            eurCurrency_nevada_sperm = val * usdToEur
+        else:
+            gbpCurrency_nevada_sperm = None
+            eurCurrency_nevada_sperm = None
+
+    queryset_list_nevada_icsi = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_nevada_icsi.items():
+        usdCurrency_nevada_icsi = val
+        if usdCurrency_nevada_icsi is not None:
+            gbpCurrency_nevada_icsi = val * usdToGbp
+            eurCurrency_nevada_icsi = val * usdToEur
+        else:
+            gbpCurrency_nevada_icsi = None
+            eurCurrency_nevada_icsi = None
+
+    queryset_list_nevada_iui = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_nevada_iui.items():
+        usdCurrency_nevada_iui = val
+        if usdCurrency_nevada_iui is not None:
+            gbpCurrency_nevada_iui = val * usdToGbp
+            eurCurrency_nevada_iui = val * usdToEur
+        else:
+            gbpCurrency_nevada_iui = None
+            eurCurrency_nevada_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_ohio = queryset_list_us.filter(clinicRegion__iexact='Ohio')
+    queryset_list_ohio_ivf = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_ohio_ivf.items():
+        usdCurrency_ohio_ivf = val
+        if usdCurrency_ohio_ivf is not None:
+            gbpCurrency_ohio_ivf = val * usdToGbp
+            eurCurrency_ohio_ivf = val * usdToEur
+        else:
+            gbpCurrency_ohio_ivf = None
+            eurCurrency_ohio_ivf = None
+
+    queryset_list_ohio_egg = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_ohio_egg.items():
+        usdCurrency_ohio_egg = val
+        if usdCurrency_ohio_egg is not None:
+            gbpCurrency_ohio_egg = val * usdToGbp
+            eurCurrency_ohio_egg = val * usdToEur
+        else:
+            gbpCurrency_ohio_egg = None
+            eurCurrency_ohio_egg = None
+
+    queryset_list_ohio_embryo = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_ohio_embryo.items():
+        usdCurrency_ohio_embryo = val
+        if usdCurrency_ohio_embryo is not None:
+            gbpCurrency_ohio_embryo = val * usdToGbp
+            eurCurrency_ohio_embryo = val * usdToEur
+        else:
+            gbpCurrency_ohio_embryo = None
+            eurCurrency_ohio_embryo = None
+
+    queryset_list_ohio_sperm = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_ohio_sperm.items():
+        usdCurrency_ohio_sperm = val
+        if usdCurrency_ohio_sperm is not None:
+            gbpCurrency_ohio_sperm = val * usdToGbp
+            eurCurrency_ohio_sperm = val * usdToEur
+        else:
+            gbpCurrency_ohio_sperm = None
+            eurCurrency_ohio_sperm = None
+
+    queryset_list_ohio_icsi = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_ohio_icsi.items():
+        usdCurrency_ohio_icsi = val
+        if usdCurrency_ohio_icsi is not None:
+            gbpCurrency_ohio_icsi = val * usdToGbp
+            eurCurrency_ohio_icsi = val * usdToEur
+        else:
+            gbpCurrency_ohio_icsi = None
+            eurCurrency_ohio_icsi = None
+
+    queryset_list_ohio_iui = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_ohio_iui.items():
+        usdCurrency_ohio_iui = val
+        if usdCurrency_ohio_iui is not None:
+            gbpCurrency_ohio_iui = val * usdToGbp
+            eurCurrency_ohio_iui = val * usdToEur
+        else:
+            gbpCurrency_ohio_iui = None
+            eurCurrency_ohio_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_oklahoma = queryset_list_us.filter(clinicRegion__iexact='Oklahoma')
+    queryset_list_oklahoma_ivf = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_oklahoma_ivf.items():
+        usdCurrency_oklahoma_ivf = val
+        if usdCurrency_oklahoma_ivf is not None:
+            gbpCurrency_oklahoma_ivf = val * usdToGbp
+            eurCurrency_oklahoma_ivf = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_ivf = None
+            eurCurrency_oklahoma_ivf = None
+
+    queryset_list_oklahoma_egg = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_oklahoma_egg.items():
+        usdCurrency_oklahoma_egg = val
+        if usdCurrency_oklahoma_egg is not None:
+            gbpCurrency_oklahoma_egg = val * usdToGbp
+            eurCurrency_oklahoma_egg = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_egg = None
+            eurCurrency_oklahoma_egg = None
+
+    queryset_list_oklahoma_embryo = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_oklahoma_embryo.items():
+        usdCurrency_oklahoma_embryo = val
+        if usdCurrency_oklahoma_embryo is not None:
+            gbpCurrency_oklahoma_embryo = val * usdToGbp
+            eurCurrency_oklahoma_embryo = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_embryo = None
+            eurCurrency_oklahoma_embryo = None
+
+    queryset_list_oklahoma_sperm = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_oklahoma_sperm.items():
+        usdCurrency_oklahoma_sperm = val
+        if usdCurrency_oklahoma_sperm is not None:
+            gbpCurrency_oklahoma_sperm = val * usdToGbp
+            eurCurrency_oklahoma_sperm = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_sperm = None
+            eurCurrency_oklahoma_sperm = None
+
+    queryset_list_oklahoma_icsi = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_oklahoma_icsi.items():
+        usdCurrency_oklahoma_icsi = val
+        if usdCurrency_oklahoma_icsi is not None:
+            gbpCurrency_oklahoma_icsi = val * usdToGbp
+            eurCurrency_oklahoma_icsi = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_icsi = None
+            eurCurrency_oklahoma_icsi = None
+
+    queryset_list_oklahoma_iui = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_oklahoma_iui.items():
+        usdCurrency_oklahoma_iui = val
+        if usdCurrency_oklahoma_iui is not None:
+            gbpCurrency_oklahoma_iui = val * usdToGbp
+            eurCurrency_oklahoma_iui = val * usdToEur
+        else:
+            gbpCurrency_oklahoma_iui = None
+            eurCurrency_oklahoma_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_oregon = queryset_list_us.filter(clinicRegion__iexact='Oregon')
+    queryset_list_oregon_ivf = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_oregon_ivf.items():
+        usdCurrency_oregon_ivf = val
+        if usdCurrency_oregon_ivf is not None:
+            gbpCurrency_oregon_ivf = val * usdToGbp
+            eurCurrency_oregon_ivf = val * usdToEur
+        else:
+            gbpCurrency_oregon_ivf = None
+            eurCurrency_oregon_ivf = None
+
+    queryset_list_oregon_egg = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_oregon_egg.items():
+        usdCurrency_oregon_egg = val
+        if usdCurrency_oregon_egg is not None:
+            gbpCurrency_oregon_egg = val * usdToGbp
+            eurCurrency_oregon_egg = val * usdToEur
+        else:
+            gbpCurrency_oregon_egg = None
+            eurCurrency_oregon_egg = None
+
+    queryset_list_oregon_embryo = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_oregon_embryo.items():
+        usdCurrency_oregon_embryo = val
+        if usdCurrency_oregon_embryo is not None:
+            gbpCurrency_oregon_embryo = val * usdToGbp
+            eurCurrency_oregon_embryo = val * usdToEur
+        else:
+            gbpCurrency_oregon_embryo = None
+            eurCurrency_oregon_embryo = None
+
+    queryset_list_oregon_sperm = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_oregon_sperm.items():
+        usdCurrency_oregon_sperm = val
+        if usdCurrency_oregon_sperm is not None:
+            gbpCurrency_oregon_sperm = val * usdToGbp
+            eurCurrency_oregon_sperm = val * usdToEur
+        else:
+            gbpCurrency_oregon_sperm = None
+            eurCurrency_oregon_sperm = None
+
+    queryset_list_oregon_icsi = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_oregon_icsi.items():
+        usdCurrency_oregon_icsi = val
+        if usdCurrency_oregon_icsi is not None:
+            gbpCurrency_oregon_icsi = val * usdToGbp
+            eurCurrency_oregon_icsi = val * usdToEur
+        else:
+            gbpCurrency_oregon_icsi = None
+            eurCurrency_oregon_icsi = None
+
+    queryset_list_oregon_iui = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_oregon_iui.items():
+        usdCurrency_oregon_iui = val
+        if usdCurrency_oregon_iui is not None:
+            gbpCurrency_oregon_iui = val * usdToGbp
+            eurCurrency_oregon_iui = val * usdToEur
+        else:
+            gbpCurrency_oregon_iui = None
+            eurCurrency_oregon_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_pennsylvania = queryset_list_us.filter(clinicRegion__iexact='Pennsylvania')
+    queryset_list_pennsylvania_ivf = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_pennsylvania_ivf.items():
+        usdCurrency_pennsylvania_ivf = val
+        if usdCurrency_pennsylvania_ivf is not None:
+            gbpCurrency_pennsylvania_ivf = val * usdToGbp
+            eurCurrency_pennsylvania_ivf = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_ivf = None
+            eurCurrency_pennsylvania_ivf = None
+
+    queryset_list_pennsylvania_egg = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_pennsylvania_egg.items():
+        usdCurrency_pennsylvania_egg = val
+        if usdCurrency_pennsylvania_egg is not None:
+            gbpCurrency_pennsylvania_egg = val * usdToGbp
+            eurCurrency_pennsylvania_egg = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_egg = None
+            eurCurrency_pennsylvania_egg = None
+
+    queryset_list_pennsylvania_embryo = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_pennsylvania_embryo.items():
+        usdCurrency_pennsylvania_embryo = val
+        if usdCurrency_pennsylvania_embryo is not None:
+            gbpCurrency_pennsylvania_embryo = val * usdToGbp
+            eurCurrency_pennsylvania_embryo = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_embryo = None
+            eurCurrency_pennsylvania_embryo = None
+
+    queryset_list_pennsylvania_sperm = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_pennsylvania_sperm.items():
+        usdCurrency_pennsylvania_sperm = val
+        if usdCurrency_pennsylvania_sperm is not None:
+            gbpCurrency_pennsylvania_sperm = val * usdToGbp
+            eurCurrency_pennsylvania_sperm = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_sperm = None
+            eurCurrency_pennsylvania_sperm = None
+
+    queryset_list_pennsylvania_icsi = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_pennsylvania_icsi.items():
+        usdCurrency_pennsylvania_icsi = val
+        if usdCurrency_pennsylvania_icsi is not None:
+            gbpCurrency_pennsylvania_icsi = val * usdToGbp
+            eurCurrency_pennsylvania_icsi = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_icsi = None
+            eurCurrency_pennsylvania_icsi = None
+
+    queryset_list_pennsylvania_iui = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_pennsylvania_iui.items():
+        usdCurrency_pennsylvania_iui = val
+        if usdCurrency_pennsylvania_iui is not None:
+            gbpCurrency_pennsylvania_iui = val * usdToGbp
+            eurCurrency_pennsylvania_iui = val * usdToEur
+        else:
+            gbpCurrency_pennsylvania_iui = None
+            eurCurrency_pennsylvania_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_puertorico = queryset_list_us.filter(clinicRegion__iexact='Puerto Rico')
+    queryset_list_puertorico_ivf = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_puertorico_ivf.items():
+        usdCurrency_puertorico_ivf = val
+        if usdCurrency_puertorico_ivf is not None:
+            gbpCurrency_puertorico_ivf = val * usdToGbp
+            eurCurrency_puertorico_ivf = val * usdToEur
+        else:
+            gbpCurrency_puertorico_ivf = None
+            eurCurrency_puertorico_ivf = None
+
+    queryset_list_puertorico_egg = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_puertorico_egg.items():
+        usdCurrency_puertorico_egg = val
+        if usdCurrency_puertorico_egg is not None:
+            gbpCurrency_puertorico_egg = val * usdToGbp
+            eurCurrency_puertorico_egg = val * usdToEur
+        else:
+            gbpCurrency_puertorico_egg = None
+            eurCurrency_puertorico_egg = None
+
+    queryset_list_puertorico_embryo = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_puertorico_embryo.items():
+        usdCurrency_puertorico_embryo = val
+        if usdCurrency_puertorico_embryo is not None:
+            gbpCurrency_puertorico_embryo = val * usdToGbp
+            eurCurrency_puertorico_embryo = val * usdToEur
+        else:
+            gbpCurrency_puertorico_embryo = None
+            eurCurrency_puertorico_embryo = None
+
+    queryset_list_puertorico_sperm = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_puertorico_sperm.items():
+        usdCurrency_puertorico_sperm = val
+        if usdCurrency_puertorico_sperm is not None:
+            gbpCurrency_puertorico_sperm = val * usdToGbp
+            eurCurrency_puertorico_sperm = val * usdToEur
+        else:
+            gbpCurrency_puertorico_sperm = None
+            eurCurrency_puertorico_sperm = None
+
+    queryset_list_puertorico_icsi = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_puertorico_icsi.items():
+        usdCurrency_puertorico_icsi = val
+        if usdCurrency_puertorico_icsi is not None:
+            gbpCurrency_puertorico_icsi = val * usdToGbp
+            eurCurrency_puertorico_icsi = val * usdToEur
+        else:
+            gbpCurrency_puertorico_icsi = None
+            eurCurrency_puertorico_icsi = None
+
+    queryset_list_puertorico_iui = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_puertorico_iui.items():
+        usdCurrency_puertorico_iui = val
+        if usdCurrency_puertorico_iui is not None:
+            gbpCurrency_puertorico_iui = val * usdToGbp
+            eurCurrency_puertorico_iui = val * usdToEur
+        else:
+            gbpCurrency_puertorico_iui = None
+            eurCurrency_puertorico_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_southcarolina = queryset_list_us.filter(clinicRegion__iexact='South Carolina')
+    queryset_list_southcarolina_ivf = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_southcarolina_ivf.items():
+        usdCurrency_southcarolina_ivf = val
+        if usdCurrency_southcarolina_ivf is not None:
+            gbpCurrency_southcarolina_ivf = val * usdToGbp
+            eurCurrency_southcarolina_ivf = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_ivf = None
+            eurCurrency_southcarolina_ivf = None
+
+    queryset_list_southcarolina_egg = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_southcarolina_egg.items():
+        usdCurrency_southcarolina_egg = val
+        if usdCurrency_southcarolina_egg is not None:
+            gbpCurrency_southcarolina_egg = val * usdToGbp
+            eurCurrency_southcarolina_egg = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_egg = None
+            eurCurrency_southcarolina_egg = None
+
+    queryset_list_southcarolina_embryo = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_southcarolina_embryo.items():
+        usdCurrency_southcarolina_embryo = val
+        if usdCurrency_southcarolina_embryo is not None:
+            gbpCurrency_southcarolina_embryo = val * usdToGbp
+            eurCurrency_southcarolina_embryo = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_embryo = None
+            eurCurrency_southcarolina_embryo = None
+
+    queryset_list_southcarolina_sperm = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_southcarolina_sperm.items():
+        usdCurrency_southcarolina_sperm = val
+        if usdCurrency_southcarolina_sperm is not None:
+            gbpCurrency_southcarolina_sperm = val * usdToGbp
+            eurCurrency_southcarolina_sperm = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_sperm = None
+            eurCurrency_southcarolina_sperm = None
+
+    queryset_list_southcarolina_icsi = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_southcarolina_icsi.items():
+        usdCurrency_southcarolina_icsi = val
+        if usdCurrency_southcarolina_icsi is not None:
+            gbpCurrency_southcarolina_icsi = val * usdToGbp
+            eurCurrency_southcarolina_icsi = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_icsi = None
+            eurCurrency_southcarolina_icsi = None
+
+    queryset_list_southcarolina_iui = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_southcarolina_iui.items():
+        usdCurrency_southcarolina_iui = val
+        if usdCurrency_southcarolina_iui is not None:
+            gbpCurrency_southcarolina_iui = val * usdToGbp
+            eurCurrency_southcarolina_iui = val * usdToEur
+        else:
+            gbpCurrency_southcarolina_iui = None
+            eurCurrency_southcarolina_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_rhodeisland = queryset_list_us.filter(clinicRegion__iexact='Rhode Island')
+    queryset_list_rhodeisland_ivf = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_rhodeisland_ivf.items():
+        usdCurrency_rhodeisland_ivf = val
+        if usdCurrency_rhodeisland_ivf is not None:
+            gbpCurrency_rhodeisland_ivf = val * usdToGbp
+            eurCurrency_rhodeisland_ivf = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_ivf = None
+            eurCurrency_rhodeisland_ivf = None
+
+    queryset_list_rhodeisland_egg = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_rhodeisland_egg.items():
+        usdCurrency_rhodeisland_egg = val
+        if usdCurrency_rhodeisland_egg is not None:
+            gbpCurrency_rhodeisland_egg = val * usdToGbp
+            eurCurrency_rhodeisland_egg = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_egg = None
+            eurCurrency_rhodeisland_egg = None
+
+    queryset_list_rhodeisland_embryo = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_rhodeisland_embryo.items():
+        usdCurrency_rhodeisland_embryo = val
+        if usdCurrency_rhodeisland_embryo is not None:
+            gbpCurrency_rhodeisland_embryo = val * usdToGbp
+            eurCurrency_rhodeisland_embryo = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_embryo = None
+            eurCurrency_rhodeisland_embryo = None
+
+    queryset_list_rhodeisland_sperm = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_rhodeisland_sperm.items():
+        usdCurrency_rhodeisland_sperm = val
+        if usdCurrency_rhodeisland_sperm is not None:
+            gbpCurrency_rhodeisland_sperm = val * usdToGbp
+            eurCurrency_rhodeisland_sperm = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_sperm = None
+            eurCurrency_rhodeisland_sperm = None
+
+    queryset_list_rhodeisland_icsi = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_rhodeisland_icsi.items():
+        usdCurrency_rhodeisland_icsi = val
+        if usdCurrency_rhodeisland_icsi is not None:
+            gbpCurrency_rhodeisland_icsi = val * usdToGbp
+            eurCurrency_rhodeisland_icsi = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_icsi = None
+            eurCurrency_rhodeisland_icsi = None
+
+    queryset_list_rhodeisland_iui = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_rhodeisland_iui.items():
+        usdCurrency_rhodeisland_iui = val
+        if usdCurrency_rhodeisland_iui is not None:
+            gbpCurrency_rhodeisland_iui = val * usdToGbp
+            eurCurrency_rhodeisland_iui = val * usdToEur
+        else:
+            gbpCurrency_rhodeisland_iui = None
+            eurCurrency_rhodeisland_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_southdakota = queryset_list_us.filter(clinicRegion__iexact='South Dakota')
+    queryset_list_southdakota_ivf = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_southdakota_ivf.items():
+        usdCurrency_southdakota_ivf = val
+        if usdCurrency_southdakota_ivf is not None:
+            gbpCurrency_southdakota_ivf = val * usdToGbp
+            eurCurrency_southdakota_ivf = val * usdToEur
+        else:
+            gbpCurrency_southdakota_ivf = None
+            eurCurrency_southdakota_ivf = None
+
+    queryset_list_southdakota_egg = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_southdakota_egg.items():
+        usdCurrency_southdakota_egg = val
+        if usdCurrency_southdakota_egg is not None:
+            gbpCurrency_southdakota_egg = val * usdToGbp
+            eurCurrency_southdakota_egg = val * usdToEur
+        else:
+            gbpCurrency_southdakota_egg = None
+            eurCurrency_southdakota_egg = None
+
+    queryset_list_southdakota_embryo = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_southdakota_embryo.items():
+        usdCurrency_southdakota_embryo = val
+        if usdCurrency_southdakota_embryo is not None:
+            gbpCurrency_southdakota_embryo = val * usdToGbp
+            eurCurrency_southdakota_embryo = val * usdToEur
+        else:
+            gbpCurrency_southdakota_embryo = None
+            eurCurrency_southdakota_embryo = None
+
+    queryset_list_southdakota_sperm = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_southdakota_sperm.items():
+        usdCurrency_southdakota_sperm = val
+        if usdCurrency_southdakota_sperm is not None:
+            gbpCurrency_southdakota_sperm = val * usdToGbp
+            eurCurrency_southdakota_sperm = val * usdToEur
+        else:
+            gbpCurrency_southdakota_sperm = None
+            eurCurrency_southdakota_sperm = None
+
+    queryset_list_southdakota_icsi = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_southdakota_icsi.items():
+        usdCurrency_southdakota_icsi = val
+        if usdCurrency_southdakota_icsi is not None:
+            gbpCurrency_southdakota_icsi = val * usdToGbp
+            eurCurrency_southdakota_icsi = val * usdToEur
+        else:
+            gbpCurrency_southdakota_icsi = None
+            eurCurrency_southdakota_icsi = None
+
+    queryset_list_southdakota_iui = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_southdakota_iui.items():
+        usdCurrency_southdakota_iui = val
+        if usdCurrency_southdakota_iui is not None:
+            gbpCurrency_southdakota_iui = val * usdToGbp
+            eurCurrency_southdakota_iui = val * usdToEur
+        else:
+            gbpCurrency_southdakota_iui = None
+            eurCurrency_southdakota_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_tennessee = queryset_list_us.filter(clinicRegion__iexact='Tennessee')
+    queryset_list_tennessee_ivf = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_tennessee_ivf.items():
+        usdCurrency_tennessee_ivf = val
+        if usdCurrency_tennessee_ivf is not None:
+            gbpCurrency_tennessee_ivf = val * usdToGbp
+            eurCurrency_tennessee_ivf = val * usdToEur
+        else:
+            gbpCurrency_tennessee_ivf = None
+            eurCurrency_tennessee_ivf = None
+
+    queryset_list_tennessee_egg = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_tennessee_egg.items():
+        usdCurrency_tennessee_egg = val
+        if usdCurrency_tennessee_egg is not None:
+            gbpCurrency_tennessee_egg = val * usdToGbp
+            eurCurrency_tennessee_egg = val * usdToEur
+        else:
+            gbpCurrency_tennessee_egg = None
+            eurCurrency_tennessee_egg = None
+
+    queryset_list_tennessee_embryo = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_tennessee_embryo.items():
+        usdCurrency_tennessee_embryo = val
+        if usdCurrency_tennessee_embryo is not None:
+            gbpCurrency_tennessee_embryo = val * usdToGbp
+            eurCurrency_tennessee_embryo = val * usdToEur
+        else:
+            gbpCurrency_tennessee_embryo = None
+            eurCurrency_tennessee_embryo = None
+
+    queryset_list_tennessee_sperm = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_tennessee_sperm.items():
+        usdCurrency_tennessee_sperm = val
+        if usdCurrency_tennessee_sperm is not None:
+            gbpCurrency_tennessee_sperm = val * usdToGbp
+            eurCurrency_tennessee_sperm = val * usdToEur
+        else:
+            gbpCurrency_tennessee_sperm = None
+            eurCurrency_tennessee_sperm = None
+
+    queryset_list_tennessee_icsi = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_tennessee_icsi.items():
+        usdCurrency_tennessee_icsi = val
+        if usdCurrency_tennessee_icsi is not None:
+            gbpCurrency_tennessee_icsi = val * usdToGbp
+            eurCurrency_tennessee_icsi = val * usdToEur
+        else:
+            gbpCurrency_tennessee_icsi = None
+            eurCurrency_tennessee_icsi = None
+
+    queryset_list_tennessee_iui = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_tennessee_iui.items():
+        usdCurrency_tennessee_iui = val
+        if usdCurrency_tennessee_iui is not None:
+            gbpCurrency_tennessee_iui = val * usdToGbp
+            eurCurrency_tennessee_iui = val * usdToEur
+        else:
+            gbpCurrency_tennessee_iui = None
+            eurCurrency_tennessee_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_texas = queryset_list_us.filter(clinicRegion__iexact='Texas')
+    queryset_list_texas_ivf = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_texas_ivf.items():
+        usdCurrency_texas_ivf = val
+        if usdCurrency_texas_ivf is not None:
+            gbpCurrency_texas_ivf = val * usdToGbp
+            eurCurrency_texas_ivf = val * usdToEur
+        else:
+            gbpCurrency_texas_ivf = None
+            eurCurrency_texas_ivf = None
+
+    queryset_list_texas_egg = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_texas_egg.items():
+        usdCurrency_texas_egg = val
+        if usdCurrency_texas_egg is not None:
+            gbpCurrency_texas_egg = val * usdToGbp
+            eurCurrency_texas_egg = val * usdToEur
+        else:
+            gbpCurrency_texas_egg = None
+            eurCurrency_texas_egg = None
+
+    queryset_list_texas_embryo = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_texas_embryo.items():
+        usdCurrency_texas_embryo = val
+        if usdCurrency_texas_embryo is not None:
+            gbpCurrency_texas_embryo = val * usdToGbp
+            eurCurrency_texas_embryo = val * usdToEur
+        else:
+            gbpCurrency_texas_embryo = None
+            eurCurrency_texas_embryo = None
+
+    queryset_list_texas_sperm = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_texas_sperm.items():
+        usdCurrency_texas_sperm = val
+        if usdCurrency_texas_sperm is not None:
+            gbpCurrency_texas_sperm = val * usdToGbp
+            eurCurrency_texas_sperm = val * usdToEur
+        else:
+            gbpCurrency_texas_sperm = None
+            eurCurrency_texas_sperm = None
+
+    queryset_list_texas_icsi = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_texas_icsi.items():
+        usdCurrency_texas_icsi = val
+        if usdCurrency_texas_icsi is not None:
+            gbpCurrency_texas_icsi = val * usdToGbp
+            eurCurrency_texas_icsi = val * usdToEur
+        else:
+            gbpCurrency_texas_icsi = None
+            eurCurrency_texas_icsi = None
+
+    queryset_list_texas_iui = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_texas_iui.items():
+        usdCurrency_texas_iui = val
+        if usdCurrency_texas_iui is not None:
+            gbpCurrency_texas_iui = val * usdToGbp
+            eurCurrency_texas_iui = val * usdToEur
+        else:
+            gbpCurrency_texas_iui = None
+            eurCurrency_texas_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_utah = queryset_list_us.filter(clinicRegion__iexact='Utah')
+    queryset_list_utah_ivf = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_utah_ivf.items():
+        usdCurrency_utah_ivf = val
+        if usdCurrency_utah_ivf is not None:
+            gbpCurrency_utah_ivf = val * usdToGbp
+            eurCurrency_utah_ivf = val * usdToEur
+        else:
+            gbpCurrency_utah_ivf = None
+            eurCurrency_utah_ivf = None
+
+    queryset_list_utah_egg = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_utah_egg.items():
+        usdCurrency_utah_egg = val
+        if usdCurrency_utah_egg is not None:
+            gbpCurrency_utah_egg = val * usdToGbp
+            eurCurrency_utah_egg = val * usdToEur
+        else:
+            gbpCurrency_utah_egg = None
+            eurCurrency_utah_egg = None
+
+    queryset_list_utah_embryo = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_utah_embryo.items():
+        usdCurrency_utah_embryo = val
+        if usdCurrency_utah_embryo is not None:
+            gbpCurrency_utah_embryo = val * usdToGbp
+            eurCurrency_utah_embryo = val * usdToEur
+        else:
+            gbpCurrency_utah_embryo = None
+            eurCurrency_utah_embryo = None
+
+    queryset_list_utah_sperm = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_utah_sperm.items():
+        usdCurrency_utah_sperm = val
+        if usdCurrency_utah_sperm is not None:
+            gbpCurrency_utah_sperm = val * usdToGbp
+            eurCurrency_utah_sperm = val * usdToEur
+        else:
+            gbpCurrency_utah_sperm = None
+            eurCurrency_utah_sperm = None
+
+    queryset_list_utah_icsi = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_utah_icsi.items():
+        usdCurrency_utah_icsi = val
+        if usdCurrency_utah_icsi is not None:
+            gbpCurrency_utah_icsi = val * usdToGbp
+            eurCurrency_utah_icsi = val * usdToEur
+        else:
+            gbpCurrency_utah_icsi = None
+            eurCurrency_utah_icsi = None
+
+    queryset_list_utah_iui = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_utah_iui.items():
+        usdCurrency_utah_iui = val
+        if usdCurrency_utah_iui is not None:
+            gbpCurrency_utah_iui = val * usdToGbp
+            eurCurrency_utah_iui = val * usdToEur
+        else:
+            gbpCurrency_utah_iui = None
+            eurCurrency_utah_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_vermont = queryset_list_us.filter(clinicRegion__iexact='Vermont')
+    queryset_list_vermont_ivf = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_vermont_ivf.items():
+        usdCurrency_vermont_ivf = val
+        if usdCurrency_vermont_ivf is not None:
+            gbpCurrency_vermont_ivf = val * usdToGbp
+            eurCurrency_vermont_ivf = val * usdToEur
+        else:
+            gbpCurrency_vermont_ivf = None
+            eurCurrency_vermont_ivf = None
+
+    queryset_list_vermont_egg = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_vermont_egg.items():
+        usdCurrency_vermont_egg = val
+        if usdCurrency_vermont_egg is not None:
+            gbpCurrency_vermont_egg = val * usdToGbp
+            eurCurrency_vermont_egg = val * usdToEur
+        else:
+            gbpCurrency_vermont_egg = None
+            eurCurrency_vermont_egg = None
+
+    queryset_list_vermont_embryo = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_vermont_embryo.items():
+        usdCurrency_vermont_embryo = val
+        if usdCurrency_vermont_embryo is not None:
+            gbpCurrency_vermont_embryo = val * usdToGbp
+            eurCurrency_vermont_embryo = val * usdToEur
+        else:
+            gbpCurrency_vermont_embryo = None
+            eurCurrency_vermont_embryo = None
+
+    queryset_list_vermont_sperm = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_vermont_sperm.items():
+        usdCurrency_vermont_sperm = val
+        if usdCurrency_vermont_sperm is not None:
+            gbpCurrency_vermont_sperm = val * usdToGbp
+            eurCurrency_vermont_sperm = val * usdToEur
+        else:
+            gbpCurrency_vermont_sperm = None
+            eurCurrency_vermont_sperm = None
+
+    queryset_list_vermont_icsi = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_vermont_icsi.items():
+        usdCurrency_vermont_icsi = val
+        if usdCurrency_vermont_icsi is not None:
+            gbpCurrency_vermont_icsi = val * usdToGbp
+            eurCurrency_vermont_icsi = val * usdToEur
+        else:
+            gbpCurrency_vermont_icsi = None
+            eurCurrency_vermont_icsi = None
+
+    queryset_list_vermont_iui = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_vermont_iui.items():
+        usdCurrency_vermont_iui = val
+        if usdCurrency_vermont_iui is not None:
+            gbpCurrency_vermont_iui = val * usdToGbp
+            eurCurrency_vermont_iui = val * usdToEur
+        else:
+            gbpCurrency_vermont_iui = None
+            eurCurrency_vermont_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_virginia = queryset_list_us.filter(clinicRegion__iexact='Virginia')
+    queryset_list_virginia_ivf = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_virginia_ivf.items():
+        usdCurrency_virginia_ivf = val
+        if usdCurrency_virginia_ivf is not None:
+            gbpCurrency_virginia_ivf = val * usdToGbp
+            eurCurrency_virginia_ivf = val * usdToEur
+        else:
+            gbpCurrency_virginia_ivf = None
+            eurCurrency_virginia_ivf = None
+
+    queryset_list_virginia_egg = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_virginia_egg.items():
+        usdCurrency_virginia_egg = val
+        if usdCurrency_virginia_egg is not None:
+            gbpCurrency_virginia_egg = val * usdToGbp
+            eurCurrency_virginia_egg = val * usdToEur
+        else:
+            gbpCurrency_virginia_egg = None
+            eurCurrency_virginia_egg = None
+
+    queryset_list_virginia_embryo = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_virginia_embryo.items():
+        usdCurrency_virginia_embryo = val
+        if usdCurrency_virginia_embryo is not None:
+            gbpCurrency_virginia_embryo = val * usdToGbp
+            eurCurrency_virginia_embryo = val * usdToEur
+        else:
+            gbpCurrency_virginia_embryo = None
+            eurCurrency_virginia_embryo = None
+
+    queryset_list_virginia_sperm = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_virginia_sperm.items():
+        usdCurrency_virginia_sperm = val
+        if usdCurrency_virginia_sperm is not None:
+            gbpCurrency_virginia_sperm = val * usdToGbp
+            eurCurrency_virginia_sperm = val * usdToEur
+        else:
+            gbpCurrency_virginia_sperm = None
+            eurCurrency_virginia_sperm = None
+
+    queryset_list_virginia_icsi = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_virginia_icsi.items():
+        usdCurrency_virginia_icsi = val
+        if usdCurrency_virginia_icsi is not None:
+            gbpCurrency_virginia_icsi = val * usdToGbp
+            eurCurrency_virginia_icsi = val * usdToEur
+        else:
+            gbpCurrency_virginia_icsi = None
+            eurCurrency_virginia_icsi = None
+
+    queryset_list_virginia_iui = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_virginia_iui.items():
+        usdCurrency_virginia_iui = val
+        if usdCurrency_virginia_iui is not None:
+            gbpCurrency_virginia_iui = val * usdToGbp
+            eurCurrency_virginia_iui = val * usdToEur
+        else:
+            gbpCurrency_virginia_iui = None
+            eurCurrency_virginia_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_washington = queryset_list_us.filter(clinicRegion__iexact='Washington')
+    queryset_list_washington_ivf = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_washington_ivf.items():
+        usdCurrency_washington_ivf = val
+        if usdCurrency_washington_ivf is not None:
+            gbpCurrency_washington_ivf = val * usdToGbp
+            eurCurrency_washington_ivf = val * usdToEur
+        else:
+            gbpCurrency_washington_ivf = None
+            eurCurrency_washington_ivf = None
+
+    queryset_list_washington_egg = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_washington_egg.items():
+        usdCurrency_washington_egg = val
+        if usdCurrency_washington_egg is not None:
+            gbpCurrency_washington_egg = val * usdToGbp
+            eurCurrency_washington_egg = val * usdToEur
+        else:
+            gbpCurrency_washington_egg = None
+            eurCurrency_washington_egg = None
+
+    queryset_list_washington_embryo = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_washington_embryo.items():
+        usdCurrency_washington_embryo = val
+        if usdCurrency_washington_embryo is not None:
+            gbpCurrency_washington_embryo = val * usdToGbp
+            eurCurrency_washington_embryo = val * usdToEur
+        else:
+            gbpCurrency_washington_embryo = None
+            eurCurrency_washington_embryo = None
+
+    queryset_list_washington_sperm = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_washington_sperm.items():
+        usdCurrency_washington_sperm = val
+        if usdCurrency_washington_sperm is not None:
+            gbpCurrency_washington_sperm = val * usdToGbp
+            eurCurrency_washington_sperm = val * usdToEur
+        else:
+            gbpCurrency_washington_sperm = None
+            eurCurrency_washington_sperm = None
+
+    queryset_list_washington_icsi = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_washington_icsi.items():
+        usdCurrency_washington_icsi = val
+        if usdCurrency_washington_icsi is not None:
+            gbpCurrency_washington_icsi = val * usdToGbp
+            eurCurrency_washington_icsi = val * usdToEur
+        else:
+            gbpCurrency_washington_icsi = None
+            eurCurrency_washington_icsi = None
+
+    queryset_list_washington_iui = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_washington_iui.items():
+        usdCurrency_washington_iui = val
+        if usdCurrency_washington_iui is not None:
+            gbpCurrency_washington_iui = val * usdToGbp
+            eurCurrency_washington_iui = val * usdToEur
+        else:
+            gbpCurrency_washington_iui = None
+            eurCurrency_washington_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_westvirginia = queryset_list_us.filter(clinicRegion__iexact='West Virginia')
+    queryset_list_westvirginia_ivf = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_westvirginia_ivf.items():
+        usdCurrency_westvirginia_ivf = val
+        if usdCurrency_westvirginia_ivf is not None:
+            gbpCurrency_westvirginia_ivf = val * usdToGbp
+            eurCurrency_westvirginia_ivf = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_ivf = None
+            eurCurrency_westvirginia_ivf = None
+
+    queryset_list_westvirginia_egg = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_westvirginia_egg.items():
+        usdCurrency_westvirginia_egg = val
+        if usdCurrency_westvirginia_egg is not None:
+            gbpCurrency_westvirginia_egg = val * usdToGbp
+            eurCurrency_westvirginia_egg = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_egg = None
+            eurCurrency_westvirginia_egg = None
+
+    queryset_list_westvirginia_embryo = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_westvirginia_embryo.items():
+        usdCurrency_westvirginia_embryo = val
+        if usdCurrency_westvirginia_embryo is not None:
+            gbpCurrency_westvirginia_embryo = val * usdToGbp
+            eurCurrency_westvirginia_embryo = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_embryo = None
+            eurCurrency_westvirginia_embryo = None
+
+    queryset_list_westvirginia_sperm = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_westvirginia_sperm.items():
+        usdCurrency_westvirginia_sperm = val
+        if usdCurrency_westvirginia_sperm is not None:
+            gbpCurrency_westvirginia_sperm = val * usdToGbp
+            eurCurrency_westvirginia_sperm = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_sperm = None
+            eurCurrency_westvirginia_sperm = None
+
+    queryset_list_westvirginia_icsi = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_westvirginia_icsi.items():
+        usdCurrency_westvirginia_icsi = val
+        if usdCurrency_westvirginia_icsi is not None:
+            gbpCurrency_westvirginia_icsi = val * usdToGbp
+            eurCurrency_westvirginia_icsi = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_icsi = None
+            eurCurrency_westvirginia_icsi = None
+
+    queryset_list_westvirginia_iui = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_westvirginia_iui.items():
+        usdCurrency_westvirginia_iui = val
+        if usdCurrency_westvirginia_iui is not None:
+            gbpCurrency_westvirginia_iui = val * usdToGbp
+            eurCurrency_westvirginia_iui = val * usdToEur
+        else:
+            gbpCurrency_westvirginia_iui = None
+            eurCurrency_westvirginia_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_wisconsin = queryset_list_us.filter(clinicRegion__iexact='Wisconsin')
+    queryset_list_wisconsin_ivf = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_wisconsin_ivf.items():
+        usdCurrency_wisconsin_ivf = val
+        if usdCurrency_wisconsin_ivf is not None:
+            gbpCurrency_wisconsin_ivf = val * usdToGbp
+            eurCurrency_wisconsin_ivf = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_ivf = None
+            eurCurrency_wisconsin_ivf = None
+
+    queryset_list_wisconsin_egg = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_wisconsin_egg.items():
+        usdCurrency_wisconsin_egg = val
+        if usdCurrency_wisconsin_egg is not None:
+            gbpCurrency_wisconsin_egg = val * usdToGbp
+            eurCurrency_wisconsin_egg = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_egg = None
+            eurCurrency_wisconsin_egg = None
+
+    queryset_list_wisconsin_embryo = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_wisconsin_embryo.items():
+        usdCurrency_wisconsin_embryo = val
+        if usdCurrency_wisconsin_embryo is not None:
+            gbpCurrency_wisconsin_embryo = val * usdToGbp
+            eurCurrency_wisconsin_embryo = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_embryo = None
+            eurCurrency_wisconsin_embryo = None
+
+    queryset_list_wisconsin_sperm = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_wisconsin_sperm.items():
+        usdCurrency_wisconsin_sperm = val
+        if usdCurrency_wisconsin_sperm is not None:
+            gbpCurrency_wisconsin_sperm = val * usdToGbp
+            eurCurrency_wisconsin_sperm = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_sperm = None
+            eurCurrency_wisconsin_sperm = None
+
+    queryset_list_wisconsin_icsi = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_wisconsin_icsi.items():
+        usdCurrency_wisconsin_icsi = val
+        if usdCurrency_wisconsin_icsi is not None:
+            gbpCurrency_wisconsin_icsi = val * usdToGbp
+            eurCurrency_wisconsin_icsi = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_icsi = None
+            eurCurrency_wisconsin_icsi = None
+
+    queryset_list_wisconsin_iui = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_wisconsin_iui.items():
+        usdCurrency_wisconsin_iui = val
+        if usdCurrency_wisconsin_iui is not None:
+            gbpCurrency_wisconsin_iui = val * usdToGbp
+            eurCurrency_wisconsin_iui = val * usdToEur
+        else:
+            gbpCurrency_wisconsin_iui = None
+            eurCurrency_wisconsin_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_wyoming = queryset_list_us.filter(clinicRegion__iexact='Wyoming')
+    queryset_list_wyoming_ivf = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_wyoming_ivf.items():
+        usdCurrency_wyoming_ivf = val
+        if usdCurrency_wyoming_ivf is not None:
+            gbpCurrency_wyoming_ivf = val * usdToGbp
+            eurCurrency_wyoming_ivf = val * usdToEur
+        else:
+            gbpCurrency_wyoming_ivf = None
+            eurCurrency_wyoming_ivf = None
+
+    queryset_list_wyoming_egg = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_wyoming_egg.items():
+        usdCurrency_wyoming_egg = val
+        if usdCurrency_wyoming_egg is not None:
+            gbpCurrency_wyoming_egg = val * usdToGbp
+            eurCurrency_wyoming_egg = val * usdToEur
+        else:
+            gbpCurrency_wyoming_egg = None
+            eurCurrency_wyoming_egg = None
+
+    queryset_list_wyoming_embryo = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_wyoming_embryo.items():
+        usdCurrency_wyoming_embryo = val
+        if usdCurrency_wyoming_embryo is not None:
+            gbpCurrency_wyoming_embryo = val * usdToGbp
+            eurCurrency_wyoming_embryo = val * usdToEur
+        else:
+            gbpCurrency_wyoming_embryo = None
+            eurCurrency_wyoming_embryo = None
+
+    queryset_list_wyoming_sperm = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_wyoming_sperm.items():
+        usdCurrency_wyoming_sperm = val
+        if usdCurrency_wyoming_sperm is not None:
+            gbpCurrency_wyoming_sperm = val * usdToGbp
+            eurCurrency_wyoming_sperm = val * usdToEur
+        else:
+            gbpCurrency_wyoming_sperm = None
+            eurCurrency_wyoming_sperm = None
+
+    queryset_list_wyoming_icsi = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_wyoming_icsi.items():
+        usdCurrency_wyoming_icsi = val
+        if usdCurrency_wyoming_icsi is not None:
+            gbpCurrency_wyoming_icsi = val * usdToGbp
+            eurCurrency_wyoming_icsi = val * usdToEur
+        else:
+            gbpCurrency_wyoming_icsi = None
+            eurCurrency_wyoming_icsi = None
+
+    queryset_list_wyoming_iui = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_wyoming_iui.items():
+        usdCurrency_wyoming_iui = val
+        if usdCurrency_wyoming_iui is not None:
+            gbpCurrency_wyoming_iui = val * usdToGbp
+            eurCurrency_wyoming_iui = val * usdToEur
+        else:
+            gbpCurrency_wyoming_iui = None
+            eurCurrency_wyoming_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_districtofcolumbia = queryset_list_us.filter(clinicRegion__iexact='District of Columbia')
+    queryset_list_districtofcolumbia_ivf = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_districtofcolumbia_ivf.items():
+        usdCurrency_districtofcolumbia_ivf = val
+        if usdCurrency_districtofcolumbia_ivf is not None:
+            gbpCurrency_districtofcolumbia_ivf = val * usdToGbp
+            eurCurrency_districtofcolumbia_ivf = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_ivf = None
+            eurCurrency_districtofcolumbia_ivf = None
+
+    queryset_list_districtofcolumbia_egg = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_districtofcolumbia_egg.items():
+        usdCurrency_districtofcolumbia_egg = val
+        if usdCurrency_districtofcolumbia_egg is not None:
+            gbpCurrency_districtofcolumbia_egg = val * usdToGbp
+            eurCurrency_districtofcolumbia_egg = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_egg = None
+            eurCurrency_districtofcolumbia_egg = None
+
+    queryset_list_districtofcolumbia_embryo = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_districtofcolumbia_embryo.items():
+        usdCurrency_districtofcolumbia_embryo = val
+        if usdCurrency_districtofcolumbia_embryo is not None:
+            gbpCurrency_districtofcolumbia_embryo = val * usdToGbp
+            eurCurrency_districtofcolumbia_embryo = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_embryo = None
+            eurCurrency_districtofcolumbia_embryo = None
+
+    queryset_list_districtofcolumbia_sperm = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_districtofcolumbia_sperm.items():
+        usdCurrency_districtofcolumbia_sperm = val
+        if usdCurrency_districtofcolumbia_sperm is not None:
+            gbpCurrency_districtofcolumbia_sperm = val * usdToGbp
+            eurCurrency_districtofcolumbia_sperm = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_sperm = None
+            eurCurrency_districtofcolumbia_sperm = None
+
+    queryset_list_districtofcolumbia_icsi = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_districtofcolumbia_icsi.items():
+        usdCurrency_districtofcolumbia_icsi = val
+        if usdCurrency_districtofcolumbia_icsi is not None:
+            gbpCurrency_districtofcolumbia_icsi = val * usdToGbp
+            eurCurrency_districtofcolumbia_icsi = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_icsi = None
+            eurCurrency_districtofcolumbia_icsi = None
+
+    queryset_list_districtofcolumbia_iui = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_districtofcolumbia_iui.items():
+        usdCurrency_districtofcolumbia_iui = val
+        if usdCurrency_districtofcolumbia_iui is not None:
+            gbpCurrency_districtofcolumbia_iui = val * usdToGbp
+            eurCurrency_districtofcolumbia_iui = val * usdToEur
+        else:
+            gbpCurrency_districtofcolumbia_iui = None
+            eurCurrency_districtofcolumbia_iui = None
 
     context = {
         'gbpCurrency_alabama_ivf': gbpCurrency_alabama_ivf,
@@ -2585,6 +3949,25 @@ def locationsUSRegions(request):
         'usdCurrency_missouri_iui': usdCurrency_missouri_iui,
         'eurCurrency_missouri_iui': eurCurrency_missouri_iui,
 
+        'gbpCurrency_montana_ivf': gbpCurrency_montana_ivf,
+        'usdCurrency_montana_ivf': usdCurrency_montana_ivf,
+        'eurCurrency_montana_ivf': eurCurrency_montana_ivf,
+        'gbpCurrency_montana_egg': gbpCurrency_montana_egg,
+        'usdCurrency_montana_egg': usdCurrency_montana_egg,
+        'eurCurrency_montana_egg': eurCurrency_montana_egg,
+        'gbpCurrency_montana_embryo': gbpCurrency_montana_embryo,
+        'usdCurrency_montana_embryo': usdCurrency_montana_embryo,
+        'eurCurrency_montana_embryo': eurCurrency_montana_embryo,
+        'gbpCurrency_montana_sperm': gbpCurrency_montana_sperm,
+        'usdCurrency_montana_sperm': usdCurrency_montana_sperm,
+        'eurCurrency_montana_sperm': eurCurrency_montana_sperm,
+        'gbpCurrency_montana_icsi': gbpCurrency_montana_icsi,
+        'usdCurrency_montana_icsi': usdCurrency_montana_icsi,
+        'eurCurrency_montana_icsi': eurCurrency_montana_icsi,
+        'gbpCurrency_montana_iui': gbpCurrency_montana_iui,
+        'usdCurrency_montana_iui': usdCurrency_montana_iui,
+        'eurCurrency_montana_iui': eurCurrency_montana_iui,
+
         'gbpCurrency_nebraska_ivf': gbpCurrency_nebraska_ivf,
         'usdCurrency_nebraska_ivf': usdCurrency_nebraska_ivf,
         'eurCurrency_nebraska_ivf': eurCurrency_nebraska_ivf,
@@ -2679,6 +4062,405 @@ def locationsUSRegions(request):
         'gbpCurrency_newyork_iui': gbpCurrency_newyork_iui,
         'usdCurrency_newyork_iui': usdCurrency_newyork_iui,
         'eurCurrency_newyork_iui': eurCurrency_newyork_iui,
+
+        'gbpCurrency_northcarolina_ivf': gbpCurrency_northcarolina_ivf,
+        'usdCurrency_northcarolina_ivf': usdCurrency_northcarolina_ivf,
+        'eurCurrency_northcarolina_ivf': eurCurrency_northcarolina_ivf,
+        'gbpCurrency_northcarolina_egg': gbpCurrency_northcarolina_egg,
+        'usdCurrency_northcarolina_egg': usdCurrency_northcarolina_egg,
+        'eurCurrency_northcarolina_egg': eurCurrency_northcarolina_egg,
+        'gbpCurrency_northcarolina_embryo': gbpCurrency_northcarolina_embryo,
+        'usdCurrency_northcarolina_embryo': usdCurrency_northcarolina_embryo,
+        'eurCurrency_northcarolina_embryo': eurCurrency_northcarolina_embryo,
+        'gbpCurrency_northcarolina_sperm': gbpCurrency_northcarolina_sperm,
+        'usdCurrency_northcarolina_sperm': usdCurrency_northcarolina_sperm,
+        'eurCurrency_northcarolina_sperm': eurCurrency_northcarolina_sperm,
+        'gbpCurrency_northcarolina_icsi': gbpCurrency_northcarolina_icsi,
+        'usdCurrency_northcarolina_icsi': usdCurrency_northcarolina_icsi,
+        'eurCurrency_northcarolina_icsi': eurCurrency_northcarolina_icsi,
+        'gbpCurrency_northcarolina_iui': gbpCurrency_northcarolina_iui,
+        'usdCurrency_northcarolina_iui': usdCurrency_northcarolina_iui,
+        'eurCurrency_northcarolina_iui': eurCurrency_northcarolina_iui,
+
+        'gbpCurrency_northdakota_ivf': gbpCurrency_northdakota_ivf,
+        'usdCurrency_northdakota_ivf': usdCurrency_northdakota_ivf,
+        'eurCurrency_northdakota_ivf': eurCurrency_northdakota_ivf,
+        'gbpCurrency_northdakota_egg': gbpCurrency_northdakota_egg,
+        'usdCurrency_northdakota_egg': usdCurrency_northdakota_egg,
+        'eurCurrency_northdakota_egg': eurCurrency_northdakota_egg,
+        'gbpCurrency_northdakota_embryo': gbpCurrency_northdakota_embryo,
+        'usdCurrency_northdakota_embryo': usdCurrency_northdakota_embryo,
+        'eurCurrency_northdakota_embryo': eurCurrency_northdakota_embryo,
+        'gbpCurrency_northdakota_sperm': gbpCurrency_northdakota_sperm,
+        'usdCurrency_northdakota_sperm': usdCurrency_northdakota_sperm,
+        'eurCurrency_northdakota_sperm': eurCurrency_northdakota_sperm,
+        'gbpCurrency_northdakota_icsi': gbpCurrency_northdakota_icsi,
+        'usdCurrency_northdakota_icsi': usdCurrency_northdakota_icsi,
+        'eurCurrency_northdakota_icsi': eurCurrency_northdakota_icsi,
+        'gbpCurrency_northdakota_iui': gbpCurrency_northdakota_iui,
+        'usdCurrency_northdakota_iui': usdCurrency_northdakota_iui,
+        'eurCurrency_northdakota_iui': eurCurrency_northdakota_iui,
+
+        'gbpCurrency_nevada_ivf': gbpCurrency_nevada_ivf,
+        'usdCurrency_nevada_ivf': usdCurrency_nevada_ivf,
+        'eurCurrency_nevada_ivf': eurCurrency_nevada_ivf,
+        'gbpCurrency_nevada_egg': gbpCurrency_nevada_egg,
+        'usdCurrency_nevada_egg': usdCurrency_nevada_egg,
+        'eurCurrency_nevada_egg': eurCurrency_nevada_egg,
+        'gbpCurrency_nevada_embryo': gbpCurrency_nevada_embryo,
+        'usdCurrency_nevada_embryo': usdCurrency_nevada_embryo,
+        'eurCurrency_nevada_embryo': eurCurrency_nevada_embryo,
+        'gbpCurrency_nevada_sperm': gbpCurrency_nevada_sperm,
+        'usdCurrency_nevada_sperm': usdCurrency_nevada_sperm,
+        'eurCurrency_nevada_sperm': eurCurrency_nevada_sperm,
+        'gbpCurrency_nevada_icsi': gbpCurrency_nevada_icsi,
+        'usdCurrency_nevada_icsi': usdCurrency_nevada_icsi,
+        'eurCurrency_nevada_icsi': eurCurrency_nevada_icsi,
+        'gbpCurrency_nevada_iui': gbpCurrency_nevada_iui,
+        'usdCurrency_nevada_iui': usdCurrency_nevada_iui,
+        'eurCurrency_nevada_iui': eurCurrency_nevada_iui,
+
+        'gbpCurrency_ohio_ivf': gbpCurrency_ohio_ivf,
+        'usdCurrency_ohio_ivf': usdCurrency_ohio_ivf,
+        'eurCurrency_ohio_ivf': eurCurrency_ohio_ivf,
+        'gbpCurrency_ohio_egg': gbpCurrency_ohio_egg,
+        'usdCurrency_ohio_egg': usdCurrency_ohio_egg,
+        'eurCurrency_ohio_egg': eurCurrency_ohio_egg,
+        'gbpCurrency_ohio_embryo': gbpCurrency_ohio_embryo,
+        'usdCurrency_ohio_embryo': usdCurrency_ohio_embryo,
+        'eurCurrency_ohio_embryo': eurCurrency_ohio_embryo,
+        'gbpCurrency_ohio_sperm': gbpCurrency_ohio_sperm,
+        'usdCurrency_ohio_sperm': usdCurrency_ohio_sperm,
+        'eurCurrency_ohio_sperm': eurCurrency_ohio_sperm,
+        'gbpCurrency_ohio_icsi': gbpCurrency_ohio_icsi,
+        'usdCurrency_ohio_icsi': usdCurrency_ohio_icsi,
+        'eurCurrency_ohio_icsi': eurCurrency_ohio_icsi,
+        'gbpCurrency_ohio_iui': gbpCurrency_ohio_iui,
+        'usdCurrency_ohio_iui': usdCurrency_ohio_iui,
+        'eurCurrency_ohio_iui': eurCurrency_ohio_iui,
+
+        'gbpCurrency_oklahoma_ivf': gbpCurrency_oklahoma_ivf,
+        'usdCurrency_oklahoma_ivf': usdCurrency_oklahoma_ivf,
+        'eurCurrency_oklahoma_ivf': eurCurrency_oklahoma_ivf,
+        'gbpCurrency_oklahoma_egg': gbpCurrency_oklahoma_egg,
+        'usdCurrency_oklahoma_egg': usdCurrency_oklahoma_egg,
+        'eurCurrency_oklahoma_egg': eurCurrency_oklahoma_egg,
+        'gbpCurrency_oklahoma_embryo': gbpCurrency_oklahoma_embryo,
+        'usdCurrency_oklahoma_embryo': usdCurrency_oklahoma_embryo,
+        'eurCurrency_oklahoma_embryo': eurCurrency_oklahoma_embryo,
+        'gbpCurrency_oklahoma_sperm': gbpCurrency_oklahoma_sperm,
+        'usdCurrency_oklahoma_sperm': usdCurrency_oklahoma_sperm,
+        'eurCurrency_oklahoma_sperm': eurCurrency_oklahoma_sperm,
+        'gbpCurrency_oklahoma_icsi': gbpCurrency_oklahoma_icsi,
+        'usdCurrency_oklahoma_icsi': usdCurrency_oklahoma_icsi,
+        'eurCurrency_oklahoma_icsi': eurCurrency_oklahoma_icsi,
+        'gbpCurrency_oklahoma_iui': gbpCurrency_oklahoma_iui,
+        'usdCurrency_oklahoma_iui': usdCurrency_oklahoma_iui,
+        'eurCurrency_oklahoma_iui': eurCurrency_oklahoma_iui,
+
+        'gbpCurrency_oregon_ivf': gbpCurrency_oregon_ivf,
+        'usdCurrency_oregon_ivf': usdCurrency_oregon_ivf,
+        'eurCurrency_oregon_ivf': eurCurrency_oregon_ivf,
+        'gbpCurrency_oregon_egg': gbpCurrency_oregon_egg,
+        'usdCurrency_oregon_egg': usdCurrency_oregon_egg,
+        'eurCurrency_oregon_egg': eurCurrency_oregon_egg,
+        'gbpCurrency_oregon_embryo': gbpCurrency_oregon_embryo,
+        'usdCurrency_oregon_embryo': usdCurrency_oregon_embryo,
+        'eurCurrency_oregon_embryo': eurCurrency_oregon_embryo,
+        'gbpCurrency_oregon_sperm': gbpCurrency_oregon_sperm,
+        'usdCurrency_oregon_sperm': usdCurrency_oregon_sperm,
+        'eurCurrency_oregon_sperm': eurCurrency_oregon_sperm,
+        'gbpCurrency_oregon_icsi': gbpCurrency_oregon_icsi,
+        'usdCurrency_oregon_icsi': usdCurrency_oregon_icsi,
+        'eurCurrency_oregon_icsi': eurCurrency_oregon_icsi,
+        'gbpCurrency_oregon_iui': gbpCurrency_oregon_iui,
+        'usdCurrency_oregon_iui': usdCurrency_oregon_iui,
+        'eurCurrency_oregon_iui': eurCurrency_oregon_iui,
+
+        'gbpCurrency_pennsylvania_ivf': gbpCurrency_pennsylvania_ivf,
+        'usdCurrency_pennsylvania_ivf': usdCurrency_pennsylvania_ivf,
+        'eurCurrency_pennsylvania_ivf': eurCurrency_pennsylvania_ivf,
+        'gbpCurrency_pennsylvania_egg': gbpCurrency_pennsylvania_egg,
+        'usdCurrency_pennsylvania_egg': usdCurrency_pennsylvania_egg,
+        'eurCurrency_pennsylvania_egg': eurCurrency_pennsylvania_egg,
+        'gbpCurrency_pennsylvania_embryo': gbpCurrency_pennsylvania_embryo,
+        'usdCurrency_pennsylvania_embryo': usdCurrency_pennsylvania_embryo,
+        'eurCurrency_pennsylvania_embryo': eurCurrency_pennsylvania_embryo,
+        'gbpCurrency_pennsylvania_sperm': gbpCurrency_pennsylvania_sperm,
+        'usdCurrency_pennsylvania_sperm': usdCurrency_pennsylvania_sperm,
+        'eurCurrency_pennsylvania_sperm': eurCurrency_pennsylvania_sperm,
+        'gbpCurrency_pennsylvania_icsi': gbpCurrency_pennsylvania_icsi,
+        'usdCurrency_pennsylvania_icsi': usdCurrency_pennsylvania_icsi,
+        'eurCurrency_pennsylvania_icsi': eurCurrency_pennsylvania_icsi,
+        'gbpCurrency_pennsylvania_iui': gbpCurrency_pennsylvania_iui,
+        'usdCurrency_pennsylvania_iui': usdCurrency_pennsylvania_iui,
+        'eurCurrency_pennsylvania_iui': eurCurrency_pennsylvania_iui,
+
+        'gbpCurrency_puertorico_ivf': gbpCurrency_puertorico_ivf,
+        'usdCurrency_puertorico_ivf': usdCurrency_puertorico_ivf,
+        'eurCurrency_puertorico_ivf': eurCurrency_puertorico_ivf,
+        'gbpCurrency_puertorico_egg': gbpCurrency_puertorico_egg,
+        'usdCurrency_puertorico_egg': usdCurrency_puertorico_egg,
+        'eurCurrency_puertorico_egg': eurCurrency_puertorico_egg,
+        'gbpCurrency_puertorico_embryo': gbpCurrency_puertorico_embryo,
+        'usdCurrency_puertorico_embryo': usdCurrency_puertorico_embryo,
+        'eurCurrency_puertorico_embryo': eurCurrency_puertorico_embryo,
+        'gbpCurrency_puertorico_sperm': gbpCurrency_puertorico_sperm,
+        'usdCurrency_puertorico_sperm': usdCurrency_puertorico_sperm,
+        'eurCurrency_puertorico_sperm': eurCurrency_puertorico_sperm,
+        'gbpCurrency_puertorico_icsi': gbpCurrency_puertorico_icsi,
+        'usdCurrency_puertorico_icsi': usdCurrency_puertorico_icsi,
+        'eurCurrency_puertorico_icsi': eurCurrency_puertorico_icsi,
+        'gbpCurrency_puertorico_iui': gbpCurrency_puertorico_iui,
+        'usdCurrency_puertorico_iui': usdCurrency_puertorico_iui,
+        'eurCurrency_puertorico_iui': eurCurrency_puertorico_iui,
+
+        'gbpCurrency_rhodeisland_ivf': gbpCurrency_rhodeisland_ivf,
+        'usdCurrency_rhodeisland_ivf': usdCurrency_rhodeisland_ivf,
+        'eurCurrency_rhodeisland_ivf': eurCurrency_rhodeisland_ivf,
+        'gbpCurrency_rhodeisland_egg': gbpCurrency_rhodeisland_egg,
+        'usdCurrency_rhodeisland_egg': usdCurrency_rhodeisland_egg,
+        'eurCurrency_rhodeisland_egg': eurCurrency_rhodeisland_egg,
+        'gbpCurrency_rhodeisland_embryo': gbpCurrency_rhodeisland_embryo,
+        'usdCurrency_rhodeisland_embryo': usdCurrency_rhodeisland_embryo,
+        'eurCurrency_rhodeisland_embryo': eurCurrency_rhodeisland_embryo,
+        'gbpCurrency_rhodeisland_sperm': gbpCurrency_rhodeisland_sperm,
+        'usdCurrency_rhodeisland_sperm': usdCurrency_rhodeisland_sperm,
+        'eurCurrency_rhodeisland_sperm': eurCurrency_rhodeisland_sperm,
+        'gbpCurrency_rhodeisland_icsi': gbpCurrency_rhodeisland_icsi,
+        'usdCurrency_rhodeisland_icsi': usdCurrency_rhodeisland_icsi,
+        'eurCurrency_rhodeisland_icsi': eurCurrency_rhodeisland_icsi,
+        'gbpCurrency_rhodeisland_iui': gbpCurrency_rhodeisland_iui,
+        'usdCurrency_rhodeisland_iui': usdCurrency_rhodeisland_iui,
+        'eurCurrency_rhodeisland_iui': eurCurrency_rhodeisland_iui,
+
+        'gbpCurrency_southcarolina_ivf': gbpCurrency_southcarolina_ivf,
+        'usdCurrency_southcarolina_ivf': usdCurrency_southcarolina_ivf,
+        'eurCurrency_southcarolina_ivf': eurCurrency_southcarolina_ivf,
+        'gbpCurrency_southcarolina_egg': gbpCurrency_southcarolina_egg,
+        'usdCurrency_southcarolina_egg': usdCurrency_southcarolina_egg,
+        'eurCurrency_southcarolina_egg': eurCurrency_southcarolina_egg,
+        'gbpCurrency_southcarolina_embryo': gbpCurrency_southcarolina_embryo,
+        'usdCurrency_southcarolina_embryo': usdCurrency_southcarolina_embryo,
+        'eurCurrency_southcarolina_embryo': eurCurrency_southcarolina_embryo,
+        'gbpCurrency_southcarolina_sperm': gbpCurrency_southcarolina_sperm,
+        'usdCurrency_southcarolina_sperm': usdCurrency_southcarolina_sperm,
+        'eurCurrency_southcarolina_sperm': eurCurrency_southcarolina_sperm,
+        'gbpCurrency_southcarolina_icsi': gbpCurrency_southcarolina_icsi,
+        'usdCurrency_southcarolina_icsi': usdCurrency_southcarolina_icsi,
+        'eurCurrency_southcarolina_icsi': eurCurrency_southcarolina_icsi,
+        'gbpCurrency_southcarolina_iui': gbpCurrency_southcarolina_iui,
+        'usdCurrency_southcarolina_iui': usdCurrency_southcarolina_iui,
+        'eurCurrency_southcarolina_iui': eurCurrency_southcarolina_iui,
+
+        'gbpCurrency_southdakota_ivf': gbpCurrency_southdakota_ivf,
+        'usdCurrency_southdakota_ivf': usdCurrency_southdakota_ivf,
+        'eurCurrency_southdakota_ivf': eurCurrency_southdakota_ivf,
+        'gbpCurrency_southdakota_egg': gbpCurrency_southdakota_egg,
+        'usdCurrency_southdakota_egg': usdCurrency_southdakota_egg,
+        'eurCurrency_southdakota_egg': eurCurrency_southdakota_egg,
+        'gbpCurrency_southdakota_embryo': gbpCurrency_southdakota_embryo,
+        'usdCurrency_southdakota_embryo': usdCurrency_southdakota_embryo,
+        'eurCurrency_southdakota_embryo': eurCurrency_southdakota_embryo,
+        'gbpCurrency_southdakota_sperm': gbpCurrency_southdakota_sperm,
+        'usdCurrency_southdakota_sperm': usdCurrency_southdakota_sperm,
+        'eurCurrency_southdakota_sperm': eurCurrency_southdakota_sperm,
+        'gbpCurrency_southdakota_icsi': gbpCurrency_southdakota_icsi,
+        'usdCurrency_southdakota_icsi': usdCurrency_southdakota_icsi,
+        'eurCurrency_southdakota_icsi': eurCurrency_southdakota_icsi,
+        'gbpCurrency_southdakota_iui': gbpCurrency_southdakota_iui,
+        'usdCurrency_southdakota_iui': usdCurrency_southdakota_iui,
+        'eurCurrency_southdakota_iui': eurCurrency_southdakota_iui,
+
+        'gbpCurrency_tennessee_ivf': gbpCurrency_tennessee_ivf,
+        'usdCurrency_tennessee_ivf': usdCurrency_tennessee_ivf,
+        'eurCurrency_tennessee_ivf': eurCurrency_tennessee_ivf,
+        'gbpCurrency_tennessee_egg': gbpCurrency_tennessee_egg,
+        'usdCurrency_tennessee_egg': usdCurrency_tennessee_egg,
+        'eurCurrency_tennessee_egg': eurCurrency_tennessee_egg,
+        'gbpCurrency_tennessee_embryo': gbpCurrency_tennessee_embryo,
+        'usdCurrency_tennessee_embryo': usdCurrency_tennessee_embryo,
+        'eurCurrency_tennessee_embryo': eurCurrency_tennessee_embryo,
+        'gbpCurrency_tennessee_sperm': gbpCurrency_tennessee_sperm,
+        'usdCurrency_tennessee_sperm': usdCurrency_tennessee_sperm,
+        'eurCurrency_tennessee_sperm': eurCurrency_tennessee_sperm,
+        'gbpCurrency_tennessee_icsi': gbpCurrency_tennessee_icsi,
+        'usdCurrency_tennessee_icsi': usdCurrency_tennessee_icsi,
+        'eurCurrency_tennessee_icsi': eurCurrency_tennessee_icsi,
+        'gbpCurrency_tennessee_iui': gbpCurrency_tennessee_iui,
+        'usdCurrency_tennessee_iui': usdCurrency_tennessee_iui,
+        'eurCurrency_tennessee_iui': eurCurrency_tennessee_iui,
+
+        'gbpCurrency_texas_ivf': gbpCurrency_texas_ivf,
+        'usdCurrency_texas_ivf': usdCurrency_texas_ivf,
+        'eurCurrency_texas_ivf': eurCurrency_texas_ivf,
+        'gbpCurrency_texas_egg': gbpCurrency_texas_egg,
+        'usdCurrency_texas_egg': usdCurrency_texas_egg,
+        'eurCurrency_texas_egg': eurCurrency_texas_egg,
+        'gbpCurrency_texas_embryo': gbpCurrency_texas_embryo,
+        'usdCurrency_texas_embryo': usdCurrency_texas_embryo,
+        'eurCurrency_texas_embryo': eurCurrency_texas_embryo,
+        'gbpCurrency_texas_sperm': gbpCurrency_texas_sperm,
+        'usdCurrency_texas_sperm': usdCurrency_texas_sperm,
+        'eurCurrency_texas_sperm': eurCurrency_texas_sperm,
+        'gbpCurrency_texas_icsi': gbpCurrency_texas_icsi,
+        'usdCurrency_texas_icsi': usdCurrency_texas_icsi,
+        'eurCurrency_texas_icsi': eurCurrency_texas_icsi,
+        'gbpCurrency_texas_iui': gbpCurrency_texas_iui,
+        'usdCurrency_texas_iui': usdCurrency_texas_iui,
+        'eurCurrency_texas_iui': eurCurrency_texas_iui,
+
+        'gbpCurrency_utah_ivf': gbpCurrency_utah_ivf,
+        'usdCurrency_utah_ivf': usdCurrency_utah_ivf,
+        'eurCurrency_utah_ivf': eurCurrency_utah_ivf,
+        'gbpCurrency_utah_egg': gbpCurrency_utah_egg,
+        'usdCurrency_utah_egg': usdCurrency_utah_egg,
+        'eurCurrency_utah_egg': eurCurrency_utah_egg,
+        'gbpCurrency_utah_embryo': gbpCurrency_utah_embryo,
+        'usdCurrency_utah_embryo': usdCurrency_utah_embryo,
+        'eurCurrency_utah_embryo': eurCurrency_utah_embryo,
+        'gbpCurrency_utah_sperm': gbpCurrency_utah_sperm,
+        'usdCurrency_utah_sperm': usdCurrency_utah_sperm,
+        'eurCurrency_utah_sperm': eurCurrency_utah_sperm,
+        'gbpCurrency_utah_icsi': gbpCurrency_utah_icsi,
+        'usdCurrency_utah_icsi': usdCurrency_utah_icsi,
+        'eurCurrency_utah_icsi': eurCurrency_utah_icsi,
+        'gbpCurrency_utah_iui': gbpCurrency_utah_iui,
+        'usdCurrency_utah_iui': usdCurrency_utah_iui,
+        'eurCurrency_utah_iui': eurCurrency_utah_iui,
+
+        'gbpCurrency_vermont_ivf': gbpCurrency_vermont_ivf,
+        'usdCurrency_vermont_ivf': usdCurrency_vermont_ivf,
+        'eurCurrency_vermont_ivf': eurCurrency_vermont_ivf,
+        'gbpCurrency_vermont_egg': gbpCurrency_vermont_egg,
+        'usdCurrency_vermont_egg': usdCurrency_vermont_egg,
+        'eurCurrency_vermont_egg': eurCurrency_vermont_egg,
+        'gbpCurrency_vermont_embryo': gbpCurrency_vermont_embryo,
+        'usdCurrency_vermont_embryo': usdCurrency_vermont_embryo,
+        'eurCurrency_vermont_embryo': eurCurrency_vermont_embryo,
+        'gbpCurrency_vermont_sperm': gbpCurrency_vermont_sperm,
+        'usdCurrency_vermont_sperm': usdCurrency_vermont_sperm,
+        'eurCurrency_vermont_sperm': eurCurrency_vermont_sperm,
+        'gbpCurrency_vermont_icsi': gbpCurrency_vermont_icsi,
+        'usdCurrency_vermont_icsi': usdCurrency_vermont_icsi,
+        'eurCurrency_vermont_icsi': eurCurrency_vermont_icsi,
+        'gbpCurrency_vermont_iui': gbpCurrency_vermont_iui,
+        'usdCurrency_vermont_iui': usdCurrency_vermont_iui,
+        'eurCurrency_vermont_iui': eurCurrency_vermont_iui,
+
+        'gbpCurrency_virginia_ivf': gbpCurrency_virginia_ivf,
+        'usdCurrency_virginia_ivf': usdCurrency_virginia_ivf,
+        'eurCurrency_virginia_ivf': eurCurrency_virginia_ivf,
+        'gbpCurrency_virginia_egg': gbpCurrency_virginia_egg,
+        'usdCurrency_virginia_egg': usdCurrency_virginia_egg,
+        'eurCurrency_virginia_egg': eurCurrency_virginia_egg,
+        'gbpCurrency_virginia_embryo': gbpCurrency_virginia_embryo,
+        'usdCurrency_virginia_embryo': usdCurrency_virginia_embryo,
+        'eurCurrency_virginia_embryo': eurCurrency_virginia_embryo,
+        'gbpCurrency_virginia_sperm': gbpCurrency_virginia_sperm,
+        'usdCurrency_virginia_sperm': usdCurrency_virginia_sperm,
+        'eurCurrency_virginia_sperm': eurCurrency_virginia_sperm,
+        'gbpCurrency_virginia_icsi': gbpCurrency_virginia_icsi,
+        'usdCurrency_virginia_icsi': usdCurrency_virginia_icsi,
+        'eurCurrency_virginia_icsi': eurCurrency_virginia_icsi,
+        'gbpCurrency_virginia_iui': gbpCurrency_virginia_iui,
+        'usdCurrency_virginia_iui': usdCurrency_virginia_iui,
+        'eurCurrency_virginia_iui': eurCurrency_virginia_iui,
+
+        'gbpCurrency_washington_ivf': gbpCurrency_washington_ivf,
+        'usdCurrency_washington_ivf': usdCurrency_washington_ivf,
+        'eurCurrency_washington_ivf': eurCurrency_washington_ivf,
+        'gbpCurrency_washington_egg': gbpCurrency_washington_egg,
+        'usdCurrency_washington_egg': usdCurrency_washington_egg,
+        'eurCurrency_washington_egg': eurCurrency_washington_egg,
+        'gbpCurrency_washington_embryo': gbpCurrency_washington_embryo,
+        'usdCurrency_washington_embryo': usdCurrency_washington_embryo,
+        'eurCurrency_washington_embryo': eurCurrency_washington_embryo,
+        'gbpCurrency_washington_sperm': gbpCurrency_washington_sperm,
+        'usdCurrency_washington_sperm': usdCurrency_washington_sperm,
+        'eurCurrency_washington_sperm': eurCurrency_washington_sperm,
+        'gbpCurrency_washington_icsi': gbpCurrency_washington_icsi,
+        'usdCurrency_washington_icsi': usdCurrency_washington_icsi,
+        'eurCurrency_washington_icsi': eurCurrency_washington_icsi,
+        'gbpCurrency_washington_iui': gbpCurrency_washington_iui,
+        'usdCurrency_washington_iui': usdCurrency_washington_iui,
+        'eurCurrency_washington_iui': eurCurrency_washington_iui,
+
+        'gbpCurrency_westvirginia_ivf': gbpCurrency_westvirginia_ivf,
+        'usdCurrency_westvirginia_ivf': usdCurrency_westvirginia_ivf,
+        'eurCurrency_westvirginia_ivf': eurCurrency_westvirginia_ivf,
+        'gbpCurrency_westvirginia_egg': gbpCurrency_westvirginia_egg,
+        'usdCurrency_westvirginia_egg': usdCurrency_westvirginia_egg,
+        'eurCurrency_westvirginia_egg': eurCurrency_westvirginia_egg,
+        'gbpCurrency_westvirginia_embryo': gbpCurrency_westvirginia_embryo,
+        'usdCurrency_westvirginia_embryo': usdCurrency_westvirginia_embryo,
+        'eurCurrency_westvirginia_embryo': eurCurrency_westvirginia_embryo,
+        'gbpCurrency_westvirginia_sperm': gbpCurrency_westvirginia_sperm,
+        'usdCurrency_westvirginia_sperm': usdCurrency_westvirginia_sperm,
+        'eurCurrency_westvirginia_sperm': eurCurrency_westvirginia_sperm,
+        'gbpCurrency_westvirginia_icsi': gbpCurrency_westvirginia_icsi,
+        'usdCurrency_westvirginia_icsi': usdCurrency_westvirginia_icsi,
+        'eurCurrency_westvirginia_icsi': eurCurrency_westvirginia_icsi,
+        'gbpCurrency_westvirginia_iui': gbpCurrency_westvirginia_iui,
+        'usdCurrency_westvirginia_iui': usdCurrency_westvirginia_iui,
+        'eurCurrency_westvirginia_iui': eurCurrency_westvirginia_iui,
+
+        'gbpCurrency_wisconsin_ivf': gbpCurrency_wisconsin_ivf,
+        'usdCurrency_wisconsin_ivf': usdCurrency_wisconsin_ivf,
+        'eurCurrency_wisconsin_ivf': eurCurrency_wisconsin_ivf,
+        'gbpCurrency_wisconsin_egg': gbpCurrency_wisconsin_egg,
+        'usdCurrency_wisconsin_egg': usdCurrency_wisconsin_egg,
+        'eurCurrency_wisconsin_egg': eurCurrency_wisconsin_egg,
+        'gbpCurrency_wisconsin_embryo': gbpCurrency_wisconsin_embryo,
+        'usdCurrency_wisconsin_embryo': usdCurrency_wisconsin_embryo,
+        'eurCurrency_wisconsin_embryo': eurCurrency_wisconsin_embryo,
+        'gbpCurrency_wisconsin_sperm': gbpCurrency_wisconsin_sperm,
+        'usdCurrency_wisconsin_sperm': usdCurrency_wisconsin_sperm,
+        'eurCurrency_wisconsin_sperm': eurCurrency_wisconsin_sperm,
+        'gbpCurrency_wisconsin_icsi': gbpCurrency_wisconsin_icsi,
+        'usdCurrency_wisconsin_icsi': usdCurrency_wisconsin_icsi,
+        'eurCurrency_wisconsin_icsi': eurCurrency_wisconsin_icsi,
+        'gbpCurrency_wisconsin_iui': gbpCurrency_wisconsin_iui,
+        'usdCurrency_wisconsin_iui': usdCurrency_wisconsin_iui,
+        'eurCurrency_wisconsin_iui': eurCurrency_wisconsin_iui,
+
+        'gbpCurrency_wyoming_ivf': gbpCurrency_wyoming_ivf,
+        'usdCurrency_wyoming_ivf': usdCurrency_wyoming_ivf,
+        'eurCurrency_wyoming_ivf': eurCurrency_wyoming_ivf,
+        'gbpCurrency_wyoming_egg': gbpCurrency_wyoming_egg,
+        'usdCurrency_wyoming_egg': usdCurrency_wyoming_egg,
+        'eurCurrency_wyoming_egg': eurCurrency_wyoming_egg,
+        'gbpCurrency_wyoming_embryo': gbpCurrency_wyoming_embryo,
+        'usdCurrency_wyoming_embryo': usdCurrency_wyoming_embryo,
+        'eurCurrency_wyoming_embryo': eurCurrency_wyoming_embryo,
+        'gbpCurrency_wyoming_sperm': gbpCurrency_wyoming_sperm,
+        'usdCurrency_wyoming_sperm': usdCurrency_wyoming_sperm,
+        'eurCurrency_wyoming_sperm': eurCurrency_wyoming_sperm,
+        'gbpCurrency_wyoming_icsi': gbpCurrency_wyoming_icsi,
+        'usdCurrency_wyoming_icsi': usdCurrency_wyoming_icsi,
+        'eurCurrency_wyoming_icsi': eurCurrency_wyoming_icsi,
+        'gbpCurrency_wyoming_iui': gbpCurrency_wyoming_iui,
+        'usdCurrency_wyoming_iui': usdCurrency_wyoming_iui,
+        'eurCurrency_wyoming_iui': eurCurrency_wyoming_iui,
+
+        'gbpCurrency_districtofcolumbia_ivf': gbpCurrency_districtofcolumbia_ivf,
+        'usdCurrency_districtofcolumbia_ivf': usdCurrency_districtofcolumbia_ivf,
+        'eurCurrency_districtofcolumbia_ivf': eurCurrency_districtofcolumbia_ivf,
+        'gbpCurrency_districtofcolumbia_egg': gbpCurrency_districtofcolumbia_egg,
+        'usdCurrency_districtofcolumbia_egg': usdCurrency_districtofcolumbia_egg,
+        'eurCurrency_districtofcolumbia_egg': eurCurrency_districtofcolumbia_egg,
+        'gbpCurrency_districtofcolumbia_embryo': gbpCurrency_districtofcolumbia_embryo,
+        'usdCurrency_districtofcolumbia_embryo': usdCurrency_districtofcolumbia_embryo,
+        'eurCurrency_districtofcolumbia_embryo': eurCurrency_districtofcolumbia_embryo,
+        'gbpCurrency_districtofcolumbia_sperm': gbpCurrency_districtofcolumbia_sperm,
+        'usdCurrency_districtofcolumbia_sperm': usdCurrency_districtofcolumbia_sperm,
+        'eurCurrency_districtofcolumbia_sperm': eurCurrency_districtofcolumbia_sperm,
+        'gbpCurrency_districtofcolumbia_icsi': gbpCurrency_districtofcolumbia_icsi,
+        'usdCurrency_districtofcolumbia_icsi': usdCurrency_districtofcolumbia_icsi,
+        'eurCurrency_districtofcolumbia_icsi': eurCurrency_districtofcolumbia_icsi,
+        'gbpCurrency_districtofcolumbia_iui': gbpCurrency_districtofcolumbia_iui,
+        'usdCurrency_districtofcolumbia_iui': usdCurrency_districtofcolumbia_iui,
+        'eurCurrency_districtofcolumbia_iui': eurCurrency_districtofcolumbia_iui,
         }
 
     return render(request, 'main/us-regions.html', context)

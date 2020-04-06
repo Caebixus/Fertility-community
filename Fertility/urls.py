@@ -11,6 +11,7 @@ from .sitemapsRegions import RegionsViewSitemap
 from .sitemapsCountries import CountriesViewSitemap
 from .sitemapsCities import CitiesViewSitemap
 from .sitemapsClinics import ClinicsViewSitemap
+from .sitemapsAgencies import AgenciesViewSitemap
 
 handler404 = 'base.views.error404'
 handler400 = 'base.views.error400'
@@ -22,6 +23,7 @@ sitemaps = {
     'cities': CitiesViewSitemap,
     'countries': CountriesViewSitemap,
     'clinics': ClinicsViewSitemap,
+    'agencies': AgenciesViewSitemap,
 }
 
 urlpatterns = [

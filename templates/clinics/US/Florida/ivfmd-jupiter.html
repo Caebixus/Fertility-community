@@ -1,0 +1,913 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}FertilityCommunity | IVFMD - Jupiter{% endblock %}
+{% block description %}Search and get information from hundreds of IVF Fertility clinics around the globe and compare their treatment options.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/clinics/us/florida/ivfmd-jupiter{% endblock %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">
+      <u>{{ listing.clinicName }}</u>
+    </h1>
+    {% if listing.clinicTitle %}
+      <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
+    {% else %}
+    {% endif %}
+    {% if listing.pro_is_published %}
+    <div class="container">
+      <div class="row">
+        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+        {% if listing.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+        {% if listing.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+      </div>
+      <div class="row" style="padding-top:6px">
+        {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'EUR' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> EUR</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'GBP' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> GBP</span>{% else %}{% endif %}
+      </div>
+    </div>
+    {% else %}
+    <div class="container">
+      <div class="row">
+        {% if listing.clinicHfea %}<span class="badge badge-info"><i class="fas fa-user-check"></i> HFAE</span>{% else %}{% endif %}
+        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'EUR' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> EUR</span>{% else %}{% endif %}
+        {% if listing.defaultClinicCurrency == 'GBP' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> GBP</span>{% else %}{% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <br>
+  <br>
+</div>
+{% if listing.clinic_pro_logo_pic %}
+<script type="application/ld+json">
+  {
+    "name" : "{{ listing.clinicName }}",
+    "image" : "{{ listing.clinic_pro_logo_pic }}",
+    "address" : {
+      "streetAddress" : "{{ listing.clinicStreetAddress }}",
+      "addressLocality" : "{{ listing.clinicCity }}",
+      "postalCode" : "{{ listing.clinicPostalCode }}",
+      "addressRegion" : "{{ listing.clinicRegion }}",
+      "addressCountry" : "{{ listing.clinicState }}",
+      "@type" : "PostalAddress"
+    },
+    "@type" : "MedicalClinic",
+    "@context" : "http://schema.org"
+  }
+</script>
+{% else %}
+<script type="application/ld+json">
+  {
+    "name" : "{{ listing.clinicName }}",
+    "image" : "{% static 'img/hospital.svg' %}",
+    "address" : {
+      "streetAddress" : "{{ listing.clinicStreetAddress }}",
+      "addressLocality" : "{{ listing.clinicCity }}",
+      "postalCode" : "{{ listing.clinicPostalCode }}",
+      "addressRegion" : "{{ listing.clinicRegion }}",
+      "addressCountry" : "{{ listing.clinicState }}",
+      "@type" : "PostalAddress"
+    },
+    "@type" : "MedicalClinic",
+    "@context" : "http://schema.org"
+  }
+</script>
+{% endif %}
+{% if listing.description %}
+<div class="container">
+  <br>
+  <br>
+  <h2>About clinic:</h2>
+  <p>{{ listing.description|safe }}</p>
+  <br>
+</div>
+{% else %}
+{% endif %}
+<br>
+<div class="container" style="text-align: center" id="pricing">
+  <h2>Primary treatments & costs</h2>
+  <ul class="list-group list-group-flush">
+
+    <!-- Natural IVF -->
+    {% if listing.ivf_treatment == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Standard IVF (Natural)</p>
+        </div>
+        <div class="col-3">
+          {% if listing.ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Standard IVF (Natural)</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- Mild IVF -->
+    {% if listing.ivf_treatment == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Mild IVF (small dose of ovarian stimulating drugs are used)</p>
+        </div>
+        <div class="col-3">
+          {% if listing.ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Mild IVF (small dose of ovarian stimulating drugs are used)</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- IVF using ovarian hyperstimulation -->
+    {% if listing.ivf_treatment == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using ovarian hyperstimulation</p>
+        </div>
+        <div class="col-3">
+          {% if listing.ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using ovarian hyperstimulation</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- ICSI_treatment -->
+    {% if listing.icsi_treatment == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">ICSI</p>
+        </div>
+        <div class="col-3">
+          {% if listing.icsi_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.icsi_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">ICSI</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- iui_treatment -->
+    {% if listing.iui_treatment == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IUI</p>
+        </div>
+        <div class="col-3">
+          {% if listing.iui_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.iui_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IUI</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- egg_donor_recipients -->
+    {% if listing.egg_donor_recipients == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using egg donors (single cycle)</p>
+        </div>
+        <div class="col-3">
+          {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.egg_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using egg donors (single cycle)</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- embryo_donor_recipients -->
+    {% if listing.embryo_donor_recipients == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using embryo donors (single cycle)</p>
+        </div>
+        <div class="col-3">
+          {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.embryo_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">IVF using embryo donors (single cycle)</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+  </ul>
+  <br>
+  <br>
+  <h2>Additional treatments & costs</h2>
+  <ul class="list-group list-group-flush">
+    <!-- fertility_preservation -->
+    {% if listing.egg_freezing == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Egg freezing</p>
+        </div>
+        <div class="col-3">
+          {% if listing.egg_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Egg freezing</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- fertility_preservation -->
+    {% if listing.embryo_freezing == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Embryo freezing</p>
+        </div>
+        <div class="col-3">
+          {% if listing.embryo_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.embryo_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Embryo freezing</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- fertility_preservation -->
+    {% if listing.sperm_freezing == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Sperm freezing</p>
+        </div>
+        <div class="col-3">
+          {% if listing.sperm_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.sperm_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Sperm freezing</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- surrogacy -->
+    {% if listing.surrogacy == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Surrogacy</p>
+        </div>
+        <div class="col-3">
+          {% if listing.surrogacy_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.surrogacy_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Surrogacy</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!-- sperm_donor_recipients -->
+    {% if listing.sperm_donor_recipients == True %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Sperm donor recipients</p>
+        </div>
+        <div class="col-3">
+          {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.sperm_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-1">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+        </div>
+        <div class="col-8">
+          <p style="font-size: 20px">Sperm donor recipients</p>
+        </div>
+        <div class="col-3">
+          <p style="text-align: right; font-size: 22px">Unknown</p>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+  </ul>
+  <br>
+  <br>
+  {% if listing.treatmentLimitations %}
+  <h2>Treatment limitations and restrictions information:</h2>
+  <p>{{ listing.treatmentLimitations|safe }}</p>
+
+  <br>
+  <br>
+  {% else %}
+  {% endif %}
+
+  {% if listing.package1title and listing.package1desc and listing.package1cost %}
+  <h2>Packages</h2>
+  <div class="row">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">1. {{ listing.package1title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package1desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% if listing.package2title and listing.package2desc and listing.package2cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">2. {{ listing.package2title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package2desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package2cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package3title and listing.package3desc and listing.package3cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">3. {{ listing.package3title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package3desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package3cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="card-deck mb-3 text-center">
+      {% if listing.package4title and listing.package4desc and listing.package4cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">4. {{ listing.package4title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package4desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package4cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package5title and listing.package5desc and listing.package5cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">5. {{ listing.package5title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package5desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package5cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.package6title and listing.package6desc and listing.package6cost %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0">6. {{ listing.package6title }}</h4>
+        </div>
+        <div class="card-body">
+          <p>{{ listing.package6desc|safe }}</p>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package6cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+
+  <br>
+  <br>
+  {% else %}
+  {% endif %}
+
+  <h2>Conditions</h2>
+  <div class="row">
+    <hr class="featurette-divider">
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+
+        <!-- single_woman_treatment -->
+        {% if listing.single_woman_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Single woman treatment
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Single woman treatment
+        </li>
+        {% endif %}
+
+        <!-- waiting list -->
+        {% if listing.sex_selection == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Sex/Gender selection
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+        <!-- single_woman_treatment -->
+        {% if listing.hiv_patients_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">HIV patients treatment
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">HIV patients treatment
+        </li>
+        {% endif %}
+
+        <!-- reciprocal_treatment -->
+        {% if listing.reciprocal_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Reciprocal IVF (LGBTQ)
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Reciprocal IVF (LGBTQ)
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+{% if listing.is_claimed == True %}
+<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Launguages</h2>
+  <hr>
+  <div class="row">
+    <div class="col-sm" style="text-align: left; padding-top:1rem" >
+      <ul class="list-group list-group-flush">
+        {% if listing.clinicEnglish == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicSpanish == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicPortuguese == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+      </ul>
+    </div>
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+        {% if listing.clinicRussian == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicGerman == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicChinese == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% else %}
+{% endif %}
+
+<br>
+<br>
+
+<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Contact</h2>
+  <hr>
+  <div class="row" style="padding-top:40px">
+    {% if listing.contact_phone %}
+    <div class="col">
+      <a href="tel:{{ listing.contact_phone }}" style="text-align:center">
+        <img src="{% static 'img/call.svg' %}" alt="Icon Telephone" style="width:50px">
+        <figcaption class="figure-caption">{{ listing.contact_phone }}</figcaption>
+      </a>
+    </div>
+    {% else %}
+    {% endif %}
+    {% if listing.pro_is_published %}
+      {% if listing.contact_url %}
+      <div class="col" style="text-align: center">
+        <a href="{{ listing.contact_url }}" style="text-align: center">
+          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
+          <figcaption class="figure-caption">Website</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+    {% else %}
+      {% if listing.contact_url %}
+      <div class="col" style="text-align: center">
+        <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow">
+          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
+          <figcaption class="figure-caption">Website</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+    {% endif %}
+    {% if listing.contact_email %}
+    <div class="col">
+      <a href="mailto:{{ listing.contact_email }}" style="text-align: center">
+        <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
+        <figcaption class="figure-caption">Email contact</figcaption>
+      </a>
+    </div>
+    {% else %}
+    {% endif %}
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <hr>
+  <h2>Clinics Location</h2>
+  <div class="row">
+    <div class="col-sm-6" style="padding-top:2rem">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.4262296853926!2d-80.10111738457853!3d26.92169896618338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ded7732af86231%3A0x1eff0346db496613!2sIVFMD!5e0!3m2!1scs!2sus!4v1586678674991!5m2!1scs!2sus" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+    </div>
+    <div class="col-sm-6" style="padding-top:2rem">
+      <h3>Clinics Address:</h3>
+      <p>{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
+      <p>{{ listing.clinicState }}</p>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Monday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.mondayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.mondayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Tuesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.tuesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.tuesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Wednesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.wednesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.wednesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Thursday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.thursdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.thursdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Friday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.fridayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.fridayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Saturday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.saturdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.saturdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label>Sunday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.sundayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ listing.sundayCloses }}
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+</div>
+
+{% if listing.pro_is_published %}
+  <div class="container">
+    <br>
+    {{ listing.clinic_staff|safe }}
+    <br>
+    <br>
+  </div>
+{% else %}
+{% endif %}
+
+<br>
+<br>
+<br>
+
+<!-- ================================================== -->
+<!-- GALLERY -->
+
+
+
+{% endblock  %}

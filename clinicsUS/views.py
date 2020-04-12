@@ -486,3 +486,323 @@ def radfd(request):
         }
 
     return render(request, 'clinics/US/Delaware/radfertility-dover.html', context)
+
+def bocaf(request):
+    listing = BasicClinic.objects.get(pk=62)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/boca-fertility.html', context)
+
+def pbfcbr(request):
+    listing = BasicClinic.objects.get(pk=63)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/pbfc-boca-raton.html', context)
+
+def pbfcpbg(request):
+    listing = BasicClinic.objects.get(pk=64)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/pbfc-palm-beach-gardens.html', context)
+
+def ffico(request):
+    listing = BasicClinic.objects.get(pk=65)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ffi-clearwater-office.html', context)
+
+def ffito(request):
+    listing = BasicClinic.objects.get(pk=66)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ffi-tampa-office.html', context)
+
+def cfcg(request):
+    listing = BasicClinic.objects.get(pk=67)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/conceptions-florida-coral-gables.html', context)
+
+def cfm(request):
+    listing = BasicClinic.objects.get(pk=68)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/conceptions-florida-miramar.html', context)
+
+def jcrmj(request):
+    listing = BasicClinic.objects.get(pk=69)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/jcrm-jacksonville.html', context)
+
+def jcrmg(request):
+    listing = BasicClinic.objects.get(pk=70)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/jcrm-gainesville.html', context)
+
+def jcrmpc(request):
+    listing = BasicClinic.objects.get(pk=71)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/jcrm-panama-city.html', context)
+
+def jcrmo(request):
+    listing = BasicClinic.objects.get(pk=72)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/jcrm-orlando.html', context)
+
+def rmanlm(request):
+    listing = BasicClinic.objects.get(pk=73)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/rma-network-lake-mary.html', context)
+
+def ivffwfc(request):
+    listing = BasicClinic.objects.get(pk=74)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-wellington-fertility-center.html', context)
+
+def ivffcgfc(request):
+    listing = BasicClinic.objects.get(pk=75)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-coral-gables-fertility-center.html', context)
+
+def ivfppfc(request):
+    listing = BasicClinic.objects.get(pk=76)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-pembroke-pines-fertility-center.html', context)
+
+def ivffmfc(request):
+    listing = BasicClinic.objects.get(pk=77)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-margate-fertility-center.html', context)
+
+def ivfbrfc(request):
+    listing = BasicClinic.objects.get(pk=78)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-boca-raton-fertility-center.html', context)
+
+def ivffjpbgfc(request):
+    listing = BasicClinic.objects.get(pk=79)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-jupiter-palm-beach-gardens-fertility-center.html', context)
+
+def ivffplfc(request):
+    listing = BasicClinic.objects.get(pk=80)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-florida-port-lucie-fertility-clinic.html', context)
+
+def vfc(request):
+    listing = BasicClinic.objects.get(pk=81)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/viera-fertility-center.html', context)
+
+def fivfcm(request):
+    listing = BasicClinic.objects.get(pk=82)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/fivfcm-miami.html', context)
+
+def fivfcmb(request):
+    listing = BasicClinic.objects.get(pk=83)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/fivfcm-miami-beach.html', context)
+
+def fg(request):
+    listing = BasicClinic.objects.get(pk=84)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/fertility-genetics.html', context)
+
+def ivfmdm(request):
+    listing = BasicClinic.objects.get(pk=85)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-miami.html', context)
+
+def ivfmdcc(request):
+    listing = BasicClinic.objects.get(pk=86)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-cooper-city', context)
+
+def ivfmdbr(request):
+    listing = BasicClinic.objects.get(pk=87)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-boca-raton', context)
+
+def ivfmdj(request):
+    listing = BasicClinic.objects.get(pk=88)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-jupiter', context)
+
+def ivfmdn(request):
+    listing = BasicClinic.objects.get(pk=89)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-naples', context)
+
+def ivfmdv(request):
+    listing = BasicClinic.objects.get(pk=90)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivfmd-viera', context)
+
+def sgftw(request):
+    listing = BasicClinic.objects.get(pk=91)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/sgf-tampa-westshore', context)
+
+def sgfb(request):
+    listing = BasicClinic.objects.get(pk=92)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/sgf-brandon', context)
+
+def sgfwc(request):
+    listing = BasicClinic.objects.get(pk=93)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/sgf-wesley-chapel', context)
+
+def rmgnto(request):
+    listing = BasicClinic.objects.get(pk=94)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/rmg-north-tampa-office', context)
+
+def rmgsto(request):
+    listing = BasicClinic.objects.get(pk=95)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/rmg-south-tampa-office', context)
+
+def rmgco(request):
+    listing = BasicClinic.objects.get(pk=96)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/rmg-clearwater-office', context)
+
+def rmgbo(request):
+    listing = BasicClinic.objects.get(pk=97)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/rmg-brandon-office', context)
+
+def fifrst(request):
+    listing = BasicClinic.objects.get(pk=98)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/florida-institute-for-reproductive-sciences-technologies', context)
+
+def arswp(request):
+    listing = BasicClinic.objects.get(pk=99)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/advanced-reproductive-specialists-winter-park', context)
+
+def ivfowp(request):
+    listing = BasicClinic.objects.get(pk=100)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/ivf-orlando-winter-park', context)
+
+def fcare(request):
+    listing = BasicClinic.objects.get(pk=101)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Florida/fertility-center-assisted-reproduction-endocrinology', context)

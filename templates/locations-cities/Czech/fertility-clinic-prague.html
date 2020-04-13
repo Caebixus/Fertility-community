@@ -2,10 +2,10 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics in Prague | 2020{% endblock %}
-{% block description %}Search and find the best Prague fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinics that suit your conditions.{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/cities/fertility-clinics-prague{% endblock %}
-{% block meta_keywords %}fertility clinic prague, ivf clinics prague, fertility doctor prague, fertility specialist prague, fertility center prague, private fertility clinic prague{% endblock %}
+{% block title %}Best fertility clinic in Prague | 2020{% endblock %}
+{% block description %}Search and find the best fertility clinics in Prague or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-prague{% endblock %}
+{% block meta_keywords %}fertility clinic prague, ivf clinic prague{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
@@ -63,7 +63,15 @@
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="IVF treatment" style="color: white">IVF treatment</label>
+                    <label class="form-check-label" for="IVF treatment" style="color: white">Natural IVF</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="IVF treatment mild" style="color: white">Mild IVF</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="IVF treatment ovarian" style="color: white">IVF with ovarian stimulation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
@@ -71,15 +79,15 @@
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Egg donation recipients" style="color: white">Egg donation recipients</label>
+                    <label class="form-check-label" for="Egg donation recipients" style="color: white">IVF with Egg donation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Sperm donation recipients" style="color: white">Sperm donation recipients</label>
+                    <label class="form-check-label" for="Sperm donation recipients" style="color: white">IVF with Sperm donation</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
-                    <label class="form-check-label" for="Embryo donation recipients" style="color: white">Embryo donation recipients</label>
+                    <label class="form-check-label" for="Embryo donation recipients" style="color: white">IVF with Embryo donation</label>
                   </div>
                 </div>
 
@@ -132,19 +140,19 @@
 
 <div class="container">
   <ul class="nav justify-content-left">
-    <li class="nav-item">
+    <li hidden class="nav-item">
       <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
     </li>
-    <li class="nav-item">
+    <li hidden class="nav-item">
       <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF EU Group</a>
+    <li hidden class="nav-item">
+      <a class="nav-link active" href="#" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Czech Group</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#locationsReferer" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Czech</a>
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#locationsReferer" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Czech Republic</a>
     </li>
-    <li class="nav-item">
+    <li hidden class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
     </li>
   </ul>
@@ -195,12 +203,12 @@
         }
       </script>
       {% endif %}
+      {% endfor %}
 
 
+      {% for order_datas in order_data %}
       {% if order_datas.pro_is_published == True %}
-
-      <!-- Clinic listings header -->
-
+      <!-- PRO Clinic listings header -->
       <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
         <div class="container" style="padding-top: 20px">
           <div class="header">
@@ -223,7 +231,7 @@
                   <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
                 </a>
               </div>
-              <p style="color:white">{{ order_datas.clinicTitle|safe }}</p>
+              {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
             </div>
           </div>
         </div>
@@ -242,38 +250,30 @@
         </div>
 
         <hr noshade style="border-top: 1px solid white">
-        <p style="color: white">Speak and ask consultants directly</p>
-        <div class="row" style="text-align: center">
-          <div class="col-4 col-md">
-            <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="border-radius: 50%; height:50px; width:50px">
-            <p class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px; text-align: center">Jaroslav Novotný</p>
-            <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-envelope"></i> Email</button>
-          </div>
-          <div class="col-4 col-md">
-
-          </div>
-          <div class="col-4 col-md">
-
-          </div>
-        </div>
-
-        <hr noshade style="border-top: 1px solid white">
-        <p style="color: white">Clinic details</p>
+        <p style="color: white">Detailed information</p>
         <div class="row">
-          <div class="col-4 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-info-circle"></i> Clinic detail</button>
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
-          <div class="col-4 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-tags"></i> Pricing</button>
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
-          <div class="col-4 col-md">
-            <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-light btn-lg" style="max-width: 12rem;"><i class="fas fa-archive"></i> Package</button>
+          {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title %}
+          <div class="col-3 col-sm" style="padding-top:1rem">
+            <a href="{{ order_datas.clinic_url }}#Packages">
+              <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Package</button>
             </a>
+          </div>
+          {% else %}
+          <div class="col-3 col-sm" style="padding-top:1rem">
+          </div>
+          {% endif %}
+          <div hidden class="col-3 col-sm" style="padding-top:1rem">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Quick Contact</button>
           </div>
         </div>
         <br>
@@ -321,17 +321,21 @@
           {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         </div>
         <hr noshade>
-        <p>Clinic details</p>
+        <p>Detailed information</p>
         <div class="row">
-          <div class="col-6 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
-              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-info-circle"></i> Clinic detail</button>
+              <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
-          <div class="col-6 col-md">
+          <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
-              <button type="button" class="btn btn-outline-secondary btn-lg" style="max-width: 12rem"><i class="fas fa-tags"></i> Pricing</button>
+              <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
+          </div>
+          <div class="col-3 col-sm" style="padding-top:1rem">
+          </div>
+          <div class="col-3 col-sm" style="padding-top:1rem">
           </div>
         </div>
       </div>
@@ -361,40 +365,42 @@
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech fertility treatment costs in 2020:</h2>
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech Republic fertility treatment costs in 2020:</h2>
+          <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
+          <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
           <br>
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average natural (standard) IVF price: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Egg donation cycle: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average single Embryo donation cycle: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average Sperm donation recipients price: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i></p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
@@ -403,7 +409,7 @@
             <div class="col-6 col-md">
               <a href="#locationsReferer" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-flag"></i> Other Czech locations
+                <i class="fas fa-flag"></i> Other CZ locations
                 </button>
               </a>
             </div>
@@ -449,27 +455,14 @@
 <div class="container" id="locationsReferer" style="padding-top:3rem">
   <hr>
   <br>
-  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Europe</h2>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Czech Republic</h2>
   <br>
   <div class="row">
     <div class="col-6 col-md">
       <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Brno fertility clinics</a></li>
-        <li><a href="#">Barcelona fertility clinics</a></li>
-        <li><a href="#">Athens fertility clinics</a></li>
-        <br>
-        <li><a href="#"><u>All city list</u></a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h4>Countries:</h4>
-      <ul class="list-unstyled text-small">
-        <li><a href="#">Spain</a></li>
-        <li><a href="#">Greece</a></li>
-        <li><a href="#">United Kingdom</a></li>
-        <br>
-        <li><a href="{% url 'locations' %}"><u>All countries list</u></a></li>
+        <li><a href="{% url 'fertilityClinicPrague' %}">Fertility clinic Prague</a></li>
+        <li><a href="{% url 'fertilityClinicBrno' %}">Fertility clinic Brno</a></li>
       </ul>
     </div>
   </div>

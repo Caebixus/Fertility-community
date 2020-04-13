@@ -253,7 +253,7 @@ def irmsnjo(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/New-Jersey/irms-new-jersey-office.html', context)
+    return render(request, 'clinics/US/New-Jersey/irms-jersey-city-office.html', context)
 
 def irmslo(request):
     listing = BasicClinic.objects.get(pk=32)

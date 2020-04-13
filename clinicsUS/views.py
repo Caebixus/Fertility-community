@@ -685,7 +685,7 @@ def ivfmdcc(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivfmd-cooper-city', context)
+    return render(request, 'clinics/US/Florida/ivfmd-cooper-city.html', context)
 
 def ivfmdbr(request):
     listing = BasicClinic.objects.get(pk=87)
@@ -693,7 +693,7 @@ def ivfmdbr(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivfmd-boca-raton', context)
+    return render(request, 'clinics/US/Florida/ivfmd-boca-raton.html', context)
 
 def ivfmdj(request):
     listing = BasicClinic.objects.get(pk=88)
@@ -701,7 +701,7 @@ def ivfmdj(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivfmd-jupiter', context)
+    return render(request, 'clinics/US/Florida/ivfmd-jupiter.html', context)
 
 def ivfmdn(request):
     listing = BasicClinic.objects.get(pk=89)
@@ -709,7 +709,7 @@ def ivfmdn(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivfmd-naples', context)
+    return render(request, 'clinics/US/Florida/ivfmd-naples.html', context)
 
 def ivfmdv(request):
     listing = BasicClinic.objects.get(pk=90)
@@ -717,7 +717,7 @@ def ivfmdv(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivfmd-viera', context)
+    return render(request, 'clinics/US/Florida/ivfmd-viera.html', context)
 
 def sgftw(request):
     listing = BasicClinic.objects.get(pk=91)
@@ -725,7 +725,7 @@ def sgftw(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/sgf-tampa-westshore', context)
+    return render(request, 'clinics/US/Florida/sgf-tampa-westshore.html', context)
 
 def sgfb(request):
     listing = BasicClinic.objects.get(pk=92)
@@ -733,7 +733,7 @@ def sgfb(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/sgf-brandon', context)
+    return render(request, 'clinics/US/Florida/sgf-brandon.html', context)
 
 def sgfwc(request):
     listing = BasicClinic.objects.get(pk=93)
@@ -741,7 +741,7 @@ def sgfwc(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/sgf-wesley-chapel', context)
+    return render(request, 'clinics/US/Florida/sgf-wesley-chapel.html', context)
 
 def rmgnto(request):
     listing = BasicClinic.objects.get(pk=94)
@@ -749,7 +749,7 @@ def rmgnto(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/rmg-north-tampa-office', context)
+    return render(request, 'clinics/US/Florida/rmg-north-tampa-office.html', context)
 
 def rmgsto(request):
     listing = BasicClinic.objects.get(pk=95)
@@ -757,7 +757,7 @@ def rmgsto(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/rmg-south-tampa-office', context)
+    return render(request, 'clinics/US/Florida/rmg-south-tampa-office.html', context)
 
 def rmgco(request):
     listing = BasicClinic.objects.get(pk=96)
@@ -765,7 +765,7 @@ def rmgco(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/rmg-clearwater-office', context)
+    return render(request, 'clinics/US/Florida/rmg-clearwater-office.html', context)
 
 def rmgbo(request):
     listing = BasicClinic.objects.get(pk=97)
@@ -773,7 +773,7 @@ def rmgbo(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/rmg-brandon-office', context)
+    return render(request, 'clinics/US/Florida/rmg-brandon-office.html', context)
 
 def fifrst(request):
     listing = BasicClinic.objects.get(pk=98)
@@ -781,7 +781,7 @@ def fifrst(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/florida-institute-for-reproductive-sciences-technologies', context)
+    return render(request, 'clinics/US/Florida/florida-institute-for-reproductive-sciences-technologies.html', context)
 
 def arswp(request):
     listing = BasicClinic.objects.get(pk=99)
@@ -789,7 +789,7 @@ def arswp(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/advanced-reproductive-specialists-winter-park', context)
+    return render(request, 'clinics/US/Florida/advanced-reproductive-specialists-winter-park.html', context)
 
 def ivfowp(request):
     listing = BasicClinic.objects.get(pk=100)
@@ -797,7 +797,7 @@ def ivfowp(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/ivf-orlando-winter-park', context)
+    return render(request, 'clinics/US/Florida/ivf-orlando-winter-park.html', context)
 
 def fcare(request):
     listing = BasicClinic.objects.get(pk=101)
@@ -805,4 +805,4 @@ def fcare(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Florida/fertility-center-assisted-reproduction-endocrinology', context)
+    return render(request, 'clinics/US/Florida/fertility-center-assisted-reproduction-endocrinology.html', context)

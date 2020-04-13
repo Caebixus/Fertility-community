@@ -11,6 +11,8 @@ class CitiesViewSitemap(sitemaps.Sitemap):
 
     def items(self):
         return [
+        'fertilityClinicPrague',
+        'fertilityClinicBrno',
         ]
 
     def location(self, item):

@@ -8,7 +8,7 @@ from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
-def fertilityClinicsPrague(request):
+def fertilityClinicPrague(request):
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True)
     queryset_list = queryset_list.filter(pro_is_published=False)
@@ -59,7 +59,7 @@ def fertilityClinicsPrague(request):
 
     return render(request, 'locations-cities/Czech/fertility-clinic-prague.html', context)
 
-def fertilityClinicsBrno(request):
+def fertilityClinicBrno(request):
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True)
     queryset_list = queryset_list.filter(pro_is_published=False)

@@ -33,7 +33,7 @@ def fertilityClinicsAlabama(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -85,7 +85,7 @@ def fertilityClinicsAlaska(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Alaska')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -137,7 +137,7 @@ def fertilityClinicsArizona(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Arizona')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -189,7 +189,7 @@ def fertilityClinicsArkansas(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Arkansas')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -241,9 +241,6 @@ def fertilityClinicsCalifornia(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='California')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
-    pro_queryset_list = pro_queryset_list.order_by('?')
-
     order_data = list(pro_queryset_list) + list(queryset_list)
 
     paginator = Paginator(order_data, 12)
@@ -293,7 +290,7 @@ def fertilityClinicsColorado(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Colorado')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -345,7 +342,7 @@ def fertilityClinicsConnecticut(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Connecticut')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -397,7 +394,7 @@ def fertilityClinicsDelaware(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Delaware')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -449,7 +446,7 @@ def fertilityClinicsFlorida(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Florida')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -501,7 +498,7 @@ def fertilityClinicsGeorgia(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Georgia')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -553,7 +550,7 @@ def fertilityClinicsHawaii(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Hawaii')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -605,7 +602,7 @@ def fertilityClinicsIdaho(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Idaho')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -657,7 +654,7 @@ def fertilityClinicsIllinois(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Illinois')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -709,7 +706,7 @@ def fertilityClinicsIndiana(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Indiana')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -761,7 +758,7 @@ def fertilityClinicsIowa(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Iowa')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -813,7 +810,7 @@ def fertilityClinicsKansas(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Kansas')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -865,7 +862,7 @@ def fertilityClinicsKentucky(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Kentucky')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -917,7 +914,7 @@ def fertilityClinicsLouisiana(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Louisiana')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -969,7 +966,7 @@ def fertilityClinicsMaine(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Maine')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1021,7 +1018,7 @@ def fertilityClinicsMaryland(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Maryland')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1073,7 +1070,7 @@ def fertilityClinicsMassachusetts(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Massachusetts')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1125,7 +1122,7 @@ def fertilityClinicsMichigan(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Michigan')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1177,7 +1174,7 @@ def fertilityClinicsMinnesota(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Minnesota')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1229,7 +1226,7 @@ def fertilityClinicsMississippi(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Mississippi')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1281,7 +1278,7 @@ def fertilityClinicsMissouri(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Missouri')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1333,7 +1330,7 @@ def fertilityClinicsMontana(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Montana')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1385,7 +1382,7 @@ def fertilityClinicsNebraska(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Nebraska')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1437,7 +1434,7 @@ def fertilityClinicsNewHampshire(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='New Hampshire')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1489,7 +1486,7 @@ def fertilityClinicsNewJersey(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='New Jersey')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1541,7 +1538,7 @@ def fertilityClinicsNewMexico(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='New Mexico')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1593,7 +1590,7 @@ def fertilityClinicsNewYork(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='New York')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1645,7 +1642,7 @@ def fertilityClinicsNorthCarolina(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='North Carolina')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1697,7 +1694,7 @@ def fertilityClinicsNorthDakota(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='North Dakota')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1749,7 +1746,7 @@ def fertilityClinicsNevada(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Nevada')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1801,7 +1798,7 @@ def fertilityClinicsOhio(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Ohio')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1853,7 +1850,7 @@ def fertilityClinicsOklahoma(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Oklahoma')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1905,7 +1902,7 @@ def fertilityClinicsOregon(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Oregon')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -1957,7 +1954,7 @@ def fertilityClinicsPennsylvania(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Pennsylvania')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2009,7 +2006,7 @@ def fertilityClinicsPuertoRico(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Puerto Rico')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2061,7 +2058,7 @@ def fertilityClinicsRhodeIsland(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Rhode Island')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2113,7 +2110,7 @@ def fertilityClinicsSouthCarolina(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='South Carolina')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2165,7 +2162,7 @@ def fertilityClinicsSouthDakota(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='South Dakota')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2217,7 +2214,7 @@ def fertilityClinicsTennessee(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Tennessee')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2269,7 +2266,7 @@ def fertilityClinicsTexas(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Texas')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2321,7 +2318,7 @@ def fertilityClinicsUtah(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Utah')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2373,7 +2370,7 @@ def fertilityClinicsVermont(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Vermont')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2425,7 +2422,7 @@ def fertilityClinicsVirginia(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2477,7 +2474,7 @@ def fertilityClinicsWashington(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Washington')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2529,7 +2526,7 @@ def fertilityClinicsWestVirginia(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2581,7 +2578,7 @@ def fertilityClinicsWisconsin(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Wisconsin')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2633,7 +2630,7 @@ def fertilityClinicsWyoming(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='Wyoming')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)
@@ -2685,7 +2682,7 @@ def fertilityClinicsDistrictOfColumbia(request):
     my_total_count = my_total_count.filter(clinicRegion__iexact='DistrictOfColumbia')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
 
     order_data = list(pro_queryset_list) + list(queryset_list)

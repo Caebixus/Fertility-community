@@ -48,7 +48,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -570,7 +570,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Alaska')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -1069,7 +1069,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Arizona')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -1567,7 +1567,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Arkansas')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -2066,7 +2066,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='California')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -2565,7 +2565,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Colorado')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -3064,7 +3064,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Connecticut')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -3563,7 +3563,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Delaware')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -4061,7 +4061,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Florida')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -4560,7 +4560,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Georgia')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -5059,7 +5059,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Hawaii')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -5558,7 +5558,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Idaho')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -6057,7 +6057,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Illinois')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -6556,7 +6556,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Indiana')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -7055,7 +7055,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Iowa')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -7554,7 +7554,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Kansas')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -8053,7 +8053,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Kentucky')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -8552,7 +8552,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Louisiana')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -9051,7 +9051,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Maine')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -9550,7 +9550,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Maryland')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -10049,7 +10049,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Massachusetts')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -10548,7 +10548,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Michigan')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -11047,7 +11047,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Minnesota')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -11546,7 +11546,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Mississippi')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -12045,7 +12045,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Missouri')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -12544,7 +12544,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Montana')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -13043,7 +13043,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Nebraska')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -13542,7 +13542,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Nevada')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -14041,7 +14041,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Hampshire')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -14540,7 +14540,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Jersey')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -15039,7 +15039,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Mexico')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -15538,7 +15538,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New York')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -16037,7 +16037,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='North Carolina')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -16536,7 +16536,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='North Dakota')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -17035,7 +17035,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Ohio')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -17534,7 +17534,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Oklahoma')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -18033,7 +18033,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Oregon')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -18532,7 +18532,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Pennsylvania')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -19031,7 +19031,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Rhode Island')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -19530,7 +19530,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='South Carolina')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -20029,7 +20029,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='South Dakota')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -20528,7 +20528,7 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Tennessee')
                     my_total_count = my_total_count.count()
 
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -21026,7 +21026,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Texas')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Texas')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -21524,7 +21524,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Utah')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Utah')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -22022,7 +22022,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Vermont')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Vermont')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -22520,7 +22520,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -23018,7 +23018,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Washington')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Washington')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -23516,7 +23516,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='West Virginia')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='West Virginia')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -24014,7 +24014,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wisconsin')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Wisconsin')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -24512,7 +24512,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wyoming')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Wyoming')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -25010,7 +25010,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='District of Columbia')
                     my_total_count = my_total_count.filter(clinicRegion__iexact='District of Columbia')
                     my_total_count = my_total_count.count()
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -25504,7 +25504,7 @@ def search(request):
                         return render(request, 'search/search.html', context)
 
                 else:
-                    queryset_list = queryset_list.order_by('?')
+
                     pro_queryset_list = pro_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
@@ -26512,7 +26512,7 @@ def search(request):
             pro_queryset_list = BasicClinic.objects.order_by('?')
             pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
 
-            queryset_list = queryset_list.order_by('?')
+
             pro_queryset_list = pro_queryset_list.order_by('?')
 
             if 'treatments' in request.GET:

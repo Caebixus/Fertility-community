@@ -35,7 +35,7 @@ def fertilityClinicUSA(request):
 
     order_data = list(pro_queryset_list) + list(queryset_list)
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 4)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 

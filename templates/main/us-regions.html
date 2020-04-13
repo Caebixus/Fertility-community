@@ -61,8 +61,8 @@
               <td style="font-size: 14px">{% if gbpCurrency_alabama_ivf %}{{ gbpCurrency_alabama_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicsAlabama' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Alabama IVF Clinics</button></a></td>
             </tr>
-            <tr>
-              <th hidden scope="row"><a href="{% url 'fertilityClinicsAlaska' %}">Alaska</a></th>
+            <tr hidden>
+              <th scope="row"><a href="{% url 'fertilityClinicsAlaska' %}">Alaska</a></th>
               <td style="font-size: 14px">{% if usdCurrency_alaska_ivf %}{{ usdCurrency_alaska_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_alaska_ivf %}{{ eurCurrency_alaska_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_alaska_ivf %}{{ gbpCurrency_alaska_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>

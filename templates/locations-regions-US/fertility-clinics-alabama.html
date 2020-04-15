@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics & agencies in Alabama, United States
+      Fertility clinics & agencies in Alabama, United States
     </h1>
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
   </div>
@@ -403,11 +403,18 @@
           {% endif  %}
           {% endfor %}
           <br>
-          <div hidden class="row">
+          <div class="row">
             <div class="col-6 col-md">
-              <a href="#locationsReferer" style="font-size: 14px !important;">
+              <a href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-flag"></i> Other US locations
+                  <i class="fas fa-flag"></i> USA Compare
+                </button>
+              </a>
+            </div>
+            <div class="col-6 col-md">
+              <a href="{% url 'locations' %}">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-globe"></i> World Compare
                 </button>
               </a>
             </div>

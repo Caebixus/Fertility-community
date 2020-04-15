@@ -403,11 +403,13 @@
           {% endif  %}
           {% endfor %}
           <br>
-          <div hidden class="row">
+          <div class="row">
             <div class="col-6 col-md">
-              <a href="#locationsReferer" style="font-size: 14px !important;">
+            </div>
+            <div class="col-6 col-md">
+              <a href="{% url 'locations' %}">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-flag"></i> Other CZ locations
+                  <i class="fas fa-globe"></i> World Compare
                 </button>
               </a>
             </div>

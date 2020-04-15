@@ -256,11 +256,13 @@
               <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
+          {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
           <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
               <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
+          {% endif %}
           {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title %}
           <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#Packages">
@@ -326,11 +328,13 @@
               <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
             </a>
           </div>
+          {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
           <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}#pricing">
               <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-tags"></i> Pricing</button>
             </a>
           </div>
+          {% endif %}
           <div class="col-3 col-sm" style="padding-top:1rem">
           </div>
           <div class="col-3 col-sm" style="padding-top:1rem">

@@ -81,6 +81,13 @@
           </div>
           <br>
           <div class="fieldWrapper" style="text-align: left">
+            {{ form.clinicRegion.errors }}
+            <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+            {{ form.clinicRegion }}
+          </div>
+        </div>
+        <div class="col-md-6" style="padding-top:1rem">
+          <div class="fieldWrapper" style="text-align: left">
             {{ form.clinicPostalCode.errors }}
             <label for="{{ form.clinicPostalCode.id_for_label}}">Postal Code:</label>
             {{ form.clinicPostalCode }}

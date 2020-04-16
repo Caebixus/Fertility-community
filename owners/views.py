@@ -176,6 +176,7 @@ def create(request):
             fertility_preservation = False
 
         listing.list_date = timezone.datetime.now()
+        listing.is_claimed = True
 
         listing.save()
         return render(request, 'owners/dashboard.html')
@@ -190,6 +191,7 @@ def create1(request):
         form = form.save(commit=False)
         form.is_published_list_date = datetime.now()
         form.clinicOwner = request.user
+        form.is_claimed = True
         form.save()
 
         klinika = form.clinicName

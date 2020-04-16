@@ -354,6 +354,7 @@ class CreateClinic(forms.ModelForm):
 
     is_claimed = forms.BooleanField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=True, required=False)
     is_published = forms.BooleanField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
+    pro_is_published = forms.BooleanField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
     class Meta:
@@ -1258,7 +1259,6 @@ class PostFormPro(forms.ModelForm):
         'clinicGerman',
         'clinicChinese',
         'defaultClinicCurrency',
-        'pro_is_published',
         'pro_is_published_list_date',
         'mondayOpens',
         'mondayCloses',
@@ -1373,7 +1373,6 @@ class UpdatePricePro(forms.ModelForm):
         'single_woman_treatment',
         'reciprocal_ivf',
         'hiv_patients',
-        'pro_is_published',
         'pro_is_published_list_date',
         'package1title',
         'package1desc',

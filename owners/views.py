@@ -235,6 +235,8 @@ def update(request, listing_id):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
+            messages.success(request, '- Clinics pricing succesfully updated')
+            return redirect(dashboard)
         else:
             messages.success(request, '- Clinics information succesfully updated')
             return redirect(dashboard)
@@ -267,6 +269,8 @@ def updatePricing(request, listing_id):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
+            messages.success(request, '- Clinics pricing succesfully updated')
+            return redirect(dashboard)
         else:
             messages.success(request, '- Clinics pricing succesfully updated')
             return redirect(dashboard)
@@ -285,6 +289,7 @@ def updatePro(request, listing_id):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.pro_is_published_list_date = datetime.now()
+        instance.pro_is_published = True
         instance.save()
 
         data = form.cleaned_data
@@ -299,6 +304,8 @@ def updatePro(request, listing_id):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
+            messages.success(request, '- Clinics information succesfully updated')
+            return redirect(dashboard)
 
         else:
             messages.success(request, '- Clinics information succesfully updated')
@@ -332,6 +339,8 @@ def updatePricingPro(request, listing_id):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
+            messages.success(request, '- Clinics pricing succesfully updated')
+            return redirect(dashboard)
         else:
             messages.success(request, '- Clinics pricing succesfully updated')
             return redirect(dashboard)

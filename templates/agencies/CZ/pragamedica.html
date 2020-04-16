@@ -100,7 +100,7 @@
 {% endif %}
 <br>
 <div class="ButtonCornerContact">
-  {% if listing.is_claimed == True and listing.contact_email == True %}
+  {% if listing.is_claimed == True and listing.contact_email %}
   <div style="position: fixed; bottom: 25px; right: 25px; z-index: 1;" >
     <a href="mailto:{{ listing.contact_email }}">
       <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
@@ -671,59 +671,6 @@
   <br>
   <br>
 
-  {% if listing.is_claimed == True %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
-    <hr>
-    <div class="row">
-      <div class="col-sm" style="text-align: left; padding-top:1rem" >
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicEnglish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicSpanish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicPortuguese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-        </ul>
-      </div>
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicRussian == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicGerman == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicChinese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
   {% if listing.team1name or listing.team2name or listing.team3name and listing.contact_email and listing.pro_is_published %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Our team</h2>
@@ -772,7 +719,7 @@
   <br>
   <br>
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
+    <h2>Languages</h2>
     <hr>
     <div class="row">
       <div class="col-sm" style="text-align: left; padding-top:1rem" >

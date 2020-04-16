@@ -103,8 +103,9 @@
   {% if listing.is_claimed == True and listing.contact_email %}
   <div style="position: fixed; bottom: 25px; right: 25px; z-index: 1;" >
     <a href="mailto:{{ listing.contact_email }}">
-      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-        Contact clinic</button>
+      <button id="brandButtonGoalRightCorner" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+        Contact clinic
+      </button>
     </a>
   </div>
   {% else %}
@@ -760,7 +761,7 @@
     <div class="row" style="text-align: center">
       <div class="col-12 col-md">
         <a href="mailto:{{ listing.contact_email }}">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
+          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
         </a>
       </div>
     </div>
@@ -862,7 +863,7 @@
       {% endif %}
       {% if listing.contact_email %}
       <div class="col">
-        <a href="mailto:{{ listing.contact_email }}" style="text-align: center">
+        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalClassic">
           <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
           <figcaption class="figure-caption">Email contact</figcaption>
         </a>

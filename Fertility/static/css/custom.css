@@ -143,6 +143,22 @@ select {
   color: white;
 }
 
+#brandButtonGoalRightCorner {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalAskTeam {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
 #baseBrandButton {
   border-color: #ffffff;
   border-radius: 8px;

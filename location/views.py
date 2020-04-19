@@ -272,6 +272,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_alabama = queryset_list_us.filter(clinicRegion__iexact='Alabama')
+    my_total_count_alabama = queryset_list_alabama.count()
     queryset_list_alabama_ivf = queryset_list_alabama.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_alabama_ivf.items():
         usdCurrency_alabama_ivf = val
@@ -334,6 +335,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_alaska = queryset_list_us.filter(clinicRegion__iexact='Alaska')
+    my_total_count_alaska = queryset_list_alaska.count()
     queryset_list_alaska_ivf = queryset_list_alaska.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_alaska_ivf.items():
         usdCurrency_alaska_ivf = val
@@ -396,6 +398,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_arizona = queryset_list_us.filter(clinicRegion__iexact='Arizona')
+    my_total_count_arizona = queryset_list_arizona.count()
     queryset_list_arizona_ivf = queryset_list_arizona.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_arizona_ivf.items():
         usdCurrency_arizona_ivf = val
@@ -458,6 +461,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_arkansas = queryset_list_us.filter(clinicRegion__iexact='Arkansas')
+    my_total_count_arkansas = queryset_list_arkansas.count()
     queryset_list_arkansas_ivf = queryset_list_arkansas.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_arkansas_ivf.items():
         usdCurrency_arkansas_ivf = val
@@ -520,6 +524,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_california = queryset_list_us.filter(clinicRegion__iexact='California')
+    my_total_count_california = queryset_list_california.count()
     queryset_list_california_ivf = queryset_list_california.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_california_ivf.items():
         usdCurrency_california_ivf = val
@@ -582,6 +587,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_colorado = queryset_list_us.filter(clinicRegion__iexact='Colorado')
+    my_total_count_colorado = queryset_list_colorado.count()
     queryset_list_colorado_ivf = queryset_list_colorado.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_colorado_ivf.items():
         usdCurrency_colorado_ivf = val
@@ -644,6 +650,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_connecticut = queryset_list_us.filter(clinicRegion__iexact='Connecticut')
+    my_total_count_connecticut = queryset_list_connecticut.count()
     queryset_list_connecticut_ivf = queryset_list_connecticut.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_connecticut_ivf.items():
         usdCurrency_connecticut_ivf = val
@@ -706,6 +713,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_delaware = queryset_list_us.filter(clinicRegion__iexact='Delaware')
+    my_total_count_delaware = queryset_list_delaware.count()
     queryset_list_delaware_ivf = queryset_list_delaware.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_delaware_ivf.items():
         usdCurrency_delaware_ivf = val
@@ -768,6 +776,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_florida = queryset_list_us.filter(clinicRegion__iexact='Florida')
+    my_total_count_florida = queryset_list_florida.count()
     queryset_list_florida_ivf = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_florida_ivf.items():
         usdCurrency_florida_ivf = val
@@ -830,6 +839,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_georgia = queryset_list_us.filter(clinicRegion__iexact='Georgia')
+    my_total_count_georgia = queryset_list_georgia.count()
     queryset_list_georgia_ivf = queryset_list_georgia.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_georgia_ivf.items():
         usdCurrency_georgia_ivf = val
@@ -892,6 +902,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_hawaii = queryset_list_us.filter(clinicRegion__iexact='Hawaii')
+    my_total_count_hawaii = queryset_list_hawaii.count()
     queryset_list_hawaii_ivf = queryset_list_hawaii.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_hawaii_ivf.items():
         usdCurrency_hawaii_ivf = val
@@ -954,6 +965,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_idaho = queryset_list_us.filter(clinicRegion__iexact='Idaho')
+    my_total_count_idaho = queryset_list_idaho.count()
     queryset_list_idaho_ivf = queryset_list_idaho.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_idaho_ivf.items():
         usdCurrency_idaho_ivf = val
@@ -1016,6 +1028,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_illinois = queryset_list_us.filter(clinicRegion__iexact='Illinois')
+    my_total_count_illinois = queryset_list_illinois.count()
     queryset_list_illinois_ivf = queryset_list_illinois.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_illinois_ivf.items():
         usdCurrency_illinois_ivf = val
@@ -1078,6 +1091,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_indiana = queryset_list_us.filter(clinicRegion__iexact='Indiana')
+    my_total_count_indiana = queryset_list_indiana.count()
     queryset_list_indiana_ivf = queryset_list_indiana.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_indiana_ivf.items():
         usdCurrency_indiana_ivf = val
@@ -1140,6 +1154,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_iowa = queryset_list_us.filter(clinicRegion__iexact='Iowa')
+    my_total_count_iowa = queryset_list_iowa.count()
     queryset_list_iowa_ivf = queryset_list_iowa.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_iowa_ivf.items():
         usdCurrency_iowa_ivf = val
@@ -1202,6 +1217,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_kansas = queryset_list_us.filter(clinicRegion__iexact='Kansas')
+    my_total_count_kansas = queryset_list_kansas.count()
     queryset_list_kansas_ivf = queryset_list_kansas.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_kansas_ivf.items():
         usdCurrency_kansas_ivf = val
@@ -1264,6 +1280,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_kentucky = queryset_list_us.filter(clinicRegion__iexact='Kentucky')
+    my_total_count_kentucky = queryset_list_kentucky.count()
     queryset_list_kentucky_ivf = queryset_list_kentucky.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_kentucky_ivf.items():
         usdCurrency_kentucky_ivf = val
@@ -1326,6 +1343,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_louisiana = queryset_list_us.filter(clinicRegion__iexact='Louisiana')
+    my_total_count_louisiana = queryset_list_louisiana.count()
     queryset_list_louisiana_ivf = queryset_list_louisiana.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_louisiana_ivf.items():
         usdCurrency_louisiana_ivf = val
@@ -1388,6 +1406,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_maine = queryset_list_us.filter(clinicRegion__iexact='Maine')
+    my_total_count_maine = queryset_list_maine.count()
     queryset_list_maine_ivf = queryset_list_maine.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_maine_ivf.items():
         usdCurrency_maine_ivf = val
@@ -1450,6 +1469,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_maryland = queryset_list_us.filter(clinicRegion__iexact='Maryland')
+    my_total_count_maryland = queryset_list_maryland.count()
     queryset_list_maryland_ivf = queryset_list_maryland.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_maryland_ivf.items():
         usdCurrency_maryland_ivf = val
@@ -1512,6 +1532,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_massachusetts = queryset_list_us.filter(clinicRegion__iexact='Massachusetts')
+    my_total_count_massachusetts = queryset_list_massachusetts.count()
     queryset_list_massachusetts_ivf = queryset_list_massachusetts.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_massachusetts_ivf.items():
         usdCurrency_massachusetts_ivf = val
@@ -1574,6 +1595,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_michigan = queryset_list_us.filter(clinicRegion__iexact='Michigan')
+    my_total_count_michigan = queryset_list_michigan.count()
     queryset_list_michigan_ivf = queryset_list_michigan.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_michigan_ivf.items():
         usdCurrency_michigan_ivf = val
@@ -1636,6 +1658,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_minnesota = queryset_list_us.filter(clinicRegion__iexact='Minnesota')
+    my_total_count_minnesota = queryset_list_minnesota.count()
     queryset_list_minnesota_ivf = queryset_list_minnesota.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_minnesota_ivf.items():
         usdCurrency_minnesota_ivf = val
@@ -1698,6 +1721,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_mississippi = queryset_list_us.filter(clinicRegion__iexact='Mississippi')
+    my_total_count_mississippi = queryset_list_mississippi.count()
     queryset_list_mississippi_ivf = queryset_list_mississippi.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_mississippi_ivf.items():
         usdCurrency_mississippi_ivf = val
@@ -1760,6 +1784,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_missouri = queryset_list_us.filter(clinicRegion__iexact='Missouri')
+    my_total_count_missouri = queryset_list_missouri.count()
     queryset_list_missouri_ivf = queryset_list_missouri.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_missouri_ivf.items():
         usdCurrency_missouri_ivf = val
@@ -1822,6 +1847,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_montana = queryset_list_us.filter(clinicRegion__iexact='Montana')
+    my_total_count_montana = queryset_list_montana.count()
     queryset_list_montana_ivf = queryset_list_montana.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_missouri_ivf.items():
         usdCurrency_montana_ivf = val
@@ -1884,6 +1910,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_nebraska = queryset_list_us.filter(clinicRegion__iexact='Nebraska')
+    my_total_count_nebraska = queryset_list_nebraska.count()
     queryset_list_nebraska_ivf = queryset_list_nebraska.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_nebraska_ivf.items():
         usdCurrency_nebraska_ivf = val
@@ -1946,6 +1973,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_newhampshire = queryset_list_us.filter(clinicRegion__iexact='New Hampshire')
+    my_total_count_newhampshire = queryset_list_newhampshire.count()
     queryset_list_newhampshire_ivf = queryset_list_newhampshire.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_newhampshire_ivf.items():
         usdCurrency_newhampshire_ivf = val
@@ -2008,6 +2036,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_newjersey = queryset_list_us.filter(clinicRegion__iexact='New Jersey')
+    my_total_count_newjersey = queryset_list_newjersey.count()
     queryset_list_newjersey_ivf = queryset_list_newjersey.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_newjersey_ivf.items():
         usdCurrency_newjersey_ivf = val
@@ -2070,6 +2099,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_newmexico = queryset_list_us.filter(clinicRegion__iexact='New Mexico')
+    my_total_count_newmexico = queryset_list_newmexico.count()
     queryset_list_newmexico_ivf = queryset_list_newmexico.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_newmexico_ivf.items():
         usdCurrency_newmexico_ivf = val
@@ -2132,6 +2162,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_newyork = queryset_list_us.filter(clinicRegion__iexact='New York')
+    my_total_count_newyork = queryset_list_newyork.count()
     queryset_list_newyork_ivf = queryset_list_newyork.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_newyork_ivf.items():
         usdCurrency_newyork_ivf = val
@@ -2194,6 +2225,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_northcarolina = queryset_list_us.filter(clinicRegion__iexact='North Carolina')
+    my_total_count_northcarolina = queryset_list_northcarolina.count()
     queryset_list_northcarolina_ivf = queryset_list_northcarolina.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_northcarolina_ivf.items():
         usdCurrency_northcarolina_ivf = val
@@ -2256,6 +2288,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_northdakota = queryset_list_us.filter(clinicRegion__iexact='North Dakota')
+    my_total_count_northdakota = queryset_list_northdakota.count()
     queryset_list_northdakota_ivf = queryset_list_northdakota.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_northdakota_ivf.items():
         usdCurrency_northdakota_ivf = val
@@ -2318,6 +2351,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_nevada = queryset_list_us.filter(clinicRegion__iexact='Nevada')
+    my_total_count_nevada = queryset_list_nevada.count()
     queryset_list_nevada_ivf = queryset_list_nevada.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_nevada_ivf.items():
         usdCurrency_nevada_ivf = val
@@ -2380,6 +2414,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_ohio = queryset_list_us.filter(clinicRegion__iexact='Ohio')
+    my_total_count_ohio = queryset_list_ohio.count()
     queryset_list_ohio_ivf = queryset_list_ohio.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_ohio_ivf.items():
         usdCurrency_ohio_ivf = val
@@ -2442,6 +2477,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_oklahoma = queryset_list_us.filter(clinicRegion__iexact='Oklahoma')
+    my_total_count_oklahoma = queryset_list_oklahoma.count()
     queryset_list_oklahoma_ivf = queryset_list_oklahoma.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_oklahoma_ivf.items():
         usdCurrency_oklahoma_ivf = val
@@ -2504,6 +2540,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_oregon = queryset_list_us.filter(clinicRegion__iexact='Oregon')
+    my_total_count_oregon = queryset_list_oregon.count()
     queryset_list_oregon_ivf = queryset_list_oregon.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_oregon_ivf.items():
         usdCurrency_oregon_ivf = val
@@ -2566,6 +2603,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_pennsylvania = queryset_list_us.filter(clinicRegion__iexact='Pennsylvania')
+    my_total_count_pennsylvania = queryset_list_pennsylvania.count()
     queryset_list_pennsylvania_ivf = queryset_list_pennsylvania.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_pennsylvania_ivf.items():
         usdCurrency_pennsylvania_ivf = val
@@ -2628,6 +2666,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_puertorico = queryset_list_us.filter(clinicRegion__iexact='Puerto Rico')
+    my_total_count_puertorico = queryset_list_puertorico.count()
     queryset_list_puertorico_ivf = queryset_list_puertorico.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_puertorico_ivf.items():
         usdCurrency_puertorico_ivf = val
@@ -2690,6 +2729,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_southcarolina = queryset_list_us.filter(clinicRegion__iexact='South Carolina')
+    my_total_count_southcarolina = queryset_list_southcarolina.count()
     queryset_list_southcarolina_ivf = queryset_list_southcarolina.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_southcarolina_ivf.items():
         usdCurrency_southcarolina_ivf = val
@@ -2752,6 +2792,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_rhodeisland = queryset_list_us.filter(clinicRegion__iexact='Rhode Island')
+    my_total_count_rhodeisland = queryset_list_rhodeisland.count()
     queryset_list_rhodeisland_ivf = queryset_list_rhodeisland.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_rhodeisland_ivf.items():
         usdCurrency_rhodeisland_ivf = val
@@ -2814,6 +2855,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_southdakota = queryset_list_us.filter(clinicRegion__iexact='South Dakota')
+    my_total_count_southdakota = queryset_list_southdakota.count()
     queryset_list_southdakota_ivf = queryset_list_southdakota.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_southdakota_ivf.items():
         usdCurrency_southdakota_ivf = val
@@ -2876,6 +2918,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_tennessee = queryset_list_us.filter(clinicRegion__iexact='Tennessee')
+    my_total_count_tennessee = queryset_list_tennessee.count()
     queryset_list_tennessee_ivf = queryset_list_tennessee.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_tennessee_ivf.items():
         usdCurrency_tennessee_ivf = val
@@ -2938,6 +2981,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_texas = queryset_list_us.filter(clinicRegion__iexact='Texas')
+    my_total_count_texas = queryset_list_texas.count()
     queryset_list_texas_ivf = queryset_list_texas.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_texas_ivf.items():
         usdCurrency_texas_ivf = val
@@ -3000,6 +3044,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_utah = queryset_list_us.filter(clinicRegion__iexact='Utah')
+    my_total_count_utah = queryset_list_utah.count()
     queryset_list_utah_ivf = queryset_list_utah.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_utah_ivf.items():
         usdCurrency_utah_ivf = val
@@ -3062,6 +3107,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_vermont = queryset_list_us.filter(clinicRegion__iexact='Vermont')
+    my_total_count_vermont = queryset_list_vermont.count()
     queryset_list_vermont_ivf = queryset_list_vermont.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_vermont_ivf.items():
         usdCurrency_vermont_ivf = val
@@ -3124,6 +3170,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_virginia = queryset_list_us.filter(clinicRegion__iexact='Virginia')
+    my_total_count_virginia = queryset_list_virginia.count()
     queryset_list_virginia_ivf = queryset_list_virginia.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_virginia_ivf.items():
         usdCurrency_virginia_ivf = val
@@ -3186,6 +3233,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_washington = queryset_list_us.filter(clinicRegion__iexact='Washington')
+    my_total_count_washington = queryset_list_washington.count()
     queryset_list_washington_ivf = queryset_list_washington.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_washington_ivf.items():
         usdCurrency_washington_ivf = val
@@ -3248,6 +3296,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_westvirginia = queryset_list_us.filter(clinicRegion__iexact='West Virginia')
+    my_total_count_westvirginia = queryset_list_westvirginia.count()
     queryset_list_westvirginia_ivf = queryset_list_westvirginia.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_westvirginia_ivf.items():
         usdCurrency_westvirginia_ivf = val
@@ -3310,6 +3359,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_wisconsin = queryset_list_us.filter(clinicRegion__iexact='Wisconsin')
+    my_total_count_wisconsin = queryset_list_wisconsin.count()
     queryset_list_wisconsin_ivf = queryset_list_wisconsin.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_wisconsin_ivf.items():
         usdCurrency_wisconsin_ivf = val
@@ -3372,6 +3422,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_wyoming = queryset_list_us.filter(clinicRegion__iexact='Wyoming')
+    my_total_count_wyoming = queryset_list_wyoming.count()
     queryset_list_wyoming_ivf = queryset_list_wyoming.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_wyoming_ivf.items():
         usdCurrency_wyoming_ivf = val
@@ -3434,6 +3485,7 @@ def locationsUSRegions(request):
 
     #--------------------------------------------------------------------------
     queryset_list_districtofcolumbia = queryset_list_us.filter(clinicRegion__iexact='District of Columbia')
+    my_total_count_districtofcolumbia = queryset_list_districtofcolumbia.count()
     queryset_list_districtofcolumbia_ivf = queryset_list_districtofcolumbia.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_districtofcolumbia_ivf.items():
         usdCurrency_districtofcolumbia_ivf = val
@@ -4481,6 +4533,59 @@ def locationsUSRegions(request):
         'gbpCurrency_districtofcolumbia_iui': gbpCurrency_districtofcolumbia_iui,
         'usdCurrency_districtofcolumbia_iui': usdCurrency_districtofcolumbia_iui,
         'eurCurrency_districtofcolumbia_iui': eurCurrency_districtofcolumbia_iui,
+
+        'my_total_count_alabama': my_total_count_alabama,
+        'my_total_count_alaska': my_total_count_alaska,
+        'my_total_count_arizona': my_total_count_arizona,
+        'my_total_count_arkansas': my_total_count_arkansas,
+        'my_total_count_california': my_total_count_california,
+        'my_total_count_colorado': my_total_count_colorado,
+        'my_total_count_connecticut': my_total_count_connecticut,
+        'my_total_count_delaware': my_total_count_delaware,
+        'my_total_count_florida': my_total_count_florida,
+        'my_total_count_georgia': my_total_count_georgia,
+        'my_total_count_hawaii': my_total_count_hawaii,
+        'my_total_count_idaho': my_total_count_idaho,
+        'my_total_count_illinois': my_total_count_illinois,
+        'my_total_count_indiana': my_total_count_indiana,
+        'my_total_count_iowa': my_total_count_iowa,
+        'my_total_count_kansas': my_total_count_kansas,
+        'my_total_count_kentucky': my_total_count_kentucky,
+        'my_total_count_louisiana': my_total_count_louisiana,
+        'my_total_count_maine': my_total_count_maine,
+        'my_total_count_maryland': my_total_count_maryland,
+        'my_total_count_massachusetts': my_total_count_massachusetts,
+        'my_total_count_michigan': my_total_count_michigan,
+        'my_total_count_minnesota': my_total_count_minnesota,
+        'my_total_count_mississippi': my_total_count_mississippi,
+        'my_total_count_missouri': my_total_count_missouri,
+        'my_total_count_montana': my_total_count_montana,
+        'my_total_count_nebraska': my_total_count_nebraska,
+        'my_total_count_newhampshire': my_total_count_newhampshire,
+        'my_total_count_newjersey': my_total_count_newjersey,
+        'my_total_count_newmexico': my_total_count_newmexico,
+        'my_total_count_newyork': my_total_count_newyork,
+        'my_total_count_northcarolina': my_total_count_northcarolina,
+        'my_total_count_northdakota': my_total_count_northdakota,
+        'my_total_count_nevada': my_total_count_nevada,
+        'my_total_count_ohio': my_total_count_ohio,
+        'my_total_count_oklahoma': my_total_count_oklahoma,
+        'my_total_count_oregon': my_total_count_oregon,
+        'my_total_count_pennsylvania': my_total_count_pennsylvania,
+        'my_total_count_puertorico': my_total_count_puertorico,
+        'my_total_count_rhodeisland': my_total_count_rhodeisland,
+        'my_total_count_southcarolina': my_total_count_southcarolina,
+        'my_total_count_southdakota': my_total_count_southdakota,
+        'my_total_count_tennessee': my_total_count_tennessee,
+        'my_total_count_texas': my_total_count_texas,
+        'my_total_count_utah': my_total_count_utah,
+        'my_total_count_vermont': my_total_count_vermont,
+        'my_total_count_virginia': my_total_count_virginia,
+        'my_total_count_washington': my_total_count_washington,
+        'my_total_count_westvirginia': my_total_count_westvirginia,
+        'my_total_count_wisconsin': my_total_count_wisconsin,
+        'my_total_count_wyoming': my_total_count_wyoming,
+        'my_total_count_districtofcolombia': my_total_count_districtofcolombia,
         }
 
     return render(request, 'main/us-regions.html', context)

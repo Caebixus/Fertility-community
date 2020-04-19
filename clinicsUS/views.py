@@ -952,3 +952,37 @@ def rbacar(request):
         }
 
     return render(request, 'clinics/US/Georgia/reproductive-biology-associates–cartersville.html', context)
+
+# HAWAII Views
+
+def arch(request):
+    listing = BasicClinic.objects.get(pk=120)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Hawaii/advanced-reproductive-center-hawaii.html', context)
+
+def armghh(request):
+    listing = BasicClinic.objects.get(pk=121)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Hawaii/armgh-honolulu.html', context)
+
+def armghk(request):
+    listing = BasicClinic.objects.get(pk=122)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Hawaii/armgh-kailua.html', context)
+
+def pivfi(request):
+    listing = BasicClinic.objects.get(pk=123)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Hawaii/pacific-in-vitro-fertilization-institute.html', context)

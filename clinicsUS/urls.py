@@ -104,7 +104,7 @@ urlpatterns = [
     path('clinics/us/florida/advanced-reproductive-specialists-winter-park', views.arswp, name='arswp'),
     path('clinics/us/florida/ivf-orlando-winter-park', views.ivfowp, name='ivfowp'),
     path('clinics/us/florida/fertility-center-assisted-reproduction-endocrinology', views.fcare, name='fcare'),
-
+    #GEORGIA
     path('clinics/us/georgia/aspire-fertility-atlanta', views.afa, name='afa'),
     path('clinics/us/georgia/acrm-atlanta-perimetr', views.acrmap, name='acrmap'),
     path('clinics/us/georgia/acrm-atlanta-buckhead', views.acrmab, name='acrmab'),
@@ -123,4 +123,9 @@ urlpatterns = [
     path('clinics/us/georgia/reproductive-biology-associates–cumming', views.rbac, name='rbac'),
     path('clinics/us/georgia/reproductive-biology-associates–piedmont-hospital', views.rbaph, name='rbaph'),
     path('clinics/us/georgia/reproductive-biology-associates–cartersville', views.rbacar, name='rbacar'),
+    #HAWAII
+    path('clinics/us/hawaii/advanced-reproductive-center-hawaii', views.arch, name='arch'),
+    path('clinics/us/hawaii/armgh-honolulu', views.armghh, name='armghh'),
+    path('clinics/us/hawaii/armgh-kailua', views.armghk, name='armghk'),
+    path('clinics/us/hawaii/pacific-in-vitro-fertilization-institute', views.pivfi, name='pivfi'),
 ]

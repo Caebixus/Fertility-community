@@ -806,3 +806,149 @@ def fcare(request):
         }
 
     return render(request, 'clinics/US/Florida/fertility-center-assisted-reproduction-endocrinology.html', context)
+
+# GEORGIA Views
+
+def afa(request):
+    listing = BasicClinic.objects.get(pk=102)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/aspire-fertility-atlanta.html', context)
+
+def acrmap(request):
+    listing = BasicClinic.objects.get(pk=103)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/acrm-atlanta-perimetr.html', context)
+
+def acrmab(request):
+    listing = BasicClinic.objects.get(pk=104)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/acrm-atlanta-buckhead.html', context)
+
+def acrmjc(request):
+    listing = BasicClinic.objects.get(pk=105)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/acrm-johns-creek.html', context)
+
+def acrmm(request):
+    listing = BasicClinic.objects.get(pk=106)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/acrm-marietta.html', context)
+
+def mfs(request):
+    listing = BasicClinic.objects.get(pk=107)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/massey-fertility-services.html', context)
+
+def sfi(request):
+    listing = BasicClinic.objects.get(pk=108)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/servy-fertility-institute.html', context)
+
+def sgfan(request):
+    listing = BasicClinic.objects.get(pk=109)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/sgf-atlanta-northside.html', context)
+
+def sgfa(request):
+    listing = BasicClinic.objects.get(pk=110)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/sgf-alpharetta.html', context)
+
+def sgfbp(request):
+    listing = BasicClinic.objects.get(pk=111)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/sgf-buckhead-piedmont.html', context)
+
+def sgfm(request):
+    listing = BasicClinic.objects.get(pk=112)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/sgf-marietta.html', context)
+
+def rbamo(request):
+    listing = BasicClinic.objects.get(pk=113)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–main-office.html', context)
+
+def rbam(request):
+    listing = BasicClinic.objects.get(pk=114)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–marietta.html', context)
+
+def rbaf(request):
+    listing = BasicClinic.objects.get(pk=115)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–fayetteville.html', context)
+
+def rbal(request):
+    listing = BasicClinic.objects.get(pk=116)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–lawrenceville.html', context)
+
+def rbac(request):
+    listing = BasicClinic.objects.get(pk=117)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–cumming.html', context)
+
+def rbaph(request):
+    listing = BasicClinic.objects.get(pk=118)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–piedmont-hospital.html', context)
+
+def rbacar(request):
+    listing = BasicClinic.objects.get(pk=119)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–cartersville.html', context)

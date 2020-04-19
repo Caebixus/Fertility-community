@@ -4585,7 +4585,7 @@ def locationsUSRegions(request):
         'my_total_count_westvirginia': my_total_count_westvirginia,
         'my_total_count_wisconsin': my_total_count_wisconsin,
         'my_total_count_wyoming': my_total_count_wyoming,
-        'my_total_count_districtofcolombia': my_total_count_districtofcolombia,
+        'my_total_count_districtofcolumbia': my_total_count_districtofcolumbia,
         }
 
     return render(request, 'main/us-regions.html', context)

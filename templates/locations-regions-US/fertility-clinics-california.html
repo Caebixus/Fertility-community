@@ -161,9 +161,11 @@
 <br>
 
 <!-- PRO Clinic listings section -->
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
+      {% if paginationing %}
       {% for order_datas in order_data %}
 
       {% if order_datas.clinic_pro_logo_pic %}
@@ -248,6 +250,7 @@
         </div>
 
         <hr noshade style="border-top: 1px solid white">
+
         <div class="row">
           <div class="col-3 col-sm" style="padding-top:1rem">
             <a href="{{ order_datas.clinic_url }}">
@@ -341,8 +344,10 @@
         </div>
       </div>
       <br>
-      {% else %}
       <!-- Clinic listings footer -->
+      {% endif %}
+      {% endfor %}
+      {% else %}
       <div class="container" style="background-color: white; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
         <div class="container" style="padding-top: 20px">
           <div class="header">
@@ -358,7 +363,6 @@
         </div>
       </div>
       {% endif %}
-      {% endfor %}
     </div>
 
     <!-- Treatment average prices -->
@@ -454,49 +458,6 @@
       </li>
     </ul>
   </nav>
-</div>
-
-<!-- Location - intro -->
-<div class="container">
-  <h2></h2>
-</div>
-
-
-<!-- Location quick guide -->
-
-<!-- Location top tips -->
-
-<!-- Location FAQs -->
-
-<!-- Location for tourist -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Calculate costs of flight tickets</h3>
-      <p>This tool calculates the flight costs for any location/airport in the world. Simply select the desired airport of departure and destination and price is calculated, also with possible flights.</p>
-      <div class="lol" style="padding-bottom: 1rem">
-        <a href="{% url 'travelCalculator' %}" style="color: white">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Calculate</button>
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Accommodation</h3>
-      <p>I recommend staying with locals using Airbnb, so you can fully absorb the atmosphere of a city.</p>
-      <br>
-      <div class="lol" style="padding-bottom: 1rem">
-        <a href="https://www.airbnb.cz/c/davidl6528?currency=CZK" rel="nofollow" style="color: white">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;">Discount</button>
-        </a>
-      </div>
-      <p><i>You will receive up to <u>$40</u> off your first trip, and honestly, we’ll get $15 for every person who will complete stay through this link.</i></p>
-    </div>
-    <div class="col-sm-4" style="padding-top:2rem">
-      <h3>Transportation</h3>
-      <p>There are numerous transportation options available, including: airport buses, door-to-door shuttle vans, local buses, light rail, taxicabs and rental cars.</p>
-      <p>There are even several apps to get you from A to B. For example <u><a href="https://gocurb.com/" rel="nofollow">CURB</a></u>, <u><a href="https://www.uber.com/global/cs/cities/los-angeles/" rel="nofollow">UBER</a></u> or <u><a href="https://www.lyft.com/rider/cities/los-angeles-ca" rel="nofollow">LYFT</a></u> and car rental <u><a href="https://turo.com/" rel="nofollow">TURO</a></u>.</p>
-    </div>
-  </div>
 </div>
 
 <!-- Clinic additional locations -->

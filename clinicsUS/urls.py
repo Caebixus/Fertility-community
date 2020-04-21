@@ -128,4 +128,8 @@ urlpatterns = [
     path('clinics/us/hawaii/armgh-honolulu', views.armghh, name='armghh'),
     path('clinics/us/hawaii/armgh-kailua', views.armghk, name='armghk'),
     path('clinics/us/hawaii/pacific-in-vitro-fertilization-institute', views.pivfi, name='pivfi'),
+    #IOWA
+    path('clinics/us/iowa/mid-iowa-fertility', views.mif, name='mif'),
+    #IDAHO
+    path('clinics/us/idaho/idaho-center-reproductive-medicine', views.icrm, name='icrm'),
 ]

@@ -986,3 +986,23 @@ def pivfi(request):
         }
 
     return render(request, 'clinics/US/Hawaii/pacific-in-vitro-fertilization-institute.html', context)
+
+# IOWA Views --------------------------------------------------------------------------------------------------------
+
+def mif(request):
+    listing = BasicClinic.objects.get(pk=124)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Iowa/mid-iowa-fertility.html', context)
+
+# IDAHO Views --------------------------------------------------------------------------------------------------------
+
+def icrm(request):
+    listing = BasicClinic.objects.get(pk=125)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Idaho/idaho-center-reproductive-medicine.html', context)

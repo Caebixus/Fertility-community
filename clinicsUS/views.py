@@ -1016,3 +1016,27 @@ def crc(request):
         }
 
     return render(request, 'clinics/US/Illinois/center-reproductive-care.html', context)
+
+def fcibgc(request):
+    listing = BasicClinic.objects.get(pk=127)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-buffalo-grove-clinic.html', context)
+
+def fcicnc(request):
+    listing = BasicClinic.objects.get(pk=128)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-chicago-north-clinic.html', context)
+
+def fcigc(request):
+    listing = BasicClinic.objects.get(pk=129)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-glenview-clinic.html', context)

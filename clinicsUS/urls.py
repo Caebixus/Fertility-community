@@ -132,4 +132,6 @@ urlpatterns = [
     path('clinics/us/iowa/mid-iowa-fertility', views.mif, name='mif'),
     #IDAHO
     path('clinics/us/idaho/idaho-center-reproductive-medicine', views.icrm, name='icrm'),
+    #ILLINOIS
+    path('clinics/us/illinois/center-reproductive-care', views.crc, name='crc'),
 ]

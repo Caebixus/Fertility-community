@@ -1006,3 +1006,13 @@ def icrm(request):
         }
 
     return render(request, 'clinics/US/Idaho/idaho-center-reproductive-medicine.html', context)
+
+# ILLINOIS Views --------------------------------------------------------------------------------------------------------
+
+def crc(request):
+    listing = BasicClinic.objects.get(pk=126)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/center-reproductive-care.html', context)

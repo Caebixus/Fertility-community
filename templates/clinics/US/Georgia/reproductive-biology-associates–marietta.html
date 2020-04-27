@@ -98,6 +98,17 @@
 </div>
 {% else %}
 {% endif %}
+{% if listing.treatmentLimitations %}
+<div class="container">
+  <br>
+  <br>
+  <h2>Treatment limitations and restrictions information:</h2>
+  <p>{{ listing.treatmentLimitations|safe }}</p>
+  <br>
+  <br>
+</div>
+{% else %}
+{% endif %}
 <br>
 <div class="ButtonCornerContact">
   {% if listing.is_claimed == True and listing.contact_email %}
@@ -516,14 +527,6 @@
     </ul>
     <br>
     <br>
-    {% if listing.treatmentLimitations %}
-    <h2>Treatment limitations and restrictions information:</h2>
-    <p>{{ listing.treatmentLimitations|safe }}</p>
-
-    <br>
-    <br>
-    {% else %}
-    {% endif %}
 
     {% if listing.package1title and listing.package1desc and listing.package1cost %}
     <h2>Packages</h2>
@@ -605,9 +608,6 @@
         {% endif %}
       </div>
     </div>
-
-    <br>
-    <br>
     {% else %}
     {% endif %}
 
@@ -669,12 +669,9 @@
     </div>
   </div>
 
-  <br>
-  <br>
-
   {% if listing.is_claimed == True %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
+    <h2>Languages</h2>
     <hr>
     <div class="row">
       <div class="col-sm" style="text-align: left; padding-top:1rem" >
@@ -769,64 +766,6 @@
   {% else %}
   {% endif %}
 
-  {% if listing.is_claimed == True %}
-  <br>
-  <br>
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
-    <hr>
-    <div class="row">
-      <div class="col-sm" style="text-align: left; padding-top:1rem" >
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicEnglish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicSpanish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicPortuguese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-        </ul>
-      </div>
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicRussian == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicGerman == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicChinese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
-  <br>
-  <br>
-
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Contact</h2>
     <hr>
@@ -873,15 +812,12 @@
     </div>
   </div>
 
-  <br>
-  <br>
-
-  <div class="container">
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <hr>
     <h2>Travelling information for abroad clients</h2>
     <div class="row">
       <div class="col-sm-6" style="padding-top:2rem">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.8912808403743!2d-84.5537299843528!3d33.96963378062852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f514465730ddb5%3A0x5bfde1038cfa43cb!2sReproductive%20Biology%20Associates%20(Marietta)!5e0!3m2!1scs!2scz!4v1587284973752!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.8227278219542!2d14.380055516056915!3d50.07088147942481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95a446d23be7%3A0x86390602c7a9ecc8!2sPRAGA%20MEDICA!5e0!3m2!1scs!2scz!4v1585154890585!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
       </div>
       <div class="col-sm-6" style="padding-top:2rem">
         <h3>Clinics Address:</h3>
@@ -892,8 +828,9 @@
     <br>
     <hr>
     <br>
+    <h3>Clinics opening ours</h3>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Monday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -908,7 +845,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Tuesday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -923,7 +860,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Wednesday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -938,7 +875,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Thursday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -953,7 +890,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Friday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -968,7 +905,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Saturday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -983,7 +920,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Sunday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -997,13 +934,7 @@
         </div>
       </div>
     </div>
-    <br>
-    <hr>
   </div>
-
-  <br>
-  <br>
-  <br>
 </div>
   <!-- ================================================== -->
   <!-- GALLERY -->

@@ -316,7 +316,7 @@ def updatePro(request, listing_id):
         'form': form,
     }
 
-    return render(request, 'owners/updatePro.html', context)
+    return render(request, 'owners/updatepro.html', context)
 
 @login_required
 def updatePricingPro(request, listing_id):
@@ -350,7 +350,7 @@ def updatePricingPro(request, listing_id):
         'form': form,
     }
 
-    return render(request, 'owners/updatePricePro.html', context)
+    return render(request, 'owners/updatepricepro.html', context)
 
 
 @login_required

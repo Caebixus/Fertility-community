@@ -1040,3 +1040,243 @@ def fcigc(request):
         }
 
     return render(request, 'clinics/US/Illinois/fci-glenview-clinic.html', context)
+
+def fcihpc(request):
+    listing = BasicClinic.objects.get(pk=130)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-highland-park-clinic.html', context)
+
+def fcihc(request):
+    listing = BasicClinic.objects.get(pk=131)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-hinsdale-clinic.html', context)
+
+def fcihec(request):
+    listing = BasicClinic.objects.get(pk=132)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-hoffman-estates-clinic.html', context)
+
+def fcilc(request):
+    listing = BasicClinic.objects.get(pk=133)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-lindenhurst-clinic.html', context)
+
+def fcitpc(request):
+    listing = BasicClinic.objects.get(pk=134)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-tinley-park-clinic.html', context)
+
+def fciwc(request):
+    listing = BasicClinic.objects.get(pk=135)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/fci-warrenville-clinic.html', context)
+
+def ihrc(request):
+    listing = BasicClinic.objects.get(pk=136)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/ihr-chicago.html', context)
+
+def ihro(request):
+    listing = BasicClinic.objects.get(pk=137)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/ihr-oakbrook.html', context)
+
+def vfica(request):
+    listing = BasicClinic.objects.get(pk=138)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-aurora.html', context)
+
+def vficwp(request):
+    listing = BasicClinic.objects.get(pk=139)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-wicker-park.html', context)
+
+def vficwlil(request):
+    listing = BasicClinic.objects.get(pk=140)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-west-loop-ivf-lab.html', context)
+
+def vficg(request):
+    listing = BasicClinic.objects.get(pk=141)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-glenview.html', context)
+
+def vfiche(request):
+    listing = BasicClinic.objects.get(pk=142)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-hoffman-estates.html', context)
+
+def dfis(request):
+    listing = BasicClinic.objects.get(pk=143)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/davies-fertility-ivf-specialists.html', context)
+
+def hcr(request):
+    listing = BasicClinic.objects.get(pk=144)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/hinsdale-center-reproduction.html', context)
+
+def ifsah(request):
+    listing = BasicClinic.objects.get(pk=145)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/invia-fertility-specialists-arlington-heights.html', context)
+
+def ifscl(request):
+    listing = BasicClinic.objects.get(pk=146)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/invia-fertility-specialists-crystal-lake.html', context)
+
+def ifshe(request):
+    listing = BasicClinic.objects.get(pk=147)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/invia-fertility-specialists-hoffman-estates.html', context)
+
+def ifsn(request):
+    listing = BasicClinic.objects.get(pk=148)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/invia-fertility-specialists-northbrook.html', context)
+
+def ivf1(request):
+    listing = BasicClinic.objects.get(pk=149)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/ivf1.html', context)
+
+def rmib(request):
+    listing = BasicClinic.objects.get(pk=150)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-bloomingdale.html', context)
+
+def rmic(request):
+    listing = BasicClinic.objects.get(pk=151)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-chicago.html', context)
+
+def rmiel(request):
+    listing = BasicClinic.objects.get(pk=152)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-elmhurst.html', context)
+
+def rmiev(request):
+    listing = BasicClinic.objects.get(pk=153)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-evanston.html', context)
+
+def rminb(request):
+    listing = BasicClinic.objects.get(pk=154)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-northbrook.html', context)
+
+def rmiob(request):
+    listing = BasicClinic.objects.get(pk=155)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-oak-brook.html', context)
+
+def rmiol(request):
+    listing = BasicClinic.objects.get(pk=156)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/rmi-oak-lawn.html', context)
+
+def civfops(request):
+    listing = BasicClinic.objects.get(pk=157)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/chicago-ivf-orland-park–southwest.html', context)
+
+def civfscn(request):
+    listing = BasicClinic.objects.get(pk=158)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/chicago-ivf-stcharles–northwest.html', context)
+
+def civfnw(request):
+    listing = BasicClinic.objects.get(pk=159)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Illinois/chicago-ivf-naperville–west.html', context)

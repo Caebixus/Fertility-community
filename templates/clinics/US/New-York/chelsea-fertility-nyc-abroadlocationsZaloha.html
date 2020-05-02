@@ -21,11 +21,11 @@
       <div class="row">
         {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+        {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
         {% if listing.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
-        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+        {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title%}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
       </div>
       <div class="row" style="padding-top:6px">
         {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
@@ -40,7 +40,7 @@
       <div class="row">
         {% if listing.clinicHfea %}<span class="badge badge-info"><i class="fas fa-user-check"></i> HFAE</span>{% else %}{% endif %}
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list == True or listing.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
@@ -94,6 +94,17 @@
   <br>
   <h2>About clinic:</h2>
   <p>{{ listing.description|safe }}</p>
+  <br>
+</div>
+{% else %}
+{% endif %}
+{% if listing.treatmentLimitations %}
+<div class="container">
+  <br>
+  <br>
+  <h2>Treatment limitations and restrictions information:</h2>
+  <p>{{ listing.treatmentLimitations|safe }}</p>
+  <br>
   <br>
 </div>
 {% else %}
@@ -516,17 +527,10 @@
     </ul>
     <br>
     <br>
-    {% if listing.treatmentLimitations %}
-    <h2>Treatment limitations and restrictions information:</h2>
-    <p>{{ listing.treatmentLimitations|safe }}</p>
 
-    <br>
-    <br>
-    {% else %}
-    {% endif %}
 
-    {% if listing.package1title and listing.package1desc and listing.package1cost %}
-    <h2>Packages</h2>
+    {% if listing.package1title and listing.package1desc and listing.package1cost and listing.pro_is_published %}
+    <h2 id="packages">Packages</h2>
     <div class="row" id="Packages">
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
@@ -605,9 +609,6 @@
         {% endif %}
       </div>
     </div>
-
-    <br>
-    <br>
     {% else %}
     {% endif %}
 
@@ -669,12 +670,9 @@
     </div>
   </div>
 
-  <br>
-  <br>
-
   {% if listing.is_claimed == True %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
+    <h2>Languages</h2>
     <hr>
     <div class="row">
       <div class="col-sm" style="text-align: left; padding-top:1rem" >
@@ -769,64 +767,6 @@
   {% else %}
   {% endif %}
 
-  {% if listing.is_claimed == True %}
-  <br>
-  <br>
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Launguages</h2>
-    <hr>
-    <div class="row">
-      <div class="col-sm" style="text-align: left; padding-top:1rem" >
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicEnglish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicSpanish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicPortuguese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-        </ul>
-      </div>
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicRussian == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicGerman == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicChinese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
-  <br>
-  <br>
-
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Contact</h2>
     <hr>
@@ -873,10 +813,7 @@
     </div>
   </div>
 
-  <br>
-  <br>
-
-  <div class="container">
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <hr>
     <h2>Travelling information for abroad clients</h2>
     <div class="row">
@@ -892,8 +829,9 @@
     <br>
     <hr>
     <br>
+    <h3>Clinics opening ours</h3>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Monday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -908,7 +846,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Tuesday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -923,7 +861,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Wednesday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -938,7 +876,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Thursday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -953,7 +891,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Friday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -968,7 +906,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Saturday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -983,7 +921,7 @@
       </div>
     </div>
     <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
         <label>Sunday Opening Hours</label>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
@@ -997,13 +935,7 @@
         </div>
       </div>
     </div>
-    <br>
-    <hr>
   </div>
-
-  <br>
-  <br>
-  <br>
 </div>
   <!-- ================================================== -->
   <!-- GALLERY -->

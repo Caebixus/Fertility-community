@@ -21,11 +21,11 @@
       <div class="row">
         {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.verified_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+        {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
         {% if listing.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
-        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+        {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title%}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
       </div>
       <div class="row" style="padding-top:6px">
         {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
@@ -40,7 +40,7 @@
       <div class="row">
         {% if listing.clinicHfea %}<span class="badge badge-info"><i class="fas fa-user-check"></i> HFAE</span>{% else %}{% endif %}
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
+        {% if listing.no_waiting_list == True or listing.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
         {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
         {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
@@ -528,8 +528,9 @@
     <br>
     <br>
 
-    {% if listing.package1title and listing.package1desc and listing.package1cost %}
-    <h2>Packages</h2>
+
+    {% if listing.package1title and listing.package1desc and listing.package1cost and listing.pro_is_published %}
+    <h2 id="packages">Packages</h2>
     <div class="row" id="Packages">
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
@@ -817,7 +818,7 @@
     <h2>Travelling information for abroad clients</h2>
     <div class="row">
       <div class="col-sm-6" style="padding-top:2rem">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962.4835902426034!2d-88.1434634841609!3d42.05425277920861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fa87033a1e303%3A0xaeb42297cc9c01cd!2sInVia%20Fertility!5e0!3m2!1scs!2scz!4v1588089587130!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.8227278219542!2d14.380055516056915!3d50.07088147942481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95a446d23be7%3A0x86390602c7a9ecc8!2sPRAGA%20MEDICA!5e0!3m2!1scs!2scz!4v1585154890585!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
       </div>
       <div class="col-sm-6" style="padding-top:2rem">
         <h3>Clinics Address:</h3>

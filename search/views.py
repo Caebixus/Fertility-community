@@ -51,20 +51,22 @@ def search(request):
                 if region == 'AL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alabama')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alabama')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alabama')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
                     my_total_count = my_total_count.count()
 
-
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
 
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -92,9 +94,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -122,9 +124,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -152,9 +154,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -183,9 +185,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -214,9 +216,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -245,9 +247,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -276,9 +278,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -307,9 +309,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -338,9 +340,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -369,9 +371,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -400,9 +402,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -429,9 +431,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -458,9 +460,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -487,9 +489,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -514,7 +516,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -540,7 +542,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -573,1505 +575,9 @@ def search(request):
                 elif region == 'AK':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alaska')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alaska')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alaska')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Alaska')
-                    my_total_count = my_total_count.count()
-
-
-                    pro_queryset_list = pro_queryset_list.order_by('?')
-
-                    if 'treatments' in request.GET:
-                        treatments = request.GET['treatments']
-
-                        if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmenttrue':
-                            queryset_list = queryset_list.filter(ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentmildtrue':
-
-                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentovariantrue':
-
-                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ICSItreatmenttrue':
-                            queryset_list = queryset_list.filter(icsi_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Eggdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Spermdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Embryodonationrecipientstrue':
-                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EggFreezingtrue':
-                            queryset_list = queryset_list.filter(egg_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EmbryoFreezingtrue':
-                            queryset_list = queryset_list.filter(embryo_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'SpermFreezingtrue':
-                            queryset_list = queryset_list.filter(sperm_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Surrogacytrue':
-                            queryset_list = queryset_list.filter(surrogacy=True)
-                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IUItreatmenttrue':
-                            queryset_list = queryset_list.filter(iui_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Singlewomantreatmenttrue':
-                            queryset_list = queryset_list.filter(single_woman_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ReciprocalIVFtrue':
-                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                    else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                        paginator = Paginator(order_data, 12)
-                        page = request.GET.get('page')
-                        paginationing = paginator.get_page(page)
-
-                        context = {
-                            'listings': queryset_list,
-                            'pro_listings': pro_queryset_list,
-                            'order_data': paginationing,
-                            'paginationing': paginationing,
-                            'averageIVFPrice': averageIVFPrice,
-                            'averageEggPrice': averageEggPrice,
-                            'averageEmbryoPrice': averageEmbryoPrice,
-                            'averageSpermPrice': averageSpermPrice,
-                            'averageICSIPrice': averageICSIPrice,
-                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                            'my_total_count': my_total_count,
-                            'values': request.GET,
-                            }
-
-                        return render(request, 'search/search.html', context)
-
-                elif region == 'AZ':
-                    queryset_list = queryset_list.filter(clinicRegion__iexact='Arizona')
-                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arizona')
-                    my_total_count = my_total_count.filter(clinicRegion__iexact='Arizona')
-                    my_total_count = my_total_count.count()
-
-
-                    pro_queryset_list = pro_queryset_list.order_by('?')
-
-                    if 'treatments' in request.GET:
-                        treatments = request.GET['treatments']
-
-                        if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmenttrue':
-                            queryset_list = queryset_list.filter(ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentmildtrue':
-
-                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentovariantrue':
-
-                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ICSItreatmenttrue':
-                            queryset_list = queryset_list.filter(icsi_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Eggdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Spermdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Embryodonationrecipientstrue':
-                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EggFreezingtrue':
-                            queryset_list = queryset_list.filter(egg_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EmbryoFreezingtrue':
-                            queryset_list = queryset_list.filter(embryo_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'SpermFreezingtrue':
-                            queryset_list = queryset_list.filter(sperm_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Surrogacytrue':
-                            queryset_list = queryset_list.filter(surrogacy=True)
-                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IUItreatmenttrue':
-                            queryset_list = queryset_list.filter(iui_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Singlewomantreatmenttrue':
-                            queryset_list = queryset_list.filter(single_woman_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ReciprocalIVFtrue':
-                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                    else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                        paginator = Paginator(order_data, 12)
-                        page = request.GET.get('page')
-                        paginationing = paginator.get_page(page)
-
-                        context = {
-                            'listings': queryset_list,
-                            'pro_listings': pro_queryset_list,
-                            'order_data': paginationing,
-                            'paginationing': paginationing,
-                            'averageIVFPrice': averageIVFPrice,
-                            'averageEggPrice': averageEggPrice,
-                            'averageEmbryoPrice': averageEmbryoPrice,
-                            'averageSpermPrice': averageSpermPrice,
-                            'averageICSIPrice': averageICSIPrice,
-                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                            'my_total_count': my_total_count,
-                            'values': request.GET,
-                            }
-
-                        return render(request, 'search/search.html', context)
-
-                elif region == 'AR':
-                    queryset_list = queryset_list.filter(clinicRegion__iexact='Arkansas')
-                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arkansas')
-                    my_total_count = my_total_count.filter(clinicRegion__iexact='Arkansas')
-                    my_total_count = my_total_count.count()
-
-
-                    pro_queryset_list = pro_queryset_list.order_by('?')
-
-                    if 'treatments' in request.GET:
-                        treatments = request.GET['treatments']
-
-                        if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmenttrue':
-                            queryset_list = queryset_list.filter(ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentmildtrue':
-
-                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmentovariantrue':
-
-                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ICSItreatmenttrue':
-                            queryset_list = queryset_list.filter(icsi_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Eggdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Spermdonationrecipientstrue':
-                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Embryodonationrecipientstrue':
-                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EggFreezingtrue':
-                            queryset_list = queryset_list.filter(egg_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'EmbryoFreezingtrue':
-                            queryset_list = queryset_list.filter(embryo_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'SpermFreezingtrue':
-                            queryset_list = queryset_list.filter(sperm_freezing=True)
-                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Surrogacytrue':
-                            queryset_list = queryset_list.filter(surrogacy=True)
-                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IUItreatmenttrue':
-                            queryset_list = queryset_list.filter(iui_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'Singlewomantreatmenttrue':
-                            queryset_list = queryset_list.filter(single_woman_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'ReciprocalIVFtrue':
-                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                        else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listings': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'averageIVFPrice': averageIVFPrice,
-                                'averageEggPrice': averageEggPrice,
-                                'averageEmbryoPrice': averageEmbryoPrice,
-                                'averageSpermPrice': averageSpermPrice,
-                                'averageICSIPrice': averageICSIPrice,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
-                    else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
-
-
-                        paginator = Paginator(order_data, 12)
-                        page = request.GET.get('page')
-                        paginationing = paginator.get_page(page)
-
-                        context = {
-                            'listings': queryset_list,
-                            'pro_listings': pro_queryset_list,
-                            'order_data': paginationing,
-                            'paginationing': paginationing,
-                            'averageIVFPrice': averageIVFPrice,
-                            'averageEggPrice': averageEggPrice,
-                            'averageEmbryoPrice': averageEmbryoPrice,
-                            'averageSpermPrice': averageSpermPrice,
-                            'averageICSIPrice': averageICSIPrice,
-                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                            'my_total_count': my_total_count,
-                            'values': request.GET,
-                            }
-
-                        return render(request, 'search/search.html', context)
-
-                elif region == 'CA':
-                    queryset_list = queryset_list.filter(clinicRegion__iexact='California')
-                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
-                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
-
-                    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
                     my_total_count = my_total_count.count()
 
 
@@ -2111,9 +617,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2141,9 +647,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2171,9 +677,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2200,9 +706,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2229,9 +735,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2258,9 +764,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2287,9 +793,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2316,9 +822,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2345,9 +851,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2374,9 +880,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2403,9 +909,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2432,9 +938,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2461,9 +967,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2490,9 +996,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2517,7 +1023,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -2543,7 +1049,1513 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                        paginator = Paginator(order_data, 12)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'listings': queryset_list,
+                            'pro_listings': pro_queryset_list,
+                            'order_data': paginationing,
+                            'paginationing': paginationing,
+                            'averageIVFPrice': averageIVFPrice,
+                            'averageEggPrice': averageEggPrice,
+                            'averageEmbryoPrice': averageEmbryoPrice,
+                            'averageSpermPrice': averageSpermPrice,
+                            'averageICSIPrice': averageICSIPrice,
+                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                            'my_total_count': my_total_count,
+                            'values': request.GET,
+                            }
+
+                        return render(request, 'search/search.html', context)
+
+                elif region == 'AZ':
+                    queryset_list = queryset_list.filter(clinicRegion__iexact='Arizona')
+                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arizona')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arizona')
+
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Arizona')
+                    my_total_count = my_total_count.count()
+
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                    else:
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                        paginator = Paginator(order_data, 12)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'listings': queryset_list,
+                            'pro_listings': pro_queryset_list,
+                            'order_data': paginationing,
+                            'paginationing': paginationing,
+                            'averageIVFPrice': averageIVFPrice,
+                            'averageEggPrice': averageEggPrice,
+                            'averageEmbryoPrice': averageEmbryoPrice,
+                            'averageSpermPrice': averageSpermPrice,
+                            'averageICSIPrice': averageICSIPrice,
+                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                            'my_total_count': my_total_count,
+                            'values': request.GET,
+                            }
+
+                        return render(request, 'search/search.html', context)
+
+                elif region == 'AR':
+                    queryset_list = queryset_list.filter(clinicRegion__iexact='Arkansas')
+                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arkansas')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arkansas')
+
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='Arkansas')
+                    my_total_count = my_total_count.count()
+
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                    else:
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                        paginator = Paginator(order_data, 12)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'listings': queryset_list,
+                            'pro_listings': pro_queryset_list,
+                            'order_data': paginationing,
+                            'paginationing': paginationing,
+                            'averageIVFPrice': averageIVFPrice,
+                            'averageEggPrice': averageEggPrice,
+                            'averageEmbryoPrice': averageEmbryoPrice,
+                            'averageSpermPrice': averageSpermPrice,
+                            'averageICSIPrice': averageICSIPrice,
+                            'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                            'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                            'my_total_count': my_total_count,
+                            'values': request.GET,
+                            }
+
+                        return render(request, 'search/search.html', context)
+
+                elif region == 'CA':
+                    queryset_list = queryset_list.filter(clinicRegion__iexact='California')
+                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
+
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
+                    my_total_count = my_total_count.count()
+
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'listings': queryset_list,
+                                'pro_listings': pro_queryset_list,
+                                'order_data': paginationing,
+                                'paginationing': paginationing,
+                                'averageIVFPrice': averageIVFPrice,
+                                'averageEggPrice': averageEggPrice,
+                                'averageEmbryoPrice': averageEmbryoPrice,
+                                'averageSpermPrice': averageSpermPrice,
+                                'averageICSIPrice': averageICSIPrice,
+                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                                'my_total_count': my_total_count,
+                                'values': request.GET,
+                                }
+
+                            return render(request, 'search/search.html', context)
+
+                    else:
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -2571,19 +2583,22 @@ def search(request):
                 elif region == 'CO':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Colorado')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Colorado')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Colorado')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Colorado')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2610,9 +2625,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2640,9 +2655,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2670,9 +2685,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2699,9 +2714,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2728,9 +2743,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2757,9 +2772,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2786,9 +2801,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2815,9 +2830,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2844,9 +2859,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2873,9 +2888,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2902,9 +2917,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2931,9 +2946,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2960,9 +2975,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -2989,9 +3004,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3016,7 +3031,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -3042,7 +3057,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -3070,19 +3085,22 @@ def search(request):
                 elif region == 'CT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Connecticut')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Connecticut')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Connecticut')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Connecticut')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3109,9 +3127,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3139,9 +3157,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3169,9 +3187,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3198,9 +3216,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3227,9 +3245,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3256,9 +3274,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3285,9 +3303,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3314,9 +3332,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3343,9 +3361,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3372,9 +3390,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3401,9 +3419,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3430,9 +3448,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3459,9 +3477,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3488,9 +3506,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3515,7 +3533,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -3541,7 +3559,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -3569,19 +3587,22 @@ def search(request):
                 elif region == 'DE':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Delaware')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Delaware')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Delaware')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Delaware')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3608,9 +3629,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3638,9 +3659,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3668,9 +3689,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3697,9 +3718,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3726,9 +3747,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3755,9 +3776,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3784,9 +3805,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3813,9 +3834,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3842,9 +3863,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3871,9 +3892,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3900,9 +3921,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3929,9 +3950,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3958,9 +3979,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -3987,9 +4008,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4014,7 +4035,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4039,7 +4060,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -4067,19 +4088,22 @@ def search(request):
                 elif region == 'FL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Florida')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Florida')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Florida')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Florida')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4106,9 +4130,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4136,9 +4160,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4166,9 +4190,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4195,9 +4219,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4224,9 +4248,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4253,9 +4277,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4282,9 +4306,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4311,9 +4335,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4340,9 +4364,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4369,9 +4393,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4398,9 +4422,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4427,9 +4451,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4456,9 +4480,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4485,9 +4509,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4512,7 +4536,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -4538,7 +4562,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -4566,19 +4590,22 @@ def search(request):
                 elif region == 'GA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Georgia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Georgia')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Georgia')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Georgia')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4605,9 +4632,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4635,9 +4662,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4665,9 +4692,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4694,9 +4721,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4723,9 +4750,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4752,9 +4779,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4781,9 +4808,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4810,9 +4837,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4839,9 +4866,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4868,9 +4895,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4897,9 +4924,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4926,9 +4953,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4955,9 +4982,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -4984,9 +5011,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5011,7 +5038,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -5037,7 +5064,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -5065,19 +5092,22 @@ def search(request):
                 elif region == 'HI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Hawaii')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hawaii')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Hawaii')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Hawaii')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5104,9 +5134,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5134,9 +5164,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5164,9 +5194,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5193,9 +5223,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5222,9 +5252,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5251,9 +5281,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5280,9 +5310,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5309,9 +5339,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5338,9 +5368,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5367,9 +5397,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5396,9 +5426,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5425,9 +5455,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5454,9 +5484,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5483,9 +5513,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5510,7 +5540,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -5536,7 +5566,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -5564,19 +5594,22 @@ def search(request):
                 elif region == 'ID':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Idaho')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Idaho')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Idaho')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Idaho')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5603,9 +5636,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5633,9 +5666,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5663,9 +5696,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5692,9 +5725,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5721,9 +5754,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5750,9 +5783,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5779,9 +5812,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5808,9 +5841,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5837,9 +5870,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5866,9 +5899,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5895,9 +5928,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5924,9 +5957,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5953,9 +5986,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -5982,9 +6015,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6009,7 +6042,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -6035,7 +6068,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -6063,19 +6096,22 @@ def search(request):
                 elif region == 'IL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Illinois')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Illinois')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Illinois')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Illinois')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6102,9 +6138,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6132,9 +6168,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6162,9 +6198,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6191,9 +6227,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6220,9 +6256,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6249,9 +6285,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6278,9 +6314,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6307,9 +6343,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6336,9 +6372,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6365,9 +6401,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6394,9 +6430,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6423,9 +6459,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6452,9 +6488,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6481,9 +6517,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6508,7 +6544,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -6534,7 +6570,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -6562,19 +6598,22 @@ def search(request):
                 elif region == 'IN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Indiana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Indiana')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Indiana')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Indiana')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6601,9 +6640,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6631,9 +6670,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6661,9 +6700,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6690,9 +6729,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6719,9 +6758,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6748,9 +6787,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6777,9 +6816,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6806,9 +6845,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6835,9 +6874,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6864,9 +6903,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6893,9 +6932,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6922,9 +6961,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6951,9 +6990,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -6980,9 +7019,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7007,7 +7046,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -7033,7 +7072,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -7061,19 +7100,22 @@ def search(request):
                 elif region == 'IA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Iowa')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Iowa')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Iowa')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Iowa')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7100,9 +7142,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7130,9 +7172,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7160,9 +7202,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7189,9 +7231,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7218,9 +7260,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7247,9 +7289,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7276,9 +7318,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7305,9 +7347,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7334,9 +7376,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7363,9 +7405,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7392,9 +7434,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7421,9 +7463,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7450,9 +7492,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7479,9 +7521,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7506,7 +7548,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -7532,7 +7574,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -7560,19 +7602,22 @@ def search(request):
                 elif region == 'KS':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Kansas')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kansas')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kansas')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Kansas')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7599,9 +7644,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7629,9 +7674,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7659,9 +7704,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7688,9 +7733,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7717,9 +7762,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7746,9 +7791,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7775,9 +7820,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7804,9 +7849,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7833,9 +7878,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7862,9 +7907,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7891,9 +7936,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7920,9 +7965,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7949,9 +7994,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -7978,9 +8023,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8005,7 +8050,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -8031,7 +8076,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -8059,19 +8104,22 @@ def search(request):
                 elif region == 'KY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Kentucky')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kentucky')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kentucky')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Kentucky')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8098,9 +8146,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8128,9 +8176,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8158,9 +8206,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8187,9 +8235,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8216,9 +8264,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8245,9 +8293,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8274,9 +8322,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8303,9 +8351,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8332,9 +8380,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8361,9 +8409,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8390,9 +8438,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8419,9 +8467,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8448,9 +8496,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8477,9 +8525,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8504,7 +8552,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -8530,7 +8578,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -8558,19 +8606,22 @@ def search(request):
                 elif region == 'LA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Louisiana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Louisiana')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Louisiana')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Louisiana')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8597,9 +8648,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8627,9 +8678,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8657,9 +8708,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8686,9 +8737,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8715,9 +8766,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8744,9 +8795,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8773,9 +8824,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8802,9 +8853,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8831,9 +8882,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8860,9 +8911,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8889,9 +8940,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8918,9 +8969,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8947,9 +8998,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -8976,9 +9027,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9003,7 +9054,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -9029,7 +9080,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -9057,19 +9108,22 @@ def search(request):
                 elif region == 'ME':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Maine')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maine')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maine')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Maine')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9096,9 +9150,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9126,9 +9180,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9156,9 +9210,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9185,9 +9239,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9214,9 +9268,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9243,9 +9297,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9272,9 +9326,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9301,9 +9355,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9330,9 +9384,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9359,9 +9413,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9388,9 +9442,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9417,9 +9471,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9446,9 +9500,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9475,9 +9529,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9502,7 +9556,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -9528,7 +9582,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -9556,19 +9610,22 @@ def search(request):
                 elif region == 'MD':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Maryland')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maryland')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maryland')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Maryland')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9595,9 +9652,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9625,9 +9682,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9655,9 +9712,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9684,9 +9741,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9713,9 +9770,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9742,9 +9799,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9771,9 +9828,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9800,9 +9857,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9829,9 +9886,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9858,9 +9915,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9887,9 +9944,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9916,9 +9973,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9945,9 +10002,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -9974,9 +10031,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10001,7 +10058,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -10027,7 +10084,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -10055,19 +10112,22 @@ def search(request):
                 elif region == 'MA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Massachusetts')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Massachusetts')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Massachusetts')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Massachusetts')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10094,9 +10154,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10124,9 +10184,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10154,9 +10214,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10183,9 +10243,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10212,9 +10272,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10241,9 +10301,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10270,9 +10330,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10299,9 +10359,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10328,9 +10388,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10357,9 +10417,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10386,9 +10446,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10415,9 +10475,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10444,9 +10504,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10473,9 +10533,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10500,7 +10560,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -10526,7 +10586,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -10554,19 +10614,22 @@ def search(request):
                 elif region == 'MI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Michigan')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Michigan')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Michigan')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Michigan')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10593,9 +10656,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10623,9 +10686,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10653,9 +10716,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10682,9 +10745,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10711,9 +10774,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10740,9 +10803,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10769,9 +10832,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10798,9 +10861,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10827,9 +10890,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10856,9 +10919,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10885,9 +10948,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10914,9 +10977,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10943,9 +11006,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10972,9 +11035,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -10999,7 +11062,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -11025,7 +11088,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -11053,19 +11116,22 @@ def search(request):
                 elif region == 'MN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Minnesota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Minnesota')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Minnesota')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Minnesota')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11092,9 +11158,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11122,9 +11188,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11152,9 +11218,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11181,9 +11247,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11210,9 +11276,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11239,9 +11305,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11268,9 +11334,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11297,9 +11363,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11326,9 +11392,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11355,9 +11421,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11384,9 +11450,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11413,9 +11479,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11442,9 +11508,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11471,9 +11537,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11498,7 +11564,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -11524,7 +11590,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -11552,19 +11618,22 @@ def search(request):
                 elif region == 'MS':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Mississippi')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Mississippi')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Mississippi')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Mississippi')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11591,9 +11660,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11621,9 +11690,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11651,9 +11720,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11680,9 +11749,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11709,9 +11778,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11738,9 +11807,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11767,9 +11836,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11796,9 +11865,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11825,9 +11894,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11854,9 +11923,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11883,9 +11952,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11912,9 +11981,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11941,9 +12010,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11970,9 +12039,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -11997,7 +12066,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -12023,7 +12092,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -12051,19 +12120,22 @@ def search(request):
                 elif region == 'MO':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Missouri')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Missouri')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Missouri')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Missouri')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12090,9 +12162,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12120,9 +12192,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12150,9 +12222,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12179,9 +12251,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12208,9 +12280,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12237,9 +12309,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12266,9 +12338,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12295,9 +12367,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12324,9 +12396,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12353,9 +12425,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12382,9 +12454,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12411,9 +12483,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12440,9 +12512,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12469,9 +12541,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12496,7 +12568,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -12522,7 +12594,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -12550,19 +12622,22 @@ def search(request):
                 elif region == 'MT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Montana')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Montana')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Montana')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Montana')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12589,9 +12664,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12619,9 +12694,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12649,9 +12724,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12678,9 +12753,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12707,9 +12782,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12736,9 +12811,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12765,9 +12840,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12794,9 +12869,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12823,9 +12898,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12852,9 +12927,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12881,9 +12956,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12910,9 +12985,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12939,9 +13014,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12968,9 +13043,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -12995,7 +13070,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -13021,7 +13096,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -13049,19 +13124,22 @@ def search(request):
                 elif region == 'NE':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Nebraska')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nebraska')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nebraska')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Nebraska')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13088,9 +13166,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13118,9 +13196,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13148,9 +13226,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13177,9 +13255,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13206,9 +13284,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13235,9 +13313,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13264,9 +13342,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13293,9 +13371,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13322,9 +13400,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13351,9 +13429,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13380,9 +13458,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13409,9 +13487,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13438,9 +13516,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13467,9 +13545,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13494,7 +13572,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -13520,7 +13598,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -13548,19 +13626,22 @@ def search(request):
                 elif region == 'NV':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Nevada')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nevada')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nevada')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Nevada')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13587,9 +13668,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13617,9 +13698,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13647,9 +13728,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13676,9 +13757,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13705,9 +13786,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13734,9 +13815,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13763,9 +13844,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13792,9 +13873,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13821,9 +13902,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13850,9 +13931,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13879,9 +13960,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13908,9 +13989,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13937,9 +14018,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13966,9 +14047,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -13993,7 +14074,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -14019,7 +14100,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -14047,19 +14128,22 @@ def search(request):
                 elif region == 'NH':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Hampshire')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Hampshire')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Hampshire')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Hampshire')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14086,9 +14170,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14116,9 +14200,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14146,9 +14230,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14175,9 +14259,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14204,9 +14288,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14233,9 +14317,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14262,9 +14346,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14291,9 +14375,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14320,9 +14404,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14349,9 +14433,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14378,9 +14462,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14407,9 +14491,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14436,9 +14520,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14465,9 +14549,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14492,7 +14576,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -14518,7 +14602,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -14546,19 +14630,22 @@ def search(request):
                 elif region == 'NJ':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Jersey')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Jersey')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Jersey')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Jersey')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14585,9 +14672,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14615,9 +14702,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14645,9 +14732,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14674,9 +14761,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14703,9 +14790,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14732,9 +14819,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14761,9 +14848,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14790,9 +14877,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14819,9 +14906,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14848,9 +14935,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14877,9 +14964,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14906,9 +14993,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14935,9 +15022,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14964,9 +15051,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -14991,7 +15078,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -15017,7 +15104,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -15045,19 +15132,22 @@ def search(request):
                 elif region == 'NM':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New Mexico')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Mexico')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Mexico')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New Mexico')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15084,9 +15174,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15114,9 +15204,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15144,9 +15234,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15173,9 +15263,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15202,9 +15292,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15231,9 +15321,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15260,9 +15350,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15289,9 +15379,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15318,9 +15408,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15347,9 +15437,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15376,9 +15466,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15405,9 +15495,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15434,9 +15524,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15463,9 +15553,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15490,7 +15580,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -15516,7 +15606,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -15544,19 +15634,22 @@ def search(request):
                 elif region == 'NY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='New York')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New York')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New York')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='New York')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15583,9 +15676,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15613,9 +15706,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15643,9 +15736,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15672,9 +15765,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15701,9 +15794,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15730,9 +15823,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15759,9 +15852,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15788,9 +15881,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15817,9 +15910,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15846,9 +15939,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15875,9 +15968,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15904,9 +15997,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15933,9 +16026,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15962,9 +16055,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -15989,7 +16082,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -16015,7 +16108,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -16043,19 +16136,22 @@ def search(request):
                 elif region == 'NC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='North Carolina')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Carolina')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Carolina')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='North Carolina')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16082,9 +16178,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16112,9 +16208,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16142,9 +16238,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16171,9 +16267,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16200,9 +16296,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16229,9 +16325,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16258,9 +16354,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16287,9 +16383,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16316,9 +16412,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16345,9 +16441,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16374,9 +16470,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16403,9 +16499,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16432,9 +16528,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16461,9 +16557,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16488,7 +16584,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -16514,7 +16610,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -16542,19 +16638,22 @@ def search(request):
                 elif region == 'ND':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='North Dakota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Dakota')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Dakota')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='North Dakota')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16581,9 +16680,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16611,9 +16710,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16641,9 +16740,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16670,9 +16769,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16699,9 +16798,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16728,9 +16827,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16757,9 +16856,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16786,9 +16885,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16815,9 +16914,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16844,9 +16943,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16873,9 +16972,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16902,9 +17001,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16931,9 +17030,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16960,9 +17059,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -16987,7 +17086,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -17013,7 +17112,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -17041,19 +17140,22 @@ def search(request):
                 elif region == 'OH':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Ohio')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Ohio')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Ohio')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Ohio')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17080,9 +17182,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17110,9 +17212,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17140,9 +17242,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17169,9 +17271,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17198,9 +17300,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17227,9 +17329,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17256,9 +17358,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17285,9 +17387,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17314,9 +17416,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17343,9 +17445,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17372,9 +17474,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17401,9 +17503,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17430,9 +17532,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17459,9 +17561,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17486,7 +17588,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -17512,7 +17614,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -17540,19 +17642,22 @@ def search(request):
                 elif region == 'OK':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Oklahoma')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oklahoma')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oklahoma')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Oklahoma')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17579,9 +17684,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17609,9 +17714,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17639,9 +17744,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17668,9 +17773,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17697,9 +17802,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17726,9 +17831,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17755,9 +17860,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17784,9 +17889,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17813,9 +17918,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17842,9 +17947,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17871,9 +17976,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17900,9 +18005,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17929,9 +18034,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17958,9 +18063,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -17985,7 +18090,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -18011,7 +18116,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -18039,19 +18144,22 @@ def search(request):
                 elif region == 'OR':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Oregon')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oregon')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oregon')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Oregon')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18078,9 +18186,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18108,9 +18216,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18138,9 +18246,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18167,9 +18275,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18196,9 +18304,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18225,9 +18333,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18254,9 +18362,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18283,9 +18391,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18312,9 +18420,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18341,9 +18449,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18370,9 +18478,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18399,9 +18507,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18428,9 +18536,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18457,9 +18565,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18484,7 +18592,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -18510,7 +18618,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -18538,19 +18646,22 @@ def search(request):
                 elif region == 'PA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Pennsylvania')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Pennsylvania')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18577,9 +18688,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18607,9 +18718,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18637,9 +18748,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18666,9 +18777,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18695,9 +18806,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18724,9 +18835,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18753,9 +18864,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18782,9 +18893,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18811,9 +18922,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18840,9 +18951,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18869,9 +18980,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18898,9 +19009,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18927,9 +19038,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18956,9 +19067,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -18983,7 +19094,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -19009,7 +19120,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -19037,19 +19148,22 @@ def search(request):
                 elif region == 'RI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Rhode Island')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Rhode Island')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Rhode Island')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Rhode Island')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19076,9 +19190,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19106,9 +19220,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19136,9 +19250,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19165,9 +19279,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19194,9 +19308,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19223,9 +19337,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19252,9 +19366,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19281,9 +19395,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19310,9 +19424,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19339,9 +19453,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19368,9 +19482,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19397,9 +19511,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19426,9 +19540,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19455,9 +19569,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19482,7 +19596,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -19508,7 +19622,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -19536,19 +19650,22 @@ def search(request):
                 elif region == 'SC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='South Carolina')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Carolina')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Carolina')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='South Carolina')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19575,9 +19692,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19605,9 +19722,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19635,9 +19752,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19664,9 +19781,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19693,9 +19810,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19722,9 +19839,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19751,9 +19868,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19780,9 +19897,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19809,9 +19926,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19838,9 +19955,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19867,9 +19984,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19896,9 +20013,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19925,9 +20042,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19954,9 +20071,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -19981,7 +20098,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -20007,7 +20124,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -20035,19 +20152,22 @@ def search(request):
                 elif region == 'SD':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='South Dakota')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Dakota')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Dakota')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='South Dakota')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20074,9 +20194,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20104,9 +20224,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20134,9 +20254,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20163,9 +20283,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20192,9 +20312,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20221,9 +20341,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20250,9 +20370,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20279,9 +20399,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20308,9 +20428,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20337,9 +20457,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20366,9 +20486,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20395,9 +20515,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20424,9 +20544,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20453,9 +20573,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20480,7 +20600,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -20506,7 +20626,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -20534,19 +20654,22 @@ def search(request):
                 elif region == 'TN':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Tennessee')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Tennessee')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Tennessee')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Tennessee')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20573,9 +20696,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20603,9 +20726,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20633,9 +20756,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20662,9 +20785,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20691,9 +20814,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20720,9 +20843,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20749,9 +20872,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20778,9 +20901,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20807,9 +20930,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20836,9 +20959,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20865,9 +20988,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20894,9 +21017,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20923,9 +21046,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20952,9 +21075,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -20979,7 +21102,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -21005,7 +21128,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -21033,18 +21156,21 @@ def search(request):
                 elif region == 'TX':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Texas')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Texas')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Texas')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Texas')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21071,9 +21197,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21101,9 +21227,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21131,9 +21257,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21160,9 +21286,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21189,9 +21315,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21218,9 +21344,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21247,9 +21373,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21276,9 +21402,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21305,9 +21431,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21334,9 +21460,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21363,9 +21489,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21392,9 +21518,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21421,9 +21547,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21450,9 +21576,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21477,7 +21603,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -21503,7 +21629,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -21531,18 +21657,21 @@ def search(request):
                 elif region == 'UT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Utah')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Utah')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Utah')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Utah')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21569,9 +21698,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21599,9 +21728,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21629,9 +21758,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21658,9 +21787,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21687,9 +21816,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21716,9 +21845,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21745,9 +21874,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21774,9 +21903,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21803,9 +21932,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21832,9 +21961,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21861,9 +21990,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21890,9 +22019,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21919,9 +22048,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21948,9 +22077,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -21975,7 +22104,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -22001,7 +22130,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -22029,18 +22158,21 @@ def search(request):
                 elif region == 'VT':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Vermont')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Vermont')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Vermont')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Vermont')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22067,9 +22199,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22097,9 +22229,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22127,9 +22259,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22156,9 +22288,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22185,9 +22317,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22214,9 +22346,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22243,9 +22375,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22272,9 +22404,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22301,9 +22433,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22330,9 +22462,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22359,9 +22491,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22388,9 +22520,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22417,9 +22549,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22446,9 +22578,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22473,7 +22605,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -22499,7 +22631,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -22527,18 +22659,21 @@ def search(request):
                 elif region == 'VA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Virginia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Virginia')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22565,9 +22700,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22595,9 +22730,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22625,9 +22760,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22654,9 +22789,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22683,9 +22818,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22712,9 +22847,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22741,9 +22876,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22770,9 +22905,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22799,9 +22934,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22828,9 +22963,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22857,9 +22992,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22886,9 +23021,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22915,9 +23050,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22944,9 +23079,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -22971,7 +23106,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -22997,7 +23132,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -23025,18 +23160,21 @@ def search(request):
                 elif region == 'WA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Washington')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Washington')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Washington')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Washington')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23063,9 +23201,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23093,9 +23231,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23123,9 +23261,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23152,9 +23290,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23181,9 +23319,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23210,9 +23348,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23239,9 +23377,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23268,9 +23406,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23297,9 +23435,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23326,9 +23464,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23355,9 +23493,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23384,9 +23522,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23413,9 +23551,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23442,9 +23580,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23469,7 +23607,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -23495,7 +23633,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -23523,18 +23661,21 @@ def search(request):
                 elif region == 'WV':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='West Virginia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='West Virginia')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='West Virginia')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='West Virginia')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23561,9 +23702,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23591,9 +23732,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23621,9 +23762,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23650,9 +23791,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23679,9 +23820,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23708,9 +23849,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23737,9 +23878,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23766,9 +23907,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23795,9 +23936,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23824,9 +23965,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23853,9 +23994,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23882,9 +24023,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23911,9 +24052,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23940,9 +24081,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -23967,7 +24108,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -23993,7 +24134,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -24021,18 +24162,21 @@ def search(request):
                 elif region == 'WI':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Wisconsin')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wisconsin')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wisconsin')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Wisconsin')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24059,9 +24203,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24089,9 +24233,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24119,9 +24263,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24148,9 +24292,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24177,9 +24321,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24206,9 +24350,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24235,9 +24379,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24264,9 +24408,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24293,9 +24437,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24322,9 +24466,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24351,9 +24495,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24380,9 +24524,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24409,9 +24553,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24438,9 +24582,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24465,7 +24609,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -24491,7 +24635,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -24519,18 +24663,21 @@ def search(request):
                 elif region == 'WY':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Wyoming')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wyoming')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wyoming')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='Wyoming')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24557,9 +24704,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24587,9 +24734,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24617,9 +24764,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24646,9 +24793,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24675,9 +24822,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24704,9 +24851,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24733,9 +24880,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24762,9 +24909,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24791,9 +24938,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24820,9 +24967,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24849,9 +24996,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24878,9 +25025,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24907,9 +25054,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24936,9 +25083,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -24963,7 +25110,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -24989,7 +25136,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -25017,18 +25164,21 @@ def search(request):
                 elif region == 'DC':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='District of Columbia')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='District of Columbia')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='District of Columbia')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='District of Columbia')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25055,9 +25205,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25085,9 +25235,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25115,9 +25265,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25144,9 +25294,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25173,9 +25323,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25202,9 +25352,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25231,9 +25381,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25260,9 +25410,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25289,9 +25439,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25318,9 +25468,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25347,9 +25497,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25376,9 +25526,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25405,9 +25555,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25434,9 +25584,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25461,7 +25611,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -25487,7 +25637,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -25515,14 +25665,15 @@ def search(request):
                 else:
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25549,9 +25700,9 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25579,9 +25730,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25609,9 +25760,9 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25638,9 +25789,9 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25667,9 +25818,9 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25696,9 +25847,9 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25725,9 +25876,9 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25754,9 +25905,9 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25783,9 +25934,9 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25812,9 +25963,9 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25841,9 +25992,9 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25870,9 +26021,9 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25899,9 +26050,9 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25928,9 +26079,9 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
@@ -25955,7 +26106,7 @@ def search(request):
                             return render(request, 'search/search.html', context)
 
                         else:
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                             paginator = Paginator(order_data, 12)
@@ -25984,7 +26135,7 @@ def search(request):
                     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
                     my_total_count = my_total_count.filter(clinicState__iexact='United States')
                     my_total_count = my_total_count.count()
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                     paginator = Paginator(order_data, 12)
@@ -26015,11 +26166,12 @@ def search(request):
 
                     queryset_list = queryset_list.filter(clinicState__iexact='United States')
                     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
 
                     if treatments == 'Alltreatmentstrue':
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26046,10 +26198,11 @@ def search(request):
                     elif treatments == 'IVFtreatmenttrue':
                         queryset_list = queryset_list.filter(ivf_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                        ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
 
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26077,9 +26230,11 @@ def search(request):
 
                         queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26107,9 +26262,11 @@ def search(request):
 
                         queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26136,9 +26293,11 @@ def search(request):
                     elif treatments == 'ICSItreatmenttrue':
                         queryset_list = queryset_list.filter(icsi_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26165,9 +26324,11 @@ def search(request):
                     elif treatments == 'Eggdonationrecipientstrue':
                         queryset_list = queryset_list.filter(egg_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26194,9 +26355,11 @@ def search(request):
                     elif treatments == 'Spermdonationrecipientstrue':
                         queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26223,9 +26386,11 @@ def search(request):
                     elif treatments == 'Embryodonationrecipientstrue':
                         queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                         pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26252,9 +26417,11 @@ def search(request):
                     elif treatments == 'EggFreezingtrue':
                         queryset_list = queryset_list.filter(egg_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26281,9 +26448,11 @@ def search(request):
                     elif treatments == 'EmbryoFreezingtrue':
                         queryset_list = queryset_list.filter(embryo_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26310,9 +26479,11 @@ def search(request):
                     elif treatments == 'SpermFreezingtrue':
                         queryset_list = queryset_list.filter(sperm_freezing=True)
                         pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26339,9 +26510,11 @@ def search(request):
                     elif treatments == 'Surrogacytrue':
                         queryset_list = queryset_list.filter(surrogacy=True)
                         pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26368,9 +26541,11 @@ def search(request):
                     elif treatments == 'IUItreatmenttrue':
                         queryset_list = queryset_list.filter(iui_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26397,9 +26572,11 @@ def search(request):
                     elif treatments == 'Singlewomantreatmenttrue':
                         queryset_list = queryset_list.filter(single_woman_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26426,9 +26603,11 @@ def search(request):
                     elif treatments == 'ReciprocalIVFtrue':
                         queryset_list = queryset_list.filter(reciprocal_treatment=True)
                         pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
 
-                        my_total_count = queryset_list.count() + pro_queryset_list.count()
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                        my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                         paginator = Paginator(order_data, 12)
                         page = request.GET.get('page')
@@ -26453,7 +26632,7 @@ def search(request):
                         return render(request, 'search/search.html', context)
 
                     else:
-                        order_data = list(pro_queryset_list) + list(queryset_list)
+                        order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                         paginator = Paginator(order_data, 12)
@@ -26479,10 +26658,11 @@ def search(request):
                         return render(request, 'search/search.html', context)
                 queryset_list = queryset_list.filter(clinicState__iexact='United States')
                 pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
+                ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
 
-                my_total_count = queryset_list.count() + pro_queryset_list.count()
+                my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-                order_data = list(pro_queryset_list) + list(queryset_list)
+                order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
                 paginator = Paginator(order_data, 12)
@@ -26521,17 +26701,21 @@ def search(request):
             pro_queryset_list = BasicClinic.objects.order_by('?')
             pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
 
+            ppq_queryset_list = BasicClinic.objects.all()
+            ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
             pro_queryset_list = pro_queryset_list.order_by('?')
+            ppq_queryset_list = ppq_queryset_list.order_by('?')
+            ppq_queryset_list = ppq_queryset_list.order_by('?')
 
             if 'treatments' in request.GET:
 
                 treatments = request.GET['treatments']
 
                 if treatments == 'Alltreatmentstrue':
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26552,9 +26736,11 @@ def search(request):
                 elif treatments == 'IVFtreatmenttrue':
                     queryset_list = queryset_list.filter(ivf_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26576,9 +26762,11 @@ def search(request):
 
                     queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26600,9 +26788,11 @@ def search(request):
 
                     queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26623,9 +26813,11 @@ def search(request):
                 elif treatments == 'ICSItreatmenttrue':
                     queryset_list = queryset_list.filter(icsi_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26646,9 +26838,11 @@ def search(request):
                 elif treatments == 'Eggdonationrecipientstrue':
                     queryset_list = queryset_list.filter(egg_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26669,9 +26863,11 @@ def search(request):
                 elif treatments == 'Spermdonationrecipientstrue':
                     queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26692,9 +26888,11 @@ def search(request):
                 elif treatments == 'Embryodonationrecipientstrue':
                     queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                     pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26715,9 +26913,11 @@ def search(request):
                 elif treatments == 'EggFreezingtrue':
                     queryset_list = queryset_list.filter(egg_freezing=True)
                     pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26738,9 +26938,11 @@ def search(request):
                 elif treatments == 'EmbryoFreezingtrue':
                     queryset_list = queryset_list.filter(sperm_freezing=True)
                     pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26761,9 +26963,11 @@ def search(request):
                 elif treatments == 'SpermFreezingtrue':
                     queryset_list = queryset_list.filter(fertility_preservation=True)
                     pro_queryset_list = pro_queryset_list.filter(fertility_preservation=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(fertility_preservation=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26784,9 +26988,11 @@ def search(request):
                 elif treatments == 'Surrogacytrue':
                     queryset_list = queryset_list.filter(surrogacy=True)
                     pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26807,9 +27013,11 @@ def search(request):
                 elif treatments == 'IUItreatmenttrue':
                     queryset_list = queryset_list.filter(iui_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26829,9 +27037,11 @@ def search(request):
                 elif treatments == 'Singlewomantreatmenttrue':
                     queryset_list = queryset_list.filter(single_woman_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26852,9 +27062,11 @@ def search(request):
                 elif treatments == 'ReciprocalIVFtrue':
                     queryset_list = queryset_list.filter(reciprocal_treatment=True)
                     pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26873,9 +27085,9 @@ def search(request):
                     return render(request, 'search/search.html', context)
 
                 else:
-                    order_data = list(pro_queryset_list) + list(queryset_list)
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count()
+                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -26893,7 +27105,7 @@ def search(request):
 
                     return render(request, 'search/search.html', context)
 
-            order_data = list(pro_queryset_list) + list(queryset_list)
+            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
 
             paginator = Paginator(order_data, 12)

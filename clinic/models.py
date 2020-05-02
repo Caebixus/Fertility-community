@@ -30,6 +30,7 @@ class BasicClinic(models.Model):
     contact_url = models.URLField()
     contact_phone = models.CharField(max_length=20, blank=True)
     contact_email = models.CharField(max_length=50, blank=True)
+    query_email = models.CharField(max_length=50, blank=True)
 
     ### Adresses
     clinicStreetAddress = models.CharField(max_length=200)
@@ -63,7 +64,6 @@ class BasicClinic(models.Model):
         ('State', 'State'),
         )
     clinicOwn = models.CharField(max_length=40, choices=CATEGORY_CHOICES_OWN, null = True)
-    no_waiting_list = models.BooleanField(default=False)
 
     ### Clinic Language
     clinicEnglish = models.BooleanField(default=False)
@@ -81,7 +81,6 @@ class BasicClinic(models.Model):
         )
     defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True)
 
-    ### Basic fertility treatments
     ivf_treatment = models.BooleanField(default=False)
     mild_ivf_treatment = models.BooleanField(default=False)
     ovarian_ivf_treatment = models.BooleanField(default=False)
@@ -127,11 +126,22 @@ class BasicClinic(models.Model):
     hiv_patients_treatment = models.BooleanField(default=False)
     sex_selection = models.BooleanField(default=False)
 
-    ### Admin publish controll
+    ### Clinic Booleands
     is_published = models.BooleanField(default=False)
-    is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
-    list_date = models.DateTimeField(default=datetime.now, blank=True)
     is_claimed = models.BooleanField(default=False)
+    pro_is_published = models.BooleanField(default=False)
+    ppq_is_published  = models.BooleanField(default=False)
+    no_waiting_list = models.BooleanField(default=False)
+    verified_is_published = models.BooleanField(default=False)
+    popular_is_published = models.BooleanField(default=False)
+    promotion_is_published = models.BooleanField(default=False)
+
+    is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    update_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    pro_update_is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    pro_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    ppq_update_is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    ppq_list_date = models.DateTimeField(default=datetime.now, blank=True)
 
     ### ------------------------------------------------ ###
     ### BUILD FOR PRO FEATURES ###
@@ -183,19 +193,6 @@ class BasicClinic(models.Model):
     clinic_pro_photo_4 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     clinic_pro_photo_5 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-
-    ### Admin publish PRO controll
-    pro_is_published = models.BooleanField(default=False)
-    pro_is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
-    pro_list_date = models.DateTimeField(default=datetime.now, blank=True)
-
-    ### ------------------------------------------------ ###
-    ### BUILD FOR BADGE ###
-    ### ------------------------------------------------ ###
-
-    verified_is_published = models.BooleanField(default=False)
-    popular_is_published = models.BooleanField(default=False)
-    promotion_is_published = models.BooleanField(default=False)
 
     def __str__(self):
         return self.clinicName + str(self.pro_is_published)

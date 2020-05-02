@@ -25,6 +25,11 @@ def search(request):
 
             pro_queryset_list = BasicClinic.objects.all()
             pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
+            pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
+
+            ppq_queryset_list = BasicClinic.objects.all()
+            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
+            ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
             my_total_count = BasicClinic.objects.all()
             my_total_count = my_total_count.filter(is_published=True)
@@ -41,6 +46,7 @@ def search(request):
 
                 queryset_list = queryset_list.filter(clinicState__iexact='United States')
                 pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
+                ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
 
                 if region == 'AL':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alabama')
@@ -2063,19 +2069,22 @@ def search(request):
                 elif region == 'CA':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='California')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
+
                     my_total_count = my_total_count.filter(clinicRegion__iexact='California')
                     my_total_count = my_total_count.count()
 
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
                         if treatments == 'Alltreatmentstrue':
-                            order_data = list(pro_queryset_list) + list(queryset_list)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                            my_total_count = queryset_list.count() + pro_queryset_list.count()
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                             paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')

@@ -1,4 +1,4 @@
-<!-- DISPLAY NONE US REGIONS IF UNITED STATES IS SELECTED--->
+<!-- DISPLAY NONE US REGIONS IF UNITED STATES IS SELECTED --->
 
 function showDiv(){
        getSelectValue = document.getElementById("States").value;
@@ -8,6 +8,18 @@ function showDiv(){
            document.getElementById("regions").style.display="none";
        }
    }
+
+
+<!-- DISPLAY REGION FORM IF UNITED STATES IS SELECTED | OWNERS --->
+$(document).ready(function (e) {
+    $('#id_clinicState').change(function () {
+        if ($(this).val() == 'United States') {
+            $('#Regionsx').show();
+        } else {
+            $('#Regionsx').hide();
+        }
+    });
+});
 
 
 <!-- ADD CLINIC FORMULÁŘ --->

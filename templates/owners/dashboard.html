@@ -52,7 +52,7 @@
       </div>
       <div class="col-sm" style="padding-bottom:1rem">
         <a href="{% url 'updatePricing' listings.id %}">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Treatments & pricing</button>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Pricing</button>
         </a>
       </div>
       {% elif listings.is_published == True and listings.pro_is_published == True %}
@@ -63,7 +63,7 @@
       </div>
       <div class="col-sm" style="padding-bottom:1rem">
         <a href="{% url 'updatePricingPro' listings.id %}">
-          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Treatments & pricing</button>
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem">Pricing & Packages</button>
         </a>
       </div>
       {% endif %}

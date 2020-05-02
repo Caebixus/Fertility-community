@@ -57,11 +57,24 @@
       <br>
       <h2>Clinics Images</h2>
       <br>
-      <div class="fieldWrapper" style="text-align: left">
+      {% if instance.clinic_pro_logo_pic %}
+      <div class="col-6 col-md" style="text-align: left">
+        <p>Currently uploaded picture: </p>
+        <img src="{{ instance.clinic_pro_logo_pic.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      </div>
+      <br>
+      <div class="col-6 col-md" style="text-align: left">
         {{ form.clinic_pro_logo_pic.errors }}
-        <label for="{{ form.clinic_pro_logo_pic.id_for_label}}">Logo (ideal 50x50 px):</label>
+        <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
         {{ form.clinic_pro_logo_pic }}
       </div>
+      {% else %}
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinic_pro_logo_pic.errors }}
+        <label for="{{ form.clinic_pro_logo_pic.id_for_label}}">Logo (50x50 px):</label>
+        {{ form.clinic_pro_logo_pic }}
+      </div>
+      {% endif %}
       <br>
       <hr>
       <br>
@@ -103,17 +116,31 @@
           </div>
         </div>
         <div class="col-md-6" style="padding-top:1rem">
-          <div class="fieldWrapper" style="text-align: left">
-            {{ form.clinicState.errors }}
-            <label for="{{ form.clinicState.id_for_label}}">State:</label>
-            {{ form.clinicState }}
+          <div id="Statesx">
+            <div class="fieldWrapper" style="text-align: left">
+              {{ form.clinicState.errors }}
+              <label for="{{ form.clinicState.id_for_label}}">State:</label>
+                {{ form.clinicState }}
+            </div>
           </div>
           <br>
-          <div class="fieldWrapper" style="text-align: left">
-            {{ form.clinicRegion.errors }}
-            <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
-            {{ form.clinicRegion }}
+          {% if form.clinicState.value == 'United States' %}
+          <div id="Regionsx">
+            <div class="fieldWrapper" style="text-align: left;">
+              {{ form.clinicRegion.errors }}
+                <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+              {{ form.clinicRegion }}
+            </div>
           </div>
+          {% else %}
+          <div id="Regionsx" style="display:none">
+            <div class="fieldWrapper" style="text-align: left;">
+              {{ form.clinicRegion.errors }}
+                <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+              {{ form.clinicRegion }}
+            </div>
+          </div>
+          {% endif %}
         </div>
         <div class="col-md-6" style="padding-top:1rem">
           <div class="fieldWrapper" style="text-align: left">

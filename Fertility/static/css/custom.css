@@ -144,8 +144,8 @@ select {
 }
 
 #brandButtonGoalRightCorner {
-  border-color: #CD5360;
-  background-color: #CD5360;
+  border-color: #286DA8;
+  background-color: #286DA8;
   border-radius: 8px;
   border-width:2px;
   color: white;
@@ -204,6 +204,13 @@ ol {
 }
 
 a {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: black;
+  text-align: left;
+}
+
+button {
   font-family: 'Josefin Sans';
   font-style: normal;
   color: black;

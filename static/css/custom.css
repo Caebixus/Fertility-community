@@ -39,12 +39,35 @@ label {
   text-align: left;
 }
 
+select {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
 .imgHoverLogo {
   border-radius: 4px;
 }
 
 .imgHover{
   border-radius: 8px;
+}
+
+.imgHoverTeam {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+
+@media (max-width: 480px) {
+  .imgHoverTeam {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
 }
 
 .jumbotron {
@@ -81,6 +104,15 @@ label {
   padding-left: 75px;
 }
 
+#Region {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-align: left;
+  border-width: 0px;
+  background-color: white;
+}
+
 #States {
   font-family: 'Josefin Sans';
   font-style: normal;
@@ -111,6 +143,22 @@ label {
   color: white;
 }
 
+#brandButtonGoalRightCorner {
+  border-color: #286DA8;
+  background-color: #286DA8;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalAskTeam {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
 #baseBrandButton {
   border-color: #ffffff;
   border-radius: 8px;
@@ -132,14 +180,21 @@ label {
 
 p {
   font-family: 'Josefin Sans';
-  font-style: normal;
+  font-weight: 300;
   color: #282c34;
   text-align: left;
 }
 
 ul {
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
+  color: #282c34;
+  text-align: left;
+}
+
+ol {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
   color: #282c34;
   text-align: left;
 }
@@ -149,6 +204,13 @@ ul {
 }
 
 a {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: black;
+  text-align: left;
+}
+
+button {
   font-family: 'Josefin Sans';
   font-style: normal;
   color: black;

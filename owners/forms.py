@@ -883,6 +883,7 @@ class PostFormPro(forms.ModelForm):
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    query_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
@@ -1245,6 +1246,7 @@ class PostFormPro(forms.ModelForm):
         'clinic_pro_logo_pic',
         'clinic_pro_main_pic',
         'contact_url',
+        'query_email',
         'contact_phone',
         'contact_email',
         'clinicStreetAddress',

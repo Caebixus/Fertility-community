@@ -220,7 +220,7 @@ def update(request, listing_id):
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.is_published_list_date = datetime.now()
+        instance.update_list_date = datetime.now()
         instance.save()
 
         data = form.cleaned_data
@@ -254,7 +254,7 @@ def updatePricing(request, listing_id):
     form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.is_published_list_date = datetime.now()
+        instance.update_list_date = datetime.now()
         instance.save()
 
         data = form.cleaned_data
@@ -288,7 +288,7 @@ def updatePro(request, listing_id):
     form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.pro_is_published_list_date = datetime.now()
+        instance.pro_update_is_published_list_date = datetime.now()
         instance.pro_is_published = True
         instance.save()
 
@@ -324,7 +324,7 @@ def updatePricingPro(request, listing_id):
     form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.is_published_list_date = datetime.now()
+        instance.pro_update_is_published_list_date = datetime.now()
         instance.save()
 
         data = form.cleaned_data

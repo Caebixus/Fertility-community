@@ -1,3 +1,25 @@
+<!-- DISPLAY NONE US REGIONS IF UNITED STATES IS SELECTED --->
+
+function showDiv(){
+       getSelectValue = document.getElementById("States").value;
+       if(getSelectValue == "US"){
+           document.getElementById("regions").style.display="block";
+       }else{
+           document.getElementById("regions").style.display="none";
+       }
+   }
+
+
+<!-- DISPLAY REGION FORM IF UNITED STATES IS SELECTED | OWNERS --->
+$('#Statesx').on('change', function(){
+  if ( $(this).is("US")) {
+    $('#Regionsx').show();
+  } else {
+    $('#Regionsx').hide();
+  }
+});
+
+
 <!-- ADD CLINIC FORMULÁŘ --->
 <!-- 1. řádka --->
 $('#ivf_treatment').on('change', function(){
@@ -16,6 +38,41 @@ $('#id_ivf_treatment').on('change', function(){
   }
 });
 
+$('#mild_ivf_treatment').on('change', function(){
+  if ( $(this).is(":checked")) {
+    $('#js_mild_ivf_cost').show();
+  } else {
+    $('#js_mild_ivf_cost').hide();
+  }
+});
+
+$('#id_mild_ivf_treatment').on('change', function(){
+  if ( $(this).is(":checked")) {
+    $('#js_mild_ivf_cost').show();
+  } else {
+    $('#js_mild_ivf_cost').hide();
+  }
+});
+
+$('#ovarian_ivf_treatment').on('change', function(){
+  if ( $(this).is(":checked")) {
+    $('#js_ovarian_ivf_cost').show();
+  } else {
+    $('#js_ovarian_ivf_cost').hide();
+  }
+});
+
+$('#id_ovarian_ivf_treatment').on('change', function(){
+  if ( $(this).is(":checked")) {
+    $('#js_ovarian_ivf_cost').show();
+  } else {
+    $('#js_ovarian_ivf_cost').hide();
+  }
+});
+
+
+
+<!-- 2. řádka --->
 $('#iui_treatment').on('change', function(){
   if ( $(this).is(":checked")) {
     $('#js_iui_cost').show();
@@ -48,7 +105,7 @@ $('#id_icsi_treatment').on('change', function(){
   }
 });
 
-<!-- 2. řádka --->
+<!-- 3. řádka --->
 
 $('#egg_donation').on('change', function(){
   if ( $(this).is(":checked")) {
@@ -98,7 +155,7 @@ $('#id_embryo_donor_recipients').on('change', function(){
   }
 });
 
-<!-- 3. řádka --->
+<!-- 4. řádka --->
 
 $('#egg_freezing').on('change', function(){
   if ( $(this).is(":checked")) {
@@ -156,7 +213,7 @@ $('#assisted_hatching').on('change', function(){
   }
 });
 
-<!-- 4. řádka --->
+<!-- 5. řádka --->
 
 $('#surrogacy').on('change', function(){
   if ( $(this).is(":checked")) {

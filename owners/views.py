@@ -3,6 +3,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from .models import ownerProInterested
 from contact.models import contactClinic
@@ -61,14 +62,14 @@ def login(request):
 def upgrade2(request):
     return render(request, 'owners/upgrade2.html')
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         messages.success(request, '- You are logged out')
         return redirect('index')
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
 
@@ -78,7 +79,17 @@ def dashboard(request):
 
     return render(request, 'owners/dashboard.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def settings(request):
+    listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
+    context = {
+        'listings': listings,
+    }
+
+    return render(request, 'owners/settings.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def upgrade(request):
     form = OwnerProInterestedForm(request.POST or None)
     if form.is_valid():
@@ -99,11 +110,11 @@ def upgrade(request):
 
     return render(request, 'owners/upgrade.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claim(request):
     return render(request, 'owners/claim.html')
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create(request):
     if request.method == 'POST':
         listing = BasicClinic()
@@ -184,7 +195,7 @@ def create(request):
         return render(request, 'owners/create.html')
     return render(request, 'owners/create.html')
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create1(request):
     form = CreateClinic(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -214,7 +225,7 @@ def create1(request):
 
     return render(request, 'owners/create1.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def update(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
@@ -248,7 +259,7 @@ def update(request, listing_id):
 
     return render(request, 'owners/update.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatePricing(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
@@ -282,7 +293,7 @@ def updatePricing(request, listing_id):
 
     return render(request, 'owners/updateprice.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatePro(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
@@ -318,7 +329,7 @@ def updatePro(request, listing_id):
 
     return render(request, 'owners/updatepro.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatePricingPro(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
@@ -353,7 +364,7 @@ def updatePricingPro(request, listing_id):
     return render(request, 'owners/updatepricepro.html', context)
 
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def contactClinic(request):
     form = ContactForm(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -378,7 +389,7 @@ def contactClinic(request):
 
     return render(request, 'owners/contactus.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claimClinic(request):
     form = ClaimForm(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -402,3 +413,19 @@ def claimClinic(request):
     }
 
     return render(request, 'owners/claim.html', context)
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Your password was changed successfully!')
+            return redirect('settings')
+
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'owners/change-password.html', args)

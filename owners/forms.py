@@ -2,6 +2,7 @@ from django import forms
 from clinic.models import BasicClinic
 from .models import ownerProInterested
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget

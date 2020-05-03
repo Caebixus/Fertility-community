@@ -181,6 +181,8 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'rcilaf',
         'rcibmc',
         'rcibws',
+        'midrepc',
+        'ferendas',
         ]
 
     def location(self, item):

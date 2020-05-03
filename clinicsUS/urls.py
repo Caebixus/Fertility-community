@@ -181,4 +181,6 @@ urlpatterns = [
     path('clinics/us/indiana/reproductive-care-indiana-lafayette', views.rcilaf, name='rcilaf'),
     path('clinics/us/indiana/reproductive-care-indiana-bloomington-mc', views.rcibmc, name='rcibmc'),
     path('clinics/us/indiana/reproductive-care-indiana-bloomington-ws', views.rcibws, name='rcibws'),
+    #KANSAS
+    path('clinics/us/kansas/midwest-reproductive-center', views.midrepc, name='midrepc'),
 ]

@@ -168,6 +168,19 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'civfops',
         'civfscn',
         'civfnw',
+        'ihrval',
+        'mfcar',
+        'mffortwayne',
+        'civfval',
+        'civfmun',
+        'prhmun',
+        'fbeg',
+        'ifinst',
+        'rcimo',
+        'rcith',
+        'rcilaf',
+        'rcibmc',
+        'rcibws',
         ]
 
     def location(self, item):

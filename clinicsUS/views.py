@@ -1386,3 +1386,13 @@ def rcibws(request):
         }
 
     return render(request, 'clinics/US/Indiana/reproductive-care-indiana-bloomington-ws.html', context)
+
+# KANSAS Views --------------------------------------------------------------------------------------------------------
+
+def midrepc(request):
+    listing = BasicClinic.objects.get(pk=174)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Kansas/midwest-reproductive-center.html', context)

@@ -1280,3 +1280,109 @@ def civfnw(request):
         }
 
     return render(request, 'clinics/US/Illinois/chicago-ivf-naperville–west.html', context)
+
+# INDIANA Views --------------------------------------------------------------------------------------------------------
+
+def ihrval(request):
+    listing = BasicClinic.objects.get(pk=161)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/ihr-valparaiso.html', context)
+
+def mfcar(request):
+    listing = BasicClinic.objects.get(pk=162)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/midwest-fertility-carmel.html', context)
+
+def mffortwayne(request):
+    listing = BasicClinic.objects.get(pk=165)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/midwest-fertility-fort-wayne.html', context)
+
+def civfval(request):
+    listing = BasicClinic.objects.get(pk=163)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/chicago-ivf-valparaiso.html', context)
+
+def civfmun(request):
+    listing = BasicClinic.objects.get(pk=164)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/chicago-ivf-munster.html', context)
+
+def prhmun(request):
+    listing = BasicClinic.objects.get(pk=166)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/partners-reproductive-health-munster.html', context)
+
+def fbeg(request):
+    listing = BasicClinic.objects.get(pk=167)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/family-beginnings.html', context)
+
+def ifinst(request):
+    listing = BasicClinic.objects.get(pk=168)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/indiana-fertility-institute.html', context)
+
+def rcimo(request):
+    listing = BasicClinic.objects.get(pk=169)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/reproductive-care-indiana-main-office.html', context)
+
+def rcith(request):
+    listing = BasicClinic.objects.get(pk=170)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/reproductive-care-indiana-terre-haute.html', context)
+
+def rcilaf(request):
+    listing = BasicClinic.objects.get(pk=171)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/reproductive-care-indiana-lafayette.html', context)
+
+def rcibmc(request):
+    listing = BasicClinic.objects.get(pk=172)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/reproductive-care-indiana-bloomington-mc.html', context)
+
+def rcibws(request):
+    listing = BasicClinic.objects.get(pk=173)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Indiana/reproductive-care-indiana-bloomington-ws.html', context)

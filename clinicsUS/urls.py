@@ -167,4 +167,18 @@ urlpatterns = [
     path('clinics/us/illinois/chicago-ivf-orland-park–southwest', views.civfops, name='civfops'),
     path('clinics/us/illinois/chicago-ivf-stcharles–northwest', views.civfscn, name='civfscn'),
     path('clinics/us/illinois/chicago-ivf-naperville–west', views.civfnw, name='civfnw'),
+    #INDIANA
+    path('clinics/us/indiana/ihr-valparaiso', views.ihrval, name='ihrval'),
+    path('clinics/us/indiana/midwest-fertility-carmel', views.mfcar, name='mfcar'),
+    path('clinics/us/indiana/midwest-fertility-fort-wayne', views.mffortwayne, name='mffortwayne'),
+    path('clinics/us/indiana/chicago-ivf-valparaiso', views.civfval, name='civfval'),
+    path('clinics/us/indiana/chicago-ivf-munster', views.civfmun, name='civfmun'),
+    path('clinics/us/indiana/partners-reproductive-health-munster', views.prhmun, name='prhmun'),
+    path('clinics/us/indiana/family-beginnings', views.fbeg, name='fbeg'),
+    path('clinics/us/indiana/indiana-fertility-institute', views.ifinst, name='ifinst'),
+    path('clinics/us/indiana/reproductive-care-indiana-main-office', views.rcimo, name='rcimo'),
+    path('clinics/us/indiana/reproductive-care-indiana-terre-haute', views.rcith, name='rcith'),
+    path('clinics/us/indiana/reproductive-care-indiana-lafayette', views.rcilaf, name='rcilaf'),
+    path('clinics/us/indiana/reproductive-care-indiana-bloomington-mc', views.rcibmc, name='rcibmc'),
+    path('clinics/us/indiana/reproductive-care-indiana-bloomington-ws', views.rcibws, name='rcibws'),
 ]

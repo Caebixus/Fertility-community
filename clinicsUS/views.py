@@ -1396,3 +1396,13 @@ def midrepc(request):
         }
 
     return render(request, 'clinics/US/Kansas/midwest-reproductive-center.html', context)
+
+# KENTUCKY Views --------------------------------------------------------------------------------------------------------
+
+def ferendas(request):
+    listing = BasicClinic.objects.get(pk=175)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Kentucky/fertility-endocrine-associates.html', context)

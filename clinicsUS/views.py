@@ -1406,3 +1406,77 @@ def ferendas(request):
         }
 
     return render(request, 'clinics/US/Kentucky/fertility-endocrine-associates.html', context)
+
+# LOUISIANA Views --------------------------------------------------------------------------------------------------------
+
+def feanla(request):
+    listing = BasicClinic.objects.get(pk=176)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fertility-answers-lafayette.html', context)
+
+def feanbaro(request):
+    listing = BasicClinic.objects.get(pk=177)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fertility-answers-baton-rouge.html', context)
+
+def feanco(request):
+    listing = BasicClinic.objects.get(pk=178)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fertility-answers-covington.html', context)
+
+def feanlach(request):
+    listing = BasicClinic.objects.get(pk=179)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fertility-answers-lake-charles.html', context)
+
+def fiman(request):
+    listing = BasicClinic.objects.get(pk=180)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fi-mandeville.html', context)
+
+def fimet(request):
+    listing = BasicClinic.objects.get(pk=181)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fi-metairie.html', context)
+
+def fibaro(request):
+    listing = BasicClinic.objects.get(pk=182)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/fi-baton-rouge.html', context)
+
+def audfer(request):
+    listing = BasicClinic.objects.get(pk=183)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/audubon-fertility.html', context)
+
+def arkferrepmed(request):
+    listing = BasicClinic.objects.get(pk=184)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Louisiana/arklatex-fertility-reproductive-medicine.html', context)

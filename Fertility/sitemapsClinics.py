@@ -183,6 +183,15 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'rcibws',
         'midrepc',
         'ferendas',
+        'feanla',
+        'feanbaro',
+        'feanco',
+        'feanlach',
+        'fiman',
+        'fimet',
+        'fibaro',
+        'audfer',
+        'arkferrepmed',
         ]
 
     def location(self, item):

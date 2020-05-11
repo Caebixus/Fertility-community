@@ -36,6 +36,9 @@ def robots(request):
 def team(request):
     return render(request, 'main/team.html')
 
+def iframe1(request):
+    return render(request, 'main/iframepic1.html')
+
 def travelCalculator(request):
     return render(request, 'main/travel-calculator.html')
 

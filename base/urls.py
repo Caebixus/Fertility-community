@@ -15,4 +15,5 @@ urlpatterns = [
     path('travel-calculator', views.travelCalculator, name='travelCalculator'),
     path('cookies', views.cookies, name='cookies'),
     path('privacy', views.privacy, name='privacy'),
+    path('iframe1', views.iframe1, name='iframe1'),
 ]

@@ -1,11 +1,7 @@
 # Skupina 1
 User-agent: *
 Disallow: /search/*
-Disallow: /clinics/*
 Disallow: /account/*
-Disallow: /404.html
-Disallow: /400.html
-Disallow: /500.html
 
 Sitemap:
 https://www.fertilitycommunity.com/sitemap.xml

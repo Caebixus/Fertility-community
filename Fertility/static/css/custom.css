@@ -39,6 +39,18 @@ label {
   text-align: left;
 }
 
+pre {
+  display: block;
+  font-family: 'Josefin Sans';
+  white-space: pre;
+  margin: 1em 0;
+  background-color: #c0c0c0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  border-radius: 4px;
+}
+
 select {
   font-family: 'Josefin Sans';
   font-style: normal;

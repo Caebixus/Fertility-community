@@ -11,12 +11,14 @@ function showDiv(){
 
 
 <!-- DISPLAY REGION FORM IF UNITED STATES IS SELECTED | OWNERS --->
-$('#Statesx').on('change', function(){
-  if ( $(this).is("US")) {
-    $('#Regionsx').show();
-  } else {
-    $('#Regionsx').hide();
-  }
+$(document).ready(function (e) {
+    $('#id_clinicState').change(function () {
+        if ($(this).val() == 'United States') {
+            $('#Regionsx').show();
+        } else {
+            $('#Regionsx').hide();
+        }
+    });
 });
 
 

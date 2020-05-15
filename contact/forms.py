@@ -1,4 +1,5 @@
 from django import forms
+from captcha.fields import CaptchaField
 from .models import contactClinic, claimClinic, contactWebsite
 from django.contrib.auth.models import User
 from django.forms.widgets import HiddenInput
@@ -33,10 +34,13 @@ class WebsiteForm(forms.ModelForm):
     contactTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Title'))
     contactMessage = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control',}), label=('Message'))
     contact_email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Your email address, please'))
+    captcha = CaptchaField()
 
     class Meta:
         model = contactWebsite
         fields = [
         'contactTitle',
         'contactMessage',
+        'contact_email',
+        'captcha',
         ]

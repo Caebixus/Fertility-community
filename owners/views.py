@@ -294,7 +294,7 @@ def updatePricing(request, listing_id):
     return render(request, 'owners/updateprice.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def updatePro(request, listing_id):
+def updatepro(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():

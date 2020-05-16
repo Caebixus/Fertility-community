@@ -19,5 +19,5 @@ urlpatterns = [
     path('update/<int:listing_id>', views.update, name='update'),
     path('updateprice/<int:listing_id>', views.updatePricing, name='updatePricing'),
     path('updatepricepro/<int:listing_id>', views.updatePricingPro, name='updatePricingPro'),
-    path('updatePro/<int:listing_id>', views.updatePro, name='updatePro'),
+    path('updatepro/<int:listing_id>', views.updatePro, name='updatePro'),
 ]

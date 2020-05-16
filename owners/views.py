@@ -355,14 +355,6 @@ def updatePricingPro(request, listing_id):
         else:
             messages.success(request, '- Clinics pricing succesfully updated')
             return redirect(dashboard)
-    else:
-        context = {
-            'instance': instance,
-            'form': form,
-        }
-
-        messages.error(request, '- failed to save')
-        return render(request, 'owners/updatepricepro.html', context)
 
     context = {
         'instance': instance,

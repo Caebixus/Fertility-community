@@ -23,7 +23,7 @@ class BasicClinic(models.Model):
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
     ### Clinics Doctors & Staff
-    clinic_staff = RichTextField(blank=True, null=True)
+    clinic_staff = RichTextField(blank=True, null=True, max_length=300)
 
     ### URL address for contact button to redirections
     clinic_url = models.URLField(null=True, blank=True)
@@ -156,32 +156,32 @@ class BasicClinic(models.Model):
 
     package1title = models.CharField(max_length=30, blank=True, null = True)
     package1category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package1desc = models.TextField(max_length=300, blank=True, null = True)
+    package1desc = models.TextField(max_length=500, blank=True, null = True)
     package1cost = models.FloatField(blank=True, null=True)
 
     package2title = models.CharField(max_length=30, blank=True, null = True)
     package2category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package2desc = models.TextField(max_length=300, blank=True, null = True)
+    package2desc = models.TextField(max_length=500, blank=True, null = True)
     package2cost = models.FloatField(blank=True, null=True)
 
     package3title = models.CharField(max_length=30, blank=True, null = True)
     package3category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package3desc = models.TextField(max_length=300, blank=True, null = True)
+    package3desc = models.TextField(max_length=500, blank=True, null = True)
     package3cost = models.FloatField(blank=True, null=True)
 
     package4title = models.CharField(max_length=30, blank=True, null = True)
     package4category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package4desc = models.TextField(max_length=300, blank=True, null = True)
+    package4desc = models.TextField(max_length=500, blank=True, null = True)
     package4cost = models.FloatField(blank=True, null=True)
 
     package5title = models.CharField(max_length=30, blank=True, null = True)
     package5category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package5desc = models.TextField(max_length=300, blank=True, null = True)
+    package5desc = models.TextField(max_length=500, blank=True, null = True)
     package5cost = models.FloatField(blank=True, null=True)
 
     package6title = models.CharField(max_length=30, blank=True, null = True)
     package6category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package6desc = models.TextField(max_length=300, blank=True, null = True)
+    package6desc = models.TextField(max_length=500, blank=True, null = True)
     package6cost = models.FloatField(blank=True, null=True)
 
     ### Consultants

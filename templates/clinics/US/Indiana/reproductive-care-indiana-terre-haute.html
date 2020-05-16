@@ -93,7 +93,7 @@
 <div class="container">
   <br>
   <br>
-  <h2>About clinic:</h2>
+  <h2>About our clinic:</h2>
   <p>{{ listing.description|safe }}</p>
   <br>
 </div>
@@ -103,7 +103,7 @@
 <div class="container">
   <br>
   <br>
-  <h2>Treatment limitations and restrictions information:</h2>
+  <h2>Treatment limitations and restrictions:</h2>
   <p>{{ listing.treatmentLimitations|safe }}</p>
   <br>
   <br>
@@ -122,410 +122,157 @@
   </div>
   {% else %}
   {% endif %}
+
+
   <div class="container" style="text-align: center; z-index: -1;" id="pricing">
-    <h2>Primary treatments & costs</h2>
-    <ul class="list-group list-group-flush">
-
-      <!-- Natural IVF -->
-      {% if listing.ivf_treatment == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Standard IVF (Natural)</p>
-          </div>
-          <div class="col-3">
-            {% if listing.ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+    <h2>Primary treatments & costs (single cycle)</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="text-align:left">Treatment name</th>
+          <th scope="col">Provide</th>
+          <th scope="col">Pricing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Natural IVF -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">Natural IVF</p></th>
+          <td>{% if listing.ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Standard IVF (Natural)</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- Mild IVF -->
-      {% if listing.mild_ivf_treatment == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Mild IVF (small dose of ovarian stimulating drugs are used)</p>
-          </div>
-          <div class="col-3">
-            {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.mild_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- Mild IVF -->
+        <tr>
+          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Small dose of ovarian stimulating drugs are used"><p style="text-align: left; font-size: 22px">Mild IVF <i class="far fa-question-circle"></i></p></th>
+          <td>{% if listing.mild_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.mild_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Mild IVF (small dose of ovarian stimulating drugs are used)</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- IVF using ovarian hyperstimulation -->
-      {% if listing.ovarian_ivf_treatment == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using ovarian hyperstimulation</p>
-          </div>
-          <div class="col-3">
-            {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.ovarian_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- Standard IVF with hyperstimulation -->
+        <tr>
+          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="IVF using ovarian hyperstimulation"><p style="text-align: left; font-size: 22px">Standard IVF <i class="far fa-question-circle"></i></p></th>
+          <td>{% if listing.ovarian_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.ovarian_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using ovarian hyperstimulation</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- ICSI_treatment -->
-      {% if listing.icsi_treatment == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">ICSI</p>
-          </div>
-          <div class="col-3">
-            {% if listing.icsi_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.icsi_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- ICSI_treatment -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">ICSI</p></th>
+          <td>{% if listing.icsi_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.icsi_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.icsi_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">ICSI</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- iui_treatment -->
-      {% if listing.iui_treatment == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IUI</p>
-          </div>
-          <div class="col-3">
-            {% if listing.iui_treatment_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.iui_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- iui_treatment -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">IUI</p></th>
+          <td>{% if listing.iui_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.iui_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.iui_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IUI</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- egg_donor_recipients -->
-      {% if listing.egg_donor_recipients == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using egg donors (single cycle)</p>
-          </div>
-          <div class="col-3">
-            {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.egg_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- egg_donor_recipients -->
+        <tr>
+          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using egg donors <i class="far fa-question-circle"></i></p></th>
+          <td>{% if listing.egg_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.egg_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using egg donors (single cycle)</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- embryo_donor_recipients -->
-      {% if listing.embryo_donor_recipients == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using embryo donors (single cycle)</p>
-          </div>
-          <div class="col-3">
-            {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.embryo_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- embryo_donor_recipients -->
+        <tr>
+          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using embryo donors <i class="far fa-question-circle"></i></p></th>
+          <td>{% if listing.embryo_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.embryo_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">IVF using embryo donors (single cycle)</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-    </ul>
+          </td>
+        </tr>
+        <!-- sperm_donor_recipients -->
+        <tr>
+          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using sperm donors <i class="far fa-question-circle"></i></p></th>
+          <td>{% if listing.sperm_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.sperm_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <br>
     <br>
-    <h2>Additional treatments & costs</h2>
-    <ul class="list-group list-group-flush">
-      <!-- fertility_preservation -->
-      {% if listing.egg_freezing == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Egg freezing</p>
-          </div>
-          <div class="col-3">
-            {% if listing.egg_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+    <h2>Additional treatments & costs (single cycle)</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="text-align:left">Treatment name</th>
+          <th scope="col">Provide</th>
+          <th scope="col">Pricing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Egg freezing -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">Egg freezing</p></th>
+          <td>{% if listing.egg_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.egg_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Egg freezing</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- fertility_preservation -->
-      {% if listing.embryo_freezing == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Embryo freezing</p>
-          </div>
-          <div class="col-3">
-            {% if listing.embryo_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.embryo_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- Embryo freezing -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">Embryo freezing</p></th>
+          <td>{% if listing.embryo_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.embryo_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.embryo_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Embryo freezing</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- fertility_preservation -->
-      {% if listing.sperm_freezing == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Sperm freezing</p>
-          </div>
-          <div class="col-3">
-            {% if listing.sperm_freezing_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.sperm_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- Sperm freezing -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">Sperm freezing</p></th>
+          <td>{% if listing.sperm_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.sperm_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.sperm_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Sperm freezing</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- surrogacy -->
-      {% if listing.surrogacy == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Gestational surrogacy</p>
-          </div>
-          <div class="col-3">
-            {% if listing.surrogacy_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.surrogacy_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
+          </td>
+        </tr>
+        <!-- Gestational surrogacy -->
+        <tr>
+          <th scope="row"><p style="text-align: left; font-size: 22px">Gestational surrogacy</p></th>
+          <td>{% if listing.surrogacy == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+          <td>
+            {% if listing.surrogacy_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.surrogacy_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
             {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Gestational surrogacy</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-
-      <!-- sperm_donor_recipients -->
-      {% if listing.sperm_donor_recipients == True %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Sperm donor recipients</p>
-          </div>
-          <div class="col-3">
-            {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: right; font-size: 22px">{{ listing.sperm_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: right; font-size: 22px">Unknown</p>
-            {% endif %}
-          </div>
-        </div>
-      </li>
-      {% else %}
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-1">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
-          </div>
-          <div class="col-8">
-            <p style="font-size: 20px">Sperm donor recipients</p>
-          </div>
-          <div class="col-3">
-            <p style="text-align: right; font-size: 22px">Unknown</p>
-          </div>
-        </div>
-      </li>
-      {% endif %}
-    </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <br>
     <br>
 
@@ -534,35 +281,65 @@
     <h2 id="packages">Packages</h2>
     <div class="row" id="Packages">
       <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">1. {{ listing.package1title }}</h4>
+        <div class="card mb-4 shadow-lg">
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">1. {{ listing.package1title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package1category }}</p>
             <p>{{ listing.package1desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% if listing.package2title and listing.package2desc and listing.package2cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">2. {{ listing.package2title }}</h4>
+        <div class="card mb-4 shadow-lg">
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">2. {{ listing.package2title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package2category }}</p>
             <p>{{ listing.package2desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package2cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package2cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% else %}
         {% endif %}
         {% if listing.package3title and listing.package3desc and listing.package3cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">3. {{ listing.package3title }}</h4>
+        <div class="card mb-4 shadow-lg">
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">3. {{ listing.package3title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package3category }}</p>
             <p>{{ listing.package3desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package3cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package3cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% else %}
@@ -574,36 +351,66 @@
       <div class="card-deck mb-3 text-center">
         {% if listing.package4title and listing.package4desc and listing.package4cost and listing.pro_is_published %}
         <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">4. {{ listing.package4title }}</h4>
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">4. {{ listing.package4title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package4category }}</p>
             <p>{{ listing.package4desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package4cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package4cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% else %}
         {% endif %}
         {% if listing.package5title and listing.package5desc and listing.package5cost and listing.pro_is_published %}
         <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">5. {{ listing.package5title }}</h4>
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">5. {{ listing.package5title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package5category }}</p>
             <p>{{ listing.package5desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package5cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package5cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% else %}
         {% endif %}
         {% if listing.package6title and listing.package6desc and listing.package6cost and listing.pro_is_published %}
         <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0">6. {{ listing.package6title }}</h4>
+          <div class="card-header" style="background-color: #286DA8;">
+            <h4 class="my-0 text-white">6. {{ listing.package6title }}</h4>
           </div>
           <div class="card-body">
+            <p>Category: {{ listing.package6category }}</p>
             <p>{{ listing.package6desc|safe }}</p>
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ listing.package6cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</button>
+            <a href="mailto:{{ listing.contact_email }}">
+              <p style="text-align: center; font-size: 30px">{{ listing.package6cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:{{ listing.contact_email }}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                Get a quote
+              </button>
+            </a>
           </div>
         </div>
         {% else %}
@@ -760,7 +567,7 @@
     <div class="row" style="text-align: center">
       <div class="col-12 col-md">
         <a href="mailto:{{ listing.contact_email }}">
-          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
+          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg shadow-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
         </a>
       </div>
     </div>
@@ -814,12 +621,72 @@
     </div>
   </div>
 
+  {% if listing.is_claimed == True %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+    <h2>Clinic Pictures</h2>
     <hr>
+    <div class="card-columns">
+      {% if listing.clinic_pro_photo_1 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_1.url }}">
+          <img src="{{ listing.clinic_pro_photo_1.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_2 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_2.url }}">
+          <img src="{{ listing.clinic_pro_photo_2.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_3 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_3.url }}">
+          <img src="{{ listing.clinic_pro_photo_3.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_4 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_4.url }}">
+          <img src="{{ listing.clinic_pro_photo_4.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_5 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_5.url }}">
+          <img src="{{ listing.clinic_pro_photo_5.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_6 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_6.url }}">
+          <img src="{{ listing.clinic_pro_photo_6.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+
+
+
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Travelling information for abroad clients</h2>
+    <hr>
     <div class="row">
       <div class="col-sm-6" style="padding-top:2rem">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192.46143788571004!2d-87.40994327046843!3d39.48326534278407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886d65174bc9bce1%3A0x329c8ca8f3c538f0!2s1429%20N%206th%20St%202nd%20Floor%2C%20Terre%20Haute%2C%20IN%2047807%2C%20Spojen%C3%A9%20st%C3%A1ty%20americk%C3%A9!5e0!3m2!1scs!2scz!4v1588503211263!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.8227278219542!2d14.380055516056915!3d50.07088147942481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95a446d23be7%3A0x86390602c7a9ecc8!2sPRAGA%20MEDICA!5e0!3m2!1scs!2scz!4v1585154890585!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
       </div>
       <div class="col-sm-6" style="padding-top:2rem">
         <h3>Clinics Address:</h3>
@@ -828,114 +695,54 @@
       </div>
     </div>
     <br>
-    <hr>
     <br>
     <h3>Clinics opening ours</h3>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Monday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.mondayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.mondayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Tuesday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.tuesdayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.tuesdayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Wednesday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.wednesdayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.wednesdayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Thursday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.thursdayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.thursdayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Friday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.fridayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.fridayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Saturday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.saturdayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.saturdayCloses }}
-        </div>
-      </div>
-    </div>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem; text-align: left">
-        <label>Sunday Opening Hours</label>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.sundayOpens }}
-        </div>
-      </div>
-      <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ listing.sundayCloses }}
-        </div>
-      </div>
-    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Opening hours</th>
+          <th scope="col">Closing hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Monday</th>
+          <td>{{ listing.mondayOpens }}</td>
+          <td>{{ listing.mondayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Tuesday</th>
+          <td>{{ listing.tuesdayOpens }}</td>
+          <td>{{ listing.tuesdayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Wednesday</th>
+          <td>{{ listing.wednesdayOpens }}</td>
+          <td>{{ listing.wednesdayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Thursday</th>
+          <td>{{ listing.thursdayOpens }}</td>
+          <td>{{ listing.thursdayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Friday</th>
+          <td>{{ listing.fridayOpens }}</td>
+          <td>{{ listing.fridayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Saturday</th>
+          <td>{{ listing.saturdayOpens }}</td>
+          <td>{{ listing.saturdayCloses }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Sunday</th>
+          <td>{{ listing.sundayOpens }}</td>
+          <td>{{ listing.sundayCloses }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
   <!-- ================================================== -->

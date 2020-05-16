@@ -257,3 +257,15 @@ if (localStorage.getItem('cookieSeen') != 'shown') {
 $('.close').click(function() {
   $('.cookie-banner').hide(1000);
 })
+
+$('#myCarousel').carousel({
+    interval: 10000
+})
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})

@@ -349,6 +349,7 @@ textarea {
   background-color: gray;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 .close {
   height: 20px;
   background-color: black;
@@ -356,4 +357,13 @@ textarea {
   color: white;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
 }

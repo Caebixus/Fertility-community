@@ -296,7 +296,7 @@ def updatePricing(request, listing_id):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatepro(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-    form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
+    form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.pro_update_is_published_list_date = datetime.now()

@@ -6,7 +6,7 @@ from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
 
-anti_spam_answer1 = 17
+anti_spam_answer1 = '17'
 
 class ContactForm(forms.ModelForm):
     contactTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Title'))
@@ -40,7 +40,7 @@ class WebsiteForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(WebsiteForm, self).clean()
-        if cleaned_data['anti_spam_challenge'] == anti_spam_answer1:
+        if cleaned_data['anti_spam_challenge'] != anti_spam_answer1:
             raise forms.ValidationError("Your answers don't match")
         return cleaned_data
 

@@ -25,5 +25,34 @@ class PostAdmin(admin.ModelAdmin):
         ('Images', {'fields': ('clinic_pro_logo_pic', 'clinic_pro_main_pic', 'clinic_pro_photo_1', 'clinic_pro_photo_2', 'clinic_pro_photo_3', 'clinic_pro_photo_4', 'clinic_pro_photo_5', 'clinic_pro_photo_6',)}),
         ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'clinic_staff',)}),
     )
+    actions = ['clinicregionlink_update_g', 'clinicregionlink_update_f', 'clinicregionlink_update_co', 'clinicregionlink_update_de', 'clinicregionlink_update_col', 'clinicregionlink_update_cal', 'clinicregionlink_update_ari']
+
+    def clinicregionlink_update_g(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-georgia')
+    clinicregionlink_update_g.short_description = "Georgia update link"
+
+    def clinicregionlink_update_f(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-florida')
+    clinicregionlink_update_f.short_description = "florida update link"
+
+    def clinicregionlink_update_co(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-connecticut')
+    clinicregionlink_update_co.short_description = "connecticut update link"
+
+    def clinicregionlink_update_de(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-delaware')
+    clinicregionlink_update_de.short_description = "delaware update link"
+
+    def clinicregionlink_update_col(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-colorado')
+    clinicregionlink_update_col.short_description = "colorado update link"
+
+    def clinicregionlink_update_cal(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-california')
+    clinicregionlink_update_cal.short_description = "california update link"
+
+    def clinicregionlink_update_ari(modeladmin, request, queryset):
+        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-arizona')
+    clinicregionlink_update_ari.short_description = "arizona update link"
 
 admin.site.register(BasicClinic, PostAdmin)

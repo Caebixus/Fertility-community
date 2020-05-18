@@ -269,3 +269,11 @@ $(function () {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+$("body").on("contextmenu",function(e){
+     return false;
+});
+
+$("img").mousedown(function(e){
+     e.preventDefault()
+});

@@ -14,11 +14,49 @@
 </div>
 <br>
 <main role="main">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
   <div class="container" style="max-width: 70rem; text-align: center">
     <form method='POST' enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form.errors }}
-      {{ form.as_p }}
+      {{ form.non_field_errors }}
+      {{ form.source.errors }}
+      {{ form.source }}
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.contactTitle.errors }}
+        <label for="{{ form.contactTitle.id_for_label}}">Title:</label>
+        {{ form.contactTitle }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.contactMessage.errors }}
+        <label for="{{ form.contactMessage.id_for_label}}">Message:</label>
+        {{ form.contactMessage }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.contact_email.errors }}
+        <label for="{{ form.contact_email.id_for_label}}">Your email address, please:</label>
+        {{ form.contact_email }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.anti_spam_challenge.errors }}
+        <label for="{{ form.anti_spam_challenge.id_for_label}}">Please solve this 9 * 2 - 1</label>
+        {{ form.anti_spam_challenge }}
+      </div>
       <br>
       <input class="btn btn-dark" type='submit' value='Send' />
     </form>

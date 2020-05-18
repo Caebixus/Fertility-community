@@ -6,6 +6,8 @@ from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
 
+anti_spam_answer1 = 17
+
 class ContactForm(forms.ModelForm):
     contactTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Title'))
     contactMessage = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control',}), label=('Message'))
@@ -34,7 +36,14 @@ class WebsiteForm(forms.ModelForm):
     contactTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Title'))
     contactMessage = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control',}), label=('Message'))
     contact_email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Your email address, please'))
-    captcha = CaptchaField()
+    anti_spam_challenge = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Write correct result'))
+
+    def clean(self):
+        cleaned_data = super(WebsiteForm, self).clean()
+        if cleaned_data['anti_spam_challenge'] == anti_spam_answer1:
+            raise forms.ValidationError("Your answers don't match")
+        return cleaned_data
+
 
     class Meta:
         model = contactWebsite
@@ -42,5 +51,5 @@ class WebsiteForm(forms.ModelForm):
         'contactTitle',
         'contactMessage',
         'contact_email',
-        'captcha',
+        'anti_spam_challenge',
         ]

@@ -39,6 +39,12 @@ class BasicClinic(models.Model):
     clinicRegion = models.CharField(max_length=100, null=True, blank=True)
     clinicPostalCode = models.CharField(max_length=100)
 
+    ### Clinic Links
+    clinicCityLink = models.URLField(null=True, blank=True)
+    clinicRegionLink = models.URLField(null=True, blank=True)
+    clinicStateLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/locations/us-regions')
+    clinicLocationLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/locations')
+
     ### Open Hours of clinic
     mondayOpens = models.CharField(max_length=30, null=True, blank=True)
     mondayCloses = models.CharField(max_length=30, null=True, blank=True)

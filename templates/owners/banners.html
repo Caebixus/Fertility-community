@@ -1,0 +1,46 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Available banners & badgets</h1>
+    <br>
+  </div>
+</div>
+<br>
+{% if listings %}
+{% for listings in listings.all %}
+{% if listings.is_claimed == True %}
+{% if listings.clinicRegion == 'California' %}
+<div class="container py-4">
+  <h3>Available banners for {{ listings.clinicName }}:</h3>
+  <div class="row">
+    <div class="col-6 col-md">
+      <div class="snippet" style="text-align: center;">
+        <pre>&lt;a href="https://www.fertilitycommunity.com/locations/
+          us-regions/fertility-clinics-california" target="_blank"
+          rel="noopener nofollow"&gt;&lt;img src="https://fertilitycom
+          munity.com/static/img/TrustedClinicPicPossibility.png"alt="Ve
+          rified {{ listings.clinicRegion }} Fertility Clinic"/&gt;&lt;/a&gt;</pre>
+      </div>
+    </div>
+    <div class="col-6 col-md">
+      <div class="snippet" style="text-align: center;">
+        <img src="{% static 'img/TrustedClinicPicPossibility.png' %}" alt="">
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{% else %}
+{% endif %}
+{% elif listings.pro_is_published == True %}
+{% else %}
+<div class="container py-4">
+  <h3>No claimed clinics found</h3>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock %}

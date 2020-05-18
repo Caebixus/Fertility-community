@@ -12,16 +12,11 @@
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
   <p>Account email address: <b>{{ user.username }}</b></p>
+  <p>Last loggin: {{ user.last_login }}</p>
+  <br>
   <a href="{% url 'change-password' %}">Change password</a>
   <br>
   <br>
-  <div class="container" style="text-align: center">
-    <pre>  &lt;a href="https://www.fertilitycommunity.com/locations/
-      us-regions/fertility-clinics-california" target="_blank"
-      rel="noopener nofollow"&gt;&lt;img src="{% static
-        'img/TrustedClinicPicPossibility.png' %}"
-      alt="Trusted California Clinic of 2019"/&gt;&lt;/a&gt;</pre>
-  </div>
 </div>
 
 

@@ -67,6 +67,16 @@
           <a hidden class="nav-item nav-link" href="#"><i class="far fa-question-circle"></i> FAQ</a>
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: #8a8a8a">
+              Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'settings' %}">Account settings</a>
+              <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
+              <a hidden class="dropdown-item" href="#">Payment</a>
+            </div>
+          </div>
           <a class="nav-item nav-link" href="{% url 'create1' %}"><i class="fas fa-plus-circle"></i> Add clinic</a>
           <a class="nav-item nav-link" href="{% url 'claim' %}"><i class="fas fa-exclamation-triangle"></i> Claim clinic</a>
           <a class="nav-item nav-link" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>

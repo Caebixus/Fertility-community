@@ -72,9 +72,10 @@ def logout(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
-
+    userdata = User.objects.get(username=request.user).last_login
     context = {
         'listings': listings,
+        'userdata': userdata,
     }
 
     return render(request, 'owners/dashboard.html', context)
@@ -88,6 +89,17 @@ def settings(request):
     }
 
     return render(request, 'owners/settings.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def banners(request):
+    listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
+    context = {
+        'listings': listings,
+    }
+
+    return render(request, 'owners/banners.html', context)
+
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def upgrade(request):

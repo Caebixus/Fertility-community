@@ -89,7 +89,6 @@
   }
 </script>
 {% endif %}
-{% if listing.description %}
 <div class="container">
   <ul class="nav justify-content-left">
     {% if listing.clinicCityLink %}
@@ -117,6 +116,7 @@
     {% else %}
     {% endif %}
   </ul>
+  {% if listing.description %}
   <br>
   <br>
   <h2>About our clinic:</h2>
@@ -806,3 +806,4 @@
   </ul>
 </div>
 {% endblock  %}
+s

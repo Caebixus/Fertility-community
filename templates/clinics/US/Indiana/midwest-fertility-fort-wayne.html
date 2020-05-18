@@ -5,7 +5,7 @@
 {% block noindexpage %}<meta name=“robots“ content=“noindex“>{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/clinics/us/indiana/midwest-fertility-fort-wayne{% endblock %}
 {% block content %}
-<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
 <div class="background" style="background-color: #286DA8">
@@ -89,7 +89,6 @@
   }
 </script>
 {% endif %}
-{% if listing.description %}
 <div class="container">
   <ul class="nav justify-content-left">
     {% if listing.clinicCityLink %}
@@ -117,6 +116,7 @@
     {% else %}
     {% endif %}
   </ul>
+  {% if listing.description %}
   <br>
   <br>
   <h2>About our clinic:</h2>

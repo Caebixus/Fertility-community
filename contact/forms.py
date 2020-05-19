@@ -6,7 +6,7 @@ from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
 
-anti_spam_answer1 = '17'
+anti_spam_answer1 = 'blue'
 
 class ContactForm(forms.ModelForm):
     contactTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Title'))

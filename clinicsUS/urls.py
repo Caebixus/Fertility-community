@@ -195,4 +195,11 @@ urlpatterns = [
     path('clinics/us/louisiana/fi-baton-rouge', views.fibaro, name='fibaro'),
     path('clinics/us/louisiana/audubon-fertility', views.audfer, name='audfer'),
     path('clinics/us/louisiana/arklatex-fertility-reproductive-medicine', views.arkferrepmed, name='arkferrepmed'),
+    #MAINE
+    path('clinics/us/maine/fcne-bangor-center', views.fcnebc, name='fcnebc'),
+    path('clinics/us/maine/boston-ivf-bangor-fertility-center', views.bivfbfc, name='bivfbfc'),
+    path('clinics/us/maine/boston-ivf-portland-fertility-center', views.bivfpfc, name='bivfpfc'),
+    #MARYLAND
+    #MASSACHUSETTS
+    path('clinics/us/massachusetts/massachusetts-general-hospital-fertility-center', views.masghfc, name='masghfc'),
 ]

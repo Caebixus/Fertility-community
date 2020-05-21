@@ -1480,3 +1480,41 @@ def arkferrepmed(request):
         }
 
     return render(request, 'clinics/US/Louisiana/arklatex-fertility-reproductive-medicine.html', context)
+
+# MAINE Views --------------------------------------------------------------------------------------------------------
+
+def fcnebc(request):
+    listing = BasicClinic.objects.get(pk=186)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Maine/fcne-bangor-center.html', context)
+
+def bivfbfc(request):
+    listing = BasicClinic.objects.get(pk=187)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Maine/boston-ivf-bangor-fertility-center.html', context)
+
+def bivfpfc(request):
+    listing = BasicClinic.objects.get(pk=188)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Maine/boston-ivf-portland-fertility-center.html', context)
+
+# MARYLAND Views --------------------------------------------------------------------------------------------------------
+
+# MASSACHUSETTS Views --------------------------------------------------------------------------------------------------------
+
+def masghfc(request):
+    listing = BasicClinic.objects.get(pk=185)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/massachusetts-general-hospital-fertility-center.html', context)

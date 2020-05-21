@@ -192,6 +192,10 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'fibaro',
         'audfer',
         'arkferrepmed',
+        'masghfc',
+        'fcnebc',
+        'bivfbfc',
+        'bivfpfc',
         ]
 
     def location(self, item):

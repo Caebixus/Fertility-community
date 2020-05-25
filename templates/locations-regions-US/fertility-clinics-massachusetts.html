@@ -13,7 +13,8 @@
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
           Fertility clinics & centers in Massachusetts, United States
     </h1>
-    <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
+    <p style="font-size: 24px; color: white !important">Clinics found: <strong><u>{{ my_total_count }}</u></strong></p>
+    <p style="font-size: 20px; color: white !important">More information about <a href="https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-massachusetts#more_information" style="font-size: 20px; color: white !important"><u>IVF clinics in Massachusetts</u></a></p>
   </div>
 
   <!-- Filter section -->
@@ -539,6 +540,34 @@
 </div>
 
 <!-- Clinic additional locations -->
+<div class="container">
+  <a name="more_information"></a>
+  <h2>IVF clinics in Massachusetts </h2>
+  <p>The IVF clinics in Massachusetts offer <b><u>infertility diagnosis and treatment</u></b>, <b><u>intrauterine insemination</u></b>, <b><u>In Vitro Fertilization</u></b>, <b><u>intracytoplasmic sperm injection</u></b>, <b><u>preimplantation genetic diagnosis</u></b>, <b><u>egg donation</u></b>, <b><u>gestational surrogacy</u></b>, <b><u>egg freezing</u></b>, <b><u>LGBTQ family building</u></b> and tubal reversal.
+  <br>
+  <h2>General Information about <a href="https://en.wikipedia.org/wiki/Massachusetts" rel="nofollow">Massachusetts</a></h2>
+  <p>Massachusetts lies is the northeast of the USA and belongs to the New England region. It is <u>the most populous state in New England</u>. It borders Connecticut, Rhode Island, New Hampshire, Vermont, and New York. The capital and most populous city is Boston. Other big cities include Worcester, Springfield, Cambridge, Lowell, Brockton, Lynn, and New Bedford.</p>
+  <br>
+  <h2>History of Massachusetts</h2>
+  <p>The area was originally inhabited by Native American tribes belonging to the Algonquian language family.</p>
+  <p>Plymouth, founded in 1620 by the Pilgrims coming on Mayflower, was the second colony in New England and first settlement in Massachusetts. These Pilgrims were the first to <b>celebrate Thanksgiving</b>, after being able <u>to harvest in the new continent for the first time</u>.</p>
+  <p>Massachusetts Bay Colony in the area we now call Boston was established in 1630.</p>
+  <p>Massachusetts became one of the states of the USA on February 6, 1788. </p>
+  <p></p>
+  <br>
+  <h2>Massachusetts - Quick guide </h2>
+  <p>The climate is humid continental. </p>
+  <p>Massachusetts is one of the smallest states in the USA, however, it can offer a diverse landsca-pe. There are many natural and historic sites in Massachusetts. </p>
+  <p>Animals such as peregrine falcons, coyotes, white-tailed deer, raccoons, wild turkeys , eastern gray squirrels, moose, and black bears can be seen in this state.</p>
+  <p>As for significant places in the urban areas, Harvard University in Cambridge and Harvard Law School can both be found in Massachusetts. Harvard University is the oldest higher learning in-stitution in the USA. Harvard University and Massachusetts Institution of Technology are both among the top academic institutions worldwide.</p>
+  <p>Kendall Square in Cambridge is supposedly the most innovative square mile on the planet, with its entrepreneurial start-ups and quality of innovation. Other exciting places to see are Cape Cod, Martha’s Vineyard, or Nantucket.</p>
+  <br>
+  <h2>Fun facts about Massachusetts</h2>
+  <p>The state is called after a Native American population, the Massachusett. Basketball and volleyball were both invented in Massachusetts in the late 19th century. According to a 2020 study, the residents of Massachusetts demonstrated the highest IQ of all USA. </p>
+  <p>Massachusetts ranks as one of the top states to live in, as well as one of the most expensive. </p>
+</div>
+
+<!-- Clinic additional locations -->
 <div class="container" id="locationsReferer" style="padding-top:3rem">
   <hr>
   <br>
@@ -552,7 +581,7 @@
         <li><a href="#">New York city clinics</a></li>
         <li><a href="#">San Francisco clinics</a></li>
         <br>
-        <li><a href="#"><u>All city list</u></a></li>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
@@ -562,7 +591,7 @@
         <li><a href="#">Texas clinics</a></li>
         <li><a href="#">New York clinics</a></li>
         <br>
-        <li><a href="#"><u>All region list</u></a></li>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>

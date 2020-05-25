@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Payments & Membership</h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container py-4">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-lg">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal" style="text-align: center">Monthly PRO Account</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title" style="text-align: center">€15/mo</h1>
+        <br>
+        <ul class="list-unstyled mt-3 mb-4" style="text-align: center">
+          <li>10 users included</li>
+          <li>2 GB of storage</li>
+          <li>Email support</li>
+          <li>Help center access</li>
+        </ul>
+        <br>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-lg">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal" style="text-align: center">Yearly PRO Account<small class="text-primary"> Save 60€!</small></h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title" style="text-align: center">€120/yr</h1>
+        <br>
+        <ul class="list-unstyled mt-3 mb-4" style="text-align: center">
+          <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
+          <li>Be more visible with preferred search options</li>
+          <li>Get access to premium features</li>
+          <li>Increase your reach and get offers immediately</li>
+        </ul>
+        <br>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock  %}

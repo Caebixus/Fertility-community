@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics in Alabama | 2020{% endblock %}
+{% block title %}Fertility clinics & centers in Alabama | 2020{% endblock %}
 {% block description %}Search the best Alabama fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-alabama{% endblock %}
 {% block meta_keywords %}search fertility clinic alabama, search ivf clinics alabama, search fertility doctor alabama, search fertility specialist alabama, search fertility center alabama, search private fertility clinic alabama{% endblock %}
@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics & agencies in Alabama, United States
+      Fertility clinics & centers in Alabama, United States
     </h1>
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
   </div>
@@ -542,7 +542,7 @@
 <br>
 <!-- Clinic additional locations -->
 <div class="container">
-  <h2>Fertility clinics in Alabama</h2>
+  <h2>IVF clinics in Alabama</h2>
   <p>The fertility clinics in Alabama can treat various reproductive problems such as <u><b>endometriosis</b></u>, <u><b>terine fibroids</b></u>, <u><b>congenital abnormalities</b></u>, <u><b>infertility</b></u>, <u><b>IVF</b></u>, <u><b>IUI</b></u>, <u><b>egg freezing</b></u>, <u><b>male infertility</b></u>, <u><b>semen analysis</b></u>, <u><b>donor eggs</b></u>, and more. </p>
   <p>A few years ago, Alabama got a lot of attention with its <b>strict laws against abortion</b>. In case you were wondering, embryos created and often donated or discarded during the IVF procedures have an exception. The fertility clinics in Alabama perform this kind of treatment just like any other state.</p>
   <br>
@@ -571,23 +571,19 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
-      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Washington DC clinics</a></li>
-        <li><a href="#">New York city clinics</a></li>
-        <li><a href="#">San Francisco clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsUtah' %}">Utah fertility centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewJersey' %}">IVF clinics in new jersey</a></li>
         <br>
-        <li><a href="#"><u>All city list</u></a></li>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h4>Regions:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">California clinics</a></li>
-        <li><a href="#">Texas clinics</a></li>
-        <li><a href="#">New York clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewYork' %}">Fertility institutes in new york</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsArizona' %}">Arizona reproductive medicine specialists</a></li>
         <br>
-        <li><a href="#"><u>All region list</u></a></li>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>

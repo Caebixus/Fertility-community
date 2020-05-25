@@ -15,7 +15,6 @@ from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
 
 # Create your views here.
-
 def register(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -93,9 +92,15 @@ def settings(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def banners(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    california = listings.filter(clinicRegion__iexact='California').first()
+    alabama = listings.filter(clinicRegion__iexact='Alabama').first()
+    england = listings.filter(clinicRegion__iexact='England').first()
 
     context = {
         'listings': listings,
+        'california': california,
+        'alabama': alabama,
+        'england': england,
     }
 
     return render(request, 'owners/banners.html', context)
@@ -441,3 +446,8 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'owners/change-password.html', args)
+
+
+# PAYMENTS SECTION
+def payments(request):
+    return render(request, 'owners/payments.html')

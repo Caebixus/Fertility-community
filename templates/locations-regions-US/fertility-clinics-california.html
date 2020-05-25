@@ -14,7 +14,7 @@
           Fertility clinics & centers in California, United States
     </h1>
     <p style="font-size: 24px; color: white !important">Clinics found: <strong><u>{{ my_total_count }}</u></strong></p>
-    <p style="font-size: 20px; color: white !important">More information about <a href="https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-california/#more_information" style="font-size: 20px; color: white !important"><u>IVF clinics in california</u></a></p>
+    <p style="font-size: 20px; color: white !important">More information about <a href="https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-california#more_information" style="font-size: 20px; color: white !important"><u>IVF clinics in California</u></a></p>
   </div>
 
   <!-- Filter section -->
@@ -576,26 +576,21 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
-      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Washington DC clinics</a></li>
-        <li><a href="#">New York city clinics</a></li>
-        <li><a href="#">San Francisco clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsColorado' %}">Colorado fertility</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsTexas' %}">Texas fertility centers</a></li>
         <br>
-        <li><a href="#"><u>All city list</u></a></li>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h4>Regions:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">California clinics</a></li>
-        <li><a href="#">Texas clinics</a></li>
-        <li><a href="#">New York clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsWisconsin' %}">Wisconsin fertility institutes</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsOregon' %}">Oregon ivf clinics</a></li>
         <br>
-        <li><a href="#"><u>All region list</u></a></li>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>
 </div>
-
 {% endblock  %}

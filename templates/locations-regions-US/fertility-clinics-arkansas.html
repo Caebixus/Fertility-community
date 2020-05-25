@@ -13,7 +13,8 @@
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
           Fertility clinics & centers in Arkansas, United States
     </h1>
-    <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
+    <p style="font-size: 24px; color: white !important">Clinics found: <strong><u>{{ my_total_count }}</u></strong></p>
+    <p style="font-size: 20px; color: white !important">More information about <a href="https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-arkansas#more_information" style="font-size: 20px; color: white !important"><u>IVF clinics in Arkansas</u></a></p>
   </div>
 
   <!-- Filter section -->
@@ -542,6 +543,7 @@
 <br>
 <!-- Clinic additional locations -->
 <div class="container">
+  <a name="more_information"></a>
   <h2>IVF clinics in Arkansas</h2>
   <p>The fertility clinics in Arkansas offer <b><u>In Vitro Fertilization (IVF)</u></b>, <b><u>satellite IVF</u></b>, <b><u>blastocyst embryo transfers</u></b>, <b><u>embryo freezing</u></b>, <b><u>embryo donation</u></b>, <b><u>egg donation</u></b>, <b><u>assisted hatching</u></b>, <b><u>intracytoplasmic sperm injection</u></b>, <b><u>donor insemination</u></b>, <b><u>gestational surrogacy</u></b> and other infertility treatment options.</p>
   <br>
@@ -573,26 +575,21 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
-      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Washington DC clinics</a></li>
-        <li><a href="#">New York city clinics</a></li>
-        <li><a href="#">San Francisco clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsUtah' %}">Utah fertility centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsIllinois' %}">Fertility Centers of Illinois</a></li>
         <br>
-        <li><a href="#"><u>All city list</u></a></li>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h4>Regions:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">California clinics</a></li>
-        <li><a href="#">Texas clinics</a></li>
-        <li><a href="#">New York clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsArizona' %}">Arizona IVF centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewYork' %}">Fertility institutes in New York</a></li>
         <br>
-        <li><a href="#"><u>All region list</u></a></li>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>
 </div>
-
 {% endblock  %}

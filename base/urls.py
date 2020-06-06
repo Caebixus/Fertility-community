@@ -12,6 +12,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('contact', views.contactWebsite, name='contact'),
     path('team', views.team, name='team'),
+    path('packages', views.packages, name='packages'),
     path('travel-calculator', views.travelCalculator, name='travelCalculator'),
     path('cookies', views.cookies, name='cookies'),
     path('privacy', views.privacy, name='privacy'),

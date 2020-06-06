@@ -33,6 +33,9 @@ def about(request):
 def robots(request):
     return render(request, 'main/robots.txt')
 
+def packages(request):
+    return render(request, 'main/packages.html')
+
 def team(request):
     return render(request, 'main/team.html')
 

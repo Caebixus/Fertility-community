@@ -4,7 +4,7 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('locations', views.locations, name='locations'),
-    path('locations/us-regions', views.locationsUSRegions, name='locationsUSRegions'),
+    path('ivf-cost', views.locations, name='locations'),
+    path('ivf-cost/usa', views.locationsUSRegions, name='locationsUSRegions'),
     path('currencies', include('currencies.urls')),
 ]

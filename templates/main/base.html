@@ -73,12 +73,12 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="{% url 'settings' %}">Account settings</a>
+              <a class="dropdown-item" href="{% url 'create1' %}">Add clinic</a>
+              <a class="dropdown-item" href="{% url 'claim' %}">Claim clinic</a>
               <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
               <a hidden class="dropdown-item" href="{% url 'payments' %}">Payment</a>
             </div>
           </div>
-          <a class="nav-item nav-link" href="{% url 'create1' %}"><i class="fas fa-plus-circle"></i> Add clinic</a>
-          <a class="nav-item nav-link" href="{% url 'claim' %}"><i class="fas fa-exclamation-triangle"></i> Claim clinic</a>
           <a class="nav-item nav-link" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
           <a class="nav-item nav-link" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
           <li>
@@ -89,6 +89,7 @@
             </form>
           </li>
           {% else %}
+          <a class="nav-item nav-link" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
           <a class="nav-item nav-link" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
           {% endif %}
         </div>

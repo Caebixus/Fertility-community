@@ -413,44 +413,43 @@
           </div>
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p style="color: white">Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-            {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p style="color: white">Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
           </div>
 
           <hr noshade style="border-top: 1px solid white">
           <div class="row">
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
                 <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#pricing">
                 <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
               </a>
             </div>
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.ppq_is_published == True %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#Packages">
                 <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
               </a>
             </div>
             {% else %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
             {% endif %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Contact</button>
-            </div>
           </div>
           <br>
         </div>
@@ -485,51 +484,49 @@
           </div>
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p style="color: white">Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-            {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p style="color: white">Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
           </div>
 
           <hr noshade style="border-top: 1px solid white">
           <div class="row">
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
                 <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.ppq_is_published == True %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#Packages">
                 <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
               </a>
             </div>
             {% else %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
             {% endif %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Contact</button>
-            </div>
           </div>
           <br>
         </div>
         <br>
         {% endif %}
-
-      {% elif order_datas.pro_is_published == True  and order.datas.ppq_is_published != True %}
+      {% elif order_datas.pro_is_published == True and order.datas.ppq_is_published != True %}
         {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- PRO Clinic listings PRICING -->
-        <div class="container" style="background-color: #919191; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -548,57 +545,51 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
                   </a>
                 </div>
-                {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+                {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
             </div>
           </div>
-          <hr noshade style="border-top: 1px solid white">
+          <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-            {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
           </div>
 
-          <hr noshade style="border-top: 1px solid white">
+          <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row">
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
-                <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#pricing">
-                <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            {% if order_datas.ppq_is_published == True and order_datas.query_email %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Contact</button>
-            </div>
-            {% else %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-            </div>
-            {% endif %}
           </div>
           <br>
         </div>
         <br>
         {% else %}
         <!-- PRO Clinic listings NOPRICING -->
-        <div class="container" style="background-color: #919191; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -617,53 +608,48 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
                   </a>
                 </div>
-                {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+                {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
             </div>
           </div>
-          <hr noshade style="border-top: 1px solid white">
+          <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-            {% if order_datas.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
           </div>
 
-          <hr noshade style="border-top: 1px solid white">
+          <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row">
             <div class="col-3 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
-                <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            {% if order_datas.ppq_is_published == True and order_datas.query_email %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-envelope"></i> Contact</button>
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            {% else %}
-            <div class="col-3 col-sm" style="padding-top:1rem">
-            </div>
-            {% endif %}
           </div>
           <br>
         </div>
         <br>
         {% endif %}
-
       {% elif order_datas.pro_is_published != True and order_datas.is_published == True %}
         {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- BASIC Clinic listings PRICING -->
@@ -695,28 +681,34 @@
           </div>
           <hr noshade>
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
           </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
           <hr noshade>
           <div class="row">
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
                 <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#pricing">
                 <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
           </div>
         </div>
@@ -750,32 +742,38 @@
             </div>
           </div>
           <hr noshade>
+
           <div class="row-md">
-            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-            {% if order_datas.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-          </div>
-          <div class="row-md">
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.package1title or order_datas.package2title or order_datas.package3title or order_datas.package4title or order_datas.package5title or order_datas.package6title and order_datas.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ order_datas.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
           </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
           <hr noshade>
           <div class="row">
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}">
                 <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            <div class="col-3 col-sm" style="padding-top:1rem">
+            <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
           </div>
         </div>
         <br>
         {% endif %}
-
       {% endif %}
       {% endfor %}
       {% else %}
@@ -795,6 +793,8 @@
       </div>
       {% endif %}
     </div>
+
+
 
     <!-- Treatment average prices -->
     {% if values.States != None %}

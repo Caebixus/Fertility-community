@@ -17,41 +17,22 @@
       <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
     {% else %}
     {% endif %}
-    {% if listing.pro_is_published %}
-    <div class="container">
-      <div class="row">
-        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
-        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-        {% if listing.popular_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-        {% if listing.clinic_pro_promotion_landing_url != empty %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_pro_promotion_landing_url }}" style="color: white"><i class="fas fa-percent"></i> Promotion</a></span>{% else %}{% endif %}
-        {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title%}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-      </div>
-      <div class="row" style="padding-top:6px">
-        {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
-        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'EUR' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> EUR</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'GBP' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> GBP</span>{% else %}{% endif %}
-      </div>
+    <div class="row-md">
+      <p style="color: white">Features:
+      {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+      {% if listing.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+      </p>
     </div>
-    {% else %}
-    <div class="container">
-      <div class="row">
-        {% if listing.clinicHfea %}<span class="badge badge-info"><i class="fas fa-user-check"></i> HFAE</span>{% else %}{% endif %}
-        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-        {% if listing.no_waiting_list == True or listing.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> No waiting list</span>{% else %}{% endif %}
-        {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
-        {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'USD' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> USD</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'EUR' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> EUR</span>{% else %}{% endif %}
-        {% if listing.defaultClinicCurrency == 'GBP' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> GBP</span>{% else %}{% endif %}
-      </div>
+    <div class="row-md">
+      <p style="color: white">Certification:
+      {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+      {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+      </p>
     </div>
-    {% endif %}
   </div>
-  <br>
   <br>
 </div>
 {% if listing.clinic_pro_logo_pic %}
@@ -138,7 +119,7 @@
 {% endif %}
 <br>
 <div class="ButtonCornerContact">
-  {% if listing.is_claimed == True and listing.contact_email %}
+  {% if listing.is_claimed == True and listing.contact_email and listing.pro_is_published == True %}
   <div style="position: fixed; bottom: 25px; right: 25px; z-index: 1;" >
     <a href="mailto:{{ listing.contact_email }}">
       <button id="brandButtonGoalRightCorner" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
@@ -504,7 +485,7 @@
     </div>
   </div>
 
-  {% if listing.is_claimed == True %}
+  {% if listing.is_claimed == True and listing.pro_is_published == True %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Languages</h2>
     <hr>
@@ -647,7 +628,7 @@
     </div>
   </div>
 
-  {% if listing.is_claimed == True %}
+  {% if listing.is_claimed == True and pro_is_published %}
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Clinic Pictures</h2>
     <hr>
@@ -712,7 +693,7 @@
     <hr>
     <div class="row">
       <div class="col-sm-6" style="padding-top:2rem">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d707.5992603256263!2d-68.76958607063901!3d44.8134754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cafb4b2ead923fb%3A0x11235a094ad94969!2sBangor%20Ob%2FGyn!5e0!3m2!1scs!2scz!4v1590076341956!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.8227278219542!2d14.380055516056915!3d50.07088147942481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95a446d23be7%3A0x86390602c7a9ecc8!2sPRAGA%20MEDICA!5e0!3m2!1scs!2scz!4v1585154890585!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
       </div>
       <div class="col-sm-6" style="padding-top:2rem">
         <h3>Clinics Address:</h3>

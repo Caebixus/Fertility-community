@@ -1518,3 +1518,277 @@ def masghfc(request):
         }
 
     return render(request, 'clinics/US/Massachusetts/massachusetts-general-hospital-fertility-center.html', context)
+
+def ccrmbmc(request):
+    listing = BasicClinic.objects.get(pk=189)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/ccrm-boston-main-center.html', context)
+
+def ccrmmo(request):
+    listing = BasicClinic.objects.get(pk=190)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/ccrm-metrowest-office.html', context)
+
+def ccrmsso(request):
+    listing = BasicClinic.objects.get(pk=191)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/ccrm-south-shore-office.html', context)
+
+def bivfmfc(request):
+    listing = BasicClinic.objects.get(pk=192)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-tufts-medical-fertility-center.html', context)
+
+def bivfdbfc(request):
+    listing = BasicClinic.objects.get(pk=193)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-downtown-boston-fertility-center.html', context)
+
+def bivflfc(request):
+    listing = BasicClinic.objects.get(pk=194)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-lexington-fertility-center.html', context)
+
+def bivfqfc(request):
+    listing = BasicClinic.objects.get(pk=195)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-quincy-fertility-center.html', context)
+
+def bivfwfc(request):
+    listing = BasicClinic.objects.get(pk=196)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-waltham-fertility-center.html', context)
+
+def bivfsfc(request):
+    listing = BasicClinic.objects.get(pk=197)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/boston-ivf-stoneham-fertility-center.html', context)
+
+def fcnelc(request):
+    listing = BasicClinic.objects.get(pk=198)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/fertility-centers-new-england-leominster-center.html', context)
+
+def fcnerc(request):
+    listing = BasicClinic.objects.get(pk=199)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/fertility-centers-new-england-reading-center.html', context)
+
+def fcnedc(request):
+    listing = BasicClinic.objects.get(pk=200)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/fertility-centers-new-england-danvers-center.html', context)
+
+def fcnebce(request):
+    listing = BasicClinic.objects.get(pk=201)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/fertility-centers-new-england-braintree-center.html', context)
+
+def fcnebcen(request):
+    listing = BasicClinic.objects.get(pk=202)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Massachusetts/fertility-centers-new-england-boston-center.html', context)
+
+# MICHIGAN Views --------------------------------------------------------------------------------------------------------
+
+def ivfmfcaafc(request):
+    listing = BasicClinic.objects.get(pk=203)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-ann-arbor-fertility-center.html', context)
+
+def ivfmfcbhfc(request):
+    listing = BasicClinic.objects.get(pk=204)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-bloomfield-hills-fertility-center.html', context)
+
+def ivfmfcchebfc(request):
+    listing = BasicClinic.objects.get(pk=205)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-cheboygan-fertility-center.html', context)
+
+def ivfmfcdfc(request):
+    listing = BasicClinic.objects.get(pk=206)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-dearborn-fertility-center.html', context)
+
+def ivfmfcelfc(request):
+    listing = BasicClinic.objects.get(pk=207)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-east-lansing-fertility-center.html', context)
+
+def ivfmfcmfc(request):
+    listing = BasicClinic.objects.get(pk=208)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-macomb-fertility-center.html', context)
+
+def ivfmfcpfc(request):
+    listing = BasicClinic.objects.get(pk=209)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-petoskey-fertility-center.html', context)
+
+def ivfmfcsfc(request):
+    listing = BasicClinic.objects.get(pk=210)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-saginaw-fertility-center.html', context)
+
+def ivfmfctfc(request):
+    listing = BasicClinic.objects.get(pk=211)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-fertility-center-toledo-fertility-center.html', context)
+
+def gcffb(request):
+    listing = BasicClinic.objects.get(pk=212)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/gago-center-for-fertility-brighton.html', context)
+
+def ggcffl(request):
+    listing = BasicClinic.objects.get(pk=213)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/gago-center-for-fertility-lansing.html', context)
+
+def ggcffaa(request):
+    listing = BasicClinic.objects.get(pk=214)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/gago-center-for-fertility-ann-arbor.html', context)
+
+def tfcgr(request):
+    listing = BasicClinic.objects.get(pk=215)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/the-fertility-center-grand-rapids.html', context)
+
+def tfcm(request):
+    listing = BasicClinic.objects.get(pk=216)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/the-fertility-center-mason.html', context)
+
+def tfck(request):
+    listing = BasicClinic.objects.get(pk=217)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/the-fertility-center-kalamazoo.html', context)
+
+def tfctc(request):
+    listing = BasicClinic.objects.get(pk=218)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/the-fertility-center-traverse-city.html', context)
+
+def ivfmrh(request):
+    listing = BasicClinic.objects.get(pk=219)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-rochester-hills.html', context)
+
+def ivfmf(request):
+    listing = BasicClinic.objects.get(pk=220)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-flint.html', context)
+
+def ivfmd(request):
+    listing = BasicClinic.objects.get(pk=221)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/ivf-michigan-dearborn.html', context)
+
+def rmaom(request):
+    listing = BasicClinic.objects.get(pk=222)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Michigan/reproductive-medicine-associates-of-michigan.html', context)

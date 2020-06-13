@@ -28,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     actions = ['clinicregionlink_update_g']
 
     def clinicregionlink_update_g(modeladmin, request, queryset):
-        queryset.update(clinicRegionLink='https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-georgia')
+        queryset.update(clinicRegion='Michigan')
     clinicregionlink_update_g.short_description = "Georgia update link"
 
 admin.site.register(BasicClinic, PostAdmin)

@@ -28,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     actions = ['clinicregionlink_update_g']
 
     def clinicregionlink_update_g(modeladmin, request, queryset):
-        queryset.update(clinicRegion='Michigan')
-    clinicregionlink_update_g.short_description = "Georgia update link"
+        queryset.update(clinicState='United States')
+    clinicregionlink_update_g.short_description = "Update from Admin"
 
 admin.site.register(BasicClinic, PostAdmin)

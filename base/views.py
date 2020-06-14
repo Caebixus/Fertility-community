@@ -8,6 +8,7 @@ from django import template
 from contact.forms import WebsiteForm
 from django.core.mail import send_mail
 from django.contrib import messages, auth
+from clinic.models import BasicClinic
 
 def index(request):
 
@@ -34,7 +35,13 @@ def robots(request):
     return render(request, 'main/robots.txt')
 
 def packages(request):
-    return render(request, 'main/packages.html')
+    listing = BasicClinic.objects.all()
+
+    context = {
+        'listing': listing,
+    }
+
+    return render(request, 'main/packages.html', context)
 
 def team(request):
     return render(request, 'main/team.html')

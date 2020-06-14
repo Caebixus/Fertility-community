@@ -16,55 +16,13 @@
 
 <br>
 <br>
-
+{% for listings in listing %}
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col">
       <div class="card mb-4 shadow-lg">
         <div class="card-header" style="background-color: #286DA8;">
-          <h4 class="my-0 text-white">1. {{ listing.package1title }}</h4>
-        </div>
-        <div class="card-body">
-          <p>Category: {{ listing.package1category }}</p>
-          <p>{{ listing.package1desc|safe }}</p>
-          <a href="mailto:{{ listing.contact_email }}">
-            <p style="text-align: center; font-size: 30px">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-          </a>
-        </div>
-        <div class="card-footer">
-          <a href="mailto:{{ listing.contact_email }}">
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-              Get a quote
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-lg">
-        <div class="card-header" style="background-color: #286DA8;">
-          <h4 class="my-0 text-white">1. {{ listing.package1title }}</h4>
-        </div>
-        <div class="card-body">
-          <p>Category: {{ listing.package1category }}</p>
-          <p>{{ listing.package1desc|safe }}</p>
-          <a href="mailto:{{ listing.contact_email }}">
-            <p style="text-align: center; font-size: 30px">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-          </a>
-        </div>
-        <div class="card-footer">
-          <a href="mailto:{{ listing.contact_email }}">
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-              Get a quote
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-lg">
-        <div class="card-header" style="background-color: #286DA8;">
-          <h4 class="my-0 text-white">1. {{ listing.package1title }}</h4>
+          <h4 class="my-0 text-white">{{ listing.package1title }}</h4>
         </div>
         <div class="card-body">
           <p>Category: {{ listing.package1category }}</p>
@@ -86,6 +44,6 @@
 </div>
 <br>
 <br>
-
+{% endfor %}
 
 {% endblock  %}

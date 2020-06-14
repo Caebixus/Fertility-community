@@ -1792,3 +1792,69 @@ def rmaom(request):
         }
 
     return render(request, 'clinics/US/Michigan/reproductive-medicine-associates-of-michigan.html', context)
+
+# MINNESOTA Views --------------------------------------------------------------------------------------------------------
+
+def cccrmmin(request):
+    listing = BasicClinic.objects.get(pk=223)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/ccrm-minneapolis.html', context)
+
+def midcfrh(request):
+    listing = BasicClinic.objects.get(pk=224)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/midwest-center-for-reproductive-health.html', context)
+
+def cenfrmmin(request):
+    listing = BasicClinic.objects.get(pk=225)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/center-for-reproductive-medicine-minneapolis.html', context)
+
+def cenfrmstp(request):
+    listing = BasicClinic.objects.get(pk=226)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/center-for-reproductive-medicine-st-paul.html', context)
+
+def cenfrmwesog(request):
+    listing = BasicClinic.objects.get(pk=227)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/center-for-reproductive-medicine-western-ob-gyn.html', context)
+
+def cenfremstluobgyna(request):
+    listing = BasicClinic.objects.get(pk=228)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/center-for-reproductive-medicine-st-lukes-obstetrics-gynecology-associates.html', context)
+
+def repmeinaswoo(request):
+    listing = BasicClinic.objects.get(pk=229)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/reproductive-medicine-infertility-associates-woodbury.html', context)
+
+def repmeinasedi(request):
+    listing = BasicClinic.objects.get(pk=230)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Minnesota/reproductive-medicine-infertility-associates-edina.html', context)

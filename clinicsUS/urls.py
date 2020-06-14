@@ -237,4 +237,13 @@ urlpatterns = [
     path('clinics/us/michigan/ivf-michigan-flint', views.ivfmf, name='ivfmf'),
     path('clinics/us/michigan/ivf-michigan-dearborn', views.ivfmd, name='ivfmd'),
     path('clinics/us/michigan/reproductive-medicine-associates-of-michigan', views.rmaom, name='rmaom'),
+    #MINNESOTA
+    path('clinics/us/minnesota/ccrm-minneapolis', views.cccrmmin, name='cccrmmin'),
+    path('clinics/us/minnesota/midwest-center-for-reproductive-health', views.midcfrh, name='midcfrh'),
+    path('clinics/us/minnesota/center-for-reproductive-medicine-minneapolis', views.cenfrmmin, name='cenfrmmin'),
+    path('clinics/us/minnesota/center-for-reproductive-medicine-st-paul', views.cenfrmstp, name='cenfrmstp'),
+    path('clinics/us/minnesota/center-for-reproductive-medicine-western-ob-gyn', views.cenfrmwesog, name='cenfrmwesog'),
+    path('clinics/us/minnesota/center-for-reproductive-medicine-st-lukes-obstetrics-gynecology-associates', views.cenfremstluobgyna, name='cenfremstluobgyna'),
+    path('clinics/us/minnesota/reproductive-medicine-infertility-associates-woodbury', views.repmeinaswoo, name='repmeinaswoo'),
+    path('clinics/us/minnesota/reproductive-medicine-infertility-associates-edina', views.repmeinasedi, name='repmeinasedi'),
 ]

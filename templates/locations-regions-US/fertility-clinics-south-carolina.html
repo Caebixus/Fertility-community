@@ -722,21 +722,17 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
-      <h4>Cities:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">Washington DC clinics</a></li>
-        <li><a href="#">New York city clinics</a></li>
-        <li><a href="#">San Francisco clinics</a></li>
+        <li ><a href="{% url 'fertilityClinicsMaryland' %}">Maryland fertility clinics</a></li>
+        <li ><a href="{% url 'fertilityClinicsUtah' %}">Utah fertility clinics</a></li>
         <br>
         <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h4>Regions:</h4>
       <ul class="list-unstyled text-small">
-        <li><a href="#">California clinics</a></li>
-        <li><a href="#">Texas clinics</a></li>
-        <li><a href="#">New York clinics</a></li>
+        <li ><a href="{% url 'fertilityClinicsVermont' %}">Vermont fertility clinics</a></li>
+        <li ><a href="{% url 'fertilityClinicsPennsylvania' %}">Pennsylvania fertility clinics</a></li>
         <br>
         <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>

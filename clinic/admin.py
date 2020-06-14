@@ -9,7 +9,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'clinicOwner', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (
-        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'type',)}),
+        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
         ('Contact information', {'fields': ('clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email')}),
         ('Address information', {'fields': ('clinicStreetAddress', 'clinicCity', 'clinicState', 'clinicRegion', 'clinicPostalCode',)}),

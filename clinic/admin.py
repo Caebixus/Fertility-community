@@ -25,10 +25,14 @@ class PostAdmin(admin.ModelAdmin):
         ('Images', {'fields': ('clinic_pro_logo_pic', 'clinic_pro_main_pic', 'clinic_pro_photo_1', 'clinic_pro_photo_2', 'clinic_pro_photo_3', 'clinic_pro_photo_4', 'clinic_pro_photo_5', 'clinic_pro_photo_6',)}),
         ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'clinic_staff',)}),
     )
-    actions = ['clinicregionlink_update_g']
+    actions = ['clinicregionlink_update_g', 'clinicStateLink_update_g']
 
-    def clinicregionlink_update_g(modeladmin, request, queryset):
-        queryset.update(clinicState='United States')
-    clinicregionlink_update_g.short_description = "Update from Admin"
+    def clinicLocationLink_update_g(modeladmin, request, queryset):
+        queryset.update(clinicLocationLink='https://www.fertilitycommunity.com/ivf-cost')
+    clinicLocationLink_update_g.short_description = "Update from Admin"
+
+    def clinicStateLink_update_g(modeladmin, request, queryset):
+        queryset.update(clinicStateLink='https://www.fertilitycommunity.com/ivf-cost/usa')
+    clinicStateLink_update_g.short_description = "Update from Admin 2"
 
 admin.site.register(BasicClinic, PostAdmin)

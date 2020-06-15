@@ -246,4 +246,7 @@ urlpatterns = [
     path('clinics/us/minnesota/center-for-reproductive-medicine-st-lukes-obstetrics-gynecology-associates', views.cenfremstluobgyna, name='cenfremstluobgyna'),
     path('clinics/us/minnesota/reproductive-medicine-infertility-associates-woodbury', views.repmeinaswoo, name='repmeinaswoo'),
     path('clinics/us/minnesota/reproductive-medicine-infertility-associates-edina', views.repmeinasedi, name='repmeinasedi'),
+    #MISSISSIPPI
+    path('clinics/us/mississippi/center-for-reproductive-medicine-mississippi-fertility-clinic', views.cenfrmmfc, name='cenfrmmfc'),
+    path('clinics/us/mississippi/mississippi-reproductive-medicine', views.missrepmed, name='missrepmed'),
 ]

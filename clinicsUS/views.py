@@ -1858,3 +1858,21 @@ def repmeinasedi(request):
         }
 
     return render(request, 'clinics/US/Minnesota/reproductive-medicine-infertility-associates-edina.html', context)
+
+# MISSISSIPPI Views --------------------------------------------------------------------------------------------------------
+
+def cenfrmmfc(request):
+    listing = BasicClinic.objects.get(pk=231)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Mississippi/center-for-reproductive-medicine-mississippi-fertility-clinic.html', context)
+
+def missrepmed(request):
+    listing = BasicClinic.objects.get(pk=232)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Mississippi/mississippi-reproductive-medicine.html', context)

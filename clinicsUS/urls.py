@@ -292,7 +292,6 @@ urlpatterns = [
     path('clinics/us/new-jersey/south-jersey-fertility-center-sewell', views.southjefecesewell, name='southjefecesewell'),
     path('clinics/us/new-jersey/south-jersey-fertility-center-egg-harbor-township', views.southjefecetownship, name='southjefecetownship'),
     path('clinics/us/new-jersey/diamond-institute-millburn', views.diamondinsmilburn, name='diamondinsmilburn'),
-    path('clinics/us/new-jersey/diamond-institute-goshen', views.diamondinsgoshen, name='diamondinsgoshen'),
     path('clinics/us/new-jersey/diamond-institute-dover', views.diamondinsdover, name='diamondinsdover'),
     path('clinics/us/new-jersey/cooper-institute-mt-laurel', views.diamondinsmtlaurel, name='diamondinsmtlaurel'),
     path('clinics/us/new-jersey/cooper-institute-melrose-park', views.diamondinsmtmelrosepark, name='diamondinsmtmelrosepark'),
@@ -304,6 +303,7 @@ urlpatterns = [
     #NEW MEXICO
     path('clinics/us/new-mexico/fertility-center-of-new-mexico', views.ferticentofnewmexico, name='ferticentofnewmexico'),
     #NEW YORK
+    path('clinics/us/new-york/diamond-institute-goshen', views.diamondinsgoshen, name='diamondinsgoshen'),
     path('clinics/us/new-york/chelsea-fertility-nyc', views.cfnyc, name='cfnyc'),
     path('clinics/us/new-york/ccrm-new-york-fertility-clinic', views.ccrmnyfc, name='ccrmnyfc'),
     path('clinics/us/new-york/sher-institutes-for-reproductive-medicine-new-york-fertility-clinic', views.sherinsforrepmednewyorkferclinic, name='sherinsforrepmednewyorkferclinic'),

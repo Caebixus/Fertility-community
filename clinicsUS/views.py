@@ -2165,14 +2165,6 @@ def diamondinsmilburn(request):
 
     return render(request, 'clinics/US/New-Jersey/diamond-institute-millburn.html', context)
 
-def diamondinsgoshen(request):
-    listing = BasicClinic.objects.get(pk=268)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'clinics/US/New-Jersey/diamond-institute-goshen.html', context)
-
 def diamondinsdover(request):
     listing = BasicClinic.objects.get(pk=269)
     context = {
@@ -2248,6 +2240,14 @@ def ferticentofnewmexico(request):
     return render(request, 'clinics/US/New-Mexico/fertility-center-of-new-mexico.html', context)
 
 # NEW YORK Views --------------------------------------------------------------------------------------------------------
+
+def diamondinsgoshen(request):
+    listing = BasicClinic.objects.get(pk=268)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/New-York/diamond-institute-goshen.html', context)
 
 def cfnyc(request):
     listing = BasicClinic.objects.get(pk=34)

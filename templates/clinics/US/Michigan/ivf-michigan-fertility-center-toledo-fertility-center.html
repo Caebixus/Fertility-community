@@ -440,7 +440,7 @@
           </li>
           {% else %}
           <li class="list-group-item">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Single woman treatment
+            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Single woman treatment
           </li>
           {% endif %}
 
@@ -451,7 +451,7 @@
           </li>
           {% else %}
           <li class="list-group-item">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
+            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
           </li>
           {% endif %}
 
@@ -466,7 +466,7 @@
           </li>
           {% else %}
           <li class="list-group-item">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">HIV patients treatment
+            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">HIV patients treatment
           </li>
           {% endif %}
 
@@ -477,7 +477,7 @@
           </li>
           {% else %}
           <li class="list-group-item">
-            <img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem">Reciprocal IVF (LGBTQ)
+            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Reciprocal IVF (LGBTQ)
           </li>
           {% endif %}
         </ul>
@@ -689,13 +689,12 @@
 
 
   <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Travelling information for abroad clients</h2>
+    <h2>Clinics Address</h2>
     <hr>
     <div class="row">
       <div class="col-sm-6" style="padding-top:2rem">
-        <h3>Clinics Address:</h3>
-        <p>{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-        <p>{{ listing.clinicState }}</p>
+        <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
+        <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
       </div>
       <div class="col-sm-6" style="padding-top:2rem">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.2874558362014!2d-83.70752298371069!3d41.71431557923554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883c7db116128099%3A0x9d96bb7ea9e08a3a!2sToledo%20Fertility%20Center%2C%20Sylvania%2C%20Ohio!5e0!3m2!1scs!2scz!4v1592041835296!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>

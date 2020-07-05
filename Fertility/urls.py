@@ -22,8 +22,6 @@ sitemaps = {
     'regions': RegionsViewSitemap,
     'cities': CitiesViewSitemap,
     'countries': CountriesViewSitemap,
-    'clinics': ClinicsViewSitemap,
-    'agencies': AgenciesViewSitemap,
 }
 
 urlpatterns = [
@@ -31,14 +29,13 @@ urlpatterns = [
     path('', include('base.urls')),
     path('', include('search.urls')),
     path('', include('location.urls')),
+    path('', include('clinicsUS.urls')),
+    path('', include('clinicsUK.urls')),
+    path('', include('agenciesCZ.urls')),
     path('', include('searchLocationsCities.urls')),
     path('', include('searchLocationsCountries.urls')),
     path('', include('searchLocationsRegionsUS.urls')),
     path('account/', include('owners.urls')),
-    path('', include('clinicsUK.urls')),
-    path('', include('clinicsUS.urls')),
-    path('', include('agenciesUS.urls')),
-    path('', include('agenciesCZ.urls')),
     path('cookies/', include('cookie_consent.urls')),
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),

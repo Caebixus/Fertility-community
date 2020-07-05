@@ -218,4 +218,4 @@ class BasicClinic(models.Model):
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
 
     def __str__(self):
-        return self.clinicName + str(self.pro_is_published)
+        return str(self.clinicName)

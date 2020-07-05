@@ -7,7 +7,7 @@ from clinicsUS import views
 
 class ClinicsViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
-    priority = 0.5
+    priority = 0.8
     protocol = "https"
 
     def items(self):

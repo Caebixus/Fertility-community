@@ -6,7 +6,7 @@ from location import views
 
 class CountriesViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
-    priority = 0.8
+    priority = 0.9
     protocol = "https"
 
     def items(self):

@@ -28,8 +28,8 @@
     </div>
     <div class="row-md">
       <p style="color: white">Certification:
-      {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
-      {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" style="color:white">SART certified</a></span>{% else %}{% endif %}
+        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" style="color:white">HFEA certified</a></span>{% else %}{% endif %}}
       </p>
     </div>
   </div>

@@ -468,6 +468,7 @@ urlpatterns = [
     path('clinics/us/texas/fort-worth-fertility', views.fortworthfertility, name='fortworthfertility'),
     path('clinics/us/texas/dallas-ivf-frisco-fertility-clinic', views.dallasivffriscofertilityclinic, name='dallasivffriscofertilityclinic'),
     path('clinics/us/texas/dallas-ivf-dallas-fertility-clinic', views.dallasivfdallasfertilityclinic, name='dallasivfdallasfertilityclinic'),
+    path('clinics/us/texas/dallas-ivf-mckinney-fertility-clinic', views.dallasivfmckinleyfertilityclinic, name='dallasivfmckinleyfertilityclinic'),
     path('clinics/us/texas/dallas-ivf-plano-fertility-clinic', views.dallasivfplanofertilityclinic, name='dallasivfplanofertilityclinic'),
     path('clinics/us/texas/dallas-ivf-tyler-fertility-clinic', views.dallasivftylerfertilityclinic, name='dallasivftylerfertilityclinic'),
     path('clinics/us/texas/fertility-specialists-of-texas-frisco', views.fertilityspecialistsoftexasfrisco, name='fertilityspecialistsoftexasfrisco'),

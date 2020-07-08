@@ -1351,6 +1351,22 @@ def ferendas(request):
 
     return render(request, 'clinics/US/Kentucky/fertility-endocrine-associates.html', context)
 
+def ifrhealthflo(request):
+    listing = BasicClinic.objects.get(pk=501)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Kentucky/institute-for-reproductive-health-florence.html', context)
+
+def ifrhealthlou(request):
+    listing = BasicClinic.objects.get(pk=502)
+    context = {
+        'listing': listing,
+        }
+
+    return render(request, 'clinics/US/Kentucky/institute-for-reproductive-health-louisville.html', context)
+
 # LOUISIANA Views --------------------------------------------------------------------------------------------------------
 
 def feanla(request):

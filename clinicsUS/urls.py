@@ -182,6 +182,8 @@ urlpatterns = [
     path('clinics/us/kansas/midwest-reproductive-center', views.midrepc, name='midrepc'),
     #KENTUCKY
     path('clinics/us/kentucky/fertility-endocrine-associates', views.ferendas, name='ferendas'),
+    path('clinics/us/kentucky/institute-for-reproductive-health-florence', views.ifrhealthflo, name='ifrhealthflo'),
+    path('clinics/us/kentucky/institute-for-reproductive-health-louisville', views.ifrhealthlou, name='ifrhealthlou'),
     #LOUISIANA
     path('clinics/us/louisiana/fertility-answers-lafayette', views.feanla, name='feanla'),
     path('clinics/us/louisiana/fertility-answers-baton-rouge', views.feanbaro, name='feanbaro'),

@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
 from .choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION
-from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from random import shuffle
 
+def shuffled(x):
+    import random
+    y = x[:]
+    random.shuffle(y)
+    return y
 
 # Create your views here.
 def search(request):
@@ -18,17 +20,12 @@ def search(request):
         if states == 'US':
 
             queryset_list = BasicClinic.objects.all()
-            queryset_list = queryset_list.filter(is_published=True)
-            queryset_list = queryset_list.filter(pro_is_published=False)
-
-            pro_listings = BasicClinic.objects.all()
+            queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
 
             pro_queryset_list = BasicClinic.objects.all()
-            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-            pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
+            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
             ppq_queryset_list = BasicClinic.objects.all()
-            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
             ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
             my_total_count = BasicClinic.objects.all()
@@ -2085,11 +2082,6 @@ def search(request):
                     my_total_count = my_total_count.filter(clinicRegion__iexact='California')
                     my_total_count = my_total_count.count()
 
-
-                    pro_queryset_list = pro_queryset_list.order_by('?')
-                    ppq_queryset_list = ppq_queryset_list.order_by('?')
-                    ppq_queryset_list = ppq_queryset_list.order_by('?')
-
                     if 'treatments' in request.GET:
                         treatments = request.GET['treatments']
 
@@ -2098,7 +2090,7 @@ def search(request):
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count() + ppq_queryset_list.count()
 
-                            paginator = Paginator(order_data, 12)
+                            paginator = Paginator(order_data, 3)
                             page = request.GET.get('page')
                             paginationing = paginator.get_page(page)
 

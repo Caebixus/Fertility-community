@@ -13,6 +13,7 @@ urlpatterns = [
     path('banners', views.banners, name='banners'),
     path('create1', views.create1, name='create1'),
     path('create', views.create, name='create'),
+    path('packages', views.packages, name='packages'),
     path('upgrade', views.upgrade, name='upgrade'),
     path('claim', views.claimClinic, name='claim'),
     path('change-password', views.change_password, name='change-password'),

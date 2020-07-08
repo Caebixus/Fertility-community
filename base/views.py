@@ -34,15 +34,6 @@ def about(request):
 def robots(request):
     return render(request, 'main/robots.txt')
 
-def packages(request):
-    listing = BasicClinic.objects.all()
-
-    context = {
-        'listing': listing,
-    }
-
-    return render(request, 'main/packages.html', context)
-
 def team(request):
     return render(request, 'main/team.html')
 

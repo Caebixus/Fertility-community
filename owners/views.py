@@ -5,6 +5,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
+from packages.models import Packages
 from .models import ownerProInterested
 from contact.models import contactClinic
 from django.utils import timezone
@@ -451,3 +452,14 @@ def change_password(request):
 # PAYMENTS SECTION
 def payments(request):
     return render(request, 'owners/payments.html')
+
+# Packages SECTION
+def packages(request):
+    listing = Packages.objects.all()
+    listing = listing.filter(packageOwner_id=request.user)
+
+    context = {
+        'listing': listing,
+    }
+
+    return render(request, 'owners/packages.html', context)

@@ -1,0 +1,46 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">My packages</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+      {% for listings in listing %}
+      <div class="card mb-6 shadow-lg">
+        <div class="card-header" style="background-color: #286DA8;">
+          <h4 class="my-0 text-white">{{ listings.packagestitle }}</h4>
+        </div>
+        <div class="card-body">
+          <p>Category: {{ listings.packagescategory }}</p>
+          <p>{{ listings.packagesdesc|safe }}</p>
+          <a href="mailto:{{ listing.contact_email }}">
+            <p style="text-align: center; font-size: 30px">{{ listings.packagescost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          </a>
+        </div>
+        <div class="card-footer">
+          <a href="mailto:{{ listing.contact_email }}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+              Get a quote
+            </button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock  %}

@@ -1,0 +1,246 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Compare fertility packages globally{% endblock %}
+{% block description %}Search hundreds of fertility & IVF packages at once to discover the deal you need to make the best decisions for your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/packages{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
+      {% if values.States == None %}Search fertility & IVF packages near me{% endif %}
+      {% if values.States == 'UK' %}Search fertility & IVF packages in United Kingdom{% endif %}
+      {% if values.States == 'US' %}
+        {% if values.Region == '' %}
+          Search fertility & IVF packages in United States
+        {% elif values.Region == None %}
+          Search fertility & IVF packages in United States
+        {% elif values.Region == 'AL'%}
+          Search fertility & IVF packages in Alabama, United States
+        {% elif values.Region == 'AK'%}
+          Search fertility & IVF packages in Alaska, United States
+        {% elif values.Region == 'AZ'%}
+          Search fertility & IVF packages in Arizona, United States
+        {% elif values.Region == 'AR'%}
+          Search fertility & IVF packages in Arkansas, United States
+        {% elif values.Region == 'CA'%}
+          Search fertility & IVF packages in California, United States
+        {% elif values.Region == 'CO'%}
+          Search fertility & IVF packages in Colorado, United States
+        {% elif values.Region == 'CT'%}
+          Search fertility & IVF packages in Connecticut, United States
+        {% elif values.Region == 'DE'%}
+          Search fertility & IVF packages in Delaware, United States
+        {% elif values.Region == 'FL'%}
+          Search fertility & IVF packages in Florida, United States
+        {% elif values.Region == 'GA'%}
+          Search fertility & IVF packages in Georgia, United States
+        {% elif values.Region == 'HI'%}
+          Search fertility & IVF packages in Hawaii, United States
+        {% elif values.Region == 'ID'%}
+          Search fertility & IVF packages in Idaho, United States
+        {% elif values.Region == 'IL'%}
+          Search fertility & IVF packages in Illinois, United States
+        {% elif values.Region == 'IN'%}
+          Search fertility & IVF packages in Indiana, United States
+        {% elif values.Region == 'IA'%}
+          Search fertility & IVF packages in Iowa, United States
+        {% elif values.Region == 'KS'%}
+          Search fertility & IVF packages in Kansas, United States
+        {% elif values.Region == 'KY'%}
+          Search fertility & IVF packages in Kentucky, United States
+        {% elif values.Region == 'LA'%}
+          Search fertility & IVF packages in Louisiana, United States
+        {% elif values.Region == 'ME'%}
+          Search fertility & IVF packages in Maine, United States
+        {% elif values.Region == 'MD'%}
+          Search fertility & IVF packages in Maryland, United States
+        {% elif values.Region == 'MA'%}
+          Search fertility & IVF packages in Massachusetts, United States
+        {% elif values.Region == 'MI'%}
+          Search fertility & IVF packages in Michigan, United States
+        {% elif values.Region == 'MN'%}
+          Search fertility & IVF packages in Minnesota, United States
+        {% elif values.Region == 'MS'%}
+          Search fertility & IVF packages in Mississippi, United States
+        {% elif values.Region == 'MO'%}
+          Search fertility & IVF packages in Missouri, United States
+        {% elif values.Region == 'MT'%}
+          Search fertility & IVF packages in Montana, United States
+        {% elif values.Region == 'NE'%}
+          Search fertility & IVF packages in Nebraska, United States
+        {% elif values.Region == 'NH'%}
+          Search fertility & IVF packages in New Hampshire, United States
+        {% elif values.Region == 'NJ'%}
+          Search fertility & IVF packages in New Jersey, United States
+        {% elif values.Region == 'NM'%}
+          Search fertility & IVF packages in New Mexico, United States
+        {% elif values.Region == 'NY'%}
+          Search fertility & IVF packages in New York, United States
+        {% elif values.Region == 'NC'%}
+          Search fertility & IVF packages in North Carolina, United States
+        {% elif values.Region == 'ND'%}
+          Search fertility & IVF packages in North Dakota, United States
+        {% elif values.Region == 'NV'%}
+          Search fertility & IVF packages in Nevada, United States
+        {% elif values.Region == 'OH'%}
+          Search fertility & IVF packages in Ohio, United States
+        {% elif values.Region == 'OK'%}
+          Search fertility & IVF packages in Oklahoma, United States
+        {% elif values.Region == 'OR'%}
+          Search fertility & IVF packages in Oregon, United States
+        {% elif values.Region == 'PA'%}
+          Search fertility & IVF packages in Pennsylvania, United States
+        {% elif values.Region == 'PR'%}
+          Search fertility & IVF packages in Puerto Rico, United States
+        {% elif values.Region == 'RI'%}
+          Search fertility & IVF packages in Rhode Island, United States
+        {% elif values.Region == 'SC'%}
+          Search fertility & IVF packages in South Carolina, United States
+        {% elif values.Region == 'SD'%}
+          Search fertility & IVF packages in South Dakota, United States
+        {% elif values.Region == 'TN'%}
+          Search fertility & IVF packages in Tennessee, United States
+        {% elif values.Region == 'TX'%}
+          Search fertility & IVF packages in Texas, United States
+        {% elif values.Region == 'UT'%}
+          Search fertility & IVF packages in Utah, United States
+        {% elif values.Region == 'VT'%}
+          Search fertility & IVF packages in Vermont, United States
+        {% elif values.Region == 'VA'%}
+          Search fertility & IVF packages in Virginia, United States
+        {% elif values.Region == 'WA'%}
+          Search fertility & IVF packages in Washington, United States
+        {% elif values.Region == 'WV'%}
+          Search fertility & IVF packages in West Virginia, United States
+        {% elif values.Region == 'WI'%}
+          Search fertility & IVF packages in Wisconsin, United States
+        {% elif values.Region == 'WY'%}
+          Search fertility & IVF packages in Wyoming, United States
+        {% elif values.Region == 'DC'%}
+          Search fertility & IVF packages in District of Columbia, United States
+        {% endif %}
+      {% endif %}
+      {% if values.States == 'CZ' %}Search fertility & IVF packages in Czech Republic{% endif %}
+    </h1>
+    {% if values.States != None %}
+    <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
+    {% endif %}
+  </div>
+
+  <!-- Filter section -->
+
+  <div class="container">
+    <div class="accordion" id="accordionExample" style="padding-bottom:2rem">
+      <div class="lol" style="background-color: #286DA8">
+        <h5 class="mb-0 text-left" id="headingOne">
+          <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="fas fa-filter"></i> Main Filter
+          </button>
+        </h5>
+
+        <form action="{% url 'searchpackages' %}">
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="form-group" style="padding-top:3rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" required>
+                    <option value="" selected>Select state</option>
+                    {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                    <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% if values.States == 'US' %}
+            <div class="form-group" style="padding-top:1rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select region</option>
+                    {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% else %}
+            {% endif %}
+            <div class="card-body">
+              <h4 style="color: white"><u>Treatments options:</u></h4>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments">
+                    <label class="form-check-label" for="IVF treatment" style="color: white">IVF packages</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="IVF treatment" style="color: white">Natural IVF</label>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group form-check">
+                    <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                    <label class="form-check-label" for="Embryo freezing" style="color: white">Embryo freezing</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3" style="padding-top:1rem;">
+              <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Search</button>
+              <br>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Types of treatments-->
+<br>
+
+<br>
+<br>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+      {% for listings in listing %}
+      <div class="card mb-6 shadow-lg">
+        <div class="card-header" style="background-color: #286DA8;">
+          <h4 class="my-0 text-white">{{ listings.packagestitle }}</h4>
+        </div>
+        <div class="card-body">
+          <p>Category: {{ listings.packagescategory }}</p>
+          <p>{{ listings.packagesdesc|safe }}</p>
+          <a href="mailto:{{ listing.contact_email }}">
+            <p style="text-align: center; font-size: 30px">{{ listings.packagescost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          </a>
+        </div>
+        <div class="card-footer">
+          <a href="mailto:{{ listing.contact_email }}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+              Get a quote
+            </button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+{% endblock  %}

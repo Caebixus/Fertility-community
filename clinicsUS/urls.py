@@ -120,6 +120,8 @@ urlpatterns = [
     path('clinics/us/georgia/reproductive-biology-associates–cumming', views.rbac, name='rbac'),
     path('clinics/us/georgia/reproductive-biology-associates–piedmont-hospital', views.rbaph, name='rbaph'),
     path('clinics/us/georgia/reproductive-biology-associates–cartersville', views.rbacar, name='rbacar'),
+    path('clinics/us/georgia/cny-fertility-center-buffalo', views.cnyferticentbuffalo, name='cnyferticentbuffalo'),
+    path('clinics/us/georgia/coastal-fertility-specialists-north-charleston', views.coastalfertispecnorhtcharleston, name='coastalfertispecnorhtcharleston'),
     #HAWAII
     path('clinics/us/hawaii/advanced-reproductive-center-hawaii', views.arch, name='arch'),
     path('clinics/us/hawaii/armgh-honolulu', views.armghh, name='armghh'),
@@ -129,6 +131,7 @@ urlpatterns = [
     path('clinics/us/iowa/mid-iowa-fertility', views.mif, name='mif'),
     #IDAHO
     path('clinics/us/idaho/idaho-center-reproductive-medicine', views.icrm, name='icrm'),
+    path('clinics/us/idaho/reproductive-care-center-idaho-falls', views.reprocarecenteridahofalls, name='reprocarecenteridahofalls'),
     #ILLINOIS
     path('clinics/us/illinois/center-reproductive-care', views.crc, name='crc'),
     path('clinics/us/illinois/fci-buffalo-grove-clinic', views.fcibgc, name='fcibgc'),

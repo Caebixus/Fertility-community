@@ -120,8 +120,8 @@ urlpatterns = [
     path('clinics/us/georgia/reproductive-biology-associates–cumming', views.rbac, name='rbac'),
     path('clinics/us/georgia/reproductive-biology-associates–piedmont-hospital', views.rbaph, name='rbaph'),
     path('clinics/us/georgia/reproductive-biology-associates–cartersville', views.rbacar, name='rbacar'),
-    path('clinics/us/georgia/cny-fertility-center-buffalo', views.cnyferticentbuffalo, name='cnyferticentbuffalo'),
-    path('clinics/us/georgia/coastal-fertility-specialists-north-charleston', views.coastalfertispecnorhtcharleston, name='coastalfertispecnorhtcharleston'),
+    path('clinics/us/georgia/cny-fertility-center-atlanta', views.cnyferticentatlanta, name='cnyferticentatlanta'),
+    path('clinics/us/georgia/coastal-fertility-specialists-savannah', views.coastalfertispecsavannah, name='coastalfertispecsavannah'),
     #HAWAII
     path('clinics/us/hawaii/advanced-reproductive-center-hawaii', views.arch, name='arch'),
     path('clinics/us/hawaii/armgh-honolulu', views.armghh, name='armghh'),

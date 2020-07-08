@@ -897,21 +897,21 @@ def rbacar(request):
 
     return render(request, 'clinics/US/Georgia/reproductive-biology-associates–cartersville.html', context)
 
-def cnyferticentbuffalo(request):
+def cnyferticentatlanta(request):
     listing = BasicClinic.objects.get(pk=504)
     context = {
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Georgia/cny-fertility-center-buffalo.html', context)
+    return render(request, 'clinics/US/Georgia/cny-fertility-center-atlanta.html', context)
 
-def coastalfertispecnorhtcharleston(request):
+def coastalfertispecsavannah(request):
     listing = BasicClinic.objects.get(pk=505)
     context = {
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Georgia/coastal-fertility-specialists-north-charleston.html', context)
+    return render(request, 'clinics/US/Georgia/coastal-fertility-specialists-savannah.html', context)
 
 # HAWAII Views --------------------------------------------------------------------------------------------------------
 
@@ -973,7 +973,7 @@ def reprocarecenteridahofalls(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/US/Idaho/clinics/us/idaho/reproductive-care-center-idaho-falls.html', context)
+    return render(request, 'clinics/US/Idaho/reproductive-care-center-idaho-falls.html', context)
 
 # ILLINOIS Views --------------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,28 @@
+{% load static %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">
+      <u>{{ listing.clinicName }}</u>
+    </h1>
+    {% if listing.clinicTitle %}
+      <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
+    {% else %}
+    {% endif %}
+    <div class="row-md">
+      <p style="color: white">Features:
+      {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+      {% if listing.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+      </p>
+    </div>
+    <div class="row-md">
+      <p style="color: white">Certification:
+        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" style="color:white">SART certified</a></span>{% else %}{% endif %}
+        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" style="color:white">HFEA certified</a></span>{% else %}{% endif %}
+      </p>
+    </div>
+  </div>
+  <br>
+</div>

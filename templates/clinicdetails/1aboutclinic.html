@@ -1,0 +1,48 @@
+{% load static %}
+<div class="container">
+  <ul class="nav justify-content-left">
+    {% if listing.clinicCityLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicCityLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicCity }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if listing.clinicRegionLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicRegion }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if listing.clinicStateLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicStateLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicState }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if listing.clinicLocationLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicLocationLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Compare IVF worldwide</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+  </ul>
+  {% if listing.description %}
+  <br>
+  <br>
+  <h2>About our clinic:</h2>
+  <p>{{ listing.description|safe }}</p>
+  <br>
+</div>
+{% else %}
+{% endif %}
+{% if listing.treatmentLimitations %}
+<div class="container">
+  <br>
+  <br>
+  <h2>Treatment limitations and restrictions:</h2>
+  <p>{{ listing.treatmentLimitations|safe }}</p>
+  <br>
+  <br>
+</div>
+{% else %}
+{% endif %}

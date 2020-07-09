@@ -1,0 +1,260 @@
+{% load static %}
+<div class="container" style="text-align: center; z-index: -1;" id="pricing">
+  <h2>Conditions</h2>
+  <div class="row">
+    <hr class="featurette-divider">
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+
+        <!-- single_woman_treatment -->
+        {% if listing.single_woman_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Single woman treatment
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Single woman treatment
+        </li>
+        {% endif %}
+
+        <!-- waiting list -->
+        {% if listing.sex_selection == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Sex/Gender selection
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+        <!-- single_woman_treatment -->
+        {% if listing.hiv_patients_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">HIV patients treatment
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">HIV patients treatment
+        </li>
+        {% endif %}
+
+        <!-- reciprocal_treatment -->
+        {% if listing.reciprocal_treatment == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Reciprocal IVF (LGBTQ)
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Reciprocal IVF (LGBTQ)
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% if listing.is_claimed == True and listing.pro_is_published == True %}
+<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Languages</h2>
+  <hr>
+  <div class="row">
+    <div class="col-sm" style="text-align: left; padding-top:1rem" >
+      <ul class="list-group list-group-flush">
+        {% if listing.clinicEnglish == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicSpanish == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicPortuguese == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+      </ul>
+    </div>
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+        {% if listing.clinicRussian == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicGerman == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+        {% if listing.clinicChinese == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
+        </li>
+        {% else %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+
+  {% if listing.team1name or listing.team2name or listing.team3name and listing.contact_email and listing.pro_is_published %}
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+    <h2>Our team</h2>
+    <hr>
+    <div class="row" style="text-align: center">
+      <div class="col-4 col-md">
+        {% if listing.team1name and listing.team1pic %}
+        <img class="imgHoverTeam" src="{{ listing.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
+        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team1name }}</p>
+        {% else %}
+        {% endif %}
+      </div>
+      <div class="col-4 col-md">
+        {% if listing.team2name and listing.team2pic %}
+        <img class="imgHoverTeam" src="{{ listing.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
+        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team2name }}</p>
+        {% else %}
+        {% endif %}
+      </div>
+      <div class="col-4 col-md">
+        {% if listing.team3name and listing.team3pic %}
+        <img class="imgHoverTeam" src="{{ listing.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
+        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team3name }}</p>
+        {% else %}
+        {% endif %}
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <br>
+      {{ listing.clinic_staff|safe }}
+    </div>
+    <br>
+    <div class="row" style="text-align: center">
+      <div class="col-12 col-md">
+        <a href="mailto:{{ listing.contact_email }}">
+          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg shadow-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+    <h2>Contact</h2>
+    <hr>
+    <div class="row" style="padding-top:40px">
+      {% if listing.contact_phone %}
+      <div class="col">
+        <a href="tel:{{ listing.contact_phone }}" style="text-align:center">
+          <img src="{% static 'img/call.svg' %}" alt="Icon Telephone" style="width:50px">
+          <figcaption class="figure-caption">{{ listing.contact_phone }}</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.pro_is_published %}
+      {% if listing.contact_url %}
+      <div class="col" style="text-align: center">
+        <a href="{{ listing.contact_url }}" style="text-align: center">
+          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
+          <figcaption class="figure-caption">Website</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% else %}
+      {% if listing.contact_url %}
+      <div class="col" style="text-align: center">
+        <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow">
+          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
+          <figcaption class="figure-caption">Website</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% endif %}
+      {% if listing.contact_email %}
+      <div class="col">
+        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalClassic">
+          <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
+          <figcaption class="figure-caption">Email contact</figcaption>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% if listing.is_claimed == True and pro_is_published %}
+  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+    <h2>Clinic Pictures</h2>
+    <hr>
+    <div class="card-columns">
+      {% if listing.clinic_pro_photo_1 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_1.url }}">
+          <img src="{{ listing.clinic_pro_photo_1.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_2 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_2.url }}">
+          <img src="{{ listing.clinic_pro_photo_2.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_3 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_3.url }}">
+          <img src="{{ listing.clinic_pro_photo_3.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_4 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_4.url }}">
+          <img src="{{ listing.clinic_pro_photo_4.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_5 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_5.url }}">
+          <img src="{{ listing.clinic_pro_photo_5.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinic_pro_photo_6 %}
+      <div class="card">
+        <a target="_blank" href="{{ listing.clinic_pro_photo_6.url }}">
+          <img src="{{ listing.clinic_pro_photo_6.url }}" class="card-img-top" alt="...">
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  {% endif %}

@@ -1,0 +1,55 @@
+{% load static %}
+<div class="container" style="text-align: center; z-index: -1;" id="pricing">
+  <h2>Additional treatments & costs (single cycle)</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left">Treatment name</th>
+        <th scope="col">Provide</th>
+        <th scope="col">Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Egg freezing -->
+      <tr>
+        <th scope="row"><p style="text-align: left; font-size: 22px">Egg freezing</p></th>
+        <td>{% if listing.egg_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+        <td>
+          {% if listing.egg_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
+          {% endif %}
+        </td>
+      </tr>
+      <!-- Embryo freezing -->
+      <tr>
+        <th scope="row"><p style="text-align: left; font-size: 22px">Embryo freezing</p></th>
+        <td>{% if listing.embryo_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+        <td>
+          {% if listing.embryo_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.embryo_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
+          {% endif %}
+        </td>
+      </tr>
+      <!-- Sperm freezing -->
+      <tr>
+        <th scope="row"><p style="text-align: left; font-size: 22px">Sperm freezing</p></th>
+        <td>{% if listing.sperm_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+        <td>
+          {% if listing.sperm_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.sperm_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
+          {% endif %}
+        </td>
+      </tr>
+      <!-- Gestational surrogacy -->
+      <tr>
+        <th scope="row"><p style="text-align: left; font-size: 22px">Gestational surrogacy</p></th>
+        <td>{% if listing.surrogacy == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
+        <td>
+          {% if listing.surrogacy_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.surrogacy_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+          {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -20,7 +20,6 @@ def packages(request):
         'listing': listing,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'CATEGORY_PACKAGE': CATEGORY_PACKAGE,
         'values': request.GET,
     }
 
@@ -48,20 +47,20 @@ def searchpackages(request):
                 pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
                 ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
 
-                if region == 'AL':
-                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alabama')
-                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alabama')
+                if region == 'CA':
+                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
 
-                    my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
+                    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
                     my_total_count = my_total_count.count()
 
                     pro_queryset_list = pro_queryset_list.order_by('?')
                     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
                     if 'treatments' in request.GET:
-                        treatments = request.GET['treatments']
+                        treatments = request.GET['packages']
 
-                        if treatments == 'Alltreatmentstrue':
+                        if treatments == 'Allpackagestrue':
 
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list)
 
@@ -78,45 +77,16 @@ def searchpackages(request):
                                 'paginationing': paginationing,
                                 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
                                 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'CATEGORY_PACKAGE': CATEGORY_PACKAGE,
                                 'my_total_count': my_total_count,
                                 'values': request.GET,
                                 }
 
-                            return render(request, 'search/search.html', context)
-
-                        elif treatments == 'IVFtreatmenttrue':
-
-                            queryset_list = queryset_list.filter(ivf_treatment=True)
-                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
-                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
-
-                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listing': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'CATEGORY_PACKAGE': CATEGORY_PACKAGE,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'search/search.html', context)
-
+                            return render(request, 'packages/searching.html', context)
 
     context = {
         'listing': listing,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'CATEGORY_PACKAGE': CATEGORY_PACKAGE,
         'values': request.GET,
     }
 

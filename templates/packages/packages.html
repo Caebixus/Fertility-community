@@ -53,19 +53,23 @@
                     <div class="row">
                       <div class="col">
                         <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments">
-                          <label class="form-check-label" for="IVF treatment">IVF packages</label>
+                          <input type="radio" class="form-check-input" id="All packages" value="Allpackagestrue" name="packages">
+                          <label class="form-check-label" for="All packages">All packages</label>
                         </div>
                         <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                          <input type="radio" class="form-check-input" id="IVF packages" value="Ivfpackagestrue" name="packages">
+                          <label class="form-check-label" for="IVF packages">IVF packages</label>
                         </div>
                       </div>
 
                       <div class="col">
                         <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                          <input type="radio" class="form-check-input" id="Egg Packages" value="Eggpackagestrue" name="packages">
+                          <label class="form-check-label" for="Egg Packages">Egg Packages</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Embryo Packages" value="Embryopackagestrue" name="packages">
+                          <label class="form-check-label" for="Embryo Packages">Embryo Packages</label>
                         </div>
                       </div>
                     </div>
@@ -83,8 +87,6 @@
     </div>
   </div>
 </div>
-
-{% include 'packages/lol.html' %}
 
 <br>
 <!--Types of treatments-->

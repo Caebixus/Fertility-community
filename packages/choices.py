@@ -1,7 +1,7 @@
 ### Packages
 CATEGORY_PACKAGE = (
     ('All packages', 'All packages'),
-    ('IVF', 'IVF'),
+    ('IVF packages', 'IVF packages'),
     ('Egg Donation', 'Egg Donation'),
     ('Embryo Donation', 'Embryo Donation'),
     )

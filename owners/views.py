@@ -457,9 +457,11 @@ def payments(request):
 def packages(request):
     listing = Packages.objects.all()
     listing = listing.filter(packageOwner_id=request.user)
+    count = listing.count()
 
     context = {
         'listing': listing,
+        'count': count,
     }
 
     return render(request, 'owners/packages.html', context)

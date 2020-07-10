@@ -8,33 +8,12 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
-<div class="background" style="background-color: #286DA8">
-  <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">
-      <u>{{ listing.clinicName }}</u>
-    </h1>
-    {% if listing.clinicTitle %}
-      <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
-    {% else %}
-    {% endif %}
-    <div class="row-md">
-      <p style="color: white">Features:
-      {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-      {% if listing.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-      {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
-      {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
-      </p>
-    </div>
-    <div class="row-md">
-      <p style="color: white">Certification:
-        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" style="color:white">SART certified</a></span>{% else %}{% endif %}
-        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" style="color:white">HFEA certified</a></span>{% else %}{% endif %}
-      </p>
-    </div>
-  </div>
-  <br>
-</div>
+<!-- ================================================== -->
+
+{% include 'clinicdetails/0header.html' %}
+
+<!-- ================================================== -->
+
 {% if listing.clinic_pro_logo_pic %}
 <script type="application/ld+json">
   {
@@ -70,719 +49,69 @@
   }
 </script>
 {% endif %}
-<div class="container">
-  <ul class="nav justify-content-left">
-    {% if listing.clinicCityLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicCityLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicCity }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicRegionLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicRegion }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicStateLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicStateLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicState }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicLocationLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicLocationLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Compare IVF worldwide</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-  </ul>
-  {% if listing.description %}
-  <br>
-  <br>
-  <h2>About our clinic:</h2>
-  <p>{{ listing.description|safe }}</p>
-  <br>
-</div>
-{% else %}
-{% endif %}
-{% if listing.treatmentLimitations %}
-<div class="container">
-  <br>
-  <br>
-  <h2>Treatment limitations and restrictions:</h2>
-  <p>{{ listing.treatmentLimitations|safe }}</p>
-  <br>
-  <br>
-</div>
-{% else %}
-{% endif %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/1aboutclinic.html' %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/7contactbutton.html' %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/2primarytreatments.html' %}
+
+<!-- ================================================== -->
+
 <br>
-<div class="ButtonCornerContact">
-  {% if listing.is_claimed == True and listing.contact_email and listing.pro_is_published == True %}
-  <div style="position: fixed; bottom: 25px; right: 25px; z-index: 1;" >
-    <a href="mailto:{{ listing.contact_email }}">
-      <button id="brandButtonGoalRightCorner" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-        Contact clinic
-      </button>
-    </a>
-  </div>
-  {% else %}
-  {% endif %}
+<br>
 
+{% include 'clinicdetails/3secondarytreatments.html' %}
 
-  <div class="container" style="text-align: center; z-index: -1;" id="pricing">
-    <h2>Primary treatments & costs (single cycle)</h2>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col" style="text-align:left">Treatment name</th>
-          <th scope="col">Provide</th>
-          <th scope="col">Pricing</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Natural IVF -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">Natural IVF</p></th>
-          <td>{% if listing.ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- Mild IVF -->
-        <tr>
-          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Small dose of ovarian stimulating drugs are used"><p style="text-align: left; font-size: 22px">Mild IVF <i class="far fa-question-circle"></i></p></th>
-          <td>{% if listing.mild_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.mild_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- Standard IVF with hyperstimulation -->
-        <tr>
-          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="IVF using ovarian hyperstimulation"><p style="text-align: left; font-size: 22px">Standard IVF <i class="far fa-question-circle"></i></p></th>
-          <td>{% if listing.ovarian_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.ovarian_ivf_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- ICSI_treatment -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">ICSI</p></th>
-          <td>{% if listing.icsi_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.icsi_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.icsi_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- iui_treatment -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">IUI</p></th>
-          <td>{% if listing.iui_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.iui_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.iui_treatment_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- egg_donor_recipients -->
-        <tr>
-          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using egg donors <i class="far fa-question-circle"></i></p></th>
-          <td>{% if listing.egg_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.egg_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- embryo_donor_recipients -->
-        <tr>
-          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using embryo donors <i class="far fa-question-circle"></i></p></th>
-          <td>{% if listing.embryo_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.embryo_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- sperm_donor_recipients -->
-        <tr>
-          <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using sperm donors <i class="far fa-question-circle"></i></p></th>
-          <td>{% if listing.sperm_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.sperm_donor_recipients_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<!-- ================================================== -->
 
+<br>
+<br>
 
-    <br>
-    <br>
-    <h2>Additional treatments & costs (single cycle)</h2>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col" style="text-align:left">Treatment name</th>
-          <th scope="col">Provide</th>
-          <th scope="col">Pricing</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Egg freezing -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">Egg freezing</p></th>
-          <td>{% if listing.egg_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.egg_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.egg_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- Embryo freezing -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">Embryo freezing</p></th>
-          <td>{% if listing.embryo_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.embryo_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.embryo_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- Sperm freezing -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">Sperm freezing</p></th>
-          <td>{% if listing.sperm_freezing == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.sperm_freezing_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.sperm_freezing_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-        <!-- Gestational surrogacy -->
-        <tr>
-          <th scope="row"><p style="text-align: left; font-size: 22px">Gestational surrogacy</p></th>
-          <td>{% if listing.surrogacy == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
-          <td>
-            {% if listing.surrogacy_cost != none %}<p style="text-align: center; font-size: 22px">{{ listing.surrogacy_cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
-            {% endif %}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <br>
+{% include 'clinicdetails/4clinicpackages.html' %}
 
+<!-- ================================================== -->
 
-    {% if listing.package1title and listing.package1desc and listing.package1cost and listing.pro_is_published %}
-    <h2 id="packages">Packages</h2>
-    <div class="row" id="Packages">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-lg">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">1. {{ listing.package1title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package1category }}</p>
-            <p>{{ listing.package1desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package1cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% if listing.package2title and listing.package2desc and listing.package2cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-lg">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">2. {{ listing.package2title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package2category }}</p>
-            <p>{{ listing.package2desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package2cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-        {% if listing.package3title and listing.package3desc and listing.package3cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-lg">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">3. {{ listing.package3title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package3category }}</p>
-            <p>{{ listing.package3desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package3cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-      </div>
+<br>
+<br>
+
+{% include 'clinicdetails/5conditionslanguagesteamcontact.html' %}
+
+<!-- ================================================== -->
+
+<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Clinics Address</h2>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6" style="padding-top:2rem">
+      <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
     </div>
-    <br>
-    <div class="row">
-      <div class="card-deck mb-3 text-center">
-        {% if listing.package4title and listing.package4desc and listing.package4cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">4. {{ listing.package4title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package4category }}</p>
-            <p>{{ listing.package4desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package4cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-        {% if listing.package5title and listing.package5desc and listing.package5cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">5. {{ listing.package5title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package5category }}</p>
-            <p>{{ listing.package5desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package5cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-        {% if listing.package6title and listing.package6desc and listing.package6cost and listing.pro_is_published %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header" style="background-color: #286DA8;">
-            <h4 class="my-0 text-white">6. {{ listing.package6title }}</h4>
-          </div>
-          <div class="card-body">
-            <p>Category: {{ listing.package6category }}</p>
-            <p>{{ listing.package6desc|safe }}</p>
-            <a href="mailto:{{ listing.contact_email }}">
-              <p style="text-align: center; font-size: 30px">{{ listing.package6cost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
-            </a>
-          </div>
-          <div class="card-footer">
-            <a href="mailto:{{ listing.contact_email }}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                Get a quote
-              </button>
-            </a>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-      </div>
+    <div class="col-sm-6" style="padding-top:2rem">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3439.283508184684!2d-88.88886368388971!3d30.45640698173441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c0c46ddf0f8f9%3A0x5878c96435cd5f03!2sThe%20Center%20for%20Reproductive%20Medicine!5e0!3m2!1scs!2scz!4v1592208079453!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
     </div>
-    {% else %}
-    {% endif %}
-
-    <h2>Conditions</h2>
-    <div class="row">
-      <hr class="featurette-divider">
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-
-          <!-- single_woman_treatment -->
-          {% if listing.single_woman_treatment == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Single woman treatment
-          </li>
-          {% else %}
-          <li class="list-group-item">
-            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Single woman treatment
-          </li>
-          {% endif %}
-
-          <!-- waiting list -->
-          {% if listing.sex_selection == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Sex/Gender selection
-          </li>
-          {% else %}
-          <li class="list-group-item">
-            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Sex/Gender selection
-          </li>
-          {% endif %}
-
-        </ul>
-      </div>
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-          <!-- single_woman_treatment -->
-          {% if listing.hiv_patients_treatment == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">HIV patients treatment
-          </li>
-          {% else %}
-          <li class="list-group-item">
-            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">HIV patients treatment
-          </li>
-          {% endif %}
-
-          <!-- reciprocal_treatment -->
-          {% if listing.reciprocal_treatment == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Reciprocal IVF (LGBTQ)
-          </li>
-          {% else %}
-          <li class="list-group-item">
-            <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Reciprocal IVF (LGBTQ)
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  {% if listing.is_claimed == True and listing.pro_is_published == True %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Languages</h2>
-    <hr>
-    <div class="row">
-      <div class="col-sm" style="text-align: left; padding-top:1rem" >
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicEnglish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">English speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicSpanish == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Spanish speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicPortuguese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Portuguesse speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-        </ul>
-      </div>
-      <div class="col-sm" style="text-align: left; padding-top:1rem">
-        <ul class="list-group list-group-flush">
-          {% if listing.clinicRussian == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Russian speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicGerman == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">German speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-          {% if listing.clinicChinese == True %}
-          <li class="list-group-item">
-            <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Chinese speaking personal
-          </li>
-          {% else %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
-  {% if listing.team1name or listing.team2name or listing.team3name and listing.contact_email and listing.pro_is_published %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Our team</h2>
-    <hr>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md">
-        {% if listing.team1name and listing.team1pic %}
-        <img class="imgHoverTeam" src="{{ listing.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team1name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-      <div class="col-4 col-md">
-        {% if listing.team2name and listing.team2pic %}
-        <img class="imgHoverTeam" src="{{ listing.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team2name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-      <div class="col-4 col-md">
-        {% if listing.team3name and listing.team3pic %}
-        <img class="imgHoverTeam" src="{{ listing.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team3name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <br>
-      {{ listing.clinic_staff|safe }}
-    </div>
-    <br>
-    <div class="row" style="text-align: center">
-      <div class="col-12 col-md">
-        <a href="mailto:{{ listing.contact_email }}">
-          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg shadow-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Contact</h2>
-    <hr>
-    <div class="row" style="padding-top:40px">
-      {% if listing.contact_phone %}
-      <div class="col">
-        <a href="tel:{{ listing.contact_phone }}" style="text-align:center">
-          <img src="{% static 'img/call.svg' %}" alt="Icon Telephone" style="width:50px">
-          <figcaption class="figure-caption">{{ listing.contact_phone }}</figcaption>
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.pro_is_published %}
-        {% if listing.contact_url %}
-        <div class="col" style="text-align: center">
-          <a href="{{ listing.contact_url }}" style="text-align: center">
-            <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
-            <figcaption class="figure-caption">Website</figcaption>
-          </a>
-        </div>
-        {% else %}
-        {% endif %}
-      {% else %}
-        {% if listing.contact_url %}
-        <div class="col" style="text-align: center">
-          <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow">
-            <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
-            <figcaption class="figure-caption">Website</figcaption>
-          </a>
-        </div>
-        {% else %}
-        {% endif %}
-      {% endif %}
-      {% if listing.contact_email %}
-      <div class="col">
-        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalClassic">
-          <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
-          <figcaption class="figure-caption">Email contact</figcaption>
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-    </div>
-  </div>
-
-  {% if listing.is_claimed == True and pro_is_published %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Clinic Pictures</h2>
-    <hr>
-    <div class="card-columns">
-      {% if listing.clinic_pro_photo_1 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_1.url }}">
-          <img src="{{ listing.clinic_pro_photo_1.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.clinic_pro_photo_2 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_2.url }}">
-          <img src="{{ listing.clinic_pro_photo_2.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.clinic_pro_photo_3 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_3.url }}">
-          <img src="{{ listing.clinic_pro_photo_3.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.clinic_pro_photo_4 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_4.url }}">
-          <img src="{{ listing.clinic_pro_photo_4.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.clinic_pro_photo_5 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_5.url }}">
-          <img src="{{ listing.clinic_pro_photo_5.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-      {% if listing.clinic_pro_photo_6 %}
-      <div class="card">
-        <a target="_blank" href="{{ listing.clinic_pro_photo_6.url }}">
-          <img src="{{ listing.clinic_pro_photo_6.url }}" class="card-img-top" alt="...">
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
-
-
-
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Clinics Address</h2>
-    <hr>
-    <div class="row">
-      <div class="col-sm-6" style="padding-top:2rem">
-        <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-        <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
-      </div>
-      <div class="col-sm-6" style="padding-top:2rem">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3439.283508184684!2d-88.88886368388971!3d30.45640698173441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c0c46ddf0f8f9%3A0x5878c96435cd5f03!2sThe%20Center%20for%20Reproductive%20Medicine!5e0!3m2!1scs!2scz!4v1592208079453!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-      </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <h3>Clinics opening ours</h3>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Day</th>
-          <th scope="col">Opening hours</th>
-          <th scope="col">Closing hours</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Monday</th>
-          <td>{{ listing.mondayOpens }}</td>
-          <td>{{ listing.mondayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Tuesday</th>
-          <td>{{ listing.tuesdayOpens }}</td>
-          <td>{{ listing.tuesdayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Wednesday</th>
-          <td>{{ listing.wednesdayOpens }}</td>
-          <td>{{ listing.wednesdayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Thursday</th>
-          <td>{{ listing.thursdayOpens }}</td>
-          <td>{{ listing.thursdayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Friday</th>
-          <td>{{ listing.fridayOpens }}</td>
-          <td>{{ listing.fridayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Saturday</th>
-          <td>{{ listing.saturdayOpens }}</td>
-          <td>{{ listing.saturdayCloses }}</td>
-        </tr>
-        <tr>
-          <th scope="row">Sunday</th>
-          <td>{{ listing.sundayOpens }}</td>
-          <td>{{ listing.sundayCloses }}</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
-  <!-- ================================================== -->
-  <!-- GALLERY -->
-  <br>
-  <br>
-<div class="container py-4">
-  <h3>Find similar clinics near you:</h3>
-  <ul class="nav justify-content-left">
-    {% if listing.clinicCityLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicCityLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicCity }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicRegionLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicRegion }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicStateLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicStateLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicState }}</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-    {% if listing.clinicLocationLink %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ listing.clinicLocationLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Compare IVF worldwide</u></a>
-    </li>
-    {% else %}
-    {% endif %}
-  </ul>
-</div>
+
+<!-- ================================================== -->
+
+<br>
+<br>
+
+{% include 'clinicdetails/6openinghours.html' %}
+
+<!-- ================================================== -->
+
+<br>
+<br>
+
+{% include 'clinicdetails/8footerlinks.html' %}
+
+<!-- ================================================== -->
 {% endblock  %}

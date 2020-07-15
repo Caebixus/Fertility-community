@@ -43,7 +43,7 @@ class BasicClinic(models.Model):
     clinicCityLink = models.URLField(null=True, blank=True)
     clinicRegionLink = models.URLField(null=True, blank=True)
     clinicStateLink = models.URLField(null=True, blank=True)
-    clinicLocationLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/locations')
+    clinicLocationLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/ivf-cost')
 
     ### Open Hours of clinic
     mondayOpens = models.CharField(max_length=30, null=True, blank=True)

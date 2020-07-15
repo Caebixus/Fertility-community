@@ -42,7 +42,7 @@ class BasicClinic(models.Model):
     ### Clinic Links
     clinicCityLink = models.URLField(null=True, blank=True)
     clinicRegionLink = models.URLField(null=True, blank=True)
-    clinicStateLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/locations/us-regions')
+    clinicStateLink = models.URLField(null=True, blank=True)
     clinicLocationLink = models.URLField(null=True, blank=True, default='https://www.fertilitycommunity.com/locations')
 
     ### Open Hours of clinic

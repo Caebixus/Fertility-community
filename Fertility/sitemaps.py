@@ -13,6 +13,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         return [
         'index',
         'team',
+        'blog1',
         'travelCalculator',
         'contact',
         'search',

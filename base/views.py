@@ -37,6 +37,9 @@ def robots(request):
 def team(request):
     return render(request, 'main/team.html')
 
+def news(request):
+    return render(request, 'main/news.html')
+
 def iframe1(request):
     return render(request, 'main/iframepic1.html')
 
@@ -83,3 +86,8 @@ def error400(request, exception):
 def error500(request):
     data = {}
     return render(request,'main/500.html', data)
+
+# BlogPosts Views --------------------------------------------------------------------------------------------------------
+
+def blog1(request):
+    return render(request, 'main/ivf-explained.html')

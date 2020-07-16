@@ -95,6 +95,14 @@ select {
   color: #282c34;
 }
 
+.affillink {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-decoration: underline;
+  font-weight: 450;
+}
+
 .headingOne {
   background-color: white;
   color: white;

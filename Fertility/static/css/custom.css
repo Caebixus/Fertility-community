@@ -83,11 +83,8 @@ select {
 }
 
 .jumbotron {
-  background-color: white;
+  background-color: #ebebeb;
   border-radius: 8px;
-  border-style: groove;
-  border-width: 1px;
-  border-color: #286da8;
 }
 
 .form-check-label {

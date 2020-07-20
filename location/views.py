@@ -3603,6 +3603,7 @@ def locationsUSRegions(request):
         'gbpCurrency_alaska_iui': gbpCurrency_alaska_iui,
         'usdCurrency_alaska_iui': usdCurrency_alaska_iui,
         'eurCurrency_alaska_iui': eurCurrency_alaska_iui,
+        
         'gbpCurrency_arkansas_ivf': gbpCurrency_arkansas_ivf,
         'usdCurrency_arkansas_ivf': usdCurrency_arkansas_ivf,
         'eurCurrency_arkansas_ivf': eurCurrency_arkansas_ivf,

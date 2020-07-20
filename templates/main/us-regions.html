@@ -20,7 +20,7 @@
 <div class="container">
   <ul class="nav nav-pills" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">IVF procedure</a>
+      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">Standard IVF</a>
     </li>
     <li hidden class="nav-item">
       <a class="nav-link" id="pills-icsi-tab" data-toggle="pill" href="#pills-icsi" role="tab" aria-controls="pills-icsi" aria-selected="false">ICSI procedure</a>
@@ -29,19 +29,19 @@
       <a class="nav-link" id="pills-iui-tab" data-toggle="pill" href="#pills-iui" role="tab" aria-controls="pills-iui" aria-selected="false">IUI procedure</a>
     </li>
     <li hidden class="nav-item">
-      <a class="nav-link" id="pills-egg-tab" data-toggle="pill" href="#pills-egg" role="tab" aria-controls="pills-egg" aria-selected="false">Egg Donation procedure</a>
+      <a class="nav-link" id="pills-egg-tab" data-toggle="pill" href="#pills-egg" role="tab" aria-controls="pills-egg" aria-selected="false">IVF using egg donors</a>
     </li>
     <li hidden class="nav-item">
-      <a class="nav-link" id="pills-embryo-tab" data-toggle="pill" href="#pills-embryo" role="tab" aria-controls="pills-embryo" aria-selected="false">Embryo Donation procedure</a>
+      <a class="nav-link" id="pills-embryo-tab" data-toggle="pill" href="#pills-embryo" role="tab" aria-controls="pills-embryo" aria-selected="false">IVF using embryo donors</a>
     </li>
     <li hidden class="nav-item">
-      <a class="nav-link" id="pills-sperm-tab" data-toggle="pill" href="#pills-sperm" role="tab" aria-controls="pills-sperm" aria-selected="false">Sperm Donation procedure</a>
+      <a class="nav-link" id="pills-sperm-tab" data-toggle="pill" href="#pills-sperm" role="tab" aria-controls="pills-sperm" aria-selected="false">IVF using sperm donors</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
       <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP US states</h2>
-      <p><i>Medications, packages, pretests and additional procedures not included</i></p>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
       <div class="table-responsive-xl">
         <table class="table table-hover">
           <thead class="thead" style="background-color: #286DA8; color: white">
@@ -536,7 +536,7 @@
     </div>
     <div class="tab-pane fade" id="pills-egg" role="tabpanel" aria-labelledby="pills-egg-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Egg Donation procedures compared by TOP states</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using egg donors compared by TOP states</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -592,7 +592,7 @@
     </div>
     <div class="tab-pane fade" id="pills-embryo" role="tabpanel" aria-labelledby="pills-embryo-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Embryo Donation procedures compared by TOP states</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using embryo donors compared by TOP states</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -641,6 +641,34 @@
                 <td style="font-size: 14px">{% if gbpCurrency_california_embryo %}{{ gbpCurrency_california_embryo|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
                 <td style="font-size: 14px"><a href="{% url 'fertilityClinicsCalifornia' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">California IVF Clinics</button></a></td>
               </tr>
+              <tr>
+                <th scope="row"><a href="{% url 'fertilityClinicsColorado' %}"><u>Colorado ({{ my_total_count_colorado }} clinics)</u></a></th>
+                <td style="font-size: 14px">{% if usdCurrency_colorado_embryo %}{{ usdCurrency_colorado_embryo|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_colorado_embryo %}{{ eurCurrency_colorado_embryo|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_colorado_embryo %}{{ gbpCurrency_colorado_embryo|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicsColorado' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Colorado IVF Clinics</button></a></td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="{% url 'fertilityClinicsConnecticut' %}"><u>Connecticut ({{ my_total_count_connecticut }} clinics)</u></a></th>
+                <td style="font-size: 14px">{% if usdCurrency_connecticut_ivf %}{{ usdCurrency_connecticut_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_connecticut_ivf %}{{ eurCurrency_connecticut_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_connecticut_ivf %}{{ gbpCurrency_connecticut_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicsConnecticut' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Connecticut IVF Clinics</button></a></td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="{% url 'fertilityClinicsDelaware' %}"><u>Delaware ({{ my_total_count_delaware }} clinics)</u></a></th>
+                <td style="font-size: 14px">{% if usdCurrency_delaware_ivf %}{{ usdCurrency_delaware_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_delaware_ivf %}{{ eurCurrency_delaware_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_delaware_ivf %}{{ gbpCurrency_delaware_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicsDelaware' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Delaware IVF Clinics</button></a></td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="{% url 'fertilityClinicsFlorida' %}"><u>Florida ({{ my_total_count_florida }} clinics)</u></a></th>
+                <td style="font-size: 14px">{% if usdCurrency_florida_ivf %}{{ usdCurrency_florida_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if eurCurrency_florida_ivf %}{{ eurCurrency_florida_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px">{% if gbpCurrency_florida_ivf %}{{ gbpCurrency_florida_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicsFlorida' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Florida IVF Clinics</button></a></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -648,7 +676,7 @@
     </div>
     <div class="tab-pane fade" id="pills-sperm" role="tabpanel" aria-labelledby="pills-sperm-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Sperm Donation procedures compared by TOP states</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using sperm donors compared by TOP states</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -706,13 +734,6 @@
 </div>
 <br>
 <br>
-
-
-<div class="container py-5">
-  <a class="nav-link" href="{% url 'travelCalculator' %}">
-    <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Calculate travel costs</button>
-  </a>
-</div>
 
 
 

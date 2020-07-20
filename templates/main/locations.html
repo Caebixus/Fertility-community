@@ -29,19 +29,19 @@
       <a class="nav-link" id="pills-iui-tab" data-toggle="pill" href="#pills-iui" role="tab" aria-controls="pills-iui" aria-selected="false">IUI procedure</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-egg-tab" data-toggle="pill" href="#pills-egg" role="tab" aria-controls="pills-egg" aria-selected="false">Egg Donation procedure</a>
+      <a class="nav-link" id="pills-egg-tab" data-toggle="pill" href="#pills-egg" role="tab" aria-controls="pills-egg" aria-selected="false">IVF using egg donors</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-embryo-tab" data-toggle="pill" href="#pills-embryo" role="tab" aria-controls="pills-embryo" aria-selected="false">Embryo Donation procedure</a>
+      <a class="nav-link" id="pills-embryo-tab" data-toggle="pill" href="#pills-embryo" role="tab" aria-controls="pills-embryo" aria-selected="false">IVF using embryo donors</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-sperm-tab" data-toggle="pill" href="#pills-sperm" role="tab" aria-controls="pills-sperm" aria-selected="false">Sperm Donation procedure</a>
+      <a class="nav-link" id="pills-sperm-tab" data-toggle="pill" href="#pills-sperm" role="tab" aria-controls="pills-sperm" aria-selected="false">IVF using sperm donors</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
-      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP countries</h2>
-      <p><i>Medications, packages, pretests and additional procedures not included</i></p>
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP-countries</h2>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
       <div class="table-responsive-xl">
         <table class="table table-hover">
           <thead class="thead" style="background-color: #286DA8; color: white">
@@ -55,7 +55,7 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">United States <a href="{% url 'locationsUSRegions' %}">(All US states)</a></th>
+              <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
               <td style="font-size: 14px">{% if usdCurrency_us_ivf %}{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_us_ivf %}{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_us_ivf %}{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -68,11 +68,11 @@
               <td style="font-size: 14px">{% if gbpCurrency_uk_ivf %}{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
             </tr>
             <tr>
-              <th scope="row">Czech Republic</th>
+              <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
               <td style="font-size: 14px">{% if usdCurrency_cz_ivf %}{{ usdCurrency_cz_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_cz_ivf %}{{ eurCurrency_cz_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_cz_ivf %}{{ gbpCurrency_cz_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>
@@ -80,7 +80,7 @@
     </div>
     <div class="tab-pane fade" id="pills-icsi" role="tabpanel" aria-labelledby="pills-icsi-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of ICSI procedures compared by TOP countries</h2>
+        <h2 style="padding-top:3rem">Average prices of ICSI procedures compared by TOP-countries</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -95,7 +95,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States</th>
+                <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_us_icsi %}{{ usdCurrency_us_icsi|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_us_icsi %}{{ eurCurrency_us_icsi|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_us_icsi %}{{ gbpCurrency_us_icsi|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -108,11 +108,11 @@
                 <td style="font-size: 14px">{% if gbpCurrency_uk_icsi %}{{ gbpCurrency_uk_icsi|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               </tr>
               <tr>
-                <th scope="row">Czech Republic</th>
+                <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_cz_icsi %}{{ usdCurrency_cz_icsi|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_cz_icsi %}{{ eurCurrency_cz_icsi|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_cz_icsi %}{{ gbpCurrency_cz_icsi|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -121,7 +121,7 @@
     </div>
     <div class="tab-pane fade" id="pills-iui" role="tabpanel" aria-labelledby="pills-iui-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of IUI procedures compared by TOP countries</h2>
+        <h2 style="padding-top:3rem">Average prices of IUI procedures compared by TOP-countries</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -136,7 +136,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States</th>
+                <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_us_iui %}{{ usdCurrency_us_iui|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_us_iui %}{{ eurCurrency_us_iui|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_us_iui %}{{ gbpCurrency_us_iui|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -149,11 +149,11 @@
                 <td style="font-size: 14px">{% if gbpCurrency_uk_iui %}{{ gbpCurrency_uk_iui|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               </tr>
               <tr>
-                <th scope="row">Czech Republic</th>
+                <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_cz_iui %}{{ usdCurrency_cz_iui|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_cz_iui %}{{ eurCurrency_cz_iui|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_cz_iui %}{{ gbpCurrency_cz_iui|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -162,7 +162,7 @@
     </div>
     <div class="tab-pane fade" id="pills-egg" role="tabpanel" aria-labelledby="pills-egg-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Egg Donation procedures compared by TOP countries</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using egg donors compared by TOP-countries</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -177,7 +177,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States (<a href="{% url 'locationsUSRegions' %}">Detail</a>)</th>
+                <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_us_egg %}{{ usdCurrency_us_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_us_egg %}{{ eurCurrency_us_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_us_egg %}{{ gbpCurrency_us_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -190,11 +190,11 @@
                 <td style="font-size: 14px">{% if gbpCurrency_uk_egg %}{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               </tr>
               <tr>
-                <th scope="row">Czech Republic</th>
+                <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_cz_egg %}{{ usdCurrency_cz_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_cz_egg %}{{ eurCurrency_cz_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_cz_egg %}{{ gbpCurrency_cz_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -203,7 +203,7 @@
     </div>
     <div class="tab-pane fade" id="pills-embryo" role="tabpanel" aria-labelledby="pills-embryo-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Embryo Donation procedures compared by TOP countries</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using embryo donors compared by TOP-countries</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -218,7 +218,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States</th>
+                <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_us_embryo %}{{ usdCurrency_us_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_us_embryo %}{{ eurCurrency_us_embryo|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_us_embryo %}{{ gbpCurrency_us_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -231,11 +231,11 @@
                 <td style="font-size: 14px">{% if gbpCurrency_uk_embryo %}{{ gbpCurrency_uk_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               </tr>
               <tr>
-                <th scope="row">Czech Republic</th>
+                <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_cz_embryo %}{{ usdCurrency_cz_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_cz_embryo %}{{ eurCurrency_cz_embryo|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_cz_embryo %}{{ gbpCurrency_cz_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -244,7 +244,7 @@
     </div>
     <div class="tab-pane fade" id="pills-sperm" role="tabpanel" aria-labelledby="pills-sperm-tab">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <h2 style="padding-top:3rem">Average prices of Sperm Donation procedures compared by TOP countries</h2>
+        <h2 style="padding-top:3rem">Average prices of IVF using sperm donors compared by TOP-countries</h2>
         <p><i>Medications, pretests and additional procedures not included</i></p>
         <div class="table-responsive-xl">
           <table class="table table-hover">
@@ -259,7 +259,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">United States</th>
+                <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_us_sperm %}{{ usdCurrency_us_sperm|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_us_sperm %}{{ eurCurrency_us_sperm|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_us_sperm %}{{ gbpCurrency_us_sperm|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
@@ -272,11 +272,11 @@
                 <td style="font-size: 14px">{% if gbpCurrency_uk_sperm %}{{ gbpCurrency_uk_sperm|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               </tr>
               <tr>
-                <th scope="row">Czech Republic</th>
+                <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
                 <td style="font-size: 14px">{% if usdCurrency_cz_sperm %}{{ usdCurrency_cz_sperm|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if eurCurrency_cz_sperm %}{{ eurCurrency_cz_sperm|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
                 <td style="font-size: 14px">{% if gbpCurrency_cz_sperm %}{{ gbpCurrency_cz_sperm|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
-                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">CZE IVF Clinics</button></a></td>
+                <td style="font-size: 14px"><a href="{% url 'fertilityClinicCzech' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Czech IVF Clinics</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -288,13 +288,6 @@
 
 <br>
 <br>
-
-<div class="container py-5">
-  <a class="nav-link" href="{% url 'travelCalculator' %}">
-    <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Calculate travel costs</button>
-  </a>
-</div>
-
 
 
 

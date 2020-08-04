@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from .choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
+from .choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def shuffled(x):
@@ -45325,6 +45325,57 @@ def search(request):
                     }
 
                 return render(request, 'search/search.html', context)
+
+        elif states == 'CZ':
+
+            queryset_list = BasicClinic.objects.all()
+            queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+            pro_queryset_list = BasicClinic.objects.all()
+            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+            ppq_queryset_list = BasicClinic.objects.all()
+            ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+            my_total_count = BasicClinic.objects.all()
+            my_total_count = my_total_count.filter(clinicState__iexact='Czech Republic')
+            my_total_count = my_total_count.filter(is_published=True)
+
+            averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('ivf_treatment_cost'))
+            averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('egg_donor_recipients_cost'))
+            averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('embryo_donor_recipients_cost'))
+            averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('sperm_donor_recipients_cost'))
+            averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('icsi_treatment_cost'))
+
+            queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
+            pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
+            ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
+
+            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+            paginator = Paginator(order_data, 12)
+            page = request.GET.get('page')
+            paginationing = paginator.get_page(page)
+
+            context = {
+                'listings': queryset_list,
+                'pro_listings': pro_queryset_list,
+                'order_data': paginationing,
+                'paginationing': paginationing,
+                'averageIVFPrice': averageIVFPrice,
+                'averageEggPrice': averageEggPrice,
+                'averageEmbryoPrice': averageEmbryoPrice,
+                'averageSpermPrice': averageSpermPrice,
+                'averageICSIPrice': averageICSIPrice,
+                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+                'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+                'my_total_count': my_total_count,
+                'values': request.GET,
+                }
+
+            return render(request, 'search/search.html', context)
 
     else:
         context = {

@@ -191,11 +191,11 @@
         {% elif values.Region == 'DC'%}
           Search fertility clinics & agencies in District of Columbia, United States
         {% endif %}
+      {% elif values.States == 'CZ' %}Search fertility clinics & agencies in Czech Republic
       {% endif %}
-      {% if values.States == 'CZ' %}Search fertility clinics & agencies in Czech Republic{% endif %}
     </h1>
     {% if values.States != None %}
-    <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
+    <p style="font-size: 20px; color: white !important">Clinics found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
     {% endif %}
   </div>
 

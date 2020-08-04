@@ -1,5 +1,7 @@
 CATEGORY_CHOICES_STATES = {
     'US': 'United States',
+    'UK': 'United Kingdom',
+    'CZ': 'Czech Republic',
     }
 
 CATEGORY_CHOICES_US_REGION = {
@@ -55,4 +57,44 @@ CATEGORY_CHOICES_US_REGION = {
     'WI': 'Wisconsin',
     'WY': 'Wyoming',
     'DC': 'District of Columbia',
+    }
+
+CATEGORY_CHOICES_UK_CITIES = {
+    'Aberdeen': 'Aberdeen',
+    'Bath': 'Bath',
+    'Belfast': 'Belfast',
+    'Birmingham': 'Birmingham',
+    'Bournemouth': 'Bournemouth',
+    'BrightonHove': 'BrightonHove',
+    'Bristol': 'Bristol',
+    'Cambridge': 'Cambridge',
+    'Cardiff': 'Cardiff',
+    'Colchester': 'Colchester',
+    'Derby': 'Derby',
+    'Exeter': 'Exeter',
+    'Glasgow': 'Glasgow',
+    'Hull': 'Hull',
+    'Chelmsford': 'Chelmsford',
+    'Leeds': 'Leeds',
+    'Leicester': 'Leicester',
+    'Liverpool': 'Liverpool',
+    'London': 'London',
+    'Manchester': 'Manchester',
+    'Middlesbrough': 'Middlesbrough',
+    'Newcastle': 'Newcastle',
+    'Norwich': 'Norwich',
+    'Nottingham': 'Nottingham',
+    'Oxford': 'Oxford',
+    'Peterborough': 'Peterborough',
+    'Plymouth': 'Plymouth',
+    'Portsmouth': 'Portsmouth',
+    'Salisbury': 'Salisbury',
+    'Sheffield': 'Sheffield',
+    'Southampton': 'Southampton',
+    'Swansea': 'Swansea',
+    }
+
+CATEGORY_CHOICES_CZ_CITIES = {
+    'Prague': 'Prague',
+    'Brno': 'Brno',
     }

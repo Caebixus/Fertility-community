@@ -3,7 +3,7 @@ from django.http import (HttpResponse, HttpResponseNotFound, Http404,
 HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.urls import reverse
 from django.core.paginator import Paginator
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION
+from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
 from django import template
 from contact.forms import WebsiteForm
 from django.core.mail import send_mail
@@ -14,7 +14,8 @@ def index(request):
 
     context = {
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
     }
 
     return render(request, 'main/index.html', context)

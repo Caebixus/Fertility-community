@@ -15,15 +15,13 @@ class BasicClinic(models.Model):
     TYPE = (
         ('Clinic', 'Clinic'),
         ('Agency', 'Agency'),
+        ('DonorBank', 'DonorBank'),
         )
     type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
 
     ### Users option to promote their clinic & treatments
     description = models.TextField(max_length=800, blank=True, null = True)
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
-
-    ### Clinics Doctors & Staff
-    clinic_staff = RichTextField(blank=True, null=True, max_length=300)
 
     ### URL address for contact button to redirections
     clinic_url = models.URLField(null=True, blank=True)
@@ -87,23 +85,38 @@ class BasicClinic(models.Model):
         )
     defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True)
 
+    ### -----------------------------------------------------------------------
+    ### Primary treatments + ### anonymous egg donation = egg_donor_recipients
+    initial_consultation = models.BooleanField(default=False)
+    follow_up_consultation = models.BooleanField(default=False)
     ivf_treatment = models.BooleanField(default=False)
     mild_ivf_treatment = models.BooleanField(default=False)
     ovarian_ivf_treatment = models.BooleanField(default=False)
     icsi_treatment = models.BooleanField(default=False)
     egg_donor_recipients = models.BooleanField(default=False)
+    known_egg_donor_recipients = models.BooleanField(default=False)
+    shared_egg_donor_recipients = models.BooleanField(default=False)
     sperm_donor_recipients = models.BooleanField(default=False)
+    known_sperm_donor_recipients = models.BooleanField(default=False)
     embryo_donor_recipients = models.BooleanField(default=False)
+    known_embryo_donor_recipients = models.BooleanField(default=False)
 
-    ### Basic fertility treatments costs
+    ### Primary treatments costs
+    initial_consultation_cost = models.FloatField(blank=True, null=True)
+    follow_up_consultation_cost = models.FloatField(blank=True, null=True)
     ivf_treatment_cost = models.FloatField(blank=True, null=True)
     mild_ivf_treatment_cost = models.FloatField(blank=True, null=True)
     ovarian_ivf_treatment_cost = models.FloatField(blank=True, null=True)
     icsi_treatment_cost = models.FloatField(blank=True, null=True)
     egg_donor_recipients_cost = models.FloatField(blank=True, null=True)
+    known_egg_donor_recipients_cost = models.FloatField(blank=True, null=True)
+    shared_egg_donor_recipients_cost = models.FloatField(blank=True, null=True)
     sperm_donor_recipients_cost = models.FloatField(blank=True, null=True)
+    known_sperm_donor_recipients_cost = models.FloatField(blank=True, null=True)
     embryo_donor_recipients_cost = models.FloatField(blank=True, null=True)
+    known_embryo_donor_recipients_cost = models.FloatField(blank=True, null=True)
 
+    ### -----------------------------------------------------------------------
     ### Additional treatments
     egg_freezing = models.BooleanField(default=False)
     embryo_freezing = models.BooleanField(default=False)
@@ -113,6 +126,8 @@ class BasicClinic(models.Model):
     fertility_preservation = models.BooleanField(default=False)
     surrogacy = models.BooleanField(default=False)
     pgd = models.BooleanField(default=False)
+    pgta_pgs = models.BooleanField(default=False)
+    pgtst_pgs = models.BooleanField(default=False)
     iui_treatment = models.BooleanField(default=False)
 
     ### Additional treatments costs
@@ -124,14 +139,32 @@ class BasicClinic(models.Model):
     fertility_preservation_cost = models.FloatField(blank=True, null=True)
     surrogacy_cost = models.FloatField(blank=True, null=True)
     pgd_cost = models.FloatField(blank=True, null=True)
+    pgta_pgs_cost = models.FloatField(blank=True, null=True)
+    pgtst_pgs_cost = models.FloatField(blank=True, null=True)
     iui_treatment_cost = models.FloatField(blank=True, null=True)
 
+    ### -----------------------------------------------------------------------
+    ### Donations
+    egg_donor = models.BooleanField(default=False)
+    sperm_donor = models.BooleanField(default=False)
+    egg_sharing = models.BooleanField(default=False)
+
+    egg_donor_url = models.URLField(null=True, blank=True)
+    sperm_donor_url = models.URLField(null=True, blank=True)
+    egg_sharing_url = models.URLField(null=True, blank=True)
+
+    egg_donor_compensation = models.FloatField(blank=True, null=True)
+    sperm_donor_compensation = models.FloatField(blank=True, null=True)
+    egg_sharing_compensation = models.FloatField(blank=True, null=True)
+
+    ### -----------------------------------------------------------------------
     ### Conditions
     single_woman_treatment = models.BooleanField(default=False)
     reciprocal_treatment = models.BooleanField(default=False)
     hiv_patients_treatment = models.BooleanField(default=False)
     sex_selection = models.BooleanField(default=False)
 
+    ### -----------------------------------------------------------------------
     ### Clinic Booleands
     is_published = models.BooleanField(default=False)
     is_claimed = models.BooleanField(default=False)
@@ -150,10 +183,33 @@ class BasicClinic(models.Model):
     ppq_list_date = models.DateTimeField(default=datetime.now, blank=True)
 
     ### ------------------------------------------------ ###
-    ### BUILD FOR PRO FEATURES ###
+    ### BUILD FOR PRO + CLAIM FEATURES ###
     ### ------------------------------------------------ ###
 
-    ### Packages
+    ### Consultants
+    team1name = models.CharField(max_length=25, blank=True, null=True)
+    team1pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team2name = models.CharField(max_length=25, blank=True, null=True)
+    team2pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team3name = models.CharField(max_length=25, blank=True, null=True)
+    team3pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+
+    ### Clinics PRO logo of the clinic
+    clinic_pro_logo_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+
+    ### Clinics PRO main picture on detail page
+    clinic_pro_main_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+
+    ### Clinic PRO optional photos
+    clinic_pro_photo_1 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_2 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_3 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_4 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_5 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+
+    ### DEPRECIATED MODELS FIELDS ------------------- ------------------- ------------------- ------------------- -------------------
+
     CATEGORY_PACKAGE = (
         ('IVF', 'IVF'),
         ('Egg Donation', 'Egg Donation'),
@@ -190,32 +246,12 @@ class BasicClinic(models.Model):
     package6desc = models.TextField(max_length=500, blank=True, null = True)
     package6cost = models.FloatField(blank=True, null=True)
 
-    ### Consultants
-    team1name = models.CharField(max_length=25, blank=True, null=True)
-    team1pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    team2name = models.CharField(max_length=25, blank=True, null=True)
-    team2pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    team3name = models.CharField(max_length=25, blank=True, null=True)
-    team3pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-
-    ### Promotions
     clinic_pro_promotion_name = models.CharField(max_length=80, blank=True, null=True)
     clinic_pro_promotion_description = models.TextField(max_length=800, blank=True, null=True)
     clinic_pro_promotion_landing_url = models.URLField(null=True, blank=True)
 
-    ### Clinics PRO logo of the clinic
-    clinic_pro_logo_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-
-    ### Clinics PRO main picture on detail page
-    clinic_pro_main_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-
-    ### Clinic PRO optional photos
-    clinic_pro_photo_1 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    clinic_pro_photo_2 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    clinic_pro_photo_3 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    clinic_pro_photo_4 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    clinic_pro_photo_5 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
-    clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    ### Clinics Doctors & Staff
+    clinic_staff = RichTextField(blank=True, null=True, max_length=300)
 
     def __str__(self):
         return str(self.clinicName)

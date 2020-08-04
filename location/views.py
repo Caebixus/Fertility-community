@@ -3603,7 +3603,7 @@ def locationsUSRegions(request):
         'gbpCurrency_alaska_iui': gbpCurrency_alaska_iui,
         'usdCurrency_alaska_iui': usdCurrency_alaska_iui,
         'eurCurrency_alaska_iui': eurCurrency_alaska_iui,
-        
+
         'gbpCurrency_arkansas_ivf': gbpCurrency_arkansas_ivf,
         'usdCurrency_arkansas_ivf': usdCurrency_arkansas_ivf,
         'eurCurrency_arkansas_ivf': eurCurrency_arkansas_ivf,
@@ -4590,3 +4590,106 @@ def locationsUSRegions(request):
         }
 
     return render(request, 'main/us-regions.html', context)
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+
+
+def locationsUKRegions(request):
+    queryset_list_uk = BasicClinic.objects.all()
+
+    #--------------------------------------------------------------------------
+    queryset_list_aberdeen = queryset_list_uk.filter(clinicRegion__iexact='Aberdeen')
+    my_total_count_aberdeen = queryset_list_aberdeen.count()
+    queryset_list_aberdeen_ivf = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_aberdeen_ivf.items():
+        gbpCurrency_aberdeen_ivf = val
+        if gbpCurrency_aberdeen_ivf is not None:
+            usdCurrency_aberdeen_ivf = val * gbpToUsd
+            eurCurrency_aberdeen_ivf = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_ivf = None
+            eurCurrency_aberdeen_ivf = None
+
+    queryset_list_aberdeen_egg = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_aberdeen_egg.items():
+        gbpCurrency_aberdeen_egg = val
+        if gbpCurrency_aberdeen_egg is not None:
+            usdCurrency_aberdeen_egg = val * gbpToUsd
+            eurCurrency_aberdeen_egg = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_egg = None
+            eurCurrency_aberdeen_egg = None
+
+    queryset_list_aberdeen_embryo = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_aberdeen_embryo.items():
+        gbpCurrency_aberdeen_embryo = val
+        if gbpCurrency_aberdeen_embryo is not None:
+            usdCurrency_aberdeen_embryo = val * gbpToUsd
+            eurCurrency_aberdeen_embryo = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_embryo = None
+            eurCurrency_aberdeen_embryo = None
+
+    queryset_list_aberdeen_sperm = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_aberdeen_sperm.items():
+        gbpCurrency_aberdeen_sperm = val
+        if gbpCurrency_aberdeen_sperm is not None:
+            usdCurrency_aberdeen_sperm = val * gbpToUsd
+            eurCurrency_aberdeen_sperm = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_sperm = None
+            eurCurrency_aberdeen_sperm = None
+
+    queryset_list_aberdeen_icsi = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_aberdeen_icsi.items():
+        gbpCurrency_aberdeen_icsi = val
+        if gbpCurrency_aberdeen_icsi is not None:
+            usdCurrency_aberdeen_icsi = val * gbpToUsd
+            eurCurrency_aberdeen_icsi = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_icsi = None
+            eurCurrency_aberdeen_icsi = None
+
+    queryset_list_aberdeen_iui = queryset_list_aberdeen.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_aberdeen_iui.items():
+        gbpCurrency_aberdeen_iui = val
+        if gbpCurrency_aberdeen_iui is not None:
+            usdCurrency_aberdeen_iui = val * gbpToUsd
+            eurCurrency_aberdeen_iui = val * gbpToEur
+        else:
+            usdCurrency_aberdeen_iui = None
+            eurCurrency_aberdeen_iui = None
+
+    context = {
+        'gbpCurrency_aberdeen_ivf': gbpCurrency_aberdeen_ivf,
+        'usdCurrency_aberdeen_ivf': usdCurrency_aberdeen_ivf,
+        'eurCurrency_aberdeen_ivf': eurCurrency_aberdeen_ivf,
+        'gbpCurrency_aberdeen_egg': gbpCurrency_aberdeen_egg,
+        'usdCurrency_aberdeen_egg': usdCurrency_aberdeen_egg,
+        'eurCurrency_aberdeen_egg': eurCurrency_aberdeen_egg,
+        'gbpCurrency_aberdeen_embryo': gbpCurrency_aberdeen_embryo,
+        'usdCurrency_aberdeen_embryo': usdCurrency_aberdeen_embryo,
+        'eurCurrency_aberdeen_embryo': eurCurrency_aberdeen_embryo,
+        'gbpCurrency_aberdeen_sperm': gbpCurrency_aberdeen_sperm,
+        'usdCurrency_aberdeen_sperm': usdCurrency_aberdeen_sperm,
+        'eurCurrency_aberdeen_sperm': eurCurrency_aberdeen_sperm,
+        'gbpCurrency_aberdeen_icsi': gbpCurrency_aberdeen_icsi,
+        'usdCurrency_aberdeen_icsi': usdCurrency_aberdeen_icsi,
+        'eurCurrency_aberdeen_icsi': eurCurrency_aberdeen_icsi,
+        'gbpCurrency_aberdeen_iui': gbpCurrency_aberdeen_iui,
+        'usdCurrency_aberdeen_iui': usdCurrency_aberdeen_iui,
+        'eurCurrency_aberdeen_iui': eurCurrency_aberdeen_iui,
+
+
+
+        'my_total_count_aberdeen': my_total_count_aberdeen,
+
+        }
+
+    return render(request, 'main/uk-regions.html', context)

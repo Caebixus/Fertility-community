@@ -19,6 +19,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'search',
         'locations',
         'locationsUSRegions',
+        'blog1',
         ]
 
     def location(self, item):

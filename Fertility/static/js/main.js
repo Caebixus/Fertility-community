@@ -1,15 +1,3 @@
-<!-- DISPLAY NONE US REGIONS IF UNITED STATES IS SELECTED --->
-
-function showDiv(){
-       getSelectValue = document.getElementById("States").value;
-       if(getSelectValue == "US"){
-           document.getElementById("regions").style.display="block";
-       }else{
-           document.getElementById("regions").style.display="none";
-       }
-   }
-
-
 <!-- DISPLAY REGION FORM IF UNITED STATES IS SELECTED | OWNERS --->
 $(document).ready(function (e) {
     $('#id_clinicState').change(function () {

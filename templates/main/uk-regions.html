@@ -1,0 +1,140 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Compare TOP fertility clinics in UK{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/locations/uk-regions{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs by UK countries</h1>
+    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by UK IVF & fertility clinics</p>
+    <br>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">Standard IVF</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP UK cities</h2>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">USD</th>
+              <th scope="col">EUR</th>
+              <th scope="col">GBP</th>
+              <th scope="col">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsAberdeen' %}"><u>Aberdeen ({% if my_total_count_aberdeen %}{{ my_total_count_aberdeen }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_aberdeen_ivf %}{{ usdCurrency_aberdeen_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_aberdeen_ivf %}{{ eurCurrency_aberdeen_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_aberdeen_ivf %}{{ gbpCurrency_aberdeen_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsAberdeen' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Aberdeen IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBath' %}"><u>Bath ({% if my_total_count_bath %}{{ my_total_count_bath }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_bath_ivf %}{{ usdCurrency_bath_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_bath_ivf %}{{ eurCurrency_bath_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_bath_ivf %}{{ gbpCurrency_bath_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBath' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bath IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBelfast' %}"><u>Belfast ({% if my_total_count_belfast %}{{ my_total_count_belfast }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_belfast_ivf %}{{ usdCurrency_belfast_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_belfast_ivf %}{{ eurCurrency_belfast_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_belfast_ivf %}{{ gbpCurrency_belfast_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBelfast' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Belfast IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBirmingham' %}"><u>Birmingham ({% if my_total_count_birmingham %}{{ my_total_count_birmingham }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_birmingham_ivf %}{{ usdCurrency_birmingham_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_birmingham_ivf %}{{ eurCurrency_birmingham_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_birmingham_ivf %}{{ gbpCurrency_birmingham_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBirmingham' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Birmingham IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBournemouth' %}"><u>Bournemouth ({% if my_total_count_bournemouth %}{{ my_total_count_bournemouth }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_bournemouth_ivf %}{{ usdCurrency_bournemouth_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_bournemouth_ivf %}{{ eurCurrency_bournemouth_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_bournemouth_ivf %}{{ gbpCurrency_bournemouth_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBournemouth' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bournemouth IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBrightonHove' %}"><u>Brighton & Hove ({% if my_total_count_brightonhove %}{{ my_total_count_brightonhove }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_brightonhove_ivf %}{{ usdCurrency_brightonhove_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_brightonhove_ivf %}{{ eurCurrency_brightonhove_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_brightonhove_ivf %}{{ gbpCurrency_brightonhove_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBrightonHove' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Brighton & Hove IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBristol' %}"><u>Bristol ({% if my_total_count_bristol %}{{ my_total_count_bristol }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_bristol_ivf %}{{ usdCurrency_bristol_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_bristol_ivf %}{{ eurCurrency_bristol_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_bristol_ivf %}{{ gbpCurrency_bristol_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBristol' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bristol IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCambridge' %}"><u>Cambridge ({% if my_total_count_cambridge %}{{ my_total_count_cambridge }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_cambridge_ivf %}{{ usdCurrency_cambridge_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_cambridge_ivf %}{{ eurCurrency_cambridge_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_cambridge_ivf %}{{ gbpCurrency_cambridge_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsCambridge' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cambridge IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCardiff' %}"><u>Cardiff ({% if my_total_count_cardiff %}{{ my_total_count_cardiff }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_cardiff_ivf %}{{ usdCurrency_cardiff_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_cardiff_ivf %}{{ eurCurrency_cardiff_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_cardiff_ivf %}{{ gbpCurrency_cardiff_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsCardiff' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cardiff IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsColchester' %}"><u>Colchester ({% if my_total_count_colchester %}{{ my_total_count_colchester }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_colchester_ivf %}{{ usdCurrency_colchester_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_colchester_ivf %}{{ eurCurrency_colchester_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_colchester_ivf %}{{ gbpCurrency_colchester_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsColchester' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Colchester IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsDerby' %}"><u>Derby ({% if my_total_count_derby %}{{ my_total_count_derby }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_derby_ivf %}{{ usdCurrency_derby_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_derby_ivf %}{{ eurCurrency_derby_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_derby_ivf %}{{ gbpCurrency_derby_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsDerby' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Derby IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsExeter' %}"><u>Exeter ({% if my_total_count_exeter %}{{ my_total_count_exeter }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">{% if usdCurrency_exeter_ivf %}{{ usdCurrency_exeter_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if eurCurrency_exeter_ivf %}{{ eurCurrency_exeter_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px">{% if gbpCurrency_exeter_ivf %}{{ gbpCurrency_exeter_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsExeter' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Exeter IVF Clinics</button></a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+
+{% endblock  %}

@@ -45340,6 +45340,7 @@ def search(request):
             my_total_count = BasicClinic.objects.all()
             my_total_count = my_total_count.filter(clinicState__iexact='Czech Republic')
             my_total_count = my_total_count.filter(is_published=True)
+            my_total_count = my_total_count.count()
 
             averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('ivf_treatment_cost'))
             averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('egg_donor_recipients_cost'))

@@ -450,7 +450,7 @@
           <h2>Clinics Team</h2>
           <br>
           <div class="row">
-            <div class="col-6 col-sm">
+            <div class="col-md" style="padding-bottom: 4rem">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team1name.errors }}
                 <p style="font-weight:400"> Name of first team member</p>
@@ -459,12 +459,12 @@
               <br>
 
               {% if instance.team1pic %}
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 <p>Currently uploaded picture: </p>
                 <img src="{{ instance.team1pic.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
               </div>
               <br>
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 {{ form.team1pic.errors }}
                   <label for="{{ form.team1pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
                 {{ form.team1pic }}
@@ -478,7 +478,8 @@
               {% endif %}
 
             </div>
-            <div class="col-6 col-sm">
+
+            <div class="col-md" style="padding-bottom: 4rem">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team2name.errors }}
                 <p style="font-weight:400"> Name of second team member</p>
@@ -487,12 +488,12 @@
               <br>
 
               {% if instance.team2pic %}
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 <p>Currently uploaded picture: </p>
                 <img src="{{ instance.team2pic.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
               </div>
               <br>
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 {{ form.team2pic.errors }}
                   <label for="{{ form.team2pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
                 {{ form.team2pic }}
@@ -506,7 +507,8 @@
               {% endif %}
 
             </div>
-            <div class="col-6 col-sm" style="padding-top: 3rem">
+
+            <div class="col-md">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team3name.errors }}
                 <p style="font-weight:400"> Name of third team member</p>
@@ -515,12 +517,12 @@
               <br>
 
               {% if instance.team3pic %}
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 <p>Currently uploaded picture: </p>
                 <img src="{{ instance.team3pic.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
               </div>
               <br>
-              <div class="col-6 col-md" style="text-align: left">
+              <div class="col-md" style="text-align: left">
                 {{ form.team3pic.errors }}
                   <label for="{{ form.team3pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
                 {{ form.team3pic }}
@@ -533,8 +535,6 @@
               </div>
               {% endif %}
 
-            </div>
-            <div class="col-6 col-sm">
             </div>
           </div>
           <br>

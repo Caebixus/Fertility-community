@@ -55,21 +55,21 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States</a></th>
+              <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States ({{ my_total_clinic_count_us }} clinics)</a></th>
               <td style="font-size: 14px">{% if usdCurrency_us_ivf %}{{ usdCurrency_us_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_us_ivf %}{{ eurCurrency_us_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_us_ivf %}{{ gbpCurrency_us_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicUSA' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">USA IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom</a></th>
+              <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom ({{ my_total_clinic_count_uk }} clinics)</a></th>
               <td style="font-size: 14px">{% if usdCurrency_uk_ivf %}{{ usdCurrency_uk_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_uk_ivf %}{{ eurCurrency_uk_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_uk_ivf %}{{ gbpCurrency_uk_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicUK' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">UK IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic</a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic ({{ my_total_clinic_count_cz }} clinics)</a></th>
               <td style="font-size: 14px">{% if usdCurrency_cz_ivf %}{{ usdCurrency_cz_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if eurCurrency_cz_ivf %}{{ eurCurrency_cz_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</td>
               <td style="font-size: 14px">{% if gbpCurrency_cz_ivf %}{{ gbpCurrency_cz_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</td>

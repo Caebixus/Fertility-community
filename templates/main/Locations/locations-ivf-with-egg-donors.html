@@ -1,0 +1,91 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Compare fertility clinics globally{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/locations{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs</h1>
+    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by global IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        IVF treatment using egg donors
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locations' %}">Standard IVF treatment</a>
+        <a class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">IVF treatment using egg donors</a>
+        <a class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">IVF treatment using embryo donors</a>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF using <u>egg donors</u> compared by TOP-countries</h2>
+      <p><i>Medications, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Country</th>
+            <th scope="col">
+              <select class="form-control" id="ChooseCurrency">
+                <option value="" selected>Currency</option>
+                <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+              </select>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1a">Choose currency above</div>
+              <div id="usdBoard1a" style="display:none">{% if usdCurrency_us_egg %}{{ usdCurrency_us_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2a" style="display:none">{% if eurCurrency_us_egg %}{{ eurCurrency_us_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3a" style="display:none">{% if gbpCurrency_us_egg %}{{ gbpCurrency_us_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1b">Choose currency above</div>
+              <div id="usdBoard1b" style="display:none">{% if usdCurrency_uk_egg %}{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2b" style="display:none">{% if eurCurrency_uk_egg %}{{ eurCurrency_uk_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3b" style="display:none">{% if gbpCurrency_uk_egg %}{{ gbpCurrency_uk_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'fertilityClinicCzech' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1c">Choose currency above</div>
+              <div id="usdBoard1c" style="display:none">{% if usdCurrency_cz_egg %}{{ usdCurrency_cz_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2c" style="display:none">{% if eurCurrency_cz_egg %}{{ eurCurrency_cz_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3c" style="display:none">{% if gbpCurrency_cz_egg %}{{ gbpCurrency_cz_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+
+{% endblock  %}

@@ -290,7 +290,7 @@ def carefertilitychester(request):
         'listing': listing,
         }
 
-    return render(request, 'clinics/UK/Chelmsford/care-fertility-chester.html', context)
+    return render(request, 'clinics/UK/Liverpool/care-fertility-chester.html', context)
 
 #LEEDS   --------------------------------
 

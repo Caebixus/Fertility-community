@@ -49,13 +49,13 @@ urlpatterns = [
     #CHELMSFORD
     path('clinics/uk/chelmsford/simply-fertility', views.simplyfertilitychelm, name='simplyfertilitychelm'),
     path('clinics/uk/chelmsford/bourn-hall-clinic-wickford', views.bournhallclinicwockford, name='bournhallclinicwockford'),
-    path('clinics/uk/chelmsford/care-fertility-chester', views.carefertilitychester, name='carefertilitychester'),
     #LEEDS
     path('clinics/uk/leeds/leeds-fertility-clinic', views.leedsfertilityclinic, name='leedsfertilityclinic'),
     path('clinics/uk/leeds/semovo-leeds', views.semovoleeds, name='semovoleeds'),
     #LEICESTER
     path('clinics/uk/leicester/xy-fertility', views.xyfertility, name='xyfertility'),
     #LIVERPOOL
+    path('clinics/uk/liverpool/care-fertility-chester', views.carefertilitychester, name='carefertilitychester'),
     path('clinics/uk/liverpool/care-fertility-liverpool', views.carefertilityliverpool, name='carefertilityliverpool'),
     path('clinics/uk/liverpool/the-hewitt-fertility-centre-liverpool', views.thehewittfertilitycentreliverpool, name='thehewittfertilitycentreliverpool'),
     path('clinics/uk/liverpool/semovo-liverpool', views.semovoliverpool, name='semovoliverpool'),

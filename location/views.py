@@ -6685,7 +6685,7 @@ def locationsUKRegions(request):
         'eurCurrency_brightonhove_iui': eurCurrency_brightonhove_iui,
         'my_total_count_brightonhove': my_total_count_brightonhove,
 
-            'gbpCurrency_bristol_ivf': gbpCurrency_bristol_ivf,
+        'gbpCurrency_bristol_ivf': gbpCurrency_bristol_ivf,
         'usdCurrency_bristol_ivf': usdCurrency_bristol_ivf,
         'eurCurrency_bristol_ivf': eurCurrency_bristol_ivf,
         'gbpCurrency_bristol_egg': gbpCurrency_bristol_egg,
@@ -6705,7 +6705,7 @@ def locationsUKRegions(request):
         'eurCurrency_bristol_iui': eurCurrency_bristol_iui,
         'my_total_count_bristol': my_total_count_bristol,
 
-            'gbpCurrency_cambridge_ivf': gbpCurrency_cambridge_ivf,
+        'gbpCurrency_cambridge_ivf': gbpCurrency_cambridge_ivf,
         'usdCurrency_cambridge_ivf': usdCurrency_cambridge_ivf,
         'eurCurrency_cambridge_ivf': eurCurrency_cambridge_ivf,
         'gbpCurrency_cambridge_egg': gbpCurrency_cambridge_egg,
@@ -6725,7 +6725,7 @@ def locationsUKRegions(request):
         'eurCurrency_cambridge_iui': eurCurrency_cambridge_iui,
         'my_total_count_cambridge': my_total_count_cambridge,
 
-            'gbpCurrency_cardiff_ivf': gbpCurrency_cardiff_ivf,
+        'gbpCurrency_cardiff_ivf': gbpCurrency_cardiff_ivf,
         'usdCurrency_cardiff_ivf': usdCurrency_cardiff_ivf,
         'eurCurrency_cardiff_ivf': eurCurrency_cardiff_ivf,
         'gbpCurrency_cardiff_egg': gbpCurrency_cardiff_egg,
@@ -6745,7 +6745,7 @@ def locationsUKRegions(request):
         'eurCurrency_cardiff_iui': eurCurrency_cardiff_iui,
         'my_total_count_cardiff': my_total_count_cardiff,
 
-            'gbpCurrency_colchester_ivf': gbpCurrency_colchester_ivf,
+        'gbpCurrency_colchester_ivf': gbpCurrency_colchester_ivf,
         'usdCurrency_colchester_ivf': usdCurrency_colchester_ivf,
         'eurCurrency_colchester_ivf': eurCurrency_colchester_ivf,
         'gbpCurrency_colchester_egg': gbpCurrency_colchester_egg,
@@ -6765,7 +6765,7 @@ def locationsUKRegions(request):
         'eurCurrency_colchester_iui': eurCurrency_colchester_iui,
         'my_total_count_colchester': my_total_count_colchester,
 
-            'gbpCurrency_derby_ivf': gbpCurrency_derby_ivf,
+        'gbpCurrency_derby_ivf': gbpCurrency_derby_ivf,
         'usdCurrency_derby_ivf': usdCurrency_derby_ivf,
         'eurCurrency_derby_ivf': eurCurrency_derby_ivf,
         'gbpCurrency_derby_egg': gbpCurrency_derby_egg,
@@ -6785,7 +6785,7 @@ def locationsUKRegions(request):
         'eurCurrency_derby_iui': eurCurrency_derby_iui,
         'my_total_count_derby': my_total_count_derby,
 
-            'gbpCurrency_exeter_ivf': gbpCurrency_exeter_ivf,
+        'gbpCurrency_exeter_ivf': gbpCurrency_exeter_ivf,
         'usdCurrency_exeter_ivf': usdCurrency_exeter_ivf,
         'eurCurrency_exeter_ivf': eurCurrency_exeter_ivf,
         'gbpCurrency_exeter_egg': gbpCurrency_exeter_egg,
@@ -6805,7 +6805,7 @@ def locationsUKRegions(request):
         'eurCurrency_exeter_iui': eurCurrency_exeter_iui,
         'my_total_count_exeter': my_total_count_exeter,
 
-            'gbpCurrency_glasgow_ivf': gbpCurrency_glasgow_ivf,
+        'gbpCurrency_glasgow_ivf': gbpCurrency_glasgow_ivf,
         'usdCurrency_glasgow_ivf': usdCurrency_glasgow_ivf,
         'eurCurrency_glasgow_ivf': eurCurrency_glasgow_ivf,
         'gbpCurrency_glasgow_egg': gbpCurrency_glasgow_egg,
@@ -6825,7 +6825,7 @@ def locationsUKRegions(request):
         'eurCurrency_glasgow_iui': eurCurrency_glasgow_iui,
         'my_total_count_glasgow': my_total_count_glasgow,
 
-            'gbpCurrency_hull_ivf': gbpCurrency_hull_ivf,
+        'gbpCurrency_hull_ivf': gbpCurrency_hull_ivf,
         'usdCurrency_hull_ivf': usdCurrency_hull_ivf,
         'eurCurrency_hull_ivf': eurCurrency_hull_ivf,
         'gbpCurrency_hull_egg': gbpCurrency_hull_egg,
@@ -6845,7 +6845,7 @@ def locationsUKRegions(request):
         'eurCurrency_hull_iui': eurCurrency_hull_iui,
         'my_total_count_hull': my_total_count_hull,
 
-            'gbpCurrency_chelmsford_ivf': gbpCurrency_chelmsford_ivf,
+        'gbpCurrency_chelmsford_ivf': gbpCurrency_chelmsford_ivf,
         'usdCurrency_chelmsford_ivf': usdCurrency_chelmsford_ivf,
         'eurCurrency_chelmsford_ivf': eurCurrency_chelmsford_ivf,
         'gbpCurrency_chelmsford_egg': gbpCurrency_chelmsford_egg,
@@ -6865,7 +6865,7 @@ def locationsUKRegions(request):
         'eurCurrency_chelmsford_iui': eurCurrency_chelmsford_iui,
         'my_total_count_chelmsford': my_total_count_chelmsford,
 
-            'gbpCurrency_leeds_ivf': gbpCurrency_leeds_ivf,
+        'gbpCurrency_leeds_ivf': gbpCurrency_leeds_ivf,
         'usdCurrency_leeds_ivf': usdCurrency_leeds_ivf,
         'eurCurrency_leeds_ivf': eurCurrency_leeds_ivf,
         'gbpCurrency_leeds_egg': gbpCurrency_leeds_egg,
@@ -6885,7 +6885,7 @@ def locationsUKRegions(request):
         'eurCurrency_leeds_iui': eurCurrency_leeds_iui,
         'my_total_count_leeds': my_total_count_leeds,
 
-            'gbpCurrency_leicester_ivf': gbpCurrency_leicester_ivf,
+        'gbpCurrency_leicester_ivf': gbpCurrency_leicester_ivf,
         'usdCurrency_leicester_ivf': usdCurrency_leicester_ivf,
         'eurCurrency_leicester_ivf': eurCurrency_leicester_ivf,
         'gbpCurrency_leicester_egg': gbpCurrency_leicester_egg,
@@ -6905,7 +6905,7 @@ def locationsUKRegions(request):
         'eurCurrency_leicester_iui': eurCurrency_leicester_iui,
         'my_total_count_leicester': my_total_count_leicester,
 
-            'gbpCurrency_liverpool_ivf': gbpCurrency_liverpool_ivf,
+        'gbpCurrency_liverpool_ivf': gbpCurrency_liverpool_ivf,
         'usdCurrency_liverpool_ivf': usdCurrency_liverpool_ivf,
         'eurCurrency_liverpool_ivf': eurCurrency_liverpool_ivf,
         'gbpCurrency_liverpool_egg': gbpCurrency_liverpool_egg,
@@ -6925,7 +6925,7 @@ def locationsUKRegions(request):
         'eurCurrency_liverpool_iui': eurCurrency_liverpool_iui,
         'my_total_count_liverpool': my_total_count_liverpool,
 
-            'gbpCurrency_london_ivf': gbpCurrency_london_ivf,
+        'gbpCurrency_london_ivf': gbpCurrency_london_ivf,
         'usdCurrency_london_ivf': usdCurrency_london_ivf,
         'eurCurrency_london_ivf': eurCurrency_london_ivf,
         'gbpCurrency_london_egg': gbpCurrency_london_egg,
@@ -6945,7 +6945,7 @@ def locationsUKRegions(request):
         'eurCurrency_london_iui': eurCurrency_london_iui,
         'my_total_count_london': my_total_count_london,
 
-            'gbpCurrency_manchester_ivf': gbpCurrency_manchester_ivf,
+        'gbpCurrency_manchester_ivf': gbpCurrency_manchester_ivf,
         'usdCurrency_manchester_ivf': usdCurrency_manchester_ivf,
         'eurCurrency_manchester_ivf': eurCurrency_manchester_ivf,
         'gbpCurrency_manchester_egg': gbpCurrency_manchester_egg,
@@ -6965,7 +6965,7 @@ def locationsUKRegions(request):
         'eurCurrency_manchester_iui': eurCurrency_manchester_iui,
         'my_total_count_manchester': my_total_count_manchester,
 
-            'gbpCurrency_middlesbrough_ivf': gbpCurrency_middlesbrough_ivf,
+        'gbpCurrency_middlesbrough_ivf': gbpCurrency_middlesbrough_ivf,
         'usdCurrency_middlesbrough_ivf': usdCurrency_middlesbrough_ivf,
         'eurCurrency_middlesbrough_ivf': eurCurrency_middlesbrough_ivf,
         'gbpCurrency_middlesbrough_egg': gbpCurrency_middlesbrough_egg,
@@ -6985,7 +6985,7 @@ def locationsUKRegions(request):
         'eurCurrency_middlesbrough_iui': eurCurrency_middlesbrough_iui,
         'my_total_count_middlesbrough': my_total_count_middlesbrough,
 
-            'gbpCurrency_newcastle_ivf': gbpCurrency_newcastle_ivf,
+        'gbpCurrency_newcastle_ivf': gbpCurrency_newcastle_ivf,
         'usdCurrency_newcastle_ivf': usdCurrency_newcastle_ivf,
         'eurCurrency_newcastle_ivf': eurCurrency_newcastle_ivf,
         'gbpCurrency_newcastle_egg': gbpCurrency_newcastle_egg,
@@ -7005,7 +7005,7 @@ def locationsUKRegions(request):
         'eurCurrency_newcastle_iui': eurCurrency_newcastle_iui,
         'my_total_count_newcastle': my_total_count_newcastle,
 
-            'gbpCurrency_norwich_ivf': gbpCurrency_norwich_ivf,
+        'gbpCurrency_norwich_ivf': gbpCurrency_norwich_ivf,
         'usdCurrency_norwich_ivf': usdCurrency_norwich_ivf,
         'eurCurrency_norwich_ivf': eurCurrency_norwich_ivf,
         'gbpCurrency_norwich_egg': gbpCurrency_norwich_egg,
@@ -7025,7 +7025,7 @@ def locationsUKRegions(request):
         'eurCurrency_norwich_iui': eurCurrency_norwich_iui,
         'my_total_count_norwich': my_total_count_norwich,
 
-            'gbpCurrency_nottingham_ivf': gbpCurrency_nottingham_ivf,
+        'gbpCurrency_nottingham_ivf': gbpCurrency_nottingham_ivf,
         'usdCurrency_nottingham_ivf': usdCurrency_nottingham_ivf,
         'eurCurrency_nottingham_ivf': eurCurrency_nottingham_ivf,
         'gbpCurrency_nottingham_egg': gbpCurrency_nottingham_egg,
@@ -7045,7 +7045,7 @@ def locationsUKRegions(request):
         'eurCurrency_nottingham_iui': eurCurrency_nottingham_iui,
         'my_total_count_nottingham': my_total_count_nottingham,
 
-            'gbpCurrency_oxford_ivf': gbpCurrency_oxford_ivf,
+        'gbpCurrency_oxford_ivf': gbpCurrency_oxford_ivf,
         'usdCurrency_oxford_ivf': usdCurrency_oxford_ivf,
         'eurCurrency_oxford_ivf': eurCurrency_oxford_ivf,
         'gbpCurrency_oxford_egg': gbpCurrency_oxford_egg,
@@ -7065,7 +7065,7 @@ def locationsUKRegions(request):
         'eurCurrency_oxford_iui': eurCurrency_oxford_iui,
         'my_total_count_oxford': my_total_count_oxford,
 
-            'gbpCurrency_peterborough_ivf': gbpCurrency_peterborough_ivf,
+        'gbpCurrency_peterborough_ivf': gbpCurrency_peterborough_ivf,
         'usdCurrency_peterborough_ivf': usdCurrency_peterborough_ivf,
         'eurCurrency_peterborough_ivf': eurCurrency_peterborough_ivf,
         'gbpCurrency_peterborough_egg': gbpCurrency_peterborough_egg,
@@ -7105,7 +7105,7 @@ def locationsUKRegions(request):
         'eurCurrency_plymouth_iui': eurCurrency_plymouth_iui,
         'my_total_count_plymouth': my_total_count_plymouth,
 
-            'gbpCurrency_portsmouth_ivf': gbpCurrency_portsmouth_ivf,
+        'gbpCurrency_portsmouth_ivf': gbpCurrency_portsmouth_ivf,
         'usdCurrency_portsmouth_ivf': usdCurrency_portsmouth_ivf,
         'eurCurrency_portsmouth_ivf': eurCurrency_portsmouth_ivf,
         'gbpCurrency_portsmouth_egg': gbpCurrency_portsmouth_egg,
@@ -7125,7 +7125,7 @@ def locationsUKRegions(request):
         'eurCurrency_portsmouth_iui': eurCurrency_portsmouth_iui,
         'my_total_count_portsmouth': my_total_count_portsmouth,
 
-            'gbpCurrency_salisbury_ivf': gbpCurrency_salisbury_ivf,
+        'gbpCurrency_salisbury_ivf': gbpCurrency_salisbury_ivf,
         'usdCurrency_salisbury_ivf': usdCurrency_salisbury_ivf,
         'eurCurrency_salisbury_ivf': eurCurrency_salisbury_ivf,
         'gbpCurrency_salisbury_egg': gbpCurrency_salisbury_egg,
@@ -7165,7 +7165,7 @@ def locationsUKRegions(request):
         'eurCurrency_sheffield_iui': eurCurrency_sheffield_iui,
         'my_total_count_sheffield': my_total_count_sheffield,
 
-            'gbpCurrency_southampton_ivf': gbpCurrency_southampton_ivf,
+        'gbpCurrency_southampton_ivf': gbpCurrency_southampton_ivf,
         'usdCurrency_southampton_ivf': usdCurrency_southampton_ivf,
         'eurCurrency_southampton_ivf': eurCurrency_southampton_ivf,
         'gbpCurrency_southampton_egg': gbpCurrency_southampton_egg,
@@ -7185,7 +7185,7 @@ def locationsUKRegions(request):
         'eurCurrency_southampton_iui': eurCurrency_southampton_iui,
         'my_total_count_southampton': my_total_count_southampton,
 
-           'gbpCurrency_swansea_ivf': gbpCurrency_swansea_ivf,
+        'gbpCurrency_swansea_ivf': gbpCurrency_swansea_ivf,
         'usdCurrency_swansea_ivf': usdCurrency_swansea_ivf,
         'eurCurrency_swansea_ivf': eurCurrency_swansea_ivf,
         'gbpCurrency_swansea_egg': gbpCurrency_swansea_egg,

@@ -4,6 +4,11 @@ CATEGORY_CHOICES_STATES = {
     'CZ': 'Czech Republic',
     }
 
+CATEGORY_CHOICES_CZ_CITIES = {
+    'Prague': 'Prague',
+    'Brno': 'Brno',
+    }
+
 CATEGORY_CHOICES_US_REGION = {
     'AL': 'Alabama',
     'AK': 'Alaska',
@@ -92,9 +97,4 @@ CATEGORY_CHOICES_UK_CITIES = {
     'Sheffield': 'Sheffield',
     'Southampton': 'Southampton',
     'Swansea': 'Swansea',
-    }
-
-CATEGORY_CHOICES_CZ_CITIES = {
-    'Prague': 'Prague',
-    'Brno': 'Brno',
     }

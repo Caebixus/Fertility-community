@@ -24,7 +24,7 @@ class PostAdmin(admin.ModelAdmin):
         ('Team', {'fields': ('team1name', 'team1pic', 'team2name', 'team2pic', 'team3name', 'team3pic',)}),
         ('Promotion', {'fields': ('clinic_pro_promotion_name', 'clinic_pro_promotion_description', 'clinic_pro_promotion_landing_url',)}),
         ('Images', {'fields': ('clinic_pro_logo_pic', 'clinic_pro_main_pic', 'clinic_pro_photo_1', 'clinic_pro_photo_2', 'clinic_pro_photo_3', 'clinic_pro_photo_4', 'clinic_pro_photo_5', 'clinic_pro_photo_6',)}),
-        ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'clinic_staff',)}),
+        ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'clinic_staff', 'type',)}),
     )
     actions = ['clinicLocationLink_update_g']
 

@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
+from search.choices import CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES
 
 CATEGORY_PACKAGE = (
     ('IVF', 'IVF'),

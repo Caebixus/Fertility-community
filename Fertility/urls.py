@@ -32,7 +32,7 @@ urlpatterns = [
     path('', include('location.urls')),
     path('', include('clinicsUS.urls')),
     path('', include('clinicsUK.urls')),
-    path('', include('agenciesCZ.urls')),
+    path('', include('clinicsCZ.urls')),
     path('', include('searchLocationsCities.urls')),
     path('', include('searchLocationsCountries.urls')),
     path('', include('searchLocationsRegionsUS.urls')),

@@ -191,7 +191,16 @@
         {% elif values.Region == 'DC'%}
           Search fertility clinics & agencies in District of Columbia, United States
         {% endif %}
-      {% elif values.States == 'CZ' %}Search fertility clinics & agencies in Czech Republic
+      {% elif values.States == 'CZ' %}
+        {% if values.Region == '' %}
+          Search fertility clinics & agencies in Czech Republic
+        {% elif values.Region == None %}
+          Search fertility clinics & agencies in Czech Republic
+        {% elif values.Region == 'Prague' %}
+          Search fertility clinics & agencies in Prague, Czech Republic
+        {% elif values.Region == 'Brno'%}
+          Search fertility clinics & agencies in Brno, Czech Republic
+        {% endif %}
       {% endif %}
     </h1>
     {% if values.States != None %}
@@ -236,6 +245,19 @@
               <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                 <option value="" selected>Select UK region</option>
                 {% for key, value in CATEGORY_CHOICES_UK_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        {% elif values.States == 'CZ' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-cz">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Czech city</option>
+                {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
                 <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                 {% endfor %}
               </select>
@@ -1064,6 +1086,12 @@
                   <i class="fas fa-flag"></i> USA Compare
                 </button>
               </a>
+              {% elif values.States == 'CZ' %}
+              <a href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Czech Compare
+                </button>
+              </a>
               {% endif %}
             </div>
             <div class="col-6 col-md">
@@ -1180,12 +1208,12 @@
   <div class="row">
     <div class="col-6 col-md">
       <ul class="list-unstyled text-small">
-        <li><a href="#">Prague IVF clinics</a></li>
+        <li><a href="{% url 'fertilityClinicPrague' %}">Prague IVF clinics</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
       <ul class="list-unstyled text-small">
-        <li><a href="#">Brno IVF clinics</a></li>
+        <li><a href="{% url 'fertilityClinicBrno' %}">Brno IVF clinics</a></li>
       </ul>
     </div>
   </div>

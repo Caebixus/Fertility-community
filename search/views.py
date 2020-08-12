@@ -93,6 +93,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -125,6 +126,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -157,6 +159,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -190,6 +193,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -223,6 +227,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -256,6 +261,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -289,6 +295,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -322,6 +329,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -355,6 +363,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -388,6 +397,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -421,6 +431,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -452,6 +463,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -483,6 +495,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -514,6 +527,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -650,6 +664,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -682,6 +697,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -714,6 +730,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -745,6 +762,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -776,6 +794,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -807,6 +826,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -838,6 +858,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -869,6 +890,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -900,6 +922,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -931,6 +954,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -962,6 +986,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -993,6 +1018,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1024,6 +1050,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1055,6 +1082,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1185,6 +1213,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1217,6 +1246,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1249,6 +1279,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1280,6 +1311,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1311,6 +1343,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1342,6 +1375,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1373,6 +1407,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1404,6 +1439,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1435,6 +1471,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1466,6 +1503,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1497,6 +1535,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1528,6 +1567,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1559,6 +1599,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1590,6 +1631,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1721,6 +1763,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1753,6 +1796,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1785,6 +1829,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1816,6 +1861,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1847,6 +1893,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1878,6 +1925,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1909,6 +1957,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1940,6 +1989,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -1971,6 +2021,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2002,6 +2053,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2033,6 +2085,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2064,6 +2117,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2095,6 +2149,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2126,6 +2181,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2256,6 +2312,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2288,6 +2345,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2320,6 +2378,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2351,6 +2410,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2382,6 +2442,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2413,6 +2474,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2444,6 +2506,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2475,6 +2538,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2506,6 +2570,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2537,6 +2602,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2568,6 +2634,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2599,6 +2666,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2630,6 +2698,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2661,6 +2730,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2792,6 +2862,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2824,6 +2895,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2856,6 +2928,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2887,6 +2960,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2918,6 +2992,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2949,6 +3024,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -2980,6 +3056,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3011,6 +3088,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3042,6 +3120,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3073,6 +3152,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3104,6 +3184,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3135,6 +3216,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3166,6 +3248,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3197,6 +3280,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3328,6 +3412,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3360,6 +3445,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3392,6 +3478,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3423,6 +3510,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3454,6 +3542,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3485,6 +3574,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3516,6 +3606,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3547,6 +3638,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3578,6 +3670,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3609,6 +3702,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3640,6 +3734,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3671,6 +3766,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3702,6 +3798,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3733,6 +3830,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3864,6 +3962,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3896,6 +3995,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3928,6 +4028,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3959,6 +4060,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -3990,6 +4092,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4021,6 +4124,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4052,6 +4156,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4083,6 +4188,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4114,6 +4220,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4145,6 +4252,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4176,6 +4284,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4207,6 +4316,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4238,6 +4348,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4269,6 +4380,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4399,6 +4511,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4431,6 +4544,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4463,6 +4577,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4494,6 +4609,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4525,6 +4641,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4556,6 +4673,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4587,6 +4705,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4618,6 +4737,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4649,6 +4769,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4680,6 +4801,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4711,6 +4833,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4742,6 +4865,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4773,6 +4897,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4804,6 +4929,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4935,6 +5061,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4967,6 +5094,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -4999,6 +5127,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5030,6 +5159,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5061,6 +5191,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5092,6 +5223,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5123,6 +5255,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5154,6 +5287,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5185,6 +5319,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5216,6 +5351,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5247,6 +5383,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5278,6 +5415,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5309,6 +5447,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5340,6 +5479,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5471,6 +5611,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5503,6 +5644,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5535,6 +5677,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5566,6 +5709,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5597,6 +5741,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5628,6 +5773,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5659,6 +5805,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5690,6 +5837,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5721,6 +5869,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5752,6 +5901,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5783,6 +5933,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5814,6 +5965,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5845,6 +5997,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -5876,6 +6029,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6007,6 +6161,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6039,6 +6194,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6071,6 +6227,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6102,6 +6259,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6133,6 +6291,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6164,6 +6323,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6195,6 +6355,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6226,6 +6387,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6257,6 +6419,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6288,6 +6451,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6319,6 +6483,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6350,6 +6515,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6381,6 +6547,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6412,6 +6579,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6543,6 +6711,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6575,6 +6744,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6607,6 +6777,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6638,6 +6809,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6669,6 +6841,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6700,6 +6873,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6731,6 +6905,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6762,6 +6937,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6793,6 +6969,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6824,6 +7001,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6855,6 +7033,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6886,6 +7065,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6917,6 +7097,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -6948,6 +7129,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7079,6 +7261,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7111,6 +7294,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7143,6 +7327,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7174,6 +7359,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7205,6 +7391,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7236,6 +7423,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7267,6 +7455,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7298,6 +7487,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7329,6 +7519,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7360,6 +7551,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7391,6 +7583,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7422,6 +7615,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7453,6 +7647,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7484,6 +7679,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7615,6 +7811,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7647,6 +7844,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7679,6 +7877,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7710,6 +7909,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7741,6 +7941,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7772,6 +7973,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7803,6 +8005,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7834,6 +8037,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7865,6 +8069,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7896,6 +8101,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7927,6 +8133,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7958,6 +8165,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -7989,6 +8197,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8020,6 +8229,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8151,6 +8361,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8183,6 +8394,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8215,6 +8427,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8246,6 +8459,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8277,6 +8491,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8308,6 +8523,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8339,6 +8555,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8370,6 +8587,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8401,6 +8619,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8432,6 +8651,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8463,6 +8683,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8494,6 +8715,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8525,6 +8747,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8556,6 +8779,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8687,6 +8911,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8719,6 +8944,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8751,6 +8977,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8782,6 +9009,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8813,6 +9041,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8844,6 +9073,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8875,6 +9105,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8906,6 +9137,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8937,6 +9169,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8968,6 +9201,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -8999,6 +9233,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9030,6 +9265,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9061,6 +9297,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9092,6 +9329,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9223,6 +9461,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9255,6 +9494,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9287,6 +9527,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9318,6 +9559,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9349,6 +9591,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9380,6 +9623,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9411,6 +9655,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9442,6 +9687,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9473,6 +9719,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9504,6 +9751,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9535,6 +9783,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9566,6 +9815,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9597,6 +9847,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9628,6 +9879,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9759,6 +10011,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9791,6 +10044,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9823,6 +10077,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9854,6 +10109,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9885,6 +10141,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9916,6 +10173,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9947,6 +10205,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -9978,6 +10237,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10009,6 +10269,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10040,6 +10301,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10071,6 +10333,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10102,6 +10365,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10133,6 +10397,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10164,6 +10429,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10295,6 +10561,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10327,6 +10594,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10359,6 +10627,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10390,6 +10659,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10421,6 +10691,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10452,6 +10723,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10483,6 +10755,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10514,6 +10787,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10545,6 +10819,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10576,6 +10851,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10607,6 +10883,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10638,6 +10915,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10669,6 +10947,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10700,6 +10979,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10831,6 +11111,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10863,6 +11144,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10895,6 +11177,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10926,6 +11209,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10957,6 +11241,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -10988,6 +11273,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11019,6 +11305,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11050,6 +11337,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11081,6 +11369,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11112,6 +11401,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11143,6 +11433,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11174,6 +11465,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11205,6 +11497,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11236,6 +11529,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11367,6 +11661,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11399,6 +11694,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11431,6 +11727,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11462,6 +11759,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11493,6 +11791,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11524,6 +11823,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11555,6 +11855,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11586,6 +11887,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11617,6 +11919,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11648,6 +11951,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11679,6 +11983,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11710,6 +12015,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11741,6 +12047,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11772,6 +12079,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11903,6 +12211,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11935,6 +12244,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11967,6 +12277,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -11998,6 +12309,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12029,6 +12341,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12060,6 +12373,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12091,6 +12405,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12122,6 +12437,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12153,6 +12469,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12184,6 +12501,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12215,6 +12533,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12246,6 +12565,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12277,6 +12597,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12308,6 +12629,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12439,6 +12761,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12471,6 +12794,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12503,6 +12827,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12534,6 +12859,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12565,6 +12891,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12596,6 +12923,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12627,6 +12955,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12658,6 +12987,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12689,6 +13019,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12720,6 +13051,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12751,6 +13083,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12782,6 +13115,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12813,6 +13147,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12844,6 +13179,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -12975,6 +13311,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13007,6 +13344,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13039,6 +13377,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13070,6 +13409,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13101,6 +13441,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13132,6 +13473,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13163,6 +13505,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13194,6 +13537,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13225,6 +13569,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13256,6 +13601,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13287,6 +13633,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13318,6 +13665,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13349,6 +13697,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13380,6 +13729,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13511,6 +13861,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13543,6 +13894,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13575,6 +13927,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13606,6 +13959,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13637,6 +13991,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13668,6 +14023,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13699,6 +14055,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13730,6 +14087,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13761,6 +14119,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13792,6 +14151,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13823,6 +14183,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13854,6 +14215,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13885,6 +14247,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -13916,6 +14279,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14047,6 +14411,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14079,6 +14444,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14111,6 +14477,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14142,6 +14509,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14173,6 +14541,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14204,6 +14573,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14235,6 +14605,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14266,6 +14637,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14297,6 +14669,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14328,6 +14701,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14359,6 +14733,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14390,6 +14765,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14421,6 +14797,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14452,6 +14829,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14583,6 +14961,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14615,6 +14994,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14647,6 +15027,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14678,6 +15059,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14709,6 +15091,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14740,6 +15123,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14771,6 +15155,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14802,6 +15187,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14833,6 +15219,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14864,6 +15251,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14895,6 +15283,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14926,6 +15315,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14957,6 +15347,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -14988,6 +15379,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15119,6 +15511,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15151,6 +15544,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15183,6 +15577,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15214,6 +15609,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15245,6 +15641,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15276,6 +15673,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15307,6 +15705,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15338,6 +15737,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15369,6 +15769,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15400,6 +15801,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15431,6 +15833,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15462,6 +15865,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15493,6 +15897,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15524,6 +15929,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15655,6 +16061,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15687,6 +16094,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15719,6 +16127,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15750,6 +16159,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15781,6 +16191,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15812,6 +16223,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15843,6 +16255,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15874,6 +16287,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15905,6 +16319,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15936,6 +16351,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15967,6 +16383,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -15998,6 +16415,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16029,6 +16447,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16060,6 +16479,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16191,6 +16611,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16223,6 +16644,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16255,6 +16677,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16286,6 +16709,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16317,6 +16741,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16348,6 +16773,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16379,6 +16805,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16410,6 +16837,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16441,6 +16869,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16472,6 +16901,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16503,6 +16933,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16534,6 +16965,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16565,6 +16997,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16596,6 +17029,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16727,6 +17161,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16759,6 +17194,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16791,6 +17227,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16822,6 +17259,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16853,6 +17291,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16884,6 +17323,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16915,6 +17355,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16946,6 +17387,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -16977,6 +17419,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17008,6 +17451,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17039,6 +17483,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17070,6 +17515,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17101,6 +17547,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17132,6 +17579,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17263,6 +17711,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17295,6 +17744,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17327,6 +17777,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17358,6 +17809,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17389,6 +17841,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17420,6 +17873,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17451,6 +17905,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17482,6 +17937,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17513,6 +17969,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17544,6 +18001,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17575,6 +18033,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17606,6 +18065,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17637,6 +18097,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17668,6 +18129,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17799,6 +18261,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17831,6 +18294,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17863,6 +18327,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17894,6 +18359,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17925,6 +18391,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17956,6 +18423,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -17987,6 +18455,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18018,6 +18487,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18049,6 +18519,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18080,6 +18551,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18111,6 +18583,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18142,6 +18615,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18173,6 +18647,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18204,6 +18679,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18335,6 +18811,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18367,6 +18844,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18399,6 +18877,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18430,6 +18909,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18461,6 +18941,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18492,6 +18973,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18523,6 +19005,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18554,6 +19037,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18585,6 +19069,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18616,6 +19101,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18647,6 +19133,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18678,6 +19165,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18709,6 +19197,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18740,6 +19229,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18871,6 +19361,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18903,6 +19394,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18935,6 +19427,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18966,6 +19459,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -18997,6 +19491,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19028,6 +19523,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19059,6 +19555,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19090,6 +19587,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19121,6 +19619,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19152,6 +19651,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19183,6 +19683,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19214,6 +19715,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19245,6 +19747,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19276,6 +19779,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19407,6 +19911,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19439,6 +19944,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19471,6 +19977,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19502,6 +20009,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19533,6 +20041,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19564,6 +20073,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19595,6 +20105,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19626,6 +20137,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19657,6 +20169,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19688,6 +20201,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19719,6 +20233,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19750,6 +20265,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19781,6 +20297,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19812,6 +20329,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19943,6 +20461,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -19975,6 +20494,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20007,6 +20527,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20038,6 +20559,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20069,6 +20591,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20100,6 +20623,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20131,6 +20655,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20162,6 +20687,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20193,6 +20719,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20224,6 +20751,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20255,6 +20783,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20286,6 +20815,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20317,6 +20847,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20348,6 +20879,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20479,6 +21011,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20511,6 +21044,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20543,6 +21077,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20574,6 +21109,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20605,6 +21141,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20636,6 +21173,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20667,6 +21205,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20698,6 +21237,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20729,6 +21269,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20760,6 +21301,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20791,6 +21333,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20822,6 +21365,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20853,6 +21397,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -20884,6 +21429,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21015,6 +21561,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21047,6 +21594,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21079,6 +21627,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21110,6 +21659,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21141,6 +21691,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21172,6 +21723,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21203,6 +21755,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21234,6 +21787,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21265,6 +21819,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21296,6 +21851,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21327,6 +21883,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21358,6 +21915,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21389,6 +21947,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21420,6 +21979,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21551,6 +22111,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21583,6 +22144,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21615,6 +22177,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21646,6 +22209,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21677,6 +22241,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21708,6 +22273,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21739,6 +22305,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21770,6 +22337,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21801,6 +22369,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21832,6 +22401,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21863,6 +22433,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21894,6 +22465,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21925,6 +22497,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -21956,6 +22529,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22087,6 +22661,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22119,6 +22694,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22151,6 +22727,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22182,6 +22759,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22213,6 +22791,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22244,6 +22823,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22275,6 +22855,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22306,6 +22887,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22337,6 +22919,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22368,6 +22951,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22399,6 +22983,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22430,6 +23015,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22461,6 +23047,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22492,6 +23079,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22622,6 +23210,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22654,6 +23243,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22686,6 +23276,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22717,6 +23308,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22748,6 +23340,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22779,6 +23372,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22810,6 +23404,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22841,6 +23436,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22872,6 +23468,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22903,6 +23500,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22934,6 +23532,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22965,6 +23564,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -22996,6 +23596,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23027,6 +23628,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23157,6 +23759,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23189,6 +23792,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23221,6 +23825,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23252,6 +23857,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23283,6 +23889,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23314,6 +23921,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23345,6 +23953,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23376,6 +23985,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23407,6 +24017,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23438,6 +24049,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23469,6 +24081,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23500,6 +24113,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23531,6 +24145,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23562,6 +24177,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23692,6 +24308,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23724,6 +24341,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23756,6 +24374,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23787,6 +24406,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23818,6 +24438,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23849,6 +24470,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23880,6 +24502,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23911,6 +24534,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23942,6 +24566,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -23973,6 +24598,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24004,6 +24630,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24035,6 +24662,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24066,6 +24694,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24097,6 +24726,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24227,6 +24857,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24259,6 +24890,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24291,6 +24923,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24322,6 +24955,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24353,6 +24987,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24384,6 +25019,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24415,6 +25051,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24446,6 +25083,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24477,6 +25115,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24508,6 +25147,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24539,6 +25179,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24570,6 +25211,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24601,6 +25243,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24632,6 +25275,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24762,6 +25406,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24794,6 +25439,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24826,6 +25472,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24857,6 +25504,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24888,6 +25536,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24919,6 +25568,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24950,6 +25600,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -24981,6 +25632,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25012,6 +25664,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25043,6 +25696,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25074,6 +25728,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25105,6 +25760,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25136,6 +25792,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25167,6 +25824,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25297,6 +25955,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25329,6 +25988,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25361,6 +26021,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25392,6 +26053,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25423,6 +26085,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25454,6 +26117,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25485,6 +26149,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25516,6 +26181,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25547,6 +26213,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25578,6 +26245,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25609,6 +26277,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25640,6 +26309,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25671,6 +26341,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25702,6 +26373,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25832,6 +26504,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25864,6 +26537,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25896,6 +26570,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25927,6 +26602,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25958,6 +26634,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -25989,6 +26666,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26020,6 +26698,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26051,6 +26730,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26082,6 +26762,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26113,6 +26794,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26144,6 +26826,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26175,6 +26858,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26206,6 +26890,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26237,6 +26922,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26367,6 +27053,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26399,6 +27086,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26431,6 +27119,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26462,6 +27151,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26493,6 +27183,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26524,6 +27215,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26555,6 +27247,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26586,6 +27279,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26617,6 +27311,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26648,6 +27343,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26679,6 +27375,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26710,6 +27407,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26741,6 +27439,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26772,6 +27471,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26902,6 +27602,7 @@ def search(request):
                         elif treatments == 'IVFtreatmenttrue':
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26934,6 +27635,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26966,6 +27668,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -26997,6 +27700,7 @@ def search(request):
                         elif treatments == 'ICSItreatmenttrue':
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27028,6 +27732,7 @@ def search(request):
                         elif treatments == 'Eggdonationrecipientstrue':
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27059,6 +27764,7 @@ def search(request):
                         elif treatments == 'Spermdonationrecipientstrue':
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27090,6 +27796,7 @@ def search(request):
                         elif treatments == 'Embryodonationrecipientstrue':
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27121,6 +27828,7 @@ def search(request):
                         elif treatments == 'EggFreezingtrue':
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27152,6 +27860,7 @@ def search(request):
                         elif treatments == 'EmbryoFreezingtrue':
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27183,6 +27892,7 @@ def search(request):
                         elif treatments == 'SpermFreezingtrue':
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27214,6 +27924,7 @@ def search(request):
                         elif treatments == 'Surrogacytrue':
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27245,6 +27956,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27276,6 +27988,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -27307,6 +28020,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28559,6 +29273,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28591,6 +29306,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28623,6 +29339,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28656,6 +29373,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28689,6 +29407,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28722,6 +29441,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28755,6 +29475,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28788,6 +29509,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28821,6 +29543,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28854,6 +29577,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28887,6 +29611,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28918,6 +29643,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28949,6 +29675,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -28980,6 +29707,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29112,6 +29840,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29144,6 +29873,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29176,6 +29906,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29209,6 +29940,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29242,6 +29974,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29275,6 +30008,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29308,6 +30042,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29341,6 +30076,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29374,6 +30110,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29407,6 +30144,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29440,6 +30178,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29471,6 +30210,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29502,6 +30242,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29533,6 +30274,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29665,6 +30407,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29697,6 +30440,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29729,6 +30473,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29762,6 +30507,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29795,6 +30541,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29828,6 +30575,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29861,6 +30609,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29894,6 +30643,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29927,6 +30677,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29960,6 +30711,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -29993,6 +30745,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30024,6 +30777,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30055,6 +30809,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30086,6 +30841,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30218,6 +30974,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30250,6 +31007,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30282,6 +31040,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30315,6 +31074,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30348,6 +31108,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30381,6 +31142,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30414,6 +31176,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30447,6 +31210,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30480,6 +31244,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30513,6 +31278,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30546,6 +31312,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30577,6 +31344,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30608,6 +31376,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30639,6 +31408,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30771,6 +31541,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30803,6 +31574,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30835,6 +31607,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30868,6 +31641,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30901,6 +31675,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30934,6 +31709,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -30967,6 +31743,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31000,6 +31777,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31033,6 +31811,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31066,6 +31845,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31099,6 +31879,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31130,6 +31911,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31161,6 +31943,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31192,6 +31975,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31324,6 +32108,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31356,6 +32141,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31388,6 +32174,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31421,6 +32208,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31454,6 +32242,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31487,6 +32276,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31520,6 +32310,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31553,6 +32344,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31586,6 +32378,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31619,6 +32412,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31652,6 +32446,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31683,6 +32478,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31714,6 +32510,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31745,6 +32542,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31877,6 +32675,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31909,6 +32708,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31941,6 +32741,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -31974,6 +32775,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32007,6 +32809,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32040,6 +32843,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32073,6 +32877,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32106,6 +32911,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32139,6 +32945,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32172,6 +32979,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32205,6 +33013,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32236,6 +33045,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32267,6 +33077,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32298,6 +33109,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32430,6 +33242,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32462,6 +33275,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32494,6 +33308,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32527,6 +33342,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32560,6 +33376,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32593,6 +33410,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32626,6 +33444,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32659,6 +33478,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32692,6 +33512,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32725,6 +33546,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32758,6 +33580,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32789,6 +33612,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32820,6 +33644,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32851,6 +33676,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -32983,6 +33809,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33015,6 +33842,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33047,6 +33875,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33080,6 +33909,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33113,6 +33943,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33146,6 +33977,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33179,6 +34011,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33212,6 +34045,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33245,6 +34079,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33278,6 +34113,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33311,6 +34147,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33342,6 +34179,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33373,6 +34211,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33404,6 +34243,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33536,6 +34376,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33568,6 +34409,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33600,6 +34442,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33633,6 +34476,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33666,6 +34510,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33699,6 +34544,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33732,6 +34578,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33765,6 +34612,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33798,6 +34646,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33831,6 +34680,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33864,6 +34714,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33895,6 +34746,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33926,6 +34778,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -33957,6 +34810,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34089,6 +34943,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34121,6 +34976,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34153,6 +35009,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34186,6 +35043,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34219,6 +35077,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34252,6 +35111,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34285,6 +35145,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34318,6 +35179,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34351,6 +35213,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34384,6 +35247,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34417,6 +35281,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34448,6 +35313,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34479,6 +35345,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34510,6 +35377,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34642,6 +35510,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34674,6 +35543,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34706,6 +35576,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34739,6 +35610,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34772,6 +35644,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34805,6 +35678,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34838,6 +35712,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34871,6 +35746,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34904,6 +35780,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34937,6 +35814,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -34970,6 +35848,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35001,6 +35880,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35032,6 +35912,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35063,6 +35944,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35195,6 +36077,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35227,6 +36110,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35259,6 +36143,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35292,6 +36177,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35325,6 +36211,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35358,6 +36245,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35391,6 +36279,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35424,6 +36313,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35457,6 +36347,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35490,6 +36381,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35523,6 +36415,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35554,6 +36447,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35585,6 +36479,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35616,6 +36511,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35748,6 +36644,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35780,6 +36677,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35812,6 +36710,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35845,6 +36744,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35878,6 +36778,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35911,6 +36812,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35944,6 +36846,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -35977,6 +36880,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36010,6 +36914,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36043,6 +36948,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36076,6 +36982,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36107,6 +37014,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36138,6 +37046,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36169,6 +37078,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36301,6 +37211,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36333,6 +37244,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36365,6 +37277,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36398,6 +37311,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36431,6 +37345,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36464,6 +37379,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36497,6 +37413,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36530,6 +37447,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36563,6 +37481,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36596,6 +37515,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36629,6 +37549,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36660,6 +37581,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36691,6 +37613,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36722,6 +37645,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36854,6 +37778,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36886,6 +37811,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36918,6 +37844,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36951,6 +37878,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -36984,6 +37912,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37017,6 +37946,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37050,6 +37980,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37083,6 +38014,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37116,6 +38048,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37149,6 +38082,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37182,6 +38116,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37213,6 +38148,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37244,6 +38180,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37275,6 +38212,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37407,6 +38345,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37439,6 +38378,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37471,6 +38411,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37504,6 +38445,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37537,6 +38479,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37570,6 +38513,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37603,6 +38547,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37636,6 +38581,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37669,6 +38615,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37702,6 +38649,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37735,6 +38683,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37766,6 +38715,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37797,6 +38747,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37828,6 +38779,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37960,6 +38912,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -37992,6 +38945,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38024,6 +38978,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38057,6 +39012,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38090,6 +39046,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38123,6 +39080,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38156,6 +39114,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38189,6 +39148,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38222,6 +39182,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38255,6 +39216,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38288,6 +39250,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38319,6 +39282,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38350,6 +39314,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38381,6 +39346,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38513,6 +39479,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38545,6 +39512,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38577,6 +39545,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38610,6 +39579,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38643,6 +39613,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38676,6 +39647,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38709,6 +39681,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38742,6 +39715,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38775,6 +39749,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38808,6 +39783,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38841,6 +39817,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38872,6 +39849,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38903,6 +39881,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -38934,6 +39913,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39066,6 +40046,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39098,6 +40079,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39130,6 +40112,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39163,6 +40146,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39196,6 +40180,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39229,6 +40214,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39262,6 +40248,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39295,6 +40282,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39328,6 +40316,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39361,6 +40350,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39394,6 +40384,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39425,6 +40416,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39456,6 +40448,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39487,6 +40480,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39619,6 +40613,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39651,6 +40646,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39683,6 +40679,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39716,6 +40713,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39749,6 +40747,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39782,6 +40781,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39815,6 +40815,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39848,6 +40849,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39881,6 +40883,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39914,6 +40917,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39947,6 +40951,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -39978,6 +40983,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40009,6 +41015,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40040,6 +41047,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40172,6 +41180,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40204,6 +41213,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40236,6 +41246,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40269,6 +41280,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40302,6 +41314,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40335,6 +41348,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40368,6 +41382,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40401,6 +41416,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40434,6 +41450,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40467,6 +41484,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40500,6 +41518,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40531,6 +41550,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40562,6 +41582,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40593,6 +41614,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40725,6 +41747,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40757,6 +41780,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40789,6 +41813,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40822,6 +41847,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40855,6 +41881,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40888,6 +41915,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40921,6 +41949,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40954,6 +41983,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -40987,6 +42017,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41020,6 +42051,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41053,6 +42085,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41084,6 +42117,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41115,6 +42149,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41146,6 +42181,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41278,6 +42314,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41310,6 +42347,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41342,6 +42380,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41375,6 +42414,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41408,6 +42448,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41441,6 +42482,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41474,6 +42516,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41507,6 +42550,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41540,6 +42584,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41573,6 +42618,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41606,6 +42652,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41637,6 +42684,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41668,6 +42716,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41699,6 +42748,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41831,6 +42881,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41863,6 +42914,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41895,6 +42947,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41928,6 +42981,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41961,6 +43015,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -41994,6 +43049,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42027,6 +43083,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42060,6 +43117,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42093,6 +43151,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42126,6 +43185,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42159,6 +43219,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42190,6 +43251,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42221,6 +43283,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42252,6 +43315,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42384,6 +43448,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42416,6 +43481,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42448,6 +43514,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42481,6 +43548,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42514,6 +43582,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42547,6 +43616,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42580,6 +43650,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42613,6 +43684,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42646,6 +43718,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42679,6 +43752,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42712,6 +43786,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42743,6 +43818,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42774,6 +43850,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42805,6 +43882,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42937,6 +44015,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -42969,6 +44048,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43001,6 +44081,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43034,6 +44115,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43067,6 +44149,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43100,6 +44183,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43133,6 +44217,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43166,6 +44251,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43199,6 +44285,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43232,6 +44319,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43265,6 +44353,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43296,6 +44385,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43327,6 +44417,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43358,6 +44449,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43490,6 +44582,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43522,6 +44615,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43554,6 +44648,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43587,6 +44682,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43620,6 +44716,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43653,6 +44750,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43686,6 +44784,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43719,6 +44818,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43752,6 +44852,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43785,6 +44886,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43818,6 +44920,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43849,6 +44952,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43880,6 +44984,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -43911,6 +45016,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44043,6 +45149,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44075,6 +45182,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44107,6 +45215,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44140,6 +45249,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44173,6 +45283,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44206,6 +45317,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44239,6 +45351,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44272,6 +45385,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44305,6 +45419,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44338,6 +45453,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44371,6 +45487,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44402,6 +45519,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44433,6 +45551,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44464,6 +45583,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44596,6 +45716,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44628,6 +45749,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44660,6 +45782,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44693,6 +45816,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44726,6 +45850,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44759,6 +45884,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44792,6 +45918,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44825,6 +45952,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44858,6 +45986,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44891,6 +46020,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44924,6 +46054,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44955,6 +46086,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -44986,6 +46118,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45017,6 +46150,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45149,6 +46283,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45181,6 +46316,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45213,6 +46349,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45246,6 +46383,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45279,6 +46417,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45312,6 +46451,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45345,6 +46485,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45378,6 +46519,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45411,6 +46553,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45444,6 +46587,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45477,6 +46621,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45508,6 +46653,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45539,6 +46685,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45570,6 +46717,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45702,6 +46850,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45734,6 +46883,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45766,6 +46916,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45799,6 +46950,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45832,6 +46984,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45865,6 +47018,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45898,6 +47052,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45931,6 +47086,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45964,6 +47120,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -45997,6 +47154,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46030,6 +47188,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46061,6 +47220,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46092,6 +47252,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46123,6 +47284,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46870,6 +48032,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46902,6 +48065,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46934,6 +48098,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -46967,6 +48132,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47000,6 +48166,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47033,6 +48200,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47066,6 +48234,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47099,6 +48268,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47132,6 +48302,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47165,6 +48336,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47198,6 +48370,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47229,6 +48402,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47260,6 +48434,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47291,6 +48466,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47423,6 +48599,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47455,6 +48632,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(mild_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(mild_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47487,6 +48665,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(ovarian_ivf_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47520,6 +48699,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(icsi_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(icsi_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47553,6 +48733,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47586,6 +48767,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47619,6 +48801,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_donor_recipients=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_donor_recipients=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47652,6 +48835,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(egg_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(egg_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47685,6 +48869,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(embryo_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(embryo_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47718,6 +48903,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(sperm_freezing=True)
                             pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(sperm_freezing=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47751,6 +48937,7 @@ def search(request):
 
                             queryset_list = queryset_list.filter(surrogacy=True)
                             pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(surrogacy=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47782,6 +48969,7 @@ def search(request):
                         elif treatments == 'IUItreatmenttrue':
                             queryset_list = queryset_list.filter(iui_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(iui_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47813,6 +49001,7 @@ def search(request):
                         elif treatments == 'Singlewomantreatmenttrue':
                             queryset_list = queryset_list.filter(single_woman_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(single_woman_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
@@ -47844,6 +49033,7 @@ def search(request):
                         elif treatments == 'ReciprocalIVFtrue':
                             queryset_list = queryset_list.filter(reciprocal_treatment=True)
                             pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            ppq_queryset_list = ppq_queryset_list.filter(reciprocal_treatment=True)
                             order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()

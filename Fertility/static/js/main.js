@@ -1724,3 +1724,61 @@ $(document).ready(function (e) {
         }
     });
 });
+
+<!-- DISPLAY SELECTED CURRENCY ON CZ | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    $('#ChooseCurrencyCZ').change(function () {
+        if ($(this).val() == 'USD') {
+          $('#usdPrague').show();
+          $('#usdBrno').show();
+
+          $('#eurPrague').hide();
+          $('#eurBrno').hide();
+
+          $('#gbpPrague').hide();
+          $('#gbpBrno').hide();
+
+          $('#defaultBoardPrague').hide();
+          $('#defaultBoardBrno').hide();
+
+        } else if ($(this).val() == 'EUR') {
+          $('#usdPrague').hide();
+          $('#usdBrno').hide();
+
+          $('#eurPrague').show();
+          $('#eurBrno').show();
+
+          $('#gbpPrague').hide();
+          $('#gbpBrno').hide();
+
+          $('#defaultBoardPrague').hide();
+          $('#defaultBoardBrno').hide();
+
+        } else if ($(this).val() == 'GBP') {
+          $('#usdPrague').hide();
+          $('#usdBrno').hide();
+
+          $('#eurPrague').hide();
+          $('#eurBrno').hide();
+
+          $('#gbpPrague').show();
+          $('#gbpBrno').show();
+
+          $('#defaultBoardPrague').hide();
+          $('#defaultBoardBrno').hide();
+
+        } else {
+          $('#usdPrague').hide();
+          $('#usdBrno').hide();
+
+          $('#eurPrague').hide();
+          $('#eurBrno').hide();
+
+          $('#gbpPrague').hide();
+          $('#gbpBrno').hide();
+
+          $('#defaultBoardPrague').show();
+          $('#defaultBoardBrno').show();
+        }
+    });
+});

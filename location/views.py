@@ -7208,3 +7208,176 @@ def locationsUKRegions(request):
 
 
     return render(request, 'main/Locations/UKLocations/uk-regions.html', context)
+
+
+def locationsCZRegions(request):
+    queryset_list_cz = BasicClinic.objects.all()
+
+    #--------------------------------------------------------------------------
+    queryset_list_prague = queryset_list_cz.filter(clinicRegion__iexact='Prague')
+    my_total_count_prague = queryset_list_prague.count()
+    queryset_list_prague_ivf = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_prague_ivf.items():
+        eurCurrency_prague_ivf = val
+        if eurCurrency_prague_ivf is not None:
+            usdCurrency_prague_ivf = val * eurToUsd
+            gbpCurrency_prague_ivf = val * eurToGbp
+        else:
+            usdCurrency_prague_ivf = None
+            gbpCurrency_prague_ivf = None
+
+    queryset_list_prague_egg = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_prague_egg.items():
+        eurCurrency_prague_egg = val
+        if eurCurrency_prague_egg is not None:
+            usdCurrency_prague_egg = val * eurToUsd
+            gbpCurrency_prague_egg = val * eurToGbp
+        else:
+            usdCurrency_prague_egg = None
+            gbpCurrency_prague_egg = None
+
+    queryset_list_prague_embryo = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_prague_embryo.items():
+        eurCurrency_prague_embryo = val
+        if eurCurrency_prague_embryo is not None:
+            usdCurrency_prague_embryo = val * eurToUsd
+            gbpCurrency_prague_embryo = val * eurToGbp
+        else:
+            usdCurrency_prague_embryo = None
+            gbpCurrency_prague_embryo = None
+
+    queryset_list_prague_sperm = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_prague_sperm.items():
+        eurCurrency_prague_sperm = val
+        if eurCurrency_prague_sperm is not None:
+            usdCurrency_prague_sperm = val * eurToUsd
+            gbpCurrency_prague_sperm = val * eurToGbp
+        else:
+            usdCurrency_prague_sperm = None
+            gbpCurrency_prague_sperm = None
+
+    queryset_list_prague_icsi = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_prague_icsi.items():
+        eurCurrency_prague_icsi = val
+        if eurCurrency_prague_icsi is not None:
+            usdCurrency_prague_icsi = val * eurToUsd
+            gbpCurrency_prague_icsi = val * eurToGbp
+        else:
+            usdCurrency_prague_icsi = None
+            gbpCurrency_prague_icsi = None
+
+    queryset_list_prague_iui = queryset_list_prague.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_prague_iui.items():
+        eurCurrency_prague_iui = val
+        if eurCurrency_prague_iui is not None:
+            usdCurrency_prague_iui = val * eurToUsd
+            gbpCurrency_prague_iui = val * eurToGbp
+        else:
+            usdCurrency_prague_iui = None
+            gbpCurrency_prague_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_brno = queryset_list_cz.filter(clinicRegion__iexact='Brno')
+    my_total_count_brno = queryset_list_brno.count()
+    queryset_list_brno_ivf = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_brno_ivf.items():
+        eurCurrency_brno_ivf = val
+        if eurCurrency_brno_ivf is not None:
+            usdCurrency_brno_ivf = val * eurToUsd
+            gbpCurrency_brno_ivf = val * eurToGbp
+        else:
+            usdCurrency_brno_ivf = None
+            gbpCurrency_brno_ivf = None
+
+    queryset_list_brno_egg = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_brno_egg.items():
+        eurCurrency_brno_egg = val
+        if eurCurrency_brno_egg is not None:
+            usdCurrency_brno_egg = val * eurToUsd
+            gbpCurrency_brno_egg = val * eurToGbp
+        else:
+            usdCurrency_brno_egg = None
+            gbpCurrency_brno_egg = None
+
+    queryset_list_brno_embryo = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_brno_embryo.items():
+        eurCurrency_brno_embryo = val
+        if eurCurrency_brno_embryo is not None:
+            usdCurrency_brno_embryo = val * eurToUsd
+            gbpCurrency_brno_embryo = val * eurToGbp
+        else:
+            usdCurrency_brno_embryo = None
+            gbpCurrency_brno_embryo = None
+
+    queryset_list_brno_sperm = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_brno_sperm.items():
+        eurCurrency_brno_sperm = val
+        if eurCurrency_brno_sperm is not None:
+            usdCurrency_brno_sperm = val * eurToUsd
+            gbpCurrency_brno_sperm = val * eurToGbp
+        else:
+            usdCurrency_brno_sperm = None
+            gbpCurrency_brno_sperm = None
+
+    queryset_list_brno_icsi = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_brno_icsi.items():
+        eurCurrency_brno_icsi = val
+        if eurCurrency_brno_icsi is not None:
+            usdCurrency_brno_icsi = val * eurToUsd
+            gbpCurrency_brno_icsi = val * eurToGbp
+        else:
+            usdCurrency_brno_icsi = None
+            gbpCurrency_brno_icsi = None
+
+    queryset_list_brno_iui = queryset_list_brno.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_brno_iui.items():
+        eurCurrency_brno_iui = val
+        if eurCurrency_brno_iui is not None:
+            usdCurrency_brno_iui = val * eurToUsd
+            gbpCurrency_brno_iui = val * eurToGbp
+        else:
+            usdCurrency_brno_iui = None
+            gbpCurrency_brno_iui = None
+
+    context = {
+        'gbpCurrency_prague_ivf': gbpCurrency_prague_ivf,
+        'usdCurrency_prague_ivf': usdCurrency_prague_ivf,
+        'eurCurrency_prague_ivf': eurCurrency_prague_ivf,
+        'gbpCurrency_prague_egg': gbpCurrency_prague_egg,
+        'usdCurrency_prague_egg': usdCurrency_prague_egg,
+        'eurCurrency_prague_egg': eurCurrency_prague_egg,
+        'gbpCurrency_prague_embryo': gbpCurrency_prague_embryo,
+        'usdCurrency_prague_embryo': usdCurrency_prague_embryo,
+        'eurCurrency_prague_embryo': eurCurrency_prague_embryo,
+        'gbpCurrency_prague_sperm': gbpCurrency_prague_sperm,
+        'usdCurrency_prague_sperm': usdCurrency_prague_sperm,
+        'eurCurrency_prague_sperm': eurCurrency_prague_sperm,
+        'gbpCurrency_prague_icsi': gbpCurrency_prague_icsi,
+        'usdCurrency_prague_icsi': usdCurrency_prague_icsi,
+        'eurCurrency_prague_icsi': eurCurrency_prague_icsi,
+        'gbpCurrency_prague_iui': gbpCurrency_prague_iui,
+        'usdCurrency_prague_iui': usdCurrency_prague_iui,
+        'eurCurrency_prague_iui': eurCurrency_prague_iui,
+        'my_total_count_prague': my_total_count_prague,
+
+        'gbpCurrency_brno_ivf': gbpCurrency_brno_ivf,
+        'usdCurrency_brno_ivf': usdCurrency_brno_ivf,
+        'eurCurrency_brno_ivf': eurCurrency_brno_ivf,
+        'gbpCurrency_brno_egg': gbpCurrency_brno_egg,
+        'usdCurrency_brno_egg': usdCurrency_brno_egg,
+        'eurCurrency_brno_egg': eurCurrency_brno_egg,
+        'gbpCurrency_brno_embryo': gbpCurrency_brno_embryo,
+        'usdCurrency_brno_embryo': usdCurrency_brno_embryo,
+        'eurCurrency_brno_embryo': eurCurrency_brno_embryo,
+        'gbpCurrency_brno_sperm': gbpCurrency_brno_sperm,
+        'usdCurrency_brno_sperm': usdCurrency_brno_sperm,
+        'eurCurrency_brno_sperm': eurCurrency_brno_sperm,
+        'gbpCurrency_brno_icsi': gbpCurrency_brno_icsi,
+        'usdCurrency_brno_icsi': usdCurrency_brno_icsi,
+        'eurCurrency_brno_icsi': eurCurrency_brno_icsi,
+        'gbpCurrency_brno_iui': gbpCurrency_brno_iui,
+        'usdCurrency_brno_iui': usdCurrency_brno_iui,
+        'eurCurrency_brno_iui': eurCurrency_brno_iui,
+        'my_total_count_brno': my_total_count_brno,
+        }
+    return render(request, 'main/Locations/CZLocations/cz-regions.html', context)

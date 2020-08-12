@@ -1,0 +1,75 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Compare costs of fertility clinics in Czech republic{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/locations/uk-regions{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs by Czech citites</h1>
+    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by Czech IVF & fertility clinics</p>
+    <br>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">Standard IVF</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP CZE cities</h2>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">
+                <select class="form-control" id="ChooseCurrencyCZ">
+                  <option value="" selected>Currency</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>GBP</option>
+                </select>
+              </th>
+              <th scope="col">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicPrague' %}"><u>Prague ({% if my_total_count_prague %}{{ my_total_count_prague }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardPrague">Choose currency above</div>
+                <div id="usdPrague" style="display:none">{% if usdCurrency_prague_ivf %}{{ usdCurrency_prague_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurPrague" style="display:none">{% if eurCurrency_prague_ivf %}{{ eurCurrency_prague_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpPrague" style="display:none">{% if gbpCurrency_prague_ivf %}{{ gbpCurrency_prague_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicPrague' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Prague IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBrno' %}"><u>Brno ({% if my_total_count_brno %}{{ my_total_count_brno }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardBrno">Choose currency above</div>
+                <div id="usdBrno" style="display:none">{% if usdCurrency_brno_ivf %}{{ usdCurrency_brno_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurBrno" style="display:none">{% if eurCurrency_brno_ivf %}{{ eurCurrency_brno_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpBrno" style="display:none">{% if gbpCurrency_brno_ivf %}{{ gbpCurrency_brno_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px"><a href="{% url 'fertilityClinicBrno' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Brno IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{% endblock  %}

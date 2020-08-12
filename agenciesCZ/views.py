@@ -7,11 +7,3 @@ from clinic.models import BasicClinic
 from django.utils import timezone
 
 # Create your views here.
-
-def pragamedica(request):
-    listing = BasicClinic.objects.get(pk=36)
-    context = {
-        'listing': listing,
-        }
-
-    return render(request, 'agencies/CZ/pragamedica.html', context)

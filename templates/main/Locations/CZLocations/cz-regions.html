@@ -55,7 +55,7 @@
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicPrague' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Prague IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicBrno' %}"><u>Brno ({% if my_total_count_brno %}{{ my_total_count_brno }} clinics{% else %}0 clinics){% endif %}</u></a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicBrno' %}"><u>Brno ({% if my_total_count_brno %}{{ my_total_count_brno }} clinics){% else %}0 clinics){% endif %}</u></a></th>
               <td style="font-size: 14px">
                 <div id="defaultBoardBrno">Choose currency above</div>
                 <div id="usdBrno" style="display:none">{% if usdCurrency_brno_ivf %}{{ usdCurrency_brno_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>

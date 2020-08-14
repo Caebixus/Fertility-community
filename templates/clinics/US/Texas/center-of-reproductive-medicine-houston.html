@@ -90,8 +90,12 @@
   <hr>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
-      <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-      <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ listing.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ listing.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
+      <br>
+      <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.871255412283!2d-95.40338568390005!3d29.69451208201095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c00ef1fd54e9%3A0xd755d33c2189ff89!2sCenter%20of%20Reproductive%20Medicine%20-%20Houston!5e0!3m2!1scs!2scz!4v1593527533562!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>

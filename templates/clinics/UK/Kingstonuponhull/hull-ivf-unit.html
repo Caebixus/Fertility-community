@@ -90,8 +90,12 @@
   <hr>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
-      <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-      <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ listing.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ listing.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
+      <br>
+      <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4719.146607523884!2d-0.355863!3d53.743674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcbcd739b896b8a6f!2sHull%20IVF%20Unit!5e0!3m2!1scs!2suk!4v1596641630586!5m2!1scs!2suk" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>

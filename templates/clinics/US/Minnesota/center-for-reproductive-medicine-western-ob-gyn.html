@@ -90,8 +90,12 @@
   <hr>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
-      <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-      <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ listing.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ listing.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
+      <br>
+      <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.1727268783116!2d-93.60323458365316!3d44.81804567909869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f6053df6179467%3A0xbb2f188e6494af53!2sWestern%20OB%2FGYN!5e0!3m2!1scs!2scz!4v1592154731259!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>

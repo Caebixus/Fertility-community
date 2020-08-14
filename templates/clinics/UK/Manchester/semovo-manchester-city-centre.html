@@ -90,8 +90,12 @@
   <hr>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
-      <p style="margin-bottom: 0px; font-size: 22px;">{{ listing.clinicStreetAddress }}, {{ listing.clinicCity }}, {{ listing.clinicPostalCode }}</p>
-      <p style="margin-bottom: 0px; font-size: 22px;">{{listing.clinicRegion}}, <b>{{ listing.clinicState }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ listing.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ listing.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
+      <br>
+      <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
     </div>

@@ -9,7 +9,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Fertility clinics & agencies near me</h1>
-    <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a cost comparison.</p>
+    <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a cost comparison. We have reviewed and categorized over <b><u>{{ listing }}</u></b> fertility clinics worldwide</p>
   </div>
   <div class="container">
     <div class="searchBox">
@@ -31,7 +31,7 @@
             <div class="accordion" id="accordionExample">
               <div class="card" id="cardBox" style="border-radius: 8px;">
                 <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
-                  <button id="treatmentsBtn" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Types of treatments
                   </button>
                 </div>
@@ -154,57 +154,111 @@
 <br>
 
 <div class="container">
-  <h2><i class="fas fa-search-location"></i> Popular Fertility & IVF Clinics Locations</h2>
+  <h2><i class="fas fa-search-location"></i> Featured Fertility & IVF Clinics Locations</h2>
   <br>
   <div class="row">
     <div class="col-6 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="{% url 'fertilityClinicUK' %}">UK Fertility Clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicCzech' %}">Czech Republic Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicUK' %}">UK Fertility Clinics ({{ukclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicCzech' %}">Czech Republic Fertility Clinics ({{czclinics}})</a></li>
         <li><a class="text-muted" href="{% url 'fertilityClinicSpain' %}">Spain Fertility Clinics</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="{% url 'fertilityClinicUSA' %}">USA Fertility Clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicUSA' %}">USA Fertility Clinics ({{usclinics}})</a></li>
         <li><a class="text-muted" href="{% url 'fertilityClinicGreece' %}">Greece fertility clinics</a></li>
         <li><a class="text-muted" href="{% url 'fertilityClinicIndia' %}">India fertility clinics</a></li>
       </ul>
     </div>
   </div>
   <br>
-  <h3><i class="fas fa-search-location"></i> US Regions:</h3>
+  <h3><i class="fas fa-search-location"></i>Popular US Regions:</h3>
   <br>
   <div class="row">
     <div class="col-4 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="{% url 'fertilityClinicsCalifornia' %}">California fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsAlabama' %}">Alabama fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsArizona' %}">Arizona fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsFlorida' %}">Florida fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsCalifornia' %}">California fertility clinics ({{californiaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsAlabama' %}">Alabama fertility clinics ({{alabamaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArizona' %}">Arizona fertility clinics ({{arizonaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsFlorida' %}">Florida fertility clinics ({{floridaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsTexas' %}">Texas fertility clinics ({{texasclinics}})</a></li>
         <br>
         <li><a href="{% url 'locationsUSRegions' %}"><u>All USA states comparison</u></a></li>
       </ul>
     </div>
     <div class="col-4 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="{% url 'fertilityClinicsNewYork' %}">New York fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsArkansas' %}">Arkansas fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsColorado' %}">Colorado fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsHawaii' %}">Hawaii fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNewYork' %}">New York fertility clinics ({{newyorkclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArkansas' %}">Arkansas fertility clinics ({{arkansasclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsColorado' %}">Colorado fertility clinics ({{coloradoclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsHawaii' %}">Hawaii fertility clinics ({{hawaiiclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsUtah' %}">Utah fertility clinics ({{utahclinics}})</a></li>
         <br>
         <li><a href="{% url 'locationsUSRegions' %}"><u>All USA states comparison</u></a></li>
       </ul>
     </div>
     <div class="col-4 col-md">
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="{% url 'fertilityClinicsConnecticut' %}">Connecticut fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsDelaware' %}">Delaware fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsGeorgia' %}">Georgia fertility clinics</a></li>
-        <li><a class="text-muted" href="{% url 'fertilityClinicsIllinois' %}">Illinois fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsConnecticut' %}">Connecticut fertility clinics ({{connecticutclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsDelaware' %}">Delaware fertility clinics ({{delawareclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsGeorgia' %}">Georgia fertility clinics ({{georgiaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsIllinois' %}">Illinois fertility clinics ({{illinoisclinics}})</a></li>
         <br>
         <li><a href="{% url 'locationsUSRegions' %}"><u>All USA states comparison</u></a></li>
       </ul>
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i>Popular UK Regions:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics ({{londonclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics ({{bristolclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics ({{leedsclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics ({{nottinghamclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>UK location comparison</u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics ({{birminghamclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics ({{exeterclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics ({{liverpoolclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics ({{portsmouthclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>UK location comparison</u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics ({{bournemouthclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics ({{glasgowclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics ({{manchesterclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics ({{sheffieldclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>UK location comparison</u></a></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i>Popular Czech Regions:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicPrague' %}">Prague fertility clinics ({{praguelinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicBrno' %}">Brno fertility clinics ({{brnoclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>UK location comparison</u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+    </div>
+    <div class="col-4 col-md">
     </div>
   </div>
 </div>

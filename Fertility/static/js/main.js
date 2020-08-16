@@ -61,7 +61,7 @@ $(document).ready(function (e) {
 <!-- DISPLAY REGION FORM IF UNITED STATES IS SELECTED | OWNERS --->
 $(document).ready(function (e) {
     $('#id_clinicState').change(function () {
-        if ($(this).val() == 'United States') {
+        if ($(this).val() == 'US') {
             $('#Regionsx').show();
         } else {
             $('#Regionsx').hide();

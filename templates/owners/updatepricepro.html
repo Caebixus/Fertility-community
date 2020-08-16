@@ -21,8 +21,8 @@
   {% endif %}
   <main role="main">
     <div class="container" style="max-width: 70rem">
-      <h1 style="text-align: center">Update clinic information</h1>
-      <h2 style="text-align: center">{{ instance.clinicName }}</h2>
+      <h1 style="text-align: center">Update clinic pricing:</h1>
+      <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
       <hr>
       <br>
       <div class="container" style="text-align: center">
@@ -35,13 +35,13 @@
           <div hidden class="clinicnaming">
             {{ form.clinicName }}
           </div>
-
+          <h2>Primary treatments & costs</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.ivf_treatment.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  IVF Treatment
+                  Natural IVF
                 </div>
                 <div class="col-2 col-md">
                   {{ form.ivf_treatment }}
@@ -50,14 +50,14 @@
               {% if form.ivf_treatment.value == True %}
                 <div id="js_ivf_cost" style="padding-top:1rem;">
                   <br>
-                  <p>Cost of IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Natural IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.ivf_treatment_cost.errors }}
                   {{ form.ivf_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_ivf_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.ivf_treatment_cost.errors }}
                   {{ form.ivf_treatment_cost }}
                 </div>
@@ -67,7 +67,7 @@
               {{ form.mild_ivf_treatment.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Mild IVF Treatment
+                  Mild IVF
                 </div>
                 <div class="col-2 col-md">
                   {{ form.mild_ivf_treatment }}
@@ -76,14 +76,14 @@
               {% if form.mild_ivf_treatment.value == True %}
                 <div id="js_mild_ivf_cost" style="padding-top:1rem;">
                   <br>
-                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.mild_ivf_treatment_cost.errors }}
                   {{ form.mild_ivf_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.mild_ivf_treatment_cost.errors }}
                   {{ form.mild_ivf_treatment_cost }}
                 </div>
@@ -93,7 +93,7 @@
               {{ form.ovarian_ivf_treatment.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  IVF using ovarian hyperstimulation
+                  Standard IVF
                 </div>
                 <div class="col-2 col-md">
                   {{ form.ovarian_ivf_treatment }}
@@ -102,20 +102,23 @@
               {% if form.ovarian_ivf_treatment.value == True %}
                 <div id="js_ovarian_ivf_cost" style="padding-top:1rem;">
                   <br>
-                  <p>Cost of IVF using ovarian hyperstimulation<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.ovarian_ivf_treatment_cost.errors }}
                   {{ form.ovarian_ivf_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of IVF using ovarian hyperstimulation<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.ovarian_ivf_treatment_cost.errors }}
                   {{ form.ovarian_ivf_treatment_cost }}
                 </div>
               {% endif %}
             </div>
           </div>
+
+
+
           <div class="row">
             <div class="col-sm py-4">
               {{ form.iui_treatment.errors }}
@@ -130,14 +133,14 @@
               {% if form.iui_treatment.value == True %}
                 <div id="js_iui_cost" style="padding-top:1rem">
                   <br>
-                  <p>Cost of IUI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.iui_treatment_cost.errors }}
                   {{ form.iui_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_iui_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of IUI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.iui_treatment_cost.errors }}
                   {{ form.iui_treatment_cost }}
                 </div>
@@ -157,14 +160,14 @@
               {% if form.icsi_treatment.value == True %}
                 <div id="js_icsi_cost" style="padding-top:1rem">
                   <br>
-                  <p>Cost of ICSI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.icsi_treatment.errors }}
                   {{ form.icsi_treatment_cost }}
                 </div>
               {% else %}
                 <div id="js_icsi_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of ICSI Treatment<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
                   {{ form.icsi_treatment.errors }}
                   {{ form.icsi_treatment_cost }}
                 </div>
@@ -176,7 +179,7 @@
               {{ form.egg_donor_recipients.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Egg donor recipients
+                  Egg donor recipients (anonymous)
                 </div>
                 <div class="col-2 col-md">
                   {{ form.egg_donor_recipients }}
@@ -185,14 +188,14 @@
               {% if form.egg_donor_recipients.value == True %}
                 <div id="js_egg_cost" style="padding-top:1rem">
                   <br>
-                  <p>Cost of Egg donor recipients<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
                   {{ form.egg_donor_recipients.errors }}
                   {{ form.egg_donor_recipients_cost }}
                 </div>
               {% else %}
                 <div id="js_egg_cost" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of Egg donor recipients<i> (Single treatment cost only, use your selected currency)</i></p>
+                  <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
                   {{ form.egg_donor_recipients.errors }}
                   {{ form.egg_donor_recipients_cost }}
                 </div>
@@ -203,7 +206,7 @@
               {{ form.embryo_donor_recipients.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Embryo donor recipients
+                  Embryo donor recipients (anonymous)
                 </div>
                 <div class="col-2 col-md">
                   {{ form.embryo_donor_recipients }}
@@ -212,16 +215,42 @@
               {% if form.embryo_donor_recipients.value == True %}
               <div id="js_embryo_cost" style="padding-top:1rem">
                 <br>
-                <p>Cost of Embryo donor recipients<i> (Single treatment cost only, use your selected currency)</i></p>
+                <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
                 {{ form.embryo_donor_recipients.errors }}
                 {{ form.embryo_donor_recipients_cost }}
               </div>
               {% else %}
               <div id="js_embryo_cost" style="padding-top:1rem; display: none">
                 <br>
-                <p>Cost of Embryo donor recipients<i> (Single treatment cost only, use your selected currency)</i></p>
+                <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
                 {{ form.embryo_donor_recipients.errors }}
                 {{ form.embryo_donor_recipients_cost }}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-sm py-4">
+              {{ form.sperm_donor_recipients.errors }}
+              <div class="row">
+                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+                  Sperm donor recipients (anonymous)
+                </div>
+                <div class="col-2 col-md">
+                  {{ form.sperm_donor_recipients }}
+                </div>
+              </div>
+              {% if form.sperm_donor_recipients.value == True %}
+              <div id="js_sperm_cost" style="padding-top:1rem">
+                <br>
+                <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+                {{ form.sperm_donor_recipients.errors }}
+                {{ form.sperm_donor_recipients_cost }}
+              </div>
+              {% else %}
+              <div id="js_sperm_cost" style="padding-top:1rem; display: none">
+                <br>
+                <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+                {{ form.sperm_donor_recipients.errors }}
+                {{ form.sperm_donor_recipients_cost }}
               </div>
               {% endif %}
             </div>
@@ -229,12 +258,13 @@
           <br>
           <hr>
           <br>
+          <h2>Additional treatments & costs</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.egg_freezing.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Egg freezing
+                  Egg freezing (1 year of storage)
                 </div>
                 <div class="col-2 col-md">
                   {{ form.egg_freezing }}
@@ -243,14 +273,14 @@
               {% if form.egg_freezing.value == True %}
                 <div id="js_egg_freezing" style="padding-top:1rem">
                   <br>
-                  <p>Cost of Egg freezing<i> (No package costs + the currency of your country)</i></p>
+                  <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
                   {{ form.egg_freezing.errors }}
                   {{ form.egg_freezing_cost }}
                 </div>
               {% else %}
                 <div id="js_egg_freezing" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of Egg freezing<i> (No package costs + the currency of your country)</i></p>
+                  <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
                   {{ form.egg_freezing.errors }}
                   {{ form.egg_freezing_cost }}
                 </div>
@@ -261,7 +291,7 @@
               {{ form.embryo_freezing.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Embryo freezing
+                  Embryo freezing (1 year of storage)
                 </div>
                 <div class="col-2 col-md">
                   {{ form.embryo_freezing }}
@@ -270,14 +300,14 @@
               {% if form.embryo_freezing.value == True %}
                 <div id="js_embryo_freezing" style="padding-top:1rem">
                   <br>
-                  <p>Cost of Embryo freezing<i> (No package costs + the currency of your country)</i></p>
+                  <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
                   {{ form.embryo_freezing.errors }}
                   {{ form.embryo_freezing_cost }}
                 </div>
               {% else %}
                 <div id="js_embryo_freezing" style="padding-top:1rem; display: none">
                   <br>
-                  <p>Cost of Embryo freezing<i> (No package costs + the currency of your country)</i></p>
+                  <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
                   {{ form.embryo_freezing.errors }}
                   {{ form.embryo_freezing_cost }}
                 </div>
@@ -288,7 +318,7 @@
               {{ form.sperm_freezing.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Sperm freezing
+                  Sperm freezing (1 year of storage)
                 </div>
                 <div class="col-2 col-md">
                   {{ form.sperm_freezing }}
@@ -297,14 +327,14 @@
               {% if form.sperm_freezing.value == True %}
               <div id="js_sperm_freezing" style="padding-top:1rem">
                 <br>
-                <p>Cost of Sperm freezing<i> (No package costs + the currency of your country)</i></p>
+                <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
                 {{ form.sperm_freezing.errors }}
                 {{ form.sperm_freezing_cost }}
               </div>
               {% else %}
               <div id="js_sperm_freezing" style="padding-top:1rem; display: none">
                 <br>
-                <p>Cost of Sperm freezing<i> (No package costs + the currency of your country)</i></p>
+                <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
                 {{ form.sperm_freezing.errors }}
                 {{ form.sperm_freezing_cost }}
               </div>
@@ -316,7 +346,7 @@
               {{ form.surrogacy.errors }}
               <div class="row">
                 <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Surrogacy
+                  Gestational surrogacy
                 </div>
                 <div class="col-2 col-md">
                   {{ form.surrogacy }}
@@ -325,14 +355,14 @@
               {% if form.surrogacy.value == True %}
               <div id="js_surrogacy_cost" style="padding-top:1rem">
                 <br>
-                <p>Cost of Gestational surrogacy<i> (No package costs + the currency of your country)</i></p>
+                <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
                 {{ form.surrogacy.errors }}
                 {{ form.surrogacy_cost }}
               </div>
               {% else %}
               <div id="js_surrogacy_cost" style="padding-top:1rem; display: none">
                 <br>
-                <p>Cost of Gestational surrogacy<i> (No package costs + the currency of your country)</i></p>
+                <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
                 {{ form.surrogacy.errors }}
                 {{ form.surrogacy_cost }}
               </div>
@@ -340,35 +370,12 @@
             </div>
 
             <div class="col-sm py-4">
-              {{ form.sperm_donor_recipients.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Sperm donor recipients
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.sperm_donor_recipients }}
-                </div>
-              </div>
-              {% if form.sperm_donor_recipients.value == True %}
-              <div id="js_sperm_cost" style="padding-top:1rem">
-                <br>
-                <p>Cost of Sperm donor recipients<i> (No package costs + the currency of your country)</i></p>
-                {{ form.sperm_donor_recipients.errors }}
-                {{ form.sperm_donor_recipients_cost }}
-              </div>
-              {% else %}
-              <div id="js_sperm_cost" style="padding-top:1rem; display: none">
-                <br>
-                <p>Cost of Sperm donor recipients<i> (No package costs + the currency of your country)</i></p>
-                {{ form.sperm_donor_recipients.errors }}
-                {{ form.sperm_donor_recipients_cost }}
-              </div>
-              {% endif %}
             </div>
           </div>
           <br>
           <hr>
           <br>
+          <h2>Conditions</h2>
           <div class="row">
             <div class="col-sm py-4">
               {{ form.single_woman_treatment.errors }}
@@ -403,171 +410,24 @@
                 </div>
               </div>
             </div>
-          </div>
-          <br>
-          <hr>
-          <br>
-          <h2>Packages</h2>
-          <div class="row">
             <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package1title.errors }}
-                <p style="font-weight:400"> First package title</p>
-                {{ form.package1title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package1category.errors }}
-                <p style="font-weight:400"> First package category</p>
-                {{ form.package1category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package1desc.errors }}
-                <p style="font-weight:400"> Information about first package (up to 300 characters)</p>
-                {{ form.package1desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package1cost.errors }}
-                <p style="font-weight:400"> First package cost</p>
-                {{ form.package1cost }}
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package2title.errors }}
-                <p style="font-weight:400"> Second package title</p>
-                {{ form.package2title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package2category.errors }}
-                <p style="font-weight:400"> Second package category</p>
-                {{ form.package2category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package2desc.errors }}
-                <p style="font-weight:400"> Information about second package (up to 300 characters)</p>
-                {{ form.package2desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package2cost.errors }}
-                <p style="font-weight:400"> Second package cost</p>
-                {{ form.package2cost }}
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package3title.errors }}
-                <p style="font-weight:400"> Third package title</p>
-                {{ form.package3title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package3category.errors }}
-                <p style="font-weight:400"> Third package category</p>
-                {{ form.package3category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package3desc.errors }}
-                <p style="font-weight:400"> Information about third package (up to 300 characters)</p>
-                {{ form.package3desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package3cost.errors }}
-                <p style="font-weight:400"> Third package cost</p>
-                {{ form.package3cost }}
+              {{ form.sex_selection.errors }}
+              <div class="row">
+                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+                  Sex / Gender selection
+                </div>
+                <div class="col-2 col-md">
+                  {{ form.sex_selection }}
+                </div>
               </div>
             </div>
           </div>
           <br>
           <hr>
           <br>
-          <div class="row">
-            <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package4title.errors }}
-                <p style="font-weight:400"> Fourth package title</p>
-                {{ form.package4title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package4category.errors }}
-                <p style="font-weight:400"> Fourth package category</p>
-                {{ form.package4category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package4desc.errors }}
-                <p style="font-weight:400"> Information about fourth package (up to 300 characters)</p>
-                {{ form.package4desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package4cost.errors }}
-                <p style="font-weight:400"> Fourth package cost</p>
-                {{ form.package4cost }}
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package5title.errors }}
-                <p style="font-weight:400"> Fifth package title</p>
-                {{ form.package5title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package5category.errors }}
-                <p style="font-weight:400"> Fifth package category</p>
-                {{ form.package5category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package5desc.errors }}
-                <p style="font-weight:400"> Information about fifth package (up to 300 characters)</p>
-                {{ form.package5desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package5cost.errors }}
-                <p style="font-weight:400"> Fifth package cost</p>
-                {{ form.package5cost }}
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package6title.errors }}
-                <p style="font-weight:400"> Sixth package title</p>
-                {{ form.package6title }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package6category.errors }}
-                <p style="font-weight:400"> Sixth package category</p>
-                {{ form.package6category }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package6desc.errors }}
-                <p style="font-weight:400"> Information about sixth package (up to 300 characters)</p>
-                {{ form.package6desc }}
-              </div>
-              <br>
-              <div class="fieldWrapper" style="text-align: left">
-                {{ form.package6cost.errors }}
-                <p style="font-weight:400"> Sixth package cost</p>
-                {{ form.package6cost }}
-              </div>
-            </div>
-          </div>
           <br>
           <br>
-          <input class="btn btn-dark" type='submit' value='Update' />
+          <input class="btn btn-dark" type='submit' value='Update pricing' />
         </form>
       </div>
     </div>

@@ -6,14 +6,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from packages.models import Packages
-from .models import ownerProInterested
+from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
+from .decorators import allowed_users
 
 # Create your views here.
 def register(request):
@@ -72,10 +73,28 @@ def logout(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
+    package = Packages.objects.all()
+    package = package.filter(packageOwner_id=request.user)
+    package = package.count()
+
+    instance = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    instance = instance.filter(is_published='True')
+    instance = instance.count()
+    instance = instance * 3
+
     userdata = User.objects.get(username=request.user).last_login
+
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
     context = {
         'listings': listings,
+        'package': package,
         'userdata': userdata,
+        'instance': instance,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/dashboard.html', context)
@@ -432,7 +451,7 @@ def claimClinic(request):
 
     return render(request, 'owners/claim.html', context)
 
-@login_required
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -450,18 +469,63 @@ def change_password(request):
 
 
 # PAYMENTS SECTION
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def payments(request):
     return render(request, 'owners/payments.html')
 
 # Packages SECTION
-def packages(request):
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+@allowed_users()
+def packages(request, listing_id):
+    instance = Packages.objects.filter(packageClinic=listing_id)
+    instance = instance.filter(packageOwner_id=request.user)
+    instance = instance.first()
+
     listing = Packages.objects.all()
     listing = listing.filter(packageOwner_id=request.user)
+    listing = listing.filter(packageClinic=listing_id)
     count = listing.count()
 
     context = {
+        'instance': instance,
         'listing': listing,
         'count': count,
     }
 
-    return render(request, 'owners/packages.html', context)
+    return render(request, 'owners/packages/packages.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+@allowed_users()
+def createpackage(request):
+    listing = Packages.objects.all()
+    listing = listing.filter(packageOwner_id=request.user)
+    count = listing.count()
+
+    instance = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    instance = instance.filter(is_published='True')
+    instance = instance.count()
+    instance = instance * 3
+
+    form = CreatePackage(request.POST or None, request.FILES or None)
+    form.fields['packageClinic'].queryset = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
+    if count < instance:
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.package_list_date = datetime.now()
+            form.packageOwner = request.user
+            form.save()
+
+            messages.success(request, '- Package created')
+            return redirect(dashboard)
+    else:
+        messages.warning(request, '- Maximum packages is {}' .format(instance))
+        return redirect(dashboard)
+
+    context = {
+        'form': form,
+        'count': count,
+        'instance': instance,
+    }
+
+    return render(request, 'owners/packages/create-package.html', context)

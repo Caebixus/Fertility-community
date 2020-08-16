@@ -31,63 +31,25 @@ def searchpackages(request):
 
         if states == 'US':
             pro_queryset_list = Packages.objects.all()
-            pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-            pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
+            pro_queryset_list = pro_queryset_list.filter(packageClinic__clinicState='United States')
 
-            ppq_queryset_list = Packages.objects.all()
-            ppq_queryset_list = ppq_queryset_list.filter(pro_is_published=True)
-            ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+            context = {
+                'listing': pro_queryset_list,
+                'values': request.GET,
+                }
 
-            my_total_count = Packages.objects.all()
-            my_total_count = my_total_count.filter(pro_is_published=True)
 
-            if 'Region' in request.GET:
-                region = request.GET['Region']
-
-                pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
-                ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
-
-                if region == 'CA':
-                    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
-                    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
-
-                    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
-                    my_total_count = my_total_count.count()
-
-                    pro_queryset_list = pro_queryset_list.order_by('?')
-                    ppq_queryset_list = ppq_queryset_list.order_by('?')
-
-                    if 'treatments' in request.GET:
-                        treatments = request.GET['packages']
-
-                        if treatments == 'Allpackagestrue':
-
-                            order_data = list(ppq_queryset_list) + list(pro_queryset_list)
-
-                            my_total_count = pro_queryset_list.count() + ppq_queryset_list.count()
-
-                            paginator = Paginator(order_data, 12)
-                            page = request.GET.get('page')
-                            paginationing = paginator.get_page(page)
-
-                            context = {
-                                'listing': queryset_list,
-                                'pro_listings': pro_queryset_list,
-                                'order_data': paginationing,
-                                'paginationing': paginationing,
-                                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-                                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-                                'my_total_count': my_total_count,
-                                'values': request.GET,
-                                }
-
-                            return render(request, 'packages/searching.html', context)
+            return render(request, 'packages/searching.html', context)
 
     context = {
-        'listing': listing,
+        'listing': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'my_total_count': my_total_count,
         'values': request.GET,
-    }
+        }
 
     return render(request, 'packages/searching.html', context)

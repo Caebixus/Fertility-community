@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Create new package</h1>
+    <br>
+  </div>
+</div>
+<br>
+<main role="main">
+  <div class="container" style="max-width: 70rem; text-align: center">
+    {% if form.errors %}
+      {% for field in form %}
+          {% for error in field.errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+          <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+          </div>
+      {% endfor %}
+    {% endif %}
+    <form method='POST' enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      {{ form.source.errors }}
+      {{ form.source }}
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.packagestitle.errors }}
+        <label for="{{ form.packagestitle.id_for_label}}">Package title:</label>
+        {{ form.packagestitle }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.packageClinic.errors }}
+        <label for="{{ form.packageClinic.id_for_label}}">Associated clinic:</label>
+        {{ form.packageClinic }}
+      </div>
+      <br>
+      <hr>
+      <br>
+      <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+      <div class="fieldWrapper" style="text-align:">
+        {{ form.packagesdesc.errors }}
+        <p>Package Description:</p>
+        {{ form.packagesdesc }}
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.packagescategory.errors }}
+        <label for="{{ form.packagescategory.id_for_label}}">Package category:</label>
+        <div class="fieldWrapper">
+          {{ form.packagescategory }}
+        </div>
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.packagescost.errors }}
+        <label for="{{ form.packagescost.id_for_label}}">Package cost in your clinic currency:</label>
+        <div class="fieldWrapper">
+          {{ form.packagescost }}
+        </div>
+      </div>
+      <br>
+      <input class="btn btn-dark" type='submit' value='Create package' />
+    </form>
+  </div>
+</main>
+<br>
+{% endblock  %}

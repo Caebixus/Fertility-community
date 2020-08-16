@@ -1,269 +1,15 @@
 from django import forms
+from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from .models import ownerProInterested
+from packages.models import Packages
+from packages.choices import CATEGORY_PACKAGE
+from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_UK_CITIES
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.forms.widgets import HiddenInput
 from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
-from search.choices import CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES
-
-CATEGORY_PACKAGE = (
-    ('IVF', 'IVF'),
-    ('Egg Donation', 'Egg Donation'),
-    ('Embryo Donation', 'Embryo Donation'),
-    )
-
-CATEGORY_CHOICES_STATES = (
-    ('select', 'select'),
-    ('Afghanistan', 'Afghanistan'),
-    ('Albania', 'Albania'),
-    ('Algeria', 'Algeria'),
-    ('Andorra', 'Andorra'),
-    ('Angola', 'Angola'),
-    ('Antigua and Barbuda', 'Antigua and Barbuda'),
-    ('Argentina', 'Argentina'),
-    ('Armenia', 'Armenia'),
-    ('Australia', 'Australia'),
-    ('Austria', 'Austria'),
-    ('Azerbaijan', 'Azerbaijan'),
-    ('The Bahamas', 'The Bahamas'),
-    ('Bahrain', 'Bahrain'),
-    ('Bangladesh', 'Bangladesh'),
-    ('Barbados', 'Barbados'),
-    ('Belarus', 'Belarus'),
-    ('Belgium', 'Belgium'),
-    ('Belize', 'Belize'),
-    ('Benin', 'Benin'),
-    ('Bhutan', 'Bhutan'),
-    ('Bolivia', 'Bolivia'),
-    ('Bosnia and Herzegovina', 'Bosnia and Herzegovina'),
-    ('Botswana', 'Botswana'),
-    ('Brazil', 'Brazil'),
-    ('Brunei', 'Brunei'),
-    ('Bulgaria', 'Bulgaria'),
-    ('Burkina Faso', 'Burkina Faso'),
-    ('Burundi', 'Burundi'),
-    ('Cambodia', 'Cambodia'),
-    ('Cameroon', 'Cameroon'),
-    ('Canada', 'Canada'),
-    ('Cape Verde', 'Cape Verde'),
-    ('Central African Republic', 'Central African Republic'),
-    ('Chad', 'Chad'),
-    ('Chile', 'Chile'),
-    ('China', 'China'),
-    ('Colombia', 'Colombia'),
-    ('Comoros', 'Comoros'),
-    ('Congo, Republic', 'Congo, Republic'),
-    ('Congo, Democratic Republic', 'Congo, Democratic Republic'),
-    ('Costa Rica', 'Costa Rica'),
-    ('Cote d’Ivoire', 'Cote d’Ivoire'),
-    ('Croatia', 'Croatia'),
-    ('Cuba', 'Cuba'),
-    ('Cyprus', 'Cyprus'),
-    ('Czech Republic', 'Czech Republic'),
-    ('Denmark', 'Denmark'),
-    ('Djibouti', 'Djibouti'),
-    ('Dominica', 'Dominica'),
-    ('Dominican Republic', 'Dominican Republic'),
-    ('East Timor (Timor-Leste)', 'East Timor (Timor-Leste)'),
-    ('Ecuador', 'Ecuador'),
-    ('Egypt', 'Egypt'),
-    ('El Salvador', 'El Salvador'),
-    ('Equatorial Guinea', 'Equatorial Guinea'),
-    ('Eritrea', 'Eritrea'),
-    ('Estonia', 'Estonia'),
-    ('Ethiopia', 'Ethiopia'),
-    ('Fiji', 'Fiji'),
-    ('Finland', 'Finland'),
-    ('France', 'France'),
-    ('Gabon', 'Gabon'),
-    ('The Gambia', 'The Gambia'),
-    ('Georgia', 'Georgia'),
-    ('Germany', 'Germany'),
-    ('Ghana', 'Ghana'),
-    ('Greece', 'Greece'),
-    ('Grenada', 'Grenada'),
-    ('Guatemala', 'Guatemala'),
-    ('Guinea', 'Guinea'),
-    ('Guinea-Bissau', 'Guinea-Bissau'),
-    ('Guyana', 'Guyana'),
-    ('Haiti', 'Haiti'),
-    ('Honduras', 'Honduras'),
-    ('Hungary', 'Hungary'),
-    ('Iceland', 'Iceland'),
-    ('India', 'India'),
-    ('Indonesia', 'Indonesia'),
-    ('Iran', 'Iran'),
-    ('Iraq', 'Iraq'),
-    ('Ireland', 'Ireland'),
-    ('Israel', 'Israel'),
-    ('Italy', 'Italy'),
-    ('Jamaica', 'Jamaica'),
-    ('Japan', 'Japan'),
-    ('Jordan', 'Jordan'),
-    ('Kazakhstan', 'Kazakhstan'),
-    ('Kenya', 'Kenya'),
-    ('Kiribati', 'Kiribati'),
-    ('Korea, South', 'Korea, South'),
-    ('Kosovo', 'Kosovo'),
-    ('Kuwait', 'Kuwait'),
-    ('Kyrgyzstan', 'Kyrgyzstan'),
-    ('Laos', 'Laos'),
-    ('Latvia', 'Latvia'),
-    ('Lebanon', 'Lebanon'),
-    ('Lesotho', 'Lesotho'),
-    ('Liberia', 'Liberia'),
-    ('Libya', 'Libya'),
-    ('Liechtenstein', 'Liechtenstein'),
-    ('Lithuania', 'Lithuania'),
-    ('Luxembourg', 'Luxembourg'),
-    ('Macedonia', 'Macedonia'),
-    ('Madagascar', 'Madagascar'),
-    ('Malawi', 'Malawi'),
-    ('Malaysia', 'Malaysia'),
-    ('Maldives', 'Maldives'),
-    ('Mali', 'Mali'),
-    ('Malta', 'Malta'),
-    ('Marshall Islands', 'Marshall Islands'),
-    ('Mauritania', 'Mauritania'),
-    ('Mauritius', 'Mauritius'),
-    ('Mexico', 'Mexico'),
-    ('Micronesia, Federated States', 'Micronesia, Federated States'),
-    ('Moldova', 'Moldova'),
-    ('Monaco', 'Monaco'),
-    ('Mongolia', 'Mongolia'),
-    ('Montenegro', 'Montenegro'),
-    ('Morocco', 'Morocco'),
-    ('Mozambique', 'Mozambique'),
-    ('Myanmar (Burma)', 'Myanmar (Burma)'),
-    ('Namibia', 'Namibia'),
-    ('Nauru', 'Nauru'),
-    ('Nepal', 'Nepal'),
-    ('Netherlands', 'Netherlands'),
-    ('New Zealand', 'New Zealand'),
-    ('Nicaragua', 'Nicaragua'),
-    ('Niger', 'Niger'),
-    ('Nigeria', 'Nigeria'),
-    ('Norway', 'Norway'),
-    ('Oman', 'Oman'),
-    ('Pakistan', 'Pakistan'),
-    ('Palau', 'Palau'),
-    ('Panama', 'Panama'),
-    ('Papua New Guinea', 'Papua New Guinea'),
-    ('Paraguay', 'Paraguay'),
-    ('Peru', 'Peru'),
-    ('Philippines', 'Philippines'),
-    ('Poland', 'Poland'),
-    ('Portugal', 'Portugal'),
-    ('Qatar', 'Qatar'),
-    ('Romania', 'Romania'),
-    ('Russia', 'Russia'),
-    ('Rwanda', 'Rwanda'),
-    ('Saint Kitts and Nevis', 'Saint Kitts and Nevis'),
-    ('Saint Lucia', 'Saint Lucia'),
-    ('Saint Vincent and the Grenadines', 'Saint Vincent and the Grenadines'),
-    ('Samoa', 'Samoa'),
-    ('San Marino', 'San Marino'),
-    ('Sao Tome and Principe', 'Sao Tome and Principe'),
-    ('Saudi Arabia', 'Saudi Arabia'),
-    ('Senegal', 'Senegal'),
-    ('Serbia', 'Serbia'),
-    ('Seychelles', 'Seychelles'),
-    ('Sierra Leone', 'Sierra Leone'),
-    ('Singapore', 'Singapore'),
-    ('Slovakia', 'Slovakia'),
-    ('Slovenia', 'Slovenia'),
-    ('Solomon Islands', 'Solomon Islands'),
-    ('Somalia', 'Somalia'),
-    ('South Africa', 'South Africa'),
-    ('South Sudan', 'South Sudan'),
-    ('Spain', 'Spain'),
-    ('Sri Lanka', 'Sri Lanka'),
-    ('Sudan', 'Sudan'),
-    ('Suriname', 'Suriname'),
-    ('Swaziland', 'Swaziland'),
-    ('Sweden', 'Sweden'),
-    ('Switzerland', 'Switzerland'),
-    ('Syria', 'Syria'),
-    ('Taiwan', 'Taiwan'),
-    ('Tajikistan', 'Tajikistan'),
-    ('Tanzania', 'Tanzania'),
-    ('Thailand', 'Thailand'),
-    ('Togo', 'Togo'),
-    ('Tonga', 'Tonga'),
-    ('Trinidad and Tobago', 'Trinidad and Tobago'),
-    ('Tunisia', 'Tunisia'),
-    ('Turkey', 'Turkey'),
-    ('Turkmenistan', 'Turkmenistan'),
-    ('Tuvalu', 'Tuvalu'),
-    ('Uganda', 'Uganda'),
-    ('Ukraine', 'Ukraine'),
-    ('United Arab Emirates', 'United Arab Emirates'),
-    ('United Kingdom', 'United Kingdom'),
-    ('United States', 'United States'),
-    ('Uruguay', 'Uruguay'),
-    ('Uzbekistan', 'Uzbekistan'),
-    ('Vanuatu', 'Vanuatu'),
-    ('Venezuela', 'Venezuela'),
-    ('Vietnam', 'Vietnam'),
-    ('Yemen', 'Yemen'),
-    ('Zambia', 'Zambia'),
-    ('Zimbabwe', 'Zimbabwe'),
-)
-
-CATEGORY_CHOICES_US_REGIONS = (
-    ('Alabama', 'Alabama'),
-    ('Alaska', 'Alaska'),
-    ('Arizona', 'Arizona'),
-    ('Arkansas', 'Arkansas'),
-    ('California', 'California'),
-    ('Colorado', 'Colorado'),
-    ('Connecticut', 'Connecticut'),
-    ('Delaware', 'Delaware'),
-    ('Georgia', 'Georgia'),
-    ('Hawaii', 'Hawaii'),
-    ('Idaho', 'Idaho'),
-    ('Illinois', 'Illinois'),
-    ('Indiana', 'Indiana'),
-    ('Iowa', 'Iowa'),
-    ('Kansas', 'Kansas'),
-    ('Kentucky', 'Kentucky'),
-    ('Louisiana', 'Louisiana'),
-    ('Maine', 'Maine'),
-    ('Maryland', 'Maryland'),
-    ('Massachusetts', 'Massachusetts'),
-    ('Michigan', 'Michigan'),
-    ('Minnesota', 'Minnesota'),
-    ('Mississippi', 'Mississippi'),
-    ('Missouri', 'Missouri'),
-    ('Montana', 'Montana'),
-    ('Nebraska', 'Nebraska'),
-    ('New Hampshire', 'New Hampshire'),
-    ('New Jersey', 'New Jersey'),
-    ('New Mexico', 'New Mexico'),
-    ('New York', 'New York'),
-    ('North Carolina', 'North Carolina'),
-    ('North Dakota', 'North Dakota'),
-    ('Ohio', 'Ohio'),
-    ('Oklahoma', 'Oklahoma'),
-    ('Oregon', 'Oregon'),
-    ('Pennsylvania', 'Pennsylvania'),
-    ('Puerto Rico', 'Puerto Rico'),
-    ('Rhode Island', 'Rhode Island'),
-    ('South Carolina', 'South Carolina'),
-    ('South Dakota', 'South Dakota'),
-    ('Tennessee', 'Tennessee'),
-    ('Texas', 'Texas'),
-    ('Utah', 'Utah'),
-    ('Vermont', 'Vermont'),
-    ('Virginia', 'Virginia'),
-    ('Washington', 'Washington'),
-    ('West Virginia', 'West Virginia'),
-    ('Wisconsin', 'Wisconsin'),
-    ('Wyoming', 'Wyoming'),
-    ('District of Columbia', 'District of Columbia'),
-    )
 
 CATEGORY_CHOICES_CURRENCY = (
     ('USD', 'USD'),
@@ -323,6 +69,69 @@ HOURS = (
     ("CLOSED", "CLOSED"),
 )
 
+CATEGORY_CHOICES_STATES = (
+    ('DF', 'Select State'),
+    ('US', 'United States'),
+    ('UK', 'United Kingdom'),
+    ('CZ', 'Czech Republic'),
+)
+
+CATEGORY_CHOICES_US_REGION = (
+    ('AL', 'Alabama'),
+    ('AK', 'Alaska'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('CA', 'California'),
+    ('CO', 'Colorado'),
+    ('CT', 'Connecticut'),
+    ('DE', 'Delaware'),
+    ('FL', 'Florida'),
+    ('GA', 'Georgia'),
+    ('HI', 'Hawaii'),
+    ('ID', 'Idaho'),
+    ('IL', 'Illinois'),
+    ('IN', 'Indiana'),
+    ('IA', 'Iowa'),
+    ('KS', 'Kansas'),
+    ('KY', 'Kentucky'),
+    ('LA', 'Louisiana'),
+    ('ME', 'Maine'),
+    ('MD', 'Maryland'),
+    ('MA', 'Massachusetts'),
+    ('MI', 'Michigan'),
+    ('MN', 'Minnesota'),
+    ('MS', 'Mississippi'),
+    ('MO', 'Missouri'),
+    ('MT', 'Montana'),
+    ('NE', 'Nebraska'),
+    ('NH', 'New Hampshire'),
+    ('NJ', 'New Jersey'),
+    ('NM', 'New Mexico'),
+    ('NY', 'New York'),
+    ('NC', 'North Carolina'),
+    ('ND', 'North Dakota'),
+    ('NV', 'Nevada'),
+    ('OH', 'Ohio'),
+    ('OK', 'Oklahoma'),
+    ('OR', 'Oregon'),
+    ('PA', 'Pennsylvania'),
+    ('PR', 'Puerto Rico'),
+    ('RI', 'Rhode Island'),
+    ('SC', 'South Carolina'),
+    ('SD', 'South Dakota'),
+    ('TN', 'Tennessee'),
+    ('TX', 'Texas'),
+    ('UT', 'Utah'),
+    ('VT', 'Vermont'),
+    ('VA', 'Virginia'),
+    ('WA', 'Washington'),
+    ('WV', 'West Virginia'),
+    ('WI', 'Wisconsin'),
+    ('WY', 'Wyoming'),
+    ('DC', 'District of Columbia'),
+)
+
+
 class CreateClinic(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
@@ -335,7 +144,7 @@ class CreateClinic(forms.ModelForm):
 
     clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
 
-    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGIONS, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
+    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGION, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
 
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics postal code'))
 
@@ -423,7 +232,7 @@ class PostForm(forms.ModelForm):
 
     clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
 
-    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGIONS, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
+    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGION, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics postal code'))
 
     clinicEnglish = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('English speaking personal'))
@@ -610,7 +419,7 @@ class PostFormPro(forms.ModelForm):
 
     clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
 
-    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGIONS, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
+    clinicRegion = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_US_REGION, attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
 
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
@@ -842,4 +651,29 @@ class OwnerProInterestedForm(forms.ModelForm):
         model = ownerProInterested
         fields = [
         'owner_interested',
+        ]
+
+
+class CreatePackage(forms.ModelForm):
+    packageClinic = forms.ModelChoiceField(queryset=BasicClinic.objects.all(), empty_label="Select Clinic for package")
+    packageOwner = forms.ModelChoiceField(queryset=BasicClinic.objects.all(), widget=forms.HiddenInput(attrs={'class': 'form-control',}), required=False)
+    packagestitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Package name'))
+    packagescategory = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), label=('Package category'))
+    packagesdesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
+    packagescost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'))
+
+    package_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
+    packageslimitnumber = forms.FloatField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), required=False)
+
+    class Meta:
+        model = Packages
+        fields = [
+        'packageOwner',
+        'packageClinic',
+        'packagestitle',
+        'packagescategory',
+        'packagesdesc',
+        'packagescost',
+        'package_list_date',
+        'packageslimitnumber',
         ]

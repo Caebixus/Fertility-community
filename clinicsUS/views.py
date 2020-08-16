@@ -35,8 +35,12 @@ def ncfmcr(request):
 def ncfmcs(request):
     listing = BasicClinic.objects.get(pk=4)
 
+    package = Packages.objects.all()
+    package = package.filter(packageClinic__id=4)
+
     context = {
         'listing': listing,
+        'package': package,
         }
 
     return render(request, 'clinics/US/California/northern-california-fertility-medical-center-sacramento.html', context)

@@ -10,3 +10,10 @@ class ownerProInterested(models.Model):
 
     def __str__(self):
         return str(self.clinicOwner)
+
+class ProUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    paidPropublished = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.user)

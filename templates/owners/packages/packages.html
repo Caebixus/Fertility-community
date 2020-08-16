@@ -1,0 +1,68 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <div class="row" style="padding-top:3rem;">
+      <div class="col-sm-10">
+        {% if instance.packageClinic.clinicName != None %}
+          <h1 class="display-4" style="color:white">My packages for <u>{{ instance.packageClinic.clinicName }}</u></h1>
+        {% else %}
+          <h1 class="display-4" style="color:white">Create your first Package</h1>
+        {% endif %}
+        <p class="lead" style="color:white">Currently you have: {{ listing.count }} for this clinic. Optimal would be 3 per clinic.</p>
+      </div>
+      <div class="col-sm-2">
+        <a href="{% url 'createpackage' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">
+            Create new package
+          </button>
+        </a>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+<div class="container">
+  <div class="row">
+    {% for listings in listing %}
+    <div class="col-sm-6">
+      <div class="card mb-6 shadow-lg">
+        <div class="card-header" style="background-color: #efefef;">
+          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ listings.packagestitle }}</b></p>
+          <hr>
+          <div class="row">
+            <div class="col-sm-8">
+              <p><b>Name of the clinic:</b> <a href="{{ listings.packageClinic.clinic_url }}">{{ listings.packageClinic.clinicName }}</a></p>
+              <p><b>Category:</b> <i>{{ listings.packagescategory }}</i></p>
+            </div>
+            <div class="col-sm-4">
+              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ listings.packagescost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" style="min-height: 20rem">
+          <p>{{ listings.packagesdesc|safe}}</p>
+        </div>
+        <div class="card-footer" style="background-color: #efefef; text-align:right">
+          <a href="mailto:{{ listing.contact_email }}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+              Get a quote
+            </button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock  %}

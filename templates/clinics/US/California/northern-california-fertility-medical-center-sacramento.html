@@ -66,16 +66,15 @@
 
 <br>
 <br>
-
 {% include 'clinicdetails/3secondarytreatments.html' %}
 
 <!-- ================================================== -->
-
+{% if listing.pro_is_published == True %}
 <br>
 <br>
-
-{% include 'clinicdetails/4clinicpackages.html' %}
-
+{% include 'clinicdetails/NewPackages.html' %}
+{% else %}
+{% endif %}
 <!-- ================================================== -->
 
 <br>

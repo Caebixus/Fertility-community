@@ -1,0 +1,36 @@
+{% load static %}
+<div class="container">
+  <div class="row">
+    {% for packages in package %}
+    <div class="col-sm-6">
+      <div class="card mb-6 shadow-lg">
+        <div class="card-header" style="background-color: #efefef;">
+          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ packages.packagestitle }}</b></p>
+          <hr>
+          <div class="row">
+            <div class="col-sm-8">
+              <p><b>Name of the clinic:</b> <a href="{{ packages.packageClinic.clinic_url }}">{{ packages.packageClinic.clinicName }}</a></p>
+              <p><b>Category:</b> <i>{{ packages.packagescategory }}</i></p>
+            </div>
+            <div class="col-sm-4">
+              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ packages.packagescost|floatformat:'0' }} {% if packages.defaultClinicCurrency == 'GBP' %}£{% elif packages.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" style="min-height: 20rem">
+          <p>{{ packages.packagesdesc|safe}}</p>
+        </div>
+        <div class="card-footer" style="background-color: #efefef; text-align:right">
+          <a href="mailto:{{ packages.contact_email }}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+              Get a quote
+            </button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
+</div>

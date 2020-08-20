@@ -13,6 +13,7 @@ h2 {
 h3 {
   font-family: 'Josefin Sans';
   text-align: left;
+  font-size: 130%
 }
 
 h4 {
@@ -202,6 +203,7 @@ p {
   font-weight: 300;
   color: #282c34;
   text-align: left;
+  font-size: 115%
 }
 
 ul {
@@ -238,6 +240,38 @@ button {
 
 body {
   position: relative;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-item{
+  text-align: center;
+}
+
+.carousel-inner img{
+  display: inline-block  !important;
 }
 
 #carouselHP {

@@ -11,10 +11,10 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
 def fertilityClinicPrague1(request):
-    return HttpResponsePermanentRedirect(reverse('fertilityClinicPrague1'))
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicPrague'))
 
 def fertilityClinicBrno1(request):
-    return HttpResponsePermanentRedirect(reverse('fertilityClinicBrno1'))
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicBrno'))
 
 def fertilityClinicPrague(request):
     queryset_list = BasicClinic.objects.all()

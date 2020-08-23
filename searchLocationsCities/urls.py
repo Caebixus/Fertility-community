@@ -7,7 +7,7 @@ urlpatterns = [
     path('locations/fertility-clinics-brno', views.fertilityClinicBrno1, name='fertilityClinicBrno1'),
     path('fertility-clinics-prague', views.fertilityClinicPrague, name='fertilityClinicPrague'),
     path('fertility-clinics-brno', views.fertilityClinicBrno, name='fertilityClinicBrno'),
-    
+
     path('fertility-clinics-aberdeen', views.fertilityClinicsAberdeen, name='fertilityClinicsAberdeen'),
     path('fertility-clinics-bath', views.fertilityClinicsBath, name='fertilityClinicsBath'),
     path('fertility-clinics-belfast', views.fertilityClinicsBelfast, name='fertilityClinicsBelfast'),

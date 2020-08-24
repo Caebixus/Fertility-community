@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Puerto Rico | 2020{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Puerto Rico | 2020{% endblock %}
 {% block description %}Search the best Puerto Rico fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-puerto-rico{% endblock %}
 {% block meta_keywords %}search fertility clinic puerto rico, search ivf clinics puerto rico, search fertility doctor puerto rico, search fertility specialist puerto rico, search fertility center puerto rico, search private fertility clinic puerto rico{% endblock %}
@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics & centers in Puerto Rico, United States
+          Fertility clinics in Puerto Rico, United States
     </h1>
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
   </div>

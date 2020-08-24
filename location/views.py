@@ -205,6 +205,74 @@ def locationsIVFwithEmbryoDonation(request):
 
     return render(request, 'main/Locations/locations-ivf-with-embryo-donors.html', context)
 
+def locationsIUI(request):
+    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = queryset_list_uk.filter(clinicState__iexact='United Kingdom')
+    my_total_clinic_count_uk = queryset_list_uk.count()
+
+    queryset_list_uk_iui = queryset_list_uk.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_uk_iui.items():
+        gbpCurrency_uk_iui = val
+        if gbpCurrency_uk_iui is not None:
+            usdCurrency_uk_iui = val * gbpToUsd
+            eurCurrency_uk_iui = val * gbpToEur
+        else:
+            usdCurrency_uk_iui = None
+            eurCurrency_uk_iui = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = queryset_list_us.filter(clinicState__iexact='United States')
+    my_total_clinic_count_us = queryset_list_us.count()
+
+    queryset_list_us_iui = queryset_list_us.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_us_iui.items():
+        usdCurrency_us_iui = val
+        if usdCurrency_us_iui is not None:
+            gbpCurrency_us_iui = val * usdToGbp
+            eurCurrency_us_iui = val * usdToEur
+        else:
+            gbpCurrency_us_iui = None
+            eurCurrency_us_iui = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = queryset_list_cz.filter(clinicState__iexact='Czech Republic')
+    my_total_clinic_count_cz = queryset_list_cz.count()
+
+    queryset_list_cz_iui = queryset_list_cz.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_cz_iui.items():
+        eurCurrency_cz_iui = val
+        if eurCurrency_cz_iui is not None:
+            gbpCurrency_cz_iui = val * eurToGbp
+            usdCurrency_cz_iui = val * eurToUsd
+        else:
+            gbpCurrency_cz_iui = None
+            usdCurrency_cz_iui = None
+
+    context = {
+        'my_total_clinic_count_uk': my_total_clinic_count_uk,
+        'gbpCurrency_uk_iui': gbpCurrency_uk_iui,
+        'usdCurrency_uk_iui': usdCurrency_uk_iui,
+        'eurCurrency_uk_iui': eurCurrency_uk_iui,
+
+        'my_total_clinic_count_us': my_total_clinic_count_us,
+        'gbpCurrency_us_iui': gbpCurrency_us_iui,
+        'usdCurrency_us_iui': usdCurrency_us_iui,
+        'eurCurrency_us_iui': eurCurrency_us_iui,
+
+        'my_total_clinic_count_cz': my_total_clinic_count_cz,
+        'gbpCurrency_cz_iui': gbpCurrency_cz_iui,
+        'usdCurrency_cz_iui': usdCurrency_cz_iui,
+        'eurCurrency_cz_iui': eurCurrency_cz_iui,
+        }
+
+    return render(request, 'main/Locations/locations-iui.html', context)
+
+
+
+
+
 
 
 

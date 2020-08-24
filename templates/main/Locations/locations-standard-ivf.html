@@ -8,8 +8,8 @@
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs</h1>
-    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by global IVF & fertility clinics</p>
+    <h1 class="display-5" style="padding-top:5rem; color: white">Standard IVF costs & average prices (Standard IVF with ovarian stimulation)</h1>
+      <p class="display-5" style="color: white">*Medications, pretests and additional procedures not included</p>
     <br>
     <div class="dropdown">
       <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,8 +17,9 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="{% url 'locations' %}">Standard IVF treatment</a>
-        <a class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">IVF treatment using egg donors</a>
-        <a class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">IVF treatment using embryo donors</a>
+        <a class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
       </div>
     </div>
     <br>
@@ -31,8 +32,6 @@
 <div class="container">
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
-      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation)</h2>
-      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
       <table class="table table-hover" id="UsdBoard">
         <br>
         <thead class="thead" style="background-color: #286DA8; color: white">

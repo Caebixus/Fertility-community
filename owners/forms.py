@@ -677,3 +677,20 @@ class CreatePackage(forms.ModelForm):
         'package_list_date',
         'packageslimitnumber',
         ]
+
+class PostFormProUpdatePackage(forms.ModelForm):
+    packageClinic = forms.ModelChoiceField(queryset=BasicClinic.objects.all(), empty_label="Select Clinic for package")
+    packagestitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Package name'))
+    packagescategory = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), label=('Package category'))
+    packagesdesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
+    packagescost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'))
+
+    class Meta:
+        model = Packages
+        fields = [
+        'packageClinic',
+        'packagestitle',
+        'packagescategory',
+        'packagesdesc',
+        'packagescost',
+        ]

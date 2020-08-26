@@ -6,9 +6,14 @@
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
     {% if usergroup %}
     <p style="color:white">You have {{package}} active packages. Your maximum limit for packages is {{ instance }}</p>
+    <br>
+    <a href="{% url 'packagesettings' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Package settings</button>
+    </a>
+    <br>
+    <br>
     {% else %}
     {% endif %}
-    <br>
   </div>
 </div>
 <br>
@@ -70,7 +75,7 @@
               <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic pricing</button>
             </a>
 
-            <a href="{% url 'packages' listings.id %}">
+            <a hidden href="{% url 'packages' listings.id %}">
               <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic packages</button>
             </a>
           {% endif %}

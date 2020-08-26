@@ -10,7 +10,7 @@ from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
@@ -101,16 +101,23 @@ def dashboard(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def settings(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
 
     context = {
         'listings': listings,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/settings.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def banners(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
     california = listings.filter(clinicRegion__iexact='California').first()
     alabama = listings.filter(clinicRegion__iexact='Alabama').first()
@@ -118,6 +125,7 @@ def banners(request):
 
     context = {
         'listings': listings,
+        'usergroup': usergroup,
         'california': california,
         'alabama': alabama,
         'england': england,
@@ -128,6 +136,9 @@ def banners(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def upgrade(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     form = OwnerProInterestedForm(request.POST or None)
     if form.is_valid():
         if ownerProInterested.objects.filter(clinicOwner=request.user).exists():
@@ -143,16 +154,24 @@ def upgrade(request):
 
     context = {
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/upgrade.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claim(request):
-    return render(request, 'owners/claim.html')
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+    context={'usergroup': usergroup}
+    return render(request, 'owners/claim.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     if request.method == 'POST':
         listing = BasicClinic()
 
@@ -229,11 +248,23 @@ def create(request):
         listing.save()
         return render(request, 'owners/dashboard.html')
     else:
-        return render(request, 'owners/create.html')
-    return render(request, 'owners/create.html')
+        context = {
+            'usergroup': usergroup,
+        }
+
+        return render(request, 'owners/create.html', context)
+
+    context = {
+        'usergroup': usergroup,
+    }
+
+    return render(request, 'owners/create.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create1(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     form = CreateClinic(request.POST or None, request.FILES or None)
     if form.is_valid():
         form = form.save(commit=False)
@@ -258,12 +289,16 @@ def create1(request):
 
     context = {
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/create1.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def update(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
@@ -292,12 +327,16 @@ def update(request, listing_id):
     context = {
         'instance': instance,
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/update.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatePricing(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
@@ -326,12 +365,16 @@ def updatePricing(request, listing_id):
     context = {
         'instance': instance,
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/updateprice.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updateproclinic(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
@@ -362,12 +405,16 @@ def updateproclinic(request, listing_id):
     context = {
         'instance': instance,
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/updateproclinic.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def updatePricingPro(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
     form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
@@ -396,6 +443,7 @@ def updatePricingPro(request, listing_id):
     context = {
         'instance': instance,
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/updatepricepro.html', context)
@@ -403,6 +451,9 @@ def updatePricingPro(request, listing_id):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def contactClinic(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     form = ContactForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form = form.save(commit=False)
@@ -422,12 +473,16 @@ def contactClinic(request):
 
     context = {
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/contactus.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claimClinic(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     form = ClaimForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form = form.save(commit=False)
@@ -447,12 +502,16 @@ def claimClinic(request):
 
     context = {
         'form': form,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/claim.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def change_password(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
 
@@ -464,19 +523,34 @@ def change_password(request):
 
     else:
         form = PasswordChangeForm(user=request.user)
-        args = {'form': form}
+        args = {
+            'form': form,
+            'usergroup': usergroup,
+            }
         return render(request, 'owners/change-password.html', args)
 
 
 # PAYMENTS SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def payments(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    context = {
+        'usergroup': usergroup,
+    }
+
     return render(request, 'owners/payments.html')
 
 # Packages SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 @allowed_users()
 def packages(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
     instance = Packages.objects.filter(packageClinic=listing_id)
     instance = instance.filter(packageOwner_id=request.user)
     instance = instance.first()
@@ -490,6 +564,7 @@ def packages(request, listing_id):
         'instance': instance,
         'listing': listing,
         'count': count,
+        'usergroup': usergroup
     }
 
     return render(request, 'owners/packages/packages.html', context)
@@ -497,6 +572,10 @@ def packages(request, listing_id):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 @allowed_users()
 def createpackage(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
     listing = Packages.objects.all()
     listing = listing.filter(packageOwner_id=request.user)
     count = listing.count()
@@ -526,6 +605,46 @@ def createpackage(request):
         'form': form,
         'count': count,
         'instance': instance,
+        'usergroup': usergroup,
     }
 
     return render(request, 'owners/packages/create-package.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+@allowed_users()
+def packagesettings(request):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    packages = Packages.objects.all()
+    packages = packages.filter(packageOwner_id=request.user)
+
+    context = {
+        'packages': packages,
+        'usergroup': usergroup,
+    }
+    return render(request, 'owners/packages/package-settings.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+@allowed_users()
+def updatepropackage(request, package_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+    instance = get_object_or_404(Packages, pk=package_id, packageOwner_id=request.user)
+    form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+
+        messages.success(request, '- Clinics information succesfully updated')
+        return redirect(dashboard)
+
+    context = {
+        'instance': instance,
+        'form': form,
+        'usergroup': usergroup,
+    }
+
+    return render(request, 'owners/packages/update-package.html', context)

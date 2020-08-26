@@ -123,6 +123,10 @@ select {
   padding-left: 75px;
 }
 
+#modelchoicefield {
+  background-color: grey;
+}
+
 #Region {
   font-family: 'Josefin Sans';
   font-style: normal;

@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
+    <br>
+    <hr>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  {% for package in packages %}
+    <p>{{ package.packagestitle }}</p>
+    <a href="{% url 'updatepropackage' package.id %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Update this package</button>
+    </a>
+  {% endfor %}
+</div>
+
+{% endblock  %}

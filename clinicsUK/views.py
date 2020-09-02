@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from packages.models import Packages
 from django.utils import timezone
+from owners.models import ownerProInterested, ProUser
 
 # Create your views here.
 def aberfercen(request):

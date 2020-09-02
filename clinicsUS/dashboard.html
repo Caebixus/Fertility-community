@@ -1,0 +1,123 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
+    {% if usergroup %}
+    <p style="color:white">You have {{package}} active packages. Your maximum limit for packages is {{ instance }}</p>
+    <br>
+    <a href="{% url 'packagesettings' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Package settings</button>
+    </a>
+    <br>
+    <br>
+    {% else %}
+    {% endif %}
+  </div>
+</div>
+<br>
+<div class="container py-4">
+  {% include 'partials/_alerts.html' %}
+  <div class="clinics" style="padding-bottom: 3rem">
+    <!-- Alerts -->
+    {% if listings %}
+    {% for listings in listings.all %}
+    {% if listings.is_published == True and listings.pro_is_published == False %}
+    <span class="badge badge-warning">Basic account</span>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+      </div>
+    </div>
+    {% elif listings.is_published == True and listings.pro_is_published == True %}
+    <span class="badge badge-primary">PRO account</span>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+      </div>
+    </div>
+    {% elif listings.is_published == False and listings.pro_is_published == False %}
+    <span class="badge badge-warning">Basic account</span>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-9">
+        <h3>{{ listings.clinicName }}</h3>
+      </div>
+    </div>
+    {% endif %}
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="row" style="text-align:center">
+        <div class="col-sm" style="padding-top: 1rem">
+          {% if listings.is_published == True and listings.pro_is_published == False %}
+
+            <a href="{% url 'update' listings.id %}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic information</button>
+            </a>
+
+            <a href="{% url 'updatePricing' listings.id %}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic pricing</button>
+            </a>
+
+          {% elif listings.is_published == True and listings.pro_is_published == True %}
+
+            <a href="{% url 'updateproclinic' listings.id %}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic information</button>
+            </a>
+
+            <a href="{% url 'updatePricingPro' listings.id %}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic pricing</button>
+            </a>
+
+            <a hidden href="{% url 'packages' listings.id %}">
+              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic packages</button>
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="col-sm" style="padding-top: 1rem">
+          {% if listings.is_published == True and listings.pro_is_published == False %}
+
+            <a href="{{ listings.clinic_url }}">
+              <button type="button" class="btn btn-outline-success btn-lg">View clinic</button>
+            </a>
+
+            <a href="{% url 'upgrade' %}">
+              <button type="button" class="btn btn-outline-primary btn-lg">Upgrade to PRO</button>
+            </a>
+
+          {% elif listings.is_published == True and listings.pro_is_published == True %}
+
+            <a href="{{ listings.clinic_url }}">
+              <button type="button" class="btn btn-outline-success btn-lg">View clinic</button>
+            </a>
+
+
+            <a href="">
+              <button type="button" class="btn btn-outline-primary btn-lg">PRO Features</button>
+            </a>
+          {% else %}
+
+            <a href="{{ listings.clinic_url }}">
+              <button disabled type="button" class="btn btn-outline-success btn-lg">In review</button>
+            </a>
+
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
+    {% endfor %}
+    {% else %}
+    <p>There is no clinic connected to you account. Claim or add new one</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock  %}

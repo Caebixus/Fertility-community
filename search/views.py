@@ -2285,7 +2285,7 @@ def search(request):
 
                             my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count() + ppq_queryset_list.count()
 
-                            paginator = Paginator(order_data, 3)
+                            paginator = Paginator(order_data, 12)
                             page = request.GET.get('page')
                             paginationing = paginator.get_page(page)
 
@@ -49647,6 +49647,7 @@ def search(request):
                             }
 
                         return render(request, 'search/search.html', context)
+
                 queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
                 pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
                 ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
@@ -49678,6 +49679,38 @@ def search(request):
                     }
 
                 return render(request, 'search/search.html', context)
+
+            queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
+            pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
+            ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
+
+            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+            paginator = Paginator(order_data, 12)
+            page = request.GET.get('page')
+            paginationing = paginator.get_page(page)
+
+            context = {
+                'listings': queryset_list,
+                'pro_listings': pro_queryset_list,
+                'order_data': paginationing,
+                'paginationing': paginationing,
+                'averageIVFPrice': averageIVFPrice,
+                'averageEggPrice': averageEggPrice,
+                'averageEmbryoPrice': averageEmbryoPrice,
+                'averageSpermPrice': averageSpermPrice,
+                'averageICSIPrice': averageICSIPrice,
+                'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+                'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+                'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+                'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+                'my_total_count': my_total_count,
+                'values': request.GET,
+                }
+
+            return render(request, 'search/search.html', context)
 
         else:
             context = {

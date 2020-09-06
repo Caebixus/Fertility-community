@@ -12,5 +12,6 @@ urlpatterns = [
     path('ivf-cost/usa', views.locationsUSRegions, name='locationsUSRegions'),
     path('ivf-cost/uk', views.locationsUKRegions, name='locationsUKRegions'),
     path('ivf-cost/cz', views.locationsCZRegions, name='locationsCZRegions'),
+    path('ivf-cost/spain', views.locationsSPRegions, name='locationsSPRegions'),
     path('currencies', include('currencies.urls')),
 ]

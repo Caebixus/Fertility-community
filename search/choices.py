@@ -9,6 +9,15 @@ CATEGORY_CHOICES_CZ_CITIES = {
     'Brno': 'Brno',
     }
 
+CATEGORY_CHOICES_SP_CITIES = {
+    'Alicante': 'Alicante',
+    'Barcelona': 'Barcelona',
+    'Madrid': 'Madrid',
+    'Malaga': 'Malaga',
+    'Seville': 'Seville',
+    'Valencia': 'Valencia',
+    }
+
 CATEGORY_CHOICES_US_REGION = {
     'AL': 'Alabama',
     'AK': 'Alaska',

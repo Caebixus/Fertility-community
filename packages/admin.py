@@ -9,9 +9,5 @@ class PostAdmin(admin.ModelAdmin):
     model = Packages
     list_display = ('packagestitle', 'packageOwner', 'packageClinic')
 
-class PostAdmin2(admin.ModelAdmin):
-    model = Packages
-    list_display = ('Truepackagetitle', 'packageClinic')
 
 admin.site.register(Packages, PostAdmin)
-admin.site.register(TruePackages, PostAdmin2)

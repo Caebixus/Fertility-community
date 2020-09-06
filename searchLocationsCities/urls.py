@@ -40,4 +40,11 @@ urlpatterns = [
     path('fertility-clinics-sheffield', views.fertilityClinicsSheffield, name='fertilityClinicsSheffield'),
     path('fertility-clinics-southampton', views.fertilityClinicsSouthampton, name='fertilityClinicsSouthampton'),
     path('fertility-clinics-swansea', views.fertilityClinicsSwansea, name='fertilityClinicsSwansea'),
+
+    path('fertility-clinics-alicante', views.fertilityClinicsAlicante, name='fertilityClinicsAlicante'),
+    path('fertility-clinics-barcelona', views.fertilityClinicsBarcelona, name='fertilityClinicsBarcelona'),
+    path('fertility-clinics-madrid', views.fertilityClinicsMadrid, name='fertilityClinicsMadrid'),
+    path('fertility-clinics-malaga', views.fertilityClinicsMalaga, name='fertilityClinicsMalaga'),
+    path('fertility-clinics-seville', views.fertilityClinicsSeville, name='fertilityClinicsSeville'),
+    path('fertility-clinics-valencia', views.fertilityClinicsValencia, name='fertilityClinicsValencia'),
 ]

@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES
+from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
@@ -1946,3 +1946,351 @@ def fertilityClinicsSwansea(request):
         }
 
     return render(request, 'locations-cities/UK/fertility-clinics-swansea.html', context)
+
+def fertilityClinicsAlicante(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Alicante')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alicante')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alicante')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Alicante')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-alicante.html', context)
+
+def fertilityClinicsBarcelona(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Barcelona')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Barcelona')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Barcelona')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Barcelona')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-barcelona.html', context)
+
+def fertilityClinicsMadrid(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Madrid')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Madrid')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Madrid')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Madrid')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-madrid.html', context)
+
+def fertilityClinicsMalaga(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Malaga')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Malaga')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Malaga')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Malaga')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-malaga.html', context)
+
+def fertilityClinicsSeville(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Seville').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Seville').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Seville').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Seville').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Seville').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Seville')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Seville')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Seville')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Seville')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-seville.html', context)
+
+def fertilityClinicsValencia(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Valencia')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Valencia')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Valencia')
+
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Valencia')
+    my_total_count = my_total_count.count()
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
+        'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES,
+        'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES,
+        'my_total_count': my_total_count,
+        }
+
+    return render(request, 'locations-cities/SP/fertility-clinics-valencia.html', context)

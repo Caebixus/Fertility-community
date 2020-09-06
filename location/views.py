@@ -58,6 +58,20 @@ def locationsStandardIVF(request):
             gbpCurrency_cz_ivf = None
             usdCurrency_cz_ivf = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_sp = BasicClinic.objects.all()
+    queryset_list_sp = queryset_list_sp.filter(clinicState__iexact='Spain')
+    my_total_clinic_count_sp = queryset_list_sp.count()
+    queryset_list_sp = queryset_list_sp.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_sp.items():
+        eurCurrency_sp_ivf = val
+        if eurCurrency_sp_ivf is not None:
+            gbpCurrency_sp_ivf = val * eurToGbp
+            usdCurrency_sp_ivf = val * eurToUsd
+        else:
+            gbpCurrency_sp_ivf = None
+            usdCurrency_sp_ivf = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_ivf': gbpCurrency_uk_ivf,
@@ -73,6 +87,11 @@ def locationsStandardIVF(request):
         'gbpCurrency_cz_ivf': gbpCurrency_cz_ivf,
         'usdCurrency_cz_ivf': usdCurrency_cz_ivf,
         'eurCurrency_cz_ivf': eurCurrency_cz_ivf,
+
+        'my_total_clinic_count_sp': my_total_clinic_count_sp,
+        'gbpCurrency_sp_ivf': gbpCurrency_sp_ivf,
+        'usdCurrency_sp_ivf': usdCurrency_sp_ivf,
+        'eurCurrency_sp_ivf': eurCurrency_sp_ivf,
         }
 
     return render(request, 'main/Locations/locations-standard-ivf.html', context)
@@ -7447,5 +7466,511 @@ def locationsCZRegions(request):
         'usdCurrency_brno_iui': usdCurrency_brno_iui,
         'eurCurrency_brno_iui': eurCurrency_brno_iui,
         'my_total_count_brno': my_total_count_brno,
+        }
+    return render(request, 'main/Locations/CZLocations/cz-regions.html', context)
+
+def locationsSPRegions(request):
+    queryset_list_sp = BasicClinic.objects.all()
+
+    #--------------------------------------------------------------------------
+    queryset_list_alicante = queryset_list_sp.filter(clinicRegion__iexact='Alicante')
+    my_total_count_alicante = queryset_list_alicante.count()
+    queryset_list_alicante_ivf = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_alicante_ivf.items():
+        eurCurrency_alicante_ivf = val
+        if eurCurrency_alicante_ivf is not None:
+            usdCurrency_alicante_ivf = val * eurToUsd
+            gbpCurrency_alicante_ivf = val * eurToGbp
+        else:
+            usdCurrency_alicante_ivf = None
+            gbpCurrency_alicante_ivf = None
+
+    queryset_list_alicante_egg = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_alicante_egg.items():
+        eurCurrency_alicante_egg = val
+        if eurCurrency_alicante_egg is not None:
+            usdCurrency_alicante_egg = val * eurToUsd
+            gbpCurrency_alicante_egg = val * eurToGbp
+        else:
+            usdCurrency_alicante_egg = None
+            gbpCurrency_alicante_egg = None
+
+    queryset_list_alicante_embryo = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_alicante_embryo.items():
+        eurCurrency_alicante_embryo = val
+        if eurCurrency_alicante_embryo is not None:
+            usdCurrency_alicante_embryo = val * eurToUsd
+            gbpCurrency_alicante_embryo = val * eurToGbp
+        else:
+            usdCurrency_alicante_embryo = None
+            gbpCurrency_alicante_embryo = None
+
+    queryset_list_alicante_sperm = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_alicante_sperm.items():
+        eurCurrency_alicante_sperm = val
+        if eurCurrency_alicante_sperm is not None:
+            usdCurrency_alicante_sperm = val * eurToUsd
+            gbpCurrency_alicante_sperm = val * eurToGbp
+        else:
+            usdCurrency_alicante_sperm = None
+            gbpCurrency_alicante_sperm = None
+
+    queryset_list_alicante_icsi = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_alicante_icsi.items():
+        eurCurrency_alicante_icsi = val
+        if eurCurrency_alicante_icsi is not None:
+            usdCurrency_alicante_icsi = val * eurToUsd
+            gbpCurrency_alicante_icsi = val * eurToGbp
+        else:
+            usdCurrency_alicante_icsi = None
+            gbpCurrency_alicante_icsi = None
+
+    queryset_list_alicante_iui = queryset_list_alicante.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_alicante_iui.items():
+        eurCurrency_alicante_iui = val
+        if eurCurrency_alicante_iui is not None:
+            usdCurrency_alicante_iui = val * eurToUsd
+            gbpCurrency_alicante_iui = val * eurToGbp
+        else:
+            usdCurrency_alicante_iui = None
+            gbpCurrency_alicante_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_barcelona = queryset_list_sp.filter(clinicRegion__iexact='Barcelona')
+    my_total_count_barcelona = queryset_list_barcelona.count()
+    queryset_list_barcelona_ivf = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_barcelona_ivf.items():
+        eurCurrency_barcelona_ivf = val
+        if eurCurrency_barcelona_ivf is not None:
+            usdCurrency_barcelona_ivf = val * eurToUsd
+            gbpCurrency_barcelona_ivf = val * eurToGbp
+        else:
+            usdCurrency_barcelona_ivf = None
+            gbpCurrency_barcelona_ivf = None
+
+    queryset_list_barcelona_egg = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_barcelona_egg.items():
+        eurCurrency_barcelona_egg = val
+        if eurCurrency_barcelona_egg is not None:
+            usdCurrency_barcelona_egg = val * eurToUsd
+            gbpCurrency_barcelona_egg = val * eurToGbp
+        else:
+            usdCurrency_barcelona_egg = None
+            gbpCurrency_barcelona_egg = None
+
+    queryset_list_barcelona_embryo = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_barcelona_embryo.items():
+        eurCurrency_barcelona_embryo = val
+        if eurCurrency_barcelona_embryo is not None:
+            usdCurrency_barcelona_embryo = val * eurToUsd
+            gbpCurrency_barcelona_embryo = val * eurToGbp
+        else:
+            usdCurrency_barcelona_embryo = None
+            gbpCurrency_barcelona_embryo = None
+
+    queryset_list_barcelona_sperm = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_barcelona_sperm.items():
+        eurCurrency_barcelona_sperm = val
+        if eurCurrency_barcelona_sperm is not None:
+            usdCurrency_barcelona_sperm = val * eurToUsd
+            gbpCurrency_barcelona_sperm = val * eurToGbp
+        else:
+            usdCurrency_barcelona_sperm = None
+            gbpCurrency_barcelona_sperm = None
+
+    queryset_list_barcelona_icsi = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_barcelona_icsi.items():
+        eurCurrency_barcelona_icsi = val
+        if eurCurrency_barcelona_icsi is not None:
+            usdCurrency_barcelona_icsi = val * eurToUsd
+            gbpCurrency_barcelona_icsi = val * eurToGbp
+        else:
+            usdCurrency_barcelona_icsi = None
+            gbpCurrency_barcelona_icsi = None
+
+    queryset_list_barcelona_iui = queryset_list_barcelona.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_barcelona_iui.items():
+        eurCurrency_barcelona_iui = val
+        if eurCurrency_barcelona_iui is not None:
+            usdCurrency_barcelona_iui = val * eurToUsd
+            gbpCurrency_barcelona_iui = val * eurToGbp
+        else:
+            usdCurrency_barcelona_iui = None
+            gbpCurrency_barcelona_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_madrid = queryset_list_sp.filter(clinicRegion__iexact='Madrid')
+    my_total_count_madrid = queryset_list_madrid.count()
+    queryset_list_madrid_ivf = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_madrid_ivf.items():
+        eurCurrency_madrid_ivf = val
+        if eurCurrency_madrid_ivf is not None:
+            usdCurrency_madrid_ivf = val * eurToUsd
+            gbpCurrency_madrid_ivf = val * eurToGbp
+        else:
+            usdCurrency_madrid_ivf = None
+            gbpCurrency_madrid_ivf = None
+
+    queryset_list_madrid_egg = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_madrid_egg.items():
+        eurCurrency_madrid_egg = val
+        if eurCurrency_madrid_egg is not None:
+            usdCurrency_madrid_egg = val * eurToUsd
+            gbpCurrency_madrid_egg = val * eurToGbp
+        else:
+            usdCurrency_madrid_egg = None
+            gbpCurrency_madrid_egg = None
+
+    queryset_list_madrid_embryo = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_madrid_embryo.items():
+        eurCurrency_madrid_embryo = val
+        if eurCurrency_madrid_embryo is not None:
+            usdCurrency_madrid_embryo = val * eurToUsd
+            gbpCurrency_madrid_embryo = val * eurToGbp
+        else:
+            usdCurrency_madrid_embryo = None
+            gbpCurrency_madrid_embryo = None
+
+    queryset_list_madrid_sperm = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_madrid_sperm.items():
+        eurCurrency_madrid_sperm = val
+        if eurCurrency_madrid_sperm is not None:
+            usdCurrency_madrid_sperm = val * eurToUsd
+            gbpCurrency_madrid_sperm = val * eurToGbp
+        else:
+            usdCurrency_madrid_sperm = None
+            gbpCurrency_madrid_sperm = None
+
+    queryset_list_madrid_icsi = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_madrid_icsi.items():
+        eurCurrency_madrid_icsi = val
+        if eurCurrency_madrid_icsi is not None:
+            usdCurrency_madrid_icsi = val * eurToUsd
+            gbpCurrency_madrid_icsi = val * eurToGbp
+        else:
+            usdCurrency_madrid_icsi = None
+            gbpCurrency_madrid_icsi = None
+
+    queryset_list_madrid_iui = queryset_list_madrid.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_madrid_iui.items():
+        eurCurrency_madrid_iui = val
+        if eurCurrency_madrid_iui is not None:
+            usdCurrency_madrid_iui = val * eurToUsd
+            gbpCurrency_madrid_iui = val * eurToGbp
+        else:
+            usdCurrency_madrid_iui = None
+            gbpCurrency_madrid_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_malaga = queryset_list_sp.filter(clinicRegion__iexact='Malaga')
+    my_total_count_malaga = queryset_list_malaga.count()
+    queryset_list_malaga_ivf = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_malaga_ivf.items():
+        eurCurrency_malaga_ivf = val
+        if eurCurrency_malaga_ivf is not None:
+            usdCurrency_malaga_ivf = val * eurToUsd
+            gbpCurrency_malaga_ivf = val * eurToGbp
+        else:
+            usdCurrency_malaga_ivf = None
+            gbpCurrency_malaga_ivf = None
+
+    queryset_list_malaga_egg = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_malaga_egg.items():
+        eurCurrency_malaga_egg = val
+        if eurCurrency_malaga_egg is not None:
+            usdCurrency_malaga_egg = val * eurToUsd
+            gbpCurrency_malaga_egg = val * eurToGbp
+        else:
+            usdCurrency_malaga_egg = None
+            gbpCurrency_malaga_egg = None
+
+    queryset_list_malaga_embryo = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_malaga_embryo.items():
+        eurCurrency_malaga_embryo = val
+        if eurCurrency_malaga_embryo is not None:
+            usdCurrency_malaga_embryo = val * eurToUsd
+            gbpCurrency_malaga_embryo = val * eurToGbp
+        else:
+            usdCurrency_malaga_embryo = None
+            gbpCurrency_malaga_embryo = None
+
+    queryset_list_malaga_sperm = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_malaga_sperm.items():
+        eurCurrency_malaga_sperm = val
+        if eurCurrency_malaga_sperm is not None:
+            usdCurrency_malaga_sperm = val * eurToUsd
+            gbpCurrency_malaga_sperm = val * eurToGbp
+        else:
+            usdCurrency_malaga_sperm = None
+            gbpCurrency_malaga_sperm = None
+
+    queryset_list_malaga_icsi = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_malaga_icsi.items():
+        eurCurrency_malaga_icsi = val
+        if eurCurrency_malaga_icsi is not None:
+            usdCurrency_malaga_icsi = val * eurToUsd
+            gbpCurrency_malaga_icsi = val * eurToGbp
+        else:
+            usdCurrency_malaga_icsi = None
+            gbpCurrency_malaga_icsi = None
+
+    queryset_list_malaga_iui = queryset_list_malaga.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_malaga_iui.items():
+        eurCurrency_malaga_iui = val
+        if eurCurrency_malaga_iui is not None:
+            usdCurrency_malaga_iui = val * eurToUsd
+            gbpCurrency_malaga_iui = val * eurToGbp
+        else:
+            usdCurrency_malaga_iui = None
+            gbpCurrency_malaga_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_sevilla = queryset_list_sp.filter(clinicRegion__iexact='Sevilla')
+    my_total_count_sevilla = queryset_list_sevilla.count()
+    queryset_list_sevilla_ivf = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_sevilla_ivf.items():
+        eurCurrency_sevilla_ivf = val
+        if eurCurrency_sevilla_ivf is not None:
+            usdCurrency_sevilla_ivf = val * eurToUsd
+            gbpCurrency_sevilla_ivf = val * eurToGbp
+        else:
+            usdCurrency_sevilla_ivf = None
+            gbpCurrency_sevilla_ivf = None
+
+    queryset_list_sevilla_egg = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_sevilla_egg.items():
+        eurCurrency_sevilla_egg = val
+        if eurCurrency_sevilla_egg is not None:
+            usdCurrency_sevilla_egg = val * eurToUsd
+            gbpCurrency_sevilla_egg = val * eurToGbp
+        else:
+            usdCurrency_sevilla_egg = None
+            gbpCurrency_sevilla_egg = None
+
+    queryset_list_sevilla_embryo = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_sevilla_embryo.items():
+        eurCurrency_sevilla_embryo = val
+        if eurCurrency_sevilla_embryo is not None:
+            usdCurrency_sevilla_embryo = val * eurToUsd
+            gbpCurrency_sevilla_embryo = val * eurToGbp
+        else:
+            usdCurrency_sevilla_embryo = None
+            gbpCurrency_sevilla_embryo = None
+
+    queryset_list_sevilla_sperm = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_sevilla_sperm.items():
+        eurCurrency_sevilla_sperm = val
+        if eurCurrency_sevilla_sperm is not None:
+            usdCurrency_sevilla_sperm = val * eurToUsd
+            gbpCurrency_sevilla_sperm = val * eurToGbp
+        else:
+            usdCurrency_sevilla_sperm = None
+            gbpCurrency_sevilla_sperm = None
+
+    queryset_list_sevilla_icsi = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_sevilla_icsi.items():
+        eurCurrency_sevilla_icsi = val
+        if eurCurrency_sevilla_icsi is not None:
+            usdCurrency_sevilla_icsi = val * eurToUsd
+            gbpCurrency_sevilla_icsi = val * eurToGbp
+        else:
+            usdCurrency_sevilla_icsi = None
+            gbpCurrency_sevilla_icsi = None
+
+    queryset_list_sevilla_iui = queryset_list_sevilla.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_sevilla_iui.items():
+        eurCurrency_sevilla_iui = val
+        if eurCurrency_sevilla_iui is not None:
+            usdCurrency_sevilla_iui = val * eurToUsd
+            gbpCurrency_sevilla_iui = val * eurToGbp
+        else:
+            usdCurrency_sevilla_iui = None
+            gbpCurrency_sevilla_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_valencia = queryset_list_sp.filter(clinicRegion__iexact='Valencia')
+    my_total_count_valencia = queryset_list_valencia.count()
+    queryset_list_valencia_ivf = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_valencia_ivf.items():
+        eurCurrency_valencia_ivf = val
+        if eurCurrency_valencia_ivf is not None:
+            usdCurrency_valencia_ivf = val * eurToUsd
+            gbpCurrency_valencia_ivf = val * eurToGbp
+        else:
+            usdCurrency_valencia_ivf = None
+            gbpCurrency_valencia_ivf = None
+
+    queryset_list_valencia_egg = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_valencia_egg.items():
+        eurCurrency_valencia_egg = val
+        if eurCurrency_valencia_egg is not None:
+            usdCurrency_valencia_egg = val * eurToUsd
+            gbpCurrency_valencia_egg = val * eurToGbp
+        else:
+            usdCurrency_valencia_egg = None
+            gbpCurrency_valencia_egg = None
+
+    queryset_list_valencia_embryo = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_valencia_embryo.items():
+        eurCurrency_valencia_embryo = val
+        if eurCurrency_valencia_embryo is not None:
+            usdCurrency_valencia_embryo = val * eurToUsd
+            gbpCurrency_valencia_embryo = val * eurToGbp
+        else:
+            usdCurrency_valencia_embryo = None
+            gbpCurrency_valencia_embryo = None
+
+    queryset_list_valencia_sperm = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_valencia_sperm.items():
+        eurCurrency_valencia_sperm = val
+        if eurCurrency_valencia_sperm is not None:
+            usdCurrency_valencia_sperm = val * eurToUsd
+            gbpCurrency_valencia_sperm = val * eurToGbp
+        else:
+            usdCurrency_valencia_sperm = None
+            gbpCurrency_valencia_sperm = None
+
+    queryset_list_valencia_icsi = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_valencia_icsi.items():
+        eurCurrency_valencia_icsi = val
+        if eurCurrency_valencia_icsi is not None:
+            usdCurrency_valencia_icsi = val * eurToUsd
+            gbpCurrency_valencia_icsi = val * eurToGbp
+        else:
+            usdCurrency_valencia_icsi = None
+            gbpCurrency_valencia_icsi = None
+
+    queryset_list_valencia_iui = queryset_list_valencia.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_valencia_iui.items():
+        eurCurrency_valencia_iui = val
+        if eurCurrency_valencia_iui is not None:
+            usdCurrency_valencia_iui = val * eurToUsd
+            gbpCurrency_valencia_iui = val * eurToGbp
+        else:
+            usdCurrency_valencia_iui = None
+            gbpCurrency_valencia_iui = None
+
+
+
+    context = {
+        'gbpCurrency_alicante_ivf': gbpCurrency_alicante_ivf,
+        'usdCurrency_alicante_ivf': usdCurrency_alicante_ivf,
+        'eurCurrency_alicante_ivf': eurCurrency_alicante_ivf,
+        'gbpCurrency_alicante_egg': gbpCurrency_alicante_egg,
+        'usdCurrency_alicante_egg': usdCurrency_alicante_egg,
+        'eurCurrency_alicante_egg': eurCurrency_alicante_egg,
+        'gbpCurrency_alicante_embryo': gbpCurrency_alicante_embryo,
+        'usdCurrency_alicante_embryo': usdCurrency_alicante_embryo,
+        'eurCurrency_alicante_embryo': eurCurrency_alicante_embryo,
+        'gbpCurrency_alicante_sperm': gbpCurrency_alicante_sperm,
+        'usdCurrency_alicante_sperm': usdCurrency_alicante_sperm,
+        'eurCurrency_alicante_sperm': eurCurrency_alicante_sperm,
+        'gbpCurrency_alicante_icsi': gbpCurrency_alicante_icsi,
+        'usdCurrency_alicante_icsi': usdCurrency_alicante_icsi,
+        'eurCurrency_alicante_icsi': eurCurrency_alicante_icsi,
+        'gbpCurrency_alicante_iui': gbpCurrency_alicante_iui,
+        'usdCurrency_alicante_iui': usdCurrency_alicante_iui,
+        'eurCurrency_alicante_iui': eurCurrency_alicante_iui,
+        'my_total_count_alicante': my_total_count_alicante,
+
+        'gbpCurrency_madrid_ivf': gbpCurrency_madrid_ivf,
+        'usdCurrency_madrid_ivf': usdCurrency_madrid_ivf,
+        'eurCurrency_madrid_ivf': eurCurrency_madrid_ivf,
+        'gbpCurrency_madrid_egg': gbpCurrency_madrid_egg,
+        'usdCurrency_madrid_egg': usdCurrency_madrid_egg,
+        'eurCurrency_madrid_egg': eurCurrency_madrid_egg,
+        'gbpCurrency_madrid_embryo': gbpCurrency_madrid_embryo,
+        'usdCurrency_madrid_embryo': usdCurrency_madrid_embryo,
+        'eurCurrency_madrid_embryo': eurCurrency_madrid_embryo,
+        'gbpCurrency_madrid_sperm': gbpCurrency_madrid_sperm,
+        'usdCurrency_madrid_sperm': usdCurrency_madrid_sperm,
+        'eurCurrency_madrid_sperm': eurCurrency_madrid_sperm,
+        'gbpCurrency_madrid_icsi': gbpCurrency_madrid_icsi,
+        'usdCurrency_madrid_icsi': usdCurrency_madrid_icsi,
+        'eurCurrency_madrid_icsi': eurCurrency_madrid_icsi,
+        'gbpCurrency_madrid_iui': gbpCurrency_madrid_iui,
+        'usdCurrency_madrid_iui': usdCurrency_madrid_iui,
+        'eurCurrency_madrid_iui': eurCurrency_madrid_iui,
+        'my_total_count_madrid': my_total_count_madrid,
+
+        'gbpCurrency_barcelona_ivf': gbpCurrency_barcelona_ivf,
+        'usdCurrency_barcelona_ivf': usdCurrency_barcelona_ivf,
+        'eurCurrency_barcelona_ivf': eurCurrency_barcelona_ivf,
+        'gbpCurrency_barcelona_egg': gbpCurrency_barcelona_egg,
+        'usdCurrency_barcelona_egg': usdCurrency_barcelona_egg,
+        'eurCurrency_barcelona_egg': eurCurrency_barcelona_egg,
+        'gbpCurrency_barcelona_embryo': gbpCurrency_barcelona_embryo,
+        'usdCurrency_barcelona_embryo': usdCurrency_barcelona_embryo,
+        'eurCurrency_barcelona_embryo': eurCurrency_barcelona_embryo,
+        'gbpCurrency_barcelona_sperm': gbpCurrency_barcelona_sperm,
+        'usdCurrency_barcelona_sperm': usdCurrency_barcelona_sperm,
+        'eurCurrency_barcelona_sperm': eurCurrency_barcelona_sperm,
+        'gbpCurrency_barcelona_icsi': gbpCurrency_barcelona_icsi,
+        'usdCurrency_barcelona_icsi': usdCurrency_barcelona_icsi,
+        'eurCurrency_barcelona_icsi': eurCurrency_barcelona_icsi,
+        'gbpCurrency_barcelona_iui': gbpCurrency_barcelona_iui,
+        'usdCurrency_barcelona_iui': usdCurrency_barcelona_iui,
+        'eurCurrency_barcelona_iui': eurCurrency_barcelona_iui,
+        'my_total_count_barcelona': my_total_count_barcelona,
+
+        'gbpCurrency_malaga_ivf': gbpCurrency_malaga_ivf,
+        'usdCurrency_malaga_ivf': usdCurrency_malaga_ivf,
+        'eurCurrency_malaga_ivf': eurCurrency_malaga_ivf,
+        'gbpCurrency_malaga_egg': gbpCurrency_malaga_egg,
+        'usdCurrency_malaga_egg': usdCurrency_malaga_egg,
+        'eurCurrency_malaga_egg': eurCurrency_malaga_egg,
+        'gbpCurrency_malaga_embryo': gbpCurrency_malaga_embryo,
+        'usdCurrency_malaga_embryo': usdCurrency_malaga_embryo,
+        'eurCurrency_malaga_embryo': eurCurrency_malaga_embryo,
+        'gbpCurrency_malaga_sperm': gbpCurrency_malaga_sperm,
+        'usdCurrency_malaga_sperm': usdCurrency_malaga_sperm,
+        'eurCurrency_malaga_sperm': eurCurrency_malaga_sperm,
+        'gbpCurrency_malaga_icsi': gbpCurrency_malaga_icsi,
+        'usdCurrency_malaga_icsi': usdCurrency_malaga_icsi,
+        'eurCurrency_malaga_icsi': eurCurrency_malaga_icsi,
+        'gbpCurrency_malaga_iui': gbpCurrency_malaga_iui,
+        'usdCurrency_malaga_iui': usdCurrency_malaga_iui,
+        'eurCurrency_malaga_iui': eurCurrency_malaga_iui,
+        'my_total_count_malaga': my_total_count_malaga,
+
+        'gbpCurrency_sevilla_ivf': gbpCurrency_sevilla_ivf,
+        'usdCurrency_sevilla_ivf': usdCurrency_sevilla_ivf,
+        'eurCurrency_sevilla_ivf': eurCurrency_sevilla_ivf,
+        'gbpCurrency_sevilla_egg': gbpCurrency_sevilla_egg,
+        'usdCurrency_sevilla_egg': usdCurrency_sevilla_egg,
+        'eurCurrency_sevilla_egg': eurCurrency_sevilla_egg,
+        'gbpCurrency_sevilla_embryo': gbpCurrency_sevilla_embryo,
+        'usdCurrency_sevilla_embryo': usdCurrency_sevilla_embryo,
+        'eurCurrency_sevilla_embryo': eurCurrency_sevilla_embryo,
+        'gbpCurrency_sevilla_sperm': gbpCurrency_sevilla_sperm,
+        'usdCurrency_sevilla_sperm': usdCurrency_sevilla_sperm,
+        'eurCurrency_sevilla_sperm': eurCurrency_sevilla_sperm,
+        'gbpCurrency_sevilla_icsi': gbpCurrency_sevilla_icsi,
+        'usdCurrency_sevilla_icsi': usdCurrency_sevilla_icsi,
+        'eurCurrency_sevilla_icsi': eurCurrency_sevilla_icsi,
+        'gbpCurrency_sevilla_iui': gbpCurrency_sevilla_iui,
+        'usdCurrency_sevilla_iui': usdCurrency_sevilla_iui,
+        'eurCurrency_sevilla_iui': eurCurrency_sevilla_iui,
+        'my_total_count_sevilla': my_total_count_sevilla,
+
+        'gbpCurrency_valencia_ivf': gbpCurrency_valencia_ivf,
+        'usdCurrency_valencia_ivf': usdCurrency_valencia_ivf,
+        'eurCurrency_valencia_ivf': eurCurrency_valencia_ivf,
+        'gbpCurrency_valencia_egg': gbpCurrency_valencia_egg,
+        'usdCurrency_valencia_egg': usdCurrency_valencia_egg,
+        'eurCurrency_valencia_egg': eurCurrency_valencia_egg,
+        'gbpCurrency_valencia_embryo': gbpCurrency_valencia_embryo,
+        'usdCurrency_valencia_embryo': usdCurrency_valencia_embryo,
+        'eurCurrency_valencia_embryo': eurCurrency_valencia_embryo,
+        'gbpCurrency_valencia_sperm': gbpCurrency_valencia_sperm,
+        'usdCurrency_valencia_sperm': usdCurrency_valencia_sperm,
+        'eurCurrency_valencia_sperm': eurCurrency_valencia_sperm,
+        'gbpCurrency_valencia_icsi': gbpCurrency_valencia_icsi,
+        'usdCurrency_valencia_icsi': usdCurrency_valencia_icsi,
+        'eurCurrency_valencia_icsi': eurCurrency_valencia_icsi,
+        'gbpCurrency_valencia_iui': gbpCurrency_valencia_iui,
+        'usdCurrency_valencia_iui': usdCurrency_valencia_iui,
+        'eurCurrency_valencia_iui': eurCurrency_valencia_iui,
+        'my_total_count_valencia': my_total_count_valencia,
         }
     return render(request, 'main/Locations/CZLocations/cz-regions.html', context)

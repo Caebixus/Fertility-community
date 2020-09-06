@@ -23262,7 +23262,7 @@ def ccrmmaincenter(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Virginia/ccrm-main-center.html', context)
+        return render(request, 'clinics/US/Virginia/ccrm-fertility-northern-virginia.html', context)
 
     else:
         pass
@@ -23275,7 +23275,7 @@ def ccrmmaincenter(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Virginia/ccrm-main-center.html', context)
+    return render(request, 'clinics/US/Virginia/ccrm-fertility-northern-virginia.html', context)
 
 def ccrmcolumbia(request):
     listing = BasicClinic.objects.get(pk=471)
@@ -24690,7 +24690,7 @@ def columbiafertilityassociateswashingtondc(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Washington-Dc/columbia-fertility-associates-washington-dc.html', context)
+        return render(request, 'clinics/US/Washington-DC/columbia-fertility-associates-washington-dc.html', context)
 
     else:
         pass
@@ -24703,7 +24703,7 @@ def columbiafertilityassociateswashingtondc(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Washington-Dc/columbia-fertility-associates-washington-dc.html', context)
+    return render(request, 'clinics/US/Washington-DC/columbia-fertility-associates-washington-dc.html', context)
 
 def gwmedicalfacultyassociates(request):
     listing = BasicClinic.objects.get(pk=500)
@@ -24739,7 +24739,7 @@ def gwmedicalfacultyassociates(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Washington-Dc/gw-medical-faculty-associates.html', context)
+        return render(request, 'clinics/US/Washington-DC/gw-medical-faculty-associates.html', context)
 
     else:
         pass
@@ -24752,4 +24752,4 @@ def gwmedicalfacultyassociates(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Washington-Dc/gw-medical-faculty-associates.html', context)
+    return render(request, 'clinics/US/Washington-DC/gw-medical-faculty-associates.html', context)

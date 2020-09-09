@@ -157,7 +157,7 @@ def clinicadefertilidadbarcelonaivf(request):
 
     return render(request, 'clinics/SP/Barcelona/clinica-de-fertilidad-barcelona-ivf.html', context)
 
-def fertilabbarcelona(request):
+def ferttyinternational(request):
     listing = BasicClinic.objects.get(pk=621)
 
     barcelonalisting = BasicClinic.objects.all()
@@ -191,7 +191,7 @@ def fertilabbarcelona(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Barcelona/fertilab-barcelona.html', context)
+        return render(request, 'clinics/SP/Barcelona/fertty-international.html', context)
 
     else:
         pass
@@ -204,9 +204,9 @@ def fertilabbarcelona(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Barcelona/fertilab-barcelona.html', context)
+    return render(request, 'clinics/SP/Barcelona/fertty-international.html', context)
 
-def institutmarquesbarcelona(request):
+def fertilabbarcelona(request):
     listing = BasicClinic.objects.get(pk=622)
 
     barcelonalisting = BasicClinic.objects.all()
@@ -240,7 +240,7 @@ def institutmarquesbarcelona(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Barcelona/institut-marques-barcelona.html', context)
+        return render(request, 'clinics/SP/Barcelona/fertilab-barcelona.html', context)
 
     else:
         pass
@@ -253,9 +253,9 @@ def institutmarquesbarcelona(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Barcelona/institut-marques-barcelona.html', context)
+    return render(request, 'clinics/SP/Barcelona/fertilab-barcelona.html', context)
 
-def ivfforyou(request):
+def institutmarquesbarcelona(request):
     listing = BasicClinic.objects.get(pk=623)
 
     barcelonalisting = BasicClinic.objects.all()
@@ -289,7 +289,7 @@ def ivfforyou(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Barcelona/ivf-for-you.html', context)
+        return render(request, 'clinics/SP/Barcelona/institut-marques-barcelona.html', context)
 
     else:
         pass
@@ -302,9 +302,9 @@ def ivfforyou(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Barcelona/ivf-for-you.html', context)
+    return render(request, 'clinics/SP/Barcelona/institut-marques-barcelona.html', context)
 
-def gravida(request):
+def ivfforyou(request):
     listing = BasicClinic.objects.get(pk=624)
 
     barcelonalisting = BasicClinic.objects.all()
@@ -338,7 +338,7 @@ def gravida(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Barcelona/gravida.html', context)
+        return render(request, 'clinics/SP/Barcelona/ivf-for-you.html', context)
 
     else:
         pass
@@ -351,9 +351,9 @@ def gravida(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Barcelona/gravida.html', context)
+    return render(request, 'clinics/SP/Barcelona/ivf-for-you.html', context)
 
-def ferttyinternational(request):
+def gravida(request):
     listing = BasicClinic.objects.get(pk=625)
 
     barcelonalisting = BasicClinic.objects.all()
@@ -387,7 +387,7 @@ def ferttyinternational(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Barcelona/fertty-international.html', context)
+        return render(request, 'clinics/SP/Barcelona/gravida.html', context)
 
     else:
         pass
@@ -400,7 +400,7 @@ def ferttyinternational(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Barcelona/fertty-international.html', context)
+    return render(request, 'clinics/SP/Barcelona/gravida.html', context)
 
 def ivibarcelona(request):
     listing = BasicClinic.objects.get(pk=626)
@@ -1091,7 +1091,7 @@ def ivisevilla(request):
 
     return render(request, 'clinics/SP/Seville/ivi-sevilla.html', context)
 
-def embryocenterseville(request):
+def inebir(request):
     listing = BasicClinic.objects.get(pk=640)
 
     sevillelisting = BasicClinic.objects.all()
@@ -1125,7 +1125,7 @@ def embryocenterseville(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Seville/embryocenter-seville.html', context)
+        return render(request, 'clinics/SP/Seville/inebir.html', context)
 
     else:
         pass
@@ -1138,9 +1138,9 @@ def embryocenterseville(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Seville/embryocenter-seville.html', context)
+    return render(request, 'clinics/SP/Seville/inebir.html', context)
 
-def inebir(request):
+def ginemedsevilla(request):
     listing = BasicClinic.objects.get(pk=641)
 
     sevillelisting = BasicClinic.objects.all()
@@ -1174,7 +1174,7 @@ def inebir(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Seville/inebir.html', context)
+        return render(request, 'clinics/SP/Seville/ginemed-sevilla.html', context)
 
     else:
         pass
@@ -1187,15 +1187,16 @@ def inebir(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Seville/inebir.html', context)
+    return render(request, 'clinics/SP/Seville/ginemed-sevilla.html', context)
 
-def ginemedsevilla(request):
+#VALENCIA   --------------------------------
+def ivivalencia(request):
     listing = BasicClinic.objects.get(pk=642)
 
-    sevillelisting = BasicClinic.objects.all()
-    sevillelisting = sevillelisting.filter(is_published=True)
-    sevillelisting = sevillelisting.filter(clinicRegion__iexact='Seville')
-    sevillelisting = sevillelisting.count()
+    valencialisting = BasicClinic.objects.all()
+    valencialisting = valencialisting.filter(is_published=True)
+    valencialisting = valencialisting.filter(clinicRegion__iexact='Valencia')
+    valencialisting = valencialisting.count()
 
     splisting = BasicClinic.objects.all()
     splisting = splisting.filter(is_published=True)
@@ -1218,12 +1219,12 @@ def ginemedsevilla(request):
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
-            'sevillelisting': sevillelisting,
+            'valencialisting': valencialisting,
             'splisting': splisting,
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Seville/ginemed-sevilla.html', context)
+        return render(request, 'clinics/SP/Valencia/ivi-valencia.html', context)
 
     else:
         pass
@@ -1231,15 +1232,14 @@ def ginemedsevilla(request):
     context = {
         'listing': listing,
         'package': package,
-        'sevillelisting': sevillelisting,
+        'valencialisting': valencialisting,
         'splisting': splisting,
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Seville/ginemed-sevilla.html', context)
+    return render(request, 'clinics/SP/Valencia/ivi-valencia.html', context)
 
-#VALENCIA   --------------------------------
-def ivivalencia(request):
+def equipojuanacrespo(request):
     listing = BasicClinic.objects.get(pk=643)
 
     valencialisting = BasicClinic.objects.all()
@@ -1273,7 +1273,7 @@ def ivivalencia(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Valencia/ivi-valencia.html', context)
+        return render(request, 'clinics/SP/Valencia/equipo-juana-crespo.html', context)
 
     else:
         pass
@@ -1286,9 +1286,9 @@ def ivivalencia(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Valencia/ivi-valencia.html', context)
+    return render(request, 'clinics/SP/Valencia/equipo-juana-crespo.html', context)
 
-def equipojuanacrespo(request):
+def unidaddereproduccionasistidaimedvalencia(request):
     listing = BasicClinic.objects.get(pk=644)
 
     valencialisting = BasicClinic.objects.all()
@@ -1322,7 +1322,7 @@ def equipojuanacrespo(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Valencia/equipo-juana-crespo.html', context)
+        return render(request, 'clinics/SP/Valencia/unidad-de-reproduccion-asistida-imed-valencia.html', context)
 
     else:
         pass
@@ -1335,9 +1335,9 @@ def equipojuanacrespo(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Valencia/equipo-juana-crespo.html', context)
+    return render(request, 'clinics/SP/Valencia/unidad-de-reproduccion-asistida-imed-valencia.html', context)
 
-def unidaddereproduccionasistidaimedvalencia(request):
+def creavalencia(request):
     listing = BasicClinic.objects.get(pk=645)
 
     valencialisting = BasicClinic.objects.all()
@@ -1371,7 +1371,7 @@ def unidaddereproduccionasistidaimedvalencia(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Valencia/unidad-de-reproduccion-asistida-imed-valencia.html', context)
+        return render(request, 'clinics/SP/Valencia/crea-valencia.html', context)
 
     else:
         pass
@@ -1384,9 +1384,9 @@ def unidaddereproduccionasistidaimedvalencia(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Valencia/unidad-de-reproduccion-asistida-imed-valencia.html', context)
+    return render(request, 'clinics/SP/Valencia/crea-valencia.html', context)
 
-def creavalencia(request):
+def imerinstitutodemedicinareproductiva(request):
     listing = BasicClinic.objects.get(pk=646)
 
     valencialisting = BasicClinic.objects.all()
@@ -1405,55 +1405,6 @@ def creavalencia(request):
 
     package = Packages.objects.all()
     package = package.filter(packageClinic__id=646)
-
-    if request.user.is_authenticated:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-
-        context = {
-            'usergroup': usergroup,
-            'listing': listing,
-            'package': package,
-            'valencialisting': valencialisting,
-            'splisting': splisting,
-            'alllisting': alllisting,
-            }
-
-        return render(request, 'clinics/SP/Valencia/crea-valencia.html', context)
-
-    else:
-        pass
-
-    context = {
-        'listing': listing,
-        'package': package,
-        'valencialisting': valencialisting,
-        'splisting': splisting,
-        'alllisting': alllisting,
-        }
-
-    return render(request, 'clinics/SP/Valencia/crea-valencia.html', context)
-
-def imerinstitutodemedicinareproductiva(request):
-    listing = BasicClinic.objects.get(pk=647)
-
-    valencialisting = BasicClinic.objects.all()
-    valencialisting = valencialisting.filter(is_published=True)
-    valencialisting = valencialisting.filter(clinicRegion__iexact='Valencia')
-    valencialisting = valencialisting.count()
-
-    splisting = BasicClinic.objects.all()
-    splisting = splisting.filter(is_published=True)
-    splisting = splisting.filter(clinicState__iexact='Spain')
-    splisting = splisting.count()
-
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
-    alllisting = alllisting.count()
-
-    package = Packages.objects.all()
-    package = package.filter(packageClinic__id=647)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()

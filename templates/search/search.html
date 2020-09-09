@@ -991,9 +991,11 @@
           {% if values.States == 'UK' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2020:</h2>
           {% elif values.States == 'US' %}
-          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2020:</h2>
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - USA fertility treatment costs in 2020:</h2>
           {% elif values.States == 'CZ' %}
-          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - CZ fertility treatment costs in 2020:</h2>
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech fertility treatment costs in 2020:</h2>
+          {% elif values.States == 'SP' %}
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2020:</h2>
           {% endif %}
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
           <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
@@ -1117,6 +1119,43 @@
           {% else %}
           {% endif  %}
           {% endfor %}
+          <br>
+          {% elif values.States == 'SP' %}
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average natural (standard) IVF price: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average price of IVF with Egg donation: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average price of IVF with Embryo donation: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-caret-right"></i> Average price of IVF with Sperm donation: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
           {% endif %}
           <br>
           <div class="row">
@@ -1137,6 +1176,12 @@
               <a href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <i class="fas fa-flag"></i> Czech Compare
+                </button>
+              </a>
+              {% elif values.States == 'SP' %}
+              <a href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Spain Compare
                 </button>
               </a>
               {% endif %}

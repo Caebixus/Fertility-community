@@ -30,7 +30,6 @@ urlpatterns = [
     path('clinics/sp/malaga/clinica-fertia', views.clinicafertia, name='clinicafertia'),
     #Seville
     path('clinics/sp/seville/ivi-sevilla', views.ivisevilla, name='ivisevilla'),
-    path('clinics/sp/seville/embryocenter-seville', views.embryocenterseville, name='embryocenterseville'),
     path('clinics/sp/seville/inebir', views.inebir, name='inebir'),
     path('clinics/sp/seville/ginemed-sevilla', views.ginemedsevilla, name='ginemedsevilla'),
     #Valencia

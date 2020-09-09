@@ -62,8 +62,8 @@ def locationsStandardIVF(request):
     queryset_list_sp = BasicClinic.objects.all()
     queryset_list_sp = queryset_list_sp.filter(clinicState__iexact='Spain')
     my_total_clinic_count_sp = queryset_list_sp.count()
-    queryset_list_sp = queryset_list_sp.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
-    for key,val in queryset_list_sp.items():
+    queryset_list_sp_ivf = queryset_list_sp.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_sp_ivf.items():
         eurCurrency_sp_ivf = val
         if eurCurrency_sp_ivf is not None:
             gbpCurrency_sp_ivf = val * eurToGbp

@@ -13,6 +13,7 @@ class CitiesViewSitemap(sitemaps.Sitemap):
         return [
         'fertilityClinicPrague',
         'fertilityClinicBrno',
+
         'fertilityClinicsAberdeen',
         'fertilityClinicsBath',
         'fertilityClinicsBelfast',
@@ -45,6 +46,13 @@ class CitiesViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsSheffield',
         'fertilityClinicsSouthampton',
         'fertilityClinicsSwansea',
+
+        'fertilityClinicsAlicante',
+        'fertilityClinicsBarcelona',
+        'fertilityClinicsMadrid',
+        'fertilityClinicsMalaga',
+        'fertilityClinicsSeville',
+        'fertilityClinicsValencia',
         ]
 
     def location(self, item):

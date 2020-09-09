@@ -117,6 +117,25 @@ def index(request):
     newjerseyclinics = BasicClinic.objects.filter(clinicRegion__iexact='New Jersey')
     newjerseyclinics = newjerseyclinics.count()
 
+    #SP REGIONS
+    alicanteclinics = BasicClinic.objects.filter(clinicRegion__iexact='Alicante')
+    alicanteclinics = alicanteclinics.count()
+
+    barcelonaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona')
+    barcelonaclinics = barcelonaclinics.count()
+
+    madridclinics = BasicClinic.objects.filter(clinicRegion__iexact='Madrid')
+    madridclinics = madridclinics.count()
+
+    malagaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Malaga')
+    malagaclinics = malagaclinics.count()
+
+    sevilleclinics = BasicClinic.objects.filter(clinicRegion__iexact='Seville')
+    sevilleclinics = sevilleclinics.count()
+
+    valenciaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Valencia')
+    valenciaclinics = valenciaclinics.count()
+
     context = {
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
@@ -155,6 +174,12 @@ def index(request):
         'georgiaclinics': georgiaclinics,
         'illinoisclinics': illinoisclinics,
         'newjerseyclinics': newjerseyclinics,
+        'alicanteclinics': alicanteclinics,
+        'barcelonaclinics': barcelonaclinics,
+        'madridclinics': madridclinics,
+        'malagaclinics': malagaclinics,
+        'sevilleclinics': sevilleclinics,
+        'valenciaclinics': valenciaclinics,
     }
 
     return render(request, 'main/index.html', context)

@@ -24,6 +24,9 @@ def index(request):
     czclinics = BasicClinic.objects.filter(clinicState__iexact='Czech Republic')
     czclinics = czclinics.count()
 
+    spclinics = BasicClinic.objects.filter(clinicState__iexact='Spain')
+    spclinics = spclinics.count()
+
     #UK CITIES
     londonclinics = BasicClinic.objects.filter(clinicRegion__iexact='London')
     londonclinics = londonclinics.count()
@@ -122,6 +125,7 @@ def index(request):
         'ukclinics': ukclinics,
         'usclinics': usclinics,
         'czclinics': czclinics,
+        'spclinics': spclinics,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
         'leedsclinics': leedsclinics,

@@ -5,54 +5,70 @@ $(document).ready(function (e) {
             $('#usdBoard1a').show();
             $('#usdBoard1b').show();
             $('#usdBoard1c').show();
+            $('#usdBoard1d').show();
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
+            $('#eurBoard2d').hide();
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
+            $('#gbpBoard3d').hide();
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
+            $('#defaultBoard1d').hide();
         } else if ($(this).val() == 'EUR') {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
+            $('#usdBoard1d').hide();
             $('#eurBoard2a').show();
             $('#eurBoard2b').show();
             $('#eurBoard2c').show();
+            $('#eurBoard2d').show();
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
+            $('#gbpBoard3d').hide();
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
+            $('#defaultBoard1d').hide();
         } else if ($(this).val() == 'GBP') {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
+            $('#usdBoard1d').hide();
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
+            $('#eurBoard2d').hide();
             $('#gbpBoard3a').show();
             $('#gbpBoard3b').show();
             $('#gbpBoard3c').show();
+            $('#gbpBoard3d').show();
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
+            $('#defaultBoard1d').hide();
         } else {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
+            $('#usdBoard1d').hide();
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
+            $('#eurBoard2d').hide();
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
+            $('#gbpBoard3d').hide();
             $('#defaultBoard1a').show();
             $('#defaultBoard1b').show();
             $('#defaultBoard1c').show();
+            $('#defaultBoard1d').show();
         }
     });
 });
@@ -1779,6 +1795,127 @@ $(document).ready(function (e) {
 
           $('#defaultBoardPrague').show();
           $('#defaultBoardBrno').show();
+        }
+    });
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON CZ | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    $('#ChooseCurrencySP').change(function () {
+        if ($(this).val() == 'USD') {
+          $('#usdAlicante').show();
+          $('#usdBarcelona').show();
+          $('#usdMadrid').show();
+          $('#usdMalaga').show();
+          $('#usdSeville').show();
+          $('#usdValencia').show();
+
+          $('#eurAlicante').hide();
+          $('#eurBarcelona').hide();
+          $('#eurMadrid').hide();
+          $('#eurMalaga').hide();
+          $('#eurSeville').hide();
+          $('#eurValencia').hide();
+
+          $('#gbpAlicante').hide();
+          $('#gbpBarcelona').hide();
+          $('#gbpMadrid').hide();
+          $('#gbpMalaga').hide();
+          $('#gbpSeville').hide();
+          $('#gbpValencia').hide();
+
+          $('#defaultBoardAlicante').hide();
+          $('#defaultBoardBarcelona').hide();
+          $('#defaultBoardMadrid').hide();
+          $('#defaultBoardMalaga').hide();
+          $('#defaultBoardSeville').hide();
+          $('#defaultBoardValencia').hide();
+
+        } else if ($(this).val() == 'EUR') {
+          $('#usdAlicante').hide();
+          $('#usdBarcelona').hide();
+          $('#usdMadrid').hide();
+          $('#usdMalaga').hide();
+          $('#usdSeville').hide();
+          $('#usdValencia').hide();
+
+          $('#eurAlicante').show();
+          $('#eurBarcelona').show();
+          $('#eurMadrid').show();
+          $('#eurMalaga').show();
+          $('#eurSeville').show();
+          $('#eurValencia').show();
+
+          $('#gbpAlicante').hide();
+          $('#gbpBarcelona').hide();
+          $('#gbpMadrid').hide();
+          $('#gbpMalaga').hide();
+          $('#gbpSeville').hide();
+          $('#gbpValencia').hide();
+
+          $('#defaultBoardAlicante').hide();
+          $('#defaultBoardBarcelona').hide();
+          $('#defaultBoardMadrid').hide();
+          $('#defaultBoardMalaga').hide();
+          $('#defaultBoardSeville').hide();
+          $('#defaultBoardValencia').hide();
+
+        } else if ($(this).val() == 'GBP') {
+          $('#usdAlicante').hide();
+          $('#usdBarcelona').hide();
+          $('#usdMadrid').hide();
+          $('#usdMalaga').hide();
+          $('#usdSeville').hide();
+          $('#usdValencia').hide();
+
+          $('#eurAlicante').hide();
+          $('#eurBarcelona').hide();
+          $('#eurMadrid').hide();
+          $('#eurMalaga').hide();
+          $('#eurSeville').hide();
+          $('#eurValencia').hide();
+
+          $('#gbpAlicante').show();
+          $('#gbpBarcelona').show();
+          $('#gbpMadrid').show();
+          $('#gbpMalaga').show();
+          $('#gbpSeville').show();
+          $('#gbpValencia').show();
+
+          $('#defaultBoardAlicante').hide();
+          $('#defaultBoardBarcelona').hide();
+          $('#defaultBoardMadrid').hide();
+          $('#defaultBoardMalaga').hide();
+          $('#defaultBoardSeville').hide();
+          $('#defaultBoardValencia').hide();
+        } else {
+          $('#usdAlicante').hide();
+          $('#usdBarcelona').hide();
+          $('#usdMadrid').hide();
+          $('#usdMalaga').hide();
+          $('#usdSeville').hide();
+          $('#usdValencia').hide();
+
+          $('#eurAlicante').hide();
+          $('#eurBarcelona').hide();
+          $('#eurMadrid').hide();
+          $('#eurMalaga').hide();
+          $('#eurSeville').hide();
+          $('#eurValencia').hide();
+
+          $('#gbpAlicante').hide();
+          $('#gbpBarcelona').hide();
+          $('#gbpMadrid').hide();
+          $('#gbpMalaga').hide();
+          $('#gbpSeville').hide();
+          $('#gbpValencia').hide();
+
+          $('#defaultBoardAlicante').show();
+          $('#defaultBoardBarcelona').show();
+          $('#defaultBoardMadrid').show();
+          $('#defaultBoardMalaga').show();
+          $('#defaultBoardSeville').show();
+          $('#defaultBoardValencia').show();
         }
     });
 });

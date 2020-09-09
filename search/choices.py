@@ -2,6 +2,7 @@ CATEGORY_CHOICES_STATES = {
     'US': 'United States',
     'UK': 'United Kingdom',
     'CZ': 'Czech Republic',
+    'SP': 'Spain',
     }
 
 CATEGORY_CHOICES_CZ_CITIES = {

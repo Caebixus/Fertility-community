@@ -75,6 +75,15 @@
               <div id="gbpBoard3c" style="display:none">{% if gbpCurrency_cz_ivf %}{{ gbpCurrency_cz_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1d">Choose currency above</div>
+              <div id="usdBoard1d" style="display:none">{% if usdCurrency_sp_ivf %}{{ usdCurrency_sp_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2d" style="display:none">{% if eurCurrency_sp_ivf %}{{ eurCurrency_sp_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3d" style="display:none">{% if gbpCurrency_sp_ivf %}{{ gbpCurrency_sp_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

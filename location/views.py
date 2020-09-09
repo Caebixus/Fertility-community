@@ -7973,4 +7973,4 @@ def locationsSPRegions(request):
         'eurCurrency_valencia_iui': eurCurrency_valencia_iui,
         'my_total_count_valencia': my_total_count_valencia,
         }
-    return render(request, 'main/Locations/CZLocations/cz-regions.html', context)
+    return render(request, 'main/Locations/SPLocations/sp-regions.html', context)

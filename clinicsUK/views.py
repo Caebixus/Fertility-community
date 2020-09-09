@@ -8,7 +8,7 @@ from packages.models import Packages
 from django.utils import timezone
 from owners.models import ownerProInterested, ProUser
 
-# Create your views here.
+#ABERDEEN   --------------------------------
 def aberfercen(request):
     listing = BasicClinic.objects.get(pk=506)
 

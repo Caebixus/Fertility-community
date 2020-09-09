@@ -201,6 +201,24 @@
         {% elif values.Region == 'Brno'%}
           Search fertility clinics & agencies in Brno, Czech Republic
         {% endif %}
+      {% elif values.States == 'SP' %}
+        {% if values.Region == '' %}
+          Search fertility clinics & agencies in Spain
+        {% elif values.Region == None %}
+          Search fertility clinics & agencies in Spain
+        {% elif values.Region == 'Alicante' %}
+          Search fertility clinics & agencies in Alicante, Spain
+        {% elif values.Region == 'Barcelona'%}
+          Search fertility clinics & agencies in Barcelona, Spain
+        {% elif values.Region == 'Madrid'%}
+          Search fertility clinics & agencies in Madrid, Spain
+        {% elif values.Region == 'Malaga'%}
+          Search fertility clinics & agencies in Malaga, Spain
+        {% elif values.Region == 'Seville'%}
+          Search fertility clinics & agencies in Seville, Spain
+        {% elif values.Region == 'Valencia'%}
+          Search fertility clinics & agencies in Valencia, Spain
+        {% endif %}
       {% endif %}
     </h1>
     {% if values.States != None %}
@@ -258,6 +276,19 @@
               <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                 <option value="" selected>Select Czech city</option>
                 {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        {% elif values.States == 'SP' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-sp">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Spain city</option>
+                {% for key, value in CATEGORY_CHOICES_SP_CITIES.items %}
                 <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                 {% endfor %}
               </select>
@@ -408,7 +439,7 @@
       <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'locationsUKRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in UK</a>
+      <a class="nav-link" href="{% url 'locationsUKRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in United Kingdom</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
@@ -426,7 +457,7 @@
       <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in US</a>
+      <a class="nav-link" href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in United States</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
@@ -444,7 +475,25 @@
       <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
     </li>
     <li hidden class="nav-item">
-      <a class="nav-link" href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in CZ</a>
+      <a class="nav-link" href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Czech Republic</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  {% elif values.States == 'SP' %}
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Spain</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>

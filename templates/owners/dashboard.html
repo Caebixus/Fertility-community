@@ -116,7 +116,7 @@
     <br>
     {% endfor %}
     {% else %}
-    <p>There is no clinic connected to you account. Claim or add new one</p>
+    <p>There is no clinic connected to you account. <a href="{% url 'claim' %}">Claim</a> or <a href="{% url 'create1' %}">add new</a> one</p>
     {% endif %}
   </div>
 </div>

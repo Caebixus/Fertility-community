@@ -284,7 +284,7 @@ def create1(request):
             fail_silently=False,
             )
 
-        messages.success(request, '- Clinic created - please check additional information + treatment pricing')
+        messages.success(request, '- Clinic created - please wait for out team to review your clinic')
         return redirect(dashboard)
 
     context = {

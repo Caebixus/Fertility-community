@@ -173,6 +173,21 @@ select {
   border-radius: 8px;
 }
 
+#pricingSearchButton {
+  border-color: #15a2b8;
+  background-color: #15a2b8;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#pricingSearchButton:hover {
+  border-color: #15a2b8;
+  background-color: white;
+  color: #15a2b8;
+  border-radius: 8px;
+}
+
 #brandButtonGoalRightCorner {
   border-color: #286DA8;
   background-color: #286DA8;

@@ -1,5 +1,10 @@
 {% load static %}
+<div class="backgroundPackageClinicDetail">
+<br>
 <div class="container" id="packages">
+  {% if package %}
+  <h2>Packages & Deals</h2>
+  <br>
   <div class="row">
     {% for packages in package %}
     <div class="col-sm-6">
@@ -33,4 +38,10 @@
     </div>
     {% endfor %}
   </div>
+  {% else %}
+  <h2>Packages & Deals</h2>
+  <p>Sorry there are no Packages or special Deals available for this clinic right now</p>
+  <br>
+  {% endif %}
+</div>
 </div>

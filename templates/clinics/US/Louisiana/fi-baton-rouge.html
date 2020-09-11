@@ -71,10 +71,13 @@
 
 <!-- ================================================== -->
 
+{% if listing.pro_is_published == True %}
 <br>
 <br>
+{% include 'clinicdetails/4Packages.html' %}
+{% else %}
 
-{% include 'clinicdetails/4clinicpackages.html' %}
+{% endif %}
 
 <!-- ================================================== -->
 

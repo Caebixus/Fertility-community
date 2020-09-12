@@ -26,9 +26,9 @@
           <p>{{ packages.packagesdesc|safe}}</p>
         </div>
         <div class="card-footer" style="background-color: #efefef; text-align:right">
-          <a href="mailto:{{ packages.contact_email }}">
-            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-              Get a quote
+          <a href="mailto:{{ packages.packageClinic.contact_email }}?subject=Non-binding interest for {{ packages.packagestitle }}&body=Hello,<br><br>I'm interested in package: {{ packages.packagestitle }}. Please send me more information to this email.<br><br>Thank you.">
+            <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+              Claim Package
             </button>
           </a>
         </div>

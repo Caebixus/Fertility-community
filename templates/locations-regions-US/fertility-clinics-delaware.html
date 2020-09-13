@@ -253,7 +253,7 @@
         <!-- PPQ Clinic listings PRICING -->
         <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -275,9 +275,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
@@ -325,7 +325,7 @@
         <!-- PPQ Clinic listings NOPRICING -->
         <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -347,9 +347,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
@@ -396,7 +396,7 @@
         <!-- PRO Clinic listings PRICING -->
         <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -418,10 +418,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <br>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
@@ -469,7 +468,7 @@
         <!-- PRO Clinic listings NOPRICING -->
         <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -491,10 +490,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <br>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
@@ -541,7 +539,7 @@
         <!-- BASIC Clinic listings PRICING -->
         <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -563,10 +561,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <br>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade>
           <div class="row-md">
@@ -605,7 +602,7 @@
         <!-- BASIC Clinic listings NOPRICING -->
         <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
-            <div class="header">
+            <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" href="{{ order_datas.clinic_url }}">
@@ -627,10 +624,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
-              <br>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
-              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
           </div>
           <hr noshade>
 

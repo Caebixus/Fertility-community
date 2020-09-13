@@ -41,7 +41,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                    <option value="" selected>Select US State</option>
+                    <option value="" selected>Delaware</option>
                     {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
@@ -275,6 +275,8 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade style="border-top: 1px solid white">
@@ -345,6 +347,8 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade style="border-top: 1px solid white">
@@ -414,6 +418,9 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <br>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade style="border-top: 1px solid #6c757d">
@@ -484,6 +491,8 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade style="border-top: 1px solid #6c757d">
@@ -553,6 +562,8 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade>
@@ -614,6 +625,8 @@
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
               </div>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+              <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i><a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px"> {{ order_datas.contact_phone }} </a></p>
             </div>
           </div>
           <hr noshade>

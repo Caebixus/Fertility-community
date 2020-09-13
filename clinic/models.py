@@ -255,3 +255,12 @@ class BasicClinic(models.Model):
 
     def __str__(self):
         return str(self.clinicName)
+
+class PayProCustomerClinic(models.Model):
+    proClinic = models.OneToOneField(BasicClinic, on_delete=models.CASCADE, blank=True, null = True, related_name='proClinic')
+
+    stripeid = models.CharField(max_length=255)
+    stripe_subscription_id = models.CharField(max_length=255)
+    cancel_at_period_end = models.BooleanField(default=False)
+
+    membership = models.BooleanField(default=False)

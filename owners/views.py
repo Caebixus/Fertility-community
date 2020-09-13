@@ -532,7 +532,7 @@ def change_password(request):
 
 # PAYMENTS SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def payments(request):
+def order1(request):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
@@ -541,7 +541,7 @@ def payments(request):
         'usergroup': usergroup,
     }
 
-    return render(request, 'owners/payments.html')
+    return render(request, 'owners/payments/order1.html')
 
 # Packages SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')

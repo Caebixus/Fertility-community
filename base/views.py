@@ -208,9 +208,6 @@ def news(request):
 def iframe1(request):
     return render(request, 'main/iframepic1.html')
 
-def travelCalculator(request):
-    return render(request, 'main/travel-calculator.html')
-
 def cookies(request):
     return render(request, 'main/cookies.html')
 

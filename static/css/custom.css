@@ -13,6 +13,7 @@ h2 {
 h3 {
   font-family: 'Josefin Sans';
   text-align: left;
+  font-size: 130%
 }
 
 h4 {
@@ -41,9 +42,14 @@ label {
 
 pre {
   display: block;
-  font-family: monospace;
+  font-family: 'Josefin Sans';
   white-space: pre;
   margin: 1em 0;
+  background-color: #c0c0c0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  border-radius: 4px;
 }
 
 select {
@@ -55,8 +61,13 @@ select {
   background-color: white;
 }
 
+.backgroundPackageClinicDetail {
+  background-color: #ebebeb;
+}
+
 .imgHoverLogo {
   border-radius: 4px;
+  background-color: white;
 }
 
 .imgHover{
@@ -78,16 +89,21 @@ select {
 }
 
 .jumbotron {
-  background-color: white;
+  background-color: #ebebeb;
   border-radius: 8px;
-  border-style: groove;
-  border-width: 1px;
-  border-color: #286da8;
 }
 
 .form-check-label {
   font-family: 'Josefin Sans';
   color: #282c34;
+}
+
+.affillink {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  color: #282c34;
+  text-decoration: underline;
+  font-weight: 450;
 }
 
 .headingOne {
@@ -109,6 +125,10 @@ select {
 .header #nameInfo {
   position: relative;
   padding-left: 75px;
+}
+
+#modelchoicefield {
+  background-color: grey;
 }
 
 #Region {
@@ -142,12 +162,49 @@ select {
   font-family: 'Josefin Sans';
 }
 
+#brandButtonGoalPackage {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalPackage:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}
+
 #brandButton {
   border-color: #CD5360;
   background-color: #CD5360;
   border-radius: 8px;
   border-width:2px;
   color: white;
+}
+
+#brandButton:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}
+
+#pricingSearchButton {
+  border-color: #15a2b8;
+  background-color: #15a2b8;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#pricingSearchButton:hover {
+  border-color: #15a2b8;
+  background-color: white;
+  color: #15a2b8;
+  border-radius: 8px;
 }
 
 #brandButtonGoalRightCorner {
@@ -173,12 +230,6 @@ select {
   color: #ffffff;
 }
 
-#brandButton:hover {
-  background-color: #CD5360;
-  border-radius: 8px;
-  color: white;
-}
-
 #baseBrandButton:hover {
   background-color: #ffffff;
   border-radius: 8px;
@@ -190,6 +241,7 @@ p {
   font-weight: 300;
   color: #282c34;
   text-align: left;
+  font-size: 115%
 }
 
 ul {
@@ -204,6 +256,18 @@ ol {
   font-weight: 300;
   color: #282c34;
   text-align: left;
+}
+
+table th:first-child{
+  border-radius:10px 0 0 10px;
+}
+
+table th:last-child{
+  border-radius:0 10px 10px 0;
+}
+
+.borderless th {
+  border: none;
 }
 
 .badge {
@@ -226,6 +290,38 @@ button {
 
 body {
   position: relative;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-item{
+  text-align: center;
+}
+
+.carousel-inner img{
+  display: inline-block  !important;
 }
 
 #carouselHP {
@@ -344,6 +440,7 @@ textarea {
   background-color: gray;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 .close {
   height: 20px;
   background-color: black;
@@ -351,4 +448,13 @@ textarea {
   color: white;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
 }

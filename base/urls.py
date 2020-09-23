@@ -9,7 +9,6 @@ urlpatterns = [
     path('infertility-male3.html', views.backlink2, name='backlink2'),
     path('intrauterine-insemination-iui/2020189726-increaseyourchances-org.html', views.backlink3, name='backlink3'),
     path('robots.txt', views.robots, name='robots.txt'),
-    path('about', views.about, name='about'),
     path('contact', views.contactWebsite, name='contact'),
     path('team', views.team, name='team'),
     path('news', views.news, name='news'),

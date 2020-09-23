@@ -20266,7 +20266,7 @@ def texasfertilitycentersouthaustin(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Texas/texas-fertility-center-new-braunfels.html', context)
+        return render(request, 'clinics/US/Texas/texas-fertility-center-south-austin.html', context)
 
     else:
         pass
@@ -20279,7 +20279,7 @@ def texasfertilitycentersouthaustin(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Texas/texas-fertility-center-new-braunfels.html', context)
+    return render(request, 'clinics/US/Texas/texas-fertility-center-south-austin.html', context)
 
 def texasfertilitycenternewbraunfels(request):
     listing = BasicClinic.objects.get(pk=410)
@@ -20315,7 +20315,7 @@ def texasfertilitycenternewbraunfels(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Texas/texas-fertility-center-south-austin.html', context)
+        return render(request, 'clinics/US/Texas/texas-fertility-center-new-braunfels.html', context)
 
     else:
         pass
@@ -20328,7 +20328,7 @@ def texasfertilitycenternewbraunfels(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Texas/texas-fertility-center-south-austin.html', context)
+    return render(request, 'clinics/US/Texas/texas-fertility-center-new-braunfels.html', context)
 
 def texasfertilitycentersanantonio(request):
     listing = BasicClinic.objects.get(pk=411)

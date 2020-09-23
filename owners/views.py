@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
@@ -15,6 +16,11 @@ from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
 from .decorators import allowed_users
+
+import stripe
+
+stripe.api_key = settings.STRIPE_PRIVATE_KEY
+stripePublickKey = settings.STRIPE_PUBLIC_KEY
 
 # Create your views here.
 def register(request):
@@ -89,12 +95,26 @@ def dashboard(request):
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
 
+    session = stripe.checkout.Session.create(
+      payment_method_types=['card'],
+      line_items=[{
+        'price': 'plan_HJuupx4J7RzP6K',
+        'quantity': 1,
+      }],
+      mode='subscription',
+      billing_address_collection='required',
+      success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url=request.build_absolute_uri(reverse('dashboard')),
+    )
+
     context = {
         'listings': listings,
         'package': package,
         'userdata': userdata,
         'instance': instance,
         'usergroup': usergroup,
+        'session_id': session.id,
+        'stripe_public_key': stripePublickKey,
     }
 
     return render(request, 'owners/dashboard.html', context)
@@ -529,19 +549,6 @@ def change_password(request):
             }
         return render(request, 'owners/change-password.html', args)
 
-
-# PAYMENTS SECTION
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def order1(request):
-    usergroup = ProUser.objects.all()
-    usergroup = usergroup.filter(user=request.user)
-    usergroup = usergroup.filter(paidPropublished=True)
-
-    context = {
-        'usergroup': usergroup,
-    }
-
-    return render(request, 'owners/payments/order1.html')
 
 # Packages SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')

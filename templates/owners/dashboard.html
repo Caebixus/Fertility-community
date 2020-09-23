@@ -24,95 +24,150 @@
     {% if listings %}
     {% for listings in listings.all %}
     {% if listings.is_published == True and listings.pro_is_published == False %}
-    <span class="badge badge-warning">Basic account</span>
     <br>
-    <br>
+    <hr>
     <div class="row">
       <div class="col-sm-9">
-        <h3>{{ listings.clinicName }}</h3>
+        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
       </div>
     </div>
+    <br>
     {% elif listings.is_published == True and listings.pro_is_published == True %}
-    <span class="badge badge-primary">PRO account</span>
     <br>
-    <br>
+    <hr>
     <div class="row">
       <div class="col-sm-9">
-        <h3>{{ listings.clinicName }}</h3>
+        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-primary">PRO clinic</span></h3>
       </div>
     </div>
+    <br>
     {% elif listings.is_published == False and listings.pro_is_published == False %}
-    <span class="badge badge-warning">Basic account</span>
     <br>
-    <br>
+    <hr>
     <div class="row">
       <div class="col-sm-9">
-        <h3>{{ listings.clinicName }}</h3>
+        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
       </div>
     </div>
+    <br>
     {% endif %}
     <br>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="row" style="text-align:center">
-        <div class="col-sm" style="padding-top: 1rem">
-          {% if listings.is_published == True and listings.pro_is_published == False %}
+    <div class="row" style="text-align:left">
+      <div class="col-sm" style="padding-top: 1rem">
+        {% if listings.is_published == True and listings.pro_is_published == False %}
 
-            <a href="{% url 'update' listings.id %}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic information</button>
-            </a>
+          <a href="{% url 'update' listings.id %}">
+            <p><i class="fas fa-tools"></i> Clinic information</p>
+          </a>
 
-            <a href="{% url 'updatePricing' listings.id %}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic pricing</button>
-            </a>
+          <a href="{% url 'updatePricing' listings.id %}">
+            <p><i class="fas fa-comment-dollar"></i> Clinic pricing</p>
+          </a>
 
-          {% elif listings.is_published == True and listings.pro_is_published == True %}
+        {% elif listings.is_published == True and listings.pro_is_published == True %}
 
-            <a href="{% url 'updateproclinic' listings.id %}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic information</button>
-            </a>
+          <a href="{% url 'updateproclinic' listings.id %}">
+            <p><i class="fas fa-tools"></i> Clinic information</p>
+          </a>
 
-            <a href="{% url 'updatePricingPro' listings.id %}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic pricing</button>
-            </a>
+          <a href="{% url 'updatePricingPro' listings.id %}">
+            <p><i class="fas fa-comment-dollar"></i> Clinic pricing</p>
+          </a>
 
-            <a hidden href="{% url 'packages' listings.id %}">
-              <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Clinic packages</button>
-            </a>
-          {% endif %}
-        </div>
+        {% endif %}
+      </div>
 
-        <div class="col-sm" style="padding-top: 1rem">
-          {% if listings.is_published == True and listings.pro_is_published == False %}
+      <div class="col-sm" style="padding-top: 1rem">
+        {% if listings.is_published == True and listings.pro_is_published == False %}
 
-            <a href="{{ listings.clinic_url }}">
-              <button type="button" class="btn btn-outline-success btn-lg">View clinic</button>
-            </a>
+          <a href="{{ listings.clinic_url }}">
+            <p><i class="fas fa-eye"></i> View clinic</p>
+          </a>
 
-            <a href="{% url 'upgrade' %}">
-              <button type="button" class="btn btn-outline-primary btn-lg">Upgrade to PRO</button>
-            </a>
+        {% elif listings.is_published == True and listings.pro_is_published == True %}
 
-          {% elif listings.is_published == True and listings.pro_is_published == True %}
-
-            <a href="{{ listings.clinic_url }}">
-              <button type="button" class="btn btn-outline-success btn-lg">View clinic</button>
-            </a>
+          <a href="{{ listings.clinic_url }}">
+            <p><i class="fas fa-eye"></i> View clinic</p>
+          </a>
 
 
-            <a href="">
-              <button type="button" class="btn btn-outline-primary btn-lg">PRO Features</button>
-            </a>
-          {% else %}
+          <a hidden href="">
+            <p><i class="fas fa-info-circle"></i> PRO Features</p>
+          </a>
+        {% else %}
 
-            <a href="{{ listings.clinic_url }}">
-              <button disabled type="button" class="btn btn-outline-success btn-lg">In review</button>
-            </a>
+          <a href="">
+            <p><i class="fas fa-search"></i> In review</p>
+          </a>
 
-          {% endif %}
-        </div>
+        {% endif %}
       </div>
     </div>
+    {% if listings.is_published == True and listings.pro_is_published == False %}
+    <div class="row">
+      <div class="col-4 col-sm">
+          <a href="{% url 'billinginfo' listings.id %}">
+          <button class="btn btn-warning text-dark" type="button">Complete billing information</button>
+        </a>
+      </div>
+      <div class="col-4 col-sm">
+        <button class="btn btn-primary text-white" type="button" data-toggle="collapse" data-target="#collapseUpgrade" aria-expanded="false" aria-controls="collapseUpgrade">
+          <i class="fas fa-bolt"></i> Upgrade to PRO
+        </button>
+        <div class="collapse" id="collapseUpgrade">
+          <div class="container py-4">
+            <div class="card-deck mb-3 text-center">
+              <div class="card mb-4 shadow-lg border-success">
+                <div class="card-header border-success">
+                  <h4 class="my-0 font-weight-normal" style="text-align: center">Yearly PRO Clinic <small class="text-success"> (Save 60€!)</small></h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title" style="text-align: center">€120/yr</h1>
+                  <br>
+                  <ul class="list-styled mt-3 mb-4" style="text-align: left">
+                    <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
+                    <li>Be more visible with preferred search options</li>
+                    <li>Get access to premium features</li>
+                    <li>Increase your reach and get offers immediately</li>
+                  </ul>
+                  <br>
+                  <a href="{% url 'billinginfo' listings.id %}">
+                    <button class="btn btn-primary">Druhá verze</button>
+                  </a>
+                </div>
+              </div>
+              <div class="card mb-4 shadow-lg">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal" style="text-align: center">Monthly PRO Clinic</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title" style="text-align: center">€15/mo</h1>
+                  <br>
+                  <ul class="list-styled mt-3 mb-4" style="text-align: left">
+                    <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
+                    <li>Be more visible with preferred search options</li>
+                    <li>Get access to premium features</li>
+                    <li>Increase your reach and get offers immediately</li>
+                  </ul>
+                  <br>
+                  <button class="btn btn-primary" id="checkout-button-monthly">Subscribe monthly</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 col-sm">
+        <p><i class="fas fa-file-invoice"></i> Payment & Invoice</p>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}
+
+
     <hr>
+    <br>
+    <br>
     <br>
     {% endfor %}
     {% else %}
@@ -120,4 +175,17 @@
     {% endif %}
   </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  var stripe = Stripe('{{ stripe_public_key }}');
+
+  var checkoutButton = document.getElementById('checkout-button-monthly');
+
+  checkoutButton.addEventListener('click', function() {
+  stripe.redirectToCheckout({
+    sessionId: '{{ session_id }}'
+  }).then(function (result) {
+  });
+});
+</script>
 {% endblock  %}

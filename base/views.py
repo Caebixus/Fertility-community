@@ -193,9 +193,6 @@ def backlink2(request):
 def backlink3(request):
     return HttpResponsePermanentRedirect(reverse('index'))
 
-def about(request):
-    return render(request, 'main/about.html')
-
 def robots(request):
     return render(request, 'main/robots.txt')
 

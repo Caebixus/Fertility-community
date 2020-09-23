@@ -1453,7 +1453,7 @@ def hullivfunit(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/UK/Kingstonuponhill/hull-ivf-unit.html', context)
+    return render(request, 'clinics/UK/Kingstonuponhull/hull-ivf-unit.html', context)
 
 #CHELMSFORD   --------------------------------
 

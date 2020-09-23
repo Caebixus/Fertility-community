@@ -14413,7 +14413,7 @@ def bostonivfsyracusy(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/New-York/boston-ivf–syracuse.html', context)
+        return render(request, 'clinics/US/New-York/boston-ivf-syracuse.html', context)
 
     else:
         pass
@@ -14426,7 +14426,7 @@ def bostonivfsyracusy(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/New-York/boston-ivf–syracuse.html', context)
+    return render(request, 'clinics/US/New-York/boston-ivf-syracuse.html', context)
 
 def longislivfmelville(request):
     listing = BasicClinic.objects.get(pk=291)

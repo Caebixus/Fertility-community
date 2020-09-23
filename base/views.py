@@ -187,6 +187,9 @@ def index(request):
 def businessinsiderbacklink(request):
     return HttpResponsePermanentRedirect(reverse('index'))
 
+def forumoldurlredirect(request):
+    return HttpResponsePermanentRedirect(reverse('index'))
+
 def backlink2(request):
     return HttpResponsePermanentRedirect(reverse('index'))
 

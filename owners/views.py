@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from packages.models import Packages
+from payments.models import Customer
 from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
 from django.utils import timezone

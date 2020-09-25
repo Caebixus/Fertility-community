@@ -5,18 +5,16 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Payments & Invoices</h1>
+    <p>{{ instance.customer.stripeid }}</p>
     <br>
   </div>
 </div>
 <br>
 <div class="container py-4">
-  <form action="{% url 'cancelSubscription' %}" method="POST">
-    {% include 'partials/_alerts.html' %}
+  <form method="POST" action="">
     {% csrf_token %}
-    <button type="button" name="button">Cancel my subscription</button>
+    <button type="submit"><i class="fas fa-file-invoice"></i> Payment & Invoice</button>
   </form>
 </div>
-
-
 
 {% endblock  %}

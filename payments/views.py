@@ -20,6 +20,7 @@ import json
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from .choices import CATEGORY_CHOICES_ISO
 
 import stripe
 
@@ -30,33 +31,84 @@ stripePublickKey = settings.STRIPE_PUBLIC_KEY
 def billinginfo(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
 
-    stripe_customer = stripe.Customer.create(name=instance.clinicName, email=instance.contact_email)
+    try:
+        existingCustomer = Customer.objects.get(customerClinic_id=listing_id)
+    except Customer.DoesNotExist:
+        existingCustomer = None
 
-    customer = Customer()
-    customerClinic = instance.pk
-    customer.stripeid = stripe_customer.id
-    customer.save()
+    if existingCustomer == None:
+        if request.method == 'GET':
+            context = {'instance': instance, 'CATEGORY_CHOICES_ISO': CATEGORY_CHOICES_ISO, }
+            return render(request, 'owners/payments/billinginfo.html', context)
+        else:
+            stripe_customer = stripe.Customer.create(
+                    name=instance.clinicName,
+                    email=instance.contact_email,
+                    address={
+                        'line1': 'Langrova 604/25',
+                        'city': 'Prague',
+                        'country': 'CZ',
+                        'postal_code': '19900',
+                        'state': 'Czech Republic',
+                    },
+                )
 
-    session = stripe.checkout.Session.create(
-      payment_method_types=['card'],
-      line_items=[{
-        'price': 'plan_HJuupx4J7RzP6K',
-        'quantity': 1,
-      }],
-      customer='customer.id',
-      mode='subscription',
-      billing_address_collection='required',
-      success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url=request.build_absolute_uri(reverse('dashboard')),
-    )
+            customer = Customer()
+            customer.customerClinic = instance
+            customer.stripeid = stripe_customer.id
+            customer.save()
+
+            session = stripe.checkout.Session.create(
+                  payment_method_types=['card'],
+                  line_items=[{
+                    'price': 'plan_HJuupx4J7RzP6K',
+                    'quantity': 1,
+                  }],
+                  customer=customer.stripeid,
+                  mode='subscription',
+                  success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
+                  cancel_url=request.build_absolute_uri(reverse('dashboard')),
+                )
+
+            context = {
+                'instance': instance,
+                'customer': customer,
+                'session_id': session.id,
+                'stripe_public_key': stripePublickKey,
+            }
+
+            return render(request, 'owners/payments/checkout.html', context)
+    else:
+        messages.error(request, 'Already customer')
+        return redirect('dashboard')
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def payments(request, listing_id):
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+    customer = get_object_or_404(Customer, customerClinic_id=instance)
+
+    if request.method == "POST":
+        stripe.billing_portal.Session.create(
+            customer=customer.stripeid,
+            return_url='http://localhost:8000/account/dashboard',
+        )
+
+        context = {
+            'instance': instance,
+        }
+
+        return render(request, 'owners/payments/payments.html', context)
+    else:
+        pass
 
     context = {
         'instance': instance,
-        'session_id': session.id,
-        'stripe_public_key': stripePublickKey,
     }
 
-    return render(request, 'owners/payments/billinginfo.html', context)
+    return render(request, 'owners/payments/payments.html', context)
+
+
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def monthly(request):
@@ -67,13 +119,34 @@ def successpay(request):
     return render(request, 'owners/payments/successpay.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def checkout(request):
-    return render(request, 'owners/payments/successpay.html')
+def checkout(request, pk):
+    instance = get_object_or_404(BasicClinic, pk=pk, clinicOwner_id=request.user)
+    customer = get_object_or_404(Customer, customerClinic_id=instance)
+
+    session = stripe.checkout.Session.create(
+          payment_method_types=['card'],
+          line_items=[{
+            'price': 'plan_HJuupx4J7RzP6K',
+            'quantity': 1,
+          }],
+          customer=customer.stripeid,
+          mode='subscription',
+          success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
+          cancel_url=request.build_absolute_uri(reverse('dashboard')),
+        )
+
+    context = {
+        'customer': customer,
+        'instance': instance,
+        'session_id': session.id,
+        'stripe_public_key': stripePublickKey,
+    }
+
+    return render(request, 'owners/payments/checkout.html', context)
 
 @csrf_exempt
 def stripe_webhook(request):
 
-    print('WEBHOOK!')
     # You can find your endpoint's secret in your webhook settings
     endpoint_secret = 'whsec_Ab0RoJj4Mhh4JKzF7GQxEs3dFv8qNObT'
 
@@ -98,5 +171,18 @@ def stripe_webhook(request):
         print(session)
         line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
         print(line_items)
+
+        customer = get_object_or_404(Customer, stripeid=session.customer)
+        customer.stripe_subscription_id = session.subscription
+        customer.membership = True
+        customer.save()
+
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = True
+        instance.save()
+
+        # Create a new subscription and mark it as paid this month.
+        # subscription = sign_up_customer(customer_email, subscription_id)
+
 
     return HttpResponse(status=200)

@@ -13,4 +13,4 @@ class Customer(models.Model):
     stripeid = models.CharField(max_length=255)
     stripe_subscription_id = models.CharField(max_length=255, null=True, blank=True)
     cancel_at_period_end = models.BooleanField(default=False)
-    membership = models.BooleanField(default=False, null=True, blank=True)
+    membership = models.BooleanField(default=False)

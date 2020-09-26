@@ -148,7 +148,7 @@ def checkout(request, pk):
 def stripe_webhook(request):
 
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = 'whsec_Ab0RoJj4Mhh4JKzF7GQxEs3dFv8qNObT'
+    endpoint_secret = 'whsec_71VwnSc1MOqtqu1F2ZIj53QQl9hGGD25'
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']

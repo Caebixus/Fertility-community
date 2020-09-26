@@ -96,26 +96,12 @@ def dashboard(request):
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
 
-    session = stripe.checkout.Session.create(
-      payment_method_types=['card'],
-      line_items=[{
-        'price': 'plan_HJuupx4J7RzP6K',
-        'quantity': 1,
-      }],
-      mode='subscription',
-      billing_address_collection='required',
-      success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url=request.build_absolute_uri(reverse('dashboard')),
-    )
-
     context = {
         'listings': listings,
         'package': package,
         'userdata': userdata,
         'instance': instance,
         'usergroup': usergroup,
-        'session_id': session.id,
-        'stripe_public_key': stripePublickKey,
     }
 
     return render(request, 'owners/dashboard.html', context)

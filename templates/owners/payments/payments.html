@@ -5,7 +5,6 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Payments & Invoices</h1>
-    <p>{{ instance.customer.stripeid }}</p>
     <br>
   </div>
 </div>
@@ -13,7 +12,7 @@
 <div class="container py-4">
   <form method="POST" action="">
     {% csrf_token %}
-    <button type="submit"><i class="fas fa-file-invoice"></i> Payment & Invoice</button>
+    <button class="btn btn-primary" type="submit"><i class="fas fa-file-invoice"></i> Customer portal</button>
   </form>
 </div>
 

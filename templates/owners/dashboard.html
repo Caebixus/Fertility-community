@@ -114,12 +114,13 @@
           </a>
         </div>
       </div>
-      {% else %}
+      {% elif listings.customer.stripeid == None %}
       <div class="col-4 col-sm">
           <a href="{% url 'billinginfo' listings.id %}">
           <button class="btn btn-warning text-dark" type="button">Complete billing information</button>
         </a>
       </div>
+      {% else %}
       {% endif %}
       {% else %}
       {% if listings.customer.membership == True %}

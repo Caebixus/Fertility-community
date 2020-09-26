@@ -99,8 +99,7 @@ def payments(request, listing_id):
         }
 
         return render(request, 'owners/payments/payments.html', context)
-    else:
-        pass
+
 
     context = {
         'instance': instance,

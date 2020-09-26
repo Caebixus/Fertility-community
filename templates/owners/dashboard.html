@@ -104,6 +104,7 @@
       </div>
     </div>
     <div class="row">
+      {{ listings.customer.stripeid }}
       {% if listings.is_published == True and listings.pro_is_published == False %}
       {% if listings.customer.stripeid != None %}
       <div class="col-4 col-sm">

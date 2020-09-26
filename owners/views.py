@@ -80,6 +80,7 @@ def logout(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    customer = Customer.objects.all()
 
     package = Packages.objects.all()
     package = package.filter(packageOwner_id=request.user)
@@ -98,6 +99,7 @@ def dashboard(request):
 
     context = {
         'listings': listings,
+        'customer': customer,
         'package': package,
         'userdata': userdata,
         'instance': instance,

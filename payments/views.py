@@ -88,6 +88,7 @@ def payments(request, listing_id):
     customer = get_object_or_404(Customer, customerClinic_id=instance)
 
     if request.method == 'POST':
+        print(customer.stripeid)
         stripe.billing_portal.Session.create(
             customer=customer.stripeid,
             return_url='https://www.fertilitycommunity.com/account/dashboard',
@@ -145,7 +146,7 @@ def checkout(request, pk):
 def stripe_webhook(request):
 
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = 'whsec_Ab0RoJj4Mhh4JKzF7GQxEs3dFv8qNObT'
+    endpoint_secret = 'whsec_71VwnSc1MOqtqu1F2ZIj53QQl9hGGD25'
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']

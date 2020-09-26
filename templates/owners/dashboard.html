@@ -106,22 +106,21 @@
     <div class="row">
       {{ listings.customer.stripeid }}
       {% if listings.is_published == True and listings.pro_is_published == False %}
-      {% if listings.customer.stripeid != None %}
-      <div class="col-4 col-sm">
+        {% if listings.customer.stripeid %}
         <div class="col-4 col-sm">
-          <a href="{% url 'checkout' listings.id %}">
-            <button class="btn btn-warning text-dark" type="button">Upgrade to PRO Clinic</button>
+          <div class="col-4 col-sm">
+            <a href="{% url 'checkout' listings.id %}">
+              <button class="btn btn-warning text-dark" type="button">Upgrade to PRO Clinic</button>
+            </a>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-4 col-sm">
+            <a href="{% url 'billinginfo' listings.id %}">
+            <button class="btn btn-warning text-dark" type="button">Complete billing information</button>
           </a>
         </div>
-      </div>
-      {% elif listings.customer.stripeid == None %}
-      <div class="col-4 col-sm">
-          <a href="{% url 'billinginfo' listings.id %}">
-          <button class="btn btn-warning text-dark" type="button">Complete billing information</button>
-        </a>
-      </div>
-      {% else %}
-      {% endif %}
+        {% endif %}
       {% else %}
       {% if listings.customer.membership == True %}
       <div class="col-4 col-sm">

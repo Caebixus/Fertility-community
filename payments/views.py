@@ -45,11 +45,11 @@ def billinginfo(request, listing_id):
                     name=instance.clinicName,
                     email=instance.contact_email,
                     address={
-                        'line1': 'Langrova 604/25',
-                        'city': 'Prague',
-                        'country': 'CZ',
-                        'postal_code': '19900',
-                        'state': 'Czech Republic',
+                        'line1': request.POST['billingsAddressLine1'],
+                        'city': request.POST['billingsAddressCity'],
+                        'country': request.POST['billingsAddressCountry'],
+                        'postal_code': request.POST['billingsAddressZipPostal'],
+                        'state': request.POST['billingsAddressState'],
                     },
                 )
 
@@ -58,22 +58,35 @@ def billinginfo(request, listing_id):
             customer.stripeid = stripe_customer.id
             customer.save()
 
-            session = stripe.checkout.Session.create(
-                  payment_method_types=['card'],
-                  line_items=[{
+            session1 = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=[{
                     'price': 'plan_HJuupx4J7RzP6K',
                     'quantity': 1,
-                  }],
-                  customer=customer.stripeid,
-                  mode='subscription',
-                  success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
-                  cancel_url=request.build_absolute_uri(reverse('dashboard')),
-                )
+                }],
+                customer=customer.stripeid,
+                mode='subscription',
+                success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id1={CHECKOUT_SESSION_ID}',
+                cancel_url=request.build_absolute_uri(reverse('dashboard')),
+            )
+
+            session2 = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=[{
+                    'price': 'plan_HJuwRD8yv03euA',
+                    'quantity': 1,
+                }],
+                customer=customer.stripeid,
+                mode='subscription',
+                success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id2={CHECKOUT_SESSION_ID}',
+                cancel_url=request.build_absolute_uri(reverse('dashboard')),
+            )
 
             context = {
                 'instance': instance,
                 'customer': customer,
-                'session_id': session.id,
+                'session_id1': session1.id,
+                'session_id2': session2.id,
                 'stripe_public_key': stripePublickKey,
             }
 
@@ -89,17 +102,12 @@ def payments(request, listing_id):
 
     if request.method == 'POST':
         print(customer.stripeid)
-        stripe.billing_portal.Session.create(
+        customer_portal = stripe.billing_portal.Session.create(
             customer=customer.stripeid,
             return_url='https://www.fertilitycommunity.com/account/dashboard',
         )
 
-        context = {
-            'instance': instance,
-            'customer': customer,
-        }
-
-        return render(request, 'https://billing.stripe.com/session/' + '?session_id={CHECKOUT_SESSION_ID}', context)
+        return redirect(customer_portal.url)
 
     context = {
         'instance': instance,
@@ -121,22 +129,35 @@ def checkout(request, pk):
     instance = get_object_or_404(BasicClinic, pk=pk, clinicOwner_id=request.user)
     customer = get_object_or_404(Customer, customerClinic_id=instance)
 
-    session = stripe.checkout.Session.create(
-          payment_method_types=['card'],
-          line_items=[{
+    session1 = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
             'price': 'plan_HJuupx4J7RzP6K',
             'quantity': 1,
-          }],
-          customer=customer.stripeid,
-          mode='subscription',
-          success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id={CHECKOUT_SESSION_ID}',
-          cancel_url=request.build_absolute_uri(reverse('dashboard')),
-        )
+        }],
+        customer=customer.stripeid,
+        mode='subscription',
+        success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id1={CHECKOUT_SESSION_ID}',
+        cancel_url=request.build_absolute_uri(reverse('dashboard')),
+    )
+
+    session2 = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price': 'plan_HJuwRD8yv03euA',
+            'quantity': 1,
+        }],
+        customer=customer.stripeid,
+        mode='subscription',
+        success_url=request.build_absolute_uri(reverse('successpay')) + '?session_id2={CHECKOUT_SESSION_ID}',
+        cancel_url=request.build_absolute_uri(reverse('dashboard')),
+    )
 
     context = {
-        'customer': customer,
         'instance': instance,
-        'session_id': session.id,
+        'customer': customer,
+        'session_id1': session1.id,
+        'session_id2': session2.id,
         'stripe_public_key': stripePublickKey,
     }
 
@@ -146,7 +167,7 @@ def checkout(request, pk):
 def stripe_webhook(request):
 
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = 'whsec_71VwnSc1MOqtqu1F2ZIj53QQl9hGGD25'
+    endpoint_secret = 'whsec_Ab0RoJj4Mhh4JKzF7GQxEs3dFv8qNObT'
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
@@ -182,5 +203,52 @@ def stripe_webhook(request):
         # Create a new subscription and mark it as paid this month.
         # subscription = sign_up_customer(customer_email, subscription_id)
 
+    if event['type'] == 'customer.deleted':
+        session = event['data']['object']
+        customer = get_object_or_404(Customer, stripeid=session.id)
+        customer.delete()
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = False
+        instance.save()
+
+    if event['type'] == 'customer.subscription.created':
+        session = event['data']['object']
+        print(session)
+        customer = get_object_or_404(Customer, stripeid=session.customer)
+        customer.membership = True
+        customer.stripe_subscription_id = session.id
+        customer.save()
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = True
+        instance.save()
+
+    if event['type'] == 'customer.subscription.deleted':
+        session = event['data']['object']
+        print(session)
+        customer = get_object_or_404(Customer, stripe_subscription_id=session.id)
+        customer.membership = False
+        customer.stripe_subscription_id = None
+        customer.save()
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = False
+        instance.save()
+
+    if event['type'] == 'invoice.paid':
+        session = event['data']['object']
+        customer = get_object_or_404(Customer, stripeid=session.id)
+        customer.membership = True
+        customer.save()
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = True
+        instance.save()
+
+    if event['type'] == 'invoice.payment_failed':
+        session = event['data']['object']
+        customer = get_object_or_404(Customer, stripeid=session.id)
+        customer.membership = False
+        customer.save()
+        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        instance.pro_is_published = False
+        instance.save()
 
     return HttpResponse(status=200)

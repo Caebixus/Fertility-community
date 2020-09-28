@@ -26,6 +26,7 @@
             <li>Increase your reach and get offers immediately</li>
           </ul>
           <br>
+          <button class="btn btn-primary" id="checkout-button-yearly">Subscribe yearly</button>
         </div>
       </div>
       <div class="card mb-4 shadow-lg">
@@ -57,7 +58,20 @@ var checkoutButton = document.getElementById('checkout-button-monthly');
 
 checkoutButton.addEventListener('click', function() {
 stripe.redirectToCheckout({
-  sessionId: '{{ session_id }}'
+  sessionId: '{{ session_id1 }}'
+}).then(function (result) {
+});
+});
+</script>
+
+<script>
+var stripe = Stripe('{{ stripe_public_key }}');
+
+var checkoutButton = document.getElementById('checkout-button-yearly');
+
+checkoutButton.addEventListener('click', function() {
+stripe.redirectToCheckout({
+  sessionId: '{{ session_id2 }}'
 }).then(function (result) {
 });
 });

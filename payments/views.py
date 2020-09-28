@@ -99,7 +99,7 @@ def payments(request, listing_id):
             'customer': customer,
         }
 
-        return render(request, 'owners/payments/payments.html', context)
+        return render(request, 'https://billing.stripe.com/session/' + '?session_id={CHECKOUT_SESSION_ID}', context)
 
     context = {
         'instance': instance,

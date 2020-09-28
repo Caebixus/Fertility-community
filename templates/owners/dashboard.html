@@ -7,11 +7,6 @@
     {% if usergroup %}
     <p style="color:white">You have {{package}} active packages. Your maximum limit for packages is {{ instance }}</p>
     <br>
-    <a href="{% url 'packagesettings' %}">
-      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Package settings</button>
-    </a>
-    <br>
-    <br>
     {% else %}
     {% endif %}
   </div>
@@ -104,7 +99,6 @@
       </div>
     </div>
     <div class="row">
-      {{ listings.customer.stripeid }}
       {% if listings.is_published == True and listings.pro_is_published == False %}
         {% if listings.customer.stripeid %}
         <div class="col-4 col-sm">
@@ -125,9 +119,27 @@
       {% if listings.customer.membership == True %}
       <div class="col-4 col-sm">
         <a href="{% url 'payments' listings.id %}">
-          <button class="btn btn-warning text-dark" type="button">Payment settings</button>
+          <button class="btn btn-warning text-light" type="button">Payment settings</button>
         </a>
       </div>
+
+      {% if package < instance %}
+      <div class="col-4 col-sm">
+        <a href="{% url 'createpackage' %}">
+          <button class="btn btn-info text-light" type="button">Create package</button>
+        </a>
+      </div>
+      {% else %}
+      {% endif %}
+
+      {% if package %}
+      <div class="col-4 col-sm">
+        <a href="{% url 'clinicpackagesettings' listings.id %}">
+          <button class="btn btn-warning text-light" type="button">Packages</button>
+        </a>
+      </div>
+      {% endif %}
+
       {% else %}
       {% endif %}
       {% endif %}

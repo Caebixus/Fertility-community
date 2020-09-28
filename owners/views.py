@@ -80,7 +80,7 @@ def logout(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
-    customer = Customer.objects.all()
+    customer = Customer.objects.filter(customerClinic__in=listings)
 
     package = Packages.objects.all()
     package = package.filter(packageOwner_id=request.user)
@@ -548,7 +548,7 @@ def packages(request, listing_id):
     usergroup = usergroup.filter(paidPropublished=True)
 
     instance = Packages.objects.filter(packageClinic=listing_id)
-    instance = instance.filter(packageOwner_id=request.user)
+    instance = instance.objects.filter(packageOwner_id=request.user)
     instance = instance.first()
 
     listing = Packages.objects.all()
@@ -621,6 +621,26 @@ def packagesettings(request):
         'usergroup': usergroup,
     }
     return render(request, 'owners/packages/package-settings.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+@allowed_users()
+def clinicpackagesettings(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    listing = Packages.objects.all()
+    listing = listing.filter(packageOwner_id=request.user)
+    listing = listing.filter(packageClinic_id=listing_id)
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id)
+
+    context = {
+        'usergroup': usergroup,
+        'listing': listing,
+        'instance': instance,
+    }
+    return render(request, 'owners/packages/clinic-package-settings.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 @allowed_users()

@@ -27272,9 +27272,9 @@ def search(request):
 
                     treatments = request.GET['treatments']
 
-                    queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
-                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
-                    ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
+                    queryset_list = queryset_list.filter(clinicState__iexact='Spain')
+                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Spain')
+                    ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Spain')
 
                     if treatments == 'Alltreatmentstrue':
                         order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)

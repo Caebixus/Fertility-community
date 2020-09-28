@@ -28,7 +28,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                    <option value="CZ" selected>Select Region</option>
+                    <option value="CZ" selected>Select State</option>
                     {% for key, value in CATEGORY_CHOICES_STATES.items %}
                     <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
@@ -40,7 +40,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                    <option value="" selected>Brno</option>
+                    <option value="Brno" selected>Brno</option>
                     {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}

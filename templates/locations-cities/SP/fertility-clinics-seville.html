@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics & centers in Seville, United Kingdom
+      Fertility clinics & centers in Seville, Spain
     </h1>
     <p style="font-size: 24px; color: white !important">Clinics found: <strong><u>{{ my_total_count }}</u></strong></p>
   </div>
@@ -28,7 +28,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                    <option value="UK" selected>Select Region</option>
+                    <option value="SP" selected>Select State</option>
                     {% for key, value in CATEGORY_CHOICES_STATES.items %}
                     <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
@@ -40,7 +40,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                    <option value="" selected>Seville</option>
+                    <option value="Seville" selected>Seville</option>
                     {% for key, value in CATEGORY_CHOICES_SP_CITIES.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}

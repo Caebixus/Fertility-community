@@ -40,7 +40,7 @@
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                    <option value="" selected>Oklahoma</option>
+                    <option value="OK" selected>Oklahoma</option>
                     {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}

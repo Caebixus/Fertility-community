@@ -102,7 +102,6 @@ def payments(request, listing_id):
     customer = get_object_or_404(Customer, customerClinic_id=instance)
 
     if request.method == 'POST':
-        print(customer.stripeid)
         customer_portal = stripe.billing_portal.Session.create(
             customer=customer.stripeid,
             return_url='https://www.fertilitycommunity.com/account/dashboard',
@@ -214,7 +213,6 @@ def stripe_webhook(request):
 
     if event['type'] == 'customer.subscription.created':
         session = event['data']['object']
-        print(session)
         customer = get_object_or_404(Customer, stripeid=session.customer)
         customer.membership = True
         customer.stripe_subscription_id = session.id
@@ -225,7 +223,6 @@ def stripe_webhook(request):
 
     if event['type'] == 'customer.subscription.deleted':
         session = event['data']['object']
-        print(session)
         customer = get_object_or_404(Customer, stripe_subscription_id=session.id)
         customer.membership = False
         customer.stripe_subscription_id = None

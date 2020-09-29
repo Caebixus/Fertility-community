@@ -4,13 +4,13 @@
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Payments & Invoices</h1
+    <h1 class="display-4" style="padding-top:3rem; color:white">Payments & Invoices - {{ instance.clinicName }}</h1
+    <br>
     <br>
   </div>
 </div>
-<br>
 <div class="container py-4">
-  <p>Customer stripeID working and passsing from views.py = {{ customer.stripeid }}</p>
+  <p>You can easily manage your subscription plans, credit card changes or billing addresses directly via the Stripe interface - customer portal:</p>
   <form action="" method="post">
     {% csrf_token %}
     <input id="brandButton" type="submit" value="Customer portal" class="btn btn-outline-success btn-lg">

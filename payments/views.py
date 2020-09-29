@@ -26,6 +26,7 @@ import stripe
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 stripePublickKey = settings.STRIPE_PUBLIC_KEY
+stripeWebhookPrivateKey = settings.STRIPE_WEBHOOK_PRIVATE_KEY
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def billinginfo(request, listing_id):
@@ -167,7 +168,7 @@ def checkout(request, pk):
 def stripe_webhook(request):
 
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = 'whsec_71VwnSc1MOqtqu1F2ZIj53QQl9hGGD25'
+    endpoint_secret = stripeWebhookPrivateKey
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']

@@ -14,13 +14,12 @@
 <br>
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
-  <div class="clinics" style="padding-bottom: 3rem">
+  <div class="jumbotron">
     <!-- Alerts -->
     {% if listings %}
     {% for listings in listings.all %}
     {% if listings.is_published == True and listings.pro_is_published == False %}
-    <br>
-    <hr>
+    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
         <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
@@ -29,7 +28,7 @@
     <br>
     {% elif listings.is_published == True and listings.pro_is_published == True %}
     <br>
-    <hr>
+    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
         <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-primary">PRO clinic</span></h3>
@@ -38,7 +37,7 @@
     <br>
     {% elif listings.is_published == False and listings.pro_is_published == False %}
     <br>
-    <hr>
+    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
         <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
@@ -98,6 +97,7 @@
         {% endif %}
       </div>
     </div>
+    <br>
     <div class="row">
       {% if listings.is_published == True and listings.pro_is_published == False %}
         {% if listings.customer.stripeid %}
@@ -119,12 +119,12 @@
       {% if listings.customer.membership == True %}
       <div class="col-4 col-sm">
         <a href="{% url 'payments' listings.id %}">
-          <button class="btn btn-warning text-light" type="button">Payment settings</button>
+          <button class="btn btn-warning text-light" type="button">Payments</button>
         </a>
       </div>
 
       {% if package < instance %}
-      <div class="col-4 col-sm">
+      <div hidden class="col-4 col-sm">
         <a href="{% url 'createpackage' %}">
           <button class="btn btn-info text-light" type="button">Create package</button>
         </a>
@@ -144,13 +144,12 @@
       {% endif %}
       {% endif %}
     </div>
-    <hr>
     <br>
     <br>
     <br>
     {% endfor %}
     {% else %}
-    <p>There is no clinic connected to you account. <a href="{% url 'claim' %}">Claim</a> or <a href="{% url 'create1' %}">add new</a> one</p>
+    <p>There is no clinic connected to your account. <a href="{% url 'claim' %}">Claim</a> or <a href="{% url 'create1' %}">Add New</a> one</p>
     {% endif %}
   </div>
 </div>

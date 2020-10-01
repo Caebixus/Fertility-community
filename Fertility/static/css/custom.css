@@ -88,6 +88,10 @@ select {
   }
 }
 
+.clinics {
+    background-color: #ebebeb;
+}
+
 .jumbotron {
   background-color: #ebebeb;
   border-radius: 8px;

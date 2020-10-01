@@ -341,11 +341,6 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
-
-
-
-
-
                 elif region == 'AK':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alaska')
                     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alaska')
@@ -24251,9 +24246,256 @@ def search(request):
                         return render(request, 'search/search.html', context)
 
                 else:
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                    queryset_list = queryset_list.filter(clinicState__iexact='United Kingdom')
+                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United Kingdom')
+                    my_total_count = my_total_count.filter(clinicState__iexact='United Kingdom')
+                    my_total_count = my_total_count.count()
                     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
 
-                    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
                     paginator = Paginator(order_data, 12)
                     page = request.GET.get('page')
@@ -24576,6 +24818,10 @@ def search(request):
 
             if 'Region' in request.GET:
                 region = request.GET['Region']
+
+                queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
+                pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
+                ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
 
                 if region == 'Prague':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Prague')
@@ -25167,6 +25413,266 @@ def search(request):
 
                         return render(request, 'search/search.html', context)
 
+                else:
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                    queryset_list = queryset_list.filter(clinicState__iexact='Czech Republic')
+                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
+                    my_total_count = my_total_count.filter(clinicState__iexact='Czech Republic')
+                    my_total_count = my_total_count.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                    paginator = Paginator(order_data, 12)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                    return render(request, 'search/search.html', context)
+
             else:
                 if 'treatments' in request.GET:
 
@@ -25496,6 +26002,10 @@ def search(request):
 
             if 'Region' in request.GET:
                 region = request.GET['Region']
+
+                queryset_list = queryset_list.filter(clinicState__iexact='Spain')
+                pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Spain')
+                ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Spain')
 
                 if region == 'Alicante':
                     queryset_list = queryset_list.filter(clinicRegion__iexact='Alicante')
@@ -27266,6 +27776,266 @@ def search(request):
                         context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
 
                         return render(request, 'search/search.html', context)
+
+                else:
+
+                    pro_queryset_list = pro_queryset_list.order_by('?')
+                    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+                    if 'treatments' in request.GET:
+                        treatments = request.GET['treatments']
+
+                        if treatments == 'Alltreatmentstrue':
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmenttrue':
+                            queryset_list = queryset_list.filter(ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentmildtrue':
+
+                            queryset_list = queryset_list.filter(mild_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(mild_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IVFtreatmentovariantrue':
+
+                            queryset_list = queryset_list.filter(ovarian_ivf_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(ovarian_ivf_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ICSItreatmenttrue':
+                            queryset_list = queryset_list.filter(icsi_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(icsi_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Eggdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(egg_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Spermdonationrecipientstrue':
+                            queryset_list = queryset_list.filter(sperm_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Embryodonationrecipientstrue':
+                            queryset_list = queryset_list.filter(embryo_donor_recipients=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_donor_recipients=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EggFreezingtrue':
+                            queryset_list = queryset_list.filter(egg_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(egg_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'EmbryoFreezingtrue':
+                            queryset_list = queryset_list.filter(embryo_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(embryo_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'SpermFreezingtrue':
+                            queryset_list = queryset_list.filter(sperm_freezing=True)
+                            pro_queryset_list = pro_queryset_list.filter(sperm_freezing=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Surrogacytrue':
+                            queryset_list = queryset_list.filter(surrogacy=True)
+                            pro_queryset_list = pro_queryset_list.filter(surrogacy=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'IUItreatmenttrue':
+                            queryset_list = queryset_list.filter(iui_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(iui_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'Singlewomantreatmenttrue':
+                            queryset_list = queryset_list.filter(single_woman_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(single_woman_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        elif treatments == 'ReciprocalIVFtrue':
+                            queryset_list = queryset_list.filter(reciprocal_treatment=True)
+                            pro_queryset_list = pro_queryset_list.filter(reciprocal_treatment=True)
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+                            my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                        else:
+                            order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                            paginator = Paginator(order_data, 12)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                            return render(request, 'search/search.html', context)
+
+                    queryset_list = queryset_list.filter(clinicState__iexact='Spain')
+                    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Spain')
+                    my_total_count = my_total_count.filter(clinicState__iexact='Spain')
+                    my_total_count = my_total_count.count()
+                    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+
+                    paginator = Paginator(order_data, 12)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'values': request.GET,}
+
+                    return render(request, 'search/search.html', context)
 
             else:
                 if 'treatments' in request.GET:

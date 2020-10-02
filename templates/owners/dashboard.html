@@ -14,38 +14,32 @@
 <br>
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
+  {% if listings %}
+  {% for listings in listings.all %}
   <div class="jumbotron">
     <!-- Alerts -->
-    {% if listings %}
-    {% for listings in listings.all %}
     {% if listings.is_published == True and listings.pro_is_published == False %}
-    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
-        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
+        <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h2>
       </div>
     </div>
     <br>
     {% elif listings.is_published == True and listings.pro_is_published == True %}
-    <br>
-    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
-        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-primary">PRO clinic</span></h3>
+        <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-primary">PRO clinic</span></h2>
       </div>
     </div>
     <br>
     {% elif listings.is_published == False and listings.pro_is_published == False %}
-    <br>
-    <hr style="height:1px; color:black; background-color:black">
     <div class="row">
       <div class="col-sm-9">
-        <h3><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h3>
+        <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-warning">Basic clinic</span></h2>
       </div>
     </div>
     <br>
     {% endif %}
-    <br>
     <div class="row" style="text-align:left">
       <div class="col-sm" style="padding-top: 1rem">
         {% if listings.is_published == True and listings.pro_is_published == False %}
@@ -97,7 +91,7 @@
         {% endif %}
       </div>
     </div>
-    <br>
+    <hr>
     <div class="row">
       {% if listings.is_published == True and listings.pro_is_published == False %}
         {% if listings.customer.stripeid %}
@@ -111,7 +105,7 @@
         {% else %}
         <div class="col-4 col-sm">
             <a href="{% url 'billinginfo' listings.id %}">
-            <button class="btn btn-warning text-dark" type="button">Complete billing information</button>
+            <button class="btn btn-warning text-dark" type="button">Upgrade to PRO Clinic</button>
           </a>
         </div>
         {% endif %}
@@ -144,14 +138,13 @@
       {% endif %}
       {% endif %}
     </div>
-    <br>
-    <br>
-    <br>
-    {% endfor %}
-    {% else %}
-    <p>There is no clinic connected to your account. <a href="{% url 'claim' %}"><u>Claim</u></a> or <a href="{% url 'create1' %}"><u>Add New</u></a> one</p>
-    {% endif %}
   </div>
+  {% endfor %}
+  {% else %}
+  <div class="jumbotron">
+    <p>There is no clinic connected to your account. <a href="{% url 'claim' %}"><u>Claim</u></a> or <a href="{% url 'create1' %}"><u>Add New</u></a> one</p>
+  </div>
+  {% endif %}
 </div>
 
 {% endblock  %}

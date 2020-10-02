@@ -27,7 +27,9 @@ class BasicClinic(models.Model):
     clinic_url = models.URLField(null=True, blank=True)
     contact_url = models.URLField()
     contact_phone = models.CharField(max_length=20, blank=True)
+
     contact_email = models.CharField(max_length=50, blank=True)
+    fertilitycommunity_email = models.CharField(max_length=50, blank=True)
     query_email = models.CharField(max_length=50, blank=True)
 
     ### Adresses

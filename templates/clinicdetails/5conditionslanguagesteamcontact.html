@@ -1,5 +1,5 @@
 {% load static %}
-<div class="container" style="text-align: center; z-index: -1;" id="pricing">
+<div class="container py-5" style="text-align: center; z-index: -1;" id="pricing">
   <h2>Conditions</h2>
   <div class="row">
     <hr class="featurette-divider">
@@ -59,7 +59,7 @@
 </div>
 
 {% if listing.is_claimed == True and listing.pro_is_published == True %}
-<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+<div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
   <h2>Languages</h2>
   <hr>
   <div class="row">
@@ -111,8 +111,9 @@
   {% else %}
   {% endif %}
 
-  {% if listing.pro_is_published == True and listing.team1name != None or listing.team2name != None or listing.team3name != None and listing.contact_email != None %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  {% if listing.pro_is_published == True %}
+  {% if listing.team1name != None or listing.team2name != None or listing.team3name != None %}
+  <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Our team</h2>
     <hr>
     <div class="row" style="text-align: center">
@@ -154,11 +155,13 @@
   </div>
   {% else %}
   {% endif %}
+  {% else %}
+  {% endif %}
 
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px" id="contact">
+  <div class="container py-3" style="text-align: center; padding-top: 40px; padding-bottom: 40px" id="contact">
     <h2>Contact</h2>
     <hr>
-    <div class="row" style="padding-top:40px">
+    <div class="row" style="padding-top:10px">
       {% if listing.contact_phone %}
       <div class="col">
         <a href="tel:{{ listing.contact_phone }}" style="text-align:center">
@@ -201,8 +204,9 @@
     </div>
   </div>
 
-  {% if listing.is_claimed == True and listing.pro_is_published == True and listing.clinic_pro_photo_1 or listing.clinic_pro_photo_2 or listing.clinic_pro_photo_3 or listing.clinic_pro_photo_4 or listing.clinic_pro_photo_5 or listing.clinic_pro_photo_6 %}
-  <div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  {% if listing.is_claimed == True and listing.pro_is_published == True %}
+  {% if listing.clinic_pro_photo_1 or listing.clinic_pro_photo_2 or listing.clinic_pro_photo_3 or listing.clinic_pro_photo_4 or listing.clinic_pro_photo_5 or listing.clinic_pro_photo_6 %}
+  <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Clinic Pictures</h2>
     <hr>
     <div class="card-columns">
@@ -256,5 +260,7 @@
       {% endif %}
     </div>
   </div>
+  {% else %}
+  {% endif %}
   {% else %}
   {% endif %}

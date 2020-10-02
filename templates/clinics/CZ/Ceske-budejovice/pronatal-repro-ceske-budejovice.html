@@ -64,21 +64,21 @@
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/3secondarytreatments.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 {% include 'clinicdetails/4Packages.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/5conditionslanguagesteamcontact.html' %}
 
@@ -94,7 +94,10 @@
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
       <br>
+      {% if listing.clinicRegion != None %}
       <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
+      {% else %}
+      {% endif %}
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.5069155712945!2d14.476345615678754!3d48.98190997929982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47734fccd6a06453%3A0x45960a6549a82e6!2sPRONATAL%20Repro!5e0!3m2!1scs!2scz!4v1597339158416!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
@@ -104,15 +107,15 @@
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/6openinghours.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/8footerlinks.html' %}
 

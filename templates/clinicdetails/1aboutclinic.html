@@ -1,5 +1,5 @@
 {% load static %}
-<div class="container">
+<div class="container py-3">
   <ul class="nav justify-content-left">
     {% if listing.clinicCityLink %}
     <li class="nav-item">
@@ -26,23 +26,20 @@
     {% else %}
     {% endif %}
   </ul>
-  {% if listing.description %}
+</div>
+<div class="container py-3">
+  {% if listing.description and listing.pro_is_published == True %}
   <br>
   <br>
   <h2>About our clinic:</h2>
   <p>{{ listing.description|safe }}</p>
-  <br>
 </div>
 {% else %}
 {% endif %}
-{% if listing.treatmentLimitations %}
-<div class="container">
-  <br>
-  <br>
+{% if listing.treatmentLimitations and listing.pro_is_published == True %}
+<div class="container py-5">
   <h2>Treatment limitations and restrictions:</h2>
   <p>{{ listing.treatmentLimitations|safe }}</p>
-  <br>
-  <br>
 </div>
 {% else %}
 {% endif %}

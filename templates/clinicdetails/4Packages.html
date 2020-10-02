@@ -1,7 +1,8 @@
 {% load static %}
+{% if listing.pro_is_published == True %}
 <div class="backgroundPackageClinicDetail">
 <br>
-<div class="container" id="packages">
+<div class="container py-5" id="packages">
   {% if package %}
   <h2>Packages & Deals</h2>
   <br>
@@ -45,3 +46,4 @@
     {% endif %}
   </div>
 </div>
+{% endif %}

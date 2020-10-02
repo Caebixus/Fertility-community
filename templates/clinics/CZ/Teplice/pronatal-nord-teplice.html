@@ -64,21 +64,21 @@
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/3secondarytreatments.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 {% include 'clinicdetails/4Packages.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/5conditionslanguagesteamcontact.html' %}
 
@@ -94,7 +94,10 @@
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
       <br>
+      {% if listing.clinicRegion != None %}
       <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
+      {% else %}
+      {% endif %}
     </div>
     <div class="col-sm-6" style="padding-top:2rem">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.672293815131!2d13.817096615737988!3d50.63320427950093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098e96a223059d%3A0xd4006777142d858a!2sPRONATAL%20Nord!5e0!3m2!1scs!2scz!4v1597339130784!5m2!1scs!2scz" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
@@ -104,15 +107,15 @@
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/6openinghours.html' %}
 
 <!-- ================================================== -->
 
-<br>
-<br>
+
+
 
 {% include 'clinicdetails/8footerlinks.html' %}
 

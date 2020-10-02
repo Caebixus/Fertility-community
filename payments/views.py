@@ -62,7 +62,7 @@ def billinginfo(request, listing_id):
             session1 = stripe.checkout.Session.create(
                 payment_method_types=['card'],
                 line_items=[{
-                    'price': 'plan_HJuupx4J7RzP6K',
+                    'price': 'plan_I81Wbz50cpcCF4',
                     'quantity': 1,
                 }],
                 customer=customer.stripeid,
@@ -74,7 +74,7 @@ def billinginfo(request, listing_id):
             session2 = stripe.checkout.Session.create(
                 payment_method_types=['card'],
                 line_items=[{
-                    'price': 'plan_HJuwRD8yv03euA',
+                    'price': 'plan_I81WARIli1udAy',
                     'quantity': 1,
                 }],
                 customer=customer.stripeid,
@@ -132,7 +132,7 @@ def checkout(request, pk):
     session1 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'plan_HJuupx4J7RzP6K',
+            'price': 'plan_I81Wbz50cpcCF4',
             'quantity': 1,
         }],
         customer=customer.stripeid,
@@ -144,7 +144,7 @@ def checkout(request, pk):
     session2 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'plan_HJuwRD8yv03euA',
+            'price': 'plan_I81WARIli1udAy',
             'quantity': 1,
         }],
         customer=customer.stripeid,

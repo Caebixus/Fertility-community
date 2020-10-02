@@ -218,14 +218,13 @@ class CreateClinic(forms.ModelForm):
 class PostForm(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
-    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics Description'), max_length=800)
-    treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics treatment limitations'), max_length=800)
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
 
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics street address'))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics city'))
@@ -273,12 +272,11 @@ class PostForm(forms.ModelForm):
         fields = [
         'clinicName',
         'clinicTitle',
-        'description',
-        'treatmentLimitations',
         'clinic_pro_logo_pic',
         'contact_url',
         'contact_phone',
         'contact_email',
+        'fertilitycommunity_email',
         'clinicStreetAddress',
         'clinicCity',
         'clinicState',
@@ -413,6 +411,7 @@ class PostFormPro(forms.ModelForm):
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     query_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
@@ -479,6 +478,7 @@ class PostFormPro(forms.ModelForm):
         'query_email',
         'contact_phone',
         'contact_email',
+        'fertilitycommunity_email',
         'clinicStreetAddress',
         'clinicCity',
         'clinicState',

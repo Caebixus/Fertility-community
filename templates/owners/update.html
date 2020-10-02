@@ -46,17 +46,6 @@
       </div>
       <br>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
-      <div class="fieldWrapper" style="text-align:">
-        {{ form.description.errors }}
-        <p>Description:</p>
-        {{ form.description }}
-      </div>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.treatmentLimitations.errors }}
-        <p>Treatment limitations (Age restrictions, law restrictions, Blood level requirements, BMI etc):</p>
-        {{ form.treatmentLimitations }}
-      </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.defaultClinicCurrency.errors }}
@@ -215,6 +204,12 @@
         {{ form.contact_email.errors }}
         <label for="{{ form.contact_email.id_for_label}}">Email for clients:</label>
         {{ form.contact_email }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.fertilitycommunity_email.errors }}
+        <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
+        {{ form.fertilitycommunity_email }}
       </div>
       <br>
       <hr>

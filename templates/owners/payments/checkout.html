@@ -4,7 +4,13 @@
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Checkout</h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Choose subscription program for: <u>{{ instance.clinicName }}</u></h1>
+    <ul class="list-group list-group-horizontal justify-content-center ">
+      <li class="list-group-item bg-success text-light" style="width:33.3%; text-align:center">Step 1: Billing information</li>
+      <li class="list-group-item bg-warning text-light" style="width:33.3%; text-align:center">Step 2: Choose subscription</li>
+      <li class="list-group-item" style="width:33.3%; text-align:center">Step 3: Checkout via Stripe</li>
+    </ul>
+    <br>
     <br>
   </div>
 </div>
@@ -21,10 +27,11 @@
           <h1 class="card-title pricing-card-title" style="text-align: center">€120/yr</h1>
           <br>
           <ul class="list-styled mt-3 mb-4" style="text-align: left">
-            <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
-            <li>Be more visible with preferred search options</li>
-            <li>Get access to premium features</li>
-            <li>Increase your reach and get offers immediately</li>
+            <li><h3>Get a do-follow link to your clinic's website from our website:</h3> <p>Increase SEO exposure of your page with our powerfull domain.</p></li>
+            <li hidden><h3>Apply for "TOP Clinic" banner competition.</h3> <p></p></li>
+            <li><h3>Be more visible with Clinics preferred search options:</h3> <p>PRO clinics are positioned at the top of search page.</p></li>
+            <li><h3>Get access to premium features:</h3> <p>For example: "About us", "Our team" or "Our photos" for a better presentation of your clinic.</p></li>
+            <li hidden><h3>Reach potential clients with your specialized packages & deals.</h3> </li>
           </ul>
           <br>
           <button class="btn btn-primary" id="checkout-button-yearly">Subscribe yearly</button>
@@ -42,10 +49,11 @@
           <h1 class="card-title pricing-card-title" style="text-align: center">€15/mo</h1>
           <br>
           <ul class="list-styled mt-3 mb-4" style="text-align: left">
-            <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
-            <li>Be more visible with preferred search options</li>
-            <li>Get access to premium features</li>
-            <li>Increase your reach and get offers immediately</li>
+            <li><h3>Get a do-follow link to your clinic's website from our website:</h3> <p>Increase SEO exposure of your page with our powerfull domain.</p></li>
+            <li hidden><h3>Apply for "TOP Clinic" banner competition.</h3> <p></p></li>
+            <li><h3>Be more visible with Clinics preferred search options:</h3> <p>PRO clinics are positioned at the top of search page.</p></li>
+            <li><h3>Get access to premium features:</h3> <p>For example: "About us", "Our team" or "Our photos" for a better presentation of your clinic.</p></li>
+            <li hidden><h3>Reach potential clients with your specialized packages & deals.</h3> </li>
           </ul>
           <br>
           <button class="btn btn-primary" id="checkout-button-monthly">Subscribe monthly</button>

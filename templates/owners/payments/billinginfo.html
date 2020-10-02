@@ -4,7 +4,12 @@
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Billing information for: <u>{{ instance.clinicName }}</u></h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Complete Billing information for: <u>{{ instance.clinicName }}</u></h1>
+    <ul class="list-group list-group-horizontal justify-content-center ">
+      <li class="list-group-item bg-warning text-light" style="width:33.3%; text-align:center">Step 1: Billing information</li>
+      <li class="list-group-item" style="width:33.3%; text-align:center">Step 2: Choose subscription</li>
+      <li class="list-group-item" style="width:33.3%; text-align:center">Step 3: Checkout via Stripe</li>
+    </ul>
     <br>
   </div>
 </div>

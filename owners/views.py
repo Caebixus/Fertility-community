@@ -144,26 +144,16 @@ def banners(request):
 
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def upgrade(request):
+def upgrade(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
-    form = OwnerProInterestedForm(request.POST or None)
-    if form.is_valid():
-        if ownerProInterested.objects.filter(clinicOwner=request.user).exists():
-            messages.error(request, ' - Already opt-in!')
-            return redirect(dashboard)
-        else:
-            form = form.save(commit=False)
-            form.clinicOwner = request.user
-            form.save()
 
-            messages.success(request, ' - Successfully opt-in!')
-            return redirect(dashboard)
+    listings = get_object_or_404(BasicClinic, pk=listing_id)
 
     context = {
-        'form': form,
         'usergroup': usergroup,
+        'listings': listings,
     }
 
     return render(request, 'owners/upgrade.html', context)

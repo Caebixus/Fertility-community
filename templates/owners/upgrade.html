@@ -6,45 +6,32 @@
 
 {% include 'partials/_alerts.html' %}
 <div class="container py-4">
-  <h2>Upgrade your clinic to PRO to gain much more from our website!</h2>
-  <br>
-  <ol>
-    <li>Get a do-follow link to your clinic's website from our website (SEO)</li>
-    <li>Be more visible with preferred search options</li>
-    <li>Get access to premium features</li>
-    <li>Increase your reach and get offers immediately</li>
-    <li>Advanced analytics and trends</li>
-  </ol>
-  <p>Comming soon!</p>
-  <br>
-  <hr>
-  <br>
-  <div class="container" style="text-align: left">
-    {% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-        {% endfor %}
-    {% endfor %}
-    {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-            <strong>{{ error|escape }}</strong>
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-lg">
+        <div class="card-header bg-primary">
+          <h2 class="my-0 font-weight-normal" style="text-align: center; color: white">Upgrade your clinic to PRO to gain much more from our website!</h2>
         </div>
-    {% endfor %}
-  {% endif %}
-    <form method='POST' enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="fieldWrapper" style="text-align: left; max-width:3rem">
-        {{ form.owner_interested.errors }}
-        {{ form.owner_interested }}
+        <div class="card-body">
+          <h2 class="card-title pricing-card-title" style="text-align: center">€15/monthly or 120€/yearly</h2>
+          <hr>
+          <ul class="list-styled mt-3 mb-4" style="text-align: left">
+            <li><h3>Get a do-follow link to your clinic's website from our website:</h3> <p>Increase SEO exposure of your page with our powerfull domain.</p></li>
+            <li hidden><h3>Apply for "TOP Clinic" banner competition.</h3> <p></p></li>
+            <li><h3>Be more visible with Clinics preferred search options:</h3> <p>PRO clinics are positioned at the top of search page.</p></li>
+            <li><h3>Get access to premium features:</h3> <p>For example: "About us", "Our team" or "Our photos" for a better presentation of your clinic.</p></li>
+            <li hidden><h3>Reach potential clients with your specialized packages & deals.</h3> </li>
+          </ul>
+          <br>
+        </div>
+        <div class="card-footer">
+          <div class="col-4 col-sm">
+            <a href="{% url 'billinginfo' listings.pk %}">
+                <button class="btn btn-warning text-dark" type="button">Upgrade to PRO Clinic</button>
+            </a>
+          </div>
+        </div>
       </div>
-
-      <br>
-      <input class="btn btn-dark" type='submit' value='Notify me when available' />
-    </form>
-  </div>
+    </div>
 </div>
 
 

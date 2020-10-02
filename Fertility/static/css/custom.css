@@ -251,6 +251,7 @@ p {
 ul {
   font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
+  font-size: 115%
   color: #282c34;
   text-align: left;
 }
@@ -258,6 +259,7 @@ ul {
 ol {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
+  font-size: 115%
   color: #282c34;
   text-align: left;
 }
@@ -295,7 +297,6 @@ button {
 body {
   position: relative;
 }
-
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {

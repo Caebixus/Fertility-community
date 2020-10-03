@@ -211,6 +211,9 @@ def iframe1(request):
 def cookies(request):
     return render(request, 'main/cookies.html')
 
+def terms(request):
+    return render(request, 'main/terms.html')
+
 def privacy(request):
     return render(request, 'main/privacy-policy.html')
 

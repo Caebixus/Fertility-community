@@ -2,13 +2,13 @@
 {% if listing.mondayOpens == None or listing.mondayCloses == None or listing.tuesdayOpens == None or listing.tuesdayCloses == None or listing.wednesdayOpens == None or listing.wednesdayCloses == None or listing.thursdayOpens == None or listing.thursdayCloses == None or listing.fridayOpens == None or listing.fridayCloses == None %}
 {% else %}
 <div class="container py-3" style="text-align: center; z-index: -1;" id="pricing">
-  <h2>Clinics opening ours</h2>
+  <h2>Opening hours</h2>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Day</th>
-        <th scope="col">Opening hours</th>
-        <th scope="col">Closing hours</th>
+        <th scope="col"><u>Day</u></th>
+        <th scope="col"><u>Opening hours</u></th>
+        <th scope="col"><u>Closing hours</u></th>
       </tr>
     </thead>
     <tbody>

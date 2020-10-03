@@ -15,6 +15,7 @@ urlpatterns = [
     path('news', views.news, name='news'),
     path('cookies', views.cookies, name='cookies'),
     path('privacy', views.privacy, name='privacy'),
+    path('terms', views.terms, name='terms'),
     path('iframe1', views.iframe1, name='iframe1'),
     path('ivf-explained', views.blog1, name='blog1'),
 ]

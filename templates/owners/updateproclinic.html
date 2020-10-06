@@ -22,7 +22,7 @@
   <main role="main">
     <div class="container" style="max-width: 70rem">
       <h1 style="text-align: center">Update clinic information</h1>
-      <h2 style="text-align: center">{{ instance.clinicName }}</h2>
+      <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
       <hr>
       <br>
       <div class="container" style="text-align: center">
@@ -32,7 +32,7 @@
 
           {{ form.source.errors }}
           {{ form.source }}
-          <h2>Clinics Basic Information</h2>
+          <h2>Clinic's Basic Information</h2>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.clinicName.errors }}
             <label for="{{ form.clinicName.id_for_label}}">Name:</label>
@@ -203,7 +203,7 @@
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.contact_url.errors }}
-            <label for="{{ form.contact_url.id_for_label}}">URL:</label>
+            <label for="{{ form.contact_url.id_for_label}}">Clinic's URL:</label>
             {{ form.contact_url }}
           </div>
           <br>
@@ -215,13 +215,13 @@
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.contact_email.errors }}
-            <label for="{{ form.contact_email.id_for_label}}">General email</label>
+            <label for="{{ form.contact_email.id_for_label}}">General clinic email:</label>
             {{ form.contact_email }}
           </div>
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.query_email.errors }}
-            <label for="{{ form.query_email.id_for_label}}">Email for queries</label>
+            <label for="{{ form.query_email.id_for_label}}">Inquiry email (for packages):</label>
             {{ form.query_email }}
           </div>
           <br>
@@ -276,7 +276,7 @@
             <div class="col-md-6" style="padding-top:1rem">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.clinicPostalCode.errors }}
-                <label for="{{ form.clinicPostalCode.id_for_label}}">Postal Code:</label>
+                <label for="{{ form.clinicPostalCode.id_for_label}}">ZIP/Postal Code:</label>
                 {{ form.clinicPostalCode }}
               </div>
             </div>
@@ -459,7 +459,7 @@
             <div class="col-md" style="padding-bottom: 4rem">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team1name.errors }}
-                <p style="font-weight:400"> Name of first team member</p>
+                <p style="font-weight:400"> Name of first team member:</p>
                 {{ form.team1name }}
               </div>
               <br>
@@ -488,7 +488,7 @@
             <div class="col-md" style="padding-bottom: 4rem">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team2name.errors }}
-                <p style="font-weight:400"> Name of second team member</p>
+                <p style="font-weight:400"> Name of second team member:</p>
                 {{ form.team2name }}
               </div>
               <br>
@@ -517,7 +517,7 @@
             <div class="col-md">
               <div class="fieldWrapper" style="text-align: left">
                 {{ form.team3name.errors }}
-                <p style="font-weight:400"> Name of third team member</p>
+                <p style="font-weight:400"> Name of third team member:</p>
                 {{ form.team3name }}
               </div>
               <br>

@@ -82,10 +82,6 @@
               <a class="dropdown-item" href="{% url 'settings' %}">Account settings</a>
               <a class="dropdown-item" href="{% url 'create1' %}">Add clinic</a>
               <a class="dropdown-item" href="{% url 'claim' %}">Claim clinic</a>
-              {% if usergroup %}
-                <a class="dropdown-item" href="{% url 'packagesettings' %}">Packages</a>
-              {% else %}
-              {% endif %}
               <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
             </div>
           </div>

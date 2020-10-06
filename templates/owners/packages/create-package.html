@@ -6,6 +6,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Create new package</h1>
+    <p style="color:white">With this clinic you can have up to {{instance}} active packages. Active packages: {{count}}</p>
     <br>
   </div>
 </div>
@@ -34,41 +35,36 @@
       {{ form.source }}
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagestitle.errors }}
-        <label for="{{ form.packagestitle.id_for_label}}">Package title:</label>
-        {{ form.packagestitle }}
+        {{ form.packagetitle.errors }}
+        <label for="{{ form.packagetitle.id_for_label}}">Package title:</label>
+        {{ form.packagetitle }}
       </div>
       <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.packageClinic.errors }}
-        <label for="{{ form.packageClinic.id_for_label}}">Associated clinic:</label>
-        {{ form.packageClinic }}
-      </div>
       <br>
       <hr>
       <br>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper" style="text-align:">
-        {{ form.packagesdesc.errors }}
+        {{ form.packagedesc.errors }}
         <p>Package Description:</p>
-        {{ form.packagesdesc }}
+        {{ form.packagedesc }}
       </div>
       <br>
       <hr>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagescategory.errors }}
-        <label for="{{ form.packagescategory.id_for_label}}">Package category:</label>
+        {{ form.packagecategory.errors }}
+        <label for="{{ form.packagecategory.id_for_label}}">Package category:</label>
         <div class="fieldWrapper">
-          {{ form.packagescategory }}
+          {{ form.packagecategory }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagescost.errors }}
-        <label for="{{ form.packagescost.id_for_label}}">Package cost in your clinic currency:</label>
+        {{ form.packagecost.errors }}
+        <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency:</label>
         <div class="fieldWrapper">
-          {{ form.packagescost }}
+          {{ form.packagecost }}
         </div>
       </div>
       <br>

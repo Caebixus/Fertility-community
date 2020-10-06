@@ -7,7 +7,23 @@ from ckeditor.fields import RichTextField
 from .choices import CATEGORY_PACKAGE
 from django.db.models import Q
 
-# Create your models here.
+
+class Package(models.Model):
+    packageclinic = models.ForeignKey(BasicClinic, on_delete=models.CASCADE)
+
+    packagetitle = models.CharField(max_length=30, blank=True, null = True)
+    packagecategory = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
+    packagedesc = RichTextField(blank=True, null=True, max_length=800)
+    packagecost = models.FloatField(blank=True, null=True)
+
+    package_list_date = models.DateTimeField(default=datetime.now, blank=True)
+    package_update_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return str(self.packagetitle)
+
+
+# DEPRECIATED TEST MODELS
 class Packages(models.Model):
 
     packageOwner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -27,16 +43,6 @@ class Packages(models.Model):
     def __str__(self):
         return str(self.packagestitle)
 
-
-
-
-
-
-
-
-
-
-# DEPRECIATED TEST MODELS
 class TruePackages(BasicClinic):
     Truepackagetitle = models.CharField(max_length=30, blank=True, null = True)
 

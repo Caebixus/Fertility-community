@@ -21,6 +21,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .choices import CATEGORY_CHOICES_ISO
+from django.contrib.auth.models import Group
 
 import stripe
 
@@ -117,10 +118,6 @@ def payments(request, listing_id):
     return render(request, 'owners/payments/payments.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def monthly(request):
-    return render(request, 'owners/payments/billinginfo.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def successpay(request):
     return render(request, 'owners/payments/successpay.html')
 
@@ -167,7 +164,7 @@ def checkout(request, pk):
 def stripe_webhook(request):
 
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = stripeWebhookPrivateKey
+    endpoint_secret = 'whsec_Ab0RoJj4Mhh4JKzF7GQxEs3dFv8qNObT'
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']

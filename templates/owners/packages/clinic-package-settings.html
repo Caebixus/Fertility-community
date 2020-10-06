@@ -5,7 +5,7 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Packages for <u>{{ instance.clinicName }}<u></h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Packages for <u>{{ instance.clinicName }}</u></h1>
     <br>
   </div>
 </div>
@@ -18,31 +18,39 @@
     <div class="col-sm-6">
       <div class="card mb-6 shadow-lg">
         <div class="card-header" style="background-color: #efefef;">
-          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ listings.packagestitle }}</b></p>
+          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ listings.packagetitle }}</b></p>
           <hr>
           <div class="row">
             <div class="col-sm-8">
-              <p><b>Name of the clinic:</b> <a href="{{ listings.packageClinic.clinic_url }}">{{ listings.packageClinic.clinicName }}</a></p>
-              <p><b>Category:</b> <i>{{ listings.packagescategory }}</i></p>
+              <p><b>Name of the clinic:</b> <a href="{{ listings.packageclinic.clinic_url }}">{{ listings.packageclinic.clinicName }}</a></p>
+              <p><b>Category:</b> <i>{{ listings.packagecategory }}</i></p>
             </div>
             <div class="col-sm-4">
-              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ listings.packagescost|floatformat:'0' }} {% if listings.defaultClinicCurrency == 'GBP' %}£{% elif listings.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
+              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ listings.packagecost|floatformat:'0' }} {% if listings.defaultClinicCurrency == 'GBP' %}£{% elif listings.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
             </div>
           </div>
         </div>
         <div class="card-body" style="min-height: 20rem">
-          <p>{{ listings.packagesdesc|safe}}</p>
+          <p>{{ listings.packagedesc|safe}}</p>
         </div>
         <div class="card-footer text-white">
           <div class="row justify-content-center">
-            <div class="col-md-5">
+            <br>
+            <div class="col-4 md-4 text-center">
               <a href="{% url 'updatepropackage' listings.id %}">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Update this package</button>
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md">Update</button>
               </a>
             </div>
-            <div class="col-md-5 offset-2">
-              <a href="{{ listings.packageClinic.clinic_url}}#packages ">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">View this package</button>
+            <br>
+            <div class="col-4 md-4 text-center">
+              <a href="{{ listings.packageclinic.clinic_url}}#packages ">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md">Live view</button>
+              </a>
+            </div>
+            <br>
+            <div class="col-4 md-4 text-center">
+              <a href="{% url 'deletepropackage' listings.id %}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md">Delete</button>
               </a>
             </div>
           </div>

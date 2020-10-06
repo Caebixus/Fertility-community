@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from packages.models import Packages
+from packages.models import Package
 from payments.models import Customer
 from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
@@ -17,6 +18,8 @@ from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
 from .decorators import allowed_users
+from django.contrib.auth.models import Group
+from django.db.models import F
 
 import stripe
 
@@ -79,17 +82,22 @@ def logout(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
-    listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
-    customer = Customer.objects.filter(customerClinic__in=listings)
+    all = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
+    listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
 
-    package = Packages.objects.all()
-    package = package.filter(packageOwner_id=request.user)
+    customer = Customer.objects.filter(customerClinic__in=all)
+
+    package = Package.objects.filter(packageclinic__in=all)
     package = package.count()
 
-    instance = BasicClinic.objects.filter(clinicOwner_id=request.user)
-    instance = instance.filter(is_published='True')
+    basic = all.filter(clinicOwner_id=request.user)
+    instance = basic.filter(pro_is_published='True')
+    ppqinstance = basic.filter(ppq_is_published='True')
+    ppqinstance = ppqinstance.count()
     instance = instance.count()
-    instance = instance * 3
+    instance = (instance * 2) + (ppqinstance * 6)
 
     userdata = User.objects.get(username=request.user).last_login
 
@@ -98,7 +106,9 @@ def dashboard(request):
     usergroup = usergroup.filter(paidPropublished=True)
 
     context = {
-        'listings': listings,
+        'listingsbasic': listingsbasic,
+        'listingspro': listingspro,
+        'listingsppq': listingsppq,
         'customer': customer,
         'package': package,
         'userdata': userdata,
@@ -531,7 +541,6 @@ def change_password(request):
 
 # Packages SECTION
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-@allowed_users()
 def packages(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
@@ -556,30 +565,30 @@ def packages(request, listing_id):
     return render(request, 'owners/packages/packages.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-@allowed_users()
-def createpackage(request):
-    usergroup = ProUser.objects.all()
-    usergroup = usergroup.filter(user=request.user)
-    usergroup = usergroup.filter(paidPropublished=True)
+def createpackage(request, listing_id):
+    clinic = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
 
-    listing = Packages.objects.all()
-    listing = listing.filter(packageOwner_id=request.user)
+    listing = Package.objects.all()
+    listing = listing.filter(packageclinic_id=listing_id)
     count = listing.count()
 
-    instance = BasicClinic.objects.filter(clinicOwner_id=request.user)
-    instance = instance.filter(is_published='True')
-    instance = instance.count()
-    instance = instance * 3
+    if clinic.pro_is_published == True:
+        instance = 2
+    else:
+        instance = 6
 
-    form = CreatePackage(request.POST or None, request.FILES or None)
-    form.fields['packageClinic'].queryset = BasicClinic.objects.filter(clinicOwner_id=request.user)
+    form = CreatePackage(request.POST or None, request.FILES or None, initial={'packageclinic': clinic.id})
+    form.fields['packageclinic'].queryset = BasicClinic.objects.filter(id=listing).filter(pro_is_published=True)
 
     if count < instance:
         if form.is_valid():
             form = form.save(commit=False)
             form.package_list_date = datetime.now()
-            form.packageOwner = request.user
+            form.packageclinic = clinic
             form.save()
+
+            clinic.packageClinicCounterNumber += int(1)
+            clinic.save()
 
             messages.success(request, '- Package created')
             return redirect(dashboard)
@@ -591,37 +600,20 @@ def createpackage(request):
         'form': form,
         'count': count,
         'instance': instance,
-        'usergroup': usergroup,
+        'clinic': clinic,
     }
 
     return render(request, 'owners/packages/create-package.html', context)
 
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-@allowed_users()
-def packagesettings(request):
-    usergroup = ProUser.objects.all()
-    usergroup = usergroup.filter(user=request.user)
-    usergroup = usergroup.filter(paidPropublished=True)
-
-    packages = Packages.objects.all()
-    packages = packages.filter(packageOwner_id=request.user)
-
-    context = {
-        'packages': packages,
-        'usergroup': usergroup,
-    }
-    return render(request, 'owners/packages/package-settings.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-@allowed_users()
 def clinicpackagesettings(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
 
-    listing = Packages.objects.all()
-    listing = listing.filter(packageOwner_id=request.user)
-    listing = listing.filter(packageClinic_id=listing_id)
+    listing = Package.objects.all()
+    listing = listing.filter(packageclinic_id=listing_id)
 
     instance = get_object_or_404(BasicClinic, pk=listing_id)
 
@@ -633,12 +625,11 @@ def clinicpackagesettings(request, listing_id):
     return render(request, 'owners/packages/clinic-package-settings.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-@allowed_users()
 def updatepropackage(request, package_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
-    instance = get_object_or_404(Packages, pk=package_id, packageOwner_id=request.user)
+    instance = get_object_or_404(Package, pk=package_id)
     form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -654,3 +645,16 @@ def updatepropackage(request, package_id):
     }
 
     return render(request, 'owners/packages/update-package.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def deletepropackage(request, package_id):
+    instance = get_object_or_404(Package, pk=package_id)
+
+    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic.id)
+    clinic.packageClinicCounterNumber = F('packageClinicCounterNumber') - 1
+    clinic.save()
+
+    instance.delete()
+
+    messages.success(request, '- Package deleted')
+    return redirect(dashboard)

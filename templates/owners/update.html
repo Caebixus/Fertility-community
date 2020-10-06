@@ -3,36 +3,35 @@
 {% block content %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-<div class="background" style="background-color: #286DA8">
-  <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Update clinic information</h1>
-    <h2 style="color:white">{{ instance.clinicName }}</h2>
-    <br>
-  </div>
-</div>
-<br>
-<main role="main">
-  <div class="container" style="max-width: 70rem; text-align: center">
-    {% if form.errors %}
-      {% for field in form %}
-          {% for error in field.errors %}
-              <div class="alert alert-danger">
-                  <strong>{{ error|escape }}</strong>
-              </div>
-          {% endfor %}
-      {% endfor %}
-      {% for error in form.non_field_errors %}
-          <div class="alert alert-danger">
-              <strong>{{ error|escape }}</strong>
-          </div>
-      {% endfor %}
-    {% endif %}
-    <form method='POST' enctype="multipart/form-data">
+
+<div class="container py-4">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <main role="main">
+    <div class="container" style="max-width: 70rem">
+      <h1 style="text-align: center">Update clinic information</h1>
+      <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
+      <hr>
+      <br>
+      <div class="container" style="text-align: center">
+        <form method='POST' enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.non_field_errors }}
       {{ form.source.errors }}
       {{ form.source }}
-      <h2>Clinics Basic Information</h2>
+      <h2>Clinic's Basic Information</h2>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.clinicName.errors }}
         <label for="{{ form.clinicName.id_for_label}}">Name:</label>
@@ -190,7 +189,7 @@
       <br>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.contact_url.errors }}
-        <label for="{{ form.contact_url.id_for_label}}">URL:</label>
+        <label for="{{ form.contact_url.id_for_label}}">Clinic's URL:</label>
         {{ form.contact_url }}
       </div>
       <br>
@@ -202,7 +201,7 @@
       <br>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.contact_email.errors }}
-        <label for="{{ form.contact_email.id_for_label}}">Email for clients:</label>
+        <label for="{{ form.contact_email.id_for_label}}">General clinic email:</label>
         {{ form.contact_email }}
       </div>
       <br>

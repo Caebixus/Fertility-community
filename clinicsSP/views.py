@@ -27,7 +27,7 @@ def ivfspainalicante(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=617)
+    package = package.filter(packageclinic__id=617)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -76,7 +76,7 @@ def ivialicante(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=619)
+    package = package.filter(packageclinic__id=619)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -126,7 +126,7 @@ def clinicadefertilidadbarcelonaivf(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=620)
+    package = package.filter(packageclinic__id=620)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -175,7 +175,7 @@ def ferttyinternational(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=621)
+    package = package.filter(packageclinic__id=621)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -224,7 +224,7 @@ def fertilabbarcelona(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=622)
+    package = package.filter(packageclinic__id=622)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -273,7 +273,7 @@ def institutmarquesbarcelona(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=623)
+    package = package.filter(packageclinic__id=623)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -322,7 +322,7 @@ def ivfforyou(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=624)
+    package = package.filter(packageclinic__id=624)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -371,7 +371,7 @@ def gravida(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=625)
+    package = package.filter(packageclinic__id=625)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -420,7 +420,7 @@ def ivibarcelona(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=626)
+    package = package.filter(packageclinic__id=626)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -469,7 +469,7 @@ def fivmarbellabarcelona(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=627)
+    package = package.filter(packageclinic__id=627)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -519,7 +519,7 @@ def ivfspainmadrid(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=628)
+    package = package.filter(packageclinic__id=628)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -568,7 +568,7 @@ def fertilitymadrid(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=629)
+    package = package.filter(packageclinic__id=629)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -617,7 +617,7 @@ def evafertilityclinicmadrid(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=630)
+    package = package.filter(packageclinic__id=630)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -666,7 +666,7 @@ def ivimadridaravaca(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=631)
+    package = package.filter(packageclinic__id=631)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -715,7 +715,7 @@ def clinicatambre(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=632)
+    package = package.filter(packageclinic__id=632)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -764,7 +764,7 @@ def fertilityclinichru(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=633)
+    package = package.filter(packageclinic__id=633)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -813,7 +813,7 @@ def fivmarbellamadrid(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=634)
+    package = package.filter(packageclinic__id=634)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -863,7 +863,7 @@ def ivimalaga(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=635)
+    package = package.filter(packageclinic__id=635)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -912,7 +912,7 @@ def fivmarbellamalaga(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=636)
+    package = package.filter(packageclinic__id=636)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -961,7 +961,7 @@ def hcfertility(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=637)
+    package = package.filter(packageclinic__id=637)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1010,7 +1010,7 @@ def clinicafertia(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=638)
+    package = package.filter(packageclinic__id=638)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1060,7 +1060,7 @@ def ivisevilla(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=639)
+    package = package.filter(packageclinic__id=639)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1109,7 +1109,7 @@ def inebir(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=640)
+    package = package.filter(packageclinic__id=640)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1158,7 +1158,7 @@ def ginemedsevilla(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=641)
+    package = package.filter(packageclinic__id=641)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1208,7 +1208,7 @@ def ivivalencia(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=642)
+    package = package.filter(packageclinic__id=642)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1257,7 +1257,7 @@ def equipojuanacrespo(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=643)
+    package = package.filter(packageclinic__id=643)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1306,7 +1306,7 @@ def unidaddereproduccionasistidaimedvalencia(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=644)
+    package = package.filter(packageclinic__id=644)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1355,7 +1355,7 @@ def creavalencia(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=645)
+    package = package.filter(packageclinic__id=645)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1404,7 +1404,7 @@ def imerinstitutodemedicinareproductiva(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=646)
+    package = package.filter(packageclinic__id=646)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()

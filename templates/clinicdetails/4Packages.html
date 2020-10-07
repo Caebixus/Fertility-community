@@ -19,7 +19,7 @@
               <p><b>Category:</b> <i>{{ packages.packagescategory }}</i></p>
             </div>
             <div class="col-sm-4">
-              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ packages.packagescost|floatformat:'0' }} {% if packages.defaultClinicCurrency == 'GBP' %}£{% elif packages.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
+              <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ packages.packagescost|floatformat:'0' }} {% if packages.packageClinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageClinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
             </div>
           </div>
         </div>

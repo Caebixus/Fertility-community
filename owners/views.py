@@ -13,18 +13,13 @@ from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
 from .decorators import allowed_users
 from django.contrib.auth.models import Group
 from django.db.models import F
-
-import stripe
-
-stripe.api_key = settings.STRIPE_PRIVATE_KEY
-stripePublickKey = settings.STRIPE_PUBLIC_KEY
 
 # Create your views here.
 def register(request):
@@ -577,15 +572,17 @@ def createpackage(request, listing_id):
     else:
         instance = 6
 
-    form = CreatePackage(request.POST or None, request.FILES or None, initial={'packageclinic': clinic.id})
+    form = CreatePackage(request.POST or None, request.FILES or None, initial={'packageclinic': clinic.id}, prefix="form1")
+    emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
     form.fields['packageclinic'].queryset = BasicClinic.objects.filter(id=listing).filter(pro_is_published=True)
 
     if count < instance:
-        if form.is_valid():
+        if form.is_valid() and emailform.is_valid():
             form = form.save(commit=False)
             form.package_list_date = datetime.now()
             form.packageclinic = clinic
             form.save()
+            emailform.save()
 
             clinic.packageClinicCounterNumber += int(1)
             clinic.save()
@@ -598,6 +595,7 @@ def createpackage(request, listing_id):
 
     context = {
         'form': form,
+        'emailform': emailform,
         'count': count,
         'instance': instance,
         'clinic': clinic,

@@ -15,7 +15,7 @@
 </div>
 <br>
 <div class="container">
-  <form class="" action="{% url 'billinginfo' instance.id %}" method="POST">
+  <form class="" action="{% url 'billinginfo1' instance.id %}" method="POST">
     {% csrf_token %}
     <h3>Billing name:</h3>
     <input type="text" name="billingsName" placeholder="Billings name" value="{{ instance.clinicName }}" required>
@@ -48,7 +48,7 @@
     <br>
     <hr>
     <br>
-    <input type="submit" class="btn btn-success" value="Go to Checkout" href="{% url 'checkout' instance.pk %}">
+    <input type="submit" class="btn btn-success" value="Go to Checkout" href="{% url 'checkout1' instance.pk %}">
   </form>
 </div>
 

@@ -150,11 +150,13 @@
         <div class="row">
           {% if listings.customer.stripeid %}
           <div class="col-4 col-sm">
-            <div class="col-4 col-sm">
-              <a href="{% url 'checkout' listings.id %}">
-                <button class="btn btn-info text-light" type="button">Upgrade to PRO Clinic</button>
-              </a>
-            </div>
+          </div>
+          <div class="col-4 col-sm">
+          </div>
+          <div class="col-4 col-sm">
+            <a href="{% url 'checkout2' listings.id %}">
+              <button class="btn btn-success text-light" type="button">Upgrade Clinic</button>
+            </a>
           </div>
           {% else %}
           <div class="col-4 col-sm">
@@ -163,14 +165,37 @@
             </a>
           </div>
           <div class="col-4 col-sm">
-              <a href="{% url 'billinginfo' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Upgrade to PRO Clinic</button>
-            </a>
+          </div>
+          <div class="col-4 col-sm">
           </div>
           {% endif %}
         </div>
       </div>
     {% endif %}
+  {% endfor %}
+  {% for listings in listingsbasic %}
+    {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False %}
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-sm-9">
+          <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-warning">Basic clinic</span></h2>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row" style="text-align:left">
+        <div class="col-sm" style="padding-top: 1rem">
+          <p><i class="fas fa-search"></i> Your clinic is in review - please wait</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+  {% for listings in listingsbasic %}
+  {% empty %}
+  <div class="jumbotron">
+    <p>There is no clinic connected to your account. <a href="{% url 'claim' %}"><u>Claim</u></a> or <a href="{% url 'create1' %}"><u>add new</u></a> one.</p>
+  </div>
   {% endfor %}
 </div>
 

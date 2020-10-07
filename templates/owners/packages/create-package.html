@@ -5,7 +5,7 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Create new package</h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Create new package - {{clinic.clinicName}}</h1>
     <p style="color:white">With this clinic you can have up to {{instance}} active packages. Active packages: {{count}}</p>
     <br>
   </div>
@@ -65,6 +65,14 @@
         <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency:</label>
         <div class="fieldWrapper">
           {{ form.packagecost }}
+        </div>
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ emailform.query_email.errors }}
+        <label for="{{ emailform.query_email.id_for_label}}">Inquiry email (this email will receive inquiries):</label>
+        <div class="fieldWrapper">
+          {{ emailform.query_email }}
         </div>
       </div>
       <br>

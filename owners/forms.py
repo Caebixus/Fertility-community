@@ -917,6 +917,13 @@ class CreatePackage(forms.ModelForm):
         'package_list_date',
         ]
 
+class CreatePackageEmail(forms.ModelForm):
+    query_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+
+    class Meta:
+        model = BasicClinic
+        fields = ['query_email']
+
 class PostFormProUpdatePackage(forms.ModelForm):
     packageclinic = forms.ModelChoiceField(queryset=BasicClinic.objects.all(), widget=forms.HiddenInput(attrs={'class': 'form-control',}), required=False)
     packagetitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Package name'))

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from clinic.models import BasicClinic
-from packages.models import Packages
+from packages.models import Packages, Package
 from django.utils import timezone
 from owners.models import ownerProInterested, ProUser
 
@@ -26,7 +26,7 @@ def ivfspainalicante(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=617)
 
     if request.user.is_authenticated:
@@ -75,7 +75,7 @@ def ivialicante(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=619)
 
     if request.user.is_authenticated:
@@ -125,7 +125,7 @@ def clinicadefertilidadbarcelonaivf(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=620)
 
     if request.user.is_authenticated:
@@ -174,7 +174,7 @@ def ferttyinternational(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=621)
 
     if request.user.is_authenticated:
@@ -223,7 +223,7 @@ def fertilabbarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=622)
 
     if request.user.is_authenticated:
@@ -272,7 +272,7 @@ def institutmarquesbarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=623)
 
     if request.user.is_authenticated:
@@ -321,7 +321,7 @@ def ivfforyou(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=624)
 
     if request.user.is_authenticated:
@@ -370,7 +370,7 @@ def gravida(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=625)
 
     if request.user.is_authenticated:
@@ -419,7 +419,7 @@ def ivibarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=626)
 
     if request.user.is_authenticated:
@@ -468,7 +468,7 @@ def fivmarbellabarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=627)
 
     if request.user.is_authenticated:
@@ -518,7 +518,7 @@ def ivfspainmadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=628)
 
     if request.user.is_authenticated:
@@ -567,7 +567,7 @@ def fertilitymadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=629)
 
     if request.user.is_authenticated:
@@ -616,7 +616,7 @@ def evafertilityclinicmadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=630)
 
     if request.user.is_authenticated:
@@ -665,7 +665,7 @@ def ivimadridaravaca(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=631)
 
     if request.user.is_authenticated:
@@ -714,7 +714,7 @@ def clinicatambre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=632)
 
     if request.user.is_authenticated:
@@ -763,7 +763,7 @@ def fertilityclinichru(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=633)
 
     if request.user.is_authenticated:
@@ -812,7 +812,7 @@ def fivmarbellamadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=634)
 
     if request.user.is_authenticated:
@@ -862,7 +862,7 @@ def ivimalaga(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=635)
 
     if request.user.is_authenticated:
@@ -911,7 +911,7 @@ def fivmarbellamalaga(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=636)
 
     if request.user.is_authenticated:
@@ -960,7 +960,7 @@ def hcfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=637)
 
     if request.user.is_authenticated:
@@ -1009,7 +1009,7 @@ def clinicafertia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=638)
 
     if request.user.is_authenticated:
@@ -1059,7 +1059,7 @@ def ivisevilla(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=639)
 
     if request.user.is_authenticated:
@@ -1108,7 +1108,7 @@ def inebir(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=640)
 
     if request.user.is_authenticated:
@@ -1157,7 +1157,7 @@ def ginemedsevilla(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=641)
 
     if request.user.is_authenticated:
@@ -1207,7 +1207,7 @@ def ivivalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=642)
 
     if request.user.is_authenticated:
@@ -1256,7 +1256,7 @@ def equipojuanacrespo(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=643)
 
     if request.user.is_authenticated:
@@ -1305,7 +1305,7 @@ def unidaddereproduccionasistidaimedvalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=644)
 
     if request.user.is_authenticated:
@@ -1354,7 +1354,7 @@ def creavalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=645)
 
     if request.user.is_authenticated:
@@ -1403,7 +1403,7 @@ def imerinstitutodemedicinareproductiva(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Packages.objects.all()
+    package = Package.objects.all()()
     package = package.filter(packageClinic__id=646)
 
     if request.user.is_authenticated:

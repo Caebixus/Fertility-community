@@ -27,7 +27,7 @@ def pragamedica(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=36)
+    package = package.filter(packageclinic__id=36)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -76,7 +76,7 @@ def fertilityportx(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=600)
+    package = package.filter(packageclinic__id=600)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -125,7 +125,7 @@ def praguefertilitycentre(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=601)
+    package = package.filter(packageclinic__id=601)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -174,7 +174,7 @@ def gynemfertilityclinic(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=602)
+    package = package.filter(packageclinic__id=602)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -223,7 +223,7 @@ def gennet(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=604)
+    package = package.filter(packageclinic__id=604)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -272,7 +272,7 @@ def medicaltravelczechrep(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=605)
+    package = package.filter(packageclinic__id=605)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -321,7 +321,7 @@ def pronatalplusprague(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=606)
+    package = package.filter(packageclinic__id=606)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -370,7 +370,7 @@ def pronatalsanatoriumprague(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=607)
+    package = package.filter(packageclinic__id=607)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -419,7 +419,7 @@ def ivfcube(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=612)
+    package = package.filter(packageclinic__id=612)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -469,7 +469,7 @@ def ivfzlinczechrep(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=603)
+    package = package.filter(packageclinic__id=603)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -518,7 +518,7 @@ def reprofitbrno(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=613)
+    package = package.filter(packageclinic__id=613)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -567,7 +567,7 @@ def reprogenesis(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=615)
+    package = package.filter(packageclinic__id=615)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -612,7 +612,7 @@ def pronatalkolin(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=608)
+    package = package.filter(packageclinic__id=608)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -655,7 +655,7 @@ def pronatalreproceskebudejovice(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=609)
+    package = package.filter(packageclinic__id=609)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -698,7 +698,7 @@ def pronatalnordteplice(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=610)
+    package = package.filter(packageclinic__id=610)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -741,7 +741,7 @@ def pronatalspakarlovyvary(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=611)
+    package = package.filter(packageclinic__id=611)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -784,7 +784,7 @@ def reprofitostrava(request):
     alllisting = alllisting.count()
 
     package = Package.objects.all()
-    package = package.filter(packageClinic__id=614)
+    package = package.filter(packageclinic__id=614)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()

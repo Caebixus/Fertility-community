@@ -24,7 +24,7 @@ def fertilityClinicPrague(request):
     pro_listings = BasicClinic.objects.all()
 
     pro_queryset_list = BasicClinic.objects.all()
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
@@ -82,7 +82,7 @@ def fertilityClinicBrno(request):
     pro_listings = BasicClinic.objects.all()
 
     pro_queryset_list = BasicClinic.objects.all()
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)

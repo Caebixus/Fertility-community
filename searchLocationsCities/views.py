@@ -23,8 +23,11 @@ def fertilityClinicPrague(request):
 
     pro_listings = BasicClinic.objects.all()
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
     my_total_count = BasicClinic.objects.all()
     my_total_count = my_total_count.filter(is_published=True)
@@ -38,13 +41,15 @@ def fertilityClinicPrague(request):
 
     queryset_list = queryset_list.filter(clinicRegion__iexact='Prague')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Prague')
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Prague')
-    my_total_count = my_total_count.count()
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Prague')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
-    order_data = list(pro_queryset_list) + list(queryset_list)
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -76,8 +81,11 @@ def fertilityClinicBrno(request):
 
     pro_listings = BasicClinic.objects.all()
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
     my_total_count = BasicClinic.objects.all()
     my_total_count = my_total_count.filter(is_published=True)
@@ -91,13 +99,15 @@ def fertilityClinicBrno(request):
 
     queryset_list = queryset_list.filter(clinicRegion__iexact='Brno')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Brno')
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Brno')
-    my_total_count = my_total_count.count()
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Brno')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
-    order_data = list(pro_queryset_list) + list(queryset_list)
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')

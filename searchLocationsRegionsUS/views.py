@@ -10,16 +10,12 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # ----------------------------------------------------------------------------
 def fertilityClinicsAlabama(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
     my_total_count = BasicClinic.objects.all()
@@ -31,16 +27,17 @@ def fertilityClinicsAlabama(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Alabama')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alabama')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alabama')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Alabama')
-    my_total_count = my_total_count.count()
-
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')

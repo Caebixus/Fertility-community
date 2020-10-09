@@ -18,16 +18,16 @@ def fertilityClinicBrno1(request):
 
 def fertilityClinicPrague(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
-
-    pro_listings = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.all()
+    my_total_count = my_total_count.filter(is_published=True)
 
     my_total_count = BasicClinic.objects.all()
     my_total_count = my_total_count.filter(is_published=True)
@@ -37,7 +37,6 @@ def fertilityClinicPrague(request):
     averageEmbryoPrice = BasicClinic.objects.filter(clinicRegion__iexact='Prague').aggregate(average=Avg('embryo_donor_recipients_cost'))
     averageSpermPrice = BasicClinic.objects.filter(clinicRegion__iexact='Prague').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicRegion__iexact='Prague').aggregate(average=Avg('icsi_treatment_cost'))
-
 
     queryset_list = queryset_list.filter(clinicRegion__iexact='Prague')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Prague')

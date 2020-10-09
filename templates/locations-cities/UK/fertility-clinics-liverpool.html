@@ -306,7 +306,7 @@
                 <button id="pricingSearchButton" type="button" class="btn btn-outline-info btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
               </a>
             </div>
-            {% if order_datas.pro_is_published == True and order_datas.ppq_is_published == True %}
+            {% if order_datas.ppq_is_published == True %}
             <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#packages">
                 <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
@@ -375,7 +375,7 @@
             </div>
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
-            {% if order_datas.pro_is_published == True and order_datas.ppq_is_published == True %}
+            {% if order_datas.ppq_is_published == True %}
             <div class="col-4 col-sm" style="padding-top:1rem">
               <a href="{{ order_datas.clinic_url }}#packages">
                 <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>

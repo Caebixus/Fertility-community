@@ -11,7 +11,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # ----------------------------------------------------------------------------
 def fertilityClinicUSA(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -64,7 +64,7 @@ def fertilityClinicUSA(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicUK(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -117,7 +117,7 @@ def fertilityClinicUK(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicSpain(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -169,7 +169,7 @@ def fertilityClinicSpain(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicIndia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -221,7 +221,7 @@ def fertilityClinicIndia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicGreece(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -273,7 +273,7 @@ def fertilityClinicGreece(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicCzech(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)

@@ -10,7 +10,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # ----------------------------------------------------------------------------
 def fertilityClinicsAlabama(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -63,7 +63,7 @@ def fertilityClinicsAlabama(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsAlaska(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -116,7 +116,7 @@ def fertilityClinicsAlaska(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsArizona(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -169,7 +169,7 @@ def fertilityClinicsArizona(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsArkansas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -222,7 +222,7 @@ def fertilityClinicsArkansas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsCalifornia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -275,7 +275,7 @@ def fertilityClinicsCalifornia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsColorado(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -328,7 +328,7 @@ def fertilityClinicsColorado(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsConnecticut(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -381,7 +381,7 @@ def fertilityClinicsConnecticut(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsDelaware(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -434,7 +434,7 @@ def fertilityClinicsDelaware(request):
     # ----------------------------------------------------------------------------
 def fertilityClinicsFlorida(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -487,7 +487,7 @@ def fertilityClinicsFlorida(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsGeorgia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -540,7 +540,7 @@ def fertilityClinicsGeorgia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsHawaii(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -593,7 +593,7 @@ def fertilityClinicsHawaii(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIdaho(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -646,7 +646,7 @@ def fertilityClinicsIdaho(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIllinois(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -699,7 +699,7 @@ def fertilityClinicsIllinois(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIndiana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -752,7 +752,7 @@ def fertilityClinicsIndiana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIowa(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -805,7 +805,7 @@ def fertilityClinicsIowa(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsKansas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -858,7 +858,7 @@ def fertilityClinicsKansas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsKentucky(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -911,7 +911,7 @@ def fertilityClinicsKentucky(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsLouisiana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -964,7 +964,7 @@ def fertilityClinicsLouisiana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaine(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1017,7 +1017,7 @@ def fertilityClinicsMaine(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaryland(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1070,7 +1070,7 @@ def fertilityClinicsMaryland(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMassachusetts(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1123,7 +1123,7 @@ def fertilityClinicsMassachusetts(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMichigan(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1176,7 +1176,7 @@ def fertilityClinicsMichigan(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMinnesota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1229,7 +1229,7 @@ def fertilityClinicsMinnesota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMississippi(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1282,7 +1282,7 @@ def fertilityClinicsMississippi(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMissouri(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1335,7 +1335,7 @@ def fertilityClinicsMissouri(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMontana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1388,7 +1388,7 @@ def fertilityClinicsMontana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNebraska(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1441,7 +1441,7 @@ def fertilityClinicsNebraska(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewHampshire(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1494,7 +1494,7 @@ def fertilityClinicsNewHampshire(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewJersey(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1547,7 +1547,7 @@ def fertilityClinicsNewJersey(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewMexico(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1600,7 +1600,7 @@ def fertilityClinicsNewMexico(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewYork(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1653,7 +1653,7 @@ def fertilityClinicsNewYork(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthCarolina(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1706,7 +1706,7 @@ def fertilityClinicsNorthCarolina(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthDakota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1759,7 +1759,7 @@ def fertilityClinicsNorthDakota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNevada(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1812,7 +1812,7 @@ def fertilityClinicsNevada(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOhio(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1865,7 +1865,7 @@ def fertilityClinicsOhio(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOklahoma(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1918,7 +1918,7 @@ def fertilityClinicsOklahoma(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOregon(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -1971,7 +1971,7 @@ def fertilityClinicsOregon(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsPennsylvania(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2024,7 +2024,7 @@ def fertilityClinicsPennsylvania(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsPuertoRico(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2077,7 +2077,7 @@ def fertilityClinicsPuertoRico(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsRhodeIsland(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2130,7 +2130,7 @@ def fertilityClinicsRhodeIsland(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthCarolina(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2183,7 +2183,7 @@ def fertilityClinicsSouthCarolina(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthDakota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2236,7 +2236,7 @@ def fertilityClinicsSouthDakota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsTennessee(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2289,7 +2289,7 @@ def fertilityClinicsTennessee(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsTexas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2342,7 +2342,7 @@ def fertilityClinicsTexas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsUtah(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2395,7 +2395,7 @@ def fertilityClinicsUtah(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsVermont(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2448,7 +2448,7 @@ def fertilityClinicsVermont(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsVirginia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2501,7 +2501,7 @@ def fertilityClinicsVirginia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWashington(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2554,7 +2554,7 @@ def fertilityClinicsWashington(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWestVirginia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2607,7 +2607,7 @@ def fertilityClinicsWestVirginia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWisconsin(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2660,7 +2660,7 @@ def fertilityClinicsWisconsin(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWyoming(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
@@ -2713,7 +2713,7 @@ def fertilityClinicsWyoming(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsDistrictOfColumbia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
     pro_queryset_list = BasicClinic.objects.all()
     pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)

@@ -46,25 +46,25 @@
               <div class="card-header" style="background-color: #efefef;">
                 <p style="font-size: 28px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ packages.packagetitle }}</b></p>
                 <hr>
-                <div class="row">
-                  <div class="col-sm-8">
-                    <p><b>Name of the clinic:</b> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
-                    <p><b>Category:</b> <i>{{ packages.packagecategory }}</i></p>
-                  </div>
-                  <div class="col-sm-4">
-                    <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ packages.packagecost|floatformat:'0' }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>
-                  </div>
-                </div>
+                <p><b>Name of the clinic:</b> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
+                <p><b>Category:</b> <i>{{ packages.packagecategory }}</i></p>
               </div>
               <div class="card-body" style="min-height: 20rem">
                 <p>{{ packages.packagedesc|safe}}</p>
               </div>
-              <div class="card-footer" style="background-color: #efefef; text-align:right">
-                <a href="mailto:{{ packages.packageclinic.contact_email }}?subject=Non-binding interest for {{ packages.packagetitle }}&body=Hello,<br><br>I'm interested in package: {{ packages.packagetitle }}. Please send me more information to this email.<br><br>Thank you.">
-                  <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                    Send details
-                  </button>
-                </a>
+              <div class="card-footer" style="background-color: #efefef;">
+                <div class="row">
+                  <div class="col-6 sm-6">
+                    <p style="font-size: 30px; color: #CD5360;">{{ packages.packagecost|floatformat:'0' }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+                  </div>
+                  <div class="col-6 sm-6 text-right">
+                    <a href="mailto:{{ packages.packageclinic.contact_email }}?subject=Non-binding interest for {{ packages.packagetitle }}&body=Hello,<br><br>I'm interested in package: {{ packages.packagetitle }}. Please send me more information to this email.<br><br>Thank you.">
+                      <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
+                        Send details
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <br>

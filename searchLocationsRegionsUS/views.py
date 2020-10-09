@@ -18,7 +18,7 @@ def fertilityClinicsAlabama(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Alabama')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -63,19 +63,15 @@ def fertilityClinicsAlabama(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsAlaska(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Alaska')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -84,15 +80,17 @@ def fertilityClinicsAlaska(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Alaska')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alaska')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alaska')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Alaska')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -118,19 +116,15 @@ def fertilityClinicsAlaska(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsArizona(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Arizona')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -139,15 +133,17 @@ def fertilityClinicsArizona(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Arizona')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arizona')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arizona')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Arizona')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -173,19 +169,15 @@ def fertilityClinicsArizona(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsArkansas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Arkansas')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -194,15 +186,17 @@ def fertilityClinicsArkansas(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Arkansas')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arkansas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arkansas')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Arkansas')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -228,19 +222,15 @@ def fertilityClinicsArkansas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsCalifornia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='California')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -249,15 +239,17 @@ def fertilityClinicsCalifornia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='California')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='California')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -283,19 +275,15 @@ def fertilityClinicsCalifornia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsColorado(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Colorado')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -304,15 +292,17 @@ def fertilityClinicsColorado(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Colorado')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Colorado')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Colorado')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Colorado')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -338,19 +328,15 @@ def fertilityClinicsColorado(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsConnecticut(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Connecticut')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -359,16 +345,17 @@ def fertilityClinicsConnecticut(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Connecticut')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Connecticut')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Connecticut')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Connecticut')
-    my_total_count = my_total_count.count()
-
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -394,19 +381,15 @@ def fertilityClinicsConnecticut(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsDelaware(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Delaware')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -415,15 +398,17 @@ def fertilityClinicsDelaware(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Delaware')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Delaware')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Delaware')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Delaware')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -449,19 +434,15 @@ def fertilityClinicsDelaware(request):
     # ----------------------------------------------------------------------------
 def fertilityClinicsFlorida(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Florida')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -470,15 +451,17 @@ def fertilityClinicsFlorida(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Florida')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Florida')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Florida')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Florida')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -504,19 +487,15 @@ def fertilityClinicsFlorida(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsGeorgia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Georgia')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -525,15 +504,17 @@ def fertilityClinicsGeorgia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Georgia')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Georgia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Georgia')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Georgia')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -559,19 +540,15 @@ def fertilityClinicsGeorgia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsHawaii(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Hawaii')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -580,15 +557,17 @@ def fertilityClinicsHawaii(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Hawaii')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hawaii')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Hawaii')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Hawaii')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -614,19 +593,15 @@ def fertilityClinicsHawaii(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIdaho(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Idaho')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -635,15 +610,17 @@ def fertilityClinicsIdaho(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Idaho')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Idaho')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Idaho')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Idaho')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -669,19 +646,15 @@ def fertilityClinicsIdaho(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIllinois(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Illinois')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -690,15 +663,17 @@ def fertilityClinicsIllinois(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Illinois')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Illinois')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Illinois')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Illinois')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -724,19 +699,15 @@ def fertilityClinicsIllinois(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIndiana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Indiana')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -745,15 +716,17 @@ def fertilityClinicsIndiana(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Indiana')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Indiana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Indiana')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Indiana')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -779,19 +752,15 @@ def fertilityClinicsIndiana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsIowa(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Iowa')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -800,15 +769,17 @@ def fertilityClinicsIowa(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Iowa')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Iowa')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Iowa')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Iowa')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -834,19 +805,15 @@ def fertilityClinicsIowa(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsKansas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kansas')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -855,15 +822,17 @@ def fertilityClinicsKansas(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Kansas')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kansas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kansas')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Kansas')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -889,19 +858,15 @@ def fertilityClinicsKansas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsKentucky(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kentucky')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -910,15 +875,17 @@ def fertilityClinicsKentucky(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Kentucky')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kentucky')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kentucky')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Kentucky')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -944,19 +911,15 @@ def fertilityClinicsKentucky(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsLouisiana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Louisiana')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -965,15 +928,17 @@ def fertilityClinicsLouisiana(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Louisiana')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Louisiana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Louisiana')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Louisiana')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -999,19 +964,15 @@ def fertilityClinicsLouisiana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaine(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Maine')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1020,15 +981,17 @@ def fertilityClinicsMaine(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Maine')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maine')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maine')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Maine')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1054,19 +1017,15 @@ def fertilityClinicsMaine(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaryland(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Maryland')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1075,15 +1034,17 @@ def fertilityClinicsMaryland(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Maryland')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maryland')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maryland')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Maryland')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1109,19 +1070,15 @@ def fertilityClinicsMaryland(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMassachusetts(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Massachusetts')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1130,15 +1087,17 @@ def fertilityClinicsMassachusetts(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Massachusetts')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Massachusetts')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Massachusetts')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Massachusetts')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1164,19 +1123,15 @@ def fertilityClinicsMassachusetts(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMichigan(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Michigan')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1185,15 +1140,17 @@ def fertilityClinicsMichigan(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Michigan')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Michigan')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Michigan')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Michigan')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1219,19 +1176,15 @@ def fertilityClinicsMichigan(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMinnesota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Minnesota')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1240,15 +1193,17 @@ def fertilityClinicsMinnesota(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Minnesota')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Minnesota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Minnesota')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Minnesota')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1274,19 +1229,15 @@ def fertilityClinicsMinnesota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMississippi(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Mississippi')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1295,15 +1246,17 @@ def fertilityClinicsMississippi(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Mississippi')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Mississippi')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Mississippi')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Mississippi')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1329,19 +1282,15 @@ def fertilityClinicsMississippi(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMissouri(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Missouri')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1350,15 +1299,17 @@ def fertilityClinicsMissouri(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Missouri')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Missouri')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Missouri')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Missouri')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1384,19 +1335,15 @@ def fertilityClinicsMissouri(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsMontana(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Montana')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1405,15 +1352,17 @@ def fertilityClinicsMontana(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Montana')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Montana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Montana')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Montana')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1439,19 +1388,15 @@ def fertilityClinicsMontana(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNebraska(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Nebraska')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1460,15 +1405,17 @@ def fertilityClinicsNebraska(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Nebraska')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nebraska')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nebraska')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Nebraska')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1494,19 +1441,15 @@ def fertilityClinicsNebraska(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewHampshire(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Hampshire')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1515,15 +1458,17 @@ def fertilityClinicsNewHampshire(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='New Hampshire')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Hampshire')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Hampshire')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='New Hampshire')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1549,19 +1494,15 @@ def fertilityClinicsNewHampshire(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewJersey(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Jersey')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1570,15 +1511,17 @@ def fertilityClinicsNewJersey(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='New Jersey')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Jersey')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Jersey')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='New Jersey')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1604,19 +1547,15 @@ def fertilityClinicsNewJersey(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewMexico(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Mexico')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1625,15 +1564,17 @@ def fertilityClinicsNewMexico(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='New Mexico')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Mexico')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Mexico')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='New Mexico')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1659,19 +1600,15 @@ def fertilityClinicsNewMexico(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewYork(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New York')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1680,15 +1617,17 @@ def fertilityClinicsNewYork(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='New York')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New York')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New York')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='New York')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1714,19 +1653,15 @@ def fertilityClinicsNewYork(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthCarolina(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='North Carolina')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1735,15 +1670,17 @@ def fertilityClinicsNorthCarolina(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='North Carolina')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Carolina')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Carolina')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='North Carolina')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1769,19 +1706,15 @@ def fertilityClinicsNorthCarolina(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthDakota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='North Dakota')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1790,15 +1723,17 @@ def fertilityClinicsNorthDakota(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='North Dakota')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Dakota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Dakota')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='North Dakota')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1824,19 +1759,15 @@ def fertilityClinicsNorthDakota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsNevada(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Nevada')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1845,15 +1776,17 @@ def fertilityClinicsNevada(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Nevada')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nevada')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nevada')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Nevada')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1879,19 +1812,15 @@ def fertilityClinicsNevada(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOhio(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Ohio')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1900,15 +1829,17 @@ def fertilityClinicsOhio(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Ohio')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Ohio')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Ohio')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Ohio')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1934,19 +1865,15 @@ def fertilityClinicsOhio(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOklahoma(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Oklahoma')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1955,15 +1882,17 @@ def fertilityClinicsOklahoma(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Oklahoma')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oklahoma')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oklahoma')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Oklahoma')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -1989,19 +1918,15 @@ def fertilityClinicsOklahoma(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsOregon(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Oregon')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2010,15 +1935,17 @@ def fertilityClinicsOregon(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Oregon')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oregon')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oregon')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Oregon')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2044,19 +1971,15 @@ def fertilityClinicsOregon(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsPennsylvania(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Pennsylvania')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2065,15 +1988,17 @@ def fertilityClinicsPennsylvania(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Pennsylvania')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Pennsylvania')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2099,19 +2024,15 @@ def fertilityClinicsPennsylvania(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsPuertoRico(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Puerto Rico')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2120,15 +2041,17 @@ def fertilityClinicsPuertoRico(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Puerto Rico')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Puerto Rico')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Puerto Rico')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Puerto Rico')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2154,19 +2077,15 @@ def fertilityClinicsPuertoRico(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsRhodeIsland(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Rhode Island')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2175,15 +2094,17 @@ def fertilityClinicsRhodeIsland(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Rhode Island')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Rhode Island')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Rhode Island')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Rhode Island')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2209,19 +2130,15 @@ def fertilityClinicsRhodeIsland(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthCarolina(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='South Carolina')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2230,15 +2147,17 @@ def fertilityClinicsSouthCarolina(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='South Carolina')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Carolina')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Carolina')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='South Carolina')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2264,19 +2183,15 @@ def fertilityClinicsSouthCarolina(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthDakota(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='South Dakota')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2285,15 +2200,17 @@ def fertilityClinicsSouthDakota(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='South Dakota')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Dakota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Dakota')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='South Dakota')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2319,19 +2236,15 @@ def fertilityClinicsSouthDakota(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsTennessee(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Tennessee')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2340,15 +2253,17 @@ def fertilityClinicsTennessee(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Tennessee')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Tennessee')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Tennessee')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Tennessee')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2374,19 +2289,15 @@ def fertilityClinicsTennessee(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsTexas(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Texas')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2395,15 +2306,17 @@ def fertilityClinicsTexas(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Texas')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Texas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Texas')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Texas')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2429,19 +2342,15 @@ def fertilityClinicsTexas(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsUtah(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Utah')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2450,15 +2359,17 @@ def fertilityClinicsUtah(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Utah')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Utah')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Utah')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Utah')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2484,19 +2395,15 @@ def fertilityClinicsUtah(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsVermont(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Vermont')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2505,15 +2412,17 @@ def fertilityClinicsVermont(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Vermont')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Vermont')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Vermont')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Vermont')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2539,19 +2448,15 @@ def fertilityClinicsVermont(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsVirginia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Virginia')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2560,15 +2465,17 @@ def fertilityClinicsVirginia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Virginia')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Virginia')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2594,19 +2501,15 @@ def fertilityClinicsVirginia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWashington(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Washington')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2615,15 +2518,17 @@ def fertilityClinicsWashington(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Washington')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Washington')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Washington')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Washington')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2649,19 +2554,15 @@ def fertilityClinicsWashington(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWestVirginia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Virginia')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2670,15 +2571,17 @@ def fertilityClinicsWestVirginia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Virginia')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Virginia')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Virginia')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2704,19 +2607,15 @@ def fertilityClinicsWestVirginia(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWisconsin(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Wisconsin')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2725,15 +2624,17 @@ def fertilityClinicsWisconsin(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Wisconsin')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wisconsin')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wisconsin')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Wisconsin')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2759,19 +2660,15 @@ def fertilityClinicsWisconsin(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsWyoming(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Wyoming')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2780,15 +2677,17 @@ def fertilityClinicsWyoming(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='Wyoming')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wyoming')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wyoming')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Wyoming')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')
@@ -2814,19 +2713,15 @@ def fertilityClinicsWyoming(request):
 # ----------------------------------------------------------------------------
 def fertilityClinicsDistrictOfColumbia(request):
     queryset_list = BasicClinic.objects.all()
-    queryset_list = queryset_list.filter(is_published=True)
-    queryset_list = queryset_list.filter(pro_is_published=False)
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True).exclude(ppq_is_published=True)
 
-    pro_listings = BasicClinic.objects.all()
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
 
-    pro_queryset_list = BasicClinic.objects.order_by('?')
-    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True)
-    pro_queryset_list = pro_queryset_list.filter(ppq_is_published=False)
-
-    ppq_queryset_list = BasicClinic.objects.order_by('?')
+    ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.all()
+    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='DistrictOfColumbia')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2835,15 +2730,17 @@ def fertilityClinicsDistrictOfColumbia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('icsi_treatment_cost'))
 
-
     queryset_list = queryset_list.filter(clinicRegion__iexact='DistrictOfColumbia')
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='DistrictOfColumbia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='DistrictOfColumbia')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='DistrictOfColumbia')
-    my_total_count = my_total_count.count()
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
 
     order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
     paginator = Paginator(order_data, 12)
     page = request.GET.get('page')

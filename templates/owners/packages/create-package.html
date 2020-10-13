@@ -40,7 +40,6 @@
         {{ form.packagetitle }}
       </div>
       <br>
-      <br>
       <hr>
       <br>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
@@ -61,6 +60,14 @@
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
+        {{ form.package_limit_days.errors }}
+        <label for="{{ form.package_limit_days.id_for_label}}">Package day offer:</label>
+        <div class="fieldWrapper">
+          {{ form.package_limit_days }}
+        </div>
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
         {{ form.packagecost.errors }}
         <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency:</label>
         <div class="fieldWrapper">
@@ -75,6 +82,24 @@
           {{ emailform.query_email }}
         </div>
       </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.package_url.errors }}
+        <label for="{{ form.package_url.id_for_label}}">Package URL on your website:</label>
+        <div class="fieldWrapper">
+          {{ form.package_url }}
+        </div>
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.package_phone.errors }}
+        <label for="{{ form.package_phone.id_for_label}}">Package phone number for clients:</label>
+        <div class="fieldWrapper">
+          {{ form.package_phone }}
+        </div>
+      </div>
+      <br>
+      <hr>
       <br>
       <input class="btn btn-dark" type='submit' value='Create package' />
     </form>

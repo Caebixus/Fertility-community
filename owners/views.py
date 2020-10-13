@@ -12,7 +12,7 @@ from payments.models import Customer
 from .models import ownerProInterested, ProUser
 from contact.models import contactClinic
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime, timedelta
 from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
@@ -580,6 +580,7 @@ def createpackage(request, listing_id):
         if form.is_valid() and emailform.is_valid():
             form = form.save(commit=False)
             form.package_list_date = datetime.now()
+            form.package_end_list_date = form.package_list_date + timedelta(days=30)
             form.packageclinic = clinic
             form.save()
             emailform.save()
@@ -590,7 +591,7 @@ def createpackage(request, listing_id):
             messages.success(request, '- Package created')
             return redirect(dashboard)
     else:
-        messages.warning(request, '- Maximum packages is {}' .format(instance))
+        messages.warning(request, '- Maximum packages for PREMIUM clinic is {}' .format(instance))
         return redirect(dashboard)
 
     context = {
@@ -610,14 +611,20 @@ def clinicpackagesettings(request, listing_id):
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
 
-    listing = Package.objects.all()
+    todayDate = timezone.now()
+
+    listing = Package.objects.filter(package_end_list_date__gte=todayDate)
     listing = listing.filter(packageclinic_id=listing_id)
+
+    notactivelisting = Package.objects.filter(package_end_list_date__lte=todayDate)
+    notactivelisting = notactivelisting.filter(packageclinic_id=listing_id)
 
     instance = get_object_or_404(BasicClinic, pk=listing_id)
 
     context = {
         'usergroup': usergroup,
         'listing': listing,
+        'notactivelisting': notactivelisting,
         'instance': instance,
     }
     return render(request, 'owners/packages/clinic-package-settings.html', context)
@@ -627,17 +634,25 @@ def updatepropackage(request, package_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
+
     instance = get_object_or_404(Package, pk=package_id)
-    form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance)
-    if form.is_valid():
+    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic_id)
+
+    form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
+    emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
+
+    if form.is_valid() and emailform.is_valid():
         instance = form.save(commit=False)
+        instance.package_update_date = datetime.now()
         instance.save()
+        emailform.save()
 
         messages.success(request, '- Clinics information succesfully updated')
         return redirect(dashboard)
 
     context = {
         'instance': instance,
+        'emailform': emailform,
         'form': form,
         'usergroup': usergroup,
     }

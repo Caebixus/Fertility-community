@@ -10,14 +10,32 @@ from contact.forms import WebsiteForm
 from django.core.mail import send_mail
 from django.contrib import messages, auth
 from clinic.models import BasicClinic
-from .models import Packages
-
+from .models import Package
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 def packages(request):
-    listing = Packages.objects.all()
+    todayDate = timezone.now()
+
+    listing = Package.objects.all()
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate)
+    count = listing.count()
+
+    prolisting = prolisting.order_by('package_end_list_date')
+    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+    order_data = list(ppqlisting) + list(prolisting)
+
+    paginator = Paginator(order_data, 25)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
 
     context = {
         'listing': listing,
+        'count': count,
+        'order_data': paginationing,
+        'paginationing': paginationing,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
         'values': request.GET,
@@ -25,31 +43,141 @@ def packages(request):
 
     return render(request, 'packages/packages.html', context)
 
-def searchpackages(request):
-    if 'States' in request.GET:
-        states = request.GET['States']
+def ivfpackages(request):
+    listing = Package.objects.filter(packagecategory__iexact = 'IVF packages')
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packagecategory__iexact = 'IVF packages')
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packagecategory__iexact = 'IVF packages')
+    count = listing.count()
 
-        if states == 'US':
-            pro_queryset_list = Packages.objects.all()
-            pro_queryset_list = pro_queryset_list.filter(packageClinic__clinicState='United States')
+    order_data = list(ppqlisting) + list(prolisting)
 
-            context = {
-                'listing': pro_queryset_list,
-                'values': request.GET,
-                }
-
-
-            return render(request, 'packages/searching.html', context)
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
 
     context = {
-        'listing': queryset_list,
-        'pro_listings': pro_queryset_list,
+        'listing': listing,
+        'count': count,
         'order_data': paginationing,
         'paginationing': paginationing,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
         'values': request.GET,
-        }
+    }
 
-    return render(request, 'packages/searching.html', context)
+    return render(request, 'packages/ivf-packages.html', context)
+
+def eggpackages(request):
+    listing = Package.objects.filter(packagecategory__iexact = 'Egg Donation')
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packagecategory__iexact = 'Egg Donation')
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packagecategory__iexact = 'Egg Donation')
+    count = listing.count()
+
+    order_data = list(ppqlisting) + list(prolisting)
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listing': listing,
+        'count': count,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'values': request.GET,
+    }
+
+    return render(request, 'packages/ivf-with-donor-eggs-packages.html', context)
+
+
+
+def embryopackages(request):
+    listing = Package.objects.all()
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False)
+    count = listing.count()
+
+    paginator = Paginator(order_data, 12)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {
+        'listing': listing,
+        'count': count,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
+        'values': request.GET,
+    }
+
+    return render(request, 'packages/ivf-with-donor-embryo-packages.html', context)
+
+
+# Locations US ------------------------
+
+def ivfpackagesus(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagesus(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagesus(request):
+    return render(request, 'packages/packages.html')
+
+# Locations UK ------------------------
+
+def ivfpackagesuk(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagesuk(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagesuk(request):
+    return render(request, 'packages/packages.html')
+
+# Locations ES ------------------------
+
+def ivfpackagessp(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagessp(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagessp(request):
+    return render(request, 'packages/packages.html')
+
+# Locations CZ ------------------------
+
+def ivfpackagescz(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagescz(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagescz(request):
+    return render(request, 'packages/packages.html')
+
+# Locations GR ------------------------
+
+def ivfpackagesgr(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagesgr(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagesgr(request):
+    return render(request, 'packages/packages.html')
+
+# Locations IN ------------------------
+
+def ivfpackagesin(request):
+    return render(request, 'packages/packages.html')
+
+def embryopackagesin(request):
+    return render(request, 'packages/packages.html')
+
+def eggpackagesin(request):
+    return render(request, 'packages/packages.html')

@@ -17,6 +17,11 @@ CATEGORY_CHOICES_CURRENCY = (
     ('GBP', 'GBP'),
     )
 
+PACKAGE_TYPE = (
+    ('30 Days', '30 Days'),
+    ('90 Days', '90 Days'),
+    )
+
 HOURS = (
     ("00:00", "00:00"),
     ("00:30", "00:30"),
@@ -904,7 +909,12 @@ class CreatePackage(forms.ModelForm):
     packagedesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
     packagecost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'))
 
+    package_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
     package_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
+
+    package_limit_days = forms.CharField(widget=forms.Select(choices=PACKAGE_TYPE, attrs={'class': 'form-control',}))
 
     class Meta:
         model = Package
@@ -915,6 +925,9 @@ class CreatePackage(forms.ModelForm):
         'packagedesc',
         'packagecost',
         'package_list_date',
+        'package_url',
+        'package_phone',
+        'package_limit_days',
         ]
 
 class CreatePackageEmail(forms.ModelForm):
@@ -925,19 +938,22 @@ class CreatePackageEmail(forms.ModelForm):
         fields = ['query_email']
 
 class PostFormProUpdatePackage(forms.ModelForm):
-    packageclinic = forms.ModelChoiceField(queryset=BasicClinic.objects.all(), widget=forms.HiddenInput(attrs={'class': 'form-control',}), required=False)
     packagetitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Package name'))
     packagecategory = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), label=('Package category'))
     packagedesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
     packagecost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'))
 
+    package_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    package_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
     class Meta:
         model = Package
         fields = [
-        'packageclinic',
         'packagetitle',
         'packagecategory',
         'packagedesc',
         'packagecost',
         'package_update_date',
+        'package_url',
+        'package_phone',
         ]

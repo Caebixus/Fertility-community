@@ -6,6 +6,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from .choices import CATEGORY_PACKAGE
 from django.db.models import Q
+from django.utils import timezone
 
 
 class Package(models.Model):
@@ -19,8 +20,28 @@ class Package(models.Model):
     package_list_date = models.DateTimeField(default=datetime.now, blank=True)
     package_update_date = models.DateTimeField(default=datetime.now, blank=True)
 
+    package_end_list_date = models.DateTimeField(blank=True, null=True)
+
+    package_url = models.URLField(null=True, blank=True)
+    package_phone = models.CharField(max_length=15, null=True, blank=True)
+
+    TYPE = (
+        ('30 Days', '30 Days'),
+        ('90 Days', '90 Days'),
+        )
+
+    package_limit_days = models.CharField(max_length=40, choices=TYPE, null = True, default='30 Days')
+
     def __str__(self):
         return str(self.packagetitle)
+
+
+
+
+
+
+
+
 
 
 # DEPRECIATED TEST MODELS

@@ -1,37 +1,56 @@
 {% load static %}
 {% if package %}
+{% load humanize %}
 {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
 <div class="backgroundPackageClinicDetail">
   <br>
   <div class="container py-5" id="packages">
-    <h2>Packages & Deals</h2>
+    <h2>Limited IVF packages & deals</h2>
     <br>
     <div class="row">
       {% if listing.ppq_is_published == True and listing.pro_is_published == False %}
         {% for packages in package|slice:"0:6" %}
           <div class="col-sm-6">
-            <div class="card mb-6 shadow-lg">
-              <div class="card-header" style="background-color: #efefef;">
-                <p style="font-size: 28px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ packages.packagetitle }}</b></p>
-                <hr>
-                <p><b>Name of the clinic:</b> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
-                <p><b>Category:</b> <i>{{ packages.packagecategory }}</i></p>
-              </div>
-              <div class="card-body" style="min-height: 20rem">
-                <p>{{ packages.packagedesc|safe}}</p>
-              </div>
-              <div class="card-footer" style="background-color: #efefef;">
+            <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+              <div class="header" style="min-height:50px;">
                 <div class="row">
-                  <div class="col-6 sm-6">
-                    <p style="font-size: 30px; color: #CD5360;">{{ packages.packagecost|floatformat:'0' }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+                  <div class="col-8 sm-8">
+                    <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ packages.packagetitle }}</h2>
+                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
+                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
+                    <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
                   </div>
-                  <div class="col-6 sm-6 text-right">
-                    <a href="mailto:{{ packages.packageclinic.contact_email }}?subject=Non-binding interest for {{ packages.packagetitle }}&body=Hello,<br><br>I'm interested in package: {{ packages.packagetitle }}. Please send me more information to this email.<br><br>Thank you.">
-                      <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                        Send details
-                      </button>
-                    </a>
+                  <div class="col-4 sm-4 text-right">
+                    <button type="button" class="btn btn-warning btn-lg"> {{ packages.packagecost|floatformat:'0'|intcomma }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
                   </div>
+                </div>
+                <br>
+                <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
+              </div>
+              <hr noshade style="border-top: 1px solid">
+              {{ packages.packagedesc|safe }}
+              <hr noshade style="border-top: 1px solid ">
+              <div class="row" style="text-align: center">
+                <div class="col-6 md-4 mb-2">
+                  {% if packages.package_url %}
+                  <a href="{{ packages.package_url }}">
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+                  </a>
+                  {% endif %}
+                </div>
+                <div class="col-6 md-4 mb-2">
+                  {% if packages.packageclinic.query_email %}
+                  <a href="mailto:{{ packages.packageclinic.query_email }}">
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+                  </a>
+                  <br>
+                  <br>
+                  {% endif %}
+                  {% if packages.package_phone %}
+                  <a href="tel:{{ packages.package_phone }}" style="text-align:center">
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+                  </a>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -42,28 +61,46 @@
       {% else %}
         {% for packages in package|slice:"0:2" %}
           <div class="col-sm-6">
-            <div class="card mb-6 shadow-lg">
-              <div class="card-header" style="background-color: #efefef;">
-                <p style="font-size: 28px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ packages.packagetitle }}</b></p>
-                <hr>
-                <p><b>Name of the clinic:</b> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
-                <p><b>Category:</b> <i>{{ packages.packagecategory }}</i></p>
-              </div>
-              <div class="card-body" style="min-height: 20rem">
-                <p>{{ packages.packagedesc|safe}}</p>
-              </div>
-              <div class="card-footer" style="background-color: #efefef;">
+            <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+              <div class="header" style="min-height:50px;">
                 <div class="row">
-                  <div class="col-6 sm-6">
-                    <p style="font-size: 30px; color: #CD5360;">{{ packages.packagecost|floatformat:'0' }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</p>
+                  <div class="col-8 sm-8">
+                    <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ packages.packagetitle }}</h2>
+                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
+                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
+                    <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
                   </div>
-                  <div class="col-6 sm-6 text-right">
-                    <a href="mailto:{{ packages.packageclinic.contact_email }}?subject=Non-binding interest for {{ packages.packagetitle }}&body=Hello,<br><br>I'm interested in package: {{ packages.packagetitle }}. Please send me more information to this email.<br><br>Thank you.">
-                      <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-                        Send details
-                      </button>
-                    </a>
+                  <div class="col-4 sm-4 text-right">
+                    <button type="button" class="btn btn-warning btn-lg"> {{ packages.packagecost|floatformat:'0'|intcomma }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
                   </div>
+                </div>
+                <br>
+                <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
+              </div>
+              <hr noshade style="border-top: 1px solid">
+              {{ packages.packagedesc|safe }}
+              <hr noshade style="border-top: 1px solid ">
+              <div class="row" style="text-align: center">
+                <div class="col-6 md-4 mb-2">
+                  {% if packages.package_url %}
+                  <a href="{{ packages.package_url }}">
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+                  </a>
+                  {% endif %}
+                </div>
+                <div class="col-6 md-4 mb-2">
+                  {% if packages.packageclinic.query_email %}
+                  <a href="mailto:{{ packages.packageclinic.query_email }}">
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+                  </a>
+                  <br>
+                  <br>
+                  {% endif %}
+                  {% if packages.package_phone %}
+                  <a href="tel:{{ packages.package_phone }}" style="text-align:center">
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+                  </a>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -83,6 +120,11 @@
   <div class="container py-5" id="packages">
     <h2>Packages & Deals</h2>
     <p>Sorry there are no Packages or special Deals available for this clinic right now</p>
+      <a href="{% url 'packages' %}">
+        <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md"><i class="fas fa-archive"></i>
+          All IVF Packages
+        </button>
+      </a>
     <br>
   </div>
 </div>

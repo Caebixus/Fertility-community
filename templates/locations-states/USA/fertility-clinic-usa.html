@@ -250,7 +250,7 @@
       {% if order_datas.ppq_is_published == True %}
         {% if order_datas.ivf_treatment_cost != Null or order_datas.mild_ivf_treatment_cost != Null or order_datas.ovarian_ivf_treatment_cost != Null or order_datas.icsi_treatment_cost != Null or order_datas.egg_donor_recipients_cost != Null or order_datas.sperm_donor_recipients_cost != Null or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- PPQ Clinic listings PRICING -->
-        <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -320,7 +320,7 @@
         <br>
         {% else %}
         <!-- PPQ Clinic listings NOPRICING -->
-        <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -389,7 +389,7 @@
       {% elif order_datas.pro_is_published == True and order.datas.ppq_is_published != True %}
         {% if order_datas.ivf_treatment_cost != Null or order_datas.mild_ivf_treatment_cost != Null or order_datas.ovarian_ivf_treatment_cost != Null or order_datas.icsi_treatment_cost != Null or order_datas.egg_donor_recipients_cost != Null or order_datas.sperm_donor_recipients_cost != Null or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- PRO Clinic listings PRICING -->
-        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -459,7 +459,7 @@
         <br>
         {% else %}
         <!-- PRO Clinic listings NOPRICING -->
-        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -528,7 +528,7 @@
       {% elif order_datas.pro_is_published != True and order_datas.is_published == True %}
         {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- BASIC Clinic listings PRICING -->
-        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -589,7 +589,7 @@
         <br>
         {% else %}
         <!-- BASIC Clinic listings NOPRICING -->
-        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+        <div class="container shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">
             <div class="header">
               {% if order_datas.clinic_pro_logo_pic %}
@@ -667,7 +667,7 @@
 
     <!-- Treatment average prices -->
     <div class="col-sm-4">
-      <div class="jumbotron jumbotron-fluid">
+      <div class="jumbotron jumbotron-fluid shadow">
         <div class="container">
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2020:</h2>
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>

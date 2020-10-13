@@ -7,6 +7,7 @@ from clinic.models import BasicClinic
 from packages.models import Packages, Package
 from django.utils import timezone
 from owners.models import ownerProInterested, ProUser
+from datetime import datetime, timedelta
 
 #ABERDEEN   --------------------------------
 def aberfercen(request):
@@ -26,7 +27,8 @@ def aberfercen(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=506)
 
     if request.user.is_authenticated:
@@ -76,7 +78,8 @@ def carefertbath(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=507)
 
     if request.user.is_authenticated:
@@ -127,7 +130,8 @@ def belffert(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=508)
 
     if request.user.is_authenticated:
@@ -178,7 +182,8 @@ def carefertbirmingh(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=509)
 
     if request.user.is_authenticated:
@@ -227,7 +232,8 @@ def createfertbirmin(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=510)
 
     if request.user.is_authenticated:
@@ -276,7 +282,8 @@ def bmitheprioryhosp(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=511)
 
     if request.user.is_authenticated:
@@ -325,7 +332,8 @@ def careferttamworth(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=512)
 
     if request.user.is_authenticated:
@@ -374,7 +382,8 @@ def stjudesfertclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=513)
 
     if request.user.is_authenticated:
@@ -425,7 +434,8 @@ def completefertcentbourn(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=514)
 
     if request.user.is_authenticated:
@@ -474,7 +484,8 @@ def poundburyfertdorset(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=515)
 
     if request.user.is_authenticated:
@@ -525,7 +536,8 @@ def brightfertasso(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=516)
 
     if request.user.is_authenticated:
@@ -574,7 +586,8 @@ def agoragynandfertcentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=517)
 
     if request.user.is_authenticated:
@@ -625,7 +638,8 @@ def abcivfbristol(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=518)
 
     if request.user.is_authenticated:
@@ -674,7 +688,8 @@ def bristolcentreforrepromedicine(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=519)
 
     if request.user.is_authenticated:
@@ -723,7 +738,8 @@ def crgwbristol(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=520)
 
     if request.user.is_authenticated:
@@ -772,7 +788,8 @@ def createfertbristol(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=521)
 
     if request.user.is_authenticated:
@@ -821,7 +838,8 @@ def bristolcenforrepromedspireclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=522)
 
     if request.user.is_authenticated:
@@ -870,7 +888,8 @@ def londonwomensclinicbristol(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=523)
 
     if request.user.is_authenticated:
@@ -921,7 +940,8 @@ def bournhallcliniccambridge(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=524)
 
     if request.user.is_authenticated:
@@ -970,7 +990,8 @@ def cambridgeivf(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=525)
 
     if request.user.is_authenticated:
@@ -1021,7 +1042,8 @@ def crgwcardiff(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=526)
 
     if request.user.is_authenticated:
@@ -1070,7 +1092,8 @@ def londonwomenscliniccardiff(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=527)
 
     if request.user.is_authenticated:
@@ -1119,7 +1142,8 @@ def walesfertilityinstitutecardiff(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=528)
 
     if request.user.is_authenticated:
@@ -1170,7 +1194,8 @@ def bournhallcliniccolchester(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=529)
 
     if request.user.is_authenticated:
@@ -1221,7 +1246,8 @@ def nurturefertburtsatclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=530)
 
     if request.user.is_authenticated:
@@ -1272,7 +1298,8 @@ def fertilityexeter(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=531)
 
     if request.user.is_authenticated:
@@ -1323,7 +1350,8 @@ def gcrmfertilityglasgow(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=532)
 
     if request.user.is_authenticated:
@@ -1372,7 +1400,8 @@ def semovoglasgow(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=533)
 
     if request.user.is_authenticated:
@@ -1423,7 +1452,8 @@ def hullivfunit(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=534)
 
     if request.user.is_authenticated:
@@ -1474,7 +1504,8 @@ def simplyfertilitychelm(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=535)
 
     if request.user.is_authenticated:
@@ -1523,7 +1554,8 @@ def bournhallclinicwockford(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=536)
 
     if request.user.is_authenticated:
@@ -1572,7 +1604,8 @@ def carefertilitychester(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=537)
 
     if request.user.is_authenticated:
@@ -1623,7 +1656,8 @@ def leedsfertilityclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=538)
 
     if request.user.is_authenticated:
@@ -1672,7 +1706,8 @@ def semovoleeds(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=539)
 
     if request.user.is_authenticated:
@@ -1723,7 +1758,8 @@ def xyfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=540)
 
     if request.user.is_authenticated:
@@ -1774,7 +1810,8 @@ def carefertilityliverpool(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=541)
 
     if request.user.is_authenticated:
@@ -1823,7 +1860,8 @@ def thehewittfertilitycentreliverpool(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=542)
 
     if request.user.is_authenticated:
@@ -1872,7 +1910,8 @@ def semovoliverpool(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=543)
 
     if request.user.is_authenticated:
@@ -1921,7 +1960,8 @@ def centreforreproductivehealth(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=544)
 
     if request.user.is_authenticated:
@@ -1972,7 +2012,8 @@ def londonwomensclinicbrentwood(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=545)
 
     if request.user.is_authenticated:
@@ -2021,7 +2062,8 @@ def londonwomensclinicharrow(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=546)
 
     if request.user.is_authenticated:
@@ -2070,7 +2112,8 @@ def abcivfharleystreet(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=547)
 
     if request.user.is_authenticated:
@@ -2119,7 +2162,8 @@ def abcivfwimbledon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=548)
 
     if request.user.is_authenticated:
@@ -2168,7 +2212,8 @@ def assistedreproandgynaecologycentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=549)
 
     if request.user.is_authenticated:
@@ -2217,7 +2262,8 @@ def cityfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=550)
 
     if request.user.is_authenticated:
@@ -2266,7 +2312,8 @@ def createfertistpauls(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=551)
 
     if request.user.is_authenticated:
@@ -2315,7 +2362,8 @@ def fertilityplusfertilityclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=552)
 
     if request.user.is_authenticated:
@@ -2364,7 +2412,8 @@ def londonwomensclinicharleystreet(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=553)
 
     if request.user.is_authenticated:
@@ -2413,7 +2462,8 @@ def poundburyfertilitylondon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=554)
 
     if request.user.is_authenticated:
@@ -2462,7 +2512,8 @@ def semovolondon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=555)
 
     if request.user.is_authenticated:
@@ -2511,7 +2562,8 @@ def londonwomenscliniclondonbridge(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=556)
 
     if request.user.is_authenticated:
@@ -2560,7 +2612,8 @@ def thamesvalleyfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=557)
 
     if request.user.is_authenticated:
@@ -2609,7 +2662,8 @@ def ivflondonelstree(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=558)
 
     if request.user.is_authenticated:
@@ -2658,7 +2712,8 @@ def hertsandessexfertilitycentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=559)
 
     if request.user.is_authenticated:
@@ -2707,7 +2762,8 @@ def bostonplace(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=560)
 
     if request.user.is_authenticated:
@@ -2756,7 +2812,8 @@ def carefertilitylondon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=561)
 
     if request.user.is_authenticated:
@@ -2805,7 +2862,8 @@ def conceptfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=562)
 
     if request.user.is_authenticated:
@@ -2854,7 +2912,8 @@ def createfertilitywimbledon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=563)
 
     if request.user.is_authenticated:
@@ -2903,7 +2962,8 @@ def evewell(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=564)
 
     if request.user.is_authenticated:
@@ -2952,7 +3012,8 @@ def thefertilitygynaecologyacademy(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=565)
 
     if request.user.is_authenticated:
@@ -3001,7 +3062,8 @@ def harleystreetfertilityclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=566)
 
     if request.user.is_authenticated:
@@ -3050,7 +3112,8 @@ def homertonfertilitycentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=567)
 
     if request.user.is_authenticated:
@@ -3099,7 +3162,8 @@ def ivilondon(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=568)
 
     if request.user.is_authenticated:
@@ -3148,7 +3212,8 @@ def kingsfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=569)
 
     if request.user.is_authenticated:
@@ -3197,7 +3262,8 @@ def listerfertilityclinic(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=570)
 
     if request.user.is_authenticated:
@@ -3246,7 +3312,8 @@ def createfertilityhertfordshire(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=571)
 
     if request.user.is_authenticated:
@@ -3297,7 +3364,8 @@ def manchesterfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=572)
 
     if request.user.is_authenticated:
@@ -3346,7 +3414,8 @@ def semovomanchestersouth(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=573)
 
     if request.user.is_authenticated:
@@ -3395,7 +3464,8 @@ def thehewittfertilitycentreknutsford(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=574)
 
     if request.user.is_authenticated:
@@ -3444,7 +3514,8 @@ def aurorareprohealthaltrincham(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=575)
 
     if request.user.is_authenticated:
@@ -3493,7 +3564,8 @@ def abcivfmanchester(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=576)
 
     if request.user.is_authenticated:
@@ -3542,7 +3614,8 @@ def createfertilitymanchester(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=577)
 
     if request.user.is_authenticated:
@@ -3591,7 +3664,8 @@ def semovomanchestercitycentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=578)
 
     if request.user.is_authenticated:
@@ -3640,7 +3714,8 @@ def fertilityfusion(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=579)
 
     if request.user.is_authenticated:
@@ -3689,7 +3764,8 @@ def carefertilitymanchester(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=580)
 
     if request.user.is_authenticated:
@@ -3740,7 +3816,8 @@ def londonwomensclinicdarlington(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=581)
 
     if request.user.is_authenticated:
@@ -3791,7 +3868,8 @@ def newcastlefertilitycentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=582)
 
     if request.user.is_authenticated:
@@ -3842,7 +3920,8 @@ def bournhallclinicnorwich(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=583)
 
     if request.user.is_authenticated:
@@ -3893,7 +3972,8 @@ def nurturefertilitynottingham(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=584)
 
     if request.user.is_authenticated:
@@ -3942,7 +4022,8 @@ def carefertilitynottingham(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=585)
 
     if request.user.is_authenticated:
@@ -3993,7 +4074,8 @@ def createfertilityoxford(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=586)
 
     if request.user.is_authenticated:
@@ -4042,7 +4124,8 @@ def oxfordfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=587)
 
     if request.user.is_authenticated:
@@ -4091,7 +4174,8 @@ def abcivfoxford(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=588)
 
     if request.user.is_authenticated:
@@ -4142,7 +4226,8 @@ def bournhallclinicpeterborough(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=589)
 
     if request.user.is_authenticated:
@@ -4193,7 +4278,8 @@ def crgwplymouth(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=590)
 
     if request.user.is_authenticated:
@@ -4244,7 +4330,8 @@ def completefertilitycentreportsmouth(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=591)
 
     if request.user.is_authenticated:
@@ -4295,7 +4382,8 @@ def salisburyfertcentre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=592)
 
     if request.user.is_authenticated:
@@ -4346,7 +4434,8 @@ def nurturefertilitychesterfield(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=593)
 
     if request.user.is_authenticated:
@@ -4395,7 +4484,8 @@ def carefertilitysheffield(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=594)
 
     if request.user.is_authenticated:
@@ -4446,7 +4536,8 @@ def completefertilitycentresouthampton(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=595)
 
     if request.user.is_authenticated:
@@ -4495,7 +4586,8 @@ def wessexfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=596)
 
     if request.user.is_authenticated:
@@ -4546,7 +4638,8 @@ def walesfertilityinstituteneath(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=597)
 
     if request.user.is_authenticated:
@@ -4595,7 +4688,8 @@ def crgwswansea(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=598)
 
     if request.user.is_authenticated:
@@ -4644,7 +4738,8 @@ def londonwomensclinicswansea(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    package = Package.objects.all()
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=599)
 
     if request.user.is_authenticated:

@@ -9,88 +9,175 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Fertility & IVF packages near me</h1>
-    <p class="lead" style="color:white">Search hundreds of fertility & IVF packages at once around the globe with a cost comparison.</p>
-  </div>
-  <div class="container">
-    <div class="searchBox">
-      <div class="mainbanner" id="mainhpbanner">
-        <form action="{% url 'searchpackages' %}">
-          <div class="form-group" style="padding-top:3rem">
-            <div class="card" style="border-radius: 8px;">
-              <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
-                <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                  <option value="" selected>Select state</option>
-                  {% for key, value in CATEGORY_CHOICES_STATES.items %}
-                  <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group" style="padding-top:1rem; display: none" id="regions">
-            <div class="card" style="border-radius: 8px;">
-              <div class="card-header" style="background-color: white; border-radius: 8px;">
-                <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                  <option value="" selected>Select region</option>
-                  {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
-                  <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group" style="padding-top:1rem">
-            <div class="accordion" id="accordionExample">
-              <div class="card" id="cardBox" style="border-radius: 8px;">
-                <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
-                  <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Types of packages
-                  </button>
-                </div>
-
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="All packages" value="Allpackagestrue" name="packages">
-                          <label class="form-check-label" for="All packages">All packages</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IVF packages" value="Ivfpackagestrue" name="packages">
-                          <label class="form-check-label" for="IVF packages">IVF packages</label>
-                        </div>
-                      </div>
-
-                      <div class="col">
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Egg Packages" value="Eggpackagestrue" name="packages">
-                          <label class="form-check-label" for="Egg Packages">Egg Packages</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Embryo Packages" value="Embryopackagestrue" name="packages">
-                          <label class="form-check-label" for="Embryo Packages">Embryo Packages</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:7rem">
-            <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search Packages</button>
-            <br>
-          </div>
-        </form>
+    <p class="lead" style="color:white">Search hundreds of IVF packages & IVF limited deals at once around the globe.</p>
+    <p class="text-white">Currently listed <b><i>{{ count }}</i></b> IVF packages.</p>
+    <br>
+    <h2 class="text-white">What is IVF package?</h2>
+    <p class="text-white">The IVF package is used by fertility clinics to create a special or limited offer for clients who are looking for the most interesting IVF offer on the market. For an IVF package, the customer pays one payment, which usually includes the main steps of the IVF process, as well as, for example, special procedures, accommodation, transport or medication.</p>
+    <div hidden class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item active" href="">IVF packages</a>
+        <a class="dropdown-item" href="">IVF with donor eggs packages</a>
+        <a class="dropdown-item" href="">IVF with donor embryo packages</a>
       </div>
     </div>
+    <br>
   </div>
 </div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-sm-12">
+      {% if paginationing %}
+      {% for order_datas in order_data %}
+      {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
+        <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+          <div class="header" style="min-height:50px;">
+            <div class="row">
+              <div class="col-8 sm-8">
+                <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ order_datas.packagetitle }}</h2>
+                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ order_datas.packageclinic.clinic_url }}">Clinic: {{ order_datas.packageclinic.clinicName }}</a></p>
+                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+                <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
+              </div>
+              <div class="col-4 sm-4 text-right">
+                <button type="button" class="btn btn-warning btn-lg"> {{ order_datas.packagecost|floatformat:'0'|intcomma }} {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
+              </div>
+            </div>
+            <br>
+            <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ order_datas.package_end_list_date|naturaltime}}</span>
+          </div>
+          <hr noshade style="border-top: 1px solid">
+          {{ order_datas.packagedesc|safe }}
+          <hr noshade style="border-top: 1px solid ">
+          <div class="row" style="text-align: center">
+            <div class="col-6 md-4 mb-2">
+              {% if order_datas.package_url %}
+              <a href="{{ order_datas.package_url }}">
+                <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+              </a>
+              {% endif %}
+            </div>
+            <div class="col-6 md-4 mb-2">
+              {% if order_datas.packageclinic.query_email %}
+              <a href="mailto:{{ order_datas.packageclinic.query_email }}">
+                <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+              </a>
+              <br>
+              <br>
+              {% endif %}
+              {% if order_datas.package_phone %}
+              <a href="tel:{{ order_datas.package_phone }}" style="text-align:center">
+                <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+      {% elif order_datas.packageclinic.pro_is_published == True and order_datas.packageclinic.ppq_is_published != True %}
+        <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+          <div class="header" style="min-height:50px;">
+            <div class="row">
+              <div class="col-8 sm-8">
+                <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ order_datas.packagetitle }}</h2>
+                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ order_datas.packageclinic.clinic_url }}">Clinic: {{ order_datas.packageclinic.clinicName }}</a></p>
+                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+              </div>
+              <div class="col-4 sm-4 text-right">
+                <button type="button" class="btn btn-warning btn-lg"> {{ order_datas.packagecost|floatformat:'0'|intcomma }} {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
+              </div>
+            </div>
+            <br>
+            <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ order_datas.package_end_list_date|naturaltime}}</span>
+          </div>
+          <hr noshade style="border-top: 1px solid">
+          {{ order_datas.packagedesc|safe }}
+          <hr noshade style="border-top: 1px solid ">
+          <div class="row" style="text-align: center">
+            <div class="col-6 md-4 mb-2">
+              {% if order_datas.package_url %}
+              <a href="{{ order_datas.package_url }}">
+                <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+              </a>
+              {% endif %}
+            </div>
+            <div class="col-6 md-4 mb-2">
+              {% if order_datas.packageclinic.query_email %}
+              <a href="mailto:{{ order_datas.packageclinic.query_email }}">
+                <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+              </a>
+              <br>
+              <br>
+              {% endif %}
+              {% if order_datas.package_phone %}
+              <a href="tel:{{ order_datas.package_phone }}" style="text-align:center">
+                <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+      {% else %}
+      <div class="container" style="padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            <div class="container" id="nameInfo" style="padding-bottom:5rem">
+              <div class="row align-self-center align-items-center">
+                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search querry.</h2>
+                <p>Please try different country or treatment option.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container" style="text-align: center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          {% if paginationing.has_previous %}
+          <a class="page-link" href="?{% param_replace page=1 %}">&laquo; First</a>
+        </li>
+        <li class="page-item">
+          {% if page_obj.previous_page_number != 1 %}
+          <a class="page-link" href="?{% param_replace page=paginationing.previous_page_number %}">Previous</a>
+          {% endif %}
+        </li>
+        {% endif %}
+        <li class="page-item">
+          <a class="page-link">Page {{ paginationing.number }} of {{ paginationing.paginator.num_pages }}</a>
+        </li>
+
+        {% if paginationing.has_next %}
+        <li class="page-item">
+          {% if paginationing.next_page_number != paginator.num_pages %}
+          <a class="page-link" href="?{% param_replace page=paginationing.next_page_number %}">Next</a>
+          {% endif %}
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<br>
+<br>
 
 <br>
 <!--Types of treatments-->
 <br>
+
 
 
 {% endblock  %}

@@ -1,0 +1,192 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}2020 | Compare fertility packages globally{% endblock %}
+{% block description %}Search hundreds of fertility & IVF packages at once to discover the deal you need to make the best decisions for your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/packages{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility & IVF with donor embryo packages near me</h1>
+    <p class="lead" style="color:white">Search hundreds of IVF packages with embryo donation & limited deals at once around the globe.</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'packages' %}">IVF packages</a>
+        <a class="dropdown-item" href="{% url 'eggpackages' %}">IVF with donor eggs packages</a>
+        <a class="dropdown-item active" href="{% url 'embryopackages' %}">IVF with donor embryo packages</a>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-sm-8">
+      {% for order_datas in order_data %}
+      {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
+        <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+          <div class="header" style="min-height:50px;">
+            <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ order_datas.packagetitle }}</h2>
+          </div>
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ order_datas.packageclinic.clinic_url }}">Clinic: {{ order_datas.packageclinic.clinicName }}</a></p>
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+          <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
+          <hr noshade style="border-top: 1px solid">
+          {{ order_datas.packagedesc|safe }}
+          <hr noshade style="border-top: 1px solid ">
+          <div class="vpravo text-right">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-md shadow" style="font-size: 16px" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-archive"></i> Send me more information</button>
+          </div>
+        </div>
+        <br>
+        <br>
+      {% elif order_datas.packageclinic.pro_is_published == True and order_datas.packageclinic.ppq_is_published != True %}
+        <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+          <div class="header" style="min-height:50px;">
+            <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ order_datas.packagetitle }}</h2>
+          </div>
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> Clinic: {{ order_datas.packageclinic.clinicName }}</p>
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+          <hr noshade style="border-top: 1px solid">
+          {{ order_datas.packagedesc|safe }}
+          <hr noshade style="border-top: 1px solid ">
+          <div class="vpravo text-right">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="font-size: 16px" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-archive"></i> Send me more information</button>
+          </div>
+        </div>
+        <br>
+        <br>
+      {% else %}
+      <div class="container" style="padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            <div class="container" id="nameInfo" style="padding-bottom:5rem">
+              <div class="row align-self-center align-items-center">
+                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search querry.</h2>
+                <p>Please try different country or treatment option.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Treatment average prices -->
+    <div class="col-sm-4">
+      <div class="jumbotron jumbotron-fluid shadow">
+        <div class="container">
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> All IVF Packages 2020:</h2>
+          <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
+          <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
+          <br>
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average single Egg donation cycle: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Sperm donation recipients price: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          <br>
+          <div class="row">
+            <div class="col-6 col-md">
+              <a href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Czech Compare
+                </button>
+              </a>
+            </div>
+            <div class="col-6 col-md">
+              <a href="{% url 'locations' %}">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-globe"></i> World Compare
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<br>
+<!--Types of treatments-->
+<br>
+
+<script>
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
+
+{% endblock  %}

@@ -580,8 +580,12 @@ def createpackage(request, listing_id):
         if form.is_valid() and emailform.is_valid():
             form = form.save(commit=False)
             form.package_list_date = datetime.now()
-            form.package_end_list_date = form.package_list_date + timedelta(days=30)
+            if form.package_limit_days == '30 Days':
+                form.package_end_list_date = form.package_list_date + timedelta(days=30)
+            else:
+                form.package_end_list_date = form.package_list_date + timedelta(days=90)
             form.packageclinic = clinic
+            form.is_package_active = True
             form.save()
             emailform.save()
 

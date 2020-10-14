@@ -5,16 +5,10 @@ from clinic.models import BasicClinic
 
 # Register your models here.
 
-class PostAdmin(admin.ModelAdmin):
-    model = Packages
-    list_display = ('packagestitle', 'packageOwner', 'packageClinic')
 
 class PackageAdmin(admin.ModelAdmin):
     model = Package
-    list_display = ('packagetitle', 'packageclinic')
+    list_display = ('id', 'packagetitle', 'packageclinic', 'is_package_active', 'package_list_date', 'package_end_list_date')
 
 
 admin.site.register(Package, PackageAdmin)
-
-
-admin.site.register(Packages, PostAdmin)

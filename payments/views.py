@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from .models import Customer
-from packages.models import Packages
+from packages.models import Package
 from owners.models import ownerProInterested, ProUser
 from django.utils import timezone
 from datetime import datetime
@@ -365,7 +365,6 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
-
         customer = get_object_or_404(Customer, stripeid=session.customer)
         customer.stripe_subscription_id = session.subscription
         customer.membership = True
@@ -377,29 +376,19 @@ def stripe_webhook(request):
 
     if event['type'] == 'customer.deleted':
         session = event['data']['object']
+        print('CUSTOMER DELETED')
+        print(session)
         customer = get_object_or_404(Customer, stripeid=session.id)
         customer.delete()
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
         instance.ppq_is_published = False
         instance.pro_is_published = False
         instance.save()
+        package = Package.objects.filter(packageclinic_id=instance)
+        Package.objects.filter(id__in=package).update(is_package_active=False)
 
     if event['type'] == 'customer.subscription.created':
         session = event['data']['object']
-        customer = get_object_or_404(Customer, stripeid=session.customer)
-        customer.membership = True
-        customer.stripe_subscription_id = session.id
-        customer.save()
-        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
-        sessionPlan = session.plan.id
-        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h':
-            instance.ppq_is_published = True
-            instance.pro_is_published = False
-            instance.save()
-        else:
-            instance.ppq_is_published = False
-            instance.pro_is_published = True
-            instance.save()
 
     if event['type'] == 'payment_intent.succeeded':
         session = event['data']['object']
@@ -408,8 +397,11 @@ def stripe_webhook(request):
 
     if event['type'] == 'invoice.paid':
         session = event['data']['object']
+        print('INVOICE PAID')
+        print(session)
         customer = get_object_or_404(Customer, stripeid=session.customer)
-        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        customer.membership = True
+        customer.save()
 
     if event['type'] == 'customer.subscription.deleted':
         session = event['data']['object']
@@ -419,43 +411,75 @@ def stripe_webhook(request):
         customer.save()
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
         sessionPlan = session.plan.id
-        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h':
+        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h': #PREMIUM Plans
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
+            package = Package.objects.filter(packageclinic_id=instance)
+            Package.objects.filter(id__in=package).update(is_package_active=False)
         else:
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
+            package = Package.objects.filter(packageclinic_id=instance)
+            Package.objects.filter(id__in=package).update(is_package_active=False)
 
     if event['type'] == 'customer.subscription.updated':
         session = event['data']['object']
+        print('CUSTOMER SUBSCRIPTION UPDATED')
         print(session)
-        customer = get_object_or_404(Customer, stripe_subscription_id=session.id)
+        lines = stripe.Subscription.list(limit=3)
+        planid = lines.data[-1]
+        print('planid')
+        print(planid)
+        planidplan = planid.plan.id
+        print('planidplan')
+        print(planidplan)
+        customer = get_object_or_404(Customer, stripeid=session.customer)
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
-        sessionPlan = session.plan.id
-        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h':
+        if planidplan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or planidplan == 'price_1HZetuEHpkY9RbxJs17Cfx5h': #PREMIUM Plans
             instance.ppq_is_published = True
             instance.pro_is_published = False
             instance.save()
-        else:
+            package = Package.objects.filter(packageclinic_id=instance).order_by('pk')[0:6]
+            Package.objects.filter(id__in=package).update(is_package_active=True)
+            packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[6:]
+            Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
+            customer.membership = True
+        elif planidplan == 'plan_I81Wbz50cpcCF4' or planidplan == 'price_1HZGfYEHpkY9RbxJZxXhZXW5': #PRO Plans
             instance.ppq_is_published = False
             instance.pro_is_published = True
             instance.save()
+            package = Package.objects.filter(packageclinic_id=instance).order_by('pk')[0:2]
+            Package.objects.filter(id__in=package).update(is_package_active=True)
+            packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[2:]
+            Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
+            customer.membership = True
+        else:
+            customer.membership = False
+        customer.save()
+
 
     if event['type'] == 'invoice.payment_failed':
         session = event['data']['object']
+        print('-------> invoice.payment_failed')
+        print(session)
         customer = get_object_or_404(Customer, stripeid=session.id)
         customer.membership = False
         customer.save()
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
-        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h':
+        sessionPlan = session.plan.id
+        if sessionPlan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or sessionPlan == 'price_1HZetuEHpkY9RbxJs17Cfx5h': #PREMIUM Plans
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
+            package = Package.objects.filter(packageclinic_id=instance)
+            Package.objects.filter(id__in=package).update(is_package_active=False)
         else:
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
+            package = Package.objects.filter(packageclinic_id=instance)
+            Package.objects.filter(id__in=package).update(is_package_active=False)
 
     return HttpResponse(status=200)

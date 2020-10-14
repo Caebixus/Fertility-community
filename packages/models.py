@@ -25,6 +25,8 @@ class Package(models.Model):
     package_url = models.URLField(null=True, blank=True)
     package_phone = models.CharField(max_length=15, null=True, blank=True)
 
+    is_package_active = models.BooleanField(default=False, null=True, blank=True)
+
     TYPE = (
         ('30 Days', '30 Days'),
         ('90 Days', '90 Days'),

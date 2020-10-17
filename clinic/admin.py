@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import BasicClinic
+from .models import BasicClinic, ClinicsExportProxy
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
@@ -32,4 +34,13 @@ class PostAdmin(admin.ModelAdmin):
         queryset.update(clinicStateLink='https://www.fertilitycommunity.com/fertility-clinic-spain')
     clinicLocationLink_update_g.short_description = "Update from Admin"
 
+class ExportClinicTreatments(resources.ModelResource):
+    class Meta:
+        model = ClinicsExportProxy
+
+class ExportClinic(ImportExportModelAdmin):
+    resource_class = ExportClinicTreatments
+
 admin.site.register(BasicClinic, PostAdmin)
+
+admin.site.register(ClinicsExportProxy, ExportClinic)

@@ -259,6 +259,10 @@ class BasicClinic(models.Model):
     def __str__(self):
         return str(self.clinicName)
 
+class ClinicsExportProxy(BasicClinic):
+    class Meta:
+        proxy = True
+
 class PayProCustomerClinic(models.Model):
     proClinic = models.OneToOneField(BasicClinic, on_delete=models.CASCADE, blank=True, null = True, related_name='proClinic')
 

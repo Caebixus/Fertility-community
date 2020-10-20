@@ -1,0 +1,226 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}USA IVF costs | 2020 Comparison{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/usa{% endblock %}
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility treatment costs in Texas | 2020</h1>
+    <br>
+    <ul>
+      <li style="color:white; font-size: 135% !important"><a href="#ivf-costs" style="color: white">IVF Costs in Texas - {% if texasIVF.average == None %} No information {% else %}{{ texasIVF.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
+      <li style="color:white; font-size: 135% !important"><a href="#iui-costs" style="color: white">IUI Costs in Texas - {% if texasIUI.average == None %} No information {% else %}{{ texasIUI.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
+      <li style="color:white; font-size: 135% !important"><a href="#egg-donation-costs" style="color: white">Egg donation Costs in Texas - {% if texasEGG.average == None %} No information {% else %}{{ texasEGG.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
+    </ul>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container" id="ivf-costs">
+  <br>
+  <h2>IVF costs (ovarian stimulation) in Texas</h2>
+  <br>
+  <div class="feature">
+    <p>We have collected data from <u>{{countIVFclinics}}</u> Texas fertility clinics to provide most accurate list of in vitro fertilization costs (IVF) in Texas. The price for single IVF with ovarian stimulation cycle is ranging between
+      <u>{% for key, value in texasMinIVF.items %}{% if value == None %} (Sorry, not enough information){% else %}{{value|floatformat:'0'|intcomma}}$ - {% endif %}{% endfor%}{% for key, value in texasMaxIVF.items %}{% if value == None %}{% else %}{{value|floatformat:'0'|intcomma}}${% endif %}{% endfor%}.</u> Texas is definitely one of the most important fertility treatment centers in the United States, it also has <u>one of the highest numbers</u> of fertility clinics in the United States.
+    </p>
+    <p>Below, we created list of main IVF fertility treatment locations in Texas with average price in USD:</p>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-info">
+        <td>IVF costs - Texas</td>
+        <td><a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=IVFtreatmentovariantrue">{{countIVFclinics}} clinics</a></td>
+        <td>{% if texasIVF.average == None %} No information {% else %}{{ texasIVF.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IVF costs - Dallas</td>
+        <td>{{dallasIVFCount}} clinics</td>
+        <td>{% if dallasIVF.average == None %} No information {% else %}{{ dallasIVF.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IVF costs - Houston</td>
+        <td>{{houstonIVFCount}} clinics</td>
+        <td>{% if houstonIVF.average == None %} No information {% else %}{{ houstonIVF.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IVF costs - Austin</td>
+        <td>{{austinIVFCount}} clinics</td>
+        <td>{% if austinIVF.average == None %} No information {% else %}{{ austinIVF.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IVF costs - San Antonio</td>
+        <td>{{sanantonioIVFCount}} clinics</td>
+        <td>{% if sanantonioIVF.average == None %} No information {% else %}{{ sanantonioIVF.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="row text-center">
+    <div class="col-6 col-sm">
+      <a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=IVFtreatmentovariantrue" title="Texas IVF clinics">
+        <button id="pricingSearchButton" type="button" class="btn btn-outline-info btn-md" style="font-size: 16px">Texas IVF clinics</button>
+      </a>
+    </div>
+    <div class="col-6 col-sm">
+      <a href="{% url 'packages' %}" title="Fertility treatment packages">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="font-size: 16px">Fertility treatment packages</button>
+      </a>
+    </div>
+  </div>
+</div>
+<!-------------------->
+<!-------------------->
+<!-------------------->
+{% if countIUIclinics == 0 %}
+{% else %}
+<br>
+<hr>
+<br>
+<div class="container" id="iui-costs">
+  <br>
+  <h2>IUI costs in Texas</h2>
+  <br>
+  <div class="feature">
+    <p>IUI - Intrauterine insemination: sperm that have been washed and concentrated are placed directly in uterus around the time ovary releases one or more eggs to be fertilized.</p>
+    <p>We have collected data from <u>{{countIUIclinics}}</u> Texas fertility clinics to provide most accurate list of intrauterine insemination costs (IUI) in Texas. The price for single IUI cycle is ranging between
+      <u>{% for key, value in texasMinIUI.items %}{% if value == None %} (Sorry, not enough information){% else %}{{value|floatformat:'0'|intcomma}}$ - {% endif %}{% endfor%}{% for key, value in texasMaxIUI.items %}{% if value == None %}{% else %}{{value|floatformat:'0'|intcomma}}${% endif %}{% endfor%}</u>.
+    </p>
+    <p>Below, we created list of main IUI fertility treatment locations in Texas with average price in USD:</p>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-info">
+        <td>IUI costs - Texas</td>
+        <td><a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=IUItreatmenttrue">{{countIUIclinics}} clinics</a></td>
+        <td>{% if texasIUI.average == None %} No information {% else %}{{ texasIUI.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IUI costs - Dallas</td>
+        <td>{{dallasIUICount}} clinics</td>
+        <td>{% if dallasIUI.average == None %} No information {% else %}{{ dallasIUI.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IUI costs - Houston</td>
+        <td>{{houstonIUICount}} clinics</td>
+        <td>{% if houstonIUI.average == None %} No information {% else %}{{ houstonIUI.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IUI costs - Austin</td>
+        <td>{{austinIUICount}} clinics</td>
+        <td>{% if austinIUI.average == None %} No information {% else %}{{ austinIUI.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>IUI costs - San Antonio</td>
+        <td>{{sanantonioIUICount}} clinics</td>
+        <td>{% if sanantonioIUI.average == None %} No information {% else %}{{ sanantonioIUI.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="row text-center">
+    <div class="col-6 col-sm">
+      <a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=IUItreatmenttrue" title="Texas IUI clinics">
+        <button id="pricingSearchButton" type="button" class="btn btn-outline-info btn-md" style="font-size: 16px">Texas IUI clinics</button>
+      </a>
+    </div>
+    <div class="col-6 col-sm">
+      <a href="{% url 'packages' %}" title="Fertility treatment packages">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="font-size: 16px">Fertility treatment packages</button>
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-------------------->
+<!-------------------->
+<!-------------------->
+{% if countEGGclinics == 0 %}
+{% else %}
+<br>
+<hr>
+<br>
+<div class="container" id="egg-donation-costs">
+  <br>
+  <h2>IVF with Egg donation costs in Texas</h2>
+  <br>
+  <div class="feature">
+    <p>IVF with egg donation or egg donor IVF is a fertility treatment option for those who can't use their own eggs, for whatever reason.</p>
+    <p>We have collected data from <u>{{countEGGclinics}}</u> Texas fertility clinics to provide most accurate list of IVF with egg donation costs in Texas. The price for single Egg donation cycle is ranging between
+      <u>{% for key, value in texasMinEGG.items %}{% if value == None %} (Sorry, not enough information){% else %}{{value|floatformat:'0'|intcomma}}$ - {% endif %}{% endfor%}{% for key, value in texasMaxEGG.items %}{% if value == None %}{% else %}{{value|floatformat:'0'|intcomma}}${% endif %}{% endfor%}</u>.
+    </p>
+    <p>Below, we created list of main Egg donation fertility treatment locations in Texas with average price in USD:</p>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-info">
+        <td>Egg donation costs - Texas</td>
+        <td><a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=Eggdonationrecipientstrue">{{countEGGclinics}} clinics</a></td>
+        <td>{% if texasEGG.average == None %} No information {% else %}{{ texasEGG.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>Egg donation costs - Dallas</td>
+        <td>{{dallasEGGCount}} clinics</td>
+        <td>{% if dallasEGG.average == None %} No information {% else %}{{ dallasEGG.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>Egg donation costs - Houston</td>
+        <td>{{houstonEGGCount}} clinics</td>
+        <td>{% if houstonEGG.average == None %} No information {% else %}{{ houstonEGG.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>Egg donation costs - Austin</td>
+        <td>{{austinEGGCount}} clinics</td>
+        <td>{% if austinEGG.average == None %} No information {% else %}{{ austinEGG.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+      <tr>
+        <td>Egg donation costs - San Antonio</td>
+        <td>{{sanantonioEGGCount}} clinics</td>
+        <td>{% if sanantonioEGG.average == None %} No information {% else %}{{ sanantonioEGG.average|floatformat:'0'|intcomma }}${% endif %}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="row text-center">
+    <div class="col-6 col-sm">
+      <a href="https://www.fertilitycommunity.com/search?States=US&Region=TX&treatments=Eggdonationrecipientstrue" title="Texas EGG clinics">
+        <button id="pricingSearchButton" type="button" class="btn btn-outline-info btn-md" style="font-size: 16px">Texas Egg donation clinics</button>
+      </a>
+    </div>
+    <div class="col-6 col-sm">
+      <a href="{% url 'packages' %}" title="Fertility treatment packages">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="font-size: 16px">Fertility treatment packages</button>
+      </a>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<div class="container">
+  <ul class="nav justify-content-left">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> Fertility treatment costs in USA</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Fertility treatment costs</a>
+    </li>
+  </ul>
+</div>
+{% endif %}
+{% endblock  %}

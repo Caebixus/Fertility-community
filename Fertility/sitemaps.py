@@ -17,6 +17,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'search',
         'locations',
         'locationsUSRegions',
+        'locationsTexasRegions',
         'blog1',
         'packages',
         ]

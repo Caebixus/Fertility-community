@@ -297,9 +297,19 @@ table th:last-child{
 
 a {
   font-family: 'Josefin Sans';
-  font-style: normal;
-  color: black;
+  font-weight: 300;
+  color: #282c34;
   text-align: left;
+  font-size: 115%;
+  text-decoration: underline;
+}
+
+td {
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  color: #282c34;
+  text-align: left;
+  font-size: 115%;
 }
 
 button {

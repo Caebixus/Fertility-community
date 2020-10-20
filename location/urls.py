@@ -1,7 +1,8 @@
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls.static import static
 
-from . import views
+from . import views, views2
 
 urlpatterns = [
     path('ivf-cost', views.locationsStandardIVF, name='locations'),
@@ -14,4 +15,6 @@ urlpatterns = [
     path('ivf-cost/cz', views.locationsCZRegions, name='locationsCZRegions'),
     path('ivf-cost/spain', views.locationsSPRegions, name='locationsSPRegions'),
     path('currencies', include('currencies.urls')),
-]
+
+    path('ivf-cost/usa/texas', views2.locationsTexasRegions, name='locationsTexasRegions'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -490,7 +490,7 @@
               <td style="font-size: 14px"><a href="{% url 'fertilityClinicsTennessee' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Tennessee IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicsTexas' %}"><u>Texas ({{ my_total_count_texas }} clinics)</u></a></th>
+              <th scope="row"><a href="{% url 'locationsTexasRegions' %}"><u>Texas ({{ my_total_count_texas }} clinics)</u></a></th>
               <td style="font-size: 14px">
                 <div id="defaultBoardTexas">Choose currency above</div>
                 <div id="usdTexas" style="display:none">{% if usdCurrency_texas_ivf %}{{ usdCurrency_texas_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>

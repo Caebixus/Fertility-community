@@ -70,35 +70,33 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-
-          <a hidden class="nav-item nav-link" href="#"><i class="far fa-question-circle"></i> FAQ</a>
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: #8a8a8a">
               Account
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="{% url 'settings' %}">Account settings</a>
-              <a class="dropdown-item" href="{% url 'create1' %}">Add clinic</a>
-              <a class="dropdown-item" href="{% url 'claim' %}">Claim clinic</a>
+              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'settings' %}">Account settings</a>
+              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'create1' %}">Add clinic</a>
+              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'claim' %}">Claim clinic</a>
               <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
             </div>
           </div>
-          <a class="nav-item nav-link" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
-          <a class="nav-item nav-link" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
           <li>
-            <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a class="nav-item nav-link" style="text-decoration: none;" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <form id="logout" action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
               <input type="hidden">
             </form>
           </li>
           {% else %}
-          <a class="nav-item nav-link" href="{% url 'packages' %}"><i class="fas fa-archive"></i> Packages</a>
-          <a class="nav-item nav-link" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
-          <a class="nav-item nav-link" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i> IVF Explained</a>
-          <a class="nav-item nav-link" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'packages' %}"><i class="fas fa-archive"></i> Packages</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i> IVF Explained</a>
+          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
           {% endif %}
         </div>
       </div>

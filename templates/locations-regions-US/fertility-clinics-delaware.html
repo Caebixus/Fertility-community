@@ -13,7 +13,7 @@
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
           Fertility clinics in Delaware, United States
     </h1>
-    <p style="font-size: 18px; color: white !important"><u>What are the best IVF clinics in Delaware?</u> Below we listed <u><b>{{ my_total_count }}</b></u> of the biggest fertility clinics in this state. The infertility treatment options in Delaware clinics include  <i>laparoscopy</i>, <i>timed intercourse</i>, <i>ovulation induction</i>, <i>intrauterine insemination</i>, <i>In Vitro Fertilization</i>, <i>egg donation</i>, <i>embryo donation</i>, <i>sperm donation</i> or <i>gestational surrogacy</i>.</p>
+    <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility clinics in Delaware with different treatment pricings and IVF packages. The infertility treatment options in Delaware clinics include laparoscopy, timed intercourse, ovulation induction, intrauterine insemination, In Vitro Fertilization, egg donation, embryo donation, sperm donation or gestational surrogacy.</p>
   </div>
 
   <!-- Filter section -->
@@ -685,7 +685,7 @@
           <br>
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
           <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}

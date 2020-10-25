@@ -141,6 +141,21 @@ def locationsIVFwithEggDonation(request):
             gbpCurrency_cz_egg = None
             usdCurrency_cz_egg = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
+    my_total_clinic_count_es = queryset_list_es.count()
+
+    queryset_list_es_egg = queryset_list_es.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_es_egg.items():
+        eurCurrency_es_egg = val
+        if eurCurrency_es_egg is not None:
+            gbpCurrency_es_egg = val * eurToGbp
+            usdCurrency_es_egg = val * eurToUsd
+        else:
+            gbpCurrency_es_egg = None
+            usdCurrency_es_egg = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_egg': gbpCurrency_uk_egg,
@@ -156,6 +171,11 @@ def locationsIVFwithEggDonation(request):
         'gbpCurrency_cz_egg': gbpCurrency_cz_egg,
         'usdCurrency_cz_egg': usdCurrency_cz_egg,
         'eurCurrency_cz_egg': eurCurrency_cz_egg,
+
+        'my_total_clinic_count_es': my_total_clinic_count_es,
+        'gbpCurrency_es_egg': gbpCurrency_es_egg,
+        'usdCurrency_es_egg': usdCurrency_es_egg,
+        'eurCurrency_es_egg': eurCurrency_es_egg,
         }
 
     return render(request, 'main/Locations/locations-ivf-with-egg-donors.html', context)
@@ -205,6 +225,21 @@ def locationsIVFwithEmbryoDonation(request):
             gbpCurrency_cz_embryo = None
             usdCurrency_cz_embryo = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
+    my_total_clinic_count_es = queryset_list_es.count()
+
+    queryset_list_es_embryo = queryset_list_es.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_es_embryo.items():
+        eurCurrency_es_embryo = val
+        if eurCurrency_es_embryo is not None:
+            gbpCurrency_es_embryo = val * eurToGbp
+            usdCurrency_es_embryo = val * eurToUsd
+        else:
+            gbpCurrency_es_embryo = None
+            usdCurrency_es_embryo = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_embryo': gbpCurrency_uk_embryo,
@@ -220,6 +255,12 @@ def locationsIVFwithEmbryoDonation(request):
         'gbpCurrency_cz_embryo': gbpCurrency_cz_embryo,
         'usdCurrency_cz_embryo': usdCurrency_cz_embryo,
         'eurCurrency_cz_embryo': eurCurrency_cz_embryo,
+
+        'my_total_clinic_count_es': my_total_clinic_count_es,
+        'gbpCurrency_es_embryo': gbpCurrency_es_embryo,
+        'usdCurrency_es_embryo': usdCurrency_es_embryo,
+        'eurCurrency_es_embryo': eurCurrency_es_embryo,
+
         }
 
     return render(request, 'main/Locations/locations-ivf-with-embryo-donors.html', context)
@@ -269,6 +310,21 @@ def locationsIUI(request):
             gbpCurrency_cz_iui = None
             usdCurrency_cz_iui = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
+    my_total_clinic_count_es = queryset_list_es.count()
+
+    queryset_list_es_iui = queryset_list_es.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_es_iui.items():
+        eurCurrency_es_iui = val
+        if eurCurrency_es_iui is not None:
+            gbpCurrency_es_iui = val * eurToGbp
+            usdCurrency_es_iui = val * eurToUsd
+        else:
+            gbpCurrency_es_iui = None
+            usdCurrency_es_iui = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_iui': gbpCurrency_uk_iui,
@@ -284,6 +340,12 @@ def locationsIUI(request):
         'gbpCurrency_cz_iui': gbpCurrency_cz_iui,
         'usdCurrency_cz_iui': usdCurrency_cz_iui,
         'eurCurrency_cz_iui': eurCurrency_cz_iui,
+
+        'my_total_clinic_count_es': my_total_clinic_count_es,
+        'gbpCurrency_es_iui': gbpCurrency_es_iui,
+        'usdCurrency_es_iui': usdCurrency_es_iui,
+        'eurCurrency_es_iui': eurCurrency_es_iui,
+
         }
 
     return render(request, 'main/Locations/locations-iui.html', context)

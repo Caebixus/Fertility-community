@@ -872,6 +872,7 @@ def locationsUSRegions(request):
     queryset_list_florida = queryset_list_us.filter(clinicRegion__iexact='Florida')
     my_total_count_florida = queryset_list_florida.count()
     queryset_list_florida_ivf = queryset_list_florida.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    my_total_count_florida_ovarian_ivf_treatment = queryset_list_florida.filter(ovarian_ivf_treatment=True).count()
     for key,val in queryset_list_florida_ivf.items():
         usdCurrency_florida_ivf = val
         if usdCurrency_florida_ivf is not None:
@@ -4638,6 +4639,7 @@ def locationsUSRegions(request):
         'my_total_count_connecticut': my_total_count_connecticut,
         'my_total_count_delaware': my_total_count_delaware,
         'my_total_count_florida': my_total_count_florida,
+        'my_total_count_florida_ovarian_ivf_treatment': my_total_count_florida_ovarian_ivf_treatment,
         'my_total_count_georgia': my_total_count_georgia,
         'my_total_count_hawaii': my_total_count_hawaii,
         'my_total_count_idaho': my_total_count_idaho,
@@ -4683,7 +4685,7 @@ def locationsUSRegions(request):
         'my_total_count_districtofcolumbia': my_total_count_districtofcolumbia,
         }
 
-    return render(request, 'main/Locations/USLocations/us-regions.html', context)
+    return render(request, 'main/Locations/USLocations/us-regions-ivf.html', context)
 
 #--------------------------------------------------------------------------
 #--------------------------------------------------------------------------
@@ -7356,7 +7358,7 @@ def locationsUKRegions(request):
         }
 
 
-    return render(request, 'main/Locations/UKLocations/uk-regions.html', context)
+    return render(request, 'main/Locations/UKLocations/uk-regions-ivf.html', context)
 
 
 def locationsCZRegions(request):
@@ -7529,7 +7531,7 @@ def locationsCZRegions(request):
         'eurCurrency_brno_iui': eurCurrency_brno_iui,
         'my_total_count_brno': my_total_count_brno,
         }
-    return render(request, 'main/Locations/CZLocations/cz-regions.html', context)
+    return render(request, 'main/Locations/CZLocations/cz-regions-ivf.html', context)
 
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all()
@@ -8035,4 +8037,4 @@ def locationsSPRegions(request):
         'eurCurrency_valencia_iui': eurCurrency_valencia_iui,
         'my_total_count_valencia': my_total_count_valencia,
         }
-    return render(request, 'main/Locations/SPLocations/sp-regions.html', context)
+    return render(request, 'main/Locations/SPLocations/sp-regions-ivf.html', context)

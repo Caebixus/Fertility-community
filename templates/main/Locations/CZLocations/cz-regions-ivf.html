@@ -8,21 +8,26 @@
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs by Czech citites</h1>
-    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by Czech IVF & fertility clinics</p>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Standard IVF Costs in Czech Republic | 2020</h1>
+    <p class="lead" style="color:white">Compare Fertility & IVF average costs by Czech IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Standard IVF treatment
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locationsUSRegions' %}">Standard IVF treatment</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+      </div>
+    </div>
+    <br>
     <br>
   </div>
 </div>
 
-<br>
-<br>
-
 <div class="container">
-  <ul class="nav nav-pills" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">Standard IVF</a>
-    </li>
-  </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
       <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP czech cities</h2>
@@ -52,7 +57,7 @@
                 <div id="eurPrague" style="display:none">{% if eurCurrency_prague_ivf %}{{ eurCurrency_prague_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpPrague" style="display:none">{% if gbpCurrency_prague_ivf %}{{ gbpCurrency_prague_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicPrague' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Prague IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicPrague' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Prague IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicBrno' %}"><u>Brno ({% if my_total_count_brno %}{{ my_total_count_brno }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -62,7 +67,7 @@
                 <div id="eurBrno" style="display:none">{% if eurCurrency_brno_ivf %}{{ eurCurrency_brno_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpBrno" style="display:none">{% if gbpCurrency_brno_ivf %}{{ gbpCurrency_brno_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicBrno' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Brno IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBrno' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Brno IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>

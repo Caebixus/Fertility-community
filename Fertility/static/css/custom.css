@@ -131,6 +131,11 @@ select {
   padding-left: 75px;
 }
 
+#topContainerBanner {
+  min-height: 25rem;
+  justify-content: center;
+}
+
 #modelchoicefield {
   background-color: grey;
 }

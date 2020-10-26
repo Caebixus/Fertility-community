@@ -8,21 +8,26 @@
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-5" style="padding-top:5rem; color: white">IVF Costs by Spain citites</h1>
-    <p class="display-5" style="color: white">Compare Fertility & IVF average costs by Spain IVF & fertility clinics</p>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Standard IVF Costs in Spain | 2020</h1>
+    <p class="lead" style="color:white">Compare Fertility & IVF average costs by Spain IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Standard IVF treatment
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locationsUSRegions' %}">Standard IVF treatment</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+      </div>
+    </div>
+    <br>
     <br>
   </div>
 </div>
 
-<br>
-<br>
-
 <div class="container">
-  <ul class="nav nav-pills" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-ivf-tab" data-toggle="pill" href="#pills-ivf" role="tab" aria-controls="pills-ivf" aria-selected="true">Standard IVF</a>
-    </li>
-  </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
       <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP Spain cities</h2>
@@ -52,7 +57,7 @@
                 <div id="eurAlicante" style="display:none">{% if eurCurrency_alicante_ivf %}{{ eurCurrency_alicante_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpAlicante" style="display:none">{% if gbpCurrency_alicante_ivf %}{{ gbpCurrency_alicante_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsAlicante' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Alicante IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsAlicante' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Alicante IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsBarcelona' %}"><u>Barcelona ({% if my_total_count_barcelona %}{{ my_total_count_barcelona }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -62,7 +67,7 @@
                 <div id="eurBarcelona" style="display:none">{% if eurCurrency_barcelona_ivf %}{{ eurCurrency_barcelona_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpBarcelona" style="display:none">{% if gbpCurrency_barcelona_ivf %}{{ gbpCurrency_barcelona_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsBarcelona' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Barcelona IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsBarcelona' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Barcelona IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsMadrid' %}"><u>Madrid ({% if my_total_count_madrid %}{{ my_total_count_madrid }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -72,7 +77,7 @@
                 <div id="eurMadrid" style="display:none">{% if eurCurrency_madrid_ivf %}{{ eurCurrency_madrid_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpMadrid" style="display:none">{% if gbpCurrency_madrid_ivf %}{{ gbpCurrency_madrid_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsMadrid' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Madrid IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMadrid' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Madrid IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsMalaga' %}"><u>Malaga ({% if my_total_count_malaga %}{{ my_total_count_malaga }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -82,7 +87,7 @@
                 <div id="eurMalaga" style="display:none">{% if eurCurrency_malaga_ivf %}{{ eurCurrency_malaga_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpMalaga" style="display:none">{% if gbpCurrency_malaga_ivf %}{{ gbpCurrency_malaga_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsMalaga' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Malaga IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMalaga' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Malaga IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsSeville' %}"><u>Seville ({% if my_total_count_seville %}{{ my_total_count_seville }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -92,7 +97,7 @@
                 <div id="eurSeville" style="display:none">{% if eurCurrency_seville_ivf %}{{ eurCurrency_seville_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpSeville" style="display:none">{% if gbpCurrency_seville_ivf %}{{ gbpCurrency_seville_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsSeville' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Seville IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsSeville' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Seville IVF Clinics</button></a></td>
             </tr>
             <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsValencia' %}"><u>Valencia ({% if my_total_count_valencia %}{{ my_total_count_valencia }} clinics){% else %}0 clinics){% endif %}</u></a></th>
@@ -102,7 +107,7 @@
                 <div id="eurValencia" style="display:none">{% if eurCurrency_valencia_ivf %}{{ eurCurrency_valencia_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpValencia" style="display:none">{% if gbpCurrency_valencia_ivf %}{{ gbpCurrency_valencia_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px"><a href="{% url 'fertilityClinicsValencia' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Valencia IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsValencia' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Valencia IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>

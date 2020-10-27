@@ -463,6 +463,356 @@ def af(request):
 
     return render(request, 'clinics/US/Alabama/alabama-fertility.html', context)
 
+def aminstrepbir(request):
+    listing = BasicClinic.objects.get(pk=648)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/american-institute-of-reproductive-medicine-birmingham.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/american-institute-of-reproductive-medicine-birmingham.html', context)
+
+def aminstrephomeb(request):
+    listing = BasicClinic.objects.get(pk=649)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/american-institute-of-reproductive-medicine-homewood.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/american-institute-of-reproductive-medicine-homewood.html', context)
+
+def newlifemobile(request):
+    listing = BasicClinic.objects.get(pk=650)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/newlife-mobile.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/newlife-mobile.html', context)
+
+def newlifedothan(request):
+    listing = BasicClinic.objects.get(pk=651)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/newlife-dothan.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/newlife-dothan.html', context)
+
+def fertinstofnorthal(request):
+    listing = BasicClinic.objects.get(pk=652)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/fertility-institute-of-north-alabama.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/fertility-institute-of-north-alabama.html', context)
+
+def huntsrepromed(request):
+    listing = BasicClinic.objects.get(pk=653)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/huntsville-reproductive-medicine.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/huntsville-reproductive-medicine.html', context)
+
+def artfertproofal(request):
+    listing = BasicClinic.objects.get(pk=654)
+
+    alalisting = BasicClinic.objects.all()
+    alalisting = alalisting.filter(is_published=True)
+    alalisting = alalisting.filter(clinicRegion__iexact='Alabama')
+    alalisting = alalisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=9)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'alalisting': alalisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Alabama/art-fertility-program-of-alabama.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'alalisting': alalisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Alabama/art-fertility-program-of-alabama.html', context)
+
 # ARIZONA Views --------------------------------------------------------------------------------------------------------
 
 def tfc(request):

@@ -13,6 +13,13 @@ urlpatterns = [
     #ALABAMA
     path('clinics/us/alabama/center-for-reproductive-medicine', views.tcfrm, name='tcfrm'),
     path('clinics/us/alabama/alabama-fertility', views.af, name='af'),
+    path('clinics/us/alabama/american-institute-of-reproductive-medicine-birmingham', views.aminstrepbir, name='aminstrepbir'),
+    path('clinics/us/alabama/american-institute-of-reproductive-medicine-homewood', views.aminstrephomeb, name='aminstrephomeb'),
+    path('clinics/us/alabama/newlife-mobile', views.newlifemobile, name='newlifemobile'),
+    path('clinics/us/alabama/newlife-dothan', views.newlifedothan, name='newlifedothan'),
+    path('clinics/us/alabama/fertility-institute-of-north-alabama', views.fertinstofnorthal, name='fertinstofnorthal'),
+    path('clinics/us/alabama/huntsville-reproductive-medicine', views.huntsrepromed, name='huntsrepromed'),
+    path('clinics/us/alabama/art-fertility-program-of-alabama', views.artfertproofal, name='artfertproofal'),
     #ARIZONA
     path('clinics/us/arizona/troche-fertility-glendale', views.tfg, name='tfg'),
     path('clinics/us/arizona/troche-fertility-mesa', views.tfm, name='tfm'),

@@ -92,7 +92,7 @@ def notActiveUser(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def activateUser(request):
-    user = request.user()
+    user = request.user
     try:
         authenticateduser = AuthenticatedUser()
         authenticateduser.user = user_id

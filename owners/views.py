@@ -92,16 +92,18 @@ def notActiveUser(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def activateUser(request):
-    user = AuthenticatedUser.objects.get(user=request.user)
+    user = request.user()
     try:
+        authenticateduser = AuthenticatedUser()
         authenticateduser.user = user_id
         authenticateduser.is_activated = True
-        user.save()
+        authenticateduser.save()
         return render(request, 'owners/user-active.html')
     except ObjectDoesNotExist:
+        authenticateduser = AuthenticatedUser()
         authenticateduser.user = user_id
         authenticateduser.is_activated = True
-        user.save()
+        authenticateduser.save()
         return render(request, 'owners/user-active.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')

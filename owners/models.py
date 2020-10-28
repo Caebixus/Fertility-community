@@ -17,3 +17,7 @@ class ProUser(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+class AuthenticatedUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_activated = models.BooleanField(default=False)

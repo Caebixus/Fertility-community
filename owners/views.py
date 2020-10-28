@@ -70,6 +70,7 @@ def login(request):
                 messages.success(request, '- You are now logged in')
                 return redirect('dashboard')
             else:
+                auth.login(request, user)
                 return redirect('notActiveUser')
         else:
             messages.error(request, '- Invalid credentials')

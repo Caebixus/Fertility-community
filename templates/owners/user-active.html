@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">User activation</h1>
+    {% if usergroup %}
+    <p style="color:white">You have {{package}} active packages. Your maximum limit for packages is {{ instance }}</p>
+    <br>
+    {% else %}
+    {% endif %}
+  </div>
+</div>
+<br>
+<div class="container py-4">
+  <p>Your account is now active. <a href="{% url 'dashboard' %}"><u>Dashboard</u></a></p>
+</div>
+
+{% endblock  %}

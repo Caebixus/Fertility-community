@@ -7,6 +7,7 @@ urlpatterns = [
     path('signup', views.register, name='register'),
     path('signin', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    path('not-active-user', views.notActiveUser, name='notActiveUser'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('settings', views.settings, name='settings'),
     path('banners', views.banners, name='banners'),
@@ -28,4 +29,8 @@ urlpatterns = [
     path('updateprice/<int:listing_id>', views.updatePricing, name='updatePricing'),
     path('updatepricepro/<int:listing_id>', views.updatePricingPro, name='updatePricingPro'),
     path('updatepro/<int:listing_id>', views.updateproclinic, name='updateproclinic'),
+
+    #Location US
+    path('activate-user', views.activateUser, name='activateUser'),
+
 ]

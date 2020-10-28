@@ -39,8 +39,19 @@ def register(request):
                 user = User.objects.create_user(email=email, password=password, username=username)
                 #login after registered
                 auth.login(request, user)
+                user.is_active = False
+                user.save()
                 messages.success(request, '- You are now logged in')
-                return redirect('dashboard')
+
+                send_mail(
+                    'Confirm registration - fertilitycommunity.com',
+                    'Please activate your account via this link: https://www.fertilitycommunity.com/account/activate-user?xx1kfdj4sdsdsf48a6aasd7',
+                    'info@fertilitycommunity.com',
+                    [user.email],
+                    fail_silently=False,
+                    )
+
+                return redirect('notActiveUser')
         else:
             messages.error(request, '- Passwords do not match')
             return redirect('register')
@@ -67,6 +78,16 @@ def login(request):
 
 def upgrade2(request):
     return render(request, 'owners/upgrade2.html')
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def notActiveUser(request):
+    user.is_active = True
+    user.save()
+    return render(request, 'owners/not-active-user.html')
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def activateUser(request):
+    return render(request, 'owners/not-active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def logout(request):

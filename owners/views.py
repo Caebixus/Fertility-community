@@ -88,15 +88,19 @@ def upgrade2(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def notActiveUser(request):
-    user = request.user
     return render(request, 'owners/not-active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def activateUser(request):
     user = request.user
-    user.authenticateduser.is_activated = True
-    user.save()
-    return render(request, 'owners/active-user.html')
+    try:
+        user.authenticateduser.is_activated = True
+        user.save()
+        return render(request, 'owners/active-user.html')
+    except ObjectDoesNotExist:
+        user.authenticateduser.is_activated = True
+        user.save()
+        return render(request, 'owners/active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def logout(request):
@@ -153,20 +157,23 @@ def dashboard(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def settings(request):
     user = request.user
-    if user.authenticateduser.is_activated == False:
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
+        else:
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+            listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
+            context = {
+                'listings': listings,
+                'usergroup': usergroup,
+            }
+
+            return render(request, 'owners/settings.html', context)
+    except ObjectDoesNotExist:
         return redirect('notActiveUser')
-    else:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-        listings = BasicClinic.objects.filter(clinicOwner_id=request.user)
-
-        context = {
-            'listings': listings,
-            'usergroup': usergroup,
-        }
-
-        return render(request, 'owners/settings.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def banners(request):
@@ -207,149 +214,158 @@ def upgrade(request, listing_id):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claim(request):
     user = request.user
-    if user.authenticateduser.is_activated == False:
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
+        else:
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+            context={'usergroup': usergroup}
+            return render(request, 'owners/claim.html', context)
+    except ObjectDoesNotExist:
         return redirect('notActiveUser')
-    else:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-        context={'usergroup': usergroup}
-        return render(request, 'owners/claim.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create(request):
     user = request.user
-    if user.authenticateduser.is_activated == False:
-        return redirect('notActiveUser')
-    else:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-        if request.method == 'POST':
-            listing = BasicClinic()
-
-            listing.clinicOwner = request.user
-            listing.name = request.POST['name']
-            listing.title = request.POST['title']
-            listing.description = request.POST['description']
-            listing.logo_pic = request.FILES['logo_pic']
-            listing.main_pic = request.FILES['main_pic']
-
-            listing.contact_url = request.POST['contact_url']
-            listing.contact_phone = request.POST['contact_phone']
-            listing.contact_email = request.POST['contact_email']
-
-            listing.address = request.POST['address']
-            listing.city = request.POST['city']
-            listing.state = request.POST['state']
-            listing.zipcode = request.POST['zipcode']
-
-            if 'ivf_treatment' in request.POST:
-                listing.ivf_treatment = True
-            else:
-                listing.ivf_treatment = False
-            if 'egg_donation' in request.POST:
-                listing.egg_donation = True
-            else:
-                egg_donation = False
-            if 'sperm_donation' in request.POST:
-                listing.sperm_donation = True
-            else:
-                sperm_donation = False
-            if 'embryo_donation' in request.POST:
-                listing.embryo_donation = True
-            else:
-                embryo_donation = False
-
-            if 'ivf_treatment_cost' in request.POST:
-                listing.ivf_treatment_cost = request.POST['ivf_treatment_cost']
-            else:
-                listing.ivf_treatment_cost = int('0')
-            if 'egg_donation_cost' in request.POST:
-                listing.egg_donation_cost = request.POST['egg_donation_cost']
-            else:
-                listing.egg_donation_cost = int('0')
-            if 'sperm_donation_cost' in request.POST:
-                listing.sperm_donation_cost = request.POST['sperm_donation_cost']
-            else:
-                listing.sperm_donation_cost = int('0')
-            if 'embryo_donation_cost' in request.POST:
-                listing.embryo_donation_cost = request.POST['embryo_donation_cost']
-            else:
-                listing.embryo_donation_cost = int('0')
-
-            if 'single_woman_treatment' in request.POST:
-                listing.single_woman_treatment = True
-            else:
-                single_woman_treatment = False
-            if 'reciprocal_ivf' in request.POST:
-                listing.reciprocal_ivf = True
-            else:
-                reciprocal_ivf = False
-            if 'hiv_patients' in request.POST:
-                listing.hiv_patients = True
-            else:
-                hiv_patients = False
-            if 'fertility_preservation' in request.POST:
-                listing.fertility_preservation = True
-            else:
-                fertility_preservation = False
-
-            listing.list_date = timezone.datetime.now()
-            listing.is_claimed = True
-
-            listing.save()
-            return render(request, 'owners/dashboard.html')
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
         else:
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+            if request.method == 'POST':
+                listing = BasicClinic()
+
+                listing.clinicOwner = request.user
+                listing.name = request.POST['name']
+                listing.title = request.POST['title']
+                listing.description = request.POST['description']
+                listing.logo_pic = request.FILES['logo_pic']
+                listing.main_pic = request.FILES['main_pic']
+
+                listing.contact_url = request.POST['contact_url']
+                listing.contact_phone = request.POST['contact_phone']
+                listing.contact_email = request.POST['contact_email']
+
+                listing.address = request.POST['address']
+                listing.city = request.POST['city']
+                listing.state = request.POST['state']
+                listing.zipcode = request.POST['zipcode']
+
+                if 'ivf_treatment' in request.POST:
+                    listing.ivf_treatment = True
+                else:
+                    listing.ivf_treatment = False
+                if 'egg_donation' in request.POST:
+                    listing.egg_donation = True
+                else:
+                    egg_donation = False
+                if 'sperm_donation' in request.POST:
+                    listing.sperm_donation = True
+                else:
+                    sperm_donation = False
+                if 'embryo_donation' in request.POST:
+                    listing.embryo_donation = True
+                else:
+                    embryo_donation = False
+
+                if 'ivf_treatment_cost' in request.POST:
+                    listing.ivf_treatment_cost = request.POST['ivf_treatment_cost']
+                else:
+                    listing.ivf_treatment_cost = int('0')
+                if 'egg_donation_cost' in request.POST:
+                    listing.egg_donation_cost = request.POST['egg_donation_cost']
+                else:
+                    listing.egg_donation_cost = int('0')
+                if 'sperm_donation_cost' in request.POST:
+                    listing.sperm_donation_cost = request.POST['sperm_donation_cost']
+                else:
+                    listing.sperm_donation_cost = int('0')
+                if 'embryo_donation_cost' in request.POST:
+                    listing.embryo_donation_cost = request.POST['embryo_donation_cost']
+                else:
+                    listing.embryo_donation_cost = int('0')
+
+                if 'single_woman_treatment' in request.POST:
+                    listing.single_woman_treatment = True
+                else:
+                    single_woman_treatment = False
+                if 'reciprocal_ivf' in request.POST:
+                    listing.reciprocal_ivf = True
+                else:
+                    reciprocal_ivf = False
+                if 'hiv_patients' in request.POST:
+                    listing.hiv_patients = True
+                else:
+                    hiv_patients = False
+                if 'fertility_preservation' in request.POST:
+                    listing.fertility_preservation = True
+                else:
+                    fertility_preservation = False
+
+                listing.list_date = timezone.datetime.now()
+                listing.is_claimed = True
+
+                listing.save()
+                return render(request, 'owners/dashboard.html')
+            else:
+                context = {
+                    'usergroup': usergroup,
+                }
+
+                return render(request, 'owners/create.html', context)
+
             context = {
                 'usergroup': usergroup,
             }
 
             return render(request, 'owners/create.html', context)
-
-        context = {
-            'usergroup': usergroup,
-        }
-
-        return render(request, 'owners/create.html', context)
+    except ObjectDoesNotExist:
+        return redirect('notActiveUser')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def create1(request):
-    user = request.user
-    if user.authenticateduser.is_activated == False:
+    user = request.username
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
+        else:
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+            form = CreateClinic(request.POST or None, request.FILES or None)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.is_published_list_date = datetime.now()
+                form.clinicOwner = request.user
+                form.is_claimed = True
+                form.save()
+
+                klinika = form.clinicName
+
+                send_mail(
+                    'New Clinic Registration',
+                    'Právě se vytvořila nová klinika ' +
+                    '\nClinic username: ' + str(klinika),
+                    'info@fertilitycommunity.com',
+                    ['info@fertilitycommunity.com'],
+                    fail_silently=False,
+                    )
+
+                messages.success(request, '- Clinic created - please wait for out team to review your clinic')
+                return redirect(dashboard)
+
+            context = {
+                'form': form,
+                'usergroup': usergroup,
+            }
+
+            return render(request, 'owners/create1.html', context)
+    except ObjectDoesNotExist:
         return redirect('notActiveUser')
-    else:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-        form = CreateClinic(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.is_published_list_date = datetime.now()
-            form.clinicOwner = request.user
-            form.is_claimed = True
-            form.save()
-
-            klinika = form.clinicName
-
-            send_mail(
-                'New Clinic Registration',
-                'Právě se vytvořila nová klinika ' +
-                '\nClinic username: ' + str(klinika),
-                'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-
-            messages.success(request, '- Clinic created - please wait for out team to review your clinic')
-            return redirect(dashboard)
-
-        context = {
-            'form': form,
-            'usergroup': usergroup,
-        }
-
-        return render(request, 'owners/create1.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def update(request, listing_id):
@@ -538,35 +554,38 @@ def contactClinic(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def claimClinic(request):
     user = request.user
-    if user.authenticateduser.is_activated == False:
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
+        else:
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+            form = ClaimForm(request.POST or None, request.FILES or None)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.clinicOwner = request.user
+                form.save()
+
+                send_mail(
+                    'Klinika prosí o claim',
+                    'Někdo se zaregistroval a poslal prosbu o claim - zkontroluj!',
+                    'info@fertilitycommunity.com',
+                    ['info@fertilitycommunity.com'],
+                    fail_silently=False,
+                    )
+
+                messages.success(request, '- Your claim was sent! We will contact you back as soon as possible!')
+                return redirect(dashboard)
+
+            context = {
+                'form': form,
+                'usergroup': usergroup,
+            }
+
+            return render(request, 'owners/claim.html', context)
+    except ObjectDoesNotExist:
         return redirect('notActiveUser')
-    else:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-        form = ClaimForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.clinicOwner = request.user
-            form.save()
-
-            send_mail(
-                'Klinika prosí o claim',
-                'Někdo se zaregistroval a poslal prosbu o claim - zkontroluj!',
-                'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-
-            messages.success(request, '- Your claim was sent! We will contact you back as soon as possible!')
-            return redirect(dashboard)
-
-        context = {
-            'form': form,
-            'usergroup': usergroup,
-        }
-
-        return render(request, 'owners/claim.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def change_password(request):

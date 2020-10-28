@@ -602,6 +602,64 @@
             <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
             <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
+
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Natural IVF available</a></p>
+
+          {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild IVF available</a></p>
+
+          {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Standard IVF available</a></p>
+
+          {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">ICSI available</a></p>
+
+          {% elif 'IUItreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IUI available</a></p>
+
+          {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using egg donors available</a></p>
+
+          {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using embryo donors available</a></p>
+
+          {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using sperm donors available</a></p>
+
+          {% elif 'EggFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Egg freezing available</a></p>
+
+          {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Embryo freezing available</a></p>
+
+          {% elif 'SpermFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Sperm freezing available</a></p>
+
+          {% elif 'Surrogacytrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Gestational surrogacy available</a></p>
+
+          {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Single woman treatment available</a></p>
+
+          {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Reciprocal IVF (LGBTQ) available</a></p>
+          {% endif %}
+
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
             <p style="color: white">Features:
@@ -674,6 +732,64 @@
             <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
             <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
+
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Natural IVF available</a></p>
+
+          {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild IVF available</a></p>
+
+          {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Standard IVF available</a></p>
+
+          {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">ICSI available</a></p>
+
+          {% elif 'IUItreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IUI available</a></p>
+
+          {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using egg donors available</a></p>
+
+          {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using embryo donors available</a></p>
+
+          {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">IVF using sperm donors available</a></p>
+
+          {% elif 'EggFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Egg freezing available</a></p>
+
+          {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Embryo freezing available</a></p>
+
+          {% elif 'SpermFreezingtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Sperm freezing available</a></p>
+
+          {% elif 'Surrogacytrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Gestational surrogacy available</a></p>
+
+          {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Single woman treatment available</a></p>
+
+          {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+          <hr noshade style="border-top: 1px solid white">
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Reciprocal IVF (LGBTQ) available</a></p>
+          {% endif %}
+
           <hr noshade style="border-top: 1px solid white">
           <div class="row-md">
             <p style="color: white">Features:
@@ -745,6 +861,64 @@
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
+
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Natural IVF available</a></p>
+
+          {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+
+          {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Standard IVF available</a></p>
+
+          {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">ICSI available</a></p>
+
+          {% elif 'IUItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IUI available</a></p>
+
+          {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using egg donors available</a></p>
+
+          {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using embryo donors available</a></p>
+
+          {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using sperm donors available</a></p>
+
+          {% elif 'EggFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Egg freezing available</a></p>
+
+          {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Embryo freezing available</a></p>
+
+          {% elif 'SpermFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Sperm freezing available</a></p>
+
+          {% elif 'Surrogacytrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Gestational surrogacy available</a></p>
+
+          {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Single woman treatment available</a></p>
+
+          {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Reciprocal IVF (LGBTQ) available</a></p>
+          {% endif %}
+
           <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
             <p>Features:
@@ -817,6 +991,64 @@
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
+
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Natural IVF available</a></p>
+
+          {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+
+          {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Standard IVF available</a></p>
+
+          {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">ICSI available</a></p>
+
+          {% elif 'IUItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IUI available</a></p>
+
+          {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using egg donors available</a></p>
+
+          {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using embryo donors available</a></p>
+
+          {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using sperm donors available</a></p>
+
+          {% elif 'EggFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Egg freezing available</a></p>
+
+          {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Embryo freezing available</a></p>
+
+          {% elif 'SpermFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Sperm freezing available</a></p>
+
+          {% elif 'Surrogacytrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Gestational surrogacy available</a></p>
+
+          {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Single woman treatment available</a></p>
+
+          {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Reciprocal IVF (LGBTQ) available</a></p>
+          {% endif %}
+
           <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row-md">
             <p>Features:
@@ -832,7 +1064,6 @@
             {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
             </p>
           </div>
-
           <hr noshade style="border-top: 1px solid #6c757d">
           <div class="row">
             <div class="col-4 col-sm" style="padding-top:1rem">
@@ -888,6 +1119,64 @@
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
+
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Natural IVF available</a></p>
+
+          {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+
+          {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Standard IVF available</a></p>
+
+          {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">ICSI available</a></p>
+
+          {% elif 'IUItreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IUI available</a></p>
+
+          {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using egg donors available</a></p>
+
+          {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using embryo donors available</a></p>
+
+          {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">IVF using sperm donors available</a></p>
+
+          {% elif 'EggFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Egg freezing available</a></p>
+
+          {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Embryo freezing available</a></p>
+
+          {% elif 'SpermFreezingtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Sperm freezing available</a></p>
+
+          {% elif 'Surrogacytrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#secondPricing" style="text-decoration: none">Gestational surrogacy available</a></p>
+
+          {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Single woman treatment available</a></p>
+
+          {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+          <hr noshade>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#conditions" style="text-decoration: none">Reciprocal IVF (LGBTQ) available</a></p>
+          {% endif %}
+
           <hr noshade>
           <div class="row-md">
             <p>Features:

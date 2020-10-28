@@ -66,12 +66,15 @@ def login(request):
         user = auth.authenticate(email=email, username=username, password=password)
 
         if user is not None:
-            if user.authenticateduser.is_activated == True:
-                auth.login(request, user)
-                messages.success(request, '- You are now logged in')
-                return redirect('dashboard')
-            else:
-                auth.login(request, user)
+            try:
+                if user.authenticateduser.is_activated == True:
+                    auth.login(request, user)
+                    messages.success(request, '- You are now logged in')
+                    return redirect('dashboard')
+                else:
+                    auth.login(request, user)
+                    return redirect('notActiveUser')
+            except ObjectDoesNotExist:
                 return redirect('notActiveUser')
         else:
             messages.error(request, '- Invalid credentials')

@@ -75,6 +75,7 @@ def login(request):
                     auth.login(request, user)
                     return redirect('notActiveUser')
             except ObjectDoesNotExist:
+                auth.login(request, user)
                 return redirect('notActiveUser')
         else:
             messages.error(request, '- Invalid credentials')

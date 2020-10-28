@@ -94,10 +94,12 @@ def notActiveUser(request):
 def activateUser(request):
     user = request.user
     try:
+        user.authenticateduser = user
         user.authenticateduser.is_activated = True
         user.save()
         return render(request, 'owners/user-active.html')
     except ObjectDoesNotExist:
+        user.authenticateduser = user
         user.authenticateduser.is_activated = True
         user.save()
         return render(request, 'owners/user-active.html')

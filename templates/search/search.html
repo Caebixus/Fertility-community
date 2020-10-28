@@ -222,7 +222,53 @@
       {% endif %}
     </h1>
     {% if values.States != None %}
-    <p style="font-size: 20px; color: white !important">Clinics found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+      {% if 'Alltreatmentstrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'IVFtreatmenttrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with natural IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with mild IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with standard IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'ICSItreatmenttrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with ICSI treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'IUItreatmenttrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with IUI treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with IVF using egg donors treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with IVF using embryo donors treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with IVF using sperm donors treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'EggFreezingtrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with egg freezing treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with embryo freezing treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'SpermFreezingtrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with sperm freezing treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'Surrogacytrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics with Gestational surrogacy treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics providing single woman fertility treatments found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+      {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
+      <p style="font-size: 20px; color: white !important">Clinics providing reciprocal (LGBTQ) fertility treatments found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+
+
+      {% endif %}
     {% endif %}
   </div>
 

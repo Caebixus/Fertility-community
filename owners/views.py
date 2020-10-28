@@ -44,7 +44,7 @@ def register(request):
 
                 send_mail(
                     'Confirm registration - fertilitycommunity.com',
-                    'Please activate your account via this link: https://www.fertilitycommunity.com/account/activate-user?xx1kfdj4sdsdsf48a6aasd7',
+                    'Please activate your account via this link (copy this): https://www.fertilitycommunity.com/account/activate-user?xx1kfdj4sdsdsf48a6aasd7',
                     'info@fertilitycommunity.com',
                     [user.email],
                     fail_silently=False,

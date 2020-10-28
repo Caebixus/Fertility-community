@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages, auth
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -83,12 +84,13 @@ def upgrade2(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def notActiveUser(request):
+    user = request.user
     return render(request, 'owners/not-active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def activateUser(request):
     user = request.user
-    user.authenticateduser.is_actived = True
+    user.authenticateduser.is_activated = True
     user.save()
     return render(request, 'owners/active-user.html')
 
@@ -102,44 +104,47 @@ def logout(request):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
     user = request.user
-    if user.authenticateduser.is_activated == False:
+    try:
+        if user.authenticateduser.is_activated == False:
+            return redirect('notActiveUser')
+        else:
+            all = BasicClinic.objects.filter(clinicOwner_id=request.user)
+            listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
+            listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
+            listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
+
+            customer = Customer.objects.filter(customerClinic__in=all)
+
+            package = Package.objects.filter(packageclinic__in=all)
+            package = package.count()
+
+            basic = all.filter(clinicOwner_id=request.user)
+            instance = basic.filter(pro_is_published='True')
+            ppqinstance = basic.filter(ppq_is_published='True')
+            ppqinstance = ppqinstance.count()
+            instance = instance.count()
+            instance = (instance * 2) + (ppqinstance * 6)
+
+            userdata = User.objects.get(username=request.user).last_login
+
+            usergroup = ProUser.objects.all()
+            usergroup = usergroup.filter(user=request.user)
+            usergroup = usergroup.filter(paidPropublished=True)
+
+            context = {
+                'listingsbasic': listingsbasic,
+                'listingspro': listingspro,
+                'listingsppq': listingsppq,
+                'customer': customer,
+                'package': package,
+                'userdata': userdata,
+                'instance': instance,
+                'usergroup': usergroup,
+            }
+
+            return render(request, 'owners/dashboard.html', context)
+    except ObjectDoesNotExist:
         return redirect('notActiveUser')
-    else:
-        all = BasicClinic.objects.filter(clinicOwner_id=request.user)
-        listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
-        listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
-        listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
-
-        customer = Customer.objects.filter(customerClinic__in=all)
-
-        package = Package.objects.filter(packageclinic__in=all)
-        package = package.count()
-
-        basic = all.filter(clinicOwner_id=request.user)
-        instance = basic.filter(pro_is_published='True')
-        ppqinstance = basic.filter(ppq_is_published='True')
-        ppqinstance = ppqinstance.count()
-        instance = instance.count()
-        instance = (instance * 2) + (ppqinstance * 6)
-
-        userdata = User.objects.get(username=request.user).last_login
-
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-
-        context = {
-            'listingsbasic': listingsbasic,
-            'listingspro': listingspro,
-            'listingsppq': listingsppq,
-            'customer': customer,
-            'package': package,
-            'userdata': userdata,
-            'instance': instance,
-            'usergroup': usergroup,
-        }
-
-        return render(request, 'owners/dashboard.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def settings(request):

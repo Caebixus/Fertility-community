@@ -47,7 +47,7 @@
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
   <!-- Google Tag Manager -->
-  {% if 'localhost' in request.get_full_path %}
+  {% if 'http://localhost:8000/' in request.get_full_path %}
   {% else %}
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -111,7 +111,7 @@
   <br>
   {% block content %}
   {% endblock %}
-  {% if 'localhost' in request.get_full_path %}
+  {% if 'http://localhost:8000/' in request.get_full_path %}
   {% else %}
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGKDGQV"

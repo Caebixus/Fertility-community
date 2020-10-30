@@ -45,7 +45,7 @@
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper" style="text-align:">
         {{ form.packagedesc.errors }}
-        <p>Package Description:</p>
+        <p>Package Description (max 800 characters):</p>
         {{ form.packagedesc }}
       </div>
       <br>
@@ -85,7 +85,7 @@
       <br>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.package_url.errors }}
-        <label for="{{ form.package_url.id_for_label}}">Package URL on your website:</label>
+        <label for="{{ form.package_url.id_for_label}}">Package URL on your website (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well):</label>
         <div class="fieldWrapper">
           {{ form.package_url }}
         </div>

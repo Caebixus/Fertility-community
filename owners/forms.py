@@ -1038,6 +1038,7 @@ class UpdatePricePro(forms.ModelForm):
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package1category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
@@ -1102,6 +1103,7 @@ class UpdatePricePro(forms.ModelForm):
         'single_woman_treatment',
         'reciprocal_ivf',
         'hiv_patients',
+        'sex_selection',
         'pro_is_published_list_date',
         'package1title',
         'package1category',

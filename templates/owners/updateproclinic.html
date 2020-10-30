@@ -48,7 +48,7 @@
           <style> .django-ckeditor-widget { min-width:100% !important; } </style>
           <div class="fieldWrapper" style="text-align:">
             {{ form.description.errors }}
-            <p>Description:</p>
+            <p>Description of your clinic (max 800 characters):</p>
             {{ form.description }}
           </div>
           <br>
@@ -203,7 +203,7 @@
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.contact_url.errors }}
-            <label for="{{ form.contact_url.id_for_label}}">Clinic's URL:</label>
+            <label for="{{ form.contact_url.id_for_label}}">Clinic's URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well):</label>
             {{ form.contact_url }}
           </div>
           <br>
@@ -215,13 +215,13 @@
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.contact_email.errors }}
-            <label for="{{ form.contact_email.id_for_label}}">General clinic email:</label>
+            <label for="{{ form.contact_email.id_for_label}}">General clinic email (visible on clinic's detail):</label>
             {{ form.contact_email }}
           </div>
           <br>
           <div class="fieldWrapper" style="text-align: left">
             {{ form.query_email.errors }}
-            <label for="{{ form.query_email.id_for_label}}">Inquiry email (for packages):</label>
+            <label for="{{ form.query_email.id_for_label}}">Inquiry email (for your packages inquiry):</label>
             {{ form.query_email }}
           </div>
           <br>

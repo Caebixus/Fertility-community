@@ -1287,7 +1287,7 @@
             <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
           </div>
 
-          % if 'IVFtreatmenttrue' in request.get_full_path %}
+          {% if 'IVFtreatmenttrue' in request.get_full_path %}
           <hr noshade>
           <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Natural IVF available</a></p>
 

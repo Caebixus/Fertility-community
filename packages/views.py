@@ -44,14 +44,19 @@ def packages(request):
     return render(request, 'packages/packages.html', context)
 
 def ivfpackages(request):
-    listing = Package.objects.filter(packagecategory__iexact = 'IVF packages')
-    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packagecategory__iexact = 'IVF packages')
-    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packagecategory__iexact = 'IVF packages')
+    todayDate = timezone.now()
+
+    listing = Package.objects.all()
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
     count = listing.count()
+
+    prolisting = prolisting.order_by('package_end_list_date')
+    ppqlisting = ppqlisting.order_by('package_end_list_date')
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 25)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -68,14 +73,19 @@ def ivfpackages(request):
     return render(request, 'packages/ivf-packages.html', context)
 
 def eggpackages(request):
-    listing = Package.objects.filter(packagecategory__iexact = 'Egg Donation')
-    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packagecategory__iexact = 'Egg Donation')
-    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packagecategory__iexact = 'Egg Donation')
+    todayDate = timezone.now()
+
+    listing = Package.objects.all()
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
     count = listing.count()
+
+    prolisting = prolisting.order_by('package_end_list_date')
+    ppqlisting = ppqlisting.order_by('package_end_list_date')
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 25)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -94,12 +104,19 @@ def eggpackages(request):
 
 
 def embryopackages(request):
+    todayDate = timezone.now()
+
     listing = Package.objects.all()
-    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False)
-    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False)
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
     count = listing.count()
 
-    paginator = Paginator(order_data, 12)
+    prolisting = prolisting.order_by('package_end_list_date')
+    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+    order_data = list(ppqlisting) + list(prolisting)
+
+    paginator = Paginator(order_data, 25)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -112,7 +129,6 @@ def embryopackages(request):
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
         'values': request.GET,
     }
-
     return render(request, 'packages/ivf-with-donor-embryo-packages.html', context)
 
 

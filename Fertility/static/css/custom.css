@@ -278,9 +278,10 @@ ul {
 
 ol {
   font-family: 'Josefin Sans';
-  font-size: 115%;
+  font-weight: 300;
   color: #282c34;
   text-align: left;
+  font-size: 115%;
 }
 
 table th:first-child{

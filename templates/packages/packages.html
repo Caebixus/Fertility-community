@@ -3,29 +3,41 @@
 {% load static %}
 {% load humanize %}
 {% block title %}2020 | Compare fertility packages globally{% endblock %}
-{% block description %}Search hundreds of fertility & IVF packages at once to discover the deal you need to make the best decisions for your IVF fertility treatment{% endblock %}
+{% block description %}Search hundreds of fertility packages at once to discover the deal you need to make the best decisions for your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/packages{% endblock %}
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Packages & Deals of fertility clinics all around the world</h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility packages & deals</h1>
     <p class="lead" style="color:white">Search hundreds of fertility treatment packages & limited deals at once. Currently listed <b><i>{{ count }}</i></b> packages.</p>
     <br>
     <h2 class="text-white">What is fertility treatment package?</h2>
     <p class="text-white">The fertility treatment package is used by fertility clinics to create a special or limited offer for clients who are looking for the most interesting fertiltiy treatment offer on the market. For an fertility treatment package, the customer pays one payment, which usually includes the main steps of the fertility treatment process, as well as, for example, special procedures, accommodation, transport or medication.</p>
-    <div hidden class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Category
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item active" href="">IVF packages</a>
-        <a class="dropdown-item" href="">IVF with donor eggs packages</a>
-        <a class="dropdown-item" href="">IVF with donor embryo packages</a>
+    <div class="row">
+      <div class="col-sm col-3">
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item active" href="{% url 'packages' %}">Fertility packages</a>
+            <a class="dropdown-item" href="{% url 'ivfpackages' %}">IVF packages</a>
+            <a class="dropdown-item" href="{% url 'eggpackages' %}">Egg donation packages</a>
+            <a class="dropdown-item" href="{% url 'embryopackages' %}">Embryo donation packages</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm col-3">
+      </div>
+      <div class="col-sm col-3">
+      </div>
+      <div class="col-sm col-3">
       </div>
     </div>
     <br>
   </div>
 </div>
+
 <div class="container py-5">
   <div class="row">
     <div class="col-sm-12">

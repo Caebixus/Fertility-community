@@ -4,10 +4,10 @@ from . import views
 
 urlpatterns = [
     #Package categories
-    path('packages', views.packages, name='packages'), #obecná stránka - landing page!
-    #path('packages/ivf-packages', views.ivfpackages, name='ivfpackages'), #obecná stránka - landing page!
-    #path('packages/ivf-with-donor-eggs-packages', views.eggpackages, name='eggpackages'), #obecná stránka - landing page!
-    #path('packages/ivf-with-donor-embryo-packages', views.embryopackages, name='embryopackages'), #obecná stránka - landing page!
+    path('packages', views.packages, name='packages'),
+    path('packages/ivf-packages', views.ivfpackages, name='ivfpackages'),
+    path('packages/ivf-with-donor-eggs-packages', views.eggpackages, name='eggpackages'),
+    path('packages/ivf-with-donor-embryo-packages', views.embryopackages, name='embryopackages'),
 
     #Location US
     #path('packages/ivf-packages/united-states', views.ivfpackagesus, name='ivfpackagesus'), #obecná stránka - landing page!

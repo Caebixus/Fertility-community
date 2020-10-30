@@ -15,11 +15,11 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'team',
         'contact',
         'search',
-        'locations',
-        'locationsUSRegions',
-        'locationsTexasRegions',
         'blog1',
         'packages',
+        'ivfpackages',
+        'eggpackages',
+        'embryopackages',
         ]
 
     def location(self, item):

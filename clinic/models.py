@@ -18,12 +18,10 @@ class BasicClinic(models.Model):
         ('DonorBank', 'DonorBank'),
         )
     type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
-
-    ### Users option to promote their clinic & treatments
     description = models.TextField(max_length=800, blank=True, null = True)
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
-    ### URL address for contact button to redirections
+    ### Contact information
     clinic_url = models.URLField(null=True, blank=True)
     contact_url = models.URLField()
     contact_phone = models.CharField(max_length=20, blank=True)
@@ -40,7 +38,7 @@ class BasicClinic(models.Model):
     clinicRegion = models.CharField(max_length=100, null=True, blank=True)
     clinicPostalCode = models.CharField(max_length=100)
 
-    ### Clinic Links
+    ### Clinic Links (SEO)
     clinicCityLink = models.URLField(null=True, blank=True)
     clinicRegionLink = models.URLField(null=True, blank=True)
     clinicStateLink = models.URLField(null=True, blank=True)
@@ -211,8 +209,14 @@ class BasicClinic(models.Model):
     clinic_pro_photo_5 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
 
-    ### DEPRECIATED MODELS FIELDS ------------------- ------------------- ------------------- ------------------- -------------------
 
+#
+###
+####
+#####
+######
+#######
+######## DEPRECIATED MODELS FIELDS ------------------- ------------------- ------------------- ------------------- -------------------
     CATEGORY_PACKAGE = (
         ('IVF', 'IVF'),
         ('Egg Donation', 'Egg Donation'),
@@ -252,8 +256,6 @@ class BasicClinic(models.Model):
     clinic_pro_promotion_name = models.CharField(max_length=80, blank=True, null=True)
     clinic_pro_promotion_description = models.TextField(max_length=800, blank=True, null=True)
     clinic_pro_promotion_landing_url = models.URLField(null=True, blank=True)
-
-    ### Clinics Doctors & Staff
     clinic_staff = RichTextField(blank=True, null=True, max_length=300)
 
     def __str__(self):

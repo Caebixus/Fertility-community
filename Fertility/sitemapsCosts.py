@@ -1,6 +1,7 @@
 from django.contrib import sitemaps
 from django.urls import reverse
 from base import views
+from location import views
 
 class CostsViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
@@ -13,12 +14,10 @@ class CostsViewSitemap(sitemaps.Sitemap):
         'locationsIVFwithEggDonation',
         'locationsIVFwithEmbryoDonation',
         'locationsIUI',
-
         'locationsUSRegions',
         'locationsUKRegions',
         'locationsCZRegions',
         'locationsSPRegions',
-
         'locationsTexasRegions',
         ]
 

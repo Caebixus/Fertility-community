@@ -10,15 +10,15 @@
     <div class="row">
       {% if listing.ppq_is_published == True and listing.pro_is_published == False %}
         {% for packages in package|slice:"0:6" %}
+        <br>
+        <br>
           <div class="col-sm-6">
-            <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+            <div class="container py-3 shadow" style="background-color: white; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
               <div class="header" style="min-height:50px;">
                 <div class="row">
                   <div class="col-8 sm-8">
                     <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ packages.packagetitle }}</h2>
-                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
                     <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
-                    <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
                   </div>
                   <div class="col-4 sm-4 text-right">
                     <button type="button" class="btn btn-warning btn-lg"> {{ packages.packagecost|floatformat:'0'|intcomma }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
@@ -27,28 +27,32 @@
                 <br>
                 <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
               </div>
+              <br>
               <hr noshade style="border-top: 1px solid">
+              <br>
               {{ packages.packagedesc|safe }}
+              <br>
               <hr noshade style="border-top: 1px solid ">
+              <br>
               <div class="row" style="text-align: center">
-                <div class="col-6 md-4 mb-2">
+                <div class="col-6 md-6 mb-2">
                   {% if packages.package_url %}
-                  <a href="{{ packages.package_url }}">
-                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+                  <a href="{{ packages.package_url }}" rel="sponsored">
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> More information</button>
                   </a>
                   {% endif %}
                 </div>
-                <div class="col-6 md-4 mb-2">
+                <div class="col-6 md-6 mb-2">
                   {% if packages.packageclinic.query_email %}
                   <a href="mailto:{{ packages.packageclinic.query_email }}">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Contact me</button>
                   </a>
                   <br>
                   <br>
                   {% endif %}
                   {% if packages.package_phone %}
                   <a href="tel:{{ packages.package_phone }}" style="text-align:center">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call us</button>
                   </a>
                   {% endif %}
                 </div>
@@ -57,18 +61,20 @@
             <br>
             <br>
           </div>
+          <br>
+          <br>
         {% endfor %}
       {% else %}
         {% for packages in package|slice:"0:2" %}
+        <br>
+        <br>
           <div class="col-sm-6">
             <div class="container py-3 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
               <div class="header" style="min-height:50px;">
                 <div class="row">
                   <div class="col-8 sm-8">
                     <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ packages.packagetitle }}</h2>
-                    <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
                     <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
-                    <span class="badge badge-primary"><i class="fas fa-fire-alt"></i> Popular</span>
                   </div>
                   <div class="col-4 sm-4 text-right">
                     <button type="button" class="btn btn-warning btn-lg"> {{ packages.packagecost|floatformat:'0'|intcomma }} {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
@@ -77,28 +83,32 @@
                 <br>
                 <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
               </div>
+              <br>
               <hr noshade style="border-top: 1px solid">
+              <br>
               {{ packages.packagedesc|safe }}
+              <br>
               <hr noshade style="border-top: 1px solid ">
+              <br>
               <div class="row" style="text-align: center">
-                <div class="col-6 md-4 mb-2">
+                <div class="col-6 md-6 mb-2">
                   {% if packages.package_url %}
-                  <a href="{{ packages.package_url }}">
-                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+                  <a href="{{ packages.package_url }}" rel="sponsored">
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> More information</button>
                   </a>
                   {% endif %}
                 </div>
-                <div class="col-6 md-4 mb-2">
+                <div class="col-6 md-6 mb-2">
                   {% if packages.packageclinic.query_email %}
                   <a href="mailto:{{ packages.packageclinic.query_email }}">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Contact me</button>
                   </a>
                   <br>
                   <br>
                   {% endif %}
                   {% if packages.package_phone %}
                   <a href="tel:{{ packages.package_phone }}" style="text-align:center">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call us</button>
                   </a>
                   {% endif %}
                 </div>
@@ -107,6 +117,8 @@
             <br>
             <br>
           </div>
+          <br>
+          <br>
         {% endfor %}
       {% endif %}
     </div>

@@ -23,31 +23,27 @@
         <br>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updateproclinic' listings.id %}">
-              <p><i class="fas fa-tools"></i> Clinic information</p>
-            </a>
-            <a href="{% url 'updatePricingPro' listings.id %}">
-              <p><i class="fas fa-comment-dollar"></i> Clinic pricing</p>
-            </a>
+            <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
+
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}">
-              <p><i class="fas fa-eye"></i> View clinic</p>
-            </a>
+            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
+        <br>
         <div class="row">
           {% if listings.customer.membership == True %}
           <div class="col-4 col-sm">
-            <a href="{% url 'payments' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Payments</button>
+            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-dark text-light btn-block" type="button">Payments</button>
             </a>
           </div>
           {% endif %}
           {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 6 %}
           <div class="col-4 col-sm">
             <a href="{% url 'createpackage' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Create package</button>
+              <button class="btn btn-dark text-light btn-block" type="button">Create package</button>
             </a>
           </div>
           {% else %}
@@ -57,7 +53,7 @@
           {% if package %}
           <div class="col-4 col-sm">
             <a href="{% url 'clinicpackagesettings' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Packages</button>
+              <button class="btn btn-dark text-light btn-block" type="button">Packages</button>
             </a>
           </div>
           {% endif %}
@@ -77,31 +73,26 @@
         <br>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updateproclinic' listings.id %}">
-              <p><i class="fas fa-tools"></i> Clinic information</p>
-            </a>
-            <a href="{% url 'updatePricingPro' listings.id %}">
-              <p><i class="fas fa-comment-dollar"></i> Clinic pricing</p>
-            </a>
+            <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}">
-              <p><i class="fas fa-eye"></i> View clinic</p>
-            </a>
+            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
+        <br>
         <div class="row">
           {% if listings.customer.membership == True %}
           <div class="col-4 col-sm">
-            <a href="{% url 'payments' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Payments</button>
+            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-dark text-light btn-block" type="button">Payments</button>
             </a>
           </div>
           {% endif %}
           {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 2 %}
           <div class="col-4 col-sm">
             <a href="{% url 'createpackage' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Create package</button>
+              <button class="btn btn-dark text-light btn-block" type="button">Create package</button>
             </a>
           </div>
           {% else %}
@@ -111,7 +102,7 @@
           {% if package %}
           <div class="col-4 col-sm">
             <a href="{% url 'clinicpackagesettings' listings.id %}">
-              <button class="btn btn-info text-light" type="button">Packages</button>
+              <button class="btn btn-dark text-light btn-block" type="button">Packages</button>
             </a>
           </div>
           {% endif %}
@@ -131,19 +122,14 @@
         <br>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'update' listings.id %}">
-              <p><i class="fas fa-tools"></i> Clinic information</p>
-            </a>
-            <a href="{% url 'updatePricing' listings.id %}">
-              <p><i class="fas fa-comment-dollar"></i> Clinic pricing</p>
-            </a>
+            <p><i class="fas fa-tools"></i> <a href="{% url 'update' listings.id %}">Clinic information</a></p>
+            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricing' listings.id %}">Clinic pricing</a></p>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}">
-              <p><i class="fas fa-eye"></i> View clinic</p>
-            </a>
+            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
+        <br>
         <div class="row">
           {% if listings.customer.stripeid %}
           <div class="col-4 col-sm">
@@ -152,13 +138,13 @@
           </div>
           <div class="col-4 col-sm">
             <a href="{% url 'checkout2' listings.id %}">
-              <button class="btn btn-success text-light" type="button">Upgrade Clinic</button>
+              <button class="btn btn-success text-light btn-block" type="button">Upgrade Clinic</button>
             </a>
           </div>
           {% else %}
           <div class="col-4 col-sm">
-            <a href="{% url 'upgrade' listings.id %}">
-              <button class="btn btn-success text-light" type="button">Why upgrade?</button>
+            <a href="{% url 'upgrade' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-success text-light btn-block" type="button">Why upgrade?</button>
             </a>
           </div>
           <div class="col-4 col-sm">

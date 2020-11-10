@@ -1,0 +1,853 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Kentucky | 2020{% endblock %}
+{% block description %}Search the best Kentucky fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-kentucky{% endblock %}
+{% block meta_keywords %}search fertility clinic kentucky, search ivf clinics kentucky, search fertility doctor kentucky, search fertility specialist kentucky, search fertility center kentucky, search private fertility clinic kentucky{% endblock %}
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
+          Fertility clinics in Kentucky, United States
+    </h1>
+    <p style="font-size: 24px; color: white !important">Clinics found: <strong><u>{{ my_total_count }}</u></strong></p>
+    <p style="font-size: 20px; color: white !important">More information about <a href="https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-kentucky#more_information" style="font-size: 20px; color: white !important"><u>IVF clinics in Kentucky</u></a></p>
+  </div>
+
+  <!-- Filter section -->
+
+  <div class="container">
+    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filter location or treatments</button>
+    <br>
+    <br>
+    <div class="collapse" id="collapseExample">
+      <div class="accordion" id="accordionExample" style="padding-bottom:2rem">
+        <div class="lol" style="background-color: #286DA8">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <br>
+              <div hidden class="form-group" style="padding-top:1rem">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                      <option value="US" selected>United States</option>
+                      {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem" id="regions-us">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                      <option value="KY" selected>Kentucky</option>
+                      {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                      <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem">
+                <div class="accordion" id="accordionExample">
+                  <div class="card" id="cardBox" style="border-radius: 8px;">
+                    <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                      <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Types of treatments
+                      </button>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="All treatment">All treatments</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment mild">Mild IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
+                          </div>
+                        </div>
+
+                        <div class="col">
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Egg freezing">Egg freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                          </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:2rem">
+                <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
+                <br>
+              </div>
+            </div>
+          </form>
+          <hr noshade style="border-top: 1px solid white">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <h5 class="mb-0 text-left" id="headingOne">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-filter"></i> Change country
+                </button>
+              </h5>
+              <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                  <br>
+                  <div class="form-group" style="padding-top:1rem">
+                    <div class="card" style="border-radius: 8px;">
+                      <div class="card-header" style="background-color: white; border-radius: 8px;">
+                        <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                          <option value="" selected>Select state</option>
+                          {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3" style="padding-top:1rem;">
+                    <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change Country</button>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<!-- Interesting links section -->
+
+<div class="container">
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in USA</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  <hr>
+</div>
+<br>
+
+<!-- PRO Clinic listings section -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      {% if paginationing %}
+      {% for order_datas in order_data %}
+
+      {% if order_datas.clinic_pro_logo_pic %}
+      <script type="application/ld+json">
+        {
+          "name" : "{{ order_datas.clinicName }}",
+          "image" : "{{ order_datas.clinic_pro_logo_pic }}",
+          "address" : {
+            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
+            "addressLocality" : "{{ order_datas.clinicCity }}",
+            "postalCode" : "{{ order_datas.clinicPostalCode }}",
+            "addressRegion" : "{{ order_datas.clinicRegion }}",
+            "addressCountry" : "{{ order_datas.clinicState }}",
+            "@type" : "PostalAddress"
+          },
+          "@type" : "MedicalClinic",
+          "@context" : "http://schema.org"
+        }
+      </script>
+      {% else %}
+      <script type="application/ld+json">
+        {
+          "name" : "{{ order_datas.clinicName }}",
+          "image" : "{% static 'img/hospital.svg' %}",
+          "address" : {
+            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
+            "addressLocality" : "{{ order_datas.clinicCity }}",
+            "postalCode" : "{{ order_datas.clinicPostalCode }}",
+            "addressRegion" : "{{ order_datas.clinicRegion }}",
+            "addressCountry" : "{{ order_datas.clinicState }}",
+            "@type" : "PostalAddress"
+          },
+          "@type" : "MedicalClinic",
+          "@context" : "http://schema.org"
+        }
+      </script>
+      {% endif %}
+      {% endfor %}
+
+
+      {% for order_datas in order_data %}
+      {% if order_datas.ppq_is_published == True %}
+        {% if order_datas.ivf_treatment_cost != Null or order_datas.mild_ivf_treatment_cost != Null or order_datas.ovarian_ivf_treatment_cost != Null or order_datas.icsi_treatment_cost != Null or order_datas.egg_donor_recipients_cost != Null or order_datas.sperm_donor_recipients_cost != Null or order_datas.embryo_donor_recipients_cost != Null %}
+        <!-- PPQ Clinic listings PRICING -->
+        <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade style="border-top: 1px solid white">
+          <div class="row-md">
+            <p style="color: white">Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p style="color: white">Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade style="border-top: 1px solid white">
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#pricing">
+                <button id="pricingSearchButton" type="button" class="btn btn-outline-info btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
+              </a>
+            </div>
+            {% if order_datas.ppq_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#packages">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% endif %}
+          </div>
+          <br>
+        </div>
+        <br>
+        {% else %}
+        <!-- PPQ Clinic listings NOPRICING -->
+        <div class="container" style="background-color: #286DA8; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px;">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: white; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: white; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade style="border-top: 1px solid white">
+          <div class="row-md">
+            <p style="color: white">Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p style="color: white">Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade style="border-top: 1px solid white">
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-light btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% if order_datas.ppq_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#packages">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% endif %}
+          </div>
+          <br>
+        </div>
+        <br>
+        {% endif %}
+      {% elif order_datas.pro_is_published == True and order.datas.ppq_is_published != True %}
+        {% if order_datas.ivf_treatment_cost != Null or order_datas.mild_ivf_treatment_cost != Null or order_datas.ovarian_ivf_treatment_cost != Null or order_datas.icsi_treatment_cost != Null or order_datas.egg_donor_recipients_cost != Null or order_datas.sperm_donor_recipients_cost != Null or order_datas.embryo_donor_recipients_cost != Null %}
+        <!-- PRO Clinic listings PRICING -->
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade style="border-top: 1px solid #6c757d">
+          <div class="row-md">
+            <p>Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade style="border-top: 1px solid #6c757d">
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#pricing">
+                <button id="pricingSearchButton" type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
+              </a>
+            </div>
+            {% if order_datas.pro_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#packages">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% endif %}
+          </div>
+          <br>
+        </div>
+        <br>
+        {% else %}
+        <!-- PRO Clinic listings NOPRICING -->
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade style="border-top: 1px solid #6c757d">
+          <div class="row-md">
+            <p>Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade style="border-top: 1px solid #6c757d">
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% if order_datas.pro_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#packages">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            {% endif %}
+          </div>
+          <br>
+        </div>
+        <br>
+        {% endif %}
+      {% elif order_datas.pro_is_published != True and order_datas.is_published == True %}
+        {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
+        <!-- BASIC Clinic listings PRICING -->
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade>
+          <div class="row-md">
+            <p>Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade>
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}#pricing">
+                <button id="pricingSearchButton" type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+          </div>
+        </div>
+        <br>
+        {% else %}
+        <!-- BASIC Clinic listings NOPRICING -->
+        <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
+          <div class="container" style="padding-top: 20px">
+            <div class="header" style="min-height:80px;">
+              {% if order_datas.clinic_pro_logo_pic %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% else %}
+              <div id="imgInfo" class="img align-self-center align-items-center">
+                <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
+                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                </a>
+              </div>
+              {% endif %}
+              <div class="container" id="nameInfo">
+                <div class="row-md">
+                  <a href="{{ order_datas.clinic_url }}">
+                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                  </a>
+                </div>
+                {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-map-marker-alt"></i> {{order_datas.clinicStreetAddress}}, {{ order_datas.clinicPostalCode }} {{ order_datas.clinicCity }}, {{ order_datas.clinicState }}</p>
+            <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><i class="fas fa-phone-alt"></i> <a href="{{ order_datas.clinic_url }}#contact" style="font-size: 15px; color: #6c757d; margin-bottom: 0px">{{ order_datas.contact_phone }}</a></p>
+          </div>
+          <hr noshade>
+
+          <div class="row-md">
+            <p>Features:
+            {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
+            {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+            </p>
+          </div>
+          <div class="row-md">
+            <p>Certification:
+            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> SART certified</span>{% else %}{% endif %}
+            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> HFAE certified</span>{% else %}{% endif %}
+            </p>
+          </div>
+
+          <hr noshade>
+          <div class="row">
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{{ order_datas.clinic_url }}">
+                <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
+              </a>
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+            <div class="col-4 col-sm" style="padding-top:1rem">
+            </div>
+          </div>
+        </div>
+        <br>
+        {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      <div class="container" style="background-color: white; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            <div class="container" id="nameInfo" style="padding-bottom:5rem">
+              <div class="row align-self-center align-items-center">
+                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search querry.</h2>
+                <p>Please try different country or treatment option.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Treatment average prices -->
+    <div class="col-sm-4">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2020:</h2>
+          <br>
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Sperm donation recipients price: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          <br>
+          <div class="row">
+            <div class="col-6 col-md">
+              <a href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> USA Compare
+                </button>
+              </a>
+            </div>
+            <div class="col-6 col-md">
+              <a href="{% url 'locations' %}">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-globe"></i> World Compare
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<!-- Clinic additional locations -->
+<div class="container" style="text-align: center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        {% if paginationing.has_previous %}
+        <a class="page-link" href="?{% param_replace page=1 %}">&laquo; First</a>
+      </li>
+      <li class="page-item">
+        {% if page_obj.previous_page_number != 1 %}
+        <a class="page-link" href="?{% param_replace page=paginationing.previous_page_number %}">Previous</a>
+        {% endif %}
+      </li>
+      {% endif %}
+      <li class="page-item">
+        <a class="page-link">Page {{ paginationing.number }} of {{ paginationing.paginator.num_pages }}</a>
+      </li>
+
+      {% if paginationing.has_next %}
+      <li class="page-item">
+        {% if paginationing.next_page_number != paginator.num_pages %}
+        <a class="page-link" href="?{% param_replace page=paginationing.next_page_number %}">Next</a>
+        {% endif %}
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<br>
+<br>
+<div class="background" style="background-color: #286DA8">
+  <br>
+  <br>
+  <div class="container">
+    <h2 class="text-white">Packages & Deals | 2020</h2>
+    <p class="text-white">Be sure to check out IVF packages and other special offers from fertility clinics.</p>
+      <a href="{% url 'packages' %}">
+        <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md"><i class="fas fa-archive"></i>
+          All IVF Packages
+        </button>
+      </a>
+    <br>
+  </div>
+  <br>
+  <br>
+</div>
+<br>
+<br>
+
+<!-- Clinic additional locations -->
+<div class="container">
+  <a name="more_information"></a>
+  <h2>Fertility Clinics in Kentucky</h2>
+  <p>The fertility clinics in Kentucky offer various services, such as <b><u>ovulation induction</u></b>, <b><u>intrauterine insemination</u></b>, <b><u>In Vitro Fertilization</u></b>, <b><u>male infertility treatment</u></b>, <b><u>fertility preservation</u></b>, <b><u>third-party reproduction</u></b> and more.</p>
+  <br>
+  <h2>General Information about <a href="https://en.wikipedia.org/wiki/Kentucky" rel="nofollow">Kansas</a></h2>
+  <p>Kentucky is a state located in the Southern United States region of the USA. The capital city is Frankfort, the two largest cities are Louisville and Lexington. The state borders Illinois, Indiana, Ohio, West Virginia, Virginia, Tennessee, and Missouri.</p>
+  <br>
+  <h2>History of Kentucky</h2>
+  <p>The area known as Kentucky was originally home to five different culture groups: Iroquoian, Siuox, Algonquian, Muskogean, and Yuchi. </p>
+  <p>The first European explorer was <b>French Rene-Robert Cavelier</b>, Sieur de la Salle. The first permanent European settlement was founded in 1774. In 1792, Kentucky split from Virginia and became the 15th state of the USA.</p>
+  <br>
+  <h2>Kentucky - Quick guide </h2>
+  <p>Kentucky has humid, <u>subtropical climate</u>. </p>
+  <p>The area is divided into five regions: the Cumberland Plateau, the Bluegrass region, the Pennyroyal Plateau, the Western Coal Fields, and the Jackson Purchase.</p>
+  <p>This state is home to <u>Mammoth Cave National Park</u>, <b>the world’s longest cave system</b>. It can also offer one of the longest navigable waterways in the USA. The two largest man-made lakes, Lake Cumberland and Kentucky Lake, can both be found in Kentucky. One of the most famous tourist destinations is “My Old Kentucky Home” historic state park. </p>
+  <p>The area has been part of two of the most successful wildlife reintroduction projects in the USA and managed to save the elk, wild turkey, and gray wolf from extinction. It has one national park, two national recreation areas, two national historic parks, two national forests, two national wildlife refuges, 45 state parks, and 82 wildlife management areas. </p>
+  <p>Kentucky is known for horse racing, bluegrass music, tobacco, bourbon, and moonshine. However, <u>Kentucky Fried Chicken</u> is probably one of the first associations. </p>
+  <br>
+  <h2>Fun facts about Kentucky</h2>
+  <p>The state was named after the Kentucky River, however, the origins of the name “Kentucky” remain unclear. Experts think it could either come from the Iroquoian language, meaning “on the prairie,” or from Algonquian languages, meaning “the land of our fathers.”</p>
+  <p>A common nickname for Kentucky is the “Bluegrass State.” It is based on <b>the Kentucky bluegrass</b>, a special kind of grass that can be found on Kentucky pastures. </p>
+</div>
+
+<!-- Clinic additional locations -->
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United States</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li ><a href="{% url 'fertilityClinicsUtah' %}">Utah fertility centers</a></li>
+        <li ><a href="{% url 'fertilityClinicsNewJersey' %}">IVF clinics in New Jersey</a></li>
+        <br>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF costs in USA</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li ><a href="{% url 'fertilityClinicsNewYork' %}">Fertility institutes in New York</a></li>
+        <li ><a href="{% url 'fertilityClinicsArizona' %}">Arizona reproductive medicine specialists</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

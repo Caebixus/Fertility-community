@@ -8038,3 +8038,29 @@ def locationsSPRegions(request):
         'my_total_count_valencia': my_total_count_valencia,
         }
     return render(request, 'main/Locations/SPLocations/sp-regions-ivf.html', context)
+
+
+def locationsINRegions(request):
+    queryset_list_in = BasicClinic.objects.all()
+
+    #--------------------------------------------------------------------------
+    queryset_list_chennai = queryset_list_in.filter(clinicRegion__iexact='Chennai')
+    my_total_count_chennai = queryset_list_chennai.count()
+    queryset_list_chennai_ivf = queryset_list_chennai.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_chennai_ivf.items():
+        eurCurrency_chennai_ivf = val
+        if eurCurrency_chennai_ivf is not None:
+            usdCurrency_chennai_ivf = val * eurToUsd
+            gbpCurrency_chennai_ivf = val * eurToGbp
+        else:
+            usdCurrency_chennai_ivf = None
+            gbpCurrency_chennai_ivf = None
+
+
+    context = {
+        'gbpCurrency_chennai_ivf': gbpCurrency_chennai_ivf,
+        'usdCurrency_chennai_ivf': usdCurrency_chennai_ivf,
+        'eurCurrency_chennai_ivf': eurCurrency_chennai_ivf,
+
+        }
+    return render(request, 'main/Locations/INLocations/in-regions-ivf.html', context)

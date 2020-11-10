@@ -19,156 +19,161 @@
   <!-- Filter section -->
 
   <div class="container">
-    <div class="accordion" id="accordionExample" style="padding-bottom:2rem">
-      <div class="lol" style="background-color: #286DA8">
-        <form action="{% url 'search' %}">
-          <div class="mainbanner" id="mainhpbanner">
-            <br>
-            <div hidden class="form-group" style="padding-top:1rem">
-              <div class="card" style="border-radius: 8px;">
-                <div class="card-header" style="background-color: white; border-radius: 8px;">
-                  <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                    <option value="UK" selected>Select Region</option>
-                    {% for key, value in CATEGORY_CHOICES_STATES.items %}
-                    <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" style="padding-top:1rem" id="regions-us">
-              <div class="card" style="border-radius: 8px;">
-                <div class="card-header" style="background-color: white; border-radius: 8px;">
-                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
-                    <option value="Nottingham" selected>Nottingham</option>
-                    {% for key, value in CATEGORY_CHOICES_UK_CITIES.items %}
-                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" style="padding-top:1rem">
-              <div class="accordion" id="accordionExample">
-                <div class="card" id="cardBox" style="border-radius: 8px;">
-                  <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
-                    <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Types of treatments
-                    </button>
+    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filter location or treatments</button>
+    <br>
+    <br>
+    <div class="collapse" id="collapseExample">
+      <div class="accordion" id="accordionExample" style="padding-bottom:2rem">
+        <div class="lol" style="background-color: #286DA8">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <br>
+              <div hidden class="form-group" style="padding-top:1rem">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                      <option value="UK" selected>Select Region</option>
+                      {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
                   </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem" id="regions-us">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                      <option value="Nottingham" selected>Nottingham</option>
+                      {% for key, value in CATEGORY_CHOICES_UK_CITIES.items %}
+                      <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem">
+                <div class="accordion" id="accordionExample">
+                  <div class="card" id="cardBox" style="border-radius: 8px;">
+                    <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                      <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Types of treatments
+                      </button>
+                    </div>
 
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <div class="row">
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="All treatment">All treatments</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment mild">Mild IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
+                          </div>
+                        </div>
+
                         <div class="col">
                           <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="All treatment">All treatments</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="IVF treatment">Natural IVF</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="IVF treatment mild">Mild IVF</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
-                        </div>
-                      </div>
+                            <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Egg freezing">Egg freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
+                            <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                          </div>
 
-                      <div class="col">
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Egg freezing">Egg freezing</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="IUI treatment">IUI treatment</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
-                          <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
-                        </div>
-
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:2rem">
-              <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
-              <br>
-            </div>
-          </div>
-        </form>
-        <hr noshade style="border-top: 1px solid white">
-        <form action="{% url 'search' %}">
-          <div class="mainbanner" id="mainhpbanner">
-            <h5 class="mb-0 text-left" id="headingOne">
-              <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-filter"></i> Change country
-              </button>
-            </h5>
-            <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+              <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:2rem">
+                <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
                 <br>
-                <div class="form-group" style="padding-top:1rem">
-                  <div class="card" style="border-radius: 8px;">
-                    <div class="card-header" style="background-color: white; border-radius: 8px;">
-                      <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                        <option value="" selected>Select state</option>
-                        {% for key, value in CATEGORY_CHOICES_STATES.items %}
-                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
-                        {% endfor %}
-                      </select>
+              </div>
+            </div>
+          </form>
+          <hr noshade style="border-top: 1px solid white">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <h5 class="mb-0 text-left" id="headingOne">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-filter"></i> Change country
+                </button>
+              </h5>
+              <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                  <br>
+                  <div class="form-group" style="padding-top:1rem">
+                    <div class="card" style="border-radius: 8px;">
+                      <div class="card-header" style="background-color: white; border-radius: 8px;">
+                        <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                          <option value="" selected>Select state</option>
+                          {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="input-group mb-3" style="padding-top:1rem;">
-                  <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change Country</button>
-                  <br>
+                  <div class="input-group mb-3" style="padding-top:1rem;">
+                    <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change Country</button>
+                    <br>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>

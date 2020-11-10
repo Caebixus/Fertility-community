@@ -58,7 +58,7 @@ def fertilityClinicsAlabama(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-alabama.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-alabama.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsAlaska(request):
@@ -111,7 +111,7 @@ def fertilityClinicsAlaska(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-alaska.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-alaska.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsArizona(request):
@@ -164,7 +164,7 @@ def fertilityClinicsArizona(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-arizona.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-arizona.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsArkansas(request):
@@ -217,7 +217,7 @@ def fertilityClinicsArkansas(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-arkansas.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-arkansas.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsCalifornia(request):
@@ -270,7 +270,7 @@ def fertilityClinicsCalifornia(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-california.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-california.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsColorado(request):
@@ -323,7 +323,7 @@ def fertilityClinicsColorado(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-colorado.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-colorado.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsConnecticut(request):
@@ -376,7 +376,7 @@ def fertilityClinicsConnecticut(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-connecticut.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-connecticut.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsDelaware(request):
@@ -429,7 +429,7 @@ def fertilityClinicsDelaware(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-delaware.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-delaware.html', context)
 
     # ----------------------------------------------------------------------------
 def fertilityClinicsFlorida(request):
@@ -482,7 +482,7 @@ def fertilityClinicsFlorida(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-florida.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-florida.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsGeorgia(request):
@@ -535,7 +535,7 @@ def fertilityClinicsGeorgia(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-georgia.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-georgia.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsHawaii(request):
@@ -588,7 +588,7 @@ def fertilityClinicsHawaii(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-hawaii.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-hawaii.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsIdaho(request):
@@ -641,7 +641,7 @@ def fertilityClinicsIdaho(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-idaho.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-idaho.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsIllinois(request):
@@ -694,7 +694,7 @@ def fertilityClinicsIllinois(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-illinois.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-illinois.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsIndiana(request):
@@ -747,7 +747,7 @@ def fertilityClinicsIndiana(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-indiana.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-indiana.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsIowa(request):
@@ -800,7 +800,7 @@ def fertilityClinicsIowa(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-iowa.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-iowa.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsKansas(request):
@@ -853,7 +853,7 @@ def fertilityClinicsKansas(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-kansas.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-kansas.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsKentucky(request):
@@ -906,7 +906,7 @@ def fertilityClinicsKentucky(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-kentucky.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-kentucky.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsLouisiana(request):
@@ -959,7 +959,7 @@ def fertilityClinicsLouisiana(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-louisiana.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-louisiana.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaine(request):
@@ -1012,7 +1012,7 @@ def fertilityClinicsMaine(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-maine.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-maine.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMaryland(request):
@@ -1065,7 +1065,7 @@ def fertilityClinicsMaryland(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-maryland.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-maryland.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMassachusetts(request):
@@ -1118,7 +1118,7 @@ def fertilityClinicsMassachusetts(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-massachusetts.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-massachusetts.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMichigan(request):
@@ -1171,7 +1171,7 @@ def fertilityClinicsMichigan(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-michigan.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-michigan.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMinnesota(request):
@@ -1224,7 +1224,7 @@ def fertilityClinicsMinnesota(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-minnesota.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-minnesota.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMississippi(request):
@@ -1277,7 +1277,7 @@ def fertilityClinicsMississippi(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-mississippi.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-mississippi.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMissouri(request):
@@ -1330,7 +1330,7 @@ def fertilityClinicsMissouri(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-missouri.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-missouri.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsMontana(request):
@@ -1383,7 +1383,7 @@ def fertilityClinicsMontana(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-montana.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-montana.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNebraska(request):
@@ -1436,7 +1436,7 @@ def fertilityClinicsNebraska(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-nebraska.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-nebraska.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewHampshire(request):
@@ -1489,7 +1489,7 @@ def fertilityClinicsNewHampshire(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-new-hampshire.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-new-hampshire.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewJersey(request):
@@ -1542,7 +1542,7 @@ def fertilityClinicsNewJersey(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-new-jersey.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-new-jersey.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewMexico(request):
@@ -1595,7 +1595,7 @@ def fertilityClinicsNewMexico(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-new-mexico.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-new-mexico.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNewYork(request):
@@ -1648,7 +1648,7 @@ def fertilityClinicsNewYork(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-new-york.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-new-york.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthCarolina(request):
@@ -1701,7 +1701,7 @@ def fertilityClinicsNorthCarolina(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-north-carolina.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-north-carolina.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNorthDakota(request):
@@ -1754,7 +1754,7 @@ def fertilityClinicsNorthDakota(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-north-dakota.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-north-dakota.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsNevada(request):
@@ -1807,7 +1807,7 @@ def fertilityClinicsNevada(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-nevada.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-nevada.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsOhio(request):
@@ -1860,7 +1860,7 @@ def fertilityClinicsOhio(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-ohio.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-ohio.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsOklahoma(request):
@@ -1913,7 +1913,7 @@ def fertilityClinicsOklahoma(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-oklahoma.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-oklahoma.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsOregon(request):
@@ -1966,7 +1966,7 @@ def fertilityClinicsOregon(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-oregon.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-oregon.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsPennsylvania(request):
@@ -2019,7 +2019,7 @@ def fertilityClinicsPennsylvania(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-pennsylvania.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-pennsylvania.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsPuertoRico(request):
@@ -2072,7 +2072,7 @@ def fertilityClinicsPuertoRico(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-puerto-rico.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-puerto-rico.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsRhodeIsland(request):
@@ -2125,7 +2125,7 @@ def fertilityClinicsRhodeIsland(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-rhode-island.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-rhode-island.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthCarolina(request):
@@ -2178,7 +2178,7 @@ def fertilityClinicsSouthCarolina(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-south-carolina.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-south-carolina.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsSouthDakota(request):
@@ -2231,7 +2231,7 @@ def fertilityClinicsSouthDakota(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-south-dakota.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-south-dakota.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsTennessee(request):
@@ -2284,7 +2284,7 @@ def fertilityClinicsTennessee(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-tennessee.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-tennessee.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsTexas(request):
@@ -2337,7 +2337,7 @@ def fertilityClinicsTexas(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-texas.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-texas.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsUtah(request):
@@ -2390,7 +2390,7 @@ def fertilityClinicsUtah(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-utah.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-utah.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsVermont(request):
@@ -2443,7 +2443,7 @@ def fertilityClinicsVermont(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-vermont.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-vermont.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsVirginia(request):
@@ -2496,7 +2496,7 @@ def fertilityClinicsVirginia(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-virginia.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-virginia.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsWashington(request):
@@ -2549,7 +2549,7 @@ def fertilityClinicsWashington(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-washington.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-washington.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsWestVirginia(request):
@@ -2602,7 +2602,7 @@ def fertilityClinicsWestVirginia(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-virginia.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-virginia.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsWisconsin(request):
@@ -2655,7 +2655,7 @@ def fertilityClinicsWisconsin(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-wisconsin.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-wisconsin.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsWyoming(request):
@@ -2708,7 +2708,7 @@ def fertilityClinicsWyoming(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-wyoming.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-wyoming.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicsDistrictOfColumbia(request):
@@ -2761,4 +2761,4 @@ def fertilityClinicsDistrictOfColumbia(request):
         'my_total_count': my_total_count,
         }
 
-    return render(request, 'locations-regions-US/fertility-clinics-district-of-columbia.html', context)
+    return render(request, 'locations-regions/USA/fertility-clinics-district-of-columbia.html', context)

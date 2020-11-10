@@ -219,6 +219,58 @@
         {% elif values.Region == 'Valencia'%}
           Search fertility clinics & agencies in Valencia, Spain
         {% endif %}
+
+      {% elif values.States == 'IN' %}
+        {% if values.Region == '' %}
+          Search fertility clinics & agencies in India
+        {% elif values.Region == None %}
+          Search fertility clinics & agencies in India
+        {% elif values.Region == 'Chennai' %}
+          Search fertility clinics & agencies in Chennai, India
+        {% elif values.Region == 'Hyderabad'%}
+          Search fertility clinics & agencies in Hyderabad, India
+        {% elif values.Region == 'Mumbai'%}
+          Search fertility clinics & agencies in Mumbai, India
+        {% elif values.Region == 'Patna'%}
+          Search fertility clinics & agencies in Patna, India
+        {% elif values.Region == 'Raipur'%}
+          Search fertility clinics & agencies in Raipur, India
+        {% elif values.Region == 'Amdavad'%}
+          Search fertility clinics & agencies in Amdavad, India
+        {% elif values.Region == 'Chandigarh'%}
+          Search fertility clinics & agencies in Chandigarh, India
+        {% elif values.Region == 'Faridabad'%}
+          Search fertility clinics & agencies in Faridabad, India
+        {% elif values.Region == 'Jamshedpur'%}
+          Search fertility clinics & agencies in Jamshedpur, India
+        {% elif values.Region == 'Bangalore'%}
+          Search fertility clinics & agencies in Bangalore, India
+        {% elif values.Region == 'Trivandrum'%}
+          Search fertility clinics & agencies in Trivandrum, India
+        {% elif values.Region == 'Kochi'%}
+          Search fertility clinics & agencies in Kochi, India
+        {% elif values.Region == 'Bhopal'%}
+          Search fertility clinics & agencies in Bhopal, India
+        {% elif values.Region == 'Indore'%}
+          Search fertility clinics & agencies in Indore, India
+        {% elif values.Region == 'Nagpur'%}
+          Search fertility clinics & agencies in Nagpur, India
+        {% elif values.Region == 'Bhubaneswar'%}
+          Search fertility clinics & agencies in Bhubaneswar, India
+        {% elif values.Region == 'Ludhiana'%}
+          Search fertility clinics & agencies in Ludhiana, India
+        {% elif values.Region == 'Jaipur'%}
+          Search fertility clinics & agencies in Jaipur, India
+        {% elif values.Region == 'Lucknow'%}
+          Search fertility clinics & agencies in Lucknow, India
+        {% elif values.Region == 'Kanpur'%}
+          Search fertility clinics & agencies in Kanpur, India
+        {% elif values.Region == 'Dehradun'%}
+          Search fertility clinics & agencies in Dehradun, India
+        {% elif values.Region == 'Kolkata'%}
+          Search fertility clinics & agencies in Kolkata, India
+        {% endif %}
+
       {% endif %}
     </h1>
     {% if values.States != None %}
@@ -335,6 +387,19 @@
               <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                 <option value="" selected>Select Spain city</option>
                 {% for key, value in CATEGORY_CHOICES_SP_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        {% elif values.States == 'IN' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-sp">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Indian city</option>
+                {% for key, value in CATEGORY_CHOICES_IN_CITIES.items %}
                 <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                 {% endfor %}
               </select>
@@ -1408,6 +1473,8 @@
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech fertility treatment costs in 2020:</h2>
           {% elif values.States == 'SP' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2020:</h2>
+          {% elif values.States == 'IN' %}
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2020:</h2>
           {% endif %}
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
           <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
@@ -1532,7 +1599,46 @@
           {% endif  %}
           {% endfor %}
           <br>
+
           {% elif values.States == 'SP' %}
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+
+
+          {% elif values.States == 'IN' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -1594,6 +1700,12 @@
               <a href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <i class="fas fa-flag"></i> Spain Compare
+                </button>
+              </a>
+              {% elif values.States == 'IN' %}
+              <a href="{% url 'locationsINRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> India Compare
                 </button>
               </a>
               {% endif %}

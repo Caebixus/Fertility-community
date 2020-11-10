@@ -1,0 +1,280 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}India IVF costs | 2020 Comparison{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/spain{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Standard IVF Costs in India | 2020</h1>
+    <p class="lead" style="color:white">Compare Fertility & IVF average costs by India IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Standard IVF treatment
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locationsUSRegions' %}">Standard IVF treatment</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP Indian cities</h2>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">
+                <select class="form-control" id="ChooseCurrencySP">
+                  <option value="" selected>Currency</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>GBP</option>
+                </select>
+              </th>
+              <th scope="col">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsAmdavad' %}"><u>Amdavad ({% if my_total_count_amdavad %}{{ my_total_count_amdavad }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardAmdavad">Choose currency above</div>
+                <div id="usdAmdavad" style="display:none">{% if usdCurrency_amdavad_ivf %}{{ usdCurrency_amdavad_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurAmdavad" style="display:none">{% if eurCurrency_amdavad_ivf %}{{ eurCurrency_amdavad_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpAmdavad" style="display:none">{% if gbpCurrency_amdavad_ivf %}{{ gbpCurrency_amdavad_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsAmdavad' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Amdavad IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBangalore' %}"><u>Bangalore ({% if my_total_count_bangalore %}{{ my_total_count_bangalore }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardBangalore">Choose currency above</div>
+                <div id="usdBangalore" style="display:none">{% if usdCurrency_bangalore_ivf %}{{ usdCurrency_bangalore_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurBangalore" style="display:none">{% if eurCurrency_bangalore_ivf %}{{ eurCurrency_bangalore_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpBangalore" style="display:none">{% if gbpCurrency_bangalore_ivf %}{{ gbpCurrency_bangalore_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsBangalore' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bangalore IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBhopal' %}"><u>Bhopal ({% if my_total_count_bhopal %}{{ my_total_count_bhopal }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardBhopal">Choose currency above</div>
+                <div id="usdBhopal" style="display:none">{% if usdCurrency_bhopal_ivf %}{{ usdCurrency_bhopal_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurBhopal" style="display:none">{% if eurCurrency_bhopal_ivf %}{{ eurCurrency_bhopal_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpBhopal" style="display:none">{% if gbpCurrency_bhopal_ivf %}{{ gbpCurrency_bhopal_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsBhopal' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bhopal IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsBhubaneswar' %}"><u>Bhubaneswar ({% if my_total_count_bhubaneswar %}{{ my_total_count_bhubaneswar }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardBhubaneswar">Choose currency above</div>
+                <div id="usdBhubaneswar" style="display:none">{% if usdCurrency_bhubaneswar_ivf %}{{ usdCurrency_bhubaneswar_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurBhubaneswar" style="display:none">{% if eurCurrency_bhubaneswar_ivf %}{{ eurCurrency_bhubaneswar_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpBhubaneswar" style="display:none">{% if gbpCurrency_bhubaneswar_ivf %}{{ gbpCurrency_bhubaneswar_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsBhubaneswar' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Bhubaneswar IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsChandigarh' %}"><u>Chandigarh ({% if my_total_count_chandigarh %}{{ my_total_count_chandigarh }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardChandigarh">Choose currency above</div>
+                <div id="usdChandigarh" style="display:none">{% if usdCurrency_chandigarh_ivf %}{{ usdCurrency_chandigarh_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurChandigarh" style="display:none">{% if eurCurrency_chandigarh_ivf %}{{ eurCurrency_chandigarh_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpChandigarh" style="display:none">{% if gbpCurrency_chandigarh_ivf %}{{ gbpCurrency_chandigarh_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsChandigarh' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Chandigarh IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsChennai' %}"><u>Chennai ({% if my_total_count_chennai %}{{ my_total_count_chennai }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardChennai">Choose currency above</div>
+                <div id="usdChennai" style="display:none">{% if usdCurrency_chennai_ivf %}{{ usdCurrency_chennai_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurChennai" style="display:none">{% if eurCurrency_chennai_ivf %}{{ eurCurrency_chennai_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpChennai" style="display:none">{% if gbpCurrency_chennai_ivf %}{{ gbpCurrency_chennai_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsChennai' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Chennai IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsDehradun' %}"><u>Dehradun ({% if my_total_count_dehradun %}{{ my_total_count_dehradun }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardDehradun">Choose currency above</div>
+                <div id="usdDehradun" style="display:none">{% if usdCurrency_dehradun_ivf %}{{ usdCurrency_dehradun_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurDehradun" style="display:none">{% if eurCurrency_dehradun_ivf %}{{ eurCurrency_dehradun_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpDehradun" style="display:none">{% if gbpCurrency_dehradun_ivf %}{{ gbpCurrency_dehradun_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsDehradun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Dehradun IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsFaridabad' %}"><u>Faridabad ({% if my_total_count_faridabad %}{{ my_total_count_faridabad }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardFaridabad">Choose currency above</div>
+                <div id="usdFaridabad" style="display:none">{% if usdCurrency_faridabad_ivf %}{{ usdCurrency_faridabad_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurFaridabad" style="display:none">{% if eurCurrency_faridabad_ivf %}{{ eurCurrency_faridabad_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpFaridabad" style="display:none">{% if gbpCurrency_faridabad_ivf %}{{ gbpCurrency_faridabad_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsFaridabad' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Faridabad IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsHyderabad' %}"><u>Hyderabad ({% if my_total_count_hyderabad %}{{ my_total_count_hyderabad }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardHyderabad">Choose currency above</div>
+                <div id="usdHyderabad" style="display:none">{% if usdCurrency_hyderabad_ivf %}{{ usdCurrency_hyderabad_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurHyderabad" style="display:none">{% if eurCurrency_hyderabad_ivf %}{{ eurCurrency_hyderabad_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpHyderabad" style="display:none">{% if gbpCurrency_hyderabad_ivf %}{{ gbpCurrency_hyderabad_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsHyderabad' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Hyderabad IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsIndore' %}"><u>Indore ({% if my_total_count_indore %}{{ my_total_count_indore }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardIndore">Choose currency above</div>
+                <div id="usdIndore" style="display:none">{% if usdCurrency_indore_ivf %}{{ usdCurrency_indore_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurIndore" style="display:none">{% if eurCurrency_indore_ivf %}{{ eurCurrency_indore_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpIndore" style="display:none">{% if gbpCurrency_indore_ivf %}{{ gbpCurrency_indore_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsIndore' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Indore IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsJaipur' %}"><u>Jaipur ({% if my_total_count_jaipur %}{{ my_total_count_jaipur }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardJaipur">Choose currency above</div>
+                <div id="usdJaipur" style="display:none">{% if usdCurrency_jaipur_ivf %}{{ usdCurrency_jaipur_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurJaipur" style="display:none">{% if eurCurrency_jaipur_ivf %}{{ eurCurrency_jaipur_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpJaipur" style="display:none">{% if gbpCurrency_jaipur_ivf %}{{ gbpCurrency_jaipur_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsJaipur' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Jaipur IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsJamshedpur' %}"><u>Jamshedpur ({% if my_total_count_jamshedpur %}{{ my_total_count_jamshedpur }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardJamshedpur">Choose currency above</div>
+                <div id="usdJamshedpur" style="display:none">{% if usdCurrency_jamshedpur_ivf %}{{ usdCurrency_jamshedpur_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurJamshedpur" style="display:none">{% if eurCurrency_jamshedpur_ivf %}{{ eurCurrency_jamshedpur_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpJamshedpur" style="display:none">{% if gbpCurrency_jamshedpur_ivf %}{{ gbpCurrency_jamshedpur_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsJamshedpur' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Jamshedpur IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsKanpur' %}"><u>Kanpur ({% if my_total_count_kanpur %}{{ my_total_count_kanpur }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardKanpur">Choose currency above</div>
+                <div id="usdKanpur" style="display:none">{% if usdCurrency_kanpur_ivf %}{{ usdCurrency_kanpur_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurKanpur" style="display:none">{% if eurCurrency_kanpur_ivf %}{{ eurCurrency_kanpur_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpKanpur" style="display:none">{% if gbpCurrency_kanpur_ivf %}{{ gbpCurrency_kanpur_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsKanpur' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Kanpur IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsKochi' %}"><u>Kochi ({% if my_total_count_kochi %}{{ my_total_count_kochi }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardKochi">Choose currency above</div>
+                <div id="usdKochi" style="display:none">{% if usdCurrency_kochi_ivf %}{{ usdCurrency_kochi_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurKochi" style="display:none">{% if eurCurrency_kochi_ivf %}{{ eurCurrency_kochi_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpKochi" style="display:none">{% if gbpCurrency_kochi_ivf %}{{ gbpCurrency_kochi_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsKochi' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Kochi IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsKolkata' %}"><u>Kolkata ({% if my_total_count_kolkata %}{{ my_total_count_kolkata }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardKolkata">Choose currency above</div>
+                <div id="usdKolkata" style="display:none">{% if usdCurrency_kolkata_ivf %}{{ usdCurrency_kolkata_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurKolkata" style="display:none">{% if eurCurrency_kolkata_ivf %}{{ eurCurrency_kolkata_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpKolkata" style="display:none">{% if gbpCurrency_kolkata_ivf %}{{ gbpCurrency_kolkata_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsKolkata' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Kolkata IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsLucknow' %}"><u>Lucknow ({% if my_total_count_lucknow %}{{ my_total_count_lucknow }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardLucknow">Choose currency above</div>
+                <div id="usdLucknow" style="display:none">{% if usdCurrency_lucknow_ivf %}{{ usdCurrency_lucknow_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurLucknow" style="display:none">{% if eurCurrency_lucknow_ivf %}{{ eurCurrency_lucknow_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpLucknow" style="display:none">{% if gbpCurrency_lucknow_ivf %}{{ gbpCurrency_lucknow_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsLucknow' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Lucknow IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsLudhiana' %}"><u>Ludhiana ({% if my_total_count_ludhiana %}{{ my_total_count_ludhiana }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardLudhiana">Choose currency above</div>
+                <div id="usdLudhiana" style="display:none">{% if usdCurrency_ludhiana_ivf %}{{ usdCurrency_ludhiana_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurLudhiana" style="display:none">{% if eurCurrency_ludhiana_ivf %}{{ eurCurrency_ludhiana_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpLudhiana" style="display:none">{% if gbpCurrency_ludhiana_ivf %}{{ gbpCurrency_ludhiana_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsLudhiana' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Ludhiana IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMumbai' %}"><u>Mumbai ({% if my_total_count_mumbai %}{{ my_total_count_mumbai }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardMumbai">Choose currency above</div>
+                <div id="usdMumbai" style="display:none">{% if usdCurrency_mumbai_ivf %}{{ usdCurrency_mumbai_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurMumbai" style="display:none">{% if eurCurrency_mumbai_ivf %}{{ eurCurrency_mumbai_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpMumbai" style="display:none">{% if gbpCurrency_mumbai_ivf %}{{ gbpCurrency_mumbai_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMumbai' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mumbai IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsNagpur' %}"><u>Nagpur ({% if my_total_count_nagpur %}{{ my_total_count_nagpur }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardNagpur">Choose currency above</div>
+                <div id="usdNagpur" style="display:none">{% if usdCurrency_nagpur_ivf %}{{ usdCurrency_nagpur_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurNagpur" style="display:none">{% if eurCurrency_nagpur_ivf %}{{ eurCurrency_nagpur_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpNagpur" style="display:none">{% if gbpCurrency_nagpur_ivf %}{{ gbpCurrency_nagpur_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsNagpur' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Nagpur IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsPatna' %}"><u>Patna ({% if my_total_count_patna %}{{ my_total_count_patna }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardPatna">Choose currency above</div>
+                <div id="usdPatna" style="display:none">{% if usdCurrency_patna_ivf %}{{ usdCurrency_patna_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurPatna" style="display:none">{% if eurCurrency_patna_ivf %}{{ eurCurrency_patna_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpPatna" style="display:none">{% if gbpCurrency_patna_ivf %}{{ gbpCurrency_patna_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsPatna' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Patna IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsRaipur' %}"><u>Raipur ({% if my_total_count_raipur %}{{ my_total_count_raipur }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardRaipur">Choose currency above</div>
+                <div id="usdRaipur" style="display:none">{% if usdCurrency_raipur_ivf %}{{ usdCurrency_raipur_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurRaipur" style="display:none">{% if eurCurrency_raipur_ivf %}{{ eurCurrency_raipur_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpRaipur" style="display:none">{% if gbpCurrency_raipur_ivf %}{{ gbpCurrency_raipur_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsRaipur' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Raipur IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsTrivandrum' %}"><u>Trivandrum ({% if my_total_count_trivandrum %}{{ my_total_count_trivandrum }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardTrivandrum">Choose currency above</div>
+                <div id="usdTrivandrum" style="display:none">{% if usdCurrency_trivandrum_ivf %}{{ usdCurrency_trivandrum_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurTrivandrum" style="display:none">{% if eurCurrency_trivandrum_ivf %}{{ eurCurrency_trivandrum_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpTrivandrum" style="display:none">{% if gbpCurrency_trivandrum_ivf %}{{ gbpCurrency_trivandrum_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsTrivandrum' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Trivandrum IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{% endblock  %}

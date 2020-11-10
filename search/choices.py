@@ -3,6 +3,7 @@ CATEGORY_CHOICES_STATES = {
     'UK': 'United Kingdom',
     'CZ': 'Czech Republic',
     'SP': 'Spain',
+    'IN': 'India',
     }
 
 CATEGORY_CHOICES_CZ_CITIES = {
@@ -72,6 +73,31 @@ CATEGORY_CHOICES_US_REGION = {
     'WI': 'Wisconsin',
     'WY': 'Wyoming',
     'DC': 'District of Columbia',
+    }
+
+CATEGORY_CHOICES_IN_CITIES = {
+    'Amdavad': 'Amdavad',
+    'Bangalore': 'Bangalore',
+    'Bhopal': 'Bhopal',
+    'Bhubaneswar': 'Bhubaneswar',
+    'Chandigarh': 'Chandigarh',
+    'Chennai': 'Chennai',
+    'Dehradun': 'Dehradun',
+    'Faridabad': 'Faridabad',
+    'Hyderabad': 'Hyderabad',
+    'Indore': 'Indore',
+    'Jaipur': 'Jaipur',
+    'Jamshedpur': 'Jamshedpur',
+    'Kanpur': 'Kanpur',
+    'Kochi': 'Kochi',
+    'Kolkata': 'Kolkata',
+    'Lucknow': 'Lucknow',
+    'Ludhiana': 'Ludhiana',
+    'Mumbai': 'Mumbai',
+    'Nagpur': 'Nagpur',
+    'Patna': 'Patna',
+    'Raipur': 'Raipur',
+    'Trivandrum': 'Trivandrum',
     }
 
 CATEGORY_CHOICES_UK_CITIES = {

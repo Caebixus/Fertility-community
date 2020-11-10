@@ -135,6 +135,73 @@ def index(request):
     valenciaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Valencia')
     valenciaclinics = valenciaclinics.count()
 
+    #IN REGIONS
+    chennaiclinics = BasicClinic.objects.filter(clinicRegion__iexact='Chennai')
+    chennaiclinics = chennaiclinics.count()
+
+    hyderabadclinics = BasicClinic.objects.filter(clinicRegion__iexact='Hyderabad')
+    hyderabadclinics = hyderabadclinics.count()
+
+    mumbaiclinics = BasicClinic.objects.filter(clinicRegion__iexact='Mumbai')
+    mumbaiclinics = mumbaiclinics.count()
+
+    patnaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Patna')
+    patnaclinics = patnaclinics.count()
+
+    raipurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Raipur')
+    raipurclinics = raipurclinics.count()
+
+    adavadclinics = BasicClinic.objects.filter(clinicRegion__iexact='Amdavad')
+    adavadclinics = adavadclinics.count()
+
+    chandigarhclinics = BasicClinic.objects.filter(clinicRegion__iexact='Chandigarh')
+    chandigarhclinics = chandigarhclinics.count()
+
+    faridabadclinics = BasicClinic.objects.filter(clinicRegion__iexact='Faridabad')
+    faridabadclinics = faridabadclinics.count()
+
+    jamshedpurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Jamshedpur')
+    jamshedpurclinics = jamshedpurclinics.count()
+
+    bangaloreclinics = BasicClinic.objects.filter(clinicRegion__iexact='Bangalore')
+    bangaloreclinics = bangaloreclinics.count()
+
+    trivandrumclinics = BasicClinic.objects.filter(clinicRegion__iexact='Trivandrum')
+    trivandrumclinics = trivandrumclinics.count()
+
+    kochiclinics = BasicClinic.objects.filter(clinicRegion__iexact='Kochi')
+    kochiclinics = kochiclinics.count()
+
+    bhopalclinics = BasicClinic.objects.filter(clinicRegion__iexact='Bhopal')
+    bhopalclinics = bhopalclinics.count()
+
+    indoreclinics = BasicClinic.objects.filter(clinicRegion__iexact='Indore')
+    indoreclinics = indoreclinics.count()
+
+    nagpurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Nagpur')
+    nagpurclinics = nagpurclinics.count()
+
+    bhubaneswarclinics = BasicClinic.objects.filter(clinicRegion__iexact='Bhubaneswar')
+    bhubaneswarclinics = bhubaneswarclinics.count()
+
+    ludhianaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Ludhiana')
+    ludhianaclinics = ludhianaclinics.count()
+
+    jaipurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Jaipur')
+    jaipurclinics = jaipurclinics.count()
+
+    lucknowclinics = BasicClinic.objects.filter(clinicRegion__iexact='Lucknow')
+    lucknowclinics = lucknowclinics.count()
+
+    kanpurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Kanpur')
+    kanpurclinics = kanpurclinics.count()
+
+    dehradunclinics = BasicClinic.objects.filter(clinicRegion__iexact='Dehradun')
+    dehradunclinics = dehradunclinics.count()
+
+    kolkataclinics = BasicClinic.objects.filter(clinicRegion__iexact='Kolkata')
+    kolkataclinics = kolkataclinics.count()
+
     context = {
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
@@ -179,6 +246,28 @@ def index(request):
         'malagaclinics': malagaclinics,
         'sevilleclinics': sevilleclinics,
         'valenciaclinics': valenciaclinics,
+        'chennaiclinics': chennaiclinics,
+        'hyderabadclinics': hyderabadclinics,
+        'mumbaiclinics': mumbaiclinics,
+        'patnaclinics': patnaclinics,
+        'raipurclinics': raipurclinics,
+        'adavadclinics': adavadclinics,
+        'chandigarhclinics': chandigarhclinics,
+        'faridabadclinics': faridabadclinics,
+        'jamshedpurclinics': jamshedpurclinics,
+        'bangaloreclinics': bangaloreclinics,
+        'trivandrumclinics': trivandrumclinics,
+        'kochiclinics': kochiclinics,
+        'bhopalclinics': bhopalclinics,
+        'indoreclinics': indoreclinics,
+        'nagpurclinics': nagpurclinics,
+        'bhubaneswarclinics': bhubaneswarclinics,
+        'ludhianaclinics': ludhianaclinics,
+        'jaipurclinics': jaipurclinics,
+        'lucknowclinics': lucknowclinics,
+        'kanpurclinics': kanpurclinics,
+        'dehradunclinics': dehradunclinics,
+        'kolkataclinics': kolkataclinics,
     }
 
     return render(request, 'main/index.html', context)

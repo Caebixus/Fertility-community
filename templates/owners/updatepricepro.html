@@ -19,425 +19,472 @@
         </div>
     {% endfor %}
   {% endif %}
-  <main role="main">
-    <div class="container" style="max-width: 70rem">
-      <h1 style="text-align: center">Update clinic pricing:</h1>
-      <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
-      <hr>
-      <br>
-      <div class="container" style="text-align: center">
-        <form method='POST' enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.non_field_errors }}
+</div>
+<main role="main">
+  <form method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
 
-          {{ form.source.errors }}
-          {{ form.source }}
-          <div hidden class="clinicnaming">
-            {{ form.clinicName }}
-          </div>
-          <h2>Primary treatments & costs</h2>
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.ivf_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Natural IVF
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.ivf_treatment }}
-                </div>
-              </div>
-              {% if form.ivf_treatment.value == True %}
-                <div id="js_ivf_cost" style="padding-top:1rem;">
-                  <br>
-                  <p>Cost of Natural IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.ivf_treatment_cost.errors }}
-                  {{ form.ivf_treatment_cost }}
-                </div>
-              {% else %}
-                <div id="js_ivf_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.ivf_treatment_cost.errors }}
-                  {{ form.ivf_treatment_cost }}
-                </div>
-              {% endif %}
-            </div>
-            <div class="col-sm py-4">
-              {{ form.mild_ivf_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Mild IVF
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.mild_ivf_treatment }}
-                </div>
-              </div>
-              {% if form.mild_ivf_treatment.value == True %}
-                <div id="js_mild_ivf_cost" style="padding-top:1rem;">
-                  <br>
-                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.mild_ivf_treatment_cost.errors }}
-                  {{ form.mild_ivf_treatment_cost }}
-                </div>
-              {% else %}
-                <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.mild_ivf_treatment_cost.errors }}
-                  {{ form.mild_ivf_treatment_cost }}
-                </div>
-              {% endif %}
-            </div>
-            <div class="col-sm py-4">
-              {{ form.ovarian_ivf_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Standard IVF
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.ovarian_ivf_treatment }}
-                </div>
-              </div>
-              {% if form.ovarian_ivf_treatment.value == True %}
-                <div id="js_ovarian_ivf_cost" style="padding-top:1rem;">
-                  <br>
-                  <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.ovarian_ivf_treatment_cost.errors }}
-                  {{ form.ovarian_ivf_treatment_cost }}
-                </div>
-              {% else %}
-                <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.ovarian_ivf_treatment_cost.errors }}
-                  {{ form.ovarian_ivf_treatment_cost }}
-                </div>
-              {% endif %}
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.iui_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  IUI Treatment
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.iui_treatment }}
-                </div>
-              </div>
-              {% if form.iui_treatment.value == True %}
-                <div id="js_iui_cost" style="padding-top:1rem">
-                  <br>
-                  <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.iui_treatment_cost.errors }}
-                  {{ form.iui_treatment_cost }}
-                </div>
-              {% else %}
-                <div id="js_iui_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.iui_treatment_cost.errors }}
-                  {{ form.iui_treatment_cost }}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="col-sm py-4">
-              {{ form.icsi_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  ICSI Treatment
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.icsi_treatment }}
-                </div>
-              </div>
-              {% if form.icsi_treatment.value == True %}
-                <div id="js_icsi_cost" style="padding-top:1rem">
-                  <br>
-                  <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.icsi_treatment.errors }}
-                  {{ form.icsi_treatment_cost }}
-                </div>
-              {% else %}
-                <div id="js_icsi_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-                  {{ form.icsi_treatment.errors }}
-                  {{ form.icsi_treatment_cost }}
-                </div>
-              {% endif %}
-            </div>
-            <div class="col-sm py-4">
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.egg_donor_recipients.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Egg donor recipients (anonymous)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.egg_donor_recipients }}
-                </div>
-              </div>
-              {% if form.egg_donor_recipients.value == True %}
-                <div id="js_egg_cost" style="padding-top:1rem">
-                  <br>
-                  <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                  {{ form.egg_donor_recipients.errors }}
-                  {{ form.egg_donor_recipients_cost }}
-                </div>
-              {% else %}
-                <div id="js_egg_cost" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                  {{ form.egg_donor_recipients.errors }}
-                  {{ form.egg_donor_recipients_cost }}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="col-sm py-4">
-              {{ form.embryo_donor_recipients.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Embryo donor recipients (anonymous)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.embryo_donor_recipients }}
-                </div>
-              </div>
-              {% if form.embryo_donor_recipients.value == True %}
-              <div id="js_embryo_cost" style="padding-top:1rem">
-                <br>
-                <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                {{ form.embryo_donor_recipients.errors }}
-                {{ form.embryo_donor_recipients_cost }}
-              </div>
-              {% else %}
-              <div id="js_embryo_cost" style="padding-top:1rem; display: none">
-                <br>
-                <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                {{ form.embryo_donor_recipients.errors }}
-                {{ form.embryo_donor_recipients_cost }}
-              </div>
-              {% endif %}
-            </div>
-            <div class="col-sm py-4">
-              {{ form.sperm_donor_recipients.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Sperm donor recipients (anonymous)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.sperm_donor_recipients }}
-                </div>
-              </div>
-              {% if form.sperm_donor_recipients.value == True %}
-              <div id="js_sperm_cost" style="padding-top:1rem">
-                <br>
-                <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                {{ form.sperm_donor_recipients.errors }}
-                {{ form.sperm_donor_recipients_cost }}
-              </div>
-              {% else %}
-              <div id="js_sperm_cost" style="padding-top:1rem; display: none">
-                <br>
-                <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-                {{ form.sperm_donor_recipients.errors }}
-                {{ form.sperm_donor_recipients_cost }}
-              </div>
-              {% endif %}
-            </div>
-          </div>
-          <br>
-          <hr>
-          <br>
-          <h2>Additional treatments & costs</h2>
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.egg_freezing.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Egg freezing (1 year of storage)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.egg_freezing }}
-                </div>
-              </div>
-              {% if form.egg_freezing.value == True %}
-                <div id="js_egg_freezing" style="padding-top:1rem">
-                  <br>
-                  <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.egg_freezing.errors }}
-                  {{ form.egg_freezing_cost }}
-                </div>
-              {% else %}
-                <div id="js_egg_freezing" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
-                  {{ form.egg_freezing.errors }}
-                  {{ form.egg_freezing_cost }}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="col-sm py-4">
-              {{ form.embryo_freezing.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Embryo freezing (1 year of storage)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.embryo_freezing }}
-                </div>
-              </div>
-              {% if form.embryo_freezing.value == True %}
-                <div id="js_embryo_freezing" style="padding-top:1rem">
-                  <br>
-                  <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-                  {{ form.embryo_freezing.errors }}
-                  {{ form.embryo_freezing_cost }}
-                </div>
-              {% else %}
-                <div id="js_embryo_freezing" style="padding-top:1rem; display: none">
-                  <br>
-                  <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-                  {{ form.embryo_freezing.errors }}
-                  {{ form.embryo_freezing_cost }}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="col-sm py-4">
-              {{ form.sperm_freezing.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Sperm freezing (1 year of storage)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.sperm_freezing }}
-                </div>
-              </div>
-              {% if form.sperm_freezing.value == True %}
-              <div id="js_sperm_freezing" style="padding-top:1rem">
-                <br>
-                <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-                {{ form.sperm_freezing.errors }}
-                {{ form.sperm_freezing_cost }}
-              </div>
-              {% else %}
-              <div id="js_sperm_freezing" style="padding-top:1rem; display: none">
-                <br>
-                <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-                {{ form.sperm_freezing.errors }}
-                {{ form.sperm_freezing_cost }}
-              </div>
-              {% endif %}
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.surrogacy.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Gestational surrogacy
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.surrogacy }}
-                </div>
-              </div>
-              {% if form.surrogacy.value == True %}
-              <div id="js_surrogacy_cost" style="padding-top:1rem">
-                <br>
-                <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
-                {{ form.surrogacy.errors }}
-                {{ form.surrogacy_cost }}
-              </div>
-              {% else %}
-              <div id="js_surrogacy_cost" style="padding-top:1rem; display: none">
-                <br>
-                <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
-                {{ form.surrogacy.errors }}
-                {{ form.surrogacy_cost }}
-              </div>
-              {% endif %}
-            </div>
-
-            <div class="col-sm py-4">
-            </div>
-            <div class="col-sm py-4">
-            </div>
-          </div>
-          <br>
-          <hr>
-          <br>
-          <h2>Conditions</h2>
-          <div class="row">
-            <div class="col-sm py-4">
-              {{ form.single_woman_treatment.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Single woman fertility treatment
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.single_woman_treatment }}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              {{ form.reciprocal_ivf.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Reciprocal treatment (LGBTQ)
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.reciprocal_ivf }}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              {{ form.hiv_patients.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  HIV patients treatment
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.hiv_patients }}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm py-4">
-              {{ form.sex_selection.errors }}
-              <div class="row">
-                <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-                  Sex / Gender selection
-                </div>
-                <div class="col-2 col-md">
-                  {{ form.sex_selection }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <hr>
-          <br>
-          <br>
-          <br>
-          <input class="btn btn-dark" type='submit' value='Update pricing' />
-        </form>
+  {{ form.source.errors }}
+  {{ form.source }}
+  <div class="container" style="max-width: 70rem">
+    <h1 style="text-align: center">Update clinic pricing:</h1>
+    <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
+    <br>
+    <div class="container">
+      <div hidden class="clinicnaming">
+        {{ form.clinicName }}
       </div>
     </div>
-  </main>
-</div>
+  </div>
+  <section style="background-color: #286DA8; padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="container" style="max-width: 70rem">
+        <div class="container">
+          <h2 style="color: white">
+            Primary treatments & costs in
+              {% if instance.defaultClinicCurrency == 'USD' %} <i class="fas fa-dollar-sign"></i>
+              {% elif instance.defaultClinicCurrency == 'EUR' %} <i class="fas fa-euro-sign"></i>
+              {% elif instance.defaultClinicCurrency == 'GBP' %} <i class="fas fa-pound-sign"></i>
+              {% elif instance.defaultClinicCurrency == 'INR' %} <i class="fas fa-rupee-sign"></i>
+              {% endif %}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <div class="container py-4">
+    <div class="container" style="max-width: 70rem">
+      <div class="container">
+
+        {{ form.ivf_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            1. Natural IVF
+          </div>
+          <div class="col-2 col-md">
+            {{ form.ivf_treatment }}
+          </div>
+        </div>
+        {% if form.ivf_treatment.value == True %}
+          <div id="js_ivf_cost" style="padding-top:1rem;">
+            <br>
+            <p>Cost of Natural IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.ivf_treatment_cost.errors }}
+            {{ form.ivf_treatment_cost }}
+          </div>
+        {% else %}
+          <div id="js_ivf_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.ivf_treatment_cost.errors }}
+            {{ form.ivf_treatment_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+
+        {{ form.mild_ivf_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            2. Mild IVF
+          </div>
+          <div class="col-2 col-md">
+            {{ form.mild_ivf_treatment }}
+          </div>
+        </div>
+        {% if form.mild_ivf_treatment.value == True %}
+          <div id="js_mild_ivf_cost" style="padding-top:1rem;">
+            <br>
+            <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.mild_ivf_treatment_cost.errors }}
+            {{ form.mild_ivf_treatment_cost }}
+          </div>
+        {% else %}
+          <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.mild_ivf_treatment_cost.errors }}
+            {{ form.mild_ivf_treatment_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.ovarian_ivf_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            3. Standard IVF
+          </div>
+          <div class="col-2 col-md">
+            {{ form.ovarian_ivf_treatment }}
+          </div>
+        </div>
+        {% if form.ovarian_ivf_treatment.value == True %}
+          <div id="js_ovarian_ivf_cost" style="padding-top:1rem;">
+            <br>
+            <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.ovarian_ivf_treatment_cost.errors }}
+            {{ form.ovarian_ivf_treatment_cost }}
+          </div>
+        {% else %}
+          <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of Standard IVF using ovarian hyperstimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.ovarian_ivf_treatment_cost.errors }}
+            {{ form.ovarian_ivf_treatment_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.iui_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            4. IUI Treatment
+          </div>
+          <div class="col-2 col-md">
+            {{ form.iui_treatment }}
+          </div>
+        </div>
+        {% if form.iui_treatment.value == True %}
+          <div id="js_iui_cost" style="padding-top:1rem">
+            <br>
+            <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.iui_treatment_cost.errors }}
+            {{ form.iui_treatment_cost }}
+          </div>
+        {% else %}
+          <div id="js_iui_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.iui_treatment_cost.errors }}
+            {{ form.iui_treatment_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.icsi_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            5. ICSI Treatment
+          </div>
+          <div class="col-2 col-md">
+            {{ form.icsi_treatment }}
+          </div>
+        </div>
+        {% if form.icsi_treatment.value == True %}
+          <div id="js_icsi_cost" style="padding-top:1rem">
+            <br>
+            <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.icsi_treatment.errors }}
+            {{ form.icsi_treatment_cost }}
+          </div>
+        {% else %}
+          <div id="js_icsi_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            {{ form.icsi_treatment.errors }}
+            {{ form.icsi_treatment_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.egg_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            6. Egg donor recipients (anonymous)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.egg_donor_recipients }}
+          </div>
+        </div>
+        {% if form.egg_donor_recipients.value == True %}
+          <div id="js_egg_cost" style="padding-top:1rem">
+            <br>
+            <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+            {{ form.egg_donor_recipients.errors }}
+            {{ form.egg_donor_recipients_cost }}
+          </div>
+        {% else %}
+          <div id="js_egg_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+            {{ form.egg_donor_recipients.errors }}
+            {{ form.egg_donor_recipients_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.embryo_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            7. Embryo donor recipients (anonymous)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.embryo_donor_recipients }}
+          </div>
+        </div>
+        {% if form.embryo_donor_recipients.value == True %}
+        <div id="js_embryo_cost" style="padding-top:1rem">
+          <br>
+          <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.embryo_donor_recipients.errors }}
+          {{ form.embryo_donor_recipients_cost }}
+        </div>
+        {% else %}
+        <div id="js_embryo_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.embryo_donor_recipients.errors }}
+          {{ form.embryo_donor_recipients_cost }}
+        </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.sperm_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            8. Sperm donor recipients (anonymous)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.sperm_donor_recipients }}
+          </div>
+        </div>
+        {% if form.sperm_donor_recipients.value == True %}
+        <div id="js_sperm_cost" style="padding-top:1rem">
+          <br>
+          <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.sperm_donor_recipients.errors }}
+          {{ form.sperm_donor_recipients_cost }}
+        </div>
+        {% else %}
+        <div id="js_sperm_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.sperm_donor_recipients.errors }}
+          {{ form.sperm_donor_recipients_cost }}
+        </div>
+        {% endif %}
+
+
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <section style="background-color: #286DA8; padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="container" style="max-width: 70rem">
+        <div class="container">
+          <h2 style="color: white">Additional treatments & costs in
+            {% if instance.defaultClinicCurrency == 'USD' %} <i class="fas fa-dollar-sign"></i>
+            {% elif instance.defaultClinicCurrency == 'EUR' %} <i class="fas fa-euro-sign"></i>
+            {% elif instance.defaultClinicCurrency == 'GBP' %} <i class="fas fa-pound-sign"></i>
+            {% elif instance.defaultClinicCurrency == 'INR' %} <i class="fas fa-rupee-sign"></i>
+            {% endif %}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <div class="container py-4">
+    <div class="container" style="max-width: 70rem">
+      <div class="container">
+
+
+
+        {{ form.egg_freezing.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            9. Egg freezing (1 year of storage)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.egg_freezing }}
+          </div>
+        </div>
+        {% if form.egg_freezing.value == True %}
+          <div id="js_egg_freezing" style="padding-top:1rem">
+            <br>
+            <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
+            {{ form.egg_freezing.errors }}
+            {{ form.egg_freezing_cost }}
+          </div>
+        {% else %}
+          <div id="js_egg_freezing" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
+            {{ form.egg_freezing.errors }}
+            {{ form.egg_freezing_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.embryo_freezing.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            10. Embryo freezing (1 year of storage)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.embryo_freezing }}
+          </div>
+        </div>
+        {% if form.embryo_freezing.value == True %}
+          <div id="js_embryo_freezing" style="padding-top:1rem">
+            <br>
+            <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
+            {{ form.embryo_freezing.errors }}
+            {{ form.embryo_freezing_cost }}
+          </div>
+        {% else %}
+          <div id="js_embryo_freezing" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
+            {{ form.embryo_freezing.errors }}
+            {{ form.embryo_freezing_cost }}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.sperm_freezing.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            11. Sperm freezing (1 year of storage)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.sperm_freezing }}
+          </div>
+        </div>
+        {% if form.sperm_freezing.value == True %}
+        <div id="js_sperm_freezing" style="padding-top:1rem">
+          <br>
+          <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
+          {{ form.sperm_freezing.errors }}
+          {{ form.sperm_freezing_cost }}
+        </div>
+        {% else %}
+        <div id="js_sperm_freezing" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
+          {{ form.sperm_freezing.errors }}
+          {{ form.sperm_freezing_cost }}
+        </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.surrogacy.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            12. Gestational surrogacy
+          </div>
+          <div class="col-2 col-md">
+            {{ form.surrogacy }}
+          </div>
+        </div>
+        {% if form.surrogacy.value == True %}
+        <div id="js_surrogacy_cost" style="padding-top:1rem">
+          <br>
+          <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
+          {{ form.surrogacy.errors }}
+          {{ form.surrogacy_cost }}
+        </div>
+        {% else %}
+        <div id="js_surrogacy_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
+          {{ form.surrogacy.errors }}
+          {{ form.surrogacy_cost }}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <section style="background-color: #286DA8; padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="container" style="max-width: 70rem">
+        <div class="container">
+          <h2 style="color: white">
+            Conditions
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <div class="container py-4">
+    <div class="container" style="max-width: 70rem">
+      <div class="container">
+        {{ form.single_woman_treatment.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            Single woman fertility treatment
+          </div>
+          <div class="col-2 col-md">
+            {{ form.single_woman_treatment }}
+          </div>
+        </div>
+        <br>
+        {{ form.reciprocal_ivf.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            Reciprocal treatment (LGBTQ)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.reciprocal_ivf }}
+          </div>
+        </div>
+        <br>
+        {{ form.hiv_patients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            HIV patients treatment
+          </div>
+          <div class="col-2 col-md">
+            {{ form.hiv_patients }}
+          </div>
+        </div>
+        <br>
+        {{ form.sex_selection.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            Sex / Gender selection
+          </div>
+          <div class="col-2 col-md">
+            {{ form.sex_selection }}
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <input class="btn btn-outline-dark" type='submit' value='Update pricing' />
+      </div>
+    </div>
+  </div>
+  </form>
+</main>
 <br>
 {% endblock  %}

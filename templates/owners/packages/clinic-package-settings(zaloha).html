@@ -1,0 +1,190 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Packages - {{ instance.clinicName }}</h1>
+    <br>
+    <a href="{% url 'createpackage' instance.pk %}">
+      <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"> Create Package</button>
+    </a>
+    <br>
+    <br>
+  </div>
+</div>
+
+<br>
+<div class="container py-5">
+  {% if listing %}
+  {% for listings in listing %}
+  <div class="row">
+    <div class="col-sm-10">
+      <h2> Ongoing IVF packages: </h2>
+      <div class="container py-5 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 50px;">
+        <div class="header" style="min-height:50px;">
+          <div class="row">
+            <div class="col-8 sm-8">
+              <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ listings.packagetitle }}</h2>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ listings.packageclinic.clinic_url }}">Clinic: {{ listings.packageclinic.clinicName }}</a></p>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ listings.packagecategory }} </p>
+            </div>
+            <div class="col-4 sm-4 text-right">
+              <a href="{{ notactivelistings.package_url }}">
+                <button type="button" class="btn btn-warning btn-lg"> {{ listings.packagecost|floatformat:'0'|intcomma }} {% if listings.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif listings.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
+              </a>
+            </div>
+          </div>
+          <br>
+          <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ listings.package_end_list_date|naturaltime}}</span>
+        </div>
+        <hr noshade style="border-top: 1px solid">
+        {{ listings.packagedesc|safe }}
+        <hr noshade style="border-top: 1px solid ">
+        <div class="row" style="text-align: center">
+          <div class="col-6 md-4 mb-2">
+            {% if listings.package_url %}
+            <a href="{{ listings.package_url }}">
+              <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+            </a>
+            {% endif %}
+          </div>
+          <div class="col-6 md-4 mb-2">
+            {% if listings.packageclinic.query_email %}
+            <a href="mailto:{{ listings.packageclinic.query_email }}">
+              <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+            </a>
+            <br>
+            <br>
+            {% endif %}
+            {% if listings.package_phone %}
+            <a href="tel:{{ listings.package_phone }}" style="text-align:center">
+              <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <br>
+        <div class="col-4 md-4 text-center">
+          <a href="{% url 'updatepropackage' listings.id %}">
+            <button type="button" class="btn btn-dark btn-block">Update</button>
+          </a>
+        </div>
+        <br>
+        <div class="col-4 md-4 text-center">
+          <a href="{{ listings.packageclinic.clinic_url}}#packages">
+            <button type="button" class="btn btn-dark btn-block">Live view</button>
+          </a>
+        </div>
+        <br>
+        <div class="col-4 md-4 text-center">
+          <a href="{% url 'deletepropackage' listings.id %}">
+            <button type="button" class="btn btn-dark btn-block">Delete</button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <div class="col-sm-2">
+      {% if listings.is_package_active == True %}
+      True
+      {% else %}
+      False
+      {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+
+
+
+
+    {% if notactivelisting %}
+    <div class="col-sm-10">
+      <h2> Expired IVF packages: </h2>
+      {% for notactivelistings in notactivelisting %}
+      <div class="container py-5 shadow" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 50px;">
+        <div class="header" style="min-height:50px;">
+          <div class="row">
+            <div class="col-8 sm-8">
+              <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ notactivelistings.packagetitle }}</h2>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ notactivelistings.packageclinic.clinic_url }}">Clinic: {{ notactivelistings.packageclinic.clinicName }}</a></p>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ notactivelistings.packagecategory }} </p>
+            </div>
+            <div class="col-4 sm-4 text-right">
+              <a href="{{ notactivelistings.package_url }}">
+                <button type="button" class="btn btn-warning btn-lg"> {{ notactivelistings.packagecost|floatformat:'0'|intcomma }} {% if notactivelistings.packageclinic.defaultClinicCurrency == 'GBP' %}£{% elif notactivelistings.packageclinic.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %} </button>
+              </a>
+            </div>
+          </div>
+          <br>
+          <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expired: {{ notactivelistings.package_end_list_date|naturaltime}}</span>
+        </div>
+        <hr noshade style="border-top: 1px solid">
+        {{ notactivelistings.packagedesc|safe }}
+        <hr noshade style="border-top: 1px solid ">
+        <div class="row" style="text-align: center">
+          <div class="col-6 md-4 mb-2">
+            {% if notactivelistings.package_url %}
+            <a href="{{ notactivelistings.package_url }}">
+              <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+            </a>
+            {% endif %}
+          </div>
+          <div class="col-6 md-4 mb-2">
+            {% if notactivelistings.packageclinic.query_email %}
+            <a href="mailto:{{ notactivelistings.packageclinic.query_email }}">
+              <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Send email</button>
+            </a>
+            <br>
+            <br>
+            {% endif %}
+            {% if notactivelistings.package_phone %}
+            <a href="tel:{{ notactivelistings.package_phone }}" style="text-align:center">
+              <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call</button>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <br>
+        <div class="col-4 md-4 text-center">
+          <a href="{% url 'deletepropackage' notactivelistings.id %}">
+            <button type="button" class="btn btn-secondary btn-block btn-md">Delete</button>
+          </a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  {% if listing == null and notactivelistings == null %}
+  <h2>Packages & Deals</h2>
+  <p>Sorry there are no Packages or special Deals created yet</p>
+  <br>
+  <a href="{% url 'createpackage' instance.pk %}">
+    <button class="btn btn-info text-light" type="button">Create package</button>
+  </a>
+  {% endif %}
+</div>
+
+
+
+{% endblock  %}

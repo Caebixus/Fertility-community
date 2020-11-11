@@ -7,14 +7,18 @@ from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
-gbpToEur = 1.16
-gbpToUsd = 1.29
+gbpToEur = 1.13
+gbpToUsd = 1.33
 
-usdToGbp = 0.81
-usdToEur = 0.90
+usdToGbp = 0.75
+usdToEur = 0.85
 
-eurToGbp = 0.91
-eurToUsd = 1.10
+eurToGbp = 0.89
+eurToUsd = 1.18
+
+inrToGbp = 0.010
+inrToEur = 0.011
+inrToUsd = 0.013
 
 def locationsStandardIVF(request):
     queryset_list_uk = BasicClinic.objects.all()
@@ -72,6 +76,22 @@ def locationsStandardIVF(request):
             gbpCurrency_sp_ivf = None
             usdCurrency_sp_ivf = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
+    my_total_clinic_count_in = queryset_list_in.count()
+    queryset_list_in_ivf = queryset_list_in.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_in_ivf.items():
+        inrCurrency_in_ivf = val
+        if inrCurrency_in_ivf is not None:
+            eurCurrency_in_ivf = val * inrToEur
+            gbpCurrency_in_ivf = val * inrToGbp
+            usdCurrency_in_ivf = val * inrToUsd
+        else:
+            eurCurrency_in_ivf = None
+            gbpCurrency_in_ivf = None
+            usdCurrency_in_ivf = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_ivf': gbpCurrency_uk_ivf,
@@ -92,6 +112,11 @@ def locationsStandardIVF(request):
         'gbpCurrency_sp_ivf': gbpCurrency_sp_ivf,
         'usdCurrency_sp_ivf': usdCurrency_sp_ivf,
         'eurCurrency_sp_ivf': eurCurrency_sp_ivf,
+
+        'my_total_clinic_count_in': my_total_clinic_count_in,
+        'gbpCurrency_in_ivf': gbpCurrency_in_ivf,
+        'usdCurrency_in_ivf': usdCurrency_in_ivf,
+        'eurCurrency_in_ivf': eurCurrency_in_ivf,
         }
 
     return render(request, 'main/Locations/locations-standard-ivf.html', context)
@@ -156,6 +181,23 @@ def locationsIVFwithEggDonation(request):
             gbpCurrency_es_egg = None
             usdCurrency_es_egg = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
+    my_total_clinic_count_in = queryset_list_in.count()
+
+    queryset_list_in_egg = queryset_list_in.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_in_egg.items():
+        inrCurrency_in_egg = val
+        if inrCurrency_in_egg is not None:
+            eurCurrency_in_egg = val * inrToEur
+            gbpCurrency_in_egg = val * inrToGbp
+            usdCurrency_in_egg = val * inrToUsd
+        else:
+            eurCurrency_in_egg = None
+            gbpCurrency_in_egg = None
+            usdCurrency_in_egg = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_egg': gbpCurrency_uk_egg,
@@ -172,10 +214,10 @@ def locationsIVFwithEggDonation(request):
         'usdCurrency_cz_egg': usdCurrency_cz_egg,
         'eurCurrency_cz_egg': eurCurrency_cz_egg,
 
-        'my_total_clinic_count_es': my_total_clinic_count_es,
-        'gbpCurrency_es_egg': gbpCurrency_es_egg,
-        'usdCurrency_es_egg': usdCurrency_es_egg,
-        'eurCurrency_es_egg': eurCurrency_es_egg,
+        'my_total_clinic_count_in': my_total_clinic_count_in,
+        'gbpCurrency_in_egg': gbpCurrency_in_egg,
+        'usdCurrency_in_egg': usdCurrency_in_egg,
+        'eurCurrency_in_egg': eurCurrency_in_egg,
         }
 
     return render(request, 'main/Locations/locations-ivf-with-egg-donors.html', context)
@@ -240,6 +282,23 @@ def locationsIVFwithEmbryoDonation(request):
             gbpCurrency_es_embryo = None
             usdCurrency_es_embryo = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
+    my_total_clinic_count_in = queryset_list_in.count()
+
+    queryset_list_in_embryo = queryset_list_in.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_in_embryo.items():
+        inrCurrency_in_embryo = val
+        if inrCurrency_in_embryo is not None:
+            eurCurrency_in_embryo = val * inrToEur
+            gbpCurrency_in_embryo = val * inrToGbp
+            usdCurrency_in_embryo = val * inrToUsd
+        else:
+            eurCurrency_in_embryo = None
+            gbpCurrency_in_embryo = None
+            usdCurrency_in_embryo = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_embryo': gbpCurrency_uk_embryo,
@@ -260,6 +319,11 @@ def locationsIVFwithEmbryoDonation(request):
         'gbpCurrency_es_embryo': gbpCurrency_es_embryo,
         'usdCurrency_es_embryo': usdCurrency_es_embryo,
         'eurCurrency_es_embryo': eurCurrency_es_embryo,
+
+        'my_total_clinic_count_in': my_total_clinic_count_in,
+        'gbpCurrency_in_embryo': gbpCurrency_in_embryo,
+        'usdCurrency_in_embryo': usdCurrency_in_embryo,
+        'eurCurrency_in_embryo': eurCurrency_in_embryo,
 
         }
 
@@ -325,6 +389,23 @@ def locationsIUI(request):
             gbpCurrency_es_iui = None
             usdCurrency_es_iui = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
+    my_total_clinic_count_in = queryset_list_in.count()
+
+    queryset_list_in_iui = queryset_list_in.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_in_iui.items():
+        inrCurrency_in_iui = val
+        if inrCurrency_in_iui is not None:
+            eurCurrency_in_iui = val * inrToEur
+            gbpCurrency_in_iui = val * inrToGbp
+            usdCurrency_in_iui = val * inrToUsd
+        else:
+            eurCurrency_in_iui = None
+            gbpCurrency_in_iui = None
+            usdCurrency_in_iui = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_iui': gbpCurrency_uk_iui,
@@ -346,6 +427,10 @@ def locationsIUI(request):
         'usdCurrency_es_iui': usdCurrency_es_iui,
         'eurCurrency_es_iui': eurCurrency_es_iui,
 
+        'my_total_clinic_count_in': my_total_clinic_count_in,
+        'gbpCurrency_in_iui': gbpCurrency_in_iui,
+        'usdCurrency_in_iui': usdCurrency_in_iui,
+        'eurCurrency_in_iui': eurCurrency_in_iui,
         }
 
     return render(request, 'main/Locations/locations-iui.html', context)

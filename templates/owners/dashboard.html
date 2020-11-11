@@ -4,7 +4,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
-    <p style="color:white">You have {{package}} packages. Your maximum limit for active packages is {{ instance }}</p>
+    <p style="color:white">You have {{package}} packages. Your maximum limit for live packages is {{ instance }}</p>
     <br>
   </div>
 </div>
@@ -17,33 +17,34 @@
         <div class="row">
           <div class="col-sm-9">
             <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-primary">PREMIUM clinic</span></h2>
+            <p>This clinic have {% for package_ppq_counts in package_ppq_count %}{{package_ppq_counts.number_of_packages}}{% endfor %} packages. Maximum - 6 live packages.</p>
           </div>
         </div>
-        <br>
-        <br>
+        <hr>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+          </div>
+          <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
-
           </div>
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
-        <br>
+        <hr>
         <div class="row">
           {% if listings.customer.membership == True %}
           <div class="col-4 col-sm">
             <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-dark text-light btn-block" type="button">Payments</button>
+              <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
             </a>
           </div>
           {% endif %}
           {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 6 %}
           <div class="col-4 col-sm">
-            <a href="{% url 'createpackage' listings.id %}">
-              <button class="btn btn-dark text-light btn-block" type="button">Create package</button>
+            <a href="{% url 'createpackage' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Create package</button>
             </a>
           </div>
           {% else %}
@@ -52,8 +53,8 @@
           {% endif %}
           {% if package %}
           <div class="col-4 col-sm">
-            <a href="{% url 'clinicpackagesettings' listings.id %}">
-              <button class="btn btn-dark text-light btn-block" type="button">Packages</button>
+            <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
             </a>
           </div>
           {% endif %}
@@ -67,32 +68,37 @@
         <div class="row">
           <div class="col-sm-9">
             <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-success">PRO clinic</span></h2>
+            <p>This clinic have {% for package_pro_counts in package_pro_count %}{{package_pro_counts.number_of_packages}}{% endfor %} packages. Maximum - 2 live packages.</p>
           </div>
         </div>
-        <br>
-        <br>
+        <hr>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+          </div>
+          <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
-        <br>
+        <hr>
         <div class="row">
           {% if listings.customer.membership == True %}
           <div class="col-4 col-sm">
             <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-dark text-light btn-block" type="button">Payments</button>
+              <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
             </a>
+          </div>
+          {% else %}
+          <div class="col-4 col-sm">
           </div>
           {% endif %}
           {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 2 %}
           <div class="col-4 col-sm">
-            <a href="{% url 'createpackage' listings.id %}">
-              <button class="btn btn-dark text-light btn-block" type="button">Create package</button>
+            <a href="{% url 'createpackage' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Create package</button>
             </a>
           </div>
           {% else %}
@@ -101,8 +107,8 @@
           {% endif %}
           {% if package %}
           <div class="col-4 col-sm">
-            <a href="{% url 'clinicpackagesettings' listings.id %}">
-              <button class="btn btn-dark text-light btn-block" type="button">Packages</button>
+            <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
             </a>
           </div>
           {% endif %}
@@ -110,26 +116,32 @@
       </div>
     {% endif %}
   {% endfor %}
+  <br>
+  <hr>
+  <br>
+  <br>
   {% for listings in listingsbasic %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == True %}
       <div class="jumbotron">
         <div class="row">
           <div class="col-sm-9">
             <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-warning">Basic clinic</span></h2>
+            <p>This clinic cannot have any IVF packages. Please upgrade to present your IVF packages. Did you know almost <u>70% of our users visit and search IVF packages</u> on our website?</p>
           </div>
         </div>
-        <br>
-        <br>
+        <hr>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-tools"></i> <a href="{% url 'update' listings.id %}">Clinic information</a></p>
+          </div>
+          <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricing' listings.id %}">Clinic pricing</a></p>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
             <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
           </div>
         </div>
-        <br>
+        <hr>
         <div class="row">
           {% if listings.customer.stripeid %}
           <div class="col-4 col-sm">

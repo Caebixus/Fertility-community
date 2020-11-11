@@ -25,8 +25,8 @@
       <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
       <hr>
       <br>
-      <div class="container" style="text-align: center">
-        <form method='POST' enctype="multipart/form-data">
+      <div class="container">
+      <form method='POST' enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.non_field_errors }}
       {{ form.source.errors }}
@@ -189,7 +189,7 @@
       <br>
       <div class="fieldWrapper" style="text-align: left">
         {{ form.contact_url.errors }}
-        <label for="{{ form.contact_url.id_for_label}}">Clinic's URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well)</label>
+        <label for="{{ form.contact_url.id_for_label}}">Clinic's URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your analytics):</label>
         {{ form.contact_url }}
       </div>
       <br>
@@ -433,9 +433,10 @@
         </div>
       </div>
       <br>
-      <input class="btn btn-dark" type='submit' value='Update' />
-    </form>
-  </div>
-</main>
+      <input class="btn btn-outline-dark" type='submit' value='Update' />
+      </form>
+    </div>
+  </main>
+</div>
 <br>
 {% endblock  %}

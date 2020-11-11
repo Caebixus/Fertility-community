@@ -6,69 +6,100 @@ $(document).ready(function (e) {
             $('#usdBoard1b').show();
             $('#usdBoard1c').show();
             $('#usdBoard1d').show();
+            $('#usdBoard1e').show();
+
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
+            $('#eurBoard2e').hide();
+
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
+            $('#gbpBoard3e').hide();
+
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
+            $('#defaultBoard1e').hide();
+
         } else if ($(this).val() == 'EUR') {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
+            $('#usdBoard1e').hide();
+
             $('#eurBoard2a').show();
             $('#eurBoard2b').show();
             $('#eurBoard2c').show();
             $('#eurBoard2d').show();
+            $('#eurBoard2e').show();
+
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
+            $('#gbpBoard3e').hide();
+
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
+            $('#defaultBoard1e').hide();
+
         } else if ($(this).val() == 'GBP') {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
+            $('#usdBoard1e').hide();
+
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
+            $('#eurBoard2e').hide();
+
             $('#gbpBoard3a').show();
             $('#gbpBoard3b').show();
             $('#gbpBoard3c').show();
             $('#gbpBoard3d').show();
+            $('#gbpBoard3e').show();
+
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
+            $('#defaultBoard1e').hide();
+
         } else {
             $('#usdBoard1a').hide();
             $('#usdBoard1b').hide();
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
+            $('#usdBoard1e').hide();
+
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
+            $('#eurBoard2e').hide();
+
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
+            $('#gbpBoard3e').hide();
+
             $('#defaultBoard1a').show();
             $('#defaultBoard1b').show();
             $('#defaultBoard1c').show();
             $('#defaultBoard1d').show();
+            $('#defaultBoard1e').show();
         }
     });
 });

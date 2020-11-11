@@ -85,6 +85,15 @@
               <div id="gbpBoard3d" style="display:none">{% if gbpCurrency_es_embryo %}{{ gbpCurrency_es_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1e">Choose currency above</div>
+              <div id="usdBoard1e" style="display:none">{% if usdCurrency_in_embryo %}{{ usdCurrency_in_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2e" style="display:none">{% if eurCurrency_in_embryo %}{{ eurCurrency_in_embryo|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3e" style="display:none">{% if gbpCurrency_in_embryo %}{{ gbpCurrency_in_embryo|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

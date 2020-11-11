@@ -21,6 +21,7 @@ from django.forms.fields import Field, FileField
 from .decorators import allowed_users
 from django.contrib.auth.models import Group
 from django.db.models import F
+from django.db.models import Count
 
 # Create your views here.
 def register(request):
@@ -123,7 +124,9 @@ def dashboard(request):
             all = BasicClinic.objects.filter(clinicOwner_id=request.user)
             listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
             listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
+            package_pro_count = listingspro.annotate(number_of_packages=Count('package'))
             listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
+            package_ppq_count = listingsppq.annotate(number_of_packages=Count('package'))
 
             customer = Customer.objects.filter(customerClinic__in=all)
 
@@ -144,6 +147,8 @@ def dashboard(request):
             usergroup = usergroup.filter(paidPropublished=True)
 
             context = {
+                'package_ppq_count': package_ppq_count,
+                'package_pro_count': package_pro_count,
                 'listingsbasic': listingsbasic,
                 'listingspro': listingspro,
                 'listingsppq': listingsppq,
@@ -697,6 +702,9 @@ def clinicpackagesettings(request, listing_id):
 
     todayDate = timezone.now()
 
+    all_packages = Package.objects.filter(packageclinic_id=listing_id)
+    package_count = all_packages.count()
+
     listing = Package.objects.filter(package_end_list_date__gte=todayDate)
     listing = listing.filter(packageclinic_id=listing_id)
 
@@ -706,8 +714,10 @@ def clinicpackagesettings(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id)
 
     context = {
+        'all_packages': all_packages,
         'usergroup': usergroup,
         'listing': listing,
+        'package_count': package_count,
         'notactivelisting': notactivelisting,
         'instance': instance,
     }

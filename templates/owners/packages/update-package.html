@@ -1,11 +1,14 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Update package: {{ instance.packagetitle }} of {{ instance.packageclinic }}</h1>
+    <br>
+    <p style="color:white">This package will expire in: {{ instance.package_end_list_date|naturaltime}} (if you want prolong this package, delete it and create new one with new date)</p>
     <br>
   </div>
 </div>
@@ -90,7 +93,7 @@
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.package_url.errors }}
-          <label for="{{ form.package_url.id_for_label}}">Package URL on your website:</label>
+          <label for="{{ form.package_url.id_for_label}}">Package URL on your website (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your analytics):</label>
           <div class="fieldWrapper">
             {{ form.package_url }}
           </div>
@@ -106,7 +109,7 @@
         <br>
         <hr>
         <br>
-        <input class="btn btn-dark" type='submit' value='Create package' />
+        <input class="btn btn-outline-dark " type='submit' value='Update package' />
       </form>
     </div>
   </main>

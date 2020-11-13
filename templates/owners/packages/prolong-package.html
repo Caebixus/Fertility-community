@@ -1,0 +1,73 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Update package: {{ instance.packagetitle }} of {{ instance.packageclinic }}</h1>
+    <br>
+    <p style="color:white">This package will expire in: {{ instance.package_end_list_date|naturaltime}} (if you want prolong this package, delete it and create new one with new date)</p>
+    <br>
+  </div>
+</div>
+<div class="container py-4">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <main role="main">
+    <div class="container" style="max-width: 70rem; text-align: center">
+      {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+      {% endif %}
+      <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {{ form.source.errors }}
+        {{ form.source }}
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.package_limit_days.errors }}
+          <label for="{{ form.package_limit_days.id_for_label}}">Package day offer:</label>
+          <div class="fieldWrapper">
+            {{ form.package_limit_days }}
+          </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <input class="btn btn-outline-dark " type='submit' value='Update package' />
+      </form>
+    </div>
+  </main>
+</div>
+<br>
+{% endblock  %}

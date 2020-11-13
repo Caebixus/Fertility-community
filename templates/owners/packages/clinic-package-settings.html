@@ -25,6 +25,7 @@
     <thead>
       <tr>
         <th scope="col">Package name</th>
+        <th scope="col">Expire:</th>
         <th scope="col">Is package live on web?</th>
         <th scope="col">Action</th>
       </tr>
@@ -33,6 +34,9 @@
     <tbody>
       <tr>
         <th scope="row">{{ listings.packagetitle }}</th>
+        <td>
+        {{ listings.package_end_list_date|naturaltime}}
+        </td>
         <td>
           {% if listings.is_package_active == True %}
           <i class="fas fa-check-circle" style="color:green"></i>
@@ -67,7 +71,8 @@
   <p>You did not create any packages for this clinic yet.</p>
   {% else %}
   <br>
-  <hr>
+  <br>
+  <br>
   <br>
   {% endif %}
   {% if notactivelisting %}
@@ -76,6 +81,8 @@
     <thead>
       <tr>
         <th scope="col">Package name</th>
+        <th scope="col">Expired</th>
+        <th scope="col">Is package live on web?</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -84,12 +91,22 @@
       <tr>
         <th scope="row">{{ notactivelistings.packagetitle }}</th>
         <td>
+        {{ notactivelistings.package_end_list_date|naturaltime}}
+        </td>
+        <td>
+          <i class="fas fa-minus-circle" style="color:red"></i>
+        </td>
+        <td>
           <p>
             <a href="{% url 'updatepropackage' notactivelistings.id %}" style="text-decoration: none">
               <button type="button" class="btn btn-outline-dark btn-block">Update</button>
             </a>
           </p>
-
+          <p>
+            <a href="{% url 'prolongpropackage' notactivelistings.id %}" style="text-decoration: none">
+              <button type="button" class="btn btn-outline-dark btn-block">Prolong</button>
+            </a>
+          </p>
           <p>
             <a href="{% url 'deletepropackage' notactivelistings.id %}" style="text-decoration: none">
               <button type="button" class="btn btn-outline-dark btn-block">Delete</button>

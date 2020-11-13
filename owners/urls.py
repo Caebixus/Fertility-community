@@ -13,10 +13,12 @@ urlpatterns = [
     path('banners', views.banners, name='banners'),
     path('create1', views.create1, name='create1'),
     path('create', views.create, name='create'),
+
     path('packages/<int:listing_id>', views.packages, name='packages'),
     path('packages/create-package/<int:listing_id>', views.createpackage, name='createpackage'),
     path('clinic-packages/<int:listing_id>', views.clinicpackagesettings, name='clinicpackagesettings'),
     path('packages/update-package/<int:package_id>', views.updatepropackage, name='updatepropackage'),
+    path('packages/prolong-package/<int:package_id>', views.prolongpropackage, name='prolongpropackage'),
     path('packages/delete-package/<int:package_id>', views.deletepropackage, name='deletepropackage'),
 
     path('upgrade/<int:listing_id>', views.upgrade, name='upgrade'),

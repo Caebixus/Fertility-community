@@ -1200,3 +1200,12 @@ class PostFormProUpdatePackage(forms.ModelForm):
         'package_url',
         'package_phone',
         ]
+
+class ProlongPackage(forms.ModelForm):
+    package_limit_days = forms.CharField(widget=forms.Select(choices=PACKAGE_TYPE, attrs={'class': 'form-control',}))
+
+    class Meta:
+        model = Package
+        fields = [
+        'package_limit_days',
+        ]

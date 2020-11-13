@@ -14,7 +14,7 @@ from .models import ownerProInterested, ProUser, AuthenticatedUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
@@ -116,6 +116,7 @@ def logout(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def dashboard(request):
+    todayDate = timezone.now()
     user = request.user
     try:
         if user.authenticateduser.is_activated == False:
@@ -123,10 +124,12 @@ def dashboard(request):
         else:
             all = BasicClinic.objects.filter(clinicOwner_id=request.user)
             listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
+
             listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
             package_pro_count = listingspro.annotate(number_of_packages=Count('package'))
+
             listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
-            package_ppq_count = listingsppq.annotate(number_of_packages=Count('package'))
+            package_ppq_count = listingsppq.filter(package__package_end_list_date__gte=todayDate).annotate(number_of_packages=Count('package'))
 
             customer = Customer.objects.filter(customerClinic__in=all)
 
@@ -741,7 +744,7 @@ def updatepropackage(request, package_id):
         instance.save()
         emailform.save()
 
-        messages.success(request, '- Clinics information succesfully updated')
+        messages.success(request, '- Package information succesfully updated')
         return redirect(dashboard)
 
     context = {
@@ -752,6 +755,37 @@ def updatepropackage(request, package_id):
     }
 
     return render(request, 'owners/packages/update-package.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def prolongpropackage(request, package_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    instance = get_object_or_404(Package, pk=package_id)
+    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic_id)
+
+    form = ProlongPackage(request.POST or None, request.FILES or None, instance=instance,)
+
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.package_list_date = datetime.now()
+        if form.package_limit_days == '30 Days':
+            form.package_end_list_date = form.package_list_date + timedelta(days=30)
+        else:
+            form.package_end_list_date = form.package_list_date + timedelta(days=90)
+        form.save()
+
+        messages.success(request, '- Package end date succesfully prolonged')
+        return redirect(dashboard)
+
+    context = {
+        'instance': instance,
+        'form': form,
+        'usergroup': usergroup,
+    }
+
+    return render(request, 'owners/packages/prolong-package.html', context)
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def deletepropackage(request, package_id):

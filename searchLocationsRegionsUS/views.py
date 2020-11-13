@@ -39,7 +39,7 @@ def fertilityClinicsAlabama(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -92,7 +92,7 @@ def fertilityClinicsAlaska(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -145,7 +145,7 @@ def fertilityClinicsArizona(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -198,7 +198,7 @@ def fertilityClinicsArkansas(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -251,7 +251,7 @@ def fertilityClinicsCalifornia(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -304,7 +304,7 @@ def fertilityClinicsColorado(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -357,7 +357,7 @@ def fertilityClinicsConnecticut(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -410,7 +410,7 @@ def fertilityClinicsDelaware(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -463,7 +463,7 @@ def fertilityClinicsFlorida(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -516,7 +516,7 @@ def fertilityClinicsGeorgia(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -569,7 +569,7 @@ def fertilityClinicsHawaii(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -622,7 +622,7 @@ def fertilityClinicsIdaho(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -675,7 +675,7 @@ def fertilityClinicsIllinois(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -728,7 +728,7 @@ def fertilityClinicsIndiana(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -781,7 +781,7 @@ def fertilityClinicsIowa(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -834,7 +834,7 @@ def fertilityClinicsKansas(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -887,7 +887,7 @@ def fertilityClinicsKentucky(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -940,7 +940,7 @@ def fertilityClinicsLouisiana(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -993,7 +993,7 @@ def fertilityClinicsMaine(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1046,7 +1046,7 @@ def fertilityClinicsMaryland(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1099,7 +1099,7 @@ def fertilityClinicsMassachusetts(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1152,7 +1152,7 @@ def fertilityClinicsMichigan(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1205,7 +1205,7 @@ def fertilityClinicsMinnesota(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1258,7 +1258,7 @@ def fertilityClinicsMississippi(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1311,7 +1311,7 @@ def fertilityClinicsMissouri(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1364,7 +1364,7 @@ def fertilityClinicsMontana(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1417,7 +1417,7 @@ def fertilityClinicsNebraska(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1470,7 +1470,7 @@ def fertilityClinicsNewHampshire(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1523,7 +1523,7 @@ def fertilityClinicsNewJersey(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1576,7 +1576,7 @@ def fertilityClinicsNewMexico(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1629,7 +1629,7 @@ def fertilityClinicsNewYork(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1682,7 +1682,7 @@ def fertilityClinicsNorthCarolina(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1735,7 +1735,7 @@ def fertilityClinicsNorthDakota(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1788,7 +1788,7 @@ def fertilityClinicsNevada(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1841,7 +1841,7 @@ def fertilityClinicsOhio(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1894,7 +1894,7 @@ def fertilityClinicsOklahoma(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1947,7 +1947,7 @@ def fertilityClinicsOregon(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2000,7 +2000,7 @@ def fertilityClinicsPennsylvania(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2053,7 +2053,7 @@ def fertilityClinicsPuertoRico(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2106,7 +2106,7 @@ def fertilityClinicsRhodeIsland(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2159,7 +2159,7 @@ def fertilityClinicsSouthCarolina(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2212,7 +2212,7 @@ def fertilityClinicsSouthDakota(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2265,7 +2265,7 @@ def fertilityClinicsTennessee(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2318,7 +2318,7 @@ def fertilityClinicsTexas(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2371,7 +2371,7 @@ def fertilityClinicsUtah(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2424,7 +2424,7 @@ def fertilityClinicsVermont(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2477,7 +2477,7 @@ def fertilityClinicsVirginia(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2530,7 +2530,7 @@ def fertilityClinicsWashington(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2583,7 +2583,7 @@ def fertilityClinicsWestVirginia(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2636,7 +2636,7 @@ def fertilityClinicsWisconsin(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2689,7 +2689,7 @@ def fertilityClinicsWyoming(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2742,7 +2742,7 @@ def fertilityClinicsDistrictOfColumbia(request):
 
     my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
 
-    paginator = Paginator(order_data, 12)
+    paginator = Paginator(order_data, 30)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 

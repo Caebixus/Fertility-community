@@ -34,25 +34,25 @@
               <br>
               <hr noshade style="border-top: 1px solid ">
               <br>
-              <div class="row" style="text-align: center">
-                <div class="col-6 md-6 mb-2">
+              <div class="row" style="text-align: center; max-width: 33rem">
+                <div class="col-sm-4 mb-2">
                   {% if packages.package_url %}
-                  <a href="{{ packages.package_url }}" rel="sponsored">
-                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> More information</button>
+                  <a href="{{ packages.package_url }}" rel="sponsored" style="text-decoration: none">
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
                   </a>
                   {% endif %}
                 </div>
-                <div class="col-6 md-6 mb-2">
+                <div class="col-sm-4 mb-2">
                   {% if packages.packageclinic.query_email %}
-                  <a href="mailto:{{ packages.packageclinic.query_email }}">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Contact me</button>
+                  <a href="mailto:{{ packages.packageclinic.query_email }}" style="text-decoration: none">
+                    <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Contact me</button>
                   </a>
-                  <br>
-                  <br>
                   {% endif %}
+                </div>
+                <div class="col-sm-4 mb-2">
                   {% if packages.package_phone %}
-                  <a href="tel:{{ packages.package_phone }}" style="text-align:center">
-                    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call us</button>
+                  <a href="tel:{{ packages.package_phone }}" style="text-align:center; text-decoration: none">
+                    <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call us</button>
                   </a>
                   {% endif %}
                 </div>

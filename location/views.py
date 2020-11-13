@@ -214,6 +214,11 @@ def locationsIVFwithEggDonation(request):
         'usdCurrency_cz_egg': usdCurrency_cz_egg,
         'eurCurrency_cz_egg': eurCurrency_cz_egg,
 
+        'my_total_clinic_count_es': my_total_clinic_count_es,
+        'gbpCurrency_es_egg': gbpCurrency_es_egg,
+        'usdCurrency_es_egg': usdCurrency_es_egg,
+        'eurCurrency_es_egg': eurCurrency_es_egg,
+
         'my_total_clinic_count_in': my_total_clinic_count_in,
         'gbpCurrency_in_egg': gbpCurrency_in_egg,
         'usdCurrency_in_egg': usdCurrency_in_egg,

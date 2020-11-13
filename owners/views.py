@@ -126,7 +126,7 @@ def dashboard(request):
             listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
 
             listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
-            package_pro_count = listingspro.annotate(number_of_packages=Count('package'))
+            package_pro_count = listingspro.filter(package__package_end_list_date__gte=todayDate).annotate(number_of_packages=Count('package'))
 
             listingsppq = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(ppq_is_published=True)
             package_ppq_count = listingsppq.filter(package__package_end_list_date__gte=todayDate).annotate(number_of_packages=Count('package'))

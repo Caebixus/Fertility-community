@@ -186,6 +186,8 @@ select {
   border-radius: 8px;
 }
 
+
+
 #brandButtonGoalPackagePrimary {
   border-color: #286DA8;
   background-color: #286DA8;
@@ -200,6 +202,37 @@ select {
   color: #286DA8;
   border-radius: 8px;
 }
+
+#brandButtonGoalPackageEmail {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalPackageEmail:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}
+
+#brandButtonGoalPackageCall {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalPackageCall:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}
+
 
 #mc-embedded-subscribe {
   border-color: #CD5360;

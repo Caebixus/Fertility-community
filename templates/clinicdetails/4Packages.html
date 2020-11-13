@@ -13,7 +13,7 @@
         <br>
         <br>
           <div class="col-sm-6">
-            <div class="container py-3 shadow" style="background-color: white; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
+            <div class="container py-3 shadow" style="background-color: white; padding-top: 15px; border-radius: 8px; border-color: #286DA8; padding-bottom: 5px;">
               <div class="header" style="min-height:50px;">
                 <div class="row">
                   <div class="col-8 sm-8">
@@ -38,21 +38,21 @@
                 <div class="col-sm-4 mb-2">
                   {% if packages.package_url %}
                   <a href="{{ packages.package_url }}" rel="sponsored" style="text-decoration: none">
-                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-desktop"></i> Website</button>
+                    <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
                   </a>
                   {% endif %}
                 </div>
                 <div class="col-sm-4 mb-2">
                   {% if packages.packageclinic.query_email %}
                   <a href="mailto:{{ packages.packageclinic.query_email }}" style="text-decoration: none">
-                    <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-envelope"></i> Contact me</button>
+                    <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-envelope"></i> Contact us</button>
                   </a>
                   {% endif %}
                 </div>
                 <div class="col-sm-4 mb-2">
                   {% if packages.package_phone %}
                   <a href="tel:{{ packages.package_phone }}" style="text-align:center; text-decoration: none">
-                    <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow" style="min-width: 10rem;"><i class="fas fa-phone"></i> Call us</button>
+                    <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-phone"></i> Call us</button>
                   </a>
                   {% endif %}
                 </div>

@@ -1,0 +1,431 @@
+{% extends "main/base.html" %}
+{% block title %}FertilityCommunity | Fertility Clinic listings | IVF Data{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com{% endblock %}
+{% block meta_keywords %}fertility clinic near me, ivf clinics near me, fertility doctor near me, fertility specialist near me, fertility center near me, private fertility clinic near me{% endblock %}
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility clinics & agencies near me</h1>
+    <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a cost comparison. We have reviewed and categorized over <b><u>{{ listing }}</u></b> fertility clinics worldwide!</p>
+  </div>
+  <div class="container">
+    <div class="searchBox">
+      <div class="mainbanner" id="mainhpbanner">
+        <form action="{% url 'search' %}">
+          <div class="form-group" style="padding-top:3rem">
+            <div class="card" style="border-radius: 8px;">
+              <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                  <option value="" selected>Select state</option>
+                  {% for key, value in CATEGORY_CHOICES_STATES.items %}
+                  <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="padding-top:1rem">
+            <div class="accordion" id="accordionExample">
+              <div class="card" id="cardBox" style="border-radius: 8px;">
+                <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                  <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Types of treatments
+                  </button>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments">
+                          <label class="form-check-label" for="All treatment">All treatments</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" >
+                          <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments">
+                          <label class="form-check-label" for="IVF treatment mild">Mild IVF</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments">
+                          <label class="form-check-label" for="IVF treatment ovarian">IVF with ovarian stimulation</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments">
+                          <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
+                        </div>
+                      </div>
+
+                      <div class="col">
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments">
+                          <label class="form-check-label" for="Egg freezing">Egg freezing</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments">
+                          <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments">
+                          <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments">
+                          <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments">
+                          <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments">
+                          <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:7rem">
+            <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
+            <br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Types of treatments-->
+<br>
+
+<div class="container py-4">
+  <h2>Fertility centers & clinics comparator & search engine</h2>
+  <p>In today's world, it is no longer a problem to travel abroad for eye or tooth surgery, etc. Why should <u>IVF treatment</u> be different?</p>
+  <p>But the problem arises in finding the right fertility clinic in the local area or abroad.</p>
+  <p>In today's globalized world, it is hard to find <u>relevant</u> information about <b>Fertility Clinics</b> and compare them with each other. So we decided to change it!</p>
+  <br>
+  <p><b>FertilityCommunity</b> is a search engine and comparator for <u>near your location</u> fertility clinics as well as from <u>around the world</u>. We try to organize the most essential initial information, which is often decisive, for example, the location of the fertility clinic or office, what operations the clinic provides, the cost of treatments, LGBTQ and single parents, and other options.</p>
+  <p>The entire FertilityCommunity website is built to be impartial and <b>easy to read</b> & <b>compare</b> to help you choose the best fertility clinic and meet all your expectations about IVF treatments abroad.</p>
+</div>
+
+<br>
+<!--Interesting things-->
+<br>
+
+<div class="background py-5" style="background-color: #286DA8">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-sm" style="border-right: 2px solid white; border-left: 2px solid white">
+        <h2 class="card-title" style="color: white">IVF Packages & Deals</h2>
+        <p class="card-text" style="color: white">Find out best fertility package treatments over the globe!</p>
+        <br>
+        <a href="{% url 'packages' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">IVF packages</button>
+        </a>
+      </div>
+      <div class="col-6 col-sm">
+        <h2 class="card-title" style="color: white">IVF Costs WorldWide</h2>
+        <p class="card-text" style="color: white">Have a look & compare IVF costs in different countries!</p>
+        <br>
+        <a href="{% url 'locations' %}">
+          <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">IVF costs</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Location links-->
+<br>
+
+<div class="container">
+  <h2><i class="fas fa-search-location"></i> Featured Fertility & IVF Clinics Locations</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicUK' %}">UK Fertility Clinics ({{ukclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicCzech' %}">Czech Republic Fertility Clinics ({{czclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicSpain' %}">Spain Fertility Clinics ({{spclinics}})</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicUSA' %}">USA Fertility Clinics ({{usclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicGreece' %}">Greece fertility clinics</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicIndia' %}">India fertility clinics</a></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <h3><i class="fas fa-search-location"></i> Popular fertility States in USA</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsCalifornia' %}">California fertility clinics ({{californiaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsAlabama' %}">Alabama fertility clinics ({{alabamaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArizona' %}">Arizona fertility clinics ({{arizonaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsFlorida' %}">Florida fertility clinics ({{floridaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsTexas' %}">Texas fertility clinics ({{texasclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUSRegions' %}"><u><b>USA states comparison</b></u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNewYork' %}">New York fertility clinics ({{newyorkclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsArkansas' %}">Arkansas fertility clinics ({{arkansasclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsColorado' %}">Colorado fertility clinics ({{coloradoclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsHawaii' %}">Hawaii fertility clinics ({{hawaiiclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsUtah' %}">Utah fertility clinics ({{utahclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsConnecticut' %}">Connecticut fertility clinics ({{connecticutclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsDelaware' %}">Delaware fertility clinics ({{delawareclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsGeorgia' %}">Georgia fertility clinics ({{georgiaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsIllinois' %}">Illinois fertility clinics ({{illinoisclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNewJersey' %}">New Jersey fertility clinics ({{newjerseyclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i> Popular fertility cities in United Kingdom</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics ({{londonclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics ({{bristolclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics ({{leedsclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics ({{nottinghamclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u><b>UK location comparison</b></u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics ({{birminghamclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics ({{exeterclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics ({{liverpoolclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics ({{portsmouthclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics ({{bournemouthclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics ({{glasgowclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics ({{manchesterclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics ({{sheffieldclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i> Popular fertility cities in Czech Republic:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicPrague' %}">Prague fertility clinics ({{pragueclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicBrno' %}">Brno fertility clinics ({{brnoclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsCZRegions' %}"><u><b>Czech location comparison</b></u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+    </div>
+    <div class="col-4 col-md">
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i> Popular fertility cities in Spain:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsAlicante' %}">Alicante fertility clinics ({{alicanteclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBarcelona' %}">Barcelona fertility clinics ({{barcelonaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsSeville' %}">Seville fertility clinics ({{sevilleclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsSPRegions' %}"><u><b>Spain location comparison</b></u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsMadrid' %}">Madrid fertility clinics ({{madridclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsMalaga' %}">Malaga fertility clinics ({{malagaclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsValencia' %}">Valencia fertility clinics ({{valenciaclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+    </div>
+  </div>
+  <br>
+  <h3><i class="fas fa-search-location"></i> Popular fertility cities in India:</h3>
+  <br>
+  <div class="row">
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsMumbai' %}">Mumbai fertility clinics ({{mumbaiclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsHyderabad' %}">Hyderabad fertility clinics ({{hyderabadclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLucknow' %}">Lucknow fertility clinics ({{lucknowclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsPatna' %}">Patna fertility clinics ({{patnaclinics}})</a></li>
+        <br>
+        <li><a href="{% url 'locationsINRegions' %}"><u><b>India location comparison</b></u></a></li>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsBangalore' %}">Bangalore fertility clinics ({{bangaloreclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsKolkata' %}">Kolkata fertility clinics ({{kolkataclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsIndore' %}">Indore fertility clinics ({{indoreclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsLudhiana' %}">Ludhiana fertility clinics ({{ludhianaclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+    <div class="col-4 col-md">
+      <ul class="list text-small">
+        <li><a class="text-muted" href="{% url 'fertilityClinicsChennai' %}">Chennai fertility clinics ({{chennaiclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsJaipur' %}">Jaipur fertility clinics ({{jaipurclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsChandigarh' %}">Chandigarh fertility clinics ({{chandigarhclinics}})</a></li>
+        <li><a class="text-muted" href="{% url 'fertilityClinicsAmdavad' %}">Amdavad fertility clinics ({{amdavadclinics}})</a></li>
+        <br>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--Mailchimp Subscription-->
+<br>
+
+<div class="background py-5" style="background-color: #286DA8">
+  <div class="container">
+    <!-- Begin Mailchimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    	#mc_embed_signup{background:#286DA8; clear:left;}
+      #mc_label_text{
+        color: white;
+        font-family: 'Josefin Sans';
+        font-weight: 300;
+        text-align: left;
+        font-size: 115%;
+      }
+      #mc_label_textmicro{
+        color: white;
+        font-family: 'Josefin Sans';
+        font-weight: 300;
+        text-align: left;
+        font-size: 90%;
+      }
+
+    	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+    	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <style type="text/css">
+    	#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+    	#mergeRow-gdpr {margin-top: 20px;}
+    	#mergeRow-gdpr fieldset label {font-weight: normal;}
+    	#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+    </style>
+    <div id="mc_embed_signup">
+    <form action="https://fertilitycommunity.us19.list-manage.com/subscribe/post?u=36c417cc039d232294f36ff0c&amp;id=943c5b4c8d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2 class="card-title" style="color: white; font-size: 200%;">Fertility packages newsletter</h2>
+        <p class="card-text" style="color: white">Receive the newest Packages & Deals every month and choose the best!</p>
+        <div class="indicates-required" id="mc_label_text"><span class="asterisk">*</span> indicates required</div>
+        <div class="mc-field-group">
+        	<label id="mc_label_text" for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+        </label>
+        	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+        </div>
+        <strong id="mc_label_text">Type of Package/Deal: <span class="asterisk">*</span></strong>
+        <div class="mc-field-group input-group">
+            <ul>
+              <li><input type="checkbox" value="1" name="group[5636][1]" id="mce-group[5636]-5636-0"><label id="mc_label_text" for="mce-group[5636]-5636-0">IVF Package</label></li>
+              <li><input type="checkbox" value="2" name="group[5636][2]" id="mce-group[5636]-5636-1"><label id="mc_label_text" for="mce-group[5636]-5636-1">Egg donation Package</label></li>
+              <li><input type="checkbox" value="4" name="group[5636][4]" id="mce-group[5636]-5636-2"><label id="mc_label_text" for="mce-group[5636]-5636-2">Embryo donation Package</label></li>
+            </ul>
+        </div>
+        <div class="mc-field-group">
+        	<label id="mc_label_text" for="mce-group[5644]">Location of Package/Deal: <span class="asterisk">*</span></label>
+        	<select name="group[5644]" class="REQ_CSS" id="mce-group[5644]">
+          	<option value=""></option>
+          	<option value="8">USA</option>
+            <option value="16">UK</option>
+            <option value="32">Czech Republic</option>
+            <option value="64">Spain</option>
+        	</select>
+        </div>
+        <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
+            <div class="content__gdpr">
+                <label hidden id="mc_label_textmicro">Marketing Permissions</label>
+                <p hidden id="mc_label_textmicro">Select for receiving IVF Package newsletter</p>
+                <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
+        		<label id="mc_label_text" class="checkbox subfield" for="gdpr_63027"><input type="checkbox" id="gdpr_63027" name="gdpr[63027]" value="Y" class="av-checkbox gdpr"><span>Newsletter every month with the newest fertility Packages/Deals</span> </label>
+                </fieldset>
+                <p id="mc_label_textmicro">You can unsubscribe at any time by clicking the link in the footer of our emails.</p>
+            </div>
+            <div class="content__gdprLegal">
+                <p hidden id="mc_label_textmicro">We use Mailchimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to Mailchimp for processing. <a href="https://mailchimp.com/legal/" target="_blank" id="mc_label_textmicro">Learn more about Mailchimp's privacy practices here.</a></p>
+            </div>
+        </div>
+      	<div id="mce-responses" class="clear">
+      		<div class="response" id="mce-error-response" style="display:none"></div>
+      		<div class="response" id="mce-success-response" style="display:none"></div>
+      	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_36c417cc039d232294f36ff0c_943c5b4c8d" tabindex="-1" value="">
+        </div>
+        <div class="clear">
+          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-dark btn-lg ml-0">
+        </div>
+      </div>
+    </form>
+    </div>
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+    </script>
+    <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='MMERGE1';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+    <!--End mc_embed_signup-->
+  </div>
+</div>
+{% endblock  %}

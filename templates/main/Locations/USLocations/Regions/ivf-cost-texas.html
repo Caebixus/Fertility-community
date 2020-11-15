@@ -10,7 +10,7 @@
 {% include 'partials/_alerts.html' %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Fertility treatment costs in Texas | 2020</h1>
+    <h1 style="padding-top:3rem; color:white">Fertility treatment costs in Texas | 2020</h1>
     <br>
     <ul>
       <li style="color:white; font-size: 135% !important"><a href="#ivf-costs" style="color: white">IVF Costs in Texas - {% if texasIVF.average == None %} No information {% else %}{{ texasIVF.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>

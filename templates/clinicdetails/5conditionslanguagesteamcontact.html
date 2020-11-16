@@ -164,7 +164,7 @@
     <div class="row" style="padding-top:10px">
       {% if listing.contact_phone %}
       <div class="col">
-        <a href="tel:{{ listing.contact_phone }}" style="text-align:center" id="brandButtonGoalPackageCall">
+        <a href="tel:{{ listing.contact_phone }}" style="text-align:center; text-decoration: none">
           <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-phone"></i> Call us</button>
         </a>
       </div>
@@ -173,8 +173,8 @@
       {% if listing.pro_is_published %}
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
-        <a href="{{ listing.contact_url }}" style="text-align: center" id="brandButtonGoalPackagePrimary">
-          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow" style="text-decoration: none"><i class="fas fa-desktop"></i> Website</button>
+        <a href="{{ listing.contact_url }}" style="text-align: center; text-decoration: none">
+          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
         </a>
       </div>
       {% else %}
@@ -182,8 +182,8 @@
       {% else %}
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
-        <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow ugc" id="brandButtonGoalPackagePrimary">
-          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow" style="text-decoration: none"><i class="fas fa-desktop"></i> Website</button>
+        <a href="{{ listing.contact_url }}" style="text-align: center; text-decoration: none" rel="nofollow ugc">
+          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
         </a>
       </div>
       {% else %}
@@ -191,8 +191,8 @@
       {% endif %}
       {% if listing.contact_email %}
       <div class="col">
-        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalPackageEmail">
-          <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow" style="text-decoration: none"><i class="fas fa-envelope"></i> Contact me</button>
+        <a href="mailto:{{ listing.contact_email }}" style="text-align: center; text-decoration: none">
+          <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-envelope"></i> Contact me</button>
         </a>
       </div>
       {% else %}

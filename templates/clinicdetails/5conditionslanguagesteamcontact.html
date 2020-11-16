@@ -165,8 +165,7 @@
       {% if listing.contact_phone %}
       <div class="col">
         <a href="tel:{{ listing.contact_phone }}" style="text-align:center" id="brandButtonGoalPackageCall">
-          <img src="{% static 'img/call.svg' %}" alt="Icon Telephone" style="width:50px">
-          <figcaption class="figure-caption">{{ listing.contact_phone }}</figcaption>
+          <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-phone"></i> Call us</button>
         </a>
       </div>
       {% else %}
@@ -175,8 +174,7 @@
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
         <a href="{{ listing.contact_url }}" style="text-align: center" id="brandButtonGoalPackagePrimary">
-          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
-          <figcaption class="figure-caption">Website</figcaption>
+          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
         </a>
       </div>
       {% else %}
@@ -185,8 +183,7 @@
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
         <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow ugc" id="brandButtonGoalPackagePrimary">
-          <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
-          <figcaption class="figure-caption">Website</figcaption>
+          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
         </a>
       </div>
       {% else %}
@@ -195,8 +192,7 @@
       {% if listing.contact_email %}
       <div class="col">
         <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalPackageEmail">
-          <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
-          <figcaption class="figure-caption">Email contact</figcaption>
+          <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-envelope"></i> Contact me</button>
         </a>
       </div>
       {% else %}

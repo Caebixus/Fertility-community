@@ -164,7 +164,7 @@
     <div class="row" style="padding-top:10px">
       {% if listing.contact_phone %}
       <div class="col">
-        <a href="tel:{{ listing.contact_phone }}" style="text-align:center">
+        <a href="tel:{{ listing.contact_phone }}" style="text-align:center" id="brandButtonGoalPackageCall">
           <img src="{% static 'img/call.svg' %}" alt="Icon Telephone" style="width:50px">
           <figcaption class="figure-caption">{{ listing.contact_phone }}</figcaption>
         </a>
@@ -174,7 +174,7 @@
       {% if listing.pro_is_published %}
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
-        <a href="{{ listing.contact_url }}" style="text-align: center">
+        <a href="{{ listing.contact_url }}" style="text-align: center" id="brandButtonGoalPackagePrimary">
           <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
           <figcaption class="figure-caption">Website</figcaption>
         </a>
@@ -184,7 +184,7 @@
       {% else %}
       {% if listing.contact_url %}
       <div class="col" style="text-align: center">
-        <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow ugc">
+        <a href="{{ listing.contact_url }}" style="text-align: center" rel="nofollow ugc" id="brandButtonGoalPackagePrimary">
           <img src="{% static 'img/link.svg' %}" alt="Icon Website" style="width:50px">
           <figcaption class="figure-caption">Website</figcaption>
         </a>
@@ -194,7 +194,7 @@
       {% endif %}
       {% if listing.contact_email %}
       <div class="col">
-        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalClassic">
+        <a href="mailto:{{ listing.contact_email }}" style="text-align: center" id="brandButtonGoalPackageEmail">
           <img src="{% static 'img/mail.svg' %}" alt="Icon Email" style="width:50px">
           <figcaption class="figure-caption">Email contact</figcaption>
         </a>

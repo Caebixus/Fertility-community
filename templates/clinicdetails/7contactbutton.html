@@ -1,12 +1,4 @@
 {% if listing.is_claimed == True and listing.contact_email and listing.pro_is_published == True %}
-<div class="ButtonCornerContact">
-  <div style="position: fixed; bottom: 25px; right: 25px; z-index: 1;" >
-    <a href="mailto:{{ listing.contact_email }}">
-      <button id="brandButtonGoalRightCorner" type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-envelope"></i>
-        Contact clinic
-      </button>
-    </a>
-  </div>
-</div>
+
 {% else %}
 {% endif %}

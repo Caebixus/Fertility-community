@@ -4,7 +4,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
-    <p style="color:white">In total you have created {{package}} packages. The maximum limit for running packages is {{ instance }}</p>
+    <p style="color:white">In total you have created {{package}} packages. The maximum limit for running packages is {{ instance }}.</p>
     <br>
   </div>
 </div>
@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-sm-9">
             <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-primary">PREMIUM clinic</span></h2>
-            <p>This clinic have {% for package_ppq_counts in package_ppq_count %}{{package_ppq_counts.number_of_packages}}{% endfor %} live packages. Maximum - 6 live packages.</p>
+            <p>This clinic have {% for package_ppq_counts in package_ppq_count %}{{package_ppq_counts.number_of_packages}}{% empty %}0{% endfor %} live packages. Maximum - 6 live packages.</p>
           </div>
         </div>
         <hr>
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-sm-9">
             <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-success">PRO clinic</span></h2>
-            <p>This clinic have {% for package_pro_counts in package_pro_count %}{{package_pro_counts.number_of_packages}}{% endfor %} live packages. Maximum - 2 live packages.</p>
+            <p>This clinic have {% for package_pro_counts in package_pro_count %}{{package_pro_counts.number_of_packages}}{% empty %}0{% endfor %} live packages. Maximum - 2 live packages.</p>
           </div>
         </div>
         <hr>
@@ -150,7 +150,7 @@
           <div class="col-4 col-sm">
           </div>
           <div class="col-4 col-sm">
-            <a href="{% url 'checkout2' listings.id %}">
+            <a href="{% url 'checkout2' listings.id %}" style="text-decoration: none; !important">
               <button class="btn btn-success text-light btn-block" type="button">Upgrade Clinic</button>
             </a>
           </div>

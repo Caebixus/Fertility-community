@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import template
 from clinic.models import BasicClinic
-from packages.models import Packages
+from packages.models import Package
 from django.db.models import Avg
 from .choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator

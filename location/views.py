@@ -8134,23 +8134,728 @@ def locationsINRegions(request):
     queryset_list_in = BasicClinic.objects.all()
 
     #--------------------------------------------------------------------------
-    queryset_list_chennai = queryset_list_in.filter(clinicRegion__iexact='Chennai')
+    queryset_list_amdavad = queryset_list_in.filter(clinicCity__iexact='Amdavad')
+    my_total_count_amdavad = queryset_list_amdavad.count()
+    queryset_list_amdavad_ivf = queryset_list_amdavad.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_amdavad_ivf.items():
+        inrCurrency_amdavad_ivf = val
+        if inrCurrency_amdavad_ivf is not None:
+            usdCurrency_amdavad_ivf = val * inrToUsd
+            gbpCurrency_amdavad_ivf = val * inrToGbp
+            eurCurrency_amdavad_ivf = val * inrToEur
+        else:
+            usdCurrency_amdavad_ivf = None
+            gbpCurrency_amdavad_ivf = None
+            eurCurrency_amdavad_ivf = None
+
+    queryset_list_bangalore = queryset_list_in.filter(clinicCity__iexact='Bangalore')
+    my_total_count_bangalore = queryset_list_bangalore.count()
+    queryset_list_bangalore_ivf = queryset_list_bangalore.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_bangalore_ivf.items():
+        inrCurrency_bangalore_ivf = val
+        if inrCurrency_bangalore_ivf is not None:
+            usdCurrency_bangalore_ivf = val * inrToUsd
+            gbpCurrency_bangalore_ivf = val * inrToGbp
+            eurCurrency_bangalore_ivf = val * inrToEur
+        else:
+            usdCurrency_bangalore_ivf = None
+            gbpCurrency_bangalore_ivf = None
+            eurCurrency_bangalore_ivf = None
+
+    queryset_list_bhopal = queryset_list_in.filter(clinicCity__iexact='Bhopal')
+    my_total_count_bhopal = queryset_list_bhopal.count()
+    queryset_list_bhopal_ivf = queryset_list_bhopal.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_bhopal_ivf.items():
+        inrCurrency_bhopal_ivf = val
+        if inrCurrency_bhopal_ivf is not None:
+            usdCurrency_bhopal_ivf = val * inrToUsd
+            gbpCurrency_bhopal_ivf = val * inrToGbp
+            eurCurrency_bhopal_ivf = val * inrToEur
+        else:
+            usdCurrency_bhopal_ivf = None
+            gbpCurrency_bhopal_ivf = None
+            eurCurrency_bhopal_ivf = None
+
+    queryset_list_bhubaneswar = queryset_list_in.filter(clinicCity__iexact='Bhubaneswar')
+    my_total_count_bhubaneswar = queryset_list_bhubaneswar.count()
+    queryset_list_bhubaneswar_ivf = queryset_list_bhubaneswar.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_bhubaneswar_ivf.items():
+        inrCurrency_bhubaneswar_ivf = val
+        if inrCurrency_bhubaneswar_ivf is not None:
+            usdCurrency_bhubaneswar_ivf = val * inrToUsd
+            gbpCurrency_bhubaneswar_ivf = val * inrToGbp
+            eurCurrency_bhubaneswar_ivf = val * inrToEur
+        else:
+            usdCurrency_bhubaneswar_ivf = None
+            gbpCurrency_bhubaneswar_ivf = None
+            eurCurrency_bhubaneswar_ivf = None
+
+    queryset_list_dehradun = queryset_list_in.filter(clinicCity__iexact='Dehradun')
+    my_total_count_dehradun = queryset_list_dehradun.count()
+    queryset_list_dehradun_ivf = queryset_list_dehradun.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_dehradun_ivf.items():
+        inrCurrency_dehradun_ivf = val
+        if inrCurrency_dehradun_ivf is not None:
+            usdCurrency_dehradun_ivf = val * inrToUsd
+            gbpCurrency_dehradun_ivf = val * inrToGbp
+            eurCurrency_dehradun_ivf = val * inrToEur
+        else:
+            usdCurrency_dehradun_ivf = None
+            gbpCurrency_dehradun_ivf = None
+            eurCurrency_dehradun_ivf = None
+
+    queryset_list_faridabad = queryset_list_in.filter(clinicCity__iexact='Faridabad')
+    my_total_count_faridabad = queryset_list_faridabad.count()
+    queryset_list_faridabad_ivf = queryset_list_faridabad.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_faridabad_ivf.items():
+        inrCurrency_faridabad_ivf = val
+        if inrCurrency_faridabad_ivf is not None:
+            usdCurrency_faridabad_ivf = val * inrToUsd
+            gbpCurrency_faridabad_ivf = val * inrToGbp
+            eurCurrency_faridabad_ivf = val * inrToEur
+        else:
+            usdCurrency_faridabad_ivf = None
+            gbpCurrency_faridabad_ivf = None
+            eurCurrency_faridabad_ivf = None
+
+    queryset_list_hyderabad = queryset_list_in.filter(clinicCity__iexact='Hyderabad')
+    my_total_count_hyderabad = queryset_list_hyderabad.count()
+    queryset_list_hyderabad_ivf = queryset_list_hyderabad.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_hyderabad_ivf.items():
+        inrCurrency_hyderabad_ivf = val
+        if inrCurrency_hyderabad_ivf is not None:
+            usdCurrency_hyderabad_ivf = val * inrToUsd
+            gbpCurrency_hyderabad_ivf = val * inrToGbp
+            eurCurrency_hyderabad_ivf = val * inrToEur
+        else:
+            usdCurrency_hyderabad_ivf = None
+            gbpCurrency_hyderabad_ivf = None
+            eurCurrency_hyderabad_ivf = None
+
+    queryset_list_chandigarh = queryset_list_in.filter(clinicCity__iexact='Chandigarh')
+    my_total_count_chandigarh = queryset_list_chandigarh.count()
+    queryset_list_chandigarh_ivf = queryset_list_chandigarh.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_chandigarh_ivf.items():
+        inrCurrency_chandigarh_ivf = val
+        if inrCurrency_chandigarh_ivf is not None:
+            usdCurrency_chandigarh_ivf = val * inrToUsd
+            gbpCurrency_chandigarh_ivf = val * inrToGbp
+            eurCurrency_chandigarh_ivf = val * inrToEur
+        else:
+            usdCurrency_chandigarh_ivf = None
+            gbpCurrency_chandigarh_ivf = None
+            eurCurrency_chandigarh_ivf = None
+
+    queryset_list_chennai = queryset_list_in.filter(clinicCity__iexact='Chennai')
     my_total_count_chennai = queryset_list_chennai.count()
     queryset_list_chennai_ivf = queryset_list_chennai.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     for key,val in queryset_list_chennai_ivf.items():
-        eurCurrency_chennai_ivf = val
-        if eurCurrency_chennai_ivf is not None:
-            usdCurrency_chennai_ivf = val * eurToUsd
-            gbpCurrency_chennai_ivf = val * eurToGbp
+        inrCurrency_chennai_ivf = val
+        if inrCurrency_chennai_ivf is not None:
+            usdCurrency_chennai_ivf = val * inrToUsd
+            gbpCurrency_chennai_ivf = val * inrToGbp
+            eurCurrency_chennai_ivf = val * inrToEur
         else:
             usdCurrency_chennai_ivf = None
             gbpCurrency_chennai_ivf = None
+            eurCurrency_chennai_ivf = None
 
+    queryset_list_indore = queryset_list_in.filter(clinicCity__iexact='Indore')
+    my_total_count_indore = queryset_list_indore.count()
+    queryset_list_indore_ivf = queryset_list_indore.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_indore_ivf.items():
+        inrCurrency_indore_ivf = val
+        if inrCurrency_indore_ivf is not None:
+            usdCurrency_indore_ivf = val * inrToUsd
+            gbpCurrency_indore_ivf = val * inrToGbp
+            eurCurrency_indore_ivf = val * inrToEur
+        else:
+            usdCurrency_indore_ivf = None
+            gbpCurrency_indore_ivf = None
+            eurCurrency_indore_ivf = None
+
+    queryset_list_jaipur = queryset_list_in.filter(clinicCity__iexact='Jaipur')
+    my_total_count_jaipur = queryset_list_jaipur.count()
+    queryset_list_jaipur_ivf = queryset_list_jaipur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_jaipur_ivf.items():
+        inrCurrency_jaipur_ivf = val
+        if inrCurrency_jaipur_ivf is not None:
+            usdCurrency_jaipur_ivf = val * inrToUsd
+            gbpCurrency_jaipur_ivf = val * inrToGbp
+            eurCurrency_jaipur_ivf = val * inrToEur
+        else:
+            usdCurrency_jaipur_ivf = None
+            gbpCurrency_jaipur_ivf = None
+            eurCurrency_jaipur_ivf = None
+
+    queryset_list_jamshedpur = queryset_list_in.filter(clinicCity__iexact='Jamshedpur')
+    my_total_count_jamshedpur = queryset_list_jamshedpur.count()
+    queryset_list_jamshedpur_ivf = queryset_list_jamshedpur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_jamshedpur_ivf.items():
+        inrCurrency_jamshedpur_ivf = val
+        if inrCurrency_jamshedpur_ivf is not None:
+            usdCurrency_jamshedpur_ivf = val * inrToUsd
+            gbpCurrency_jamshedpur_ivf = val * inrToGbp
+            eurCurrency_jamshedpur_ivf = val * inrToEur
+        else:
+            usdCurrency_jamshedpur_ivf = None
+            gbpCurrency_jamshedpur_ivf = None
+            eurCurrency_jamshedpur_ivf = None
+
+    queryset_list_kanpur = queryset_list_in.filter(clinicCity__iexact='Kanpur')
+    my_total_count_kanpur = queryset_list_kanpur.count()
+    queryset_list_kanpur_ivf = queryset_list_kanpur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_kanpur_ivf.items():
+        inrCurrency_kanpur_ivf = val
+        if inrCurrency_kanpur_ivf is not None:
+            usdCurrency_kanpur_ivf = val * inrToUsd
+            gbpCurrency_kanpur_ivf = val * inrToGbp
+            eurCurrency_kanpur_ivf = val * inrToEur
+        else:
+            usdCurrency_kanpur_ivf = None
+            gbpCurrency_kanpur_ivf = None
+            eurCurrency_kanpur_ivf = None
+
+    queryset_list_kochi = queryset_list_in.filter(clinicCity__iexact='Kochi')
+    my_total_count_kochi = queryset_list_kochi.count()
+    queryset_list_kochi_ivf = queryset_list_kochi.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_kochi_ivf.items():
+        inrCurrency_kochi_ivf = val
+        if inrCurrency_kochi_ivf is not None:
+            usdCurrency_kochi_ivf = val * inrToUsd
+            gbpCurrency_kochi_ivf = val * inrToGbp
+            eurCurrency_kochi_ivf = val * inrToEur
+        else:
+            usdCurrency_kochi_ivf = None
+            gbpCurrency_kochi_ivf = None
+            eurCurrency_kochi_ivf = None
+
+    queryset_list_kolkata = queryset_list_in.filter(clinicCity__iexact='Kolkata')
+    my_total_count_kolkata = queryset_list_kolkata.count()
+    queryset_list_kolkata_ivf = queryset_list_kolkata.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_kolkata_ivf.items():
+        inrCurrency_kolkata_ivf = val
+        if inrCurrency_kolkata_ivf is not None:
+            usdCurrency_kolkata_ivf = val * inrToUsd
+            gbpCurrency_kolkata_ivf = val * inrToGbp
+            eurCurrency_kolkata_ivf = val * inrToEur
+        else:
+            usdCurrency_kolkata_ivf = None
+            gbpCurrency_kolkata_ivf = None
+            eurCurrency_kolkata_ivf = None
+
+    queryset_list_lucknow = queryset_list_in.filter(clinicCity__iexact='Lucknow')
+    my_total_count_lucknow = queryset_list_lucknow.count()
+    queryset_list_lucknow_ivf = queryset_list_lucknow.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_lucknow_ivf.items():
+        inrCurrency_lucknow_ivf = val
+        if inrCurrency_lucknow_ivf is not None:
+            usdCurrency_lucknow_ivf = val * inrToUsd
+            gbpCurrency_lucknow_ivf = val * inrToGbp
+            eurCurrency_lucknow_ivf = val * inrToEur
+        else:
+            usdCurrency_lucknow_ivf = None
+            gbpCurrency_lucknow_ivf = None
+            eurCurrency_lucknow_ivf = None
+
+    queryset_list_mumbai = queryset_list_in.filter(clinicCity__iexact='Mumbai')
+    my_total_count_mumbai = queryset_list_mumbai.count()
+    queryset_list_mumbai_ivf = queryset_list_mumbai.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_mumbai_ivf.items():
+        inrCurrency_mumbai_ivf = val
+        if inrCurrency_mumbai_ivf is not None:
+            usdCurrency_mumbai_ivf = val * inrToUsd
+            gbpCurrency_mumbai_ivf = val * inrToGbp
+            eurCurrency_mumbai_ivf = val * inrToEur
+        else:
+            usdCurrency_mumbai_ivf = None
+            gbpCurrency_mumbai_ivf = None
+            eurCurrency_mumbai_ivf = None
+
+    queryset_list_nagpur = queryset_list_in.filter(clinicCity__iexact='Nagpur')
+    my_total_count_nagpur = queryset_list_nagpur.count()
+    queryset_list_nagpur_ivf = queryset_list_nagpur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_nagpur_ivf.items():
+        inrCurrency_nagpur_ivf = val
+        if inrCurrency_nagpur_ivf is not None:
+            usdCurrency_nagpur_ivf = val * inrToUsd
+            gbpCurrency_nagpur_ivf = val * inrToGbp
+            eurCurrency_nagpur_ivf = val * inrToEur
+        else:
+            usdCurrency_nagpur_ivf = None
+            gbpCurrency_nagpur_ivf = None
+            eurCurrency_nagpur_ivf = None
+
+    queryset_list_patna = queryset_list_in.filter(clinicCity__iexact='Patna')
+    my_total_count_patna = queryset_list_patna.count()
+    queryset_list_patna_ivf = queryset_list_patna.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_patna_ivf.items():
+        inrCurrency_patna_ivf = val
+        if inrCurrency_patna_ivf is not None:
+            usdCurrency_patna_ivf = val * inrToUsd
+            gbpCurrency_patna_ivf = val * inrToGbp
+            eurCurrency_patna_ivf = val * inrToEur
+        else:
+            usdCurrency_patna_ivf = None
+            gbpCurrency_patna_ivf = None
+            eurCurrency_patna_ivf = None
+
+    queryset_list_raipur = queryset_list_in.filter(clinicCity__iexact='Raipur')
+    my_total_count_raipur = queryset_list_raipur.count()
+    queryset_list_raipur_ivf = queryset_list_raipur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_raipur_ivf.items():
+        inrCurrency_raipur_ivf = val
+        if inrCurrency_raipur_ivf is not None:
+            usdCurrency_raipur_ivf = val * inrToUsd
+            gbpCurrency_raipur_ivf = val * inrToGbp
+            eurCurrency_raipur_ivf = val * inrToEur
+        else:
+            usdCurrency_raipur_ivf = None
+            gbpCurrency_raipur_ivf = None
+            eurCurrency_raipur_ivf = None
+
+    queryset_list_trivandrum = queryset_list_in.filter(clinicCity__iexact='Trivandrum')
+    my_total_count_trivandrum = queryset_list_trivandrum.count()
+    queryset_list_trivandrum_ivf = queryset_list_trivandrum.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_trivandrum_ivf.items():
+        inrCurrency_trivandrum_ivf = val
+        if inrCurrency_trivandrum_ivf is not None:
+            usdCurrency_trivandrum_ivf = val * inrToUsd
+            gbpCurrency_trivandrum_ivf = val * inrToGbp
+            eurCurrency_trivandrum_ivf = val * inrToEur
+        else:
+            usdCurrency_trivandrum_ivf = None
+            gbpCurrency_trivandrum_ivf = None
+            eurCurrency_trivandrum_ivf = None
+
+    queryset_list_ludhiana = queryset_list_in.filter(clinicCity__iexact='Ludhiana')
+    my_total_count_ludhiana = queryset_list_ludhiana.count()
+    queryset_list_ludhiana_ivf = queryset_list_ludhiana.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_ludhiana_ivf.items():
+        inrCurrency_ludhiana_ivf = val
+        if inrCurrency_ludhiana_ivf is not None:
+            usdCurrency_ludhiana_ivf = val * inrToUsd
+            gbpCurrency_ludhiana_ivf = val * inrToGbp
+            eurCurrency_ludhiana_ivf = val * inrToEur
+        else:
+            usdCurrency_ludhiana_ivf = None
+            gbpCurrency_ludhiana_ivf = None
+            eurCurrency_ludhiana_ivf = None
+
+    queryset_list_visakhapatnam = queryset_list_in.filter(clinicCity__iexact='Visakhapatnam')
+    my_total_count_visakhapatnam = queryset_list_visakhapatnam.count()
+    queryset_list_visakhapatnam_ivf = queryset_list_visakhapatnam.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_visakhapatnam_ivf.items():
+        inrCurrency_visakhapatnam_ivf = val
+        if inrCurrency_visakhapatnam_ivf is not None:
+            usdCurrency_visakhapatnam_ivf = val * inrToUsd
+            gbpCurrency_visakhapatnam_ivf = val * inrToGbp
+            eurCurrency_visakhapatnam_ivf = val * inrToEur
+        else:
+            usdCurrency_visakhapatnam_ivf = None
+            gbpCurrency_visakhapatnam_ivf = None
+            eurCurrency_visakhapatnam_ivf = None
+
+    queryset_list_vijayawada = queryset_list_in.filter(clinicCity__iexact='Vijayawada')
+    my_total_count_vijayawada = queryset_list_vijayawada.count()
+    queryset_list_vijayawada_ivf = queryset_list_vijayawada.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_vijayawada_ivf.items():
+        inrCurrency_vijayawada_ivf = val
+        if inrCurrency_vijayawada_ivf is not None:
+            usdCurrency_vijayawada_ivf = val * inrToUsd
+            gbpCurrency_vijayawada_ivf = val * inrToGbp
+            eurCurrency_vijayawada_ivf = val * inrToEur
+        else:
+            usdCurrency_vijayawada_ivf = None
+            gbpCurrency_vijayawada_ivf = None
+            eurCurrency_vijayawada_ivf = None
+
+    queryset_list_newdelhi = queryset_list_in.filter(clinicCity__iexact='New Delhi')
+    my_total_count_newdelhi = queryset_list_newdelhi.count()
+    queryset_list_newdelhi_ivf = queryset_list_newdelhi.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_newdelhi_ivf.items():
+        inrCurrency_newdelhi_ivf = val
+        if inrCurrency_newdelhi_ivf is not None:
+            usdCurrency_newdelhi_ivf = val * inrToUsd
+            gbpCurrency_newdelhi_ivf = val * inrToGbp
+            eurCurrency_newdelhi_ivf = val * inrToEur
+        else:
+            usdCurrency_newdelhi_ivf = None
+            gbpCurrency_newdelhi_ivf = None
+            eurCurrency_newdelhi_ivf = None
+
+    queryset_list_vadodara = queryset_list_in.filter(clinicCity__iexact='Vadodara')
+    my_total_count_vadodara = queryset_list_vadodara.count()
+    queryset_list_vadodara_ivf = queryset_list_vadodara.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_vadodara_ivf.items():
+        inrCurrency_vadodara_ivf = val
+        if inrCurrency_vadodara_ivf is not None:
+            usdCurrency_vadodara_ivf = val * inrToUsd
+            gbpCurrency_vadodara_ivf = val * inrToGbp
+            eurCurrency_vadodara_ivf = val * inrToEur
+        else:
+            usdCurrency_vadodara_ivf = None
+            gbpCurrency_vadodara_ivf = None
+            eurCurrency_vadodara_ivf = None
+
+    queryset_list_gurugram = queryset_list_in.filter(clinicCity__iexact='Gurugram')
+    my_total_count_gurugram = queryset_list_gurugram.count()
+    queryset_list_gurugram_ivf = queryset_list_gurugram.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_gurugram_ivf.items():
+        inrCurrency_gurugram_ivf = val
+        if inrCurrency_gurugram_ivf is not None:
+            usdCurrency_gurugram_ivf = val * inrToUsd
+            gbpCurrency_gurugram_ivf = val * inrToGbp
+            eurCurrency_gurugram_ivf = val * inrToEur
+        else:
+            usdCurrency_gurugram_ivf = None
+            gbpCurrency_gurugram_ivf = None
+            eurCurrency_gurugram_ivf = None
+
+    queryset_list_rohtak = queryset_list_in.filter(clinicCity__iexact='Rohtak')
+    my_total_count_rohtak = queryset_list_rohtak.count()
+    queryset_list_rohtak_ivf = queryset_list_rohtak.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_rohtak_ivf.items():
+        inrCurrency_rohtak_ivf = val
+        if inrCurrency_rohtak_ivf is not None:
+            usdCurrency_rohtak_ivf = val * inrToUsd
+            gbpCurrency_rohtak_ivf = val * inrToGbp
+            eurCurrency_rohtak_ivf = val * inrToEur
+        else:
+            usdCurrency_rohtak_ivf = None
+            gbpCurrency_rohtak_ivf = None
+            eurCurrency_rohtak_ivf = None
+
+    queryset_list_jammu = queryset_list_in.filter(clinicCity__iexact='Jammu')
+    my_total_count_jammu = queryset_list_jammu.count()
+    queryset_list_jammu_ivf = queryset_list_jammu.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_jammu_ivf.items():
+        inrCurrency_jammu_ivf = val
+        if inrCurrency_jammu_ivf is not None:
+            usdCurrency_jammu_ivf = val * inrToUsd
+            gbpCurrency_jammu_ivf = val * inrToGbp
+            eurCurrency_jammu_ivf = val * inrToEur
+        else:
+            usdCurrency_jammu_ivf = None
+            gbpCurrency_jammu_ivf = None
+            eurCurrency_jammu_ivf = None
+
+    queryset_list_ranchi = queryset_list_in.filter(clinicCity__iexact='Ranchi')
+    my_total_count_ranchi = queryset_list_ranchi.count()
+    queryset_list_ranchi_ivf = queryset_list_ranchi.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_ranchi_ivf.items():
+        inrCurrency_ranchi_ivf = val
+        if inrCurrency_ranchi_ivf is not None:
+            usdCurrency_ranchi_ivf = val * inrToUsd
+            gbpCurrency_ranchi_ivf = val * inrToGbp
+            eurCurrency_ranchi_ivf = val * inrToEur
+        else:
+            usdCurrency_ranchi_ivf = None
+            gbpCurrency_ranchi_ivf = None
+            eurCurrency_ranchi_ivf = None
+
+    queryset_list_gwalior = queryset_list_in.filter(clinicCity__iexact='Gwalior')
+    my_total_count_gwalior = queryset_list_gwalior.count()
+    queryset_list_gwalior_ivf = queryset_list_gwalior.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_gwalior_ivf.items():
+        inrCurrency_gwalior_ivf = val
+        if inrCurrency_gwalior_ivf is not None:
+            usdCurrency_gwalior_ivf = val * inrToUsd
+            gbpCurrency_gwalior_ivf = val * inrToGbp
+            eurCurrency_gwalior_ivf = val * inrToEur
+        else:
+            usdCurrency_gwalior_ivf = None
+            gbpCurrency_gwalior_ivf = None
+            eurCurrency_gwalior_ivf = None
+
+    queryset_list_pune = queryset_list_in.filter(clinicCity__iexact='Pune')
+    my_total_count_pune = queryset_list_pune.count()
+    queryset_list_pune_ivf = queryset_list_pune.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_pune_ivf.items():
+        inrCurrency_pune_ivf = val
+        if inrCurrency_pune_ivf is not None:
+            usdCurrency_pune_ivf = val * inrToUsd
+            gbpCurrency_pune_ivf = val * inrToGbp
+            eurCurrency_pune_ivf = val * inrToEur
+        else:
+            usdCurrency_pune_ivf = None
+            gbpCurrency_pune_ivf = None
+            eurCurrency_pune_ivf = None
+
+    queryset_list_warangal = queryset_list_in.filter(clinicCity__iexact='Warangal')
+    my_total_count_warangal = queryset_list_warangal.count()
+    queryset_list_warangal_ivf = queryset_list_warangal.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_warangal_ivf.items():
+        inrCurrency_warangal_ivf = val
+        if inrCurrency_warangal_ivf is not None:
+            usdCurrency_warangal_ivf = val * inrToUsd
+            gbpCurrency_warangal_ivf = val * inrToGbp
+            eurCurrency_warangal_ivf = val * inrToEur
+        else:
+            usdCurrency_warangal_ivf = None
+            gbpCurrency_warangal_ivf = None
+            eurCurrency_warangal_ivf = None
+
+    queryset_list_gachibowli = queryset_list_in.filter(clinicCity__iexact='Gachibowli')
+    my_total_count_gachibowli = queryset_list_gachibowli.count()
+    queryset_list_gachibowli_ivf = queryset_list_gachibowli.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_gachibowli_ivf.items():
+        inrCurrency_gachibowli_ivf = val
+        if inrCurrency_gachibowli_ivf is not None:
+            usdCurrency_gachibowli_ivf = val * inrToUsd
+            gbpCurrency_gachibowli_ivf = val * inrToGbp
+            eurCurrency_gachibowli_ivf = val * inrToEur
+        else:
+            usdCurrency_gachibowli_ivf = None
+            gbpCurrency_gachibowli_ivf = None
+            eurCurrency_gachibowli_ivf = None
+
+    queryset_list_madhapur = queryset_list_in.filter(clinicCity__iexact='Madhapur')
+    my_total_count_madhapur = queryset_list_madhapur.count()
+    queryset_list_madhapur_ivf = queryset_list_madhapur.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_madhapur_ivf.items():
+        inrCurrency_madhapur_ivf = val
+        if inrCurrency_madhapur_ivf is not None:
+            usdCurrency_madhapur_ivf = val * inrToUsd
+            gbpCurrency_madhapur_ivf = val * inrToGbp
+            eurCurrency_madhapur_ivf = val * inrToEur
+        else:
+            usdCurrency_madhapur_ivf = None
+            gbpCurrency_madhapur_ivf = None
+            eurCurrency_madhapur_ivf = None
+
+    queryset_list_noida = queryset_list_in.filter(clinicCity__iexact='Noida')
+    my_total_count_noida = queryset_list_noida.count()
+    queryset_list_noida_ivf = queryset_list_noida.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_noida_ivf.items():
+        inrCurrency_noida_ivf = val
+        if inrCurrency_noida_ivf is not None:
+            usdCurrency_noida_ivf = val * inrToUsd
+            gbpCurrency_noida_ivf = val * inrToGbp
+            eurCurrency_noida_ivf = val * inrToEur
+        else:
+            usdCurrency_noida_ivf = None
+            gbpCurrency_noida_ivf = None
+            eurCurrency_noida_ivf = None
+
+    queryset_list_meerut = queryset_list_in.filter(clinicCity__iexact='Meerut')
+    my_total_count_meerut = queryset_list_meerut.count()
+    queryset_list_meerut_ivf = queryset_list_meerut.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_meerut_ivf.items():
+        inrCurrency_meerut_ivf = val
+        if inrCurrency_meerut_ivf is not None:
+            usdCurrency_meerut_ivf = val * inrToUsd
+            gbpCurrency_meerut_ivf = val * inrToGbp
+            eurCurrency_meerut_ivf = val * inrToEur
+        else:
+            usdCurrency_meerut_ivf = None
+            gbpCurrency_meerut_ivf = None
+            eurCurrency_meerut_ivf = None
+
+    queryset_list_haldwani = queryset_list_in.filter(clinicCity__iexact='Haldwani')
+    my_total_count_haldwani = queryset_list_haldwani.count()
+    queryset_list_haldwani_ivf = queryset_list_haldwani.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_haldwani_ivf.items():
+        inrCurrency_haldwani_ivf = val
+        if inrCurrency_haldwani_ivf is not None:
+            usdCurrency_haldwani_ivf = val * inrToUsd
+            gbpCurrency_haldwani_ivf = val * inrToGbp
+            eurCurrency_haldwani_ivf = val * inrToEur
+        else:
+            usdCurrency_haldwani_ivf = None
+            gbpCurrency_haldwani_ivf = None
+            eurCurrency_haldwani_ivf = None
 
     context = {
+        'usdCurrency_amdavad_ivf': usdCurrency_amdavad_ivf,
+        'gbpCurrency_amdavad_ivf': gbpCurrency_amdavad_ivf,
+        'eurCurrency_amdavad_ivf': eurCurrency_amdavad_ivf,
+        'my_total_count_amdavad': my_total_count_amdavad,
+
+        'usdCurrency_bangalore_ivf': usdCurrency_bangalore_ivf,
+        'gbpCurrency_bangalore_ivf': gbpCurrency_bangalore_ivf,
+        'eurCurrency_bangalore_ivf': eurCurrency_bangalore_ivf,
+        'my_total_count_bangalore': my_total_count_bangalore,
+
+        'usdCurrency_bhopal_ivf': usdCurrency_bhopal_ivf,
+        'gbpCurrency_bhopal_ivf': gbpCurrency_bhopal_ivf,
+        'eurCurrency_bhopal_ivf': eurCurrency_bhopal_ivf,
+        'my_total_count_bhopal': my_total_count_bhopal,
+
+        'usdCurrency_bhubaneswar_ivf': usdCurrency_bhubaneswar_ivf,
+        'gbpCurrency_bhubaneswar_ivf': gbpCurrency_bhubaneswar_ivf,
+        'eurCurrency_bhubaneswar_ivf': eurCurrency_bhubaneswar_ivf,
+        'my_total_count_bhubaneswar': my_total_count_bhubaneswar,
+
+        'usdCurrency_dehradun_ivf': usdCurrency_dehradun_ivf,
+        'gbpCurrency_dehradun_ivf': gbpCurrency_dehradun_ivf,
+        'eurCurrency_dehradun_ivf': eurCurrency_dehradun_ivf,
+        'my_total_count_dehradun': my_total_count_dehradun,
+
+        'usdCurrency_faridabad_ivf': usdCurrency_faridabad_ivf,
+        'gbpCurrency_faridabad_ivf': gbpCurrency_faridabad_ivf,
+        'eurCurrency_faridabad_ivf': eurCurrency_faridabad_ivf,
+        'my_total_count_faridabad': my_total_count_faridabad,
+
+        'usdCurrency_hyderabad_ivf': usdCurrency_hyderabad_ivf,
+        'gbpCurrency_hyderabad_ivf': gbpCurrency_hyderabad_ivf,
+        'eurCurrency_hyderabad_ivf': eurCurrency_hyderabad_ivf,
+        'my_total_count_hyderabad': my_total_count_hyderabad,
+
+        'usdCurrency_chandigarh_ivf': usdCurrency_chandigarh_ivf,
+        'gbpCurrency_chandigarh_ivf': gbpCurrency_chandigarh_ivf,
+        'eurCurrency_chandigarh_ivf': eurCurrency_chandigarh_ivf,
+        'my_total_count_chandigarh': my_total_count_chandigarh,
+
         'gbpCurrency_chennai_ivf': gbpCurrency_chennai_ivf,
         'usdCurrency_chennai_ivf': usdCurrency_chennai_ivf,
         'eurCurrency_chennai_ivf': eurCurrency_chennai_ivf,
+        'my_total_count_chennai': my_total_count_chennai,
 
+        'gbpCurrency_indore_ivf': gbpCurrency_indore_ivf,
+        'usdCurrency_indore_ivf': usdCurrency_indore_ivf,
+        'eurCurrency_indore_ivf': eurCurrency_indore_ivf,
+        'my_total_count_indore': my_total_count_indore,
+
+        'gbpCurrency_jaipur_ivf': gbpCurrency_jaipur_ivf,
+        'usdCurrency_jaipur_ivf': usdCurrency_jaipur_ivf,
+        'eurCurrency_jaipur_ivf': eurCurrency_jaipur_ivf,
+        'my_total_count_jaipur': my_total_count_jaipur,
+
+        'gbpCurrency_jamshedpur_ivf': gbpCurrency_jamshedpur_ivf,
+        'usdCurrency_jamshedpur_ivf': usdCurrency_jamshedpur_ivf,
+        'eurCurrency_jamshedpur_ivf': eurCurrency_jamshedpur_ivf,
+        'my_total_count_jamshedpur': my_total_count_jamshedpur,
+
+        'gbpCurrency_kanpur_ivf': gbpCurrency_kanpur_ivf,
+        'usdCurrency_kanpur_ivf': usdCurrency_kanpur_ivf,
+        'eurCurrency_kanpur_ivf': eurCurrency_kanpur_ivf,
+        'my_total_count_kanpur': my_total_count_kanpur,
+
+        'gbpCurrency_kochi_ivf': gbpCurrency_kochi_ivf,
+        'usdCurrency_kochi_ivf': usdCurrency_kochi_ivf,
+        'eurCurrency_kochi_ivf': eurCurrency_kochi_ivf,
+        'my_total_count_kochi': my_total_count_kochi,
+
+        'gbpCurrency_kolkata_ivf': gbpCurrency_kolkata_ivf,
+        'usdCurrency_kolkata_ivf': usdCurrency_kolkata_ivf,
+        'eurCurrency_kolkata_ivf': eurCurrency_kolkata_ivf,
+        'my_total_count_kolkata': my_total_count_kolkata,
+
+        'gbpCurrency_lucknow_ivf': gbpCurrency_lucknow_ivf,
+        'usdCurrency_lucknow_ivf': usdCurrency_lucknow_ivf,
+        'eurCurrency_lucknow_ivf': eurCurrency_lucknow_ivf,
+        'my_total_count_lucknow': my_total_count_lucknow,
+
+        'gbpCurrency_mumbai_ivf': gbpCurrency_mumbai_ivf,
+        'usdCurrency_mumbai_ivf': usdCurrency_mumbai_ivf,
+        'eurCurrency_mumbai_ivf': eurCurrency_mumbai_ivf,
+        'my_total_count_mumbai': my_total_count_mumbai,
+
+        'gbpCurrency_nagpur_ivf': gbpCurrency_nagpur_ivf,
+        'usdCurrency_nagpur_ivf': usdCurrency_nagpur_ivf,
+        'eurCurrency_nagpur_ivf': eurCurrency_nagpur_ivf,
+        'my_total_count_nagpur': my_total_count_nagpur,
+
+        'gbpCurrency_patna_ivf': gbpCurrency_patna_ivf,
+        'usdCurrency_patna_ivf': usdCurrency_patna_ivf,
+        'eurCurrency_patna_ivf': eurCurrency_patna_ivf,
+        'my_total_count_patna': my_total_count_patna,
+
+        'gbpCurrency_raipur_ivf': gbpCurrency_raipur_ivf,
+        'usdCurrency_raipur_ivf': usdCurrency_raipur_ivf,
+        'eurCurrency_raipur_ivf': eurCurrency_raipur_ivf,
+        'my_total_count_raipur': my_total_count_raipur,
+
+        'gbpCurrency_trivandrum_ivf': gbpCurrency_trivandrum_ivf,
+        'usdCurrency_trivandrum_ivf': usdCurrency_trivandrum_ivf,
+        'eurCurrency_trivandrum_ivf': eurCurrency_trivandrum_ivf,
+        'my_total_count_trivandrum': my_total_count_trivandrum,
+
+        'gbpCurrency_ludhiana_ivf': gbpCurrency_ludhiana_ivf,
+        'usdCurrency_ludhiana_ivf': usdCurrency_ludhiana_ivf,
+        'eurCurrency_ludhiana_ivf': eurCurrency_ludhiana_ivf,
+        'my_total_count_ludhiana': my_total_count_ludhiana,
+
+        'gbpCurrency_visakhapatnam_ivf': gbpCurrency_visakhapatnam_ivf,
+        'usdCurrency_visakhapatnam_ivf': usdCurrency_visakhapatnam_ivf,
+        'eurCurrency_visakhapatnam_ivf': eurCurrency_visakhapatnam_ivf,
+        'my_total_count_visakhapatnam': my_total_count_visakhapatnam,
+
+        'gbpCurrency_vijayawada_ivf': gbpCurrency_vijayawada_ivf,
+        'usdCurrency_vijayawada_ivf': usdCurrency_vijayawada_ivf,
+        'eurCurrency_vijayawada_ivf': eurCurrency_vijayawada_ivf,
+        'my_total_count_vijayawada': my_total_count_vijayawada,
+
+        'gbpCurrency_newdelhi_ivf': gbpCurrency_newdelhi_ivf,
+        'usdCurrency_newdelhi_ivf': usdCurrency_newdelhi_ivf,
+        'eurCurrency_newdelhi_ivf': eurCurrency_newdelhi_ivf,
+        'my_total_count_newdelhi': my_total_count_newdelhi,
+
+        'gbpCurrency_vadodara_ivf': gbpCurrency_vadodara_ivf,
+        'usdCurrency_vadodara_ivf': usdCurrency_vadodara_ivf,
+        'eurCurrency_vadodara_ivf': eurCurrency_vadodara_ivf,
+        'my_total_count_vadodara': my_total_count_vadodara,
+
+        'gbpCurrency_gurugram_ivf': gbpCurrency_gurugram_ivf,
+        'usdCurrency_gurugram_ivf': usdCurrency_gurugram_ivf,
+        'eurCurrency_gurugram_ivf': eurCurrency_gurugram_ivf,
+        'my_total_count_gurugram': my_total_count_gurugram,
+
+        'gbpCurrency_rohtak_ivf': gbpCurrency_rohtak_ivf,
+        'usdCurrency_rohtak_ivf': usdCurrency_rohtak_ivf,
+        'eurCurrency_rohtak_ivf': eurCurrency_rohtak_ivf,
+        'my_total_count_rohtak': my_total_count_rohtak,
+
+        'gbpCurrency_jammu_ivf': gbpCurrency_jammu_ivf,
+        'usdCurrency_jammu_ivf': usdCurrency_jammu_ivf,
+        'eurCurrency_jammu_ivf': eurCurrency_jammu_ivf,
+        'my_total_count_jammu': my_total_count_jammu,
+
+        'gbpCurrency_ranchi_ivf': gbpCurrency_ranchi_ivf,
+        'usdCurrency_ranchi_ivf': usdCurrency_ranchi_ivf,
+        'eurCurrency_ranchi_ivf': eurCurrency_ranchi_ivf,
+        'my_total_count_ranchi': my_total_count_ranchi,
+
+        'gbpCurrency_gwalior_ivf': gbpCurrency_gwalior_ivf,
+        'usdCurrency_gwalior_ivf': usdCurrency_gwalior_ivf,
+        'eurCurrency_gwalior_ivf': eurCurrency_gwalior_ivf,
+        'my_total_count_gwalior': my_total_count_gwalior,
+
+        'gbpCurrency_pune_ivf': gbpCurrency_pune_ivf,
+        'usdCurrency_pune_ivf': usdCurrency_pune_ivf,
+        'eurCurrency_pune_ivf': eurCurrency_pune_ivf,
+        'my_total_count_pune': my_total_count_pune,
+
+        'gbpCurrency_warangal_ivf': gbpCurrency_warangal_ivf,
+        'usdCurrency_warangal_ivf': usdCurrency_warangal_ivf,
+        'eurCurrency_warangal_ivf': eurCurrency_warangal_ivf,
+        'my_total_count_warangal': my_total_count_warangal,
+
+        'gbpCurrency_gachibowli_ivf': gbpCurrency_gachibowli_ivf,
+        'usdCurrency_gachibowli_ivf': usdCurrency_gachibowli_ivf,
+        'eurCurrency_gachibowli_ivf': eurCurrency_gachibowli_ivf,
+        'my_total_count_gachibowli': my_total_count_gachibowli,
+
+        'gbpCurrency_madhapur_ivf': gbpCurrency_madhapur_ivf,
+        'usdCurrency_madhapur_ivf': usdCurrency_madhapur_ivf,
+        'eurCurrency_madhapur_ivf': eurCurrency_madhapur_ivf,
+        'my_total_count_madhapur': my_total_count_madhapur,
+
+        'gbpCurrency_noida_ivf': gbpCurrency_noida_ivf,
+        'usdCurrency_noida_ivf': usdCurrency_noida_ivf,
+        'eurCurrency_noida_ivf': eurCurrency_noida_ivf,
+        'my_total_count_noida': my_total_count_noida,
+
+        'gbpCurrency_meerut_ivf': gbpCurrency_meerut_ivf,
+        'usdCurrency_meerut_ivf': usdCurrency_meerut_ivf,
+        'eurCurrency_meerut_ivf': eurCurrency_meerut_ivf,
+        'my_total_count_meerut': my_total_count_meerut,
+
+        'gbpCurrency_haldwani_ivf': gbpCurrency_haldwani_ivf,
+        'usdCurrency_haldwani_ivf': usdCurrency_haldwani_ivf,
+        'eurCurrency_haldwani_ivf': eurCurrency_haldwani_ivf,
+        'my_total_count_haldwani': my_total_count_haldwani,
         }
+
     return render(request, 'main/Locations/INLocations/in-regions-ivf.html', context)

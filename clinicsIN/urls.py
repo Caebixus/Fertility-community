@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     #Bengalore
-    path('clinics/in/bengalore/kiran-infertility-center-bengaluru', views.kiraninfertilitycenterbengaluru, name='kiraninfertilitycenterbengaluru'),
-    path('clinics/in/bengalore/mannat-fertility-centre', views.mannatfertilitycentre, name='mannatfertilitycentre'),
+    path('clinics/in/bangalore/kiran-infertility-center-bangalore', views.kiraninfertilitycenterbengaluru, name='kiraninfertilitycenterbengaluru'),
+    path('clinics/in/bangalore/mannat-fertility-centre', views.mannatfertilitycentre, name='mannatfertilitycentre'),
 
     #Gachibowli
     path('clinics/in/gachibowli/hyderabad-women-fertility-centre-gachibowli', views.hyderabadwomenfertilitycentregachibowli, name='hyderabadwomenfertilitycentregachibowli'),

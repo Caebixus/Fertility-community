@@ -15,7 +15,7 @@ def kiraninfertilitycenterbengaluru(request):
 
     bengaloralisting = BasicClinic.objects.all()
     bengaloralisting = bengaloralisting.filter(is_published=True)
-    bengaloralisting = bengaloralisting.filter(clinicCity__iexact='Bengalore')
+    bengaloralisting = bengaloralisting.filter(clinicCity__iexact='Bangalore')
     bengaloralisting = bengaloralisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -45,7 +45,7 @@ def kiraninfertilitycenterbengaluru(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Bengalore/kiran-infertility-center-bengaluru.html', context)
+        return render(request, 'clinics/IN/Bangalore/kiran-infertility-center-bangalore.html', context)
 
     else:
         pass
@@ -58,7 +58,7 @@ def kiraninfertilitycenterbengaluru(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Bengalore/kiran-infertility-center-bengaluru.html', context)
+    return render(request, 'clinics/IN/Bangalore/kiran-infertility-center-bangalore.html', context)
 
 def mannatfertilitycentre(request):
     listing = BasicClinic.objects.get(pk=656)
@@ -95,7 +95,7 @@ def mannatfertilitycentre(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Bengalore/mannat-fertility-centre.html', context)
+        return render(request, 'clinics/IN/Bangalore/mannat-fertility-centre.html', context)
 
     else:
         pass
@@ -108,7 +108,7 @@ def mannatfertilitycentre(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Bengalore/mannat-fertility-centre.html', context)
+    return render(request, 'clinics/IN/Bangalore/mannat-fertility-centre.html', context)
 
 #Gachibowli
 def hyderabadwomenfertilitycentregachibowli(request):

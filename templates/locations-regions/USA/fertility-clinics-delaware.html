@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %} {{ my_total_count }} of the BEST fertility clinics in Delaware | 2020{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Delaware | 2020{% endblock %}
 {% block description %}Search the best Delaware fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/locations/us-regions/fertility-clinics-delaware{% endblock %}
 {% block meta_keywords %}search fertility clinic delaware, search ivf clinics delaware, search fertility doctor delaware, search fertility specialist delaware, search fertility center delaware, search private fertility clinic delaware{% endblock %}
@@ -11,9 +11,9 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics in Delaware, United States
+          {{ my_total_count }} of the BEST fertility clinics in Delaware
     </h1>
-    <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Delaware with different treatment pricings and IVF packages. The infertility treatment options in Delaware clinics include laparoscopy, timed intercourse, ovulation induction, intrauterine insemination, In Vitro Fertilization, egg donation, embryo donation, sperm donation or gestational surrogacy.</p>
+    <p style="font-size: 18px; color: white !important">The infertility treatment options in Delaware clinics include laparoscopy, timed intercourse, ovulation induction, intrauterine insemination, In Vitro Fertilization, egg donation, embryo donation, sperm donation or gestational surrogacy.</p>
   </div>
 
   <!-- Filter section -->

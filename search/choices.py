@@ -98,6 +98,22 @@ CATEGORY_CHOICES_IN_CITIES = {
     'Patna': 'Patna',
     'Raipur': 'Raipur',
     'Trivandrum': 'Trivandrum',
+    'Visakhapatnam': 'Visakhapatnam',
+    'Vijayawada': 'Vijayawada',
+    'New Delhi': 'New Delhi',
+    'Vadodara': 'Vadodara',
+    'Gurugram': 'Gurugram',
+    'Rohtak': 'Rohtak',
+    'Jammu': 'Jammu',
+    'Ranchi': 'Ranchi',
+    'Gwalior': 'Gwalior',
+    'Pune': 'Pune',
+    'Warangal': 'Warangal',
+    'Gachibowli': 'Gachibowli',
+    'Madhapur': 'Madhapur',
+    'Noida': 'Noida',
+    'Meerut': 'Meerut',
+    'Haldwani': 'Haldwani',
     }
 
 CATEGORY_CHOICES_UK_CITIES = {

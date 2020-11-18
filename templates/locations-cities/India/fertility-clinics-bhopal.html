@@ -2,16 +2,16 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Bhopal | 2020{% endblock %}
-{% block description %}Search the best Bhopal fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-india/bhopal{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST IVF centres in Bhopal | 2020{% endblock %}
+{% block description %}Search the best Bhopal IVF centres or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/madhya-pradesh/bhopal{% endblock %}
 {% block meta_keywords %}search fertility clinic bhopal, search ivf clinics bhopal, search fertility doctor bhopal, search fertility specialist bhopal, search fertility center bhopal, search private fertility clinic bhopal{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Bhopal, India
+      {{ my_total_count }} of the BEST IVF centres in Bhopal
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Bhopal with different treatment pricings and IVF packages.</p>
   </div>

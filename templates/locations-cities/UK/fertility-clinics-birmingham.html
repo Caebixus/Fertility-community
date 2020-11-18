@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Birmingham | 2020{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Birmingham | 2020{% endblock %}
 {% block description %}Search the best Birmingham fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics-birmingham{% endblock %}
 {% block meta_keywords %}search fertility clinic birmingham, search ivf clinics birmingham, search fertility doctor birmingham, search fertility specialist birmingham, search fertility center birmingham, search private fertility clinic birmingham{% endblock %}
@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Birmingham, United Kingdom
+      {{ my_total_count }} of the BEST fertility clinics in Birmingham
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Birmingham with different treatment pricings and IVF packages. The IVF clinics in Birmingham offer a wide range of services such as the hysterosalpingogram, semen analysis, fertility medications, intrauterine insemination, In Vitro Fertilization (IVF), pre-implantation genetic diagnosis and screening, elective egg freezing, gestational surrogacy, LGBT family planning and other forms of therapy and treatment. </p>
   </div>

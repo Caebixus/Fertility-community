@@ -1704,7 +1704,7 @@ def fertilityClinicsChennai(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Chennai')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Chennai')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1713,9 +1713,9 @@ def fertilityClinicsChennai(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Chennai')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Chennai')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Chennai')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Chennai')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Chennai')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Chennai')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1743,7 +1743,7 @@ def fertilityClinicsHyderabad(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Hyderabad')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Hyderabad')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1752,9 +1752,9 @@ def fertilityClinicsHyderabad(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Hyderabad')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hyderabad')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Hyderabad')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Hyderabad')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Hyderabad')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Hyderabad')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1782,7 +1782,7 @@ def fertilityClinicsMumbai(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Mumbai')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Mumbai')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1791,9 +1791,9 @@ def fertilityClinicsMumbai(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Mumbai')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Mumbai')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Mumbai')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Mumbai')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Mumbai')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Mumbai')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1821,7 +1821,7 @@ def fertilityClinicsPatna(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Patna')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Patna')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1830,9 +1830,9 @@ def fertilityClinicsPatna(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Patna')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Patna')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Patna')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Patna')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Patna')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Patna')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1860,7 +1860,7 @@ def fertilityClinicsRaipur(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Raipur')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Raipur')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1869,9 +1869,9 @@ def fertilityClinicsRaipur(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Raipur')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Raipur')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Raipur')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Raipur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Raipur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Raipur')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1899,7 +1899,7 @@ def fertilityClinicsAmdavad(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Amdavad')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Amdavad')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1908,9 +1908,9 @@ def fertilityClinicsAmdavad(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Amdavad')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Amdavad')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Amdavad')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Amdavad')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Amdavad')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Amdavad')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1938,7 +1938,7 @@ def fertilityClinicsChandigarh(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Chandigarh')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Chandigarh')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1947,9 +1947,9 @@ def fertilityClinicsChandigarh(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Chandigarh')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Chandigarh')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Chandigarh')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Chandigarh')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Chandigarh')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Chandigarh')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -1977,7 +1977,7 @@ def fertilityClinicsFaridabad(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Faridabad')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Faridabad')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -1986,9 +1986,9 @@ def fertilityClinicsFaridabad(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Faridabad')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Faridabad')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Faridabad')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Faridabad')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Faridabad')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Faridabad')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2016,7 +2016,7 @@ def fertilityClinicsJamshedpur(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Jamshedpur')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jamshedpur')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2025,9 +2025,9 @@ def fertilityClinicsJamshedpur(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Jamshedpur')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Jamshedpur')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Jamshedpur')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Jamshedpur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jamshedpur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jamshedpur')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2055,7 +2055,7 @@ def fertilityClinicsBangalore(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Bangalore')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bangalore')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2064,9 +2064,9 @@ def fertilityClinicsBangalore(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bangalore')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bangalore')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bangalore')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bangalore')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bangalore')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bangalore')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2094,7 +2094,7 @@ def fertilityClinicsTrivandrum(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Trivandrum')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Trivandrum')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2103,9 +2103,9 @@ def fertilityClinicsTrivandrum(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Trivandrum')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Trivandrum')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Trivandrum')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Trivandrum')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Trivandrum')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Trivandrum')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2133,7 +2133,7 @@ def fertilityClinicsKochi(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kochi')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kochi')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2142,9 +2142,9 @@ def fertilityClinicsKochi(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Kochi')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kochi')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kochi')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Kochi')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kochi')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kochi')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2172,7 +2172,7 @@ def fertilityClinicsBhopal(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Bhopal')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bhopal')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2181,9 +2181,9 @@ def fertilityClinicsBhopal(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bhopal')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bhopal')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bhopal')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bhopal')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bhopal')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bhopal')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2211,7 +2211,7 @@ def fertilityClinicsIndore(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Indore')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Indore')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2220,9 +2220,9 @@ def fertilityClinicsIndore(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Indore')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Indore')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Indore')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Indore')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Indore')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Indore')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2250,7 +2250,7 @@ def fertilityClinicsNagpur(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Nagpur')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Nagpur')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2259,9 +2259,9 @@ def fertilityClinicsNagpur(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Nagpur')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nagpur')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nagpur')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Nagpur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Nagpur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Nagpur')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2289,7 +2289,7 @@ def fertilityClinicsBhubaneswar(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Bhubaneswar')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bhubaneswar')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2298,9 +2298,9 @@ def fertilityClinicsBhubaneswar(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bhubaneswar')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bhubaneswar')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bhubaneswar')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bhubaneswar')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bhubaneswar')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bhubaneswar')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2328,7 +2328,7 @@ def fertilityClinicsLudhiana(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Ludhiana')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Ludhiana')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2337,9 +2337,9 @@ def fertilityClinicsLudhiana(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Ludhiana')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Ludhiana')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Ludhiana')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Ludhiana')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Ludhiana')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Ludhiana')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2367,7 +2367,7 @@ def fertilityClinicsJaipur(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Jaipur')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jaipur')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2376,9 +2376,9 @@ def fertilityClinicsJaipur(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Jaipur')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Jaipur')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Jaipur')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Jaipur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jaipur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jaipur')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2406,7 +2406,7 @@ def fertilityClinicsLucknow(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Lucknow')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Lucknow')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2415,9 +2415,9 @@ def fertilityClinicsLucknow(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Lucknow')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Lucknow')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Lucknow')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Lucknow')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Lucknow')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Lucknow')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2445,7 +2445,7 @@ def fertilityClinicsKanpur(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kanpur')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kanpur')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2454,9 +2454,9 @@ def fertilityClinicsKanpur(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Kanpur')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kanpur')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kanpur')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Kanpur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kanpur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kanpur')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2484,7 +2484,7 @@ def fertilityClinicsDehradun(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Dehradun')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Dehradun')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2493,9 +2493,9 @@ def fertilityClinicsDehradun(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Dehradun')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Dehradun')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Dehradun')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Dehradun')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Dehradun')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Dehradun')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2523,7 +2523,7 @@ def fertilityClinicsKolkata(request):
     ppq_queryset_list = BasicClinic.objects.all()
     ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
 
-    my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kolkata')
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kolkata')
     my_total_count = my_total_count.filter(is_published=True)
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -2532,9 +2532,9 @@ def fertilityClinicsKolkata(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Kolkata')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kolkata')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kolkata')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Kolkata')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kolkata')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kolkata')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -2551,3 +2551,627 @@ def fertilityClinicsKolkata(request):
     context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-cities/India/fertility-clinics-kolkata.html', context)
+
+def fertilityClinicsVisakhapatnam(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Visakhapatnam')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Visakhapatnam')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Visakhapatnam')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Visakhapatnam')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-visakhapatnam.html', context)
+
+def fertilityClinicsVijayawada(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Vijayawada')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Vijayawada')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Vijayawada')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Vijayawada')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-vijayawada.html', context)
+
+def fertilityClinicsNewDelhi(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='New Delhi')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='New Delhi')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='New Delhi')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='New Delhi')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-new-delhi.html', context)
+
+def fertilityClinicsVadodara(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Vadodara')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Vadodara')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Vadodara')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Vadodara')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-vadodara.html', context)
+
+def fertilityClinicsGurugram(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gurugram')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Gurugram')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gurugram')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gurugram')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-gurugram.html', context)
+
+def fertilityClinicsRohtak(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Rohtak')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Rohtak')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Rohtak')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Rohtak')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-rohtak.html', context)
+
+def fertilityClinicsJammu(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jammu')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Jammu')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jammu')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jammu')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-jammu.html', context)
+
+def fertilityClinicsRanchi(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Ranchi')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Ranchi')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Ranchi')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Ranchi')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-ranchi.html', context)
+
+def fertilityClinicsGwalior(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gwalior')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Gwalior')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gwalior')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gwalior')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-gwalior.html', context)
+
+def fertilityClinicsPune(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Pune')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Pune')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Pune')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Pune')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-pune.html', context)
+
+def fertilityClinicsWarangal(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Warangal')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Warangal')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Warangal')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Warangal')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-warangal.html', context)
+
+def fertilityClinicsGachibowli(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gachibowli')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Gachibowli')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gachibowli')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gachibowli')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-gachibowli.html', context)
+
+def fertilityClinicsMadhapur(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Madhapur')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Madhapur')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Madhapur')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Madhapur')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-madhapur.html', context)
+
+def fertilityClinicsNoida(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Noida')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Noida')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Noida')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Noida')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-noida.html', context)
+
+def fertilityClinicsMeerut(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Meerut')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Meerut')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Meerut')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Meerut')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-meerut.html', context)
+
+def fertilityClinicsHaldwani(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Haldwani')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Haldwani')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Haldwani')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Haldwani')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/India/fertility-clinics-haldwani.html', context)

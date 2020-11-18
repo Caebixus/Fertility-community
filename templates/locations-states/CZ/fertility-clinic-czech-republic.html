@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}2020 | Best fertility clinic in Czech Republic{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Czech Republic | 2020{% endblock %}
 {% block description %}Search and find the best Czech Republic fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-czech-republic{% endblock %}
 {% block meta_keywords %}fertility clinic czech republic, ivf clinic czech republic, czech fertility clinics{% endblock %}
@@ -11,9 +11,9 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics & agencies in Czech Republic
+          {{ my_total_count }} of the BEST fertility clinics in Czech Republic
     </h1>
-    <p style="font-size: 18px; color: white !important">In the Czech Republic there are <u><b>[{{ my_total_count }}]</b></u> fertility clinics with very professional doctors and fertility experts with experience with thousands of IVF operations of various kinds. IVF centers in the Czech offer various kinds of fertility diagnosis and treatment, such as male and female infertility treatment, intrauterine insemination, In Vitro Fertilization, sperm donation, egg donation, embryo donation, and other services.</p>
+    <p style="font-size: 18px; color: white !important">Fertility clinics in the Czech Republic have very professional doctors & fertility experts with experience in thousands of various IVF operations. IVF centers in the Czech offer various kinds of fertility diagnosis and treatment, such as male and female infertility treatment, intrauterine insemination, In Vitro Fertilization, sperm donation, egg donation, embryo donation, and other services.</p>
   </div>
 
   <!-- Filter section -->

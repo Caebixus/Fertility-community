@@ -2,16 +2,16 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Bangalore | 2020{% endblock %}
-{% block description %}Search the best Bangalore fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-india/bangalore{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST IVF centres in Bangalore | 2020{% endblock %}
+{% block description %}Search the best Bangalore IVF centres or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/karnataka/bangalore{% endblock %}
 {% block meta_keywords %}search fertility clinic bangalore, search ivf clinics bangalore, search fertility doctor bangalore, search fertility specialist bangalore, search fertility center bangalore, search private fertility clinic bangalore{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Bangalore, India
+      {{ my_total_count }} of the BEST IVF centres in Bangalore
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Bangalore with different treatment pricings and IVF packages.</p>
   </div>

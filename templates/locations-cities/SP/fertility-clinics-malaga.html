@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Malaga | 2020{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Malaga | 2020{% endblock %}
 {% block description %}Search the best Malaga fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics-malaga{% endblock %}
 {% block meta_keywords %}search fertility clinic malaga, search ivf clinics malaga, search fertility doctor malaga, search fertility specialist malaga, search fertility center malaga, search private fertility clinic malaga{% endblock %}
@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Malaga, Spain
+      {{ my_total_count }} of the BEST fertility clinics in Malaga
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Malaga with different treatment pricings and IVF packages. The IVF clinics in Malaga offer a wide range of services such as the hysterosalpingogram, semen analysis, fertility medications, intrauterine insemination, In Vitro Fertilization (IVF), pre-implantation genetic diagnosis and screening, elective egg freezing, gestational surrogacy, LGBT family planning and other forms of therapy and treatment. </p>
   </div>

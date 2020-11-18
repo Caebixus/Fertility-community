@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}2020 | Best fertility clinic in USA{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in United States | 2020{% endblock %}
 {% block description %}Search and find the best USA fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-usa{% endblock %}
 {% block meta_keywords %}best fertility clinic in usa, best ivf clinics in usa, fertility clinics united states, fertility clinic usa, best fertility doctor in usa, best ivf center in usa{% endblock %}
@@ -11,9 +11,9 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics & agencies in United States of America
+          {{ my_total_count }} of the BEST fertility clinics in United States
     </h1>
-    <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility clinics in the United States and are among the most modern clinics in the world, and the price corresponds to that. IVF clinics in the USA offer In Vitro Fertilization, egg freezing, sperm cryopreservation, embryo banking, donor eggs, donor sperm, donor embryo, gestational surrogacy, laparoscopy, endometriosis excision, myomectomy, hysteroscopy, tubal reversal, and more.</p>
+    <p style="font-size: 18px; color: white !important">Fertility clinics in the United States are among the most modern clinics in the world. IVF clinics in the USA offer In Vitro Fertilization, egg freezing, sperm cryopreservation, embryo banking, donor eggs, donor sperm, donor embryo, gestational surrogacy, laparoscopy, endometriosis excision, myomectomy, hysteroscopy, tubal reversal, and more.</p>
   </div>
 
   <!-- Filter section -->

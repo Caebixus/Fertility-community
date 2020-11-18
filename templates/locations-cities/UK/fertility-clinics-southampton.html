@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Southampton | 2020{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in Southampton | 2020{% endblock %}
 {% block description %}Search the best Southampton fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics-southampton{% endblock %}
 {% block meta_keywords %}search fertility clinic southampton, search ivf clinics southampton, search fertility doctor southampton, search fertility specialist southampton, search fertility center southampton, search private fertility clinic southampton{% endblock %}
@@ -11,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Southampton, United Kingdom
+      {{ my_total_count }} of the BEST fertility clinics in Southampton
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Southampton with different treatment pricings and IVF packages. The IVF clinics in Southampton offer various kinds of fertility diagnosis, such as In Vitro Fertilization, egg donation, sperm donation, IUI insemination, male infertility treatment, egg freezing, surrogacy programs and LGBT family building.</p>
   </div>

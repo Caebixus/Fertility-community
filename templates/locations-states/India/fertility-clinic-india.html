@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}2020 | Best ivf centre in India{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in India | 2020{% endblock %}
 {% block description %}Search and find the best India IVF clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-india{% endblock %}
 {% block meta_keywords %}fertility clinic in india, best ivf centre in india, best ivf doctor in india, best ivf clinic in india, india ivf clinic{% endblock %}
@@ -11,9 +11,10 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          IVF centre & agencies in India
+          {{ my_total_count }} of the BEST fertility clinics in India
     </h1>
     <p style="font-size: 20px; color: white !important">Clinics found: <strong>({{ my_total_count }})</strong></p>
+    <p>IVF centers in India are becoming more and more professional and are gaining ground in the world of IVF treatment. IVF centers in India offer various kinds of fertility diagnosis and treatment, such as male and female infertility treatment, intrauterine insemination (IUI), In Vitro Fertilization (IVF), egg donation, embryo donation, assisted hatching and other services.</p>
   </div>
 
   <!-- Filter section -->

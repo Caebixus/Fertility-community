@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}2020 | Best fertility clinic in UK{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST fertility clinics in United Kingdom | 2020{% endblock %}
 {% block description %}Search and find the best UK fertility clinics or choose a location around the globe as well as IVF treatment of your need and find the best fertility clinic that suit your conditions.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-uk{% endblock %}
 {% block meta_keywords %}best fertility clinic in uk, best ivf clinics in uk, fertility clinics united kingdom, fertility clinic uk, best fertility doctor in uk, best ivf center in uk{% endblock %}
@@ -11,9 +11,9 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-          Fertility clinics & agencies in United Kingdom
+          {{ my_total_count }} of the BEST fertility clinics in United Kingdom
     </h1>
-    <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility clinics in the United Kingdom and have very strict rules and are therefore among the most professional and modern facilities in the world. IVF clinics in the UK offer various kinds of fertility diagnosis and treatment, such as male and female infertility treatment, intrauterine insemination, In Vitro Fertilization, sperm donation, egg donation, embryo donation, and other services.</p>
+    <p style="font-size: 18px; color: white !important">Fertility clinics in the United Kingdom have very strict rules and are therefore among the most professional and modern facilities in the world. IVF clinics in the UK offer various kinds of fertility diagnosis and treatment, such as male and female infertility treatment, intrauterine insemination, In Vitro Fertilization, sperm donation, egg donation, embryo donation, and other services.</p>
   </div>
 
   <!-- Filter section -->

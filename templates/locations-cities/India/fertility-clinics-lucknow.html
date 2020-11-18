@@ -2,16 +2,16 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}Fertility clinics & centers in Lucknow | 2020{% endblock %}
-{% block description %}Search the best Lucknow fertility clinics or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinic-india/lucknow{% endblock %}
+{% block title %}{{ my_total_count }} of the BEST IVF centres in Lucknow | 2020{% endblock %}
+{% block description %}Search the best Lucknow IVF centres or choose a different locations as well as IVF treatments of your need and find the best fertility centers that suit your conditions.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/uttar-pradesh/lucknow{% endblock %}
 {% block meta_keywords %}search fertility clinic lucknow, search ivf clinics lucknow, search fertility doctor lucknow, search fertility specialist lucknow, search fertility center lucknow, search private fertility clinic lucknow{% endblock %}
 {% block content %}
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Lucknow, India
+      {{ my_total_count }} of the BEST IVF centres in Lucknow
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Lucknow with different treatment pricings and IVF packages.</p>
   </div>

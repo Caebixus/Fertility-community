@@ -551,7 +551,7 @@ def oasisfertilityhyderabmiyapur(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/oasis-fertility-hyderabad-miyapur.html', context)
+        return render(request, 'clinics/IN/Hyderabad/oasis-fertility-hyderabad-miyapur.html', context)
 
     else:
         pass
@@ -564,7 +564,7 @@ def oasisfertilityhyderabmiyapur(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/oasis-fertility-hyderabad-miyapur.html', context)
+    return render(request, 'clinics/IN/Hyderabad/oasis-fertility-hyderabad-miyapur.html', context)
 
 def kiraninfertilitycenterhyderabad(request):
     listing = BasicClinic.objects.get(pk=666)
@@ -601,7 +601,7 @@ def kiraninfertilitycenterhyderabad(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/kiran-infertility-center-hyderabad.html', context)
+        return render(request, 'clinics/IN/Hyderabad/kiran-infertility-center-hyderabad.html', context)
 
     else:
         pass
@@ -614,7 +614,7 @@ def kiraninfertilitycenterhyderabad(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/kiran-infertility-center-hyderabad.html', context)
+    return render(request, 'clinics/IN/Hyderabad/kiran-infertility-center-hyderabad.html', context)
 
 def kiraninfertilitycenterkothapet(request):
     listing = BasicClinic.objects.get(pk=667)
@@ -651,7 +651,7 @@ def kiraninfertilitycenterkothapet(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/kiran-infertility-center-kothapet.html', context)
+        return render(request, 'clinics/IN/Hyderabad/kiran-infertility-center-kothapet.html', context)
 
     else:
         pass
@@ -664,7 +664,7 @@ def kiraninfertilitycenterkothapet(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/kiran-infertility-center-kothapet.html', context)
+    return render(request, 'clinics/IN/Hyderabad/kiran-infertility-center-kothapet.html', context)
 
 def hegdefertilitymalakpet(request):
     listing = BasicClinic.objects.get(pk=668)
@@ -701,7 +701,7 @@ def hegdefertilitymalakpet(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/hegde-fertility-malakpet.html', context)
+        return render(request, 'clinics/IN/Hyderabad/hegde-fertility-malakpet.html', context)
 
     else:
         pass
@@ -714,7 +714,7 @@ def hegdefertilitymalakpet(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/IN/Hyderabad/clinics/in/hyderabad/hegde-fertility-malakpet.html', context)
+    return render(request, 'clinics/IN/Hyderabad/hegde-fertility-malakpet.html', context)
 
 #Chennai
 def oasisfertchennai(request):

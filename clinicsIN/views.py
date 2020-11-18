@@ -15,7 +15,7 @@ def kiraninfertilitycenterbengaluru(request):
 
     bengaloralisting = BasicClinic.objects.all()
     bengaloralisting = bengaloralisting.filter(is_published=True)
-    bengaloralisting = bengaloralisting.filter(clinicCty__iexact='Bengalore')
+    bengaloralisting = bengaloralisting.filter(clinicCity__iexact='Bengalore')
     bengaloralisting = bengaloralisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -65,7 +65,7 @@ def mannatfertilitycentre(request):
 
     bengaloralisting = BasicClinic.objects.all()
     bengaloralisting = bengaloralisting.filter(is_published=True)
-    bengaloralisting = bengaloralisting.filter(clinicCty__iexact='Bengalore')
+    bengaloralisting = bengaloralisting.filter(clinicCity__iexact='Bengalore')
     bengaloralisting = bengaloralisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -116,7 +116,7 @@ def hyderabadwomenfertilitycentregachibowli(request):
 
     gachibowlisting = BasicClinic.objects.all()
     gachibowlisting = gachibowlisting.filter(is_published=True)
-    gachibowlisting = gachibowlisting.filter(clinicCty__iexact='Gachibowli')
+    gachibowlisting = gachibowlisting.filter(clinicCity__iexact='Gachibowli')
     gachibowlisting = gachibowlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -167,7 +167,7 @@ def indiaivfclinicgurgaon(request):
 
     gurugramlisting = BasicClinic.objects.all()
     gurugramlisting = gurugramlisting.filter(is_published=True)
-    gurugramlisting = gurugramlisting.filter(clinicCty__iexact='Gurugram')
+    gurugramlisting = gurugramlisting.filter(clinicCity__iexact='Gurugram')
     gurugramlisting = gurugramlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -218,7 +218,7 @@ def indiaivfclinicgwalior(request):
 
     gwaliorlisting = BasicClinic.objects.all()
     gwaliorlisting = gwaliorlisting.filter(is_published=True)
-    gwaliorlisting = gwaliorlisting.filter(clinicCty__iexact='Gwalior')
+    gwaliorlisting = gwaliorlisting.filter(clinicCity__iexact='Gwalior')
     gwaliorlisting = gwaliorlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -269,7 +269,7 @@ def indiaivfclinichaldwani(request):
 
     haldwanilisting = BasicClinic.objects.all()
     haldwanilisting = haldwanilisting.filter(is_published=True)
-    haldwanilisting = haldwanilisting.filter(clinicCty__iexact='Haldwani')
+    haldwanilisting = haldwanilisting.filter(clinicCity__iexact='Haldwani')
     haldwanilisting = haldwanilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -321,7 +321,7 @@ def oasisfertilityhyderabadbanjarahills(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -371,7 +371,7 @@ def oasisfertilityhyderabadsecunderabad(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -421,7 +421,7 @@ def oasisfertilityhyderabaddilsukhnagar(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -471,7 +471,7 @@ def oasisfertilityhyderabadgachibowli(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -521,7 +521,7 @@ def oasisfertilityhyderabmiyapur(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -571,7 +571,7 @@ def kiraninfertilitycenterhyderabad(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -621,7 +621,7 @@ def kiraninfertilitycenterkothapet(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -671,7 +671,7 @@ def hegdefertilitymalakpet(request):
 
     hyderabadlisting = BasicClinic.objects.all()
     hyderabadlisting = hyderabadlisting.filter(is_published=True)
-    hyderabadlisting = hyderabadlisting.filter(clinicCty__iexact='Hyderabad')
+    hyderabadlisting = hyderabadlisting.filter(clinicCity__iexact='Hyderabad')
     hyderabadlisting = hyderabadlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -722,7 +722,7 @@ def oasisfertchennai(request):
 
     chennailisting = BasicClinic.objects.all()
     chennailisting = chennailisting.filter(is_published=True)
-    chennailisting = chennailisting.filter(clinicCty__iexact='Chennai')
+    chennailisting = chennailisting.filter(clinicCity__iexact='Chennai')
     chennailisting = chennailisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -772,7 +772,7 @@ def kiraninfertilitycenterchennai(request):
 
     chennailisting = BasicClinic.objects.all()
     chennailisting = chennailisting.filter(is_published=True)
-    chennailisting = chennailisting.filter(clinicCty__iexact='Chennai')
+    chennailisting = chennailisting.filter(clinicCity__iexact='Chennai')
     chennailisting = chennailisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -823,7 +823,7 @@ def indiaivfclinicjammu(request):
 
     jammulisting = BasicClinic.objects.all()
     jammulisting = jammulisting.filter(is_published=True)
-    jammulisting = jammulisting.filter(clinicCty__iexact='Jammu')
+    jammulisting = jammulisting.filter(clinicCity__iexact='Jammu')
     jammulisting = jammulisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -874,7 +874,7 @@ def hegdehospitalmadhapur(request):
 
     madhapurlisting = BasicClinic.objects.all()
     madhapurlisting = madhapurlisting.filter(is_published=True)
-    madhapurlisting = madhapurlisting.filter(clinicCty__iexact='Madhapur')
+    madhapurlisting = madhapurlisting.filter(clinicCity__iexact='Madhapur')
     madhapurlisting = madhapurlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -925,7 +925,7 @@ def indiaivfclinicmeerut(request):
 
     meerutlisting = BasicClinic.objects.all()
     meerutlisting = meerutlisting.filter(is_published=True)
-    meerutlisting = meerutlisting.filter(clinicCty__iexact='Meerut')
+    meerutlisting = meerutlisting.filter(clinicCity__iexact='Meerut')
     meerutlisting = meerutlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -976,7 +976,7 @@ def indiaivfclinicnewdelhi(request):
 
     newdelhilisting = BasicClinic.objects.all()
     newdelhilisting = newdelhilisting.filter(is_published=True)
-    newdelhilisting = newdelhilisting.filter(clinicCty__iexact='New Delhi')
+    newdelhilisting = newdelhilisting.filter(clinicCity__iexact='New Delhi')
     newdelhilisting = newdelhilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1026,7 +1026,7 @@ def selectivfnewdelhi(request):
 
     newdelhilisting = BasicClinic.objects.all()
     newdelhilisting = newdelhilisting.filter(is_published=True)
-    newdelhilisting = newdelhilisting.filter(clinicCty__iexact='New Delhi')
+    newdelhilisting = newdelhilisting.filter(clinicCity__iexact='New Delhi')
     newdelhilisting = newdelhilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1076,7 +1076,7 @@ def indiraivfcentredelhi(request):
 
     newdelhilisting = BasicClinic.objects.all()
     newdelhilisting = newdelhilisting.filter(is_published=True)
-    newdelhilisting = newdelhilisting.filter(clinicCty__iexact='New Delhi')
+    newdelhilisting = newdelhilisting.filter(clinicCity__iexact='New Delhi')
     newdelhilisting = newdelhilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1127,7 +1127,7 @@ def indiaivfclinicnoida(request):
 
     noidalisting = BasicClinic.objects.all()
     noidalisting = noidalisting.filter(is_published=True)
-    noidalisting = noidalisting.filter(clinicCty__iexact='Noida')
+    noidalisting = noidalisting.filter(clinicCity__iexact='Noida')
     noidalisting = noidalisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1178,7 +1178,7 @@ def oasisfertilitypune(request):
 
     punelisting = BasicClinic.objects.all()
     punelisting = punelisting.filter(is_published=True)
-    punelisting = punelisting.filter(clinicCty__iexact='Pune')
+    punelisting = punelisting.filter(clinicCity__iexact='Pune')
     punelisting = punelisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1229,7 +1229,7 @@ def oasisfertilityranchi(request):
 
     ranchilisting = BasicClinic.objects.all()
     ranchilisting = ranchilisting.filter(is_published=True)
-    ranchilisting = ranchilisting.filter(clinicCty__iexact='Ranchi')
+    ranchilisting = ranchilisting.filter(clinicCity__iexact='Ranchi')
     ranchilisting = ranchilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1279,7 +1279,7 @@ def indiaivfclinicranchi(request):
 
     ranchilisting = BasicClinic.objects.all()
     ranchilisting = ranchilisting.filter(is_published=True)
-    ranchilisting = ranchilisting.filter(clinicCty__iexact='Ranchi')
+    ranchilisting = ranchilisting.filter(clinicCity__iexact='Ranchi')
     ranchilisting = ranchilisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1330,7 +1330,7 @@ def indiaivfclinicrohtak(request):
 
     rohtaklisting = BasicClinic.objects.all()
     rohtaklisting = rohtaklisting.filter(is_published=True)
-    rohtaklisting = rohtaklisting.filter(clinicCty__iexact='Rohtak')
+    rohtaklisting = rohtaklisting.filter(clinicCity__iexact='Rohtak')
     rohtaklisting = rohtaklisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1381,7 +1381,7 @@ def oasisfertilityvadodara(request):
 
     vadodaralisting = BasicClinic.objects.all()
     vadodaralisting = vadodaralisting.filter(is_published=True)
-    vadodaralisting = vadodaralisting.filter(clinicCty__iexact='Vadodara')
+    vadodaralisting = vadodaralisting.filter(clinicCity__iexact='Vadodara')
     vadodaralisting = vadodaralisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1432,7 +1432,7 @@ def oasisfertilityvijayawada(request):
 
     vijayawadalisting = BasicClinic.objects.all()
     vijayawadalisting = vijayawadalisting.filter(is_published=True)
-    vijayawadalisting = vijayawadalisting.filter(clinicCty__iexact='Vijayawada')
+    vijayawadalisting = vijayawadalisting.filter(clinicCity__iexact='Vijayawada')
     vijayawadalisting = vijayawadalisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1483,7 +1483,7 @@ def oasisfertilityvisakhapatnam(request):
 
     visakhapatnamlisting = BasicClinic.objects.all()
     visakhapatnamlisting = visakhapatnamlisting.filter(is_published=True)
-    visakhapatnamlisting = visakhapatnamlisting.filter(clinicCty__iexact='Visakhapatnam')
+    visakhapatnamlisting = visakhapatnamlisting.filter(clinicCity__iexact='Visakhapatnam')
     visakhapatnamlisting = visakhapatnamlisting.count()
 
     inlisting = BasicClinic.objects.all()
@@ -1534,7 +1534,7 @@ def oasisfertilitywarangal(request):
 
     warangallisting = BasicClinic.objects.all()
     warangallisting = warangallisting.filter(is_published=True)
-    warangallisting = warangallisting.filter(clinicCty__iexact='Warangal')
+    warangallisting = warangallisting.filter(clinicCity__iexact='Warangal')
     warangallisting = warangallisting.count()
 
     inlisting = BasicClinic.objects.all()

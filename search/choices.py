@@ -1,18 +1,45 @@
+from clinic.models import BasicClinic
+
+my_total_count_usa = BasicClinic.objects.filter(clinicState__iexact='United States')
+my_total_count_usa = my_total_count_usa.filter(is_published=True)
+my_total_count_usa = my_total_count_usa.count()
+
+my_total_count_uk = BasicClinic.objects.filter(clinicState__iexact='United Kingdom')
+my_total_count_uk = my_total_count_uk.filter(is_published=True)
+my_total_count_uk = my_total_count_uk.count()
+
+my_total_count_cze = BasicClinic.objects.filter(clinicState__iexact='Czech Republic')
+my_total_count_cze = my_total_count_cze.filter(is_published=True)
+my_total_count_cze = my_total_count_cze.count()
+
+my_total_count_spain = BasicClinic.objects.filter(clinicState__iexact='Spain')
+my_total_count_spain = my_total_count_spain.filter(is_published=True)
+my_total_count_spain = my_total_count_spain.count()
+
+my_total_count_india = BasicClinic.objects.filter(clinicState__iexact='India')
+my_total_count_india = my_total_count_india.filter(is_published=True)
+my_total_count_india = my_total_count_india.count()
+
 CATEGORY_CHOICES_STATES = {
-    'US': 'United States',
-    'UK': 'United Kingdom',
-    'CZ': 'Czech Republic',
-    'SP': 'Spain',
-    'IN': 'India',
+    'US': 'United States - ' + str(my_total_count_usa) + ' fertility clinics',
+    'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
+    'CZ': 'Czech Republic - ' + str(my_total_count_cze) + ' fertility clinics',
+    'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
+    'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
     }
 
+
+
+#----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_CZ_CITIES = {
     'Prague': 'Prague',
     'Brno': 'Brno',
     }
 
+
+#----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_SP_CITIES = {
-    'Alicante': 'Alicante',
+    'Alicante': 'Alicante ',
     'Barcelona': 'Barcelona',
     'Madrid': 'Madrid',
     'Malaga': 'Malaga',

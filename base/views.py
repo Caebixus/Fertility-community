@@ -26,6 +26,9 @@ def index(request):
     spclinics = BasicClinic.objects.filter(clinicState__iexact='Spain')
     spclinics = spclinics.count()
 
+    inclinics = BasicClinic.objects.filter(clinicState__iexact='India')
+    inclinics = inclinics.count()
+
     #UK CITIES
     londonclinics = BasicClinic.objects.filter(clinicRegion__iexact='London')
     londonclinics = londonclinics.count()
@@ -211,6 +214,7 @@ def index(request):
         'usclinics': usclinics,
         'czclinics': czclinics,
         'spclinics': spclinics,
+        'inclinics': inclinics,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
         'leedsclinics': leedsclinics,

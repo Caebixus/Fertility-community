@@ -300,13 +300,33 @@
       <p>
         <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#india_fertility_clinics" role="button" aria-expanded="false" aria-controls="india_fertility_clinics">
           <b>India <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{0}} fertility clinics</span></p>
+          <p><span>Found {{inclinics}} fertility clinics</span></p>
         </a>
       </p>
       <div class="collapse" id="india_fertility_clinics" style="padding-bottom: 2rem">
         <div class="card card-body">
           <ul>
-            <li><a href="{% url 'fertilityClinicIndia' %}"><b>Fertility clinics in India ({{0}})</b></a></li>
+            <li><a href="{% url 'fertilityClinicIndia' %}"><b>Fertility clinics in India ({{inclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChennai' %}">Chennai IVF centre ({{chennaiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsHyderabad' %}">Hyderabad IVF centre ({{hyderabadclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMumbai' %}">Mumbai IVF centre ({{mumbaiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPatna' %}">Patna IVF centre ({{patnaclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsRaipur' %}">Raipur IVF centre ({{raipurclinics}})</a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAmdavad' %}">Amdavad IVF centre ({{amdavadclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChandigarh' %}">Chandigarh IVF centre ({{chandigarhclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsFaridabad' %}">Faridabad IVF centre ({{faridabadclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsJamshedpur' %}">Jamshedpur IVF centre ({{jamshedpurclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBangalore' %}">Bangalore IVF centre ({{bangaloreclinics}})</a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsTrivandrum' %}">Trivandrum IVF centre ({{trivandrumclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsKochi' %}">Kochi IVF centre ({{kochiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBhopal' %}">Bhopal IVF centre ({{bhopalclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsIndore' %}">Indore IVF centre ({{indoreclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNagpur' %}">Nagpur IVF centre ({{nagpurclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsINRegions' %}"><u><b>India IVF costs comparison</b></u></a></li>
           </ul>
         </div>
       </div>

@@ -154,8 +154,8 @@ def index(request):
     raipurclinics = BasicClinic.objects.filter(clinicRegion__iexact='Raipur')
     raipurclinics = raipurclinics.count()
 
-    adavadclinics = BasicClinic.objects.filter(clinicRegion__iexact='Amdavad')
-    adavadclinics = adavadclinics.count()
+    amdavadclinics = BasicClinic.objects.filter(clinicRegion__iexact='Amdavad')
+    amdavadclinics = amdavadclinics.count()
 
     chandigarhclinics = BasicClinic.objects.filter(clinicRegion__iexact='Chandigarh')
     chandigarhclinics = chandigarhclinics.count()
@@ -255,7 +255,7 @@ def index(request):
         'mumbaiclinics': mumbaiclinics,
         'patnaclinics': patnaclinics,
         'raipurclinics': raipurclinics,
-        'adavadclinics': adavadclinics,
+        'amdavadclinics': amdavadclinics,
         'chandigarhclinics': chandigarhclinics,
         'faridabadclinics': faridabadclinics,
         'jamshedpurclinics': jamshedpurclinics,

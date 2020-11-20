@@ -1953,7 +1953,7 @@ $(document).ready(function (e) {
 
 <!-- DISPLAY SELECTED CURRENCY ON IN | MAIN/LOCATIONS --->
 $(document).ready(function (e) {
-    $('#ChooseCurrencySP').change(function () {
+    $('#ChooseCurrencyIN').change(function () {
         if ($(this).val() == 'USD') {
           $('#usdAmdavad').show();
           $('#usdBangalore').show();

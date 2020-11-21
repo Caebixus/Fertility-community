@@ -1231,8 +1231,8 @@
         </div>
         <br>
         {% endif %}
-      {% elif order_datas.pro_is_published != True and order_datas.is_published == True %}
-        {% if order_datas.ivf_treatment_cost or order_datas.mild_ivf_treatment_cost or order_datas.ovarian_ivf_treatment_cost or order_datas.icsi_treatment_cost or order_datas.egg_donor_recipients_cost or order_datas.sperm_donor_recipients_cost or order_datas.embryo_donor_recipients_cost != Null %}
+      {% elif order_datas.pro_is_published == False and order_datas.ppq_is_published == False and order_datas.is_published == True %}
+        {% if order_datas.ivf_treatment_cost != Null or order_datas.mild_ivf_treatment_cost != Null or order_datas.ovarian_ivf_treatment_cos != Null or order_datas.icsi_treatment_cost != Null or order_datas.egg_donor_recipients_cost != Null or order_datas.sperm_donor_recipients_cost != Null or order_datas.embryo_donor_recipients_cost != Null %}
         <!-- BASIC Clinic listings PRICING -->
         <div class="container" style="background-color: #efefef; padding-top: 10px; border-radius: 8px; border-color: #286DA8; padding-bottom: 25px;">
           <div class="container" style="padding-top: 20px">

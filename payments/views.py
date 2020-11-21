@@ -60,6 +60,15 @@ def billinginfo(request, listing_id):
             customer.stripeid = stripe_customer.id
             customer.save()
 
+            send_mail(
+                'Customer created',
+                'Someone created clinic as customer ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
+
             #Pro-Btn-monthly
             session1 = stripe.checkout.Session.create(
                 payment_method_types=['card'],
@@ -130,15 +139,6 @@ def billinginfo1(request, listing_id):
             customer.customerClinic = instance
             customer.stripeid = stripe_customer.id
             customer.save()
-
-            send_mail(
-                'Customer created',
-                'Someone created clinic as customer ' +
-                '\nClinic username: ' + str(customer.customerClinic),
-                'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
-                fail_silently=False,
-                )
 
             #Premium-Btn-monthly
             session3= stripe.checkout.Session.create(

@@ -370,6 +370,14 @@ def stripe_webhook(request):
         customer.membership = True
         customer.save()
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        send_mail(
+            'Customer created',
+            'Someone subscribed ' +
+            '\nClinic username: ' + str(customer.customerClinic),
+            'info@fertilitycommunity.com',
+            ['info@fertilitycommunity.com'],
+            fail_silently=False,
+            )
 
         # Create a new subscription and mark it as paid this month.
         # subscription = sign_up_customer(customer_email, subscription_id)
@@ -386,6 +394,14 @@ def stripe_webhook(request):
         instance.save()
         package = Package.objects.filter(packageclinic_id=instance)
         Package.objects.filter(id__in=package).update(is_package_active=False)
+        send_mail(
+            'Customer lost',
+            'Someone deleted customer ' +
+            '\nClinic username: ' + str(customer.customerClinic),
+            'info@fertilitycommunity.com',
+            ['info@fertilitycommunity.com'],
+            fail_silently=False,
+            )
 
     if event['type'] == 'customer.subscription.created':
         session = event['data']['object']
@@ -402,6 +418,14 @@ def stripe_webhook(request):
         customer = get_object_or_404(Customer, stripeid=session.customer)
         customer.membership = True
         customer.save()
+        send_mail(
+            'Subscription invoice paid',
+            'Someone subscribed and paid invoice ' +
+            '\nClinic username: ' + str(customer.customerClinic),
+            'info@fertilitycommunity.com',
+            ['info@fertilitycommunity.com'],
+            fail_silently=False,
+            )
 
     if event['type'] == 'customer.subscription.deleted':
         session = event['data']['object']
@@ -417,12 +441,28 @@ def stripe_webhook(request):
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            send_mail(
+                'Subscription deleted',
+                'Someone unsubscribed ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
         else:
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            send_mail(
+                'Subscription deleted',
+                'Someone unsubscribed ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
 
     if event['type'] == 'customer.subscription.updated':
         session = event['data']['object']
@@ -446,6 +486,14 @@ def stripe_webhook(request):
             packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[6:]
             Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
             customer.membership = True
+            send_mail(
+                'Subscription updated',
+                'Someone updated subscription ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
         elif planidplan == 'plan_I81Wbz50cpcCF4' or planidplan == 'price_1HZGfYEHpkY9RbxJZxXhZXW5': #PRO Plans
             instance.ppq_is_published = False
             instance.pro_is_published = True
@@ -455,8 +503,24 @@ def stripe_webhook(request):
             packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[2:]
             Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
             customer.membership = True
+            send_mail(
+                'Subscription updated',
+                'Someone updated subscription ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
         else:
             customer.membership = False
+            send_mail(
+                'Subscription lost',
+                'Someone unsubscribed ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
         customer.save()
 
 
@@ -475,11 +539,27 @@ def stripe_webhook(request):
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            send_mail(
+                'Subscription invoice failed',
+                'Someone unsubscribed ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
         else:
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            send_mail(
+                'Subscription invoice failed',
+                'Someone unsubscribed ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
 
     return HttpResponse(status=200)

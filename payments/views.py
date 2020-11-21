@@ -131,6 +131,15 @@ def billinginfo1(request, listing_id):
             customer.stripeid = stripe_customer.id
             customer.save()
 
+            send_mail(
+                'Customer created',
+                'Someone created clinic as customer ' +
+                '\nClinic username: ' + str(customer.customerClinic),
+                'info@fertilitycommunity.com',
+                ['info@fertilitycommunity.com'],
+                fail_silently=False,
+                )
+
             #Premium-Btn-monthly
             session3= stripe.checkout.Session.create(
                 payment_method_types=['card'],
@@ -372,7 +381,7 @@ def stripe_webhook(request):
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
         send_mail(
             'Customer created',
-            'Someone subscribed ' +
+            'Someone created clinic as customer ' +
             '\nClinic username: ' + str(customer.customerClinic),
             'info@fertilitycommunity.com',
             ['info@fertilitycommunity.com'],

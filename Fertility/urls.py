@@ -23,6 +23,7 @@ sitemaps = {
     'cities': CitiesViewSitemap,
     'countries': CountriesViewSitemap,
     'costs': CostsViewSitemap,
+    'clinics': ClinicsViewSitemap,
 }
 
 urlpatterns = [

@@ -13,6 +13,7 @@ urlpatterns = [
     path('banners', views.banners, name='banners'),
     path('create1', views.create1, name='create1'),
     path('create', views.create, name='create'),
+    path('howtousefertilitycommunity', views.howtousefertilitycommunity, name='howtousefertilitycommunity'),
 
     path('packages/<int:listing_id>', views.packages, name='packages'),
     path('packages/create-package/<int:listing_id>', views.createpackage, name='createpackage'),

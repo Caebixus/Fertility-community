@@ -88,6 +88,10 @@ def upgrade2(request):
     return render(request, 'owners/upgrade2.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def howtousefertilitycommunity(request):
+    return render(request, 'owners/how-to-use-fertilitycommunity.html')
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def notActiveUser(request):
     return render(request, 'owners/not-active-user.html')
 

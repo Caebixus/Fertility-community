@@ -18,10 +18,13 @@
       </p>
     </div>
     <div class="row-md">
+      {% if listing.clinicSart != Null or listing.clinicHfea != Null %}
       <p style="color: white">Certification:
         {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" style="color:white" rel="nofollow">SART certified</a></span>{% else %}{% endif %}
         {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" style="color:white" rel="nofollow">HFEA certified</a></span>{% else %}{% endif %}
       </p>
+      {% else %}
+      {% endif %}
     </div>
   </div>
   <br>

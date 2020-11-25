@@ -2583,3 +2583,61 @@ $(document).ready(function (e) {
         }
     });
 });
+
+<!-- DISPLAY SELECTED CURRENCY ON GR | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    $('#ChooseCurrencyGR').change(function () {
+        if ($(this).val() == 'USD') {
+          $('#usdAthens').show();
+          $('#usdThessaloniki').show();
+
+          $('#eurAthens').hide();
+          $('#eurThessaloniki').hide();
+
+          $('#gbpAthens').hide();
+          $('#gbpThessaloniki').hide();
+
+          $('#defaultBoardAthens').hide();
+          $('#defaultBoardThessaloniki').hide();
+
+        } else if ($(this).val() == 'EUR') {
+          $('#usdAthens').hide();
+          $('#usdThessaloniki').hide();
+
+          $('#eurAthens').show();
+          $('#eurThessaloniki').show();
+
+          $('#gbpAthens').hide();
+          $('#gbpThessaloniki').hide();
+
+          $('#defaultBoardAthens').hide();
+          $('#defaultBoardThessaloniki').hide();
+
+        } else if ($(this).val() == 'GBP') {
+          $('#usdAthens').hide();
+          $('#usdThessaloniki').hide();
+
+          $('#eurAthens').hide();
+          $('#eurThessaloniki').hide();
+
+          $('#gbpAthens').show();
+          $('#gbpThessaloniki').show();
+
+          $('#defaultBoardAthens').hide();
+          $('#defaultBoardThessaloniki').hide();
+
+        } else {
+          $('#usdAthens').hide();
+          $('#usdThessaloniki').hide();
+
+          $('#eurAthens').hide();
+          $('#eurThessaloniki').hide();
+
+          $('#gbpAthens').hide();
+          $('#gbpThessaloniki').hide();
+
+          $('#defaultBoardAthens').show();
+          $('#defaultBoardThessaloniki').show();
+        }
+    });
+});

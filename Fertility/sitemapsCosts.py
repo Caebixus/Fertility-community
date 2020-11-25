@@ -19,6 +19,7 @@ class CostsViewSitemap(sitemaps.Sitemap):
         'locationsCZRegions',
         'locationsSPRegions',
         'locationsINRegions',
+        'locationsGRRegions',
 
         'locationsTexasRegions',
         ]

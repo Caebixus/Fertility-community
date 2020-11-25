@@ -10,7 +10,7 @@ from django.db.models import Avg, Max, Min
 
 
 def locationsTexasRegions(request):
-    queryset_list_texas = BasicClinic.objects.filter(clinicRegion__iexact='Texas')
+    queryset_list_texas = BasicClinic.objects.filter(clinicRegion__iexact='Texas').exclude(is_published=False)
     my_total_count_texas = queryset_list_texas.count()
     countIVFclinics = queryset_list_texas.filter(ovarian_ivf_treatment=True).count()
     countIUIclinics = queryset_list_texas.filter(iui_treatment=True).count()

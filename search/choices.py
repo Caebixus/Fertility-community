@@ -20,12 +20,17 @@ my_total_count_india = BasicClinic.objects.filter(clinicState__iexact='India')
 my_total_count_india = my_total_count_india.filter(is_published=True)
 my_total_count_india = my_total_count_india.count()
 
+my_total_count_greece = BasicClinic.objects.filter(clinicState__iexact='Greece')
+my_total_count_greece = my_total_count_greece.filter(is_published=True)
+my_total_count_greece = my_total_count_greece.count()
+
 CATEGORY_CHOICES_STATES = {
     'US': 'United States - ' + str(my_total_count_usa) + ' fertility clinics',
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
     'CZ': 'Czech Republic - ' + str(my_total_count_cze) + ' fertility clinics',
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
     'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
+    'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
     }
 
 
@@ -34,6 +39,13 @@ CATEGORY_CHOICES_STATES = {
 CATEGORY_CHOICES_CZ_CITIES = {
     'Prague': 'Prague',
     'Brno': 'Brno',
+    }
+
+
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_GR_CITIES = {
+    'Athens': 'Athens',
+    'Thessaloniki': 'Thessaloniki',
     }
 
 

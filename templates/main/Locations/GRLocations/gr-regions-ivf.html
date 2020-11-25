@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}Greece IVF costs | 2020 Comparison{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/greece{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Standard IVF Costs in Greece | 2020</h1>
+    <p class="lead" style="color:white">Compare average IVF costs in Greek IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Standard IVF treatment
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locationsUSRegions' %}">Standard IVF treatment</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP Greek cities</h2>
+      <p><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col">
+                <select class="form-control" id="ChooseCurrencyCZ">
+                  <option value="" selected>Currency</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>GBP</option>
+                </select>
+              </th>
+              <th scope="col">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsAthens' %}"><u>Athens ({% if my_total_count_athens %}{{ my_total_count_athens }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardAthens">Choose currency above</div>
+                <div id="usdAthens" style="display:none">{% if usdCurrency_athens_ivf %}{{ usdCurrency_athens_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurAthens" style="display:none">{% if eurCurrency_athens_ivf %}{{ eurCurrency_athens_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpAthens" style="display:none">{% if gbpCurrency_athens_ivf %}{{ gbpCurrency_athens_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsAthens' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Athens IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsThessaloniki' %}"><u>Thessaloniki ({% if my_total_count_thessaloniki %}{{ my_total_count_thessaloniki }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardThessaloniki">Choose currency above</div>
+                <div id="usdThessaloniki" style="display:none">{% if usdCurrency_thessaloniki_ivf %}{{ usdCurrency_thessaloniki_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurThessaloniki" style="display:none">{% if eurCurrency_thessaloniki_ivf %}{{ eurCurrency_thessaloniki_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpThessaloniki" style="display:none">{% if gbpCurrency_thessaloniki_ivf %}{{ gbpCurrency_thessaloniki_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsThessaloniki' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Thessaloniki IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{% endblock  %}

@@ -176,6 +176,7 @@ class BasicClinic(models.Model):
     verified_is_published = models.BooleanField(default=False)
     popular_is_published = models.BooleanField(default=False)
     promotion_is_published = models.BooleanField(default=False)
+    is_not_approved = models.BooleanField(default=False)
 
     is_published_list_date = models.DateTimeField(default=datetime.now, blank=True)
     update_list_date = models.DateTimeField(default=datetime.now, blank=True)

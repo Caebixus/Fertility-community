@@ -17,7 +17,7 @@
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
   {% for listings in listingsppq %}
-    {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True %}
+    {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
       <div class="jumbotron">
         <div class="row">
           <div class="col-sm-9">
@@ -68,7 +68,7 @@
     {% endif %}
   {% endfor %}
   {% for listings in listingspro %}
-    {% if listings.ppq_is_published == False and listings.pro_is_published == True and listings.is_published == True %}
+    {% if listings.ppq_is_published == False and listings.pro_is_published == True and listings.is_published == True and listings.is_not_approved == False %}
       <div class="jumbotron">
         <div class="row">
           <div class="col-sm-9">
@@ -126,7 +126,7 @@
   <br>
   <br>
   {% for listings in listingsbasic %}
-    {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == True %}
+    {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
       <div class="jumbotron">
         <div class="row">
           <div class="col-sm-9">
@@ -175,7 +175,7 @@
     {% endif %}
   {% endfor %}
   {% for listings in listingsbasic %}
-    {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False %}
+    {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == False %}
     <div class="jumbotron">
       <div class="row">
         <div class="col-sm-9">
@@ -187,6 +187,21 @@
       <div class="row" style="text-align:left">
         <div class="col-sm" style="padding-top: 1rem">
           <p><i class="fas fa-search"></i> Your clinic is in review - please wait</p>
+        </div>
+      </div>
+    </div>
+    {% elif listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == True %}
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-sm-9">
+          <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-warning">Basic clinic</span></h2>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row" style="text-align:left">
+        <div class="col-sm" style="padding-top: 1rem">
+          <p><i class="fas fa-search"></i> Your clinic has not been approved and will not appear in search or anywhere else on the website. This usually happens if the FertilityCommunity team decides that your project is not a fertility clinic or agency offering IVF and fertility treatment. You can contact us for more information.</p>
         </div>
       </div>
     </div>

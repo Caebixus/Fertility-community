@@ -21,7 +21,7 @@ inrToEur = 0.011
 inrToUsd = 0.013
 
 def locationsStandardIVF(request):
-    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_uk = queryset_list_uk.filter(clinicState__iexact='United Kingdom')
     my_total_clinic_count_uk = queryset_list_uk.count()
     queryset_list_uk_ivf = queryset_list_uk.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -35,7 +35,7 @@ def locationsStandardIVF(request):
             eurCurrency_uk_ivf = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_us = queryset_list_us.filter(clinicState__iexact='United States')
     my_total_clinic_count_us = queryset_list_us.count()
     queryset_list_us_ivf = queryset_list_us.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -49,7 +49,7 @@ def locationsStandardIVF(request):
             eurCurrency_us_ivf = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_cz = queryset_list_cz.filter(clinicState__iexact='Czech Republic')
     my_total_clinic_count_cz = queryset_list_cz.count()
     queryset_list_cz_ivf = queryset_list_cz.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -63,7 +63,7 @@ def locationsStandardIVF(request):
             usdCurrency_cz_ivf = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_sp = BasicClinic.objects.all()
+    queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_sp = queryset_list_sp.filter(clinicState__iexact='Spain')
     my_total_clinic_count_sp = queryset_list_sp.count()
     queryset_list_sp_ivf = queryset_list_sp.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -77,7 +77,7 @@ def locationsStandardIVF(request):
             usdCurrency_sp_ivf = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
     my_total_clinic_count_in = queryset_list_in.count()
     queryset_list_in_ivf = queryset_list_in.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -91,6 +91,20 @@ def locationsStandardIVF(request):
             eurCurrency_in_ivf = None
             gbpCurrency_in_ivf = None
             usdCurrency_in_ivf = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_gr = queryset_list_gr.filter(clinicState__iexact='Greece')
+    my_total_clinic_count_gr = queryset_list_gr.count()
+    queryset_list_gr_ivf = queryset_list_gr.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_gr_ivf.items():
+        eurCurrency_gr_ivf = val
+        if eurCurrency_gr_ivf is not None:
+            gbpCurrency_gr_ivf = val * eurToGbp
+            usdCurrency_gr_ivf = val * eurToUsd
+        else:
+            gbpCurrency_gr_ivf = None
+            usdCurrency_gr_ivf = None
 
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
@@ -117,12 +131,17 @@ def locationsStandardIVF(request):
         'gbpCurrency_in_ivf': gbpCurrency_in_ivf,
         'usdCurrency_in_ivf': usdCurrency_in_ivf,
         'eurCurrency_in_ivf': eurCurrency_in_ivf,
+
+        'my_total_clinic_count_gr': my_total_clinic_count_gr,
+        'gbpCurrency_gr_ivf': gbpCurrency_gr_ivf,
+        'usdCurrency_gr_ivf': usdCurrency_gr_ivf,
+        'eurCurrency_gr_ivf': eurCurrency_gr_ivf,
         }
 
     return render(request, 'main/Locations/locations-standard-ivf.html', context)
 
 def locationsIVFwithEggDonation(request):
-    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_uk = queryset_list_uk.filter(clinicState__iexact='United Kingdom')
     my_total_clinic_count_uk = queryset_list_uk.count()
 
@@ -137,7 +156,7 @@ def locationsIVFwithEggDonation(request):
             eurCurrency_uk_egg = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_us = queryset_list_us.filter(clinicState__iexact='United States')
     my_total_clinic_count_us = queryset_list_us.count()
 
@@ -152,7 +171,7 @@ def locationsIVFwithEggDonation(request):
             eurCurrency_us_egg = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_cz = queryset_list_cz.filter(clinicState__iexact='Czech Republic')
     my_total_clinic_count_cz = queryset_list_cz.count()
 
@@ -167,7 +186,7 @@ def locationsIVFwithEggDonation(request):
             usdCurrency_cz_egg = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
     my_total_clinic_count_es = queryset_list_es.count()
 
@@ -182,7 +201,7 @@ def locationsIVFwithEggDonation(request):
             usdCurrency_es_egg = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
     my_total_clinic_count_in = queryset_list_in.count()
 
@@ -197,6 +216,21 @@ def locationsIVFwithEggDonation(request):
             eurCurrency_in_egg = None
             gbpCurrency_in_egg = None
             usdCurrency_in_egg = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_gr = queryset_list_gr.filter(clinicState__iexact='Greece')
+    my_total_clinic_count_gr = queryset_list_gr.count()
+
+    queryset_list_gr_egg = queryset_list_gr.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_gr_egg.items():
+        eurCurrency_gr_egg = val
+        if eurCurrency_gr_egg is not None:
+            gbpCurrency_gr_egg = val * eurToGbp
+            usdCurrency_gr_egg = val * eurToUsd
+        else:
+            gbpCurrency_gr_egg = None
+            usdCurrency_gr_egg = None
 
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
@@ -223,12 +257,17 @@ def locationsIVFwithEggDonation(request):
         'gbpCurrency_in_egg': gbpCurrency_in_egg,
         'usdCurrency_in_egg': usdCurrency_in_egg,
         'eurCurrency_in_egg': eurCurrency_in_egg,
+
+        'my_total_clinic_count_gr': my_total_clinic_count_gr,
+        'gbpCurrency_gr_egg': gbpCurrency_gr_egg,
+        'usdCurrency_gr_egg': usdCurrency_gr_egg,
+        'eurCurrency_gr_egg': eurCurrency_gr_egg,
         }
 
     return render(request, 'main/Locations/locations-ivf-with-egg-donors.html', context)
 
 def locationsIVFwithEmbryoDonation(request):
-    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_uk = queryset_list_uk.filter(clinicState__iexact='United Kingdom')
     my_total_clinic_count_uk = queryset_list_uk.count()
 
@@ -243,7 +282,7 @@ def locationsIVFwithEmbryoDonation(request):
             eurCurrency_uk_embryo = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_us = queryset_list_us.filter(clinicState__iexact='United States')
     my_total_clinic_count_us = queryset_list_us.count()
 
@@ -258,7 +297,7 @@ def locationsIVFwithEmbryoDonation(request):
             eurCurrency_us_embryo = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_cz = queryset_list_cz.filter(clinicState__iexact='Czech Republic')
     my_total_clinic_count_cz = queryset_list_cz.count()
 
@@ -273,7 +312,7 @@ def locationsIVFwithEmbryoDonation(request):
             usdCurrency_cz_embryo = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
     my_total_clinic_count_es = queryset_list_es.count()
 
@@ -288,7 +327,7 @@ def locationsIVFwithEmbryoDonation(request):
             usdCurrency_es_embryo = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
     my_total_clinic_count_in = queryset_list_in.count()
 
@@ -303,6 +342,21 @@ def locationsIVFwithEmbryoDonation(request):
             eurCurrency_in_embryo = None
             gbpCurrency_in_embryo = None
             usdCurrency_in_embryo = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_gr = queryset_list_gr.filter(clinicState__iexact='Greece')
+    my_total_clinic_count_gr = queryset_list_gr.count()
+
+    queryset_list_gr_embryo = queryset_list_gr.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_gr_embryo.items():
+        eurCurrency_gr_embryo = val
+        if eurCurrency_gr_embryo is not None:
+            gbpCurrency_gr_embryo = val * eurToGbp
+            usdCurrency_gr_embryo = val * eurToUsd
+        else:
+            gbpCurrency_gr_embryo = None
+            usdCurrency_gr_embryo = None
 
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
@@ -330,12 +384,16 @@ def locationsIVFwithEmbryoDonation(request):
         'usdCurrency_in_embryo': usdCurrency_in_embryo,
         'eurCurrency_in_embryo': eurCurrency_in_embryo,
 
+        'my_total_clinic_count_gr': my_total_clinic_count_gr,
+        'gbpCurrency_gr_embryo': gbpCurrency_gr_embryo,
+        'usdCurrency_gr_embryo': usdCurrency_gr_embryo,
+        'eurCurrency_gr_embryo': eurCurrency_gr_embryo,
         }
 
     return render(request, 'main/Locations/locations-ivf-with-embryo-donors.html', context)
 
 def locationsIUI(request):
-    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_uk = queryset_list_uk.filter(clinicState__iexact='United Kingdom')
     my_total_clinic_count_uk = queryset_list_uk.count()
 
@@ -350,7 +408,7 @@ def locationsIUI(request):
             eurCurrency_uk_iui = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_us = queryset_list_us.filter(clinicState__iexact='United States')
     my_total_clinic_count_us = queryset_list_us.count()
 
@@ -365,7 +423,7 @@ def locationsIUI(request):
             eurCurrency_us_iui = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_cz = queryset_list_cz.filter(clinicState__iexact='Czech Republic')
     my_total_clinic_count_cz = queryset_list_cz.count()
 
@@ -380,7 +438,7 @@ def locationsIUI(request):
             usdCurrency_cz_iui = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_es = BasicClinic.objects.all()
+    queryset_list_es = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_es = queryset_list_es.filter(clinicState__iexact='Spain')
     my_total_clinic_count_es = queryset_list_es.count()
 
@@ -395,7 +453,7 @@ def locationsIUI(request):
             usdCurrency_es_iui = None
 
 #-------------------------------------------------------------------------------
-    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list_in = queryset_list_in.filter(clinicState__iexact='India')
     my_total_clinic_count_in = queryset_list_in.count()
 
@@ -410,6 +468,21 @@ def locationsIUI(request):
             eurCurrency_in_iui = None
             gbpCurrency_in_iui = None
             usdCurrency_in_iui = None
+
+#-------------------------------------------------------------------------------
+    queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_gr = queryset_list_gr.filter(clinicState__iexact='Greece')
+    my_total_clinic_count_gr = queryset_list_gr.count()
+
+    queryset_list_gr_iui = queryset_list_gr.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_gr_iui.items():
+        eurCurrency_gr_iui = val
+        if eurCurrency_gr_iui is not None:
+            gbpCurrency_gr_iui = val * eurToGbp
+            usdCurrency_gr_iui = val * eurToUsd
+        else:
+            gbpCurrency_gr_iui = None
+            usdCurrency_gr_iui = None
 
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
@@ -436,6 +509,11 @@ def locationsIUI(request):
         'gbpCurrency_in_iui': gbpCurrency_in_iui,
         'usdCurrency_in_iui': usdCurrency_in_iui,
         'eurCurrency_in_iui': eurCurrency_in_iui,
+
+        'my_total_clinic_count_gr': my_total_clinic_count_gr,
+        'gbpCurrency_gr_iui': gbpCurrency_gr_iui,
+        'usdCurrency_gr_iui': usdCurrency_gr_iui,
+        'eurCurrency_gr_iui': eurCurrency_gr_iui,
         }
 
     return render(request, 'main/Locations/locations-iui.html', context)
@@ -452,7 +530,7 @@ def locationsIUI(request):
 
 
 def locationsUSRegions(request):
-    queryset_list_us = BasicClinic.objects.all()
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
 
     #--------------------------------------------------------------------------
     queryset_list_alabama = queryset_list_us.filter(clinicRegion__iexact='Alabama')
@@ -4787,7 +4865,7 @@ def locationsUSRegions(request):
 
 
 def locationsUKRegions(request):
-    queryset_list_uk = BasicClinic.objects.all()
+    queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)
 
     #--------------------------------------------------------------------------
     queryset_list_aberdeen = queryset_list_uk.filter(clinicRegion__iexact='Aberdeen')
@@ -7452,7 +7530,7 @@ def locationsUKRegions(request):
 
 
 def locationsCZRegions(request):
-    queryset_list_cz = BasicClinic.objects.all()
+    queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
 
     #--------------------------------------------------------------------------
     queryset_list_prague = queryset_list_cz.filter(clinicRegion__iexact='Prague')
@@ -7624,7 +7702,7 @@ def locationsCZRegions(request):
     return render(request, 'main/Locations/CZLocations/cz-regions-ivf.html', context)
 
 def locationsSPRegions(request):
-    queryset_list_sp = BasicClinic.objects.all()
+    queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 
     #--------------------------------------------------------------------------
     queryset_list_alicante = queryset_list_sp.filter(clinicRegion__iexact='Alicante')
@@ -8131,7 +8209,7 @@ def locationsSPRegions(request):
 
 
 def locationsINRegions(request):
-    queryset_list_in = BasicClinic.objects.all()
+    queryset_list_in = BasicClinic.objects.all().exclude(is_published=False)
 
     #--------------------------------------------------------------------------
     queryset_list_amdavad = queryset_list_in.filter(clinicCity__iexact='Amdavad')
@@ -8859,3 +8937,175 @@ def locationsINRegions(request):
         }
 
     return render(request, 'main/Locations/INLocations/in-regions-ivf.html', context)
+
+def locationsGRRegions(request):
+    queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_athens = queryset_list_gr.filter(clinicCity__iexact='Athens')
+    my_total_count_athens = queryset_list_athens.count()
+    queryset_list_athens_ivf = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_athens_ivf.items():
+        eurCurrency_athens_ivf = val
+        if eurCurrency_athens_ivf is not None:
+            usdCurrency_athens_ivf = val * eurToUsd
+            gbpCurrency_athens_ivf = val * eurToGbp
+        else:
+            usdCurrency_athens_ivf = None
+            gbpCurrency_athens_ivf = None
+
+    queryset_list_athens_egg = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_athens_egg.items():
+        eurCurrency_athens_egg = val
+        if eurCurrency_athens_egg is not None:
+            usdCurrency_athens_egg = val * eurToUsd
+            gbpCurrency_athens_egg = val * eurToGbp
+        else:
+            usdCurrency_athens_egg = None
+            gbpCurrency_athens_egg = None
+
+    queryset_list_athens_embryo = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_athens_embryo.items():
+        eurCurrency_athens_embryo = val
+        if eurCurrency_athens_embryo is not None:
+            usdCurrency_athens_embryo = val * eurToUsd
+            gbpCurrency_athens_embryo = val * eurToGbp
+        else:
+            usdCurrency_athens_embryo = None
+            gbpCurrency_athens_embryo = None
+
+    queryset_list_athens_sperm = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_athens_sperm.items():
+        eurCurrency_athens_sperm = val
+        if eurCurrency_athens_sperm is not None:
+            usdCurrency_athens_sperm = val * eurToUsd
+            gbpCurrency_athens_sperm = val * eurToGbp
+        else:
+            usdCurrency_athens_sperm = None
+            gbpCurrency_athens_sperm = None
+
+    queryset_list_athens_icsi = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_athens_icsi.items():
+        eurCurrency_athens_icsi = val
+        if eurCurrency_athens_icsi is not None:
+            usdCurrency_athens_icsi = val * eurToUsd
+            gbpCurrency_athens_icsi = val * eurToGbp
+        else:
+            usdCurrency_athens_icsi = None
+            gbpCurrency_athens_icsi = None
+
+    queryset_list_athens_iui = queryset_list_athens.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_athens_iui.items():
+        eurCurrency_athens_iui = val
+        if eurCurrency_athens_iui is not None:
+            usdCurrency_athens_iui = val * eurToUsd
+            gbpCurrency_athens_iui = val * eurToGbp
+        else:
+            usdCurrency_athens_iui = None
+            gbpCurrency_athens_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_thessaloniki = queryset_list_gr.filter(clinicRegion__iexact='Thessaloniki')
+    my_total_count_thessaloniki = queryset_list_thessaloniki.count()
+    queryset_list_thessaloniki_ivf = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_thessaloniki_ivf.items():
+        eurCurrency_thessaloniki_ivf = val
+        if eurCurrency_thessaloniki_ivf is not None:
+            usdCurrency_thessaloniki_ivf = val * eurToUsd
+            gbpCurrency_thessaloniki_ivf = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_ivf = None
+            gbpCurrency_thessaloniki_ivf = None
+
+    queryset_list_thessaloniki_egg = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_thessaloniki_egg.items():
+        eurCurrency_thessaloniki_egg = val
+        if eurCurrency_thessaloniki_egg is not None:
+            usdCurrency_thessaloniki_egg = val * eurToUsd
+            gbpCurrency_thessaloniki_egg = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_egg = None
+            gbpCurrency_thessaloniki_egg = None
+
+    queryset_list_thessaloniki_embryo = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_thessaloniki_embryo.items():
+        eurCurrency_thessaloniki_embryo = val
+        if eurCurrency_thessaloniki_embryo is not None:
+            usdCurrency_thessaloniki_embryo = val * eurToUsd
+            gbpCurrency_thessaloniki_embryo = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_embryo = None
+            gbpCurrency_thessaloniki_embryo = None
+
+    queryset_list_thessaloniki_sperm = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_thessaloniki_sperm.items():
+        eurCurrency_thessaloniki_sperm = val
+        if eurCurrency_thessaloniki_sperm is not None:
+            usdCurrency_thessaloniki_sperm = val * eurToUsd
+            gbpCurrency_thessaloniki_sperm = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_sperm = None
+            gbpCurrency_thessaloniki_sperm = None
+
+    queryset_list_thessaloniki_icsi = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_thessaloniki_icsi.items():
+        eurCurrency_thessaloniki_icsi = val
+        if eurCurrency_thessaloniki_icsi is not None:
+            usdCurrency_thessaloniki_icsi = val * eurToUsd
+            gbpCurrency_thessaloniki_icsi = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_icsi = None
+            gbpCurrency_thessaloniki_icsi = None
+
+    queryset_list_thessaloniki_iui = queryset_list_thessaloniki.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_thessaloniki_iui.items():
+        eurCurrency_thessaloniki_iui = val
+        if eurCurrency_thessaloniki_iui is not None:
+            usdCurrency_thessaloniki_iui = val * eurToUsd
+            gbpCurrency_thessaloniki_iui = val * eurToGbp
+        else:
+            usdCurrency_thessaloniki_iui = None
+            gbpCurrency_thessaloniki_iui = None
+
+    context = {
+        'gbpCurrency_athens_ivf': gbpCurrency_athens_ivf,
+        'usdCurrency_athens_ivf': usdCurrency_athens_ivf,
+        'eurCurrency_athens_ivf': eurCurrency_athens_ivf,
+        'gbpCurrency_athens_egg': gbpCurrency_athens_egg,
+        'usdCurrency_athens_egg': usdCurrency_athens_egg,
+        'eurCurrency_athens_egg': eurCurrency_athens_egg,
+        'gbpCurrency_athens_embryo': gbpCurrency_athens_embryo,
+        'usdCurrency_athens_embryo': usdCurrency_athens_embryo,
+        'eurCurrency_athens_embryo': eurCurrency_athens_embryo,
+        'gbpCurrency_athens_sperm': gbpCurrency_athens_sperm,
+        'usdCurrency_athens_sperm': usdCurrency_athens_sperm,
+        'eurCurrency_athens_sperm': eurCurrency_athens_sperm,
+        'gbpCurrency_athens_icsi': gbpCurrency_athens_icsi,
+        'usdCurrency_athens_icsi': usdCurrency_athens_icsi,
+        'eurCurrency_athens_icsi': eurCurrency_athens_icsi,
+        'gbpCurrency_athens_iui': gbpCurrency_athens_iui,
+        'usdCurrency_athens_iui': usdCurrency_athens_iui,
+        'eurCurrency_athens_iui': eurCurrency_athens_iui,
+        'my_total_count_athens': my_total_count_athens,
+
+        'gbpCurrency_thessaloniki_ivf': gbpCurrency_thessaloniki_ivf,
+        'usdCurrency_thessaloniki_ivf': usdCurrency_thessaloniki_ivf,
+        'eurCurrency_thessaloniki_ivf': eurCurrency_thessaloniki_ivf,
+        'gbpCurrency_thessaloniki_egg': gbpCurrency_thessaloniki_egg,
+        'usdCurrency_thessaloniki_egg': usdCurrency_thessaloniki_egg,
+        'eurCurrency_thessaloniki_egg': eurCurrency_thessaloniki_egg,
+        'gbpCurrency_thessaloniki_embryo': gbpCurrency_thessaloniki_embryo,
+        'usdCurrency_thessaloniki_embryo': usdCurrency_thessaloniki_embryo,
+        'eurCurrency_thessaloniki_embryo': eurCurrency_thessaloniki_embryo,
+        'gbpCurrency_thessaloniki_sperm': gbpCurrency_thessaloniki_sperm,
+        'usdCurrency_thessaloniki_sperm': usdCurrency_thessaloniki_sperm,
+        'eurCurrency_thessaloniki_sperm': eurCurrency_thessaloniki_sperm,
+        'gbpCurrency_thessaloniki_icsi': gbpCurrency_thessaloniki_icsi,
+        'usdCurrency_thessaloniki_icsi': usdCurrency_thessaloniki_icsi,
+        'eurCurrency_thessaloniki_icsi': eurCurrency_thessaloniki_icsi,
+        'gbpCurrency_thessaloniki_iui': gbpCurrency_thessaloniki_iui,
+        'usdCurrency_thessaloniki_iui': usdCurrency_thessaloniki_iui,
+        'eurCurrency_thessaloniki_iui': eurCurrency_thessaloniki_iui,
+        'my_total_count_thessaloniki': my_total_count_thessaloniki,
+        }
+    return render(request, 'main/Locations/GRLocations/gr-regions-ivf.html', context)

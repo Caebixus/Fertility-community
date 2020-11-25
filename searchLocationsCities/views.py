@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES
+from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
@@ -3175,3 +3175,81 @@ def fertilityClinicsHaldwani(request):
     context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-cities/India/fertility-clinics-haldwani.html', context)
+
+def fertilityClinicsAthens(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Athens')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Athens')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Athens')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Athens')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/Greece/fertility-clinic-athens.html', context)
+
+def fertilityClinicsThessaloniki(request):
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Thessaloniki')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicCity__iexact='Thessaloniki')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Thessaloniki')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Thessaloniki')
+
+    queryset_list = queryset_list.order_by('?')
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'my_total_count': my_total_count,}
+
+    return render(request, 'locations-cities/Greece/fertility-clinic-thessaloniki.html', context)

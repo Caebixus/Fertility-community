@@ -92,6 +92,9 @@ class CitiesViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsNoida',
         'fertilityClinicsMeerut',
         'fertilityClinicsHaldwani',
+
+        'fertilityClinicsAthens',
+        'fertilityClinicsThessaloniki',
         ]
 
     def location(self, item):

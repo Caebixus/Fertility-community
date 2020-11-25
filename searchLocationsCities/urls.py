@@ -90,4 +90,8 @@ urlpatterns = [
     path('fertility-clinics/india/uttar-pradesh/noida', views.fertilityClinicsNoida, name='fertilityClinicsNoida'),
     path('fertility-clinics/india/uttar-pradesh/meerut', views.fertilityClinicsMeerut, name='fertilityClinicsMeerut'),
     path('fertility-clinics/india/uttarakhand/haldwani', views.fertilityClinicsHaldwani, name='fertilityClinicsHaldwani'),
+
+    # Greece
+    path('fertility-clinics/greece/athens', views.fertilityClinicsAthens, name='fertilityClinicsAthens'),
+    path('fertility-clinics/greece/thessaloniki', views.fertilityClinicsThessaloniki, name='fertilityClinicsThessaloniki'),
 ]

@@ -302,7 +302,16 @@
         {% elif values.Region == 'Haldwani'%}
           Search fertility clinics & agencies in Haldwani, India
         {% endif %}
-
+      {% elif values.States == 'GR' %}
+        {% if values.Region == '' %}
+          Search fertility clinics & agencies in Greece
+        {% elif values.Region == None %}
+          Search fertility clinics & agencies in Greece
+        {% elif values.Region == 'Prague' %}
+          Search fertility clinics & agencies in Athens, Greece
+        {% elif values.Region == 'Thessaloniki'%}
+          Search fertility clinics & agencies in Thessaloniki, Greece
+        {% endif %}
       {% endif %}
     </h1>
     {% if values.States != None %}
@@ -432,6 +441,19 @@
               <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                 <option value="" selected>Select Indian city</option>
                 {% for key, value in CATEGORY_CHOICES_IN_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        {% elif values.States == 'GR' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-sp">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Greek city</option>
+                {% for key, value in CATEGORY_CHOICES_GR_CITIES.items %}
                 <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                 {% endfor %}
               </select>
@@ -637,6 +659,42 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Spain</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  {% elif values.States == 'IN' %}
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsINRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in India</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  {% elif values.States == 'GR' %}
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Greece</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
@@ -1525,6 +1583,8 @@
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2020:</h2>
           {% elif values.States == 'IN' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2020:</h2>
+          {% elif values.States == 'GR' %}
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Greece fertility treatment costs in 2020:</h2>
           {% endif %}
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
           <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
@@ -1724,6 +1784,43 @@
           {% else %}
           {% endif  %}
           {% endfor %}
+
+          {% elif values.States == 'GR' %}
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
           {% endif %}
           <br>
           <div class="row">
@@ -1756,6 +1853,12 @@
               <a href="{% url 'locationsINRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <i class="fas fa-flag"></i> India Compare
+                </button>
+              </a>
+              {% elif values.States == 'GR' %}
+              <a href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Greece Compare
                 </button>
               </a>
               {% endif %}
@@ -1840,17 +1943,23 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
       <ul class="list-unstyled text-small">
         <li><a href="{% url 'fertilityClinicsLondon' %}">London clinics</a></li>
         <li><a href="{% url 'fertilityClinicsManchester' %}">Manchester clinics</a></li>
         <li><a href="{% url 'fertilityClinicsGlasgow' %}">Glasgow clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>IVF and Fertility centers in UK</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
       <ul class="list-unstyled text-small">
         <li><a href="{% url 'fertilityClinicsBirmingham' %}">Birmingham clinics</a></li>
         <li><a href="{% url 'fertilityClinicsLeeds' %}">Leeds clinics</a></li>
         <li><a href="{% url 'fertilityClinicsLiverpool' %}">Liverpool clinics</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>
@@ -1894,13 +2003,104 @@
   <br>
   <div class="row">
     <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
       <ul class="list-unstyled text-small">
         <li><a href="{% url 'fertilityClinicPrague' %}">Prague IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsCZRegions' %}"><u>IVF and Fertility centers in Czech Republic</u></a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
       <ul class="list-unstyled text-small">
         <li><a href="{% url 'fertilityClinicBrno' %}">Brno IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'SP' %}
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Spain</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsAlicante' %}">IVF and Fertility Alicante clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsBarcelona' %}">IVF and Fertility Barcelona centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMadrid' %}">IVF and Fertility Madrid centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsSPRegions' %}"><u>IVF and Fertility centers in Spain</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMalaga' %}">IVF and Fertility Malaga centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsSeville' %}">IVF and Fertility Seville centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsValencia' %}">IVF and Fertility Valencia centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'IN' %}
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in India</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsBangalore' %}">IVF and Fertility Bangalore centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsChennai' %}">IVF and Fertility Chennai centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGachibowli' %}">IVF and Fertility Gachibowli centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGurugram' %}">IVF and Fertility Gurugram centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsINRegions' %}"><u>IVF and Fertility centers in India</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsHyderabad' %}">IVF and Fertility Hyderabad centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewDelhi' %}">IVF and Fertility New Delhi centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsRanchi' %}">IVF and Fertility Ranchi centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsWarangal' %}">IVF and Fertility Warangal centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'GR' %}
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Greece</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsAthens' %}">IVF and Fertility Athens centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsGRRegions' %}"><u>IVF and Fertility centers in Greece</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsThessaloniki' %}">IVF and Fertility Thessaloniki centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
     </div>
   </div>

@@ -286,7 +286,7 @@
       <p>
         <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#greece_fertility_clinics" role="button" aria-expanded="false" aria-controls="greece_fertility_clinics">
           <b>Greece <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{0}} fertility clinics</span></p>
+          <p><span>Found {{grclinics}} fertility clinics</span></p>
         </a>
       </p>
       <div class="collapse" id="greece_fertility_clinics" style="padding-bottom: 2rem">
@@ -294,7 +294,7 @@
           <ul>
             <li><a href="{% url 'fertilityClinicGreece' %}"><b>Fertility clinics in Greece ({{0}})</b></a></li>
             <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsAthens' %}">Athens fertility clinics ({{Athensclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAthens' %}">Athens fertility clinics ({{athensclinics}})</a></li>
             <li><a class="text-muted" href="{% url 'fertilityClinicsThessaloniki' %}">Thessaloniki fertility clinics ({{thessalonikiclinics}})</a></li>
             <hr>
             <li><a href="{% url 'locationsGRRegions' %}"><u><b>Greece IVF costs comparison</b></u></a></li>

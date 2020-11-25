@@ -29,6 +29,9 @@ def index(request):
     inclinics = BasicClinic.objects.filter(clinicState__iexact='India').exclude(is_published=False)
     inclinics = inclinics.count()
 
+    grclinics = BasicClinic.objects.filter(clinicState__iexact='Greece').exclude(is_published=False)
+    grclinics = grclinics.count()
+
     #UK CITIES
     londonclinics = BasicClinic.objects.filter(clinicCity__iexact='London').exclude(is_published=False)
     londonclinics = londonclinics.count()
@@ -205,6 +208,12 @@ def index(request):
     kolkataclinics = BasicClinic.objects.filter(clinicCity__iexact='Kolkata').exclude(is_published=False)
     kolkataclinics = kolkataclinics.count()
 
+    athensclinics = BasicClinic.objects.filter(clinicCity__iexact='Athens').exclude(is_published=False)
+    athensclinics = athensclinics.count()
+
+    thessalonikiclinics = BasicClinic.objects.filter(clinicCity__iexact='Thessaloniki').exclude(is_published=False)
+    thessalonikiclinics = thessalonikiclinics.count()
+
     context = {
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
@@ -215,6 +224,7 @@ def index(request):
         'czclinics': czclinics,
         'spclinics': spclinics,
         'inclinics': inclinics,
+        'grclinics': grclinics,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
         'leedsclinics': leedsclinics,
@@ -272,6 +282,8 @@ def index(request):
         'kanpurclinics': kanpurclinics,
         'dehradunclinics': dehradunclinics,
         'kolkataclinics': kolkataclinics,
+        'athensclinics': athensclinics,
+        'thessalonikiclinics': thessalonikiclinics,
     }
 
     return render(request, 'main/index.html', context)

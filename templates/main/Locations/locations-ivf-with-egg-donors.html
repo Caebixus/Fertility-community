@@ -59,7 +59,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1b">Choose currency above</div>
               <div id="usdBoard1b" style="display:none">{% if usdCurrency_uk_egg %}{{ usdCurrency_uk_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -68,7 +68,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1c">Choose currency above</div>
               <div id="usdBoard1c" style="display:none">{% if usdCurrency_cz_egg %}{{ usdCurrency_cz_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -77,7 +77,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_es }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1d">Choose currency above</div>
               <div id="usdBoard1d" style="display:none">{% if usdCurrency_es_egg %}{{ usdCurrency_es_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -86,12 +86,21 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1e">Choose currency above</div>
               <div id="usdBoard1e" style="display:none">{% if usdCurrency_in_egg %}{{ usdCurrency_in_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
               <div id="eurBoard2e" style="display:none">{% if eurCurrency_in_egg %}{{ eurCurrency_in_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
               <div id="gbpBoard3e" style="display:none">{% if gbpCurrency_in_egg %}{{ gbpCurrency_in_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1f">Choose currency above</div>
+              <div id="usdBoard1f" style="display:none">{% if usdCurrency_gr_egg %}{{ usdCurrency_gr_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2f" style="display:none">{% if eurCurrency_gr_egg %}{{ eurCurrency_gr_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3f" style="display:none">{% if gbpCurrency_gr_egg %}{{ gbpCurrency_gr_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
         </tbody>

@@ -7,24 +7,28 @@ $(document).ready(function (e) {
             $('#usdBoard1c').show();
             $('#usdBoard1d').show();
             $('#usdBoard1e').show();
+            $('#usdBoard1f').show();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
+            $('#eurBoard2f').hide();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
+            $('#gbpBoard3f').hide();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
+            $('#defaultBoard1f').hide();
 
         } else if ($(this).val() == 'EUR') {
             $('#usdBoard1a').hide();
@@ -32,24 +36,28 @@ $(document).ready(function (e) {
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
+            $('#usdBoard1f').hide();
 
             $('#eurBoard2a').show();
             $('#eurBoard2b').show();
             $('#eurBoard2c').show();
             $('#eurBoard2d').show();
             $('#eurBoard2e').show();
+            $('#eurBoard2f').show();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
+            $('#gbpBoard3f').hide();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
+            $('#defaultBoard1f').hide();
 
         } else if ($(this).val() == 'GBP') {
             $('#usdBoard1a').hide();
@@ -57,24 +65,28 @@ $(document).ready(function (e) {
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
+            $('#usdBoard1f').hide();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
+            $('#eurBoard2f').hide();
 
             $('#gbpBoard3a').show();
             $('#gbpBoard3b').show();
             $('#gbpBoard3c').show();
             $('#gbpBoard3d').show();
             $('#gbpBoard3e').show();
+            $('#gbpBoard3f').show();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
             $('#defaultBoard1c').hide();
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
+            $('#defaultBoard1f').hide();
 
         } else {
             $('#usdBoard1a').hide();
@@ -82,24 +94,28 @@ $(document).ready(function (e) {
             $('#usdBoard1c').hide();
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
+            $('#usdBoard1f').hide();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
             $('#eurBoard2c').hide();
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
+            $('#eurBoard2f').hide();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
             $('#gbpBoard3c').hide();
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
+            $('#gbpBoard3f').hide();
 
             $('#defaultBoard1a').show();
             $('#defaultBoard1b').show();
             $('#defaultBoard1c').show();
             $('#defaultBoard1d').show();
             $('#defaultBoard1e').show();
+            $('#defaultBoard1f').show();
         }
     });
 });

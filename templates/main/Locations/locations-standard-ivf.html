@@ -94,6 +94,15 @@
               <div id="gbpBoard3e" style="display:none">{% if gbpCurrency_in_ivf %}{{ gbpCurrency_in_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1f">Choose currency above</div>
+              <div id="usdBoard1f" style="display:none">{% if usdCurrency_gr_ivf %}{{ usdCurrency_gr_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2f" style="display:none">{% if eurCurrency_gr_ivf %}{{ eurCurrency_gr_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3f" style="display:none">{% if gbpCurrency_gr_ivf %}{{ gbpCurrency_gr_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

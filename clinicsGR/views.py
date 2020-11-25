@@ -61,6 +61,56 @@ def newlifeivfclinic(request):
     return render(request, 'clinics/GR/Thessaloniki/newlife-ivf-clinic.html', context)
 
 def embryoclinic(request):
+    listing = BasicClinic.objects.get(pk=688)
+
+    thessalonikilisting = BasicClinic.objects.all()
+    thessalonikilisting = thessalonikilisting.filter(is_published=True)
+    thessalonikilisting = thessalonikilisting.filter(clinicCity__iexact='Thessaloniki')
+    thessalonikilisting = thessalonikilisting.count()
+
+    grlisting = BasicClinic.objects.all()
+    grlisting = grlisting.filter(is_published=True)
+    grlisting = grlisting.filter(clinicState__iexact='Greece')
+    grlisting = grlisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=688)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'thessalonikilisting': thessalonikilisting,
+            'grlisting': grlisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/GR/Thessaloniki/embryoclinic.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'thessalonikilisting': thessalonikilisting,
+        'grlisting': grlisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/GR/Thessaloniki/embryoclinic.html', context)
+
+def embryolab(request):
     listing = BasicClinic.objects.get(pk=689)
 
     thessalonikilisting = BasicClinic.objects.all()
@@ -95,7 +145,7 @@ def embryoclinic(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Thessaloniki/embryoclinic.html', context)
+        return render(request, 'clinics/GR/Thessaloniki/embryolab.html', context)
 
     else:
         pass
@@ -108,15 +158,17 @@ def embryoclinic(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Thessaloniki/embryoclinic.html', context)
+    return render(request, 'clinics/GR/Thessaloniki/embryolab.html', context)
 
-def embryolab(request):
+
+#Athens
+def serumivfcenter(request):
     listing = BasicClinic.objects.get(pk=690)
 
-    thessalonikilisting = BasicClinic.objects.all()
-    thessalonikilisting = thessalonikilisting.filter(is_published=True)
-    thessalonikilisting = thessalonikilisting.filter(clinicCity__iexact='Thessaloniki')
-    thessalonikilisting = thessalonikilisting.count()
+    athenslisting = BasicClinic.objects.all()
+    athenslisting = athenslisting.filter(is_published=True)
+    athenslisting = athenslisting.filter(clinicCity__iexact='Athens')
+    athenslisting = athenslisting.count()
 
     grlisting = BasicClinic.objects.all()
     grlisting = grlisting.filter(is_published=True)
@@ -140,12 +192,12 @@ def embryolab(request):
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
-            'thessalonikilisting': thessalonikilisting,
+            'athenslisting': athenslisting,
             'grlisting': grlisting,
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Thessaloniki/embryolab.html', context)
+        return render(request, 'clinics/GR/Athens/serum-ivf-center.html', context)
 
     else:
         pass
@@ -153,16 +205,14 @@ def embryolab(request):
     context = {
         'listing': listing,
         'package': package,
-        'thessalonikilisting': thessalonikilisting,
+        'athenslisting': athenslisting,
         'grlisting': grlisting,
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Thessaloniki/embryolab.html', context)
+    return render(request, 'clinics/GR/Athens/serum-ivf-center.html', context)
 
-
-#Athens
-def serumivfcenter(request):
+def ivfathenscenter(request):
     listing = BasicClinic.objects.get(pk=691)
 
     athenslisting = BasicClinic.objects.all()
@@ -197,7 +247,7 @@ def serumivfcenter(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Athens/serum-ivf-center.html', context)
+        return render(request, 'clinics/GR/Athens/ivf-athens-center.html', context)
 
     else:
         pass
@@ -210,9 +260,9 @@ def serumivfcenter(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Athens/serum-ivf-center.html', context)
+    return render(request, 'clinics/GR/Athens/ivf-athens-center.html', context)
 
-def ivfathenscenter(request):
+def embryolandivfcenterathens(request):
     listing = BasicClinic.objects.get(pk=692)
 
     athenslisting = BasicClinic.objects.all()
@@ -247,7 +297,7 @@ def ivfathenscenter(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Athens/ivf-athens-center.html', context)
+        return render(request, 'clinics/GR/Athens/embryoland-ivf-center-athens.html', context)
 
     else:
         pass
@@ -260,9 +310,9 @@ def ivfathenscenter(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Athens/ivf-athens-center.html', context)
+    return render(request, 'clinics/GR/Athens/embryoland-ivf-center-athens.html', context)
 
-def embryolandivfcenterathens(request):
+def embiomedicalcenter(request):
     listing = BasicClinic.objects.get(pk=693)
 
     athenslisting = BasicClinic.objects.all()
@@ -297,7 +347,7 @@ def embryolandivfcenterathens(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Athens/embryoland-ivf-center-athens.html', context)
+        return render(request, 'clinics/GR/Athens/embio-medical-center.html', context)
 
     else:
         pass
@@ -310,9 +360,9 @@ def embryolandivfcenterathens(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Athens/embryoland-ivf-center-athens.html', context)
+    return render(request, 'clinics/GR/Athens/embio-medical-center.html', context)
 
-def embiomedicalcenter(request):
+def mitosisivfclinic(request):
     listing = BasicClinic.objects.get(pk=694)
 
     athenslisting = BasicClinic.objects.all()
@@ -347,7 +397,7 @@ def embiomedicalcenter(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Athens/embio-medical-center.html', context)
+        return render(request, 'clinics/GR/Athens/mitosis-ivf-clinic.html', context)
 
     else:
         pass
@@ -360,9 +410,9 @@ def embiomedicalcenter(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/GR/Athens/embio-medical-center.html', context)
+    return render(request, 'clinics/GR/Athens/mitosis-ivf-clinic.html', context)
 
-def mitosisivfclinic(request):
+def eugoniaassistedreproductionunit(request):
     listing = BasicClinic.objects.get(pk=695)
 
     athenslisting = BasicClinic.objects.all()
@@ -397,56 +447,6 @@ def mitosisivfclinic(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/GR/Athens/mitosis-ivf-clinic.html', context)
-
-    else:
-        pass
-
-    context = {
-        'listing': listing,
-        'package': package,
-        'athenslisting': athenslisting,
-        'grlisting': grlisting,
-        'alllisting': alllisting,
-        }
-
-    return render(request, 'clinics/GR/Athens/mitosis-ivf-clinic.html', context)
-
-def eugoniaassistedreproductionunit(request):
-    listing = BasicClinic.objects.get(pk=696)
-
-    athenslisting = BasicClinic.objects.all()
-    athenslisting = athenslisting.filter(is_published=True)
-    athenslisting = athenslisting.filter(clinicCity__iexact='Athens')
-    athenslisting = athenslisting.count()
-
-    grlisting = BasicClinic.objects.all()
-    grlisting = grlisting.filter(is_published=True)
-    grlisting = grlisting.filter(clinicState__iexact='Greece')
-    grlisting = grlisting.count()
-
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
-    alllisting = alllisting.count()
-
-    todayDate = timezone.now()
-    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=696)
-
-    if request.user.is_authenticated:
-        usergroup = ProUser.objects.all()
-        usergroup = usergroup.filter(user=request.user)
-        usergroup = usergroup.filter(paidPropublished=True)
-
-        context = {
-            'usergroup': usergroup,
-            'listing': listing,
-            'package': package,
-            'athenslisting': athenslisting,
-            'grlisting': grlisting,
-            'alllisting': alllisting,
-            }
-
         return render(request, 'clinics/GR/Athens/eugonia-assisted-reproduction-unit.html', context)
 
     else:
@@ -464,7 +464,7 @@ def eugoniaassistedreproductionunit(request):
 
 #Chania
 def mediterraneanfertilityinstitute(request):
-    listing = BasicClinic.objects.get(pk=697)
+    listing = BasicClinic.objects.get(pk=696)
 
     chanialisting = BasicClinic.objects.all()
     chanialisting = chanialisting.filter(is_published=True)
@@ -482,7 +482,7 @@ def mediterraneanfertilityinstitute(request):
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=697)
+    package = package.filter(packageclinic__id=696)
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()

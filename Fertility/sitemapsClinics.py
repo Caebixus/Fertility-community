@@ -667,6 +667,17 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'wisconsinfertilityinstitute',
         'columbiafertilityassociateswashingtondc',
         'gwmedicalfacultyassociates',
+
+        'newlifeivfclinic',
+        'embryoclinic',
+        'embryolab',
+        'serumivfcenter',
+        'ivfathenscenter',
+        'embryolandivfcenterathens',
+        'embiomedicalcenter',
+        'mitosisivfclinic',
+        'eugoniaassistedreproductionunit',
+        'mediterraneanfertilityinstitute',
         ]
 
     def location(self, item):

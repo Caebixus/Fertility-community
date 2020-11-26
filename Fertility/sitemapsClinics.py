@@ -157,6 +157,7 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'crgwswansea',
         'londonwomensclinicswansea',
 
+        #United States
         'wfi',
         'cifc',
         'ncfmcr',
@@ -668,6 +669,7 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'columbiafertilityassociateswashingtondc',
         'gwmedicalfacultyassociates',
 
+        #Greece
         'newlifeivfclinic',
         'embryoclinic',
         'embryolab',
@@ -678,6 +680,39 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'mitosisivfclinic',
         'eugoniaassistedreproductionunit',
         'mediterraneanfertilityinstitute',
+
+        #India
+        'kiraninfertilitycenterbengaluru',
+        'mannatfertilitycentre',
+        'hyderabadwomenfertilitycentregachibowli',
+        'indiaivfclinicgurgaon',
+        'indiaivfclinicgwalior',
+        'indiaivfclinichaldwani',
+        'oasisfertilityhyderabadbanjarahills',
+        'oasisfertilityhyderabadsecunderabad',
+        'oasisfertilityhyderabaddilsukhnagar',
+        'oasisfertilityhyderabadgachibowli',
+        'oasisfertilityhyderabmiyapur',
+        'kiraninfertilitycenterhyderabad',
+        'kiraninfertilitycenterkothapet',
+        'hegdefertilitymalakpet',
+        'oasisfertchennai',
+        'kiraninfertilitycenterchennai',
+        'indiaivfclinicjammu',
+        'hegdehospitalmadhapur',
+        'indiaivfclinicmeerut',
+        'indiaivfclinicnewdelhi',
+        'selectivfnewdelhi',
+        'indiraivfcentredelhi',
+        'indiaivfclinicnoida',
+        'oasisfertilitypune',
+        'oasisfertilityranchi',
+        'indiaivfclinicranchi',
+        'indiaivfclinicrohtak',
+        'oasisfertilityvadodara',
+        'oasisfertilityvijayawada',
+        'oasisfertilityvisakhapatnam',
+        'oasisfertilitywarangal',
         ]
 
     def location(self, item):

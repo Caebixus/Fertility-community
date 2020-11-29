@@ -12,7 +12,7 @@
       <p style="color: white">Features:
       {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
       {% if listing.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
+      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white; text-decoration: none"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
       {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
       {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
       </p>

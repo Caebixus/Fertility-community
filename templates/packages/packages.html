@@ -45,11 +45,10 @@
   <div class="row row-cols-1 row-cols-md-3">
     {% if paginationing %}
     {% for order_datas in order_data %}
-    {% if order_datas.packagecategory == 'IVF packages'%}
     <div id="IVF packages">
       {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
       <div class="col mb-5">
-        <div class="card">
+        <div class="card shadow">
           {% if order_datas.package_pic %}
           <img src="{{ order_datas.package_pic.url }}" class="card-img-top" alt="...">
           {% else%}
@@ -66,7 +65,7 @@
               <p class="card-text">{{ order_datas.packagedesc|safe }}</p>
             </div>
           </div>
-          <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+          <button type="button" class="btn btn-link btn-block btn-md" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
             {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
             {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
             {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
@@ -152,10 +151,6 @@
           </div>
         </div>
       </div>
-
-      {% else %}
-        <h2>Sorry, there are no packages for this search querry.</h2>
-      {% endif %}
 
     </div>
     {% endif %}

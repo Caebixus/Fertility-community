@@ -32,7 +32,6 @@
   <div class="row row-cols-1 row-cols-md-3">
     {% if paginationing %}
     {% for order_datas in order_data %}
-    {% if order_datas.packagecategory == 'IVF packages'%}
     <div id="IVF packages">
       {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
       <div class="col mb-5">
@@ -139,10 +138,6 @@
           </div>
         </div>
       </div>
-
-      {% else %}
-        <h2>Sorry, there are no packages for this search querry.</h2>
-      {% endif %}
 
     </div>
     {% endif %}

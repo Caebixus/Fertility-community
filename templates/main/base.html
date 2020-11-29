@@ -64,7 +64,7 @@
     <button class="close">&times;</button>
   </div>
 
-  <nav id="mainNavContent" class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: white">
+  <nav id="mainNavContent" class="navbar navbar-expand-lg navbar-light" style="background-color: white">
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'img/LOGO-FertilityCommunity.svg' %}" alt="Logo Fertility Community">
@@ -107,10 +107,6 @@
       </div>
     </div>
   </nav>
-  <br>
-  <br>
-  <br>
-  <br>
   {% block content %}
   {% endblock %}
   {% if 'localhost' in request.get_host %}

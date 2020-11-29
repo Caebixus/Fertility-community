@@ -4,6 +4,7 @@ HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.urls import reverse
 from django.core.paginator import Paginator
 from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION
+from location.currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
 from .choices import CATEGORY_PACKAGE
 from django import template
 from contact.forms import WebsiteForm
@@ -27,7 +28,7 @@ def packages(request):
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 25)
+    paginator = Paginator(order_data, 50)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -56,7 +57,7 @@ def ivfpackages(request):
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 25)
+    paginator = Paginator(order_data, 50)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -85,7 +86,7 @@ def eggpackages(request):
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 25)
+    paginator = Paginator(order_data, 50)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -116,7 +117,7 @@ def embryopackages(request):
 
     order_data = list(ppqlisting) + list(prolisting)
 
-    paginator = Paginator(order_data, 25)
+    paginator = Paginator(order_data, 50)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 

@@ -4,21 +4,8 @@ from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
 from itertools import chain
+from .currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
-# Create your views here.
-gbpToEur = 1.13
-gbpToUsd = 1.33
-
-usdToGbp = 0.75
-usdToEur = 0.85
-
-eurToGbp = 0.89
-eurToUsd = 1.18
-
-inrToGbp = 0.010
-inrToEur = 0.011
-inrToUsd = 0.013
 
 def locationsStandardIVF(request):
     queryset_list_uk = BasicClinic.objects.all().exclude(is_published=False)

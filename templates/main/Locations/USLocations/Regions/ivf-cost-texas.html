@@ -14,8 +14,8 @@
     <br>
     <ul>
       <li style="color:white; font-size: 135% !important"><a href="#ivf-costs" style="color: white">IVF Costs in Texas - {% if texasIVF.average == None %} No information {% else %}{{ texasIVF.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
-      <li style="color:white; font-size: 135% !important"><a href="#iui-costs" style="color: white">IUI Costs in Texas - {% if texasIUI.average == None %} No information {% else %}{{ texasIUI.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
-      <li style="color:white; font-size: 135% !important"><a href="#egg-donation-costs" style="color: white">Egg donation Costs in Texas - {% if texasEGG.average == None %} No information {% else %}{{ texasEGG.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>
+      {% if countIUIclinics == 0 %}{% else %}<li style="color:white; font-size: 135% !important"><a href="#iui-costs" style="color: white">IUI Costs in Texas - {% if texasIUI.average == None %} No information {% else %}{{ texasIUI.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>{% endif %}
+      {% if countEGGclinics == 0 %}{% else %}<li style="color:white; font-size: 135% !important"><a href="#egg-donation-costs" style="color: white">Egg donation Costs in Texas - {% if texasEGG.average == None %} No information {% else %}{{ texasEGG.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>{% endif %}
     </ul>
     <br>
   </div>

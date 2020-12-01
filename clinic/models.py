@@ -22,8 +22,8 @@ class BasicClinic(models.Model):
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
     ### Contact information
-    clinic_url = models.URLField(null=True, blank=True)
-    contact_url = models.URLField()
+    clinic_url = models.URLField(null=True, blank=True, max_length=500)
+    contact_url = models.URLField(max_length=500)
     contact_phone = models.CharField(max_length=20, blank=True)
 
     contact_email = models.CharField(max_length=50, blank=True)
@@ -151,9 +151,9 @@ class BasicClinic(models.Model):
     sperm_donor = models.BooleanField(default=False)
     egg_sharing = models.BooleanField(default=False)
 
-    egg_donor_url = models.URLField(null=True, blank=True)
-    sperm_donor_url = models.URLField(null=True, blank=True)
-    egg_sharing_url = models.URLField(null=True, blank=True)
+    egg_donor_url = models.URLField(null=True, blank=True, max_length=500)
+    sperm_donor_url = models.URLField(null=True, blank=True, max_length=500)
+    egg_sharing_url = models.URLField(null=True, blank=True, max_length=500)
 
     egg_donor_compensation = models.FloatField(blank=True, null=True)
     sperm_donor_compensation = models.FloatField(blank=True, null=True)
@@ -257,7 +257,7 @@ class BasicClinic(models.Model):
 
     clinic_pro_promotion_name = models.CharField(max_length=80, blank=True, null=True)
     clinic_pro_promotion_description = models.TextField(max_length=800, blank=True, null=True)
-    clinic_pro_promotion_landing_url = models.URLField(null=True, blank=True)
+    clinic_pro_promotion_landing_url = models.URLField(null=True, blank=True, max_length=500)
     clinic_staff = RichTextField(blank=True, null=True, max_length=300)
 
     def __str__(self):

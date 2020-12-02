@@ -24,6 +24,10 @@ my_total_count_greece = BasicClinic.objects.filter(clinicState__iexact='Greece')
 my_total_count_greece = my_total_count_greece.filter(is_published=True)
 my_total_count_greece = my_total_count_greece.count()
 
+my_total_count_cyprus = BasicClinic.objects.filter(clinicState__iexact='Cyprus')
+my_total_count_cyprus = my_total_count_cyprus.filter(is_published=True)
+my_total_count_cyprus = my_total_count_cyprus.count()
+
 CATEGORY_CHOICES_STATES = {
     'US': 'United States - ' + str(my_total_count_usa) + ' fertility clinics',
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
@@ -31,6 +35,7 @@ CATEGORY_CHOICES_STATES = {
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
     'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
+    'CY': 'Cyprus - ' + str(my_total_count_greece) + ' fertility clinics',
     }
 
 
@@ -48,6 +53,11 @@ CATEGORY_CHOICES_GR_CITIES = {
     'Thessaloniki': 'Thessaloniki',
     }
 
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_CY_CITIES = {
+    'Nicosia': 'Nicosia',
+    'Girne': 'Girne',
+    }
 
 #----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_SP_CITIES = {

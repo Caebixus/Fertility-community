@@ -312,6 +312,16 @@
         {% elif values.Region == 'Thessaloniki'%}
           Search fertility clinics & agencies in Thessaloniki, Greece
         {% endif %}
+      {% elif values.States == 'CY' %}
+        {% if values.Region == '' %}
+          Search fertility clinics & agencies in Cyprus
+        {% elif values.Region == None %}
+          Search fertility clinics & agencies in Cyprus
+        {% elif values.Region == 'Nicosia' %}
+          Search fertility clinics & agencies in Nicosia, Cyprus
+        {% elif values.Region == 'Girne'%}
+          Search fertility clinics & agencies in Girne, Cyprus
+        {% endif %}
       {% endif %}
     </h1>
     {% if values.States != None %}
@@ -454,6 +464,19 @@
               <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                 <option value="" selected>Select Greek city</option>
                 {% for key, value in CATEGORY_CHOICES_GR_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        {% elif values.States == 'CY' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-sp">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Cyprus city</option>
+                {% for key, value in CATEGORY_CHOICES_CY_CITIES.items %}
                 <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                 {% endfor %}
               </select>
@@ -695,6 +718,24 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Greece</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  {% elif values.States == 'CY' %}
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'locationsCYRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Cyprus</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
@@ -1585,6 +1626,8 @@
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2020:</h2>
           {% elif values.States == 'GR' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Greece fertility treatment costs in 2020:</h2>
+          {% elif values.States == 'CY' %}
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Cyprus fertility treatment costs in 2020:</h2>
           {% endif %}
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
           <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
@@ -1821,6 +1864,43 @@
           {% else %}
           {% endif  %}
           {% endfor %}
+
+          {% elif values.States == 'CY' %}
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
+          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
+          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
+          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
+          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
           {% endif %}
           <br>
           <div class="row">
@@ -1859,6 +1939,12 @@
               <a href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <i class="fas fa-flag"></i> Greece Compare
+                </button>
+              </a>
+              {% elif values.States == 'CY' %}
+              <a href="{% url 'locationsCYRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Cyprus Compare
                 </button>
               </a>
               {% endif %}
@@ -2099,6 +2185,31 @@
       <h4>Popular cities:</h4>
       <ul class="list-unstyled text-small">
         <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsThessaloniki' %}">IVF and Fertility Thessaloniki centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'CY' %}
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Cyprus</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNicosia' %}">IVF and Fertility Nicosia centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsCYRegions' %}"><u>IVF and Fertility centers in Cyprus</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGirne' %}">IVF and Fertility Girne centers</a></li>
         <br>
         <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>

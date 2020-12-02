@@ -1,0 +1,120 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Eurocareivf | 2020 Comparison{% endblock %}
+{% block description %}Compare all {{ nicosialisting }} Nicosia fertility clinics with each other or search from {{cylisting}} fertility clinics in Cyprus of the total {{alllisting}} around the globe and compare their treatment options with pricing to get the best viewpoint. Relevant information actual for 2020.{% endblock %}
+{% block noindexpage %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/clinics/cy/nicosia/eurocareivf{% endblock %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/0header.html' %}
+
+<!-- ================================================== -->
+
+{% if listing.clinic_pro_logo_pic %}
+<script type="application/ld+json">
+  {
+    "name" : "{{ listing.clinicName }}",
+    "image" : "{{ listing.clinic_pro_logo_pic }}",
+    "address" : {
+      "streetAddress" : "{{ listing.clinicStreetAddress }}",
+      "addressLocality" : "{{ listing.clinicCity }}",
+      "postalCode" : "{{ listing.clinicPostalCode }}",
+      "addressRegion" : "{{ listing.clinicRegion }}",
+      "addressCountry" : "{{ listing.clinicState }}",
+      "@type" : "PostalAddress"
+    },
+    "@type" : "MedicalClinic",
+    "@context" : "http://schema.org"
+  }
+</script>
+{% else %}
+<script type="application/ld+json">
+  {
+    "name" : "{{ listing.clinicName }}",
+    "image" : "{% static 'img/hospital.svg' %}",
+    "address" : {
+      "streetAddress" : "{{ listing.clinicStreetAddress }}",
+      "addressLocality" : "{{ listing.clinicCity }}",
+      "postalCode" : "{{ listing.clinicPostalCode }}",
+      "addressRegion" : "{{ listing.clinicRegion }}",
+      "addressCountry" : "{{ listing.clinicState }}",
+      "@type" : "PostalAddress"
+    },
+    "@type" : "MedicalClinic",
+    "@context" : "http://schema.org"
+  }
+</script>
+{% endif %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/1aboutclinic.html' %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/7contactbutton.html' %}
+
+<!-- ================================================== -->
+
+{% include 'clinicdetails/2primarytreatments.html' %}
+
+<!-- ================================================== -->
+
+
+
+
+{% include 'clinicdetails/3secondarytreatments.html' %}
+
+<!-- ================================================== -->
+
+
+
+{% include 'clinicdetails/4Packages.html' %}
+
+<!-- ================================================== -->
+
+
+
+
+{% include 'clinicdetails/5conditionslanguagesteamcontact.html' %}
+
+<!-- ================================================== -->
+
+<div class="container" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Address</h2>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6" style="padding-top:2rem">
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ listing.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ listing.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ listing.clinicPostalCode }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ listing.clinicState }}</p>
+      <br>
+      <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{listing.clinicRegion}}</p>
+    </div>
+    <div class="col-sm-6" style="padding-top:2rem">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6519.80214863946!2d33.366277!3d35.208933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x964a6027caca4fe1!2seuroCARE%20IVF%20Center%20Cyprus%20-%20%C3%87are%20K%C4%B1br%C4%B1s%20T%C3%BCp%20Bebek%20Klini%C4%9Fi%2C!5e0!3m2!1scs!2sus!4v1606923879940!5m2!1scs!2sus" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================== -->
+
+
+
+
+{% include 'clinicdetails/6openinghours.html' %}
+
+<!-- ================================================== -->
+
+
+
+
+{% include 'clinicdetails/8footerlinks.html' %}
+
+<!-- ================================================== -->
+{% endblock  %}

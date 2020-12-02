@@ -94,4 +94,8 @@ urlpatterns = [
     # Greece
     path('fertility-clinics/greece/athens', views.fertilityClinicsAthens, name='fertilityClinicsAthens'),
     path('fertility-clinics/greece/thessaloniki', views.fertilityClinicsThessaloniki, name='fertilityClinicsThessaloniki'),
+
+    # Cyprus
+    path('fertility-clinics/cyprus/nicosia', views.fertilityClinicsNicosia, name='fertilityClinicsNicosia'),
+    path('fertility-clinics/cyprus/girne', views.fertilityClinicsGirne, name='fertilityClinicsGirne'),
 ]

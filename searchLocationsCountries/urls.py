@@ -9,4 +9,5 @@ urlpatterns = [
     path('fertility-clinic-india', views.fertilityClinicIndia, name='fertilityClinicIndia'),
     path('fertility-clinic-greece', views.fertilityClinicGreece, name='fertilityClinicGreece'),
     path('fertility-clinic-czech-republic', views.fertilityClinicCzech, name='fertilityClinicCzech'),
+    path('fertility-clinic-cyprus', views.fertilityClinicCyprus, name='fertilityClinicCyprus'),
 ]

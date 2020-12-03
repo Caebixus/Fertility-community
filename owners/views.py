@@ -469,7 +469,6 @@ def updateproclinic(request, listing_id):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.pro_update_is_published_list_date = datetime.now()
-        instance.pro_is_published = True
         instance.save()
 
         data = form.cleaned_data

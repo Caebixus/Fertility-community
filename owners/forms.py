@@ -563,6 +563,7 @@ CATEGORY_CHOICES_WORLD_STATES = (
     )
 
 CATEGORY_CHOICES_US_REGION = (
+    ('None', 'None'),
     ('AL', 'Alabama'),
     ('AK', 'Alaska'),
     ('AZ', 'Arizona'),

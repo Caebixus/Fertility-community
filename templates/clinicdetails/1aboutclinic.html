@@ -8,9 +8,12 @@
     {% else %}
     {% endif %}
     {% if listing.clinicRegionLink %}
+    {% if listing.clinicRegion == 'None' %}
+    {% else %}
     <li class="nav-item">
       <a class="nav-link" href="{{ listing.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicRegion }}</u></a>
     </li>
+    {% endif %}
     {% else %}
     {% endif %}
     {% if listing.clinicStateLink %}

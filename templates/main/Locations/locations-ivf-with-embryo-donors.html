@@ -26,8 +26,16 @@
     <br>
   </div>
 </div>
-
-<br>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Embryo donation costs</li>
+      </ol>
+    </div>
+  </nav>
+</div>
 <br>
 
 <div class="container">
@@ -50,7 +58,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1a">Choose currency above</div>
               <div id="usdBoard1a" style="display:none">{% if usdCurrency_us_embryo %}{{ usdCurrency_us_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -59,7 +67,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1b">Choose currency above</div>
               <div id="usdBoard1b" style="display:none">{% if usdCurrency_uk_embryo %}{{ usdCurrency_uk_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -68,7 +76,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1c">Choose currency above</div>
               <div id="usdBoard1c" style="display:none">{% if usdCurrency_cz_embryo %}{{ usdCurrency_cz_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -77,7 +85,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_es }} clinics)</u></a></th>
+            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_es }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1d">Choose currency above</div>
               <div id="usdBoard1d" style="display:none">{% if usdCurrency_es_embryo %}{{ usdCurrency_es_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -86,7 +94,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1e">Choose currency above</div>
               <div id="usdBoard1e" style="display:none">{% if usdCurrency_in_embryo %}{{ usdCurrency_in_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -95,7 +103,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1f">Choose currency above</div>
               <div id="usdBoard1f" style="display:none">{% if usdCurrency_gr_embryo %}{{ usdCurrency_gr_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -104,7 +112,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               <div id="defaultBoard1g">Choose currency above</div>
               <div id="usdBoard1g" style="display:none">{% if usdCurrency_cy_embryo %}{{ usdCurrency_cy_embryo|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
@@ -124,5 +132,5 @@
 
 
 
-{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost.js' %}"></script>{% endblock %}
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
 {% endblock  %}

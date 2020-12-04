@@ -58,6 +58,25 @@
         <br>
         <hr>
         <br>
+        {% if instance.package_pic %}
+          <div class="col-md" style="text-align: left">
+            <p>Currently uploaded picture: </p>
+            <img src="{{ instance.package_pic.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+          </div>
+          <br>
+          <div class="col-md" style="text-align: left">
+            {{ form.package_pic.errors }}
+              <label for="{{ form.package_pic.id_for_label}}"><p>Re-upload (500x500 px):</p></label>
+            {{ form.package_pic }}
+          </div>
+          {% else %}
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.package_pic.errors }}
+            <label for="{{ form.package_pic.id_for_label}}">Package Image (500x500 px):</label>
+            {{ form.package_pic }}
+          </div>
+        {% endif %}
+        <br>
         <style> .django-ckeditor-widget { min-width:100% !important; } </style>
         <div class="fieldWrapper" style="text-align:">
           {{ form.packagedesc.errors }}

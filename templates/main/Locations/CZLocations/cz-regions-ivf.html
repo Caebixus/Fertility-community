@@ -26,7 +26,17 @@
     <br>
   </div>
 </div>
-
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'locations' %}" style="text-decoration: none">IVF costs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Czech Republic</li>
+      </ol>
+    </div>
+  </nav>
+</div>
 <div class="container">
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
@@ -78,5 +88,5 @@
 </div>
 <br>
 <br>
-{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost.js' %}"></script>{% endblock %}
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
 {% endblock  %}

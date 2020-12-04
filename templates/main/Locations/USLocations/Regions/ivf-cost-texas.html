@@ -20,6 +20,18 @@
     <br>
   </div>
 </div>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'locations' %}" style="text-decoration: none">IVF costs</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'locationsUSRegions' %}" style="text-decoration: none">United States</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Texas</li>
+      </ol>
+    </div>
+  </nav>
+</div>
 <br>
 <div class="container" id="ivf-costs">
   <br>
@@ -223,5 +235,5 @@
   </ul>
 </div>
 {% endif %}
-{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost.js' %}"></script>{% endblock %}
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
 {% endblock  %}

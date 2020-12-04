@@ -26,8 +26,17 @@
     <br>
   </div>
 </div>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">IVF costs</li>
+      </ol>
+    </div>
+  </nav>
+</div>
 
-<br>
 <br>
 
 <div class="container">
@@ -124,5 +133,5 @@
 
 
 
-{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost.js' %}"></script>{% endblock %}
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
 {% endblock  %}

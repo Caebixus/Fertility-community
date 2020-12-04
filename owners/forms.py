@@ -1149,6 +1149,7 @@ class CreatePackage(forms.ModelForm):
     packagecategory = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), label=('Package category'))
     packagedesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
     packagecost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'), min_value=0)
+    package_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Package picture'))
 
     package_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -1186,6 +1187,7 @@ class PostFormProUpdatePackage(forms.ModelForm):
     packagecategory = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), label=('Package category'))
     packagedesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
     packagecost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'), min_value=0)
+    package_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Package picture'))
 
     package_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)

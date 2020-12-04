@@ -24,6 +24,7 @@ $(document).ready(function (e) {
           $('#usdBoard1d').show();
           $('#usdBoard1e').show();
           $('#usdBoard1f').show();
+          $('#usdBoard1g').show();
 
           $('#eurBoard2a').hide();
           $('#eurBoard2b').hide();
@@ -31,6 +32,7 @@ $(document).ready(function (e) {
           $('#eurBoard2d').hide();
           $('#eurBoard2e').hide();
           $('#eurBoard2f').hide();
+          $('#eurBoard2g').hide();
 
           $('#gbpBoard3a').hide();
           $('#gbpBoard3b').hide();
@@ -38,6 +40,7 @@ $(document).ready(function (e) {
           $('#gbpBoard3d').hide();
           $('#gbpBoard3e').hide();
           $('#gbpBoard3f').hide();
+          $('#gbpBoard3g').hide();
 
           $('#defaultBoard1a').hide();
           $('#defaultBoard1b').hide();
@@ -45,6 +48,7 @@ $(document).ready(function (e) {
           $('#defaultBoard1d').hide();
           $('#defaultBoard1e').hide();
           $('#defaultBoard1f').hide();
+          $('#defaultBoard1g').hide();
 
       } else if (lastSelected == 'EUR') {
           $('#usdBoard1a').hide();
@@ -53,6 +57,7 @@ $(document).ready(function (e) {
           $('#usdBoard1d').hide();
           $('#usdBoard1e').hide();
           $('#usdBoard1f').hide();
+          $('#usdBoard1g').hide();
 
           $('#eurBoard2a').show();
           $('#eurBoard2b').show();
@@ -60,6 +65,7 @@ $(document).ready(function (e) {
           $('#eurBoard2d').show();
           $('#eurBoard2e').show();
           $('#eurBoard2f').show();
+          $('#eurBoard2g').show();
 
           $('#gbpBoard3a').hide();
           $('#gbpBoard3b').hide();
@@ -67,6 +73,7 @@ $(document).ready(function (e) {
           $('#gbpBoard3d').hide();
           $('#gbpBoard3e').hide();
           $('#gbpBoard3f').hide();
+          $('#gbpBoard3g').hide();
 
           $('#defaultBoard1a').hide();
           $('#defaultBoard1b').hide();
@@ -74,6 +81,7 @@ $(document).ready(function (e) {
           $('#defaultBoard1d').hide();
           $('#defaultBoard1e').hide();
           $('#defaultBoard1f').hide();
+          $('#defaultBoard1g').hide();
 
       } else if (lastSelected == 'GBP') {
           $('#usdBoard1a').hide();
@@ -82,6 +90,7 @@ $(document).ready(function (e) {
           $('#usdBoard1d').hide();
           $('#usdBoard1e').hide();
           $('#usdBoard1f').hide();
+          $('#usdBoard1g').hide();
 
           $('#eurBoard2a').hide();
           $('#eurBoard2b').hide();
@@ -89,6 +98,7 @@ $(document).ready(function (e) {
           $('#eurBoard2d').hide();
           $('#eurBoard2e').hide();
           $('#eurBoard2f').hide();
+          $('#eurBoard2g').hide();
 
           $('#gbpBoard3a').show();
           $('#gbpBoard3b').show();
@@ -96,6 +106,7 @@ $(document).ready(function (e) {
           $('#gbpBoard3d').show();
           $('#gbpBoard3e').show();
           $('#gbpBoard3f').show();
+          $('#gbpBoard3g').show();
 
           $('#defaultBoard1a').hide();
           $('#defaultBoard1b').hide();
@@ -103,6 +114,7 @@ $(document).ready(function (e) {
           $('#defaultBoard1d').hide();
           $('#defaultBoard1e').hide();
           $('#defaultBoard1f').hide();
+          $('#defaultBoard1g').hide();
 
       } else {
           $('#usdBoard1a').hide();
@@ -111,6 +123,7 @@ $(document).ready(function (e) {
           $('#usdBoard1d').hide();
           $('#usdBoard1e').hide();
           $('#usdBoard1f').hide();
+          $('#usdBoard1g').hide();
 
           $('#eurBoard2a').hide();
           $('#eurBoard2b').hide();
@@ -118,6 +131,7 @@ $(document).ready(function (e) {
           $('#eurBoard2d').hide();
           $('#eurBoard2e').hide();
           $('#eurBoard2f').hide();
+          $('#eurBoard2g').hide();
 
           $('#gbpBoard3a').hide();
           $('#gbpBoard3b').hide();
@@ -125,6 +139,7 @@ $(document).ready(function (e) {
           $('#gbpBoard3d').hide();
           $('#gbpBoard3e').hide();
           $('#gbpBoard3f').hide();
+          $('#gbpBoard3g').hide();
 
           $('#defaultBoard1a').show();
           $('#defaultBoard1b').show();
@@ -132,6 +147,7 @@ $(document).ready(function (e) {
           $('#defaultBoard1d').show();
           $('#defaultBoard1e').show();
           $('#defaultBoard1f').show();
+          $('#defaultBoard1g').show();
       }
     }
     else{
@@ -143,6 +159,7 @@ $(document).ready(function (e) {
             $('#usdBoard1d').show();
             $('#usdBoard1e').show();
             $('#usdBoard1f').show();
+            $('#usdBoard1g').show();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
@@ -150,6 +167,7 @@ $(document).ready(function (e) {
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
             $('#eurBoard2f').hide();
+            $('#eurBoard2g').hide();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
@@ -157,6 +175,7 @@ $(document).ready(function (e) {
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
             $('#gbpBoard3f').hide();
+            $('#gbpBoard3g').hide();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
@@ -164,6 +183,7 @@ $(document).ready(function (e) {
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
             $('#defaultBoard1f').hide();
+            $('#defaultBoard1g').hide();
 
         } else if (($(this).val() == 'EUR')) {
             $('#usdBoard1a').hide();
@@ -172,6 +192,7 @@ $(document).ready(function (e) {
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
             $('#usdBoard1f').hide();
+            $('#usdBoard1g').hide();
 
             $('#eurBoard2a').show();
             $('#eurBoard2b').show();
@@ -179,6 +200,7 @@ $(document).ready(function (e) {
             $('#eurBoard2d').show();
             $('#eurBoard2e').show();
             $('#eurBoard2f').show();
+            $('#eurBoard2g').show();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
@@ -186,6 +208,7 @@ $(document).ready(function (e) {
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
             $('#gbpBoard3f').hide();
+            $('#gbpBoard3g').hide();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
@@ -193,6 +216,7 @@ $(document).ready(function (e) {
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
             $('#defaultBoard1f').hide();
+            $('#defaultBoard1g').hide();
 
         } else if (($(this).val() == 'GBP')) {
             $('#usdBoard1a').hide();
@@ -201,6 +225,7 @@ $(document).ready(function (e) {
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
             $('#usdBoard1f').hide();
+            $('#usdBoard1g').hide();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
@@ -208,6 +233,7 @@ $(document).ready(function (e) {
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
             $('#eurBoard2f').hide();
+            $('#eurBoard2g').hide();
 
             $('#gbpBoard3a').show();
             $('#gbpBoard3b').show();
@@ -215,6 +241,7 @@ $(document).ready(function (e) {
             $('#gbpBoard3d').show();
             $('#gbpBoard3e').show();
             $('#gbpBoard3f').show();
+            $('#gbpBoard3g').show();
 
             $('#defaultBoard1a').hide();
             $('#defaultBoard1b').hide();
@@ -222,6 +249,7 @@ $(document).ready(function (e) {
             $('#defaultBoard1d').hide();
             $('#defaultBoard1e').hide();
             $('#defaultBoard1f').hide();
+            $('#defaultBoard1g').hide();
 
         } else {
             $('#usdBoard1a').hide();
@@ -230,6 +258,7 @@ $(document).ready(function (e) {
             $('#usdBoard1d').hide();
             $('#usdBoard1e').hide();
             $('#usdBoard1f').hide();
+            $('#usdBoard1g').hide();
 
             $('#eurBoard2a').hide();
             $('#eurBoard2b').hide();
@@ -237,6 +266,7 @@ $(document).ready(function (e) {
             $('#eurBoard2d').hide();
             $('#eurBoard2e').hide();
             $('#eurBoard2f').hide();
+            $('#eurBoard2g').hide();
 
             $('#gbpBoard3a').hide();
             $('#gbpBoard3b').hide();
@@ -244,6 +274,7 @@ $(document).ready(function (e) {
             $('#gbpBoard3d').hide();
             $('#gbpBoard3e').hide();
             $('#gbpBoard3f').hide();
+            $('#gbpBoard3g').hide();
 
             $('#defaultBoard1a').show();
             $('#defaultBoard1b').show();
@@ -251,6 +282,7 @@ $(document).ready(function (e) {
             $('#defaultBoard1d').show();
             $('#defaultBoard1e').show();
             $('#defaultBoard1f').show();
+            $('#defaultBoard1g').show();
           }
       });
   };
@@ -4779,6 +4811,120 @@ $(document).ready(function (e) {
 
           $('#defaultBoardAthens').show();
           $('#defaultBoardThessaloniki').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON CY | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdNicosia').show();
+        $('#usdGirne').show();
+
+        $('#eurNicosia').hide();
+        $('#eurGirne').hide();
+
+        $('#gbpNicosia').hide();
+        $('#gbpGirne').hide();
+
+        $('#defaultBoardNicosia').hide();
+        $('#defaultBoardGirne').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdNicosia').hide();
+        $('#usdGirne').hide();
+
+        $('#eurNicosia').show();
+        $('#eurGirne').show();
+
+        $('#gbpNicosia').hide();
+        $('#gbpGirne').hide();
+
+        $('#defaultBoardNicosia').hide();
+        $('#defaultBoardGirne').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdNicosia').hide();
+        $('#usdGirne').hide();
+
+        $('#eurNicosia').hide();
+        $('#eurGirne').hide();
+
+        $('#gbpNicosia').show();
+        $('#gbpGirne').show();
+
+        $('#defaultBoardNicosia').hide();
+        $('#defaultBoardGirne').hide();
+
+      } else {
+        $('#usdNicosia').hide();
+        $('#usdGirne').hide();
+
+        $('#eurNicosia').hide();
+        $('#eurGirne').hide();
+
+        $('#gbpNicosia').hide();
+        $('#gbpGirne').hide();
+
+        $('#defaultBoardNicosia').show();
+        $('#defaultBoardGirne').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+          $('#usdNicosia').show();
+          $('#usdGirne').show();
+
+          $('#eurNicosia').hide();
+          $('#eurGirne').hide();
+
+          $('#gbpNicosia').hide();
+          $('#gbpGirne').hide();
+
+          $('#defaultBoardNicosia').hide();
+          $('#defaultBoardGirne').hide();
+
+        } else if ($(this).val() == 'EUR') {
+          $('#usdNicosia').hide();
+          $('#usdGirne').hide();
+
+          $('#eurNicosia').show();
+          $('#eurGirne').show();
+
+          $('#gbpNicosia').hide();
+          $('#gbpGirne').hide();
+
+          $('#defaultBoardNicosia').hide();
+          $('#defaultBoardGirne').hide();
+
+        } else if ($(this).val() == 'GBP') {
+          $('#usdNicosia').hide();
+          $('#usdGirne').hide();
+
+          $('#eurNicosia').hide();
+          $('#eurGirne').hide();
+
+          $('#gbpNicosia').show();
+          $('#gbpGirne').show();
+
+          $('#defaultBoardNicosia').hide();
+          $('#defaultBoardGirne').hide();
+
+        } else {
+          $('#usdNicosia').hide();
+          $('#usdGirne').hide();
+
+          $('#eurNicosia').hide();
+          $('#eurGirne').hide();
+
+          $('#gbpNicosia').hide();
+          $('#gbpGirne').hide();
+
+          $('#defaultBoardNicosia').show();
+          $('#defaultBoardGirne').show();
         }
     });
   };

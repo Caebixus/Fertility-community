@@ -103,6 +103,15 @@
               <div id="gbpBoard3f" style="display:none">{% if gbpCurrency_gr_egg %}{{ gbpCurrency_gr_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1g">Choose currency above</div>
+              <div id="usdBoard1g" style="display:none">{% if usdCurrency_cy_egg %}{{ usdCurrency_cy_egg|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2g" style="display:none">{% if eurCurrency_cy_egg %}{{ eurCurrency_cy_egg|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3g" style="display:none">{% if gbpCurrency_cy_egg %}{{ gbpCurrency_cy_egg|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
         </tbody>
       </table>
       <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>

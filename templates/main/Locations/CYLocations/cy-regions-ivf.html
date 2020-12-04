@@ -16,7 +16,7 @@
         Standard IVF treatment
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{% url 'locationsUSRegions' %}">Standard IVF treatment</a>
+        <a class="dropdown-item" href="{% url 'locationsCYRegions' %}">Standard IVF treatment</a>
         <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
         <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
         <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
@@ -51,24 +51,24 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicNicosia' %}"><u>Nicosia ({% if my_total_count_nicosia %}{{ my_total_count_nicosia }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicsNicosia' %}"><u>Nicosia ({% if my_total_count_nicosia %}{{ my_total_count_nicosia }} clinics){% else %}0 clinics){% endif %}</u></a></th>
               <td style="font-size: 14px">
                 <div id="defaultBoardNicosia">Choose currency above</div>
                 <div id="usdNicosia" style="display:none">{% if usdCurrency_nicosia_ivf %}{{ usdCurrency_nicosia_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
                 <div id="eurNicosia" style="display:none">{% if eurCurrency_nicosia_ivf %}{{ eurCurrency_nicosia_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpNicosia" style="display:none">{% if gbpCurrency_nicosia_ivf %}{{ gbpCurrency_nicosia_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicNicosia' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Nicosia IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsNicosia' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Nicosia IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicGirne' %}"><u>Girne ({% if my_total_count_girne %}{{ my_total_count_girne }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicsGirne' %}"><u>Girne ({% if my_total_count_girne %}{{ my_total_count_girne }} clinics){% else %}0 clinics){% endif %}</u></a></th>
               <td style="font-size: 14px">
                 <div id="defaultBoardGirne">Choose currency above</div>
                 <div id="usdGirne" style="display:none">{% if usdCurrency_girne_ivf %}{{ usdCurrency_girne_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
                 <div id="eurGirne" style="display:none">{% if eurCurrency_girne_ivf %}{{ eurCurrency_girne_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
                 <div id="gbpGirne" style="display:none">{% if gbpCurrency_girne_ivf %}{{ gbpCurrency_girne_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
               </td>
-              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicGirne' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Girne IVF Clinics</button></a></td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsGirne' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Girne IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>

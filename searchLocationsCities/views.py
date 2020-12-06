@@ -35,9 +35,9 @@ def fertilityClinicPrague(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Prague')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Prague')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Prague')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Prague')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Prague')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Prague')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -74,9 +74,9 @@ def fertilityClinicBrno(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Brno')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Brno')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Brno')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Brno')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Brno')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Brno')
 
     queryset_list = queryset_list.order_by('?')
     pro_queryset_list = pro_queryset_list.order_by('?')
@@ -114,11 +114,11 @@ def fertilityClinicsAberdeen(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Aberdeen')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Aberdeen')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Aberdeen')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Aberdeen')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Aberdeen')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Aberdeen')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Aberdeen')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Aberdeen')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -156,11 +156,11 @@ def fertilityClinicsBath(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bath')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bath')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bath')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bath')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bath')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bath')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Bath')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Bath')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -198,11 +198,11 @@ def fertilityClinicsBelfast(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Belfast')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Belfast')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Belfast')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Belfast')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Belfast')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Belfast')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Belfast')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Belfast')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -240,11 +240,11 @@ def fertilityClinicsBirmingham(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Birmingham')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Birmingham')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Birmingham')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Birmingham')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Birmingham')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Birmingham')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Birmingham')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Birmingham')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -282,11 +282,11 @@ def fertilityClinicsBournemouth(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bournemouth')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bournemouth')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bournemouth')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bournemouth')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bournemouth')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bournemouth')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Bournemouth')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Bournemouth')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -324,11 +324,11 @@ def fertilityClinicsBrightonHove(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='BrightonHove')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='BrightonHove')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='BrightonHove')
+    queryset_list = queryset_list.filter(clinicCity__iexact='BrightonHove')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='BrightonHove')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='BrightonHove')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='BrightonHove')
+    my_total_count = my_total_count.filter(clinicCity__iexact='BrightonHove')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -366,11 +366,11 @@ def fertilityClinicsBristol(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Bristol')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Bristol')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Bristol')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Bristol')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bristol')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bristol')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Bristol')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Bristol')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -408,11 +408,11 @@ def fertilityClinicsCambridge(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Cambridge')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Cambridge')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Cambridge')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Cambridge')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Cambridge')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Cambridge')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Cambridge')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Cambridge')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -450,11 +450,11 @@ def fertilityClinicsCardiff(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Cardiff')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Cardiff')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Cardiff')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Cardiff')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Cardiff')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Cardiff')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Cardiff')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Cardiff')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -492,11 +492,11 @@ def fertilityClinicsColchester(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Colchester')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Colchester')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Colchester')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Colchester')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Colchester')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Colchester')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Colchester')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Colchester')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -534,11 +534,11 @@ def fertilityClinicsDerby(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Derby')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Derby')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Derby')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Derby')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Derby')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Derby')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Derby')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Derby')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -576,11 +576,11 @@ def fertilityClinicsExeter(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Exeter')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Exeter')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Exeter')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Exeter')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Exeter')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Exeter')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Exeter')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Exeter')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -618,11 +618,11 @@ def fertilityClinicsGlasgow(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Glasgow')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Glasgow')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Glasgow')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Glasgow')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Glasgow')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Glasgow')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Glasgow')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Glasgow')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -660,11 +660,11 @@ def fertilityClinicsHull(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Hull')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hull')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Hull')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Hull')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Hull')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Hull')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Hull')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Hull')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -702,11 +702,11 @@ def fertilityClinicsChelmsford(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Chelmsford')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Chelmsford')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Chelmsford')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Chelmsford')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Chelmsford')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Chelmsford')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Chelmsford')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Chelmsford')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -744,11 +744,11 @@ def fertilityClinicsLeeds(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Leeds')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Leeds')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Leeds')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Leeds')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Leeds')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Leeds')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Leeds')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Leeds')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -786,11 +786,11 @@ def fertilityClinicsLeicester(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Leicester')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Leicester')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Leicester')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Leicester')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Leicester')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Leicester')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Leicester')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Leicester')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -828,11 +828,11 @@ def fertilityClinicsLiverpool(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Liverpool')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Liverpool')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Liverpool')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Liverpool')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Liverpool')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Liverpool')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Liverpool')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Liverpool')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -870,11 +870,11 @@ def fertilityClinicsLondon(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='London')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='London')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='London')
+    queryset_list = queryset_list.filter(clinicCity__iexact='London')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='London')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='London')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='London')
+    my_total_count = my_total_count.filter(clinicCity__iexact='London')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -912,11 +912,11 @@ def fertilityClinicsManchester(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Manchester')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Manchester')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Manchester')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Manchester')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Manchester')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Manchester')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Manchester')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Manchester')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -954,11 +954,11 @@ def fertilityClinicsMiddlesbrough(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Middlesbrough')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Middlesbrough')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Middlesbrough')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Middlesbrough')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Middlesbrough')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Middlesbrough')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Middlesbrough')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Middlesbrough')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -996,11 +996,11 @@ def fertilityClinicsNewcastle(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Newcastle')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Newcastle')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Newcastle')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Newcastle')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Newcastle')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Newcastle')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Newcastle')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Newcastle')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1038,11 +1038,11 @@ def fertilityClinicsNorwich(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Norwich')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Norwich')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Norwich')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Norwich')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Norwich')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Norwich')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Norwich')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Norwich')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1080,11 +1080,11 @@ def fertilityClinicsNottingham(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Nottingham')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nottingham')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nottingham')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Nottingham')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Nottingham')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Nottingham')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Nottingham')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Nottingham')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1122,11 +1122,11 @@ def fertilityClinicsOxford(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Oxford')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oxford')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oxford')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Oxford')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Oxford')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Oxford')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Oxford')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Oxford')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1164,11 +1164,11 @@ def fertilityClinicsPeterborough(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Peterborough')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Peterborough')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Peterborough')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Peterborough')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Peterborough')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Peterborough')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Peterborough')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Peterborough')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1206,11 +1206,11 @@ def fertilityClinicsPlymouth(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Plymouth')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Plymouth')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Plymouth')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Plymouth')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Plymouth')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Plymouth')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Plymouth')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Plymouth')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1248,11 +1248,11 @@ def fertilityClinicsPortsmouth(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Portsmouth')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Portsmouth')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Portsmouth')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Portsmouth')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Portsmouth')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Portsmouth')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Portsmouth')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Portsmouth')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1290,11 +1290,11 @@ def fertilityClinicsSalisbury(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Salisbury')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Salisbury')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Salisbury')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Salisbury')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Salisbury')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Salisbury')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Salisbury')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Salisbury')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1332,11 +1332,11 @@ def fertilityClinicsSheffield(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Sheffield')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Sheffield')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Sheffield')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Sheffield')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Sheffield')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Sheffield')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Sheffield')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Sheffield')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1374,11 +1374,11 @@ def fertilityClinicsSouthampton(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Southampton')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Southampton')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Southampton')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Southampton')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Southampton')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Southampton')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Southampton')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Southampton')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1416,11 +1416,11 @@ def fertilityClinicsSwansea(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Swansea')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Swansea')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Swansea')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Swansea')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Swansea')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Swansea')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Swansea')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Swansea')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1458,11 +1458,11 @@ def fertilityClinicsAlicante(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Alicante')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alicante')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alicante')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Alicante')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Alicante')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Alicante')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Alicante')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Alicante')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1500,11 +1500,11 @@ def fertilityClinicsBarcelona(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Barcelona')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Barcelona')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Barcelona')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Barcelona')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Barcelona')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Barcelona')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Barcelona')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Barcelona')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1542,11 +1542,11 @@ def fertilityClinicsMadrid(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Madrid')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Madrid')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Madrid')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Madrid')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Madrid')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Madrid')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Madrid')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Madrid')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1584,11 +1584,11 @@ def fertilityClinicsMalaga(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Malaga')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Malaga')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Malaga')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Malaga')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Malaga')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Malaga')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Malaga')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Malaga')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1626,11 +1626,11 @@ def fertilityClinicsSeville(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Seville')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Seville')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Seville')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Seville')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Seville')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Seville')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Seville')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Seville')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')
@@ -1668,11 +1668,11 @@ def fertilityClinicsValencia(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Spain').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='Valencia')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Valencia')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Valencia')
+    queryset_list = queryset_list.filter(clinicCity__iexact='Valencia')
+    pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Valencia')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Valencia')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='Valencia')
+    my_total_count = my_total_count.filter(clinicCity__iexact='Valencia')
     my_total_count = my_total_count.count()
 
     queryset_list = queryset_list.order_by('?')

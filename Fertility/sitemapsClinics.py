@@ -713,6 +713,16 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'oasisfertilityvijayawada',
         'oasisfertilityvisakhapatnam',
         'oasisfertilitywarangal',
+
+        #Cyprus
+        'cyprusivfcentre',
+        'britishcyprusivfhospital',
+        'eurocareivf',
+        'dogusfertilityclinic',
+        'pedieosivfcenter',
+        'crownivfcyprus',
+        'dunyaivfcyprusfertilityclinic',
+        'kyreniaivfcenter',
         ]
 
     def location(self, item):

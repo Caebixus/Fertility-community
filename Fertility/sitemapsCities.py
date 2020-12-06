@@ -95,6 +95,9 @@ class CitiesViewSitemap(sitemaps.Sitemap):
 
         'fertilityClinicsAthens',
         'fertilityClinicsThessaloniki',
+
+        'fertilityClinicsNicosia',
+        'fertilityClinicsGirne',
         ]
 
     def location(self, item):

@@ -29,6 +29,7 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'pronatalnordteplice',
         'pronatalspakarlovyvary',
         'reprofitostrava',
+        'medistella',
 
         #Spain
         'ivfspainalicante',

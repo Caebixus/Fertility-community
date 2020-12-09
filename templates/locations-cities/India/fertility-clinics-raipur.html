@@ -179,31 +179,84 @@
   </div>
 </div>
 
-<br>
-
 <!-- Interesting links section -->
-
-<div class="container">
-  <ul class="nav justify-content-left">
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'locationsINRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in India</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
-    </li>
-  </ul>
-  <hr>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb" style="padding-top: 10px;">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fertility clinics in India</li>
+        <li class="breadcrumb-item" aria-current="page">
+          <button class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#cityCollapse" role="button" aria-expanded="false" aria-controls="cityCollapse" style="text-decoration: none">
+            Fertility clinics in Raipur
+          </button>
+        </li>
+      </ol>
+      <div class="collapse" id="cityCollapse">
+        <p class="lead">Most popular IVF India cities</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsHyderabad' %}">Hyderabad fertility clinics ({{hyderabadclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNewDelhi' %}">New Delhi fertility clinics ({{newdelhiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGachibowli' %}">Gachibowli fertility clinics ({{gachibowliclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBangalore' %}">Bangalore fertility clinics ({{bangaloreclinics}})</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChennai' %}">Chennai fertility clinics ({{chennaiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsVadodara' %}">Vadodara fertility clinics ({{vadodaraclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMadhapur' %}">Madhapur fertility clinics ({{madhapurclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGwalior' %}">Gwalior fertility clinics ({{gwaliorclinics}})</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMumbai' %}">Mumbai fertility clinics ({{mumbaiclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsFaridabad' %}">Faridabad fertility clinics ({{faridabadclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsKolkata' %}">Kolkata fertility clinics ({{kolkataclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsRohtak' %}">Rohtak fertility clinics ({{rohtakclinics}})</a></li>
+          </div>
+        </div>
+        <hr>
+        <p class="lead">Other IVF India cities</p>
+        <div class="row">
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAmdavad' %}">Amdavad fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBhopal' %}">Bhopal fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBhubaneswar' %}">Bhubaneswar fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsDehradun' %}">Dehradun fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChandigarh' %}">Chandigarh fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsIndore' %}">Indore fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsJaipur' %}">Jaipur fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsJamshedpur' %}">Jamshedpur fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsKanpur' %}">Kanpur fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsKochi' %}">Kochi fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLucknow' %}">Lucknow fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNagpur' %}">Nagpur fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPatna' %}">Patna fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsRaipur' %}">Raipur fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsTrivandrum' %}">Trivandrum fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLudhiana' %}">Ludhiana fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsVisakhapatnam' %}">Visakhapatnam fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsVijayawada' %}">Vijayawada fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGurugram' %}">Gurugram fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsJammu' %}">Jammu fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsRanchi' %}">Ranchi fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPune' %}">Pune fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsWarangal' %}">Warangal fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNoida' %}">Noida fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMeerut' %}">Meerut fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsHaldwani' %}">Haldwani fertility clinics</a></li>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </nav>
 </div>
-<br>
 
 <!-- PRO Clinic listings section -->
 

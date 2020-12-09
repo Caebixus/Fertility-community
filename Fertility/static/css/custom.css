@@ -65,6 +65,18 @@ select {
   background-color: white;
 }
 
+.dropDownMenu ul {
+  display:flex;
+  flex-wrap: wrap;
+}
+.dropDownMenu ul li {
+   flex: 0 0 33.333333%;
+   max-width: 33.333333%;
+   position: relative;
+    width: 100%;
+    min-height: 1px;
+}
+
 
 .homepageImage {
   background: url('/static/img/IVF-Explained7.webp');

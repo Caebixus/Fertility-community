@@ -179,31 +179,33 @@
   </div>
 </div>
 
-<br>
-
 <!-- Interesting links section -->
-
-<div class="container">
-  <ul class="nav justify-content-left">
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF US Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Greece</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
-    </li>
-  </ul>
-  <hr>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb" style="padding-top: 10px;">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fertility clinics in Greece</li>
+        <li class="breadcrumb-item" aria-current="page">
+          <button class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#cityCollapse" role="button" aria-expanded="false" aria-controls="cityCollapse" style="text-decoration: none">
+            Choose city
+          </button>
+        </li>
+      </ol>
+      <div class="collapse" id="cityCollapse">
+        <div class="row">
+          <div class="col-sm-6">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAthens' %}">Athens fertility clinics ({{athensclinics}} clinics)</a></li>
+          </div>
+          <div class="col-sm-6">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsThessaloniki' %}">Thessaloniki fertility clinics ({{thessalonikiclinics}} clinics)</a></li>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </nav>
 </div>
-<br>
 
 <!-- PRO Clinic listings section -->
 

@@ -1,0 +1,48 @@
+{% load static %}
+<div class="container py-3">
+  <ul class="nav justify-content-left">
+    {% if listing.clinicCityLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicCityLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicCity }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if listing.clinicRegionLink %}
+    {% if listing.clinicRegion == 'None' %}
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicRegion }}</u></a>
+    </li>
+    {% endif %}
+    {% else %}
+    {% endif %}
+    {% if listing.clinicStateLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicStateLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ listing.clinicState }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if listing.clinicLocationLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ listing.clinicLocationLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Compare IVF worldwide</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+  </ul>
+</div>
+{% if listing.description and listing.pro_is_published == True %}
+<div class="container py-3">
+  <br>
+  <br>
+  <h2>About our clinic:</h2>
+  <p>{{ listing.description|safe }}</p>
+</div>
+{% else %}
+{% endif %}
+{% if listing.treatmentLimitations and listing.pro_is_published == True %}
+<div class="container py-5">
+  <h2>Treatment limitations and restrictions:</h2>
+  <p>{{ listing.treatmentLimitations|safe }}</p>
+</div>
+{% else %}
+{% endif %}

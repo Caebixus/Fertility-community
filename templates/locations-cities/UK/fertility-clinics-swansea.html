@@ -179,34 +179,81 @@
   </div>
 </div>
 
-<br>
-
 <!-- Interesting links section -->
-
-<div class="container">
-  <ul class="nav justify-content-left">
-    <li hidden class="nav-item">
-      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'locationsUKRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in UK</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
-    </li>
-  </ul>
-  <hr>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb" style="padding-top: 10px;">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fertility clinics in UK</li>
+        <li class="breadcrumb-item" aria-current="page">
+          <button class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#cityCollapse" role="button" aria-expanded="false" aria-controls="cityCollapse" style="text-decoration: none">
+            Swansea fertility clinics
+          </button>
+        </li>
+      </ol>
+      <div class="collapse" id="cityCollapse">
+        <p class="lead">Most popular IVF UK cities</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics ({{londonclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics ({{manchesterclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics ({{bristolclinics}})</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics ({{liverpoolclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics ({{birminghamclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCardiff' %}">Cardiff fertility clinics ({{cardiffclinics}})</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsOxford' %}">Oxford fertility clinics ({{oxfordclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSwansea' %}">Swansea fertility clinics ({{swanseaclinics}})</a></li>
+          </div>
+        </div>
+        <hr>
+        <p class="lead">Other IVF UK cities</p>
+        <div class="row">
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAberdeen' %}">Aberdeen fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBath' %}">Bath fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBelfast' %}">Belfast fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBrightonHove' %}">Brighton & Hove fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCambridge' %}">Cambridge fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsColchester' %}">Colchester fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsDerby' %}">Derby fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsHull' %}">Kingston upon Hull fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChelmsford' %}">Chelmsford fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLeicester' %}">Leicester fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMiddlesbrough' %}">Middlesbrough fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNewcastle' %}">Newcastle fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNorwich' %}">Norwich fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPeterborough' %}">Peterborough fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPlymouth' %}">Plymouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSalisbury' %}">Salisbury fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSouthampton' %}">Southampton fertility clinics</a></li>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </nav>
 </div>
-<br>
+
 
 <!-- PRO Clinic listings section -->
-
 <div class="container">
   <div class="row">
     <div class="col-sm-8">

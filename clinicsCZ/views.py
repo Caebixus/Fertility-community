@@ -460,6 +460,56 @@ def ivfcube(request):
 
     return render(request, 'clinics/CZ/Prague/ivf-cube.html', context)
 
+def medistella(request):
+    listing = BasicClinic.objects.get(pk=705)
+
+    pragueclisting = BasicClinic.objects.all()
+    pragueclisting = pragueclisting.filter(is_published=True)
+    pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
+    pragueclisting = pragueclisting.count()
+
+    czlisting = BasicClinic.objects.all()
+    czlisting = czlisting.filter(is_published=True)
+    czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
+    czlisting = czlisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=705)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'pragueclisting': pragueclisting,
+            'czlisting': czlisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/CZ/Prague/medistella.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'pragueclisting': pragueclisting,
+        'czlisting': czlisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/CZ/Prague/medistella.html', context)
+
 # BRNO
 def ivfzlinczechrep(request):
     listing = BasicClinic.objects.get(pk=603)

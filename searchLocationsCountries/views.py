@@ -149,35 +149,23 @@ def fertilityClinicUK(request):
     bristolclinics = BasicClinic.objects.filter(clinicCity__iexact='Bristol').exclude(is_published=False)
     bristolclinics = bristolclinics.count()
 
-    leedsclinics = BasicClinic.objects.filter(clinicCity__iexact='Leeds').exclude(is_published=False)
-    leedsclinics = leedsclinics.count()
-
-    nottinghamclinics = BasicClinic.objects.filter(clinicCity__iexact='Nottingham').exclude(is_published=False)
-    nottinghamclinics = nottinghamclinics.count()
-
     birminghamclinics = BasicClinic.objects.filter(clinicCity__iexact='Birmingham').exclude(is_published=False)
     birminghamclinics = birminghamclinics.count()
-
-    exeterclinics = BasicClinic.objects.filter(clinicCity__iexact='Exeter').exclude(is_published=False)
-    exeterclinics = exeterclinics.count()
 
     liverpoolclinics = BasicClinic.objects.filter(clinicCity__iexact='Liverpool').exclude(is_published=False)
     liverpoolclinics = liverpoolclinics.count()
 
-    portsmouthclinics = BasicClinic.objects.filter(clinicCity__iexact='Portsmouth').exclude(is_published=False)
-    portsmouthclinics = portsmouthclinics.count()
+    swanseaclinics = BasicClinic.objects.filter(clinicCity__iexact='Swansea').exclude(is_published=False)
+    swanseaclinics = swanseaclinics.count()
 
-    bournemouthclinics = BasicClinic.objects.filter(clinicCity__iexact='Bournemouth').exclude(is_published=False)
-    bournemouthclinics = bournemouthclinics.count()
-
-    glasgowclinics = BasicClinic.objects.filter(clinicCity__iexact='Glasgow').exclude(is_published=False)
-    glasgowclinics = glasgowclinics.count()
+    cardiffclinics = BasicClinic.objects.filter(clinicCity__iexact='Cardiff').exclude(is_published=False)
+    cardiffclinics = cardiffclinics.count()
 
     manchesterclinics = BasicClinic.objects.filter(clinicCity__iexact='Manchester').exclude(is_published=False)
     manchesterclinics = manchesterclinics.count()
 
-    sheffieldclinics = BasicClinic.objects.filter(clinicCity__iexact='Sheffield').exclude(is_published=False)
-    sheffieldclinics = sheffieldclinics.count()
+    oxfordclinics = BasicClinic.objects.filter(clinicCity__iexact='Oxford').exclude(is_published=False)
+    oxfordclinics = oxfordclinics.count()
 
     context = {
         'listings': queryset_list,
@@ -194,16 +182,12 @@ def fertilityClinicUK(request):
         'my_total_count': my_total_count,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
-        'leedsclinics': leedsclinics,
-        'nottinghamclinics': nottinghamclinics,
         'birminghamclinics': birminghamclinics,
-        'exeterclinics': exeterclinics,
         'liverpoolclinics': liverpoolclinics,
-        'portsmouthclinics': portsmouthclinics,
-        'bournemouthclinics': bournemouthclinics,
-        'glasgowclinics': glasgowclinics,
+        'swanseaclinics': swanseaclinics,
+        'cardiffclinics': cardiffclinics,
         'manchesterclinics': manchesterclinics,
-        'sheffieldclinics': sheffieldclinics,
+        'oxfordclinics': oxfordclinics,
         }
 
     return render(request, 'locations-states/UK/fertility-clinic-uk.html', context)
@@ -338,8 +322,8 @@ def fertilityClinicIndia(request):
     chennaiclinics = BasicClinic.objects.filter(clinicCity__iexact='Chennai').exclude(is_published=False)
     chennaiclinics = chennaiclinics.count()
 
-    vandodaraclinics = BasicClinic.objects.filter(clinicCity__iexact='Vandodara').exclude(is_published=False)
-    vandodaraclinics = vandodaraclinics.count()
+    vadodaraclinics = BasicClinic.objects.filter(clinicCity__iexact='Vandodara').exclude(is_published=False)
+    vadodaraclinics = vadodaraclinics.count()
 
     madhapurclinics = BasicClinic.objects.filter(clinicCity__iexact='Madhapur').exclude(is_published=False)
     madhapurclinics = madhapurclinics.count()
@@ -357,7 +341,7 @@ def fertilityClinicIndia(request):
     kolkataclinics = kolkataclinics.count()
 
     rohtakclinics = BasicClinic.objects.filter(clinicCity__iexact='Rohtak').exclude(is_published=False)
-    rohtakclinics = rohtakclinics.count()   
+    rohtakclinics = rohtakclinics.count()
 
     context = {
         'listings': queryset_list,
@@ -377,7 +361,7 @@ def fertilityClinicIndia(request):
         'gachibowliclinics': gachibowliclinics,
         'bangaloreclinics': bangaloreclinics,
         'chennaiclinics': chennaiclinics,
-        'vandodaraclinics': vandodaraclinics,
+        'vadodaraclinics': vadodaraclinics,
         'madhapurclinics': madhapurclinics,
         'gwaliorclinics': gwaliorclinics,
         'mumbaiclinics': mumbaiclinics,
@@ -569,6 +553,7 @@ def fertilityClinicCyprus(request):
         'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES,
         'my_total_count': my_total_count,
         'nicosiaclinics': nicosiaclinics,
+        'girneclinics': girneclinics,
         }
 
     return render(request, 'locations-states/Cyprus/fertility-clinic-cyprus.html', context)

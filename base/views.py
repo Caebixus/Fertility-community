@@ -208,11 +208,19 @@ def index(request):
     kolkataclinics = BasicClinic.objects.filter(clinicCity__iexact='Kolkata').exclude(is_published=False)
     kolkataclinics = kolkataclinics.count()
 
+    #GR REGIONS
     athensclinics = BasicClinic.objects.filter(clinicCity__iexact='Athens').exclude(is_published=False)
     athensclinics = athensclinics.count()
 
     thessalonikiclinics = BasicClinic.objects.filter(clinicCity__iexact='Thessaloniki').exclude(is_published=False)
     thessalonikiclinics = thessalonikiclinics.count()
+
+    #CY REGIONS
+    nicosiaclinics = BasicClinic.objects.filter(clinicCity__iexact='Nicosia').exclude(is_published=False)
+    nicosiaclinics = nicosiaclinics.count()
+
+    girneclinics = BasicClinic.objects.filter(clinicCity__iexact='Girne').exclude(is_published=False)
+    girneclinics = girneclinics.count()
 
     context = {
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
@@ -284,6 +292,8 @@ def index(request):
         'kolkataclinics': kolkataclinics,
         'athensclinics': athensclinics,
         'thessalonikiclinics': thessalonikiclinics,
+        'nicosiaclinics': nicosiaclinics,
+        'girneclinics': girneclinics,
     }
 
     return render(request, 'main/index.html', context)
@@ -306,8 +316,8 @@ def robots(request):
 def team(request):
     return render(request, 'main/team.html')
 
-def news(request):
-    return render(request, 'main/news.html')
+def blog(request):
+    return render(request, 'main/blog.html')
 
 def iframe1(request):
     return render(request, 'main/iframepic1.html')

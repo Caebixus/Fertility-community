@@ -34,7 +34,10 @@
       </tr>
       <!-- Standard IVF with hyperstimulation -->
       <tr>
-        <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="IVF using ovarian hyperstimulation"><p style="text-align: left; font-size: 22px">Standard IVF <i class="far fa-question-circle"></i></p></th>
+        <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="IVF using ovarian hyperstimulation - <a href='{% url 'blog1' %}'>Read more</a>" data-html="true">
+          <p style="text-align: left; font-size: 22px">Standard IVF <i class="far fa-question-circle"></i>
+          </p>
+        </th>
         <td>{% if listing.ovarian_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
           {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=listing.ovarian_ivf_treatment_cost|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>

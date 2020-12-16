@@ -32,6 +32,7 @@ urlpatterns = [
     path('', include('search.urls')),
     path('', include('packages.urls')),
     path('', include('location.urls')),
+    path('', include('blog.urls')),
     path('', include('locationRegions.urls')),
     path('', include('clinicsUS.urls')),
     path('', include('clinicsUK.urls')),

@@ -357,7 +357,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}" style="text-decoration-color: white">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -432,7 +432,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}" style="text-decoration-color: white">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: white; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:white">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -506,7 +506,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -581,7 +581,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color:#6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -655,7 +655,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -721,7 +721,7 @@
               <div class="container" id="nameInfo">
                 <div class="row-md">
                   <a href="{{ order_datas.clinic_url }}">
-                    <h2 class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</h2>
+                    <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
                 {% if order_datas.clinicTitle %}<p style="color: #6c757d">{{ order_datas.clinicTitle|safe }}</p>{% else %}<br>{% endif %}
@@ -824,23 +824,12 @@
           {% else %}
           {% endif  %}
           {% endfor %}
-          <br>
-          <div class="row">
-            <div class="col-6 col-md">
-              <a href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;">
-                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="fas fa-flag"></i> USA Compare
-                </button>
-              </a>
-            </div>
-            <div class="col-6 col-md">
-              <a href="{% url 'locations' %}">
-                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="fas fa-globe"></i> World Compare
-                </button>
-              </a>
-            </div>
-          </div>
+          <hr>
+          <a href="{% url 'locationsTexasRegions' %}" style="font-size: 14px !important; text-decoration: none">
+            <button class="btn btn-block" id="brandButton" type="button">
+              <i class="fas fa-flag"></i> Texas IVF Costs
+            </button>
+          </a>
         </div>
       </div>
     </div>

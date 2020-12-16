@@ -32,6 +32,9 @@ def index(request):
     grclinics = BasicClinic.objects.filter(clinicState__iexact='Greece').exclude(is_published=False)
     grclinics = grclinics.count()
 
+    cyclinics = BasicClinic.objects.filter(clinicState__iexact='Cyprus').exclude(is_published=False)
+    cyclinics = cyclinics.count()
+
     #UK CITIES
     londonclinics = BasicClinic.objects.filter(clinicCity__iexact='London').exclude(is_published=False)
     londonclinics = londonclinics.count()
@@ -233,6 +236,7 @@ def index(request):
         'spclinics': spclinics,
         'inclinics': inclinics,
         'grclinics': grclinics,
+        'cyclinics': cyclinics,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
         'leedsclinics': leedsclinics,

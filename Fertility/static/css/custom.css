@@ -77,15 +77,6 @@ select {
     min-height: 1px;
 }
 
-
-.homepageImage {
-  background: url('/static/img/IVF-Explained7.webp');
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  max-height: 1723px;
-}
-
 .backgroundPackageClinicDetail {
   background-color: #ebebeb;
 }
@@ -611,13 +602,18 @@ border-radius:0 4px 4px 0;
   border-right-color: #fcc10b;
 }
 
-
 @media (max-width: 500px) {
   .imgHoverTeam {
     border-radius: 50%;
     height: 80px;
     width: 80px;
   }
+  .homepageImage {
+    background-color: #286DA8
+  }
+}
+
+@media (min-width: 501px) and (max-width: 900px) {
   .homepageImage {
     background: url('/static/img/MobileHomepageImg.jpg');
     width: 100%;
@@ -626,7 +622,7 @@ border-radius:0 4px 4px 0;
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 901px) {
   .homepageImage {
     background: url('/static/img/bigHomepageImage.jpg');
     width: 100%;

@@ -707,6 +707,7 @@ class PostForm(forms.ModelForm):
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
+    clinic_pro_logo_pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -760,6 +761,7 @@ class PostForm(forms.ModelForm):
         'clinicName',
         'clinicTitle',
         'clinic_pro_logo_pic',
+        'clinic_pro_logo_pic_del',
         'contact_url',
         'contact_phone',
         'contact_email',
@@ -892,6 +894,7 @@ class PostFormPro(forms.ModelForm):
     clinic_pro_promotion_name = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Promotion'), required=False, max_length=80)
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
+    clinic_pro_logo_pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
     clinic_pro_main_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Main picture'))
 
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
@@ -918,17 +921,33 @@ class PostFormPro(forms.ModelForm):
 
     team1name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('First team member'), required=False)
     team1pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    team1pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     team2name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Second team member'), required=False)
     team2pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of second team member'))
+    team2pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     team3name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Third team member'), required=False)
     team3pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of third team member'))
+    team3pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
     clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_2 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_2_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_3 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_3_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_4 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_4_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_5 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_5_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_6 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_6_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
     defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}))
 
@@ -960,6 +979,7 @@ class PostFormPro(forms.ModelForm):
         'clinic_staff',
         'clinic_pro_promotion_name',
         'clinic_pro_logo_pic',
+        'clinic_pro_logo_pic_del',
         'clinic_pro_main_pic',
         'contact_url',
         'query_email',
@@ -995,16 +1015,25 @@ class PostFormPro(forms.ModelForm):
         'sundayCloses',
         'team1name',
         'team1pic',
+        'team1pic_del',
         'team2name',
         'team2pic',
+        'team2pic_del',
         'team3name',
         'team3pic',
+        'team3pic_del',
         'clinic_pro_photo_1',
+        'clinic_pro_photo_1_del',
         'clinic_pro_photo_2',
+        'clinic_pro_photo_2_del',
         'clinic_pro_photo_3',
+        'clinic_pro_photo_3_del',
         'clinic_pro_photo_4',
+        'clinic_pro_photo_4_del',
         'clinic_pro_photo_5',
+        'clinic_pro_photo_5_del',
         'clinic_pro_photo_6',
+        'clinic_pro_photo_6_del',
         ]
 
 class UpdatePricePro(forms.ModelForm):
@@ -1168,6 +1197,7 @@ class CreatePackage(forms.ModelForm):
         'packagecategory',
         'packagedesc',
         'packagecost',
+        'package_pic',
         'package_list_date',
         'package_url',
         'package_phone',
@@ -1188,6 +1218,7 @@ class PostFormProUpdatePackage(forms.ModelForm):
     packagedesc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Package description'), max_length=800)
     packagecost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), label=('Package cost in your clinic currency'), min_value=0)
     package_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Package picture'))
+    package_pic_delete = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
     package_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -1202,6 +1233,8 @@ class PostFormProUpdatePackage(forms.ModelForm):
         'package_update_date',
         'package_url',
         'package_phone',
+        'package_pic',
+        'package_pic_delete',
         ]
 
 class ProlongPackage(forms.ModelForm):

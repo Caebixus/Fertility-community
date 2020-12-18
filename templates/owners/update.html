@@ -72,6 +72,11 @@
           <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
         <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
       </div>
+      <div class="col-4 col-md" style="text-align: left">
+        {{ form.clinic_pro_logo_pic_del.errors}}
+        <label for="{{ form.clinic_pro_logo_pic_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_logo_pic_del }}
+      </div>
       {% else %}
       <div class="fieldWrapper" style="text-align: left">
         {{ form.clinic_pro_logo_pic.errors }}

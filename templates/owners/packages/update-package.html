@@ -69,13 +69,20 @@
               <label for="{{ form.package_pic.id_for_label}}"><p>Re-upload (500x500 px):</p></label>
             {{ form.package_pic }}
           </div>
-          {% else %}
+          <div class="col-md" style="text-align: left">
+            {{ form.package_pic_delete.errors}}
+            <label for="{{ form.package_pic_delete.id_for_label}}"><p>Check to delete</p></label>
+            {{ form.package_pic_delete }}
+          </div>
+        {% else %}
           <div class="fieldWrapper" style="text-align: left">
             {{ form.package_pic.errors }}
             <label for="{{ form.package_pic.id_for_label}}">Package Image (500x500 px):</label>
             {{ form.package_pic }}
           </div>
         {% endif %}
+        <br>
+        <hr>
         <br>
         <style> .django-ckeditor-widget { min-width:100% !important; } </style>
         <div class="fieldWrapper" style="text-align:">

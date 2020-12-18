@@ -192,24 +192,41 @@ class BasicClinic(models.Model):
     ### Consultants
     team1name = models.CharField(max_length=25, blank=True, null=True)
     team1pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team1pic_del = models.BooleanField(default=False, blank=True, null=True)
+
     team2name = models.CharField(max_length=25, blank=True, null=True)
     team2pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team2pic_del = models.BooleanField(default=False, blank=True, null=True)
+
     team3name = models.CharField(max_length=25, blank=True, null=True)
     team3pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    team3pic_del = models.BooleanField(default=False, blank=True, null=True)
 
     ### Clinics PRO logo of the clinic
     clinic_pro_logo_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_logo_pic_del = models.BooleanField(default=False, blank=True, null=True)
 
     ### Clinics PRO main picture on detail page
     clinic_pro_main_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
 
     ### Clinic PRO optional photos
     clinic_pro_photo_1 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_1_del = models.BooleanField(default=False, blank=True, null=True)
+
     clinic_pro_photo_2 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_2_del = models.BooleanField(default=False, blank=True, null=True)
+
     clinic_pro_photo_3 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_3_del = models.BooleanField(default=False, blank=True, null=True)
+
     clinic_pro_photo_4 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_4_del = models.BooleanField(default=False, blank=True, null=True)
+
     clinic_pro_photo_5 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_5_del = models.BooleanField(default=False, blank=True, null=True)
+
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    clinic_pro_photo_6_del = models.BooleanField(default=False, blank=True, null=True)
 
 
 #

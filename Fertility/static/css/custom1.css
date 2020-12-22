@@ -321,7 +321,7 @@ p {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 145%;
 }
 
 ul {
@@ -329,7 +329,7 @@ ul {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 145%;
 }
 
 ol {
@@ -337,7 +337,7 @@ ol {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 145%;
 }
 
 table th:first-child{

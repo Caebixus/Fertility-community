@@ -111,8 +111,7 @@
   {% else %}
   {% endif %}
 
-  {% if listing.pro_is_published == True %}
-  {% if listing.team1name != None or listing.team2name != None or listing.team3name != None %}
+  {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
   <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
     <h2>Our team</h2>
     <hr>
@@ -153,8 +152,6 @@
       </div>
     </div>
   </div>
-  {% else %}
-  {% endif %}
   {% else %}
   {% endif %}
 

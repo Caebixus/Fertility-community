@@ -110,7 +110,11 @@
         {% else%}
         {% endif %}
         <div class="card-body">
-          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ order_datas.packageclinic.clinic_url }}">Clinic: {{ order_datas.packageclinic.clinicName }}</a></p>
+          {% if order_datas.packageclinic.clinic_pro_logo_pic %}
+          <p style="font-size: 15px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ order_datas.packageclinic.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{{ order_datas.packageclinic.clinic_url }}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% else %}
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ order_datas.packageclinic.clinic_url }}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% endif %}
           <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
           <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ order_datas.package_end_list_date|naturaltime}}</span>
           <hr>

@@ -18,7 +18,11 @@
                 {% else%}
                 {% endif %}
                 <div class="card-body">
-                  <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
+                  {% if packages.packageclinic.clinic_pro_logo_pic %}
+                  <p style="font-size: 15px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ packages.packageclinic.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
+                  {% else %}
+                  <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
+                  {% endif %}
                   <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
                   <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
                   <hr>
@@ -72,7 +76,11 @@
               {% else%}
               {% endif %}
               <div class="card-body">
-                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">Clinic: {{ packages.packageclinic.clinicName }}</a></p>
+                {% if packages.packageclinic.clinic_pro_logo_pic %}
+                <p style="font-size: 15px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ packages.packageclinic.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
+                {% else %}
+                <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{{ packages.packageclinic.clinic_url }}">{{ packages.packageclinic.clinicName }}</a></p>
+                {% endif %}
                 <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ packages.packagecategory }} </p>
                 <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ packages.package_end_list_date|naturaltime}}</span>
                 <hr>

@@ -12,7 +12,7 @@ from blog.models import Author, Blog
 
 #Authors
 def authorlisaholliman(request):
-    author = get_object_or_404(Author, pk=3)
+    author = get_object_or_404(Author, pk=1)
     blog = author.entries.all()
 
     context = {
@@ -25,8 +25,8 @@ def authorlisaholliman(request):
 
 
 def ivfabroadcosts(request):
-    author = get_object_or_404(Author, pk=3)
-    blog = get_object_or_404(Blog, pk=2)
+    author = get_object_or_404(Author, pk=1)
+    blog = get_object_or_404(Blog, pk=1)
 
     context = {
         'author': author,

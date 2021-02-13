@@ -2,14 +2,14 @@
 {% load static %}
 {% block title %}What Does IVF Cost Abroad in 2021? | FertilityCommunity{% endblock %}
 {% block description %}If you live in a country with high IVF costs and don't have health insurance covering these procedures, you may be looking outside of your country for IVF treatment. Read more{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/what-does-ivf-cost-abroad{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/ivf-abroad-costs{% endblock %}
 {% block meta_keywords %}IVF Abroad, IVF abroad cost{% endblock %}
 
 {% block ogType %}<meta property='og:type' content='article' />{% endblock %}
-{% block articleAuthor %}<meta property='article:author' content='https://www.fertilitycommunity.com/team' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
 {% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
 {% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
-{% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/IVF-Explained9.png" />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
 
 {% block content %}
 <!-- Alerts -->

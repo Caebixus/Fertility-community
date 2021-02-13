@@ -8,7 +8,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 class AuthorAdmin(admin.ModelAdmin):
     model = Author
-    list_display = ('author', 'author_name', 'author_page_url',)
+    list_display = ('author_name', 'author_page_url',)
 
 
 admin.site.register(Blog, BlogAdmin)

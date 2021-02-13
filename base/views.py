@@ -8,8 +8,10 @@ from contact.forms import WebsiteForm
 from django.core.mail import send_mail
 from django.contrib import messages, auth
 from clinic.models import BasicClinic
+from blog.models import Author, Blog
 
 def index(request):
+    blog = Blog.objects.all()[:6]
 
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count
@@ -226,6 +228,7 @@ def index(request):
     girneclinics = girneclinics.count()
 
     context = {
+        'blog': blog,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
         'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES,
@@ -321,7 +324,13 @@ def team(request):
     return render(request, 'main/team.html')
 
 def blog(request):
-    return render(request, 'main/blog.html')
+    blog = Blog.objects.all().order_by('-created_at')
+
+    context = {
+        'blog': blog,
+    }
+
+    return render(request, 'main/blog.html', context)
 
 def iframe1(request):
     return render(request, 'main/iframepic1.html')

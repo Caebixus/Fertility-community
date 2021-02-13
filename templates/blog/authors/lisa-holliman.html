@@ -1,22 +1,34 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% block title %}IVF Blog | FertilityCommunity | 2021 {% endblock %}
-{% block description %}Providing usefull and valuable information about all apects of inferility treatment and IVF operations all around the world. Read, learn and then decide!{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/blog{% endblock %}
-{% block meta_keywords %}ivf blog, fertility blog, ivf news, fertility news{% endblock %}
-{% block noindexpage %}<meta name="robots" content="noindex">{% endblock %}
+{% block title %}What Does IVF Cost Abroad in 2021? | FertilityCommunity{% endblock %}
+{% block description %}If you live in a country with high IVF costs and don't have health insurance covering these procedures, you may be looking outside of your country for IVF treatment. Read more{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/what-does-ivf-cost-abroad{% endblock %}
+{% block meta_keywords %}IVF Abroad, IVF abroad cost{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='https://www.fertilitycommunity.com/team' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/IVF-Explained9.png" />{% endblock %}
+
 {% block content %}
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">IVF News & Blogs</h1>
-    <p class="lead" style="color:white">Providing you with the most actionable IVF news, blogposts and stories all over the world</p>
+    <h1 style="padding-top:3rem; color:white">Lisa Holliman</h1>
+    <span style="color:white">IVF author</span>
+    <br>
     <br>
   </div>
 </div>
 
-<div class="container py-5">
+<div class="container">
+  <br>
+  <p>{{ author.author_description }}</p>
+  <br>
+  <br>
+  <h2>Lisa's Blogs:</h2>
   <div class="row">
     {% for blogs in blog %}
     <div class="col-4" style="padding-top: 2rem">

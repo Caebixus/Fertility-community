@@ -63,18 +63,22 @@
           <hr>
           <h5 class="card-title">{{ order_datas.packagetitle }}</h5>
           <hr>
+          <h5 style="color: #CD5360; text-align: center">
+            {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
+            {% else %}
+            {% endif %}
+          </h5>
+          <hr>
           <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
           <div class="collapse multi-collapse" id="multiCollapseExample1{{ order_datas.id }}">
             <p class="card-text">{{ order_datas.packagedesc|safe }}</p>
           </div>
         </div>
-        <button type="button" class="btn btn-link btn-block btn-md" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-          {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
-          {% else %}
-          {% endif %}
+        <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+          Learn more
         </button>
         <div class="collapse multi-collapse" id="contact{{ order_datas.id }}">
 
@@ -120,18 +124,22 @@
           <hr>
           <h5 class="card-title">{{ order_datas.packagetitle }}</h5>
           <hr>
+          <h5 style="color: #CD5360; text-align: center">
+            {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
+            {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
+            {% else %}
+            {% endif %}
+          </h5>
+          <hr>
           <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
           <div class="collapse multi-collapse" id="multiCollapseExample1{{ order_datas.id }}">
             <p class="card-text">{{ order_datas.packagedesc|safe }}</p>
           </div>
         </div>
         <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-          {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
-          {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
-          {% else %}
-          {% endif %}
+          Learn more
         </button>
         <div class="collapse multi-collapse" id="contact{{ order_datas.id }}">
 

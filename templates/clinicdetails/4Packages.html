@@ -28,18 +28,22 @@
                   <hr>
                   <h5 class="card-title">{{ packages.packagetitle }}</h5>
                   <hr>
+                  <h5 style="color: #CD5360; text-align: center">
+                    {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %} {{ packages.packagecost|floatformat:'0'|intcomma}} £
+                    {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
+                    {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
+                    {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
+                    {% else %}
+                    {% endif %}
+                  </h5>
+                  <hr>
                   <a data-toggle="collapse" href="#multiCollapseExample1{{ packages.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
                   <div class="collapse multi-collapse" id="multiCollapseExample1{{ packages.id }}">
                     <p class="card-text">{{ packages.packagedesc|safe }}</p>
                   </div>
                 </div>
                 <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ packages.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                  {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %} {{ packages.packagecost|floatformat:'0'|intcomma}} £
-                  {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
-                  {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
-                  {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
-                  {% else %}
-                  {% endif %}
+                  Learn more
                 </button>
                 <div class="collapse multi-collapse" id="contact{{ packages.id }}">
 

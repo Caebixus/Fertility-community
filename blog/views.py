@@ -26,7 +26,7 @@ def authorlisaholliman(request):
 
 def ivfabroadcosts(request):
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=6)
+    blog = get_object_or_404(Blog, pk=7)
 
     context = {
         'author': author,

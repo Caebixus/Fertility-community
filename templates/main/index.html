@@ -392,6 +392,7 @@
   <h2 style="color: white">News & Blogs:</h2>
     <div class="row">
       {% for blogs in blog %}
+      {% if blogs.author != None %}
       <div class="col-4" style="padding-top: 2rem">
         <div class="card shadow-sm">
           <a href="{{ blogs.blog_url }}">
@@ -415,6 +416,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

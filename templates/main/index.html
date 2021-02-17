@@ -126,7 +126,7 @@
 <!--Types of treatments-->
 <br>
 
-<div class="container py-4">
+<div class="container py-5">
   <h2>Fertility centers & clinics comparator & search engine</h2>
   <p>In today's world, it is no longer a problem to travel abroad for eye or tooth surgery, etc. Why should <u>IVF treatment</u> be different?</p>
   <p>But the problem arises in finding the right fertility clinic in the local area or abroad.</p>
@@ -144,7 +144,7 @@
   <hr>
 </div>
 
-<div class="container py-4">
+<div class="container py-5">
   <div class="row" style="text-align: center">
     <div class="col-sm-3">
     </div>
@@ -164,7 +164,7 @@
 <br>
 
 <div class="background py-5" style="background-color: #286DA8">
-  <div class="container">
+  <div class="container py-5">
     <div class="row">
       <div class="col-6 col-sm" style="border-right: 2px solid white; border-left: 2px solid white">
         <h2 class="card-title" style="color: white">IVF Packages & Deals</h2>
@@ -192,7 +192,7 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container py-5">
   <h2><i class="fas fa-search-location"></i> Featured fertility & IVF clinics locations</h2>
   <br>
   <div class="row">
@@ -387,38 +387,36 @@
 <!--Location links-->
 <br>
 <br>
-<div class="background py-5" style="background-color: #286DA8">
-  <div class="container">
-  <h2 style="color: white">News & Blogs:</h2>
-    <div class="row">
-      {% for blogs in blog %}
-      {% if blogs.author != None %}
-      <div class="col-4" style="padding-top: 2rem">
-        <div class="card shadow-sm">
+<div class="container py-5">
+  <h2><i class="far fa-newspaper"></i> News & Blogs:</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for blogs in blog %}
+    {% if blogs.author != None %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <a href="{{ blogs.blog_url }}">
+          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+          {% else %}
+          {% endif %}
+        </a>
+        <div class="card-body">
           <a href="{{ blogs.blog_url }}">
-            {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%">
-            {% else %}
-            {% endif %}
+            <h3 class="card-title">{{ blogs.title }}</h3>
           </a>
-          <div class="card-body">
-            <a href="{{ blogs.blog_url }}">
-              <h3 class="card-title">{{ blogs.title }}</h3>
-            </a>
-            <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="{{ blogs.blog_url }}">
-                  <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
-                </a>
-              </div>
-              <small class="text-muted">{{ blogs.minute_read }} mins</small>
+          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ blogs.blog_url }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
             </div>
+            <small class="text-muted">{{ blogs.minute_read }} mins</small>
           </div>
         </div>
       </div>
-      {% endif %}
-      {% endfor %}
     </div>
+    {% endif %}
+    {% endfor %}
   </div>
 </div>
 

@@ -382,4 +382,10 @@ def error500(request):
 # BlogPosts Views --------------------------------------------------------------------------------------------------------
 
 def blog1(request):
-    return render(request, 'main/ivf-explained.html')
+    blog = Blog.objects.all()[:6]
+
+    context = {
+        'blog': blog,
+    }
+
+    return render(request, 'main/ivf-explained.html', context)

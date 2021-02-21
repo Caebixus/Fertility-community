@@ -48,9 +48,7 @@ def register(request):
                     'Please activate your account via this link (copy this): https://www.fertilitycommunity.com/account/activate-user?xx1kfdj4sdsdsf48a6aasd7' +
                     '\n' +
                     '\nFertilityCommunity team' +
-                    '\nThis is an automated message, please do not reply' +
-                    '\n<img src="https://marketing-image-production.s3.amazonaws.com/uploads/a11639c3f256bf5397786f7bd163deb5619d052e3557d1827e0e72697979538698ccf73dc0e33491651bf6fdaeffc9ee9c96b644480f7f99fcde88d31b689dcf.png" style="width:200px; height:76px">' +
-                    '\n<a href="https://www.fertilitycommunity.com/">Fertilitycommunity.com</a>',
+                    '\nThis is an automated message, please do not reply',
                     'info@fertilitycommunity.com',
                     [user.email],
                     fail_silently=False,

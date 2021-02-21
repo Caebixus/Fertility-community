@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% block title %}Fertility Treatment Abroad: What You Need to Know in 2021 | FertilityCommunity{% endblock %}
-{% block description %}When considering in-vitro fertilization, you may feel overwhelmed with all of the associated factors. You may live in a country where the costs are higher than you can afford. Read more{% endblock %}
+{% block title %}Fertility Treatment Abroad: What You Need to Know in 2021{% endblock %}
+{% block description %}When considering in-vitro fertilization, you may feel overwhelmed with all of the associated factors. You may live in a country where the costs are higher than you can afford.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/blog/fertility-treatment-abroad-what-you-need-to-know{% endblock %}
 {% block meta_keywords %}fertility treatment abroad what you need to know{% endblock %}
 
@@ -12,6 +12,45 @@
 {% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
 
 {% block content %}
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/fertility-treatment-abroad-what-you-need-to-know"
+        },
+      "headline": "Fertility Treatment Abroad: What You Need to Know in 2021?",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "In many cases, it's better to have your fertility treatment abroad. You may be facing many stumbling blocks in your home country that are much easier to overcome in another country."
+    }
+</script>
+
+
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}
 <div class="background" style="background-color: #286DA8">

@@ -23,7 +23,6 @@ def authorlisaholliman(request):
     return render(request, 'blog/authors/lisa-holliman.html', context)
 
 
-
 def ivfabroadcosts(request):
     author = get_object_or_404(Author, pk=6)
     blog = get_object_or_404(Blog, pk=7)
@@ -34,3 +33,14 @@ def ivfabroadcosts(request):
     }
 
     return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
+
+def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
+    author = get_object_or_404(Author, pk=6)
+    blog = get_object_or_404(Blog, pk=8)
+
+    context = {
+        'author': author,
+        'blog': blog,
+    }
+
+    return render(request, 'blog/IVF-abroad/fertility-treatment-abroad-what-you-need-to-know.html', context)

@@ -13,6 +13,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'authorlisaholliman',
 
         'ivfabroadcosts',
+        'fertilityTreatmentAbroadWhatYouNeedToKnow',
         ]
 
     def location(self, item):

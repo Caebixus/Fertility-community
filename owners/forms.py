@@ -631,7 +631,7 @@ class CreateClinic(forms.ModelForm):
 
     clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
 
-    clinicRegion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
+    clinicRegion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Region/Country'))
 
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics postal code'))
 

@@ -10,4 +10,7 @@ urlpatterns = [
     #Blogs
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),
     path('blog/fertility-treatment-abroad-what-you-need-to-know', views.fertilityTreatmentAbroadWhatYouNeedToKnow, name='fertilityTreatmentAbroadWhatYouNeedToKnow'),
+
+    #Packages
+    path('blog/ivf-abroad-packages', views.ivfabroadpackages, name='ivfabroadpackages'),
 ]

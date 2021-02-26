@@ -370,7 +370,7 @@ def create1(request):
                     'Právě se vytvořila nová klinika ' +
                     '\nClinic username: ' + str(klinika),
                     'info@fertilitycommunity.com',
-                    ['info@fertilitycommunity.com'],
+                    ['David.langr@fertilitycommunity.com'],
                     fail_silently=False,
                     )
 
@@ -411,7 +411,7 @@ def update(request, listing_id):
                 'Someone just changed information detail in ' +
                 '\nClinic username: ' + str(klinika),
                 'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
+                ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
             messages.success(request, '- Clinics pricing succesfully updated')
@@ -449,7 +449,7 @@ def updatePricing(request, listing_id):
                 'Someone just changed pricing detail in ' +
                 '\nClinic username: ' + str(klinika),
                 'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
+                ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
             messages.success(request, '- Clinics pricing succesfully updated')
@@ -527,7 +527,7 @@ def updateproclinic(request, listing_id):
                 'Someone just changed information in ' +
                 '\nClinic username: ' + str(klinika),
                 'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
+                ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
             messages.success(request, '- Clinics information succesfully updated')
@@ -566,7 +566,7 @@ def updatePricingPro(request, listing_id):
                 'Someone just changed pricing detail in ' +
                 '\nClinic username: ' + str(klinika),
                 'info@fertilitycommunity.com',
-                ['info@fertilitycommunity.com'],
+                ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
             messages.success(request, '- Clinics pricing succesfully updated')
@@ -599,7 +599,7 @@ def contactClinic(request):
             'Klinika prosí o kontakt',
             'Někdo zaregistrovaný napsal na kontaktní formulář - zkontroluj!',
             'info@fertilitycommunity.com',
-            ['info@fertilitycommunity.com'],
+            ['David.langr@fertilitycommunity.com'],
             fail_silently=False,
             )
 
@@ -633,7 +633,7 @@ def claimClinic(request):
                     'Klinika prosí o claim',
                     'Někdo se zaregistroval a poslal prosbu o claim - zkontroluj!',
                     'info@fertilitycommunity.com',
-                    ['info@fertilitycommunity.com'],
+                    ['David.langr@fertilitycommunity.com'],
                     fail_silently=False,
                     )
 

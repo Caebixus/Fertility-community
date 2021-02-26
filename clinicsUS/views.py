@@ -16324,6 +16324,56 @@ def cnyfercenbuffalo(request):
 
     return render(request, 'clinics/US/New-York/cny-fertility-center-buffalo.html', context)
 
+def nyulangonefertilitycenter(request):
+    listing = BasicClinic.objects.get(pk=707)
+
+    newyorklisting = BasicClinic.objects.all()
+    newyorklisting = newyorklisting.filter(is_published=True)
+    newyorklisting = newyorklisting.filter(clinicRegion__iexact='New York')
+    newyorklisting = newyorklisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=315)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'newyorklisting': newyorklisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/New-York/nyu-langone-fertility-center.html', context)
+
+    else:
+        pass
+
+    context = {
+        'listing': listing,
+        'package': package,
+        'newyorklisting': newyorklisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/New-York/nyu-langone-fertility-center.html', context)
+
 # NORTH CAROLINA Views --------------------------------------------------------------------------------------------------------
 
 def northcarcenfrepmedic(request):

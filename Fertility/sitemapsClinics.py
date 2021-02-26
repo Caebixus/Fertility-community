@@ -669,6 +669,7 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'wisconsinfertilityinstitute',
         'columbiafertilityassociateswashingtondc',
         'gwmedicalfacultyassociates',
+        'nyulangonefertilitycenter',
 
         #Greece
         'newlifeivfclinic',

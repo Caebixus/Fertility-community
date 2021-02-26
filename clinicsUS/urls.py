@@ -356,6 +356,7 @@ urlpatterns = [
     path('clinics/us/new-york/cny-fertility-center-albany', views.cnyfercenalbany, name='cnyfercenalbany'),
     path('clinics/us/new-york/cny-fertility-center-rochester', views.cnyfercenrochester, name='cnyfercenrochester'),
     path('clinics/us/new-york/cny-fertility-center-buffalo', views.cnyfercenbuffalo, name='cnyfercenbuffalo'),
+    path('clinics/us/new-york/nyu-langone-fertility-center', views.nyulangonefertilitycenter, name='nyulangonefertilitycenter'),
     #NORTH CAROLINA
     path('clinics/us/north-carolina/north-carolina-center-for-reproductive-medicine', views.northcarcenfrepmedic, name='northcarcenfrepmedic'),
     path('clinics/us/north-carolina/reproductive-endocrinology-associates-of-charlotte', views.reproendoassoofcharlotte, name='reproendoassoofcharlotte'),

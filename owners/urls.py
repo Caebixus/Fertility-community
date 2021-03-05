@@ -33,7 +33,6 @@ urlpatterns = [
     path('updatepricepro/<int:listing_id>', views.updatePricingPro, name='updatePricingPro'),
     path('updatepro/<int:listing_id>', views.updateproclinic, name='updateproclinic'),
 
-    #Location US
     path('activate-user', views.activateUser, name='activateUser'),
 
 ]

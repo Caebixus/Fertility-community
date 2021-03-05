@@ -12,6 +12,8 @@
       <li style="color: white"><a href="#bod2" style="color: white">Fill in the current information</a></li>
       <li style="color: white"><a href="#bod3" style="color: white">Fill in the current price list of treatments</a></li>
       <li style="color: white"><a href="#bod4" style="color: white">Advantages of a paid PRO and PREMIUM account</a></li>
+      <li style="color: white"><a href="#bod5" style="color: white">PRO & PREMIUM - Packages</a></li>
+      <li style="color: white"><a href="#bod6" style="color: white">PRO & PREMIUM - Guest blogging</a></li>
     </ol>
     <br>
   </div>
@@ -25,12 +27,12 @@
     <br>
     <h3>How to create clinic</h3>
     <blockquote class="blockquote" style="background-color:#dedede">
-      <p class="mr-5 ml-5 pt-5 pb-5">If you would like to create new fertiltiy clinic, please use this <a href="https://www.fertilitycommunity.com/account/create1">form</a> and fill in required information about your clinic. After the successful creation of the clinic, first all the information you have entered about the new clinic will be manually checked by fertilitycommunity worker. This means that in the first moments your clinic will not appear in search and you will only see the status of your clinic as "in review" in your own dashboard. Manual review should be completed within 24 hours.</p>
+      <p class="mr-5 ml-5 pt-5 pb-5">If you would like to create new fertiltiy clinic, please use this <a href="{% url 'create1' %}">form</a> and fill in required information about your clinic. After the successful creation of the clinic, first all the information you have entered about the new clinic will be manually checked by fertilitycommunity worker. This means that in the first moments your clinic will not appear in search and you will only see the status of your clinic as "in review" in your own dashboard. Manual review should be completed within 24 hours.</p>
     </blockquote>
     <br>
     <h3>How to claim clinic</h3>
     <blockquote class="blockquote" style="background-color:#dedede">
-      <p class="mr-5 ml-5 pt-5">If you have already found your clinic on our website, which we created in advance, you can request access. Please use this <a href="https://www.fertilitycommunity.com/account/claim">form</a> to request. In this form please specify URL of clinic on our website.</p>
+      <p class="mr-5 ml-5 pt-5">If you have already found your clinic on our website, which we created in advance, you can request access. Please use this <a href="{% url 'claim' %}">form</a> to request. In this form please specify URL of clinic on our website.</p>
       <p class="mr-5 ml-5 pb-5">We may require confirmation from the official email of the clinic to avoid an unjustified claim.</p>
     </blockquote>
     <br>
@@ -64,10 +66,19 @@
       <img src="{% static 'img/comparisonPPQPROBASIC.png' %}" alt="" class="img-fluid">
     </div>
     <br>
-    <p>2) All paid "PRO" and "PREMIUM" clinics have access to create "Packages". IVF Packages are an important component of the FertilityCommunity website and one of the most visited sections. A "PRO" clinic can create up to 2 packages and a "PREMIUM" clinic can have up to 6.</p>
+    <p>2) A paid account also has more options to better present your clinic:</p>
+    <ul>
+      <li>can add additional text as its caption.</li>
+      <li>can adjust his custom limitations regarding patients who can be legally treated at the clinic.</li>
+      <li>can add photos of the clinic, both exterior and interior.</li>
+      <li>can add photos of his team members who take care of patients.</li>
+      <li>More adjustments coming soon.</li>
+    </ul>
+    <br>
+    <p id="bod5">3) All paid "PRO" and "PREMIUM" clinics have access to create "Packages". IVF Packages are an important component of the FertilityCommunity website and one of the most visited sections. A "PRO" clinic can create up to 2 packages and a "PREMIUM" clinic can have up to 6.</p>
     <blockquote class="blockquote" style="background-color:#dedede">
-      <p class="mr-5 ml-5 pt-5"><b>What is an IVF package?</b></p>
-      <p class="mr-5 ml-5 pb-5">It is a limited offer of an IVF treatment package, which usually includes some additional fertility treatment methods or benefits over existing IVF treatment in the clinic. It can also be a price discount. Below is an example in the picture:</p>
+      <p class="mr-5 ml-5 pt-5" style="font-size: 100%"><b>What is an IVF package?</b></p>
+      <p class="mr-5 ml-5 pb-5" style="font-size: 100%">It is a limited offer of an IVF treatment package, which usually includes some additional fertility treatment methods or benefits over existing IVF treatment in the clinic. It can also be a price discount. Below is an example in the picture:</p>
     </blockquote>
     <div class="obrazek" style="text-align: center">
       <img src="{% static 'img/package.png' %}" alt="" class="img-fluid">
@@ -79,16 +90,16 @@
       <img src="{% static 'img/clinicdetailpackage.png' %}" alt="" class="img-fluid">
     </div>
     <br>
-    <p>3) A paid account also has more options to better present your clinic:</p>
-    <ul>
-      <li>can add additional text as its caption.</li>
-      <li>can adjust his custom limitations regarding patients who can be legally treated at the clinic.</li>
-      <li>can add photos of the clinic, both exterior and interior.</li>
-      <li>can add photos of his team members who take care of patients.</li>
-      <li>More adjustments coming soon.</li>
-    </ul>
+
+    <br>
+    <p id="bod6">4) All paid "PRO" and "PREMIUM" clinics have access to create "Guest blogposts":</p>
+    <blockquote class="blockquote" style="background-color:#dedede">
+      <p class="mr-5 ml-5 pt-5" style="font-size: 100%"><b>Guest blogging definition:</b></p>
+      <p class="mr-5 ml-5 pb-5" style="font-size: 100%">Guest Blogging is a content marketing and SEO technique where someone writes and publishes a blog post on a third party website (FertilityCommunity.com) or blog to promote their personal/corporate brand (clinic). Guest blogging sites expose brands to a relevant audience and can be an effective method to generate awareness.</p>
+    </blockquote>
+    <br>
     <p>Learn more about paid "PRO" and "PREMIUM" account in your dashboard links "Why upgrade".</p>
-    <p>If you have a question, please <a href="https://www.fertilitycommunity.com/account/contactus">contact us</a> any time.</p>
+    <p>If you have a question, please <a href="{% url 'contactus' %}">contact us</a> any time.</p>
   </div>
 </main>
 <br>

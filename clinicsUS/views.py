@@ -8,6 +8,7 @@ from packages.models import Packages, Package
 from django.utils import timezone
 from owners.models import ownerProInterested, ProUser
 from datetime import datetime, timedelta
+from guestblogging.models import GuestBlog, GuestAuthor
 
 
 # Create your views here.
@@ -1236,12 +1237,16 @@ def bris(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=18)
 
+    author = GuestAuthor.objects.filter(guestauthor__id=18)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1256,6 +1261,7 @@ def bris(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'arilisting': arilisting,
@@ -1286,12 +1292,16 @@ def brig(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=19)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=19)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1306,6 +1316,7 @@ def brig(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'arilisting': arilisting,

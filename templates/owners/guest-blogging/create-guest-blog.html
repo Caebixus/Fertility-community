@@ -1,0 +1,152 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Create new blogpost - {{instance.clinicName}} - {{count}}</h1>
+    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Guest Blogging and how to use it?</a></p>
+    <br>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <p style="text-align: center">
+    <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="True" aria-controls="collapseExample">
+      <i class="fas fa-angle-double-down"></i> Guidelines <i class="fas fa-angle-double-down"></i>
+    </button>
+  </p>
+  <div class="collapse show" id="collapseExample">
+    <div class="card card-body">
+      <h2><i class="fas fa-exclamation"></i> Guest blogging guidelines:</h2>
+      <ul>
+        <li style="font-size: 80%">Posts should be between <b>800-1200 words</b> in length and in English.</li>
+        <li style="font-size: 80%">A paid PRO plan can have only <b>one article</b> and <b>one author</b>. The PREMIUM paid plan can have up to <b>five articles</b> and up to <b>five authors</b>.</li>
+        <li style="font-size: 80%">The most popular articles are those with a <b>friendly</b>, <b>conversational tone</b>.</li>
+        <li style="font-size: 80%">Send us something <b>value-packed</b>. Your piece should be actionable and insightful. While the post doesn’t have to be ‘ground breaking’, it should not be ‘common knowledge’ or obvious. Encourage readers to reexamine what they know and allow them to consider things in a new light. You’re the experts, give us your unique spin!</li>
+        <li style="font-size: 80%"><b>Double check it</b>. We only accept guest posts that use correct spelling, grammar, and punctuation. Entries that require excessive editing cannot be accepted.</li>
+        <li style="font-size: 80%">The post you are submitting must be your own, <b>100% original content</b>, <b>exclusive to us</b>. It should not be posted elsewhere (including on your own blog/website) before or after it appears on our site. This is creating <b>duplicate content</b> on internet and we both don't want that.</li>
+        <li style="font-size: 80%">Your article must be presented in a non-advertorial, non-promotional fashion. You are welcome to make mention of (and link to) your clinic or other landing page, <b><u>once</u></b> within the body.</li>
+        <li style="font-size: 80%">We only accept topics related to <b>infertility treatment</b>, <b>unique IVF technologies</b> or <b>services regarding your clinic</b>. You can always <a href="{% url 'contactus' %}">contact us</a> ahead.</li>
+        <li style="font-size: 80%">We reserve the right not to accept the article.</li>
+        <li style="font-size: 80%">If you cancel your subscription and have active blog posts - these blog posts will no longer be published on the location pages or in the detail of your clinic. However, the blog post web address will still be accessible to you or anyone else.</li>
+        <li style="font-size: 80%">If you want to change your active and already published article - <a href="{% url 'contactus' %}">contact us</a>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+<br>
+<hr>
+<br>
+</div>
+
+<div class="container" style="text-align: center">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {{ form.source.errors }}
+    {{ form.source }}
+    <br>
+    <div class="row">
+      <div class="col-6 col-sm">
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.guestblogauthor.errors }}
+          <label for="{{ form.guestblogauthor.id_for_label}}"><p>Choose author:</p></label>
+          <div class="fieldWrapper">
+            {{ form.guestblogauthor }}
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm">
+        <p style="font-size: 80%">
+          <a href="{% url 'create_guest_author' instance.pk %}">
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"> or create new author</button>
+          </a>
+        </p>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogtitle.errors }}
+      <label for="{{ form.guestblogtitle.id_for_label}}"><p>Blogpost title (max 200 characters):</p></label>
+      {{ form.guestblogtitle }}
+    </div>
+    <br>
+    <hr>
+    <br>
+    <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+    <div class="fieldWrapper" style="text-align:">
+      {{ form.guestblogdescription.errors }}
+      <p>Blogpost content (max 10 000 characters):</p>
+      {{ form.guestblogdescription }}
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogpicblogmain.errors }}
+      <label for="{{ form.guestblogpicblogmain.id_for_label}}"><p>Blogpost's first (main - required) image:</p></label>
+      <p style="font-size: 90%">{{ form.guestblogpicblogmain }}</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogpicblog1.errors }}
+      <label for="{{ form.guestblogpicblog1.id_for_label}}"><p>Blogpost's second image:</p></label>
+      <p style="font-size: 90%">{{ form.guestblogpicblog1 }}</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogpicblog2.errors }}
+      <label for="{{ form.guestblogpicblog2.id_for_label}}"><p>Blogpost's third image:</p></label>
+      <p style="font-size: 90%">{{ form.guestblogpicblog2 }}</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogpicblog3.errors }}
+      <label for="{{ form.guestblogpicblog3.id_for_label}}"><p>Blogpost's fourth image:</p></label>
+      <p style="font-size: 90%">{{ form.guestblogpicblog3 }}</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestblogminuteread.errors }}
+      <label for="{{ form.guestblogminuteread.id_for_label}}"><p>Reading time (approximately):</p></label>
+      {{ form.guestblogminuteread }}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <input class="btn btn-outline-dark " type='submit' value='Create Blogpost' />
+  </form>
+</div>
+<br>
+{% endblock  %}

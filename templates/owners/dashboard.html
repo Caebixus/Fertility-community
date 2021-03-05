@@ -1,6 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
+
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
@@ -44,17 +45,11 @@
               <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
             </a>
           </div>
-          {% endif %}
-          {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 6 %}
-          <div class="col-4 col-sm">
-            <a href="{% url 'createpackage' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Create package</button>
-            </a>
-          </div>
           {% else %}
           <div class="col-4 col-sm">
           </div>
           {% endif %}
+
           {% if package %}
           <div class="col-4 col-sm">
             <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
@@ -62,6 +57,11 @@
             </a>
           </div>
           {% endif %}
+          <div class="col-4 col-sm">
+            <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
+            </a>
+          </div>
         </div>
       </div>
     {% endif %}
@@ -98,16 +98,7 @@
           <div class="col-4 col-sm">
           </div>
           {% endif %}
-          {% if listings.customer.membership == True and listings.packageClinicCounterNumber < 2 %}
-          <div class="col-4 col-sm">
-            <a href="{% url 'createpackage' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Create package</button>
-            </a>
-          </div>
-          {% else %}
-          <div class="col-4 col-sm">
-          </div>
-          {% endif %}
+
           {% if package %}
           <div class="col-4 col-sm">
             <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
@@ -115,6 +106,11 @@
             </a>
           </div>
           {% endif %}
+          <div class="col-4 col-sm">
+            <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
+            </a>
+          </div>
         </div>
       </div>
     {% endif %}
@@ -168,6 +164,19 @@
           <div class="col-4 col-sm">
           </div>
           {% endif %}
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-4 col-sm" tabindex="0" data-toggle="tooltip" title="Paid Feature - Offer unique fertility / IVF treatment packages for potential clients with parameters that only your clinic can offer." data-placement="bottom">
+            <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Packages <i class="far fa-question-circle"></i></button>
+          </div>
+          <div class="col-4 col-sm">
+            <div class="col-4 col-sm" tabindex="0" data-toggle="tooltip" title="Paid Feature - Write unique content for us to expose your brand to a relevant audience. It's an effective method to generate awareness with social proof and SEO backlinks." data-placement="bottom">
+              <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Guest Blogging <i class="far fa-question-circle"></i></button>
+            </div>
+          </div>
+          <div class="col-4 col-sm">
+          </div>
         </div>
       </div>
     {% endif %}

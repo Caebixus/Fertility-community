@@ -1,0 +1,147 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Guest blogging - {{count}}</h1>
+    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Guest Blogging and how to use it?</a></p>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+{% if author %}
+  {% if blog %}
+  <div class="container py-5">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Blog nost name</th>
+          <th scope="col">Is blog post live on web?</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      {% for blogs in blog %}
+      <tbody>
+        <tr>
+          <th scope="row">{{ blogs.guestblogtitle }}</th>
+          <td>
+            {% if blogs.guestblogactive == True %}
+            <i class="fas fa-check-circle" style="color:green"></i>
+            {% else %}
+            <i class="fas fa-minus-circle" style="color:red"></i> Blog post is in review - please wait
+            {% endif %}
+          </td>
+          <td>
+            <p>
+              {% if blogs.guestblogactive == True %}
+              <a href="" style="text-decoration: none">
+                <button type="button" class="btn btn-outline-dark btn-block">Live view</button>
+              </a>
+              {% else %}
+              <button type="button" class="btn btn-outline-dark btn-block" disabled>Live view</button>
+              {% endif %}
+            </p>
+
+            <p>
+              <a href="{% url 'contactus' %}" style="text-decoration: none">
+                <button type="button" class="btn btn-outline-dark btn-block">Update/Delete</button>
+              </a>
+            </p>
+          </td>
+      </tbody>
+      {% endfor %}
+    </table>
+    <div class="row py-5">
+      <div class="col">
+        <p style="font-size: 80%; text-align: center">
+          <a href="{% url 'create_guest_blog' instance.pk %}">
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create new blog post</button>
+          </a>
+        </p>
+      </div>
+      <div class="col">
+        <p style="font-size: 80%; text-align: center">
+          <a href="{% url 'create_guest_author' instance.pk %}">
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create new author</button>
+          </a>
+        </p>
+      </div>
+    </div>
+
+  {% else %}
+  <div class="container py-5">
+    <p>Author created - now create blog posts for <b>{{ instance.clinicName }}</b>.</p>
+    <br>
+    <ol>
+      <li>
+        <p style="font-size: 80%">
+          <a href="{% url 'create_guest_author' instance.pk %}">
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;" disabled>Author created</button>
+          </a>
+        </p>
+      </li>
+      <li>
+        <p style="font-size: 80%">
+          <a href="{% url 'create_guest_blog' instance.pk %}">
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create blog post</button>
+          </a>
+        </p>
+      </li>
+      <li>
+        <p style="font-size: 80%">Check out your blog posts
+        </p>
+      </li>
+    </ol>
+  </div>
+  {% endif %}
+{% else %}
+<div class="container py-5">
+  <p>You don't have any authors & blog posts created for <b>{{ instance.clinicName }}</b>.</p>
+  <br>
+  <ol>
+    <li>
+      <p style="font-size: 80%">
+        <a href="{% url 'create_guest_author' instance.pk %}">
+          <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create author</button>
+        </a>
+      </p>
+    </li>
+    <li>
+      <p style="font-size: 80%">Create blog post
+      </p>
+    </li>
+    <li>
+      <p style="font-size: 80%">Check out your blog posts
+      </p>
+    </li>
+  </ol>
+</div>
+{% endif %}
+
+
+<div class="container py-5">
+  <h2><i class="fas fa-exclamation"></i> Guest blogging guidelines:</h2>
+  <ul>
+    <li style="font-size: 80%">Posts should be between <b>800-1200 words</b> in length and in English.</li>
+    <li style="font-size: 80%">A paid PRO plan can have only <b>one article</b> and <b>one author</b>. The PREMIUM paid plan can have up to <b>five articles</b> and up to <b>five authors</b>.</li>
+    <li style="font-size: 80%">The most popular articles are those with a <b>friendly</b>, <b>conversational tone</b>.</li>
+    <li style="font-size: 80%">Send us something <b>value-packed</b>. Your piece should be actionable and insightful. While the post doesn’t have to be ‘ground breaking’, it should not be ‘common knowledge’ or obvious. Encourage readers to reexamine what they know and allow them to consider things in a new light. You’re the experts, give us your unique spin!</li>
+    <li style="font-size: 80%"><b>Double check it</b>. We only accept guest posts that use correct spelling, grammar, and punctuation. Entries that require excessive editing cannot be accepted.</li>
+    <li style="font-size: 80%">The post you are submitting must be your own, <b>100% original content</b>, <b>exclusive to us</b>. It should not be posted elsewhere (including on your own blog/website) before or after it appears on our site. This is creating <b>duplicate content</b> on internet and we both don't want that.</li>
+    <li style="font-size: 80%">Your article must be presented in a non-advertorial, non-promotional fashion. You are welcome to make mention of (and link to) your clinic or other landing page, <b><u>once</u></b> within the body.</li>
+    <li style="font-size: 80%">We only accept topics related to <b>infertility treatment</b>, <b>unique IVF technologies</b> or <b>services regarding your clinic</b>. You can always <a href="{% url 'contactus' %}">contact us</a> ahead.</li>
+    <li style="font-size: 80%">We reserve the right not to accept the article.</li>
+    <li style="font-size: 80%">If you cancel your subscription and have active blog posts - these blog posts will no longer be published on the location pages or in the detail of your clinic. However, the blog post web address will still be accessible to you or anyone else.</li>
+    <li style="font-size: 80%">If you want to change your active and already published article - <a href="{% url 'contactus' %}">contact us</a>.</li>
+  </ul>
+</div>
+
+
+
+{% endblock  %}

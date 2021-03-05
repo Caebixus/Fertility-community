@@ -1,0 +1,111 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Create new author - {{instance.clinicName}}</h1>
+    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Guest Blogging and how to use it?</a></p>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container" style="text-align: center">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {{ form.source.errors }}
+    {{ form.source }}
+    <br>
+    <div class="row">
+      <div class="col-6 col-sm">
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.guestauthorname.errors }}
+          <label for="{{ form.guestauthorname.id_for_label}}"><p>Author's name:</p></label>
+          {{ form.guestauthorname }}
+        </div>
+      </div>
+      <div class="col-6 col-sm">
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.guestauthorlastname.errors }}
+          <label for="{{ form.guestauthorlastname.id_for_label}}"><p>Author's lastname:</p></label>
+          {{ form.guestauthorlastname }}
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestauthorpic.errors }}
+      <label for="{{ form.guestauthorpic.id_for_label}}"><p>Author's profile photo (500x500 px):</p></label>
+      <p style="font-size: 90%">{{ form.guestauthorpic }}</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+    <div class="fieldWrapper" style="text-align:">
+      {{ form.guestauthordescription.errors }}
+      <p>Author's description (max 400 characters):</p>
+      {{ form.guestauthordescription }}
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestlinkedinurl.errors }}
+      <label for="{{ form.guestlinkedinurl.id_for_label}}"><p>Author's Linkedin:</p></label>
+      <div class="fieldWrapper">
+        {{ form.guestlinkedinurl }}
+      </div>
+    </div>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guesttwitterurl.errors }}
+      <label for="{{ form.guesttwitterurl.id_for_label}}"><p>Author's Twitter:</p></label>
+      <div class="fieldWrapper">
+        {{ form.guesttwitterurl }}
+      </div>
+    </div>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestfacebookurl.errors }}
+      <label for="{{ form.guestfacebookurl.id_for_label}}"><p>Author's Facebook:</p></label>
+      <div class="fieldWrapper">
+        {{ form.guestfacebookurl }}
+      </div>
+    </div>
+    <br>
+    <div class="fieldWrapper" style="text-align: left">
+      {{ form.guestadditionalurl.errors }}
+      <label for="{{ form.guestadditionalurl.id_for_label}}"><p>Additional author's website:</p></label>
+      <div class="fieldWrapper">
+        {{ form.guestadditionalurl }}
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <input class="btn btn-outline-dark " type='submit' value='Create author' />
+  </form>
+</div>
+
+<br>
+{% endblock  %}

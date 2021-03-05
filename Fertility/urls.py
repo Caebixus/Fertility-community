@@ -48,6 +48,7 @@ urlpatterns = [
     path('', include('searchLocationsRegionsUS.urls')),
     path('account/', include('owners.urls')),
     path('account/', include('payments.urls')),
+    path('account/', include('guestblogging.urls')),
     path('cookies/', include('cookie_consent.urls')),
     path('sitemap.xml', views.index, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),

@@ -23,6 +23,8 @@ class Blog(models.Model):
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
     TAG_CHOICES = (
         ('IVF-Abroad', 'IVF-Abroad'),
+        ('IVF Packages', 'IVF Packages'),
+        ('IVF Costs', 'IVF Costs'),
         )
     tag = models.CharField(max_length=40, choices=TAG_CHOICES, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -712,7 +712,6 @@ def createpackage(request, listing_id):
 
     form = CreatePackage(request.POST or None, request.FILES or None, initial={'packageclinic': clinic.id}, prefix="form1")
     emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
-    form.fields['packageclinic'].queryset = BasicClinic.objects.filter(id=listing).filter(pro_is_published=True)
 
     if count < instance:
         if form.is_valid() and emailform.is_valid():
@@ -733,7 +732,7 @@ def createpackage(request, listing_id):
             messages.success(request, '- Package created')
             return redirect(dashboard)
     else:
-        messages.warning(request, '- Maximum packages for PREMIUM clinic is {}' .format(instance))
+        messages.warning(request, '- the maximum number of packages for this clinic paid plan is {} ' .format(instance))
         return redirect(dashboard)
 
     context = {

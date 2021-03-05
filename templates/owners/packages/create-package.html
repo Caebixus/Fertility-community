@@ -7,6 +7,7 @@
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Create new package - {{clinic.clinicName}}</h1>
     <p style="color:white">With this clinic you can have up to {{instance}} active packages. Created packages: {{count}}</p>
+    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod4" style="color:white">What is package?</a></p>
     <br>
   </div>
 </div>
@@ -62,9 +63,9 @@
       {% endif %}
       <br>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
-      <div class="fieldWrapper" style="text-align:">
+      <div class="fieldWrapper" style="text-align: left">
         {{ form.packagedesc.errors }}
-        <p>Package Description (max 800 characters):</p>
+        <label>Package Description (max 800 characters):</label>
         {{ form.packagedesc }}
       </div>
       <br>

@@ -820,6 +820,46 @@
   <br>
   <br>
 </div>
+
+<br>
+<br>
+
+{% if guestblog %}
+<div class="container py-5" style="text-align: center; z-index: -1;">
+  <h2><i class="far fa-newspaper"></i> Blogs about Fertility treatment in Seville:</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for guestblogs in guestblog %}
+    {% if guestblogs.guestblogactive == True %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <a href="{{ guestblogs.guestblogblogurl }}">
+          {% if guestblogs.guestblogpicblogmain %}<img src="{{ guestblogs.guestblogpicblogmain.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+          {% else %}
+          {% endif %}
+        </a>
+        <div class="card-body">
+          <a href="{{ guestblogs.guestblogblogurl }}">
+            <h3 class="card-title">{{ guestblogs.guestblogtitle }}</h3>
+          </a>
+          <p class="card-text" style="font-size: 17px">{{ guestblogs.guestblogdescription|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ guestblogs.guestblogblogurl }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
+            </div>
+            <small class="text-muted">{{ guestblogs.guestblogminuteread }} mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
 <br>
 <br>
 

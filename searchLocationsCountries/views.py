@@ -6,10 +6,14 @@ from django.db.models import Avg
 from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from guestblogging.models import GuestBlog, GuestAuthor
 
 # Create your views here.
 # ----------------------------------------------------------------------------
 def fertilityClinicUSA(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='United States')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -79,6 +83,7 @@ def fertilityClinicUSA(request):
     washingtonclinics = washingtonclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -108,6 +113,9 @@ def fertilityClinicUSA(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicUK(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='United Kingdom')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -168,6 +176,7 @@ def fertilityClinicUK(request):
     oxfordclinics = oxfordclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -194,6 +203,9 @@ def fertilityClinicUK(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicSpain(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Spain')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -248,6 +260,7 @@ def fertilityClinicSpain(request):
     valenciaclinics = valenciaclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -272,6 +285,9 @@ def fertilityClinicSpain(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicIndia(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='India')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -344,6 +360,7 @@ def fertilityClinicIndia(request):
     rohtakclinics = rohtakclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -374,6 +391,9 @@ def fertilityClinicIndia(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicGreece(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Greece')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -416,6 +436,7 @@ def fertilityClinicGreece(request):
     thessalonikiclinics = thessalonikiclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -436,6 +457,9 @@ def fertilityClinicGreece(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicCzech(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Czech Republic')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -478,6 +502,7 @@ def fertilityClinicCzech(request):
     brnoclinics = brnoclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -498,6 +523,9 @@ def fertilityClinicCzech(request):
 
 # ----------------------------------------------------------------------------
 def fertilityClinicCyprus(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Cyprus')
+    guestblog = guestblog.filter(guestblogactive=True)
+
     queryset_list = BasicClinic.objects.all()
     queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
 
@@ -540,6 +568,7 @@ def fertilityClinicCyprus(request):
     nicosiaclinics = nicosiaclinics.count()
 
     context = {
+        'guestblog': guestblog,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,

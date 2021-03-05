@@ -4,6 +4,14 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Update clinic information - {{instance.clinicName}}</h1>
+    <br>
+  </div>
+</div>
+<br>
+
 <div class="container py-4">
   {% if form.errors %}
     {% for field in form %}
@@ -19,417 +27,413 @@
         </div>
     {% endfor %}
   {% endif %}
-  <main role="main">
-    <div class="container" style="max-width: 70rem">
-      <h1 style="text-align: center">Update clinic information</h1>
-      <h2 style="text-align: center"><u>{{ instance.clinicName }}</u></h2>
-      <hr>
-      <br>
-      <div class="container">
-      <form method='POST' enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.non_field_errors }}
-      {{ form.source.errors }}
-      {{ form.source }}
-      <h2>Clinic's Basic Information</h2>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.clinicName.errors }}
-        <label for="{{ form.clinicName.id_for_label}}">Name:</label>
-        {{ form.clinicName }}
-      </div>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.clinicTitle.errors }}
-        <label for="{{ form.clinicTitle.id_for_label}}">Title:</label>
-        {{ form.clinicTitle }}
-      </div>
-      <br>
-      <style> .django-ckeditor-widget { min-width:100% !important; } </style>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.defaultClinicCurrency.errors }}
-        <label for="{{ form.defaultClinicCurrency.id_for_label}}">Primarily accepted currency</label>
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.defaultClinicCurrency }}
-        </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-
-
-
-      <h2>Clinics Images</h2>
-      <br>
-      {% if instance.clinic_pro_logo_pic %}
-      <div class="col-6 col-md" style="text-align: left">
-        <p>Currently uploaded logo: </p>
-        <img src="{{ instance.clinic_pro_logo_pic.url }}" alt="Uploaded logo" style="width:100px; height 100px;">
-      </div>
-      <br>
-      <div class="col-6 col-md" style="text-align: left">
-        {{ form.clinic_pro_logo_pic.errors }}
-          <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
-        <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
-      </div>
-      <div class="col-4 col-md" style="text-align: left">
-        {{ form.clinic_pro_logo_pic_del.errors}}
-        <label for="{{ form.clinic_pro_logo_pic_del.id_for_label}}"><p>Check to delete</p></label>
-        {{ form.clinic_pro_logo_pic_del }}
-      </div>
-      {% else %}
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.clinic_pro_logo_pic.errors }}
-        <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Logo (50x50 px):</p></label>
-        <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
-      </div>
-      {% endif %}
-      <br>
-
-      {% if instance.is_claimed == True %}
-      <hr>
-      <div class="row">
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_1 %}
-          <p>Currently uploaded picture 1: </p>
-          <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_1.errors }}
-          <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
-          <p>Upload Picture 1 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
-          {% endif %}
-        </div>
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_2 %}
-          <p>Currently uploaded picture 2: </p>
-          <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_2.errors }}
-          <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
-          <p>Upload Picture 2 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
-          {% endif %}
-        </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="row">
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_3 %}
-          <p>Currently uploaded picture 3: </p>
-          <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_3.errors }}
-          <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
-          <p>Upload Picture 3 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
-          {% endif %}
-        </div>
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_4 %}
-          <p>Currently uploaded picture 4: </p>
-          <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          <p style="font-size:10px">{{ form.clinic_pro_photo_4.errors }}</p>
-          <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          {{ form.clinic_pro_photo_4 }}
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
-          <p>Upload Picture 4 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
-          {% endif %}
-        </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="row">
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_5 %}
-          <p>Currently uploaded picture 5: </p>
-          <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_5.errors }}
-          <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
-          <p>Upload Picture 5 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
-          {% endif %}
-        </div>
-        <div class="col-6" style="text-align: left">
-          {% if instance.clinic_pro_photo_6 %}
-          <p>Currently uploaded picture 6: </p>
-          <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_6.errors }}
-          <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
-          <p>Re-upload (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
-          {% else %}
-          <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
-          <p>Upload Picture 6 (1080x1080 px):</p>
-          <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
-          {% endif %}
-        </div>
-      </div>
-      {% else %}
-      {% endif %}
-
-      <br>
-      <hr>
-      <br>
-      <h2>Clinics Contact Information</h2>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.contact_url.errors }}
-        <label for="{{ form.contact_url.id_for_label}}">Clinic's URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your analytics):</label>
-        {{ form.contact_url }}
-      </div>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.contact_phone.errors }}
-        <label for="{{ form.contact_phone.id_for_label}}">Phone number for clients:</label>
-        {{ form.contact_phone }}
-      </div>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.contact_email.errors }}
-        <label for="{{ form.contact_email.id_for_label}}">General clinic email (visible on clinic's detail):</label>
-        {{ form.contact_email }}
-      </div>
-      <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.fertilitycommunity_email.errors }}
-        <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
-        {{ form.fertilitycommunity_email }}
-      </div>
-      <br>
-      <hr>
-      <br>
-      <h2>Clinics Address</h2>
-      <div class="row">
-        <div class="col-md-6" style="padding-top:1rem">
-          <div class="fieldWrapper" style="text-align: left">
-            {{ form.clinicStreetAddress.errors }}
-            <label for="{{ form.clinicStreetAddress.id_for_label}}">Street address:</label>
-            {{ form.clinicStreetAddress }}
-          </div>
-          <br>
-          <div class="fieldWrapper" style="text-align: left">
-            {{ form.clinicCity.errors }}
-            <label for="{{ form.clinicCity.id_for_label}}">City:</label>
-            {{ form.clinicCity }}
-          </div>
-        </div>
-        <div class="col-md-6" style="padding-top:1rem">
-          <div id="Statesx">
-            <div class="fieldWrapper" style="text-align: left">
-              {{ form.clinicState.errors }}
-              <label for="{{ form.clinicState.id_for_label}}">State:</label>
-                {{ form.clinicState }}
-            </div>
-          </div>
-          <br>
-          <div class="fieldWrapper" style="text-align: left;">
-            {{ form.clinicRegion.errors }}
-              <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
-            {{ form.clinicRegion }}
-          </div>
-        </div>
-        <div class="col-md-6" style="padding-top:1rem">
-          <div class="fieldWrapper" style="text-align: left">
-            {{ form.clinicPostalCode.errors }}
-            <label for="{{ form.clinicPostalCode.id_for_label}}">Postal Code:</label>
-            {{ form.clinicPostalCode }}
-          </div>
-        </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <h2>Clinics Opening Hours</h2>
-
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.mondayOpens.id_for_label}}">Monday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.mondayOpens.errors }}
-            {{ form.mondayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.mondayCloses.errors }}
-            {{ form.mondayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.tuesdayOpens.id_for_label}}">Tuesday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.tuesdayOpens.errors }}
-            {{ form.tuesdayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.tuesdayCloses.errors }}
-            {{ form.tuesdayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.wednesdayOpens.id_for_label}}">Wednesday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.wednesdayOpens.errors }}
-            {{ form.wednesdayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.wednesdayCloses.errors }}
-            {{ form.wednesdayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.thursdayOpens.id_for_label}}">Thursday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.thursdayOpens.errors }}
-            {{ form.thursdayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.thursdayCloses.errors }}
-            {{ form.thursdayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.fridayOpens.id_for_label}}">Friday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.fridayOpens.errors }}
-            {{ form.fridayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.fridayCloses.errors }}
-            {{ form.fridayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.saturdayOpens.id_for_label}}">Saturday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.saturdayOpens.errors }}
-            {{ form.saturdayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.saturdayCloses.errors }}
-            {{ form.saturdayCloses }}
-          </div>
-        </div>
-      </div>
-      <div class="row" style="text-align: center">
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <label for="{{ form.sundayOpens.id_for_label}}">Sunday Opening Hours</label>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.sundayOpens.errors }}
-            {{ form.sundayOpens }}
-          </div>
-        </div>
-        <div class="col-4 col-md align-self-center" style="padding-top:1rem">
-          <div class="fieldWrapper" style="max-width:6rem">
-            {{ form.sundayCloses.errors }}
-            {{ form.sundayCloses }}
-          </div>
-        </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <h2>Clinics Languages</h2>
-      <br>
-      <div class="row">
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          English
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicEnglish }}
-        </div>
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          Spanish
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicSpanish }}
-        </div>
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          Portuguese
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicPortuguese }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          Russian
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicRussian }}
-        </div>
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          German
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicGerman }}
-        </div>
-        <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
-          Chinese
-        </div>
-        <div class="col-2 col-md">
-          {{ form.clinicChinese }}
-        </div>
-      </div>
-      <br>
-      <input class="btn btn-outline-dark" type='submit' value='Update' />
-      </form>
-    </div>
-  </main>
 </div>
+
+<div class="container" style="text-align: center">
+  <form method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {{ form.source.errors }}
+  {{ form.source }}
+  <h2>Clinic's Basic Information</h2>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.clinicName.errors }}
+    <label for="{{ form.clinicName.id_for_label}}">Name:</label>
+    {{ form.clinicName }}
+  </div>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.clinicTitle.errors }}
+    <label for="{{ form.clinicTitle.id_for_label}}">Title:</label>
+    {{ form.clinicTitle }}
+  </div>
+  <br>
+  <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.defaultClinicCurrency.errors }}
+    <label for="{{ form.defaultClinicCurrency.id_for_label}}">Primarily accepted currency</label>
+    <div class="fieldWrapper" style="max-width:6rem">
+      {{ form.defaultClinicCurrency }}
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+
+
+
+  <h2>Clinics Images</h2>
+  <br>
+  {% if instance.clinic_pro_logo_pic %}
+  <div class="col-6 col-md" style="text-align: left">
+    <p>Currently uploaded logo: </p>
+    <img src="{{ instance.clinic_pro_logo_pic.url }}" alt="Uploaded logo" style="width:100px; height 100px;">
+  </div>
+  <br>
+  <div class="col-6 col-md" style="text-align: left">
+    {{ form.clinic_pro_logo_pic.errors }}
+      <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
+    <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
+  </div>
+  <div class="col-4 col-md" style="text-align: left">
+    {{ form.clinic_pro_logo_pic_del.errors}}
+    <label for="{{ form.clinic_pro_logo_pic_del.id_for_label}}"><p>Check to delete</p></label>
+    {{ form.clinic_pro_logo_pic_del }}
+  </div>
+  {% else %}
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.clinic_pro_logo_pic.errors }}
+    <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Logo (50x50 px):</p></label>
+    <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
+  </div>
+  {% endif %}
+  <br>
+
+  {% if instance.is_claimed == True %}
+  <hr>
+  <div class="row">
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_1 %}
+      <p>Currently uploaded picture 1: </p>
+      <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      {{ form.clinic_pro_photo_1.errors }}
+      <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
+      <p>Upload Picture 1 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
+      {% endif %}
+    </div>
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_2 %}
+      <p>Currently uploaded picture 2: </p>
+      <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      {{ form.clinic_pro_photo_2.errors }}
+      <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
+      <p>Upload Picture 2 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_3 %}
+      <p>Currently uploaded picture 3: </p>
+      <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      {{ form.clinic_pro_photo_3.errors }}
+      <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
+      <p>Upload Picture 3 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
+      {% endif %}
+    </div>
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_4 %}
+      <p>Currently uploaded picture 4: </p>
+      <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      <p style="font-size:10px">{{ form.clinic_pro_photo_4.errors }}</p>
+      <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      {{ form.clinic_pro_photo_4 }}
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
+      <p>Upload Picture 4 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_5 %}
+      <p>Currently uploaded picture 5: </p>
+      <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      {{ form.clinic_pro_photo_5.errors }}
+      <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
+      <p>Upload Picture 5 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
+      {% endif %}
+    </div>
+    <div class="col-6" style="text-align: left">
+      {% if instance.clinic_pro_photo_6 %}
+      <p>Currently uploaded picture 6: </p>
+      <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+      {{ form.clinic_pro_photo_6.errors }}
+      <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
+      <p>Re-upload (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
+      {% else %}
+      <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
+      <p>Upload Picture 6 (1080x1080 px):</p>
+      <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+
+  <br>
+  <hr>
+  <br>
+  <h2>Clinics Contact Information</h2>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.contact_url.errors }}
+    <label for="{{ form.contact_url.id_for_label}}">Clinic's URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your analytics):</label>
+    {{ form.contact_url }}
+  </div>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.contact_phone.errors }}
+    <label for="{{ form.contact_phone.id_for_label}}">Phone number for clients:</label>
+    {{ form.contact_phone }}
+  </div>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.contact_email.errors }}
+    <label for="{{ form.contact_email.id_for_label}}">General clinic email (visible on clinic's detail):</label>
+    {{ form.contact_email }}
+  </div>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.fertilitycommunity_email.errors }}
+    <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
+    {{ form.fertilitycommunity_email }}
+  </div>
+  <br>
+  <hr>
+  <br>
+  <h2>Clinics Address</h2>
+  <div class="row">
+    <div class="col-md-6" style="padding-top:1rem">
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicStreetAddress.errors }}
+        <label for="{{ form.clinicStreetAddress.id_for_label}}">Street address:</label>
+        {{ form.clinicStreetAddress }}
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicCity.errors }}
+        <label for="{{ form.clinicCity.id_for_label}}">City:</label>
+        {{ form.clinicCity }}
+      </div>
+    </div>
+    <div class="col-md-6" style="padding-top:1rem">
+      <div id="Statesx">
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.clinicState.errors }}
+          <label for="{{ form.clinicState.id_for_label}}">State:</label>
+            {{ form.clinicState }}
+        </div>
+      </div>
+      <br>
+      <div class="fieldWrapper" style="text-align: left;">
+        {{ form.clinicRegion.errors }}
+          <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+        {{ form.clinicRegion }}
+      </div>
+    </div>
+    <div class="col-md-6" style="padding-top:1rem">
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicPostalCode.errors }}
+        <label for="{{ form.clinicPostalCode.id_for_label}}">Postal Code:</label>
+        {{ form.clinicPostalCode }}
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <h2>Clinics Opening Hours</h2>
+
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.mondayOpens.id_for_label}}">Monday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.mondayOpens.errors }}
+        {{ form.mondayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.mondayCloses.errors }}
+        {{ form.mondayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.tuesdayOpens.id_for_label}}">Tuesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.tuesdayOpens.errors }}
+        {{ form.tuesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.tuesdayCloses.errors }}
+        {{ form.tuesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.wednesdayOpens.id_for_label}}">Wednesday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.wednesdayOpens.errors }}
+        {{ form.wednesdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.wednesdayCloses.errors }}
+        {{ form.wednesdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.thursdayOpens.id_for_label}}">Thursday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.thursdayOpens.errors }}
+        {{ form.thursdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.thursdayCloses.errors }}
+        {{ form.thursdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.fridayOpens.id_for_label}}">Friday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.fridayOpens.errors }}
+        {{ form.fridayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.fridayCloses.errors }}
+        {{ form.fridayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.saturdayOpens.id_for_label}}">Saturday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.saturdayOpens.errors }}
+        {{ form.saturdayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.saturdayCloses.errors }}
+        {{ form.saturdayCloses }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <label for="{{ form.sundayOpens.id_for_label}}">Sunday Opening Hours</label>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.sundayOpens.errors }}
+        {{ form.sundayOpens }}
+      </div>
+    </div>
+    <div class="col-4 col-md align-self-center" style="padding-top:1rem">
+      <div class="fieldWrapper" style="max-width:6rem">
+        {{ form.sundayCloses.errors }}
+        {{ form.sundayCloses }}
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <h2>Clinics Languages</h2>
+  <br>
+  <div class="row">
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      English
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicEnglish }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Spanish
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicSpanish }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Portuguese
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicPortuguese }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Russian
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicRussian }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      German
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicGerman }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Chinese
+    </div>
+    <div class="col-2 col-md">
+      {{ form.clinicChinese }}
+    </div>
+  </div>
+  <br>
+  <input class="btn btn-outline-dark" type='submit' value='Update information' />
+  </form>
+</div>
+
+
 <br>
 {% endblock  %}

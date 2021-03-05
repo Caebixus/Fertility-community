@@ -29,7 +29,11 @@ class BasicClinic(models.Model):
     contact_email = models.CharField(max_length=50, blank=True)
     fertilitycommunity_email = models.CharField(max_length=50, blank=True)
     query_email = models.CharField(max_length=50, blank=True)
+
+    ### Counters:
     packageClinicCounterNumber = models.IntegerField(default=0,null=True, blank=True)
+    guestBlogCounterNumber = models.IntegerField(default=0,null=True, blank=True)
+    guestAuthorCounterNumber = models.IntegerField(default=0,null=True, blank=True)
 
     ### Adresses
     clinicStreetAddress = models.CharField(max_length=200)

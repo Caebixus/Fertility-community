@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from .models import Customer
 from packages.models import Package
+from guestblogging.models import GuestBlog, GuestAuthor
 from owners.models import ownerProInterested, ProUser
 from django.utils import timezone
 from datetime import datetime
@@ -401,8 +402,13 @@ def stripe_webhook(request):
         instance.ppq_is_published = False
         instance.pro_is_published = False
         instance.save()
+
         package = Package.objects.filter(packageclinic_id=instance)
         Package.objects.filter(id__in=package).update(is_package_active=False)
+
+        guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id)
+        GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=False)
+
         send_mail(
             'Customer lost',
             'Someone deleted customer ' +
@@ -448,8 +454,13 @@ def stripe_webhook(request):
             instance.ppq_is_published = False
             instance.pro_is_published = False
             instance.save()
+
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id)
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=False)
+
             send_mail(
                 'Subscription deleted',
                 'Someone unsubscribed ' +
@@ -464,6 +475,8 @@ def stripe_webhook(request):
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id)
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=False)
             send_mail(
                 'Subscription deleted',
                 'Someone unsubscribed ' +
@@ -490,10 +503,15 @@ def stripe_webhook(request):
             instance.ppq_is_published = True
             instance.pro_is_published = False
             instance.save()
+
             package = Package.objects.filter(packageclinic_id=instance).order_by('pk')[0:6]
             Package.objects.filter(id__in=package).update(is_package_active=True)
             packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[6:]
             Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
+
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id).order_by('pk')[0:5]
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=True)
+
             customer.membership = True
             send_mail(
                 'Subscription updated',
@@ -507,10 +525,17 @@ def stripe_webhook(request):
             instance.ppq_is_published = False
             instance.pro_is_published = True
             instance.save()
+
             package = Package.objects.filter(packageclinic_id=instance).order_by('pk')[0:2]
             Package.objects.filter(id__in=package).update(is_package_active=True)
             packageFalse = Package.objects.filter(packageclinic_id=instance).order_by('pk')[2:]
             Package.objects.filter(id__in=packageFalse).update(is_package_active=False)
+
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id).order_by('pk')[0:1]
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=True)
+            guestblogFalse = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id).order_by('pk')[1:]
+            GuestBlog.objects.filter(id__in=guestblogFalse).update(guestblogactive=False)
+
             customer.membership = True
             send_mail(
                 'Subscription updated',
@@ -548,6 +573,8 @@ def stripe_webhook(request):
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id)
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=False)
             send_mail(
                 'Subscription invoice failed',
                 'Someone unsubscribed ' +
@@ -562,6 +589,8 @@ def stripe_webhook(request):
             instance.save()
             package = Package.objects.filter(packageclinic_id=instance)
             Package.objects.filter(id__in=package).update(is_package_active=False)
+            guestblog = GuestBlog.objects.filter(guestblogauthor__guestauthor__id=instance.id)
+            GuestBlog.objects.filter(id__in=guestblog).update(guestblogactive=False)
             send_mail(
                 'Subscription invoice failed',
                 'Someone unsubscribed ' +

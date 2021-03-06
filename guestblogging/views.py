@@ -45,8 +45,10 @@ def create_guest_author(request, listing_id):
 
     if instance.pro_is_published == True:
         authorNumber = 1
-    else:
+    elif instance.ppq_is_published == True:
         authorNumber = 5
+    else:
+        authorNumber = 0
 
     if count < authorNumber:
         if form.is_valid():
@@ -105,7 +107,7 @@ def create_guest_blog(request, listing_id):
 
 
     listing = GuestBlog.objects.all()
-    listing = listing.filter(guestblogauthor__guestauthor__id=listing_id)
+    listing = listing.filter(guestblogauthor__guestauthor__id=instance.id)
     count = listing.count()
 
     if instance.pro_is_published == True:

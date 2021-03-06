@@ -54,6 +54,9 @@ def create_guest_author(request, listing_id):
             form.guestauthor = instance
             form.save()
 
+            instance.guestAuthorCounterNumber += int(1)
+            instance.save()
+
             send_mail(
                 'New guest author created',
                 'Právě někdo vytvořil nového guest authora ' +
@@ -117,6 +120,9 @@ def create_guest_blog(request, listing_id):
             form = form.save(commit=False)
             form.guestblogcreatedat = datetime.now()
             form.save()
+
+            instance.guestBlogCounterNumber += int(1)
+            instance.save()
 
             send_mail(
                 'New guest blog post created',

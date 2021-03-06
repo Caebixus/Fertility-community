@@ -11,7 +11,7 @@ from clinic.models import BasicClinic
 from blog.models import Author, Blog
 
 def index(request):
-    blog = Blog.objects.all()[:6]
+    blog = Blog.objects.all().order_by('-created_at')[:6]
 
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count
@@ -382,7 +382,7 @@ def error500(request):
 # BlogPosts Views --------------------------------------------------------------------------------------------------------
 
 def blog1(request):
-    blog = Blog.objects.all()[:6]
+    blog = Blog.objects.all().order_by('-created_at')[:6]
 
     context = {
         'blog': blog,

@@ -14,7 +14,10 @@
     <tbody>
       <!-- Natural IVF -->
       <tr>
-        <th scope="row"><p style="text-align: left; font-size: 22px">Natural IVF</p></th>
+        <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="IVF with no stimulation - <a href='{% url 'everythingYouNeedToKnowAboutNaturalIvf' %}'>Read more</a>" data-html="true">
+          <p style="text-align: left; font-size: 22px">Natural IVF <i class="far fa-question-circle"></i>
+          </p>
+        </th>
         <td>{% if listing.ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
           {% if listing.ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=listing.ivf_treatment_cost|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>

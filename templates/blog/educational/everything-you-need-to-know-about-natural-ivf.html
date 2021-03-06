@@ -1,0 +1,174 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Everything You Need to Know About Natural IVF | 2021 | FertilityCommunity{% endblock %}
+{% block description %}Natural IVF is an alternative to conventional IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more. Read more{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/everything-you-need-to-know-about-natural-ivf{% endblock %}
+{% block meta_keywords %}what is natural ivf, natural ivf{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/everything-you-need-to-know-about-natural-ivf"
+        },
+      "headline": "What Is Natural IVF",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "Natural IVF is an alternative to conventional IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more."
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Everything You Need to Know About Natural IVF</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.created_at }}
+  <hr>
+  <br>
+  <br>
+  <p>If you're experiencing infertility, you've likely heard of many treatments that can help you get pregnant. One of the treatments you may have heard of is <b>natural IVF</b>.</p>
+  <p>Natural IVF is an alternative to conventional/ standard IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more.</p>
+  <br>
+  <p>If you are also looking for more information about standard IVF treatment - you will find it here <a href="https://www.fertilitycommunity.com/ivf-explained">IVF explained, tips & tricks in 2021</a></p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <ol style="font-size: 135%;">
+    <li><p style="font-size: 100%"><a href="#bod1"><u>What is Natural IVF?</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod2"><u>Natural IVF vs. Stimulated IVF</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod3"><u>Is Natural Cycle IVF Right for You?</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod4"><u>Natural IVF Success Rates</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod5"><u>Pros and Cons of Natural IVF</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod6"><u>Final Thoughts</u></a></p></li>
+  </ol>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod1">
+    <h2 style="font-size: 160%"><b>What is Natural IVF?</b></h2>
+    <br>
+    <p>Natural IVF is an infertility treatment that uses in-vitro fertilization to help you get pregnant but <b>doesn't involve the use of hormones to stimulate follicle growth</b>. The process begins with monitoring your cycle to track follicular development. Once your follicles have reached the appropriate size, an egg is retrieved in the same manner as a typical IVF cycle.</p>
+    <br>
+    <p>The egg is fertilized and monitored. If the embryo shows normal division and growth, it will be implanted into your uterus. You'll then do the usual two-week wait and then undergo a pregnancy test and bloodwork to see if the implantation was successful.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod2">
+    <h2 style="font-size: 160%"><b>Natural IVF vs. Stimulated IVF</b></h2>
+    <br>
+    <p>The main differences between natural cycle IVF and stimulated IVF occur early in the process.</p>
+    <ul>
+      <li><p style="font-size: 100%">With stimulated IVF, you start the process by taking several types of medications. These medications stimulate your ovaries and cause them to make multiple eggs.</p></li>
+      <li><p style="font-size: 100%"><b>Natural IVF doesn't involve any medication to stimulate the ovaries</b>.</p></li>
+    </ul>
+    <br>
+    <p>The two processes are the same after the follicle matures. Both follow the same cycle of egg retrieval, fertilization, and implantation. One isn't inherently better than the other. The choice will depend on your situation and what your body needs to achieve pregnancy. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod3">
+    <h2 style="font-size: 160%"><b>Is Natural Cycle IVF Right for You?</b></h2>
+    <br>
+    <p>There are a few cases where natural IVF is the better option than stimulated IVF.</p>
+    <br>
+    <p>If your <u>infertility is caused by male factors</u>, the natural IVF makes a lot of sense. If you're ovulating and producing eggs normally, there's no reason to go through stimulation. In your situation, the fertilization stage is the critical step.</p>
+    <br>
+    <p>You may have already gone through a round or more of stimulated IVF and was labeled a poor responder. This term means that <u>your body doesn't respond to ovarian stimulation</u>. In this case, you may be a good candidate for natural IVF.</p>
+    <br>
+    <p>Additionally, you may have a condition that prevents you from taking hormonal stimulation medication. Natural IVF may be the only way you can undergo an IVF cycle.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod4">
+    <h2 style="font-size: 160%"><b>Natural IVF Success Rates</b></h2>
+    <br>
+    <p>Natural IVF does have a <b>much lower success rate</b> than stimulated IVF.
+    <ul>
+      <li>Success rates usually average between 7-10% per cycle of treatment.</li>
+      <li>Whereas stimulated IVF success anywhere from 20-40% of the time.</li>
+    </ul>
+    <br>
+    <p>There's more going on with these numbers, though. These <b>statistics aren't a direct comparison</b> and there are many <b>more factors to consider</b>.</p>
+    <p>For one, stimulated IVF is much more common that natural IVF. Thus, there's a much larger sample size when it comes to statistics. Since many natural IVF cycles don't run the full course, the statistics are not exactly accurate. It's difficult to know the exact statistics, and success rates may be higher than the numbers actually show.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod5">
+    <h2 style="font-size: 160%"><b>Pros and Cons of Natural IVF</b></h2>
+    <br>
+    <p>There are many benefits to using natural IVF.</p>
+    <ol>
+      <li>First, it's an <b>easier process</b> than conventional IVF. You don't have to take so many medications and mess with your hormones. The stimulation process of conventional IVF is often uncomfortable, as you have so many follicles growing in your pelvis. You often feel bloated, and it can be mildly painful.</li>
+      <br>
+      <li>Conventional IVF is also much <b>more expensive</b> than natural IVF. Medication is one of the significant costs associated with IVF, so for some people, natural IVF is a better option because it fits their budget. If you find you can't afford a conventional IVF cycle, you may choose to go with natural IVF.</li>
+      <br>
+      <li>One of the biggest fears people have before starting IVF is the risk of multiples. Since so many follicles are stimulated, several eggs are usually harvested during the retrieval process. People often opt to implant two or more embryos to increase their chances of pregnancy. Even if you only implant one embryo, your chances of having identical twins are higher with conventional IVF. The stimulation medication <b>increases the risk of twins</b>.</li>
+      <br>
+      <li>Since several eggs are retrieved during conventional IVF, people have several options concerning what to do with the eggs. Some people may choose to implant them all, but these situations are rare. Most doctors will implant two or three embryos at most. Other people <b>freeze the eggs</b> to use later in the event that the IVF cycle fails or if they want to have another baby in a few years.</li>
+      <br>
+      <li>People also have the option of putting the extra embryos up for adoption or <b>donating the embryos</b> to science. Some people, due to religious or personal reasons, don't want more than one possible embryo. These people often want one child, and don't want to have to figure out what to do with the remaining embryos. These people may choose natural IVF since there's only one resulting embryo.</li>
+      <br>
+      <li>The main disadvantage of natural IVF is that it <b>isn't always as effective</b>. Many women who have undergone other infertility treatments that don't work and are now pursuing IVF need help with follicular development. They need the stimulating medication to get an egg that is viable for fertilization and implantation.</li>
+      <br>
+      <li>Natural IVF only gives you <b>one chance at pregnancy</b> per follicular growth cycle. If the process fails, you'll have to go through the growth cycle again. Some people also want to implant more than one embryo since IVF is costly, and can only afford one cycle. They want to increase their chances of a successful pregnancy or may even want multiples.</li>
+    </ol>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod6">
+    <h2 style="font-size: 160%"><b>Final Thoughts</b></h2>
+    <br>
+    <p>Natural IVF can be a good choice for people who are looking for an <b>alternative to stimulated IVF</b>. It involves fewer medications and is much more affordable.</p>
+    <p>Natural IVF reduces the toll on your body during the IVF process and reduces the risk of multiples. Many couples, especially those with male factory infertility, find success with natural IVF, and it can be a better way to finally have your baby. </p>
+  </div>
+</div>
+{% endblock  %}

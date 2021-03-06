@@ -15,6 +15,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'ivfabroadcosts',
         'fertilityTreatmentAbroadWhatYouNeedToKnow',
         'ivfabroadpackages',
+        'everythingYouNeedToKnowAboutNaturalIvf',
         ]
 
     def location(self, item):

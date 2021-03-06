@@ -25,6 +25,7 @@ class Blog(models.Model):
         ('IVF-Abroad', 'IVF-Abroad'),
         ('IVF Packages', 'IVF Packages'),
         ('IVF Costs', 'IVF Costs'),
+        ('Educational', 'Educational'),
         )
     tag = models.CharField(max_length=40, choices=TAG_CHOICES, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

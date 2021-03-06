@@ -13,4 +13,7 @@ urlpatterns = [
 
     #Packages
     path('blog/ivf-abroad-packages', views.ivfabroadpackages, name='ivfabroadpackages'),
+
+    #Educational
+    path('blog/everything-you-need-to-know-about-natural-ivf', views.everythingYouNeedToKnowAboutNaturalIvf, name='everythingYouNeedToKnowAboutNaturalIvf'),
 ]

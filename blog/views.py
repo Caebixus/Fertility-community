@@ -76,3 +76,14 @@ def ivfabroadpackages(request):
     }
 
     return render(request, 'blog/Packages/ivf-abroad-packages.html', context)
+
+def everythingYouNeedToKnowAboutNaturalIvf(request):
+    author = get_object_or_404(Author, pk=6)
+    blog = get_object_or_404(Blog, pk=10)
+
+    context = {
+        'author': author,
+        'blog': blog,
+    }
+
+    return render(request, 'blog/educational/everything-you-need-to-know-about-natural-ivf.html', context)

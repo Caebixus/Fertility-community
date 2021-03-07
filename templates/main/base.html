@@ -82,34 +82,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: #8a8a8a">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: black">
               Account
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'settings' %}">Account settings</a>
-              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'howtousefertilitycommunity' %}">How to use FertilityCommunity</a>
-              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'create1' %}">Add clinic</a>
-              <a class="dropdown-item" style="text-decoration: none;" href="{% url 'claim' %}">Claim clinic</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'settings' %}">Account settings</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'howtousefertilitycommunity' %}">How to use FertilityCommunity</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'create1' %}">Add clinic</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'claim' %}">Claim clinic</a>
               <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
             </div>
           </div>
-          <a class="nav-item nav-link" style="text-decoration: none;" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
           <li>
-            <a class="nav-item nav-link" style="text-decoration: none;" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a class="nav-item nav-link" style="text-decoration: none; color: black" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <form id="logout" action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
               <input type="hidden">
             </form>
           </li>
           {% else %}
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'packages' %}"><i class="fas fa-archive"></i> Packages</a>
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'blog' %}"><i class="far fa-newspaper"></i> Blog</a>
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i> IVF Explained</a>
-          <a class="nav-item nav-link" style="text-decoration: none;" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packages' %}"><i class="fas fa-archive"></i> Packages</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog' %}"><i class="far fa-newspaper"></i> Blog</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i> IVF Explained</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
           {% endif %}
         </div>
       </div>
@@ -137,37 +137,30 @@
   <hr>
   <footer class="my-md-5">
     <div class="row">
-      <div class="col-12 col-md">
+      <div class="col-12 col-sm">
         <p>FertilityCommunity <small class="d-block mb-3 text-muted">&copy; 2021</small></p>
         <p>Fertilitycommunity.com does not provide medical advice.</p>
       </div>
-      <div class="col-6 col-md">
-        <p><u>Social</u></p>
+      <div class="col-4 col-sm">
+        <p><b>Social:</b></p>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://www.facebook.com/fertilitycommunity/" rel="nofollow"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.facebook.com/fertilitycommunity/" rel="nofollow" style="text-decoration: none;"><i class="fab fa-facebook"></i></a></li>
         </ul>
       </div>
-      <div class="col-6 col-md">
-        <p><u>For clinics</u></p>
+      <div class="col-4 col-sm">
+        <p><b>For clinics:</b></p>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="{% url 'register' %}"><i class="fas fa-plus-circle"></i> Add or claim clinic</a></li>
-          <li><a class="text-muted" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login as clinic owner</a></li>
+          <li><a href="{% url 'register' %}" style="text-decoration: none;">Add or claim clinic</a></li>
+          <li><a href="{% url 'login' %}" style="text-decoration: none;">Login as clinic owner</a></li>
         </ul>
       </div>
-      <div hidden class="col-6 col-md">
-        <p><u>Community</u></p>
+      <div class="col-4 col-sm">
+        <p><b>About:</b></p>
         <ul class="list-unstyled text-small">
-          <li ><a class="text-muted" href="">Helpful IVF information</a></li>
-          <li><a class="text-muted" href="{% url 'locations' %}">Locations</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <p><u>About</u></p>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="{% url 'team' %}">Team</a></li>
-          <li><a class="text-muted" href="{% url 'privacy' %}">Privacy</a></li>
-          <li><a class="text-muted" href="{% url 'terms' %}">Terms</a></li>
-          <li><a class="text-muted" href="{% url 'cookies' %}">Cookies</a></li>
+          <li><a href="{% url 'team' %}" style="text-decoration: none;">Team</a></li>
+          <li><a href="{% url 'privacy' %}" style="text-decoration: none;">Privacy</a></li>
+          <li><a href="{% url 'terms' %}" style="text-decoration: none;">Terms</a></li>
+          <li><a href="{% url 'cookies' %}" style="text-decoration: none;">Cookies</a></li>
         </ul>
       </div>
     </div>

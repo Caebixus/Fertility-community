@@ -31,7 +31,7 @@ class PostAdmin(admin.ModelAdmin):
     actions = ['clinicLocationLink_update_g']
 
     def clinicLocationLink_update_g(modeladmin, request, queryset):
-        queryset.update(clinicStateLink='https://www.fertilitycommunity.com/fertility-clinics/czech-republic')
+        queryset.update(clinicStateLink='https://www.fertilitycommunity.com/fertility-clinics/greece')
     clinicLocationLink_update_g.short_description = "Update from Admin"
 
 class ExportClinicTreatments(resources.ModelResource):

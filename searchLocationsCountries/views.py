@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
@@ -586,3 +587,25 @@ def fertilityClinicCyprus(request):
         }
 
     return render(request, 'locations-states/Cyprus/fertility-clinic-cyprus.html', context)
+
+# --------------------------------------->>>>>>>> Redirects
+def fertilityClinicUSA1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicUSA'))
+
+def fertilityClinicUK1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicUK'))
+
+def fertilityClinicSpain1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicSpain'))
+
+def fertilityClinicIndia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicIndia'))
+
+def fertilityClinicGreece1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicGreece'))
+
+def fertilityClinicCzech1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicCzech'))
+
+def fertilityClinicCyprus1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicCyprus'))

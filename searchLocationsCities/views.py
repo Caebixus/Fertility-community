@@ -11,12 +11,6 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
 
 # Create your views here.
-def fertilityClinicPrague1(request):
-    return HttpResponsePermanentRedirect(reverse('fertilityClinicPrague'))
-
-def fertilityClinicBrno1(request):
-    return HttpResponsePermanentRedirect(reverse('fertilityClinicBrno'))
-
 def fertilityClinicPrague(request):
     guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Prague')
     guestblog = guestblog.filter(guestblogactive=True)
@@ -100,7 +94,6 @@ def fertilityClinicBrno(request):
     context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'my_total_count': my_total_count, 'guestblog': guestblog,}
 
     return render(request, 'locations-cities/Czech/fertility-clinic-brno.html', context)
-
 
 def fertilityClinicsAberdeen(request):
     guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Aberdeen')
@@ -3578,3 +3571,131 @@ def fertilityClinicsGirne(request):
     context = {'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice, 'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'my_total_count': my_total_count, 'guestblog': guestblog,}
 
     return render(request, 'locations-cities/Cyprus/fertility-clinics-girne.html', context)
+
+
+# --------------------------------------->>>>>>>> Redirects
+def fertilityClinicPrague1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicPrague'))
+
+def fertilityClinicBrno1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicBrno'))
+
+def fertilityClinicPrague2(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicPrague'))
+
+def fertilityClinicBrno2(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicBrno'))
+
+def fertilityClinicsAberdeen1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsAberdeen'))
+
+def fertilityClinicsBath1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBath'))
+
+def fertilityClinicsBelfast1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBelfast'))
+
+def fertilityClinicsBirmingham1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBirmingham'))
+
+def fertilityClinicsBournemouth1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBournemouth'))
+
+def fertilityClinicsBrightonHove1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBrightonHove'))
+
+def fertilityClinicsBristol1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBristol'))
+
+def fertilityClinicsCambridge1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsCambridge'))
+
+def fertilityClinicsCardiff1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsCardiff'))
+
+def fertilityClinicsColchester1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsColchester'))
+
+def fertilityClinicsDerby1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsDerby'))
+
+def fertilityClinicsExeter1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsExeter'))
+
+def fertilityClinicsGlasgow1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsGlasgow'))
+
+def fertilityClinicsHull1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsHull'))
+
+def fertilityClinicsChelmsford1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsChelmsford'))
+
+def fertilityClinicsLeeds1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsLeeds'))
+
+def fertilityClinicsLeicester1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsLeicester'))
+
+def fertilityClinicsLiverpool1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsLiverpool'))
+
+def fertilityClinicsLondon1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsLondon'))
+
+def fertilityClinicsManchester1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsManchester'))
+
+def fertilityClinicsMiddlesbrough1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMiddlesbrough'))
+
+def fertilityClinicsNewcastle1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNewcastle'))
+
+def fertilityClinicsNorwich1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNorwich'))
+
+def fertilityClinicsNottingham1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNottingham'))
+
+def fertilityClinicsOxford1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsOxford'))
+
+def fertilityClinicsPeterborough1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsPeterborough'))
+
+def fertilityClinicsPlymouth1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsPlymouth'))
+
+def fertilityClinicsPortsmouth1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsPortsmouth'))
+
+def fertilityClinicsSalisbury1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSalisbury'))
+
+def fertilityClinicsSheffield1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSheffield'))
+
+def fertilityClinicsSouthampton1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSouthampton'))
+
+def fertilityClinicsSwansea1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSwansea'))
+
+def fertilityClinicsAlicante1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsAlicante'))
+
+def fertilityClinicsBarcelona1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsBarcelona'))
+
+def fertilityClinicsMadrid1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMadrid'))
+
+def fertilityClinicsMalaga1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMalaga'))
+
+def fertilityClinicsSeville1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSeville'))
+
+def fertilityClinicsValencia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsValencia'))

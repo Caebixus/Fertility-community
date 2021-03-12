@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
@@ -2971,3 +2972,160 @@ def fertilityClinicsDistrictOfColumbia(request):
         }
 
     return render(request, 'locations-regions/USA/fertility-clinics-district-of-columbia.html', context)
+
+# --------------------------------------->>>>>>>> Redirects
+def fertilityClinicsAlabama1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsAlabama'))
+
+def fertilityClinicsAlaska1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsAlaska'))
+
+def fertilityClinicsArizona1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsArizona'))
+
+def fertilityClinicsArkansas1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsArkansas'))
+
+def fertilityClinicsCalifornia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsCalifornia'))
+
+def fertilityClinicsColorado1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsColorado'))
+
+def fertilityClinicsConnecticut1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsConnecticut'))
+
+def fertilityClinicsDelaware1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsDelaware'))
+
+def fertilityClinicsFlorida1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsFlorida'))
+
+def fertilityClinicsGeorgia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsGeorgia'))
+
+def fertilityClinicsHawaii1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsHawaii'))
+
+def fertilityClinicsIdaho1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsIdaho'))
+
+def fertilityClinicsIllinois1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsIllinois'))
+
+def fertilityClinicsIndiana1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsIndiana'))
+
+def fertilityClinicsIowa1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsIowa'))
+
+def fertilityClinicsKansas1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsKansas'))
+
+def fertilityClinicsKentucky1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsKentucky'))
+
+def fertilityClinicsLouisiana1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsLouisiana'))
+
+def fertilityClinicsMaine1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMaine'))
+
+def fertilityClinicsMaryland1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMaryland'))
+
+def fertilityClinicsMassachusetts1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMassachusetts'))
+
+def fertilityClinicsMichigan1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMichigan'))
+
+def fertilityClinicsMinnesota1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMinnesota'))
+
+def fertilityClinicsMississippi1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMississippi'))
+
+def fertilityClinicsMissouri1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMissouri'))
+
+def fertilityClinicsMontana1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsMontana'))
+
+def fertilityClinicsNebraska1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNebraska'))
+
+def fertilityClinicsNewHampshire1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNewHampshire'))
+
+def fertilityClinicsNewJersey1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNewJersey'))
+
+def fertilityClinicsNewMexico1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNewMexico'))
+
+def fertilityClinicsNewYork1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNewYork'))
+
+def fertilityClinicsNorthCarolina1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNorthCarolina'))
+
+def fertilityClinicsNorthDakota1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNorthDakota'))
+
+def fertilityClinicsNevada1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsNevada'))
+
+def fertilityClinicsOhio1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsOhio'))
+
+def fertilityClinicsOklahoma1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsOklahoma'))
+
+def fertilityClinicsOregon1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsOregon'))
+
+def fertilityClinicsPennsylvania1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsPennsylvania'))
+
+def fertilityClinicsPuertoRico1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsPuertoRico'))
+
+def fertilityClinicsRhodeIsland1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsRhodeIsland'))
+
+def fertilityClinicsSouthCarolina1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSouthCarolina'))
+
+def fertilityClinicsSouthDakota1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsSouthDakota'))
+
+def fertilityClinicsTennessee1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsTennessee'))
+
+def fertilityClinicsTexas1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsTexas'))
+
+def fertilityClinicsUtah1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsUtah'))
+
+def fertilityClinicsVermont1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsVermont'))
+
+def fertilityClinicsVirginia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsVirginia'))
+
+def fertilityClinicsWashington1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsWashington'))
+
+def fertilityClinicsWestVirginia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsWestVirginia'))
+
+def fertilityClinicsWisconsin1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsWisconsin'))
+
+def fertilityClinicsWyoming1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsWyoming'))
+
+def fertilityClinicsDistrictOfColumbia1(request):
+    return HttpResponsePermanentRedirect(reverse('fertilityClinicsDistrictOfColumbia'))

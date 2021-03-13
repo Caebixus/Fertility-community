@@ -5777,7 +5777,7 @@ def rbaph(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Georgia/reproductive-biology-associates–piedmont-hospital.html', context)
+        return render(request, 'clinics/US/Georgia/reproductive-biology-associates-piedmont-hospital.html', context)
 
     else:
         pass
@@ -5790,7 +5790,7 @@ def rbaph(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Georgia/reproductive-biology-associates–piedmont-hospital.html', context)
+    return render(request, 'clinics/US/Georgia/reproductive-biology-associates-piedmont-hospital.html', context)
 
 def rbacar(request):
     listing = BasicClinic.objects.get(pk=119)

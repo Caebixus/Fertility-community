@@ -14,7 +14,6 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'index',
         'team',
         'contact',
-        'search',
         'blog1',
         'blog',
         'packages',

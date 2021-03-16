@@ -7035,7 +7035,7 @@ def vficwlil(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-west-loop-ivf-lab.html', context)
+        return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-west-loop-lab.html', context)
 
     else:
         pass
@@ -7048,7 +7048,7 @@ def vficwlil(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-west-loop-ivf-lab.html', context)
+    return render(request, 'clinics/US/Illinois/vios-fertility-institute-chicago-west-loop-lab.html', context)
 
 def vficg(request):
     listing = BasicClinic.objects.get(pk=141)

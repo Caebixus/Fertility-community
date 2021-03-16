@@ -27,7 +27,7 @@ def ivfspainalicante(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=617)
@@ -78,7 +78,7 @@ def ivialicante(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=619)
@@ -130,7 +130,7 @@ def clinicadefertilidadbarcelonaivf(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=620)
@@ -181,7 +181,7 @@ def ferttyinternational(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=621)
@@ -232,7 +232,7 @@ def fertilabbarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=622)
@@ -283,7 +283,7 @@ def institutmarquesbarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=623)
@@ -334,7 +334,7 @@ def ivfforyou(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=624)
@@ -385,7 +385,7 @@ def gravida(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=625)
@@ -436,7 +436,7 @@ def ivibarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=626)
@@ -487,7 +487,7 @@ def fivmarbellabarcelona(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=627)
@@ -539,7 +539,7 @@ def ivfspainmadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=628)
@@ -590,7 +590,7 @@ def fertilitymadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=629)
@@ -641,7 +641,7 @@ def evafertilityclinicmadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=630)
@@ -692,7 +692,7 @@ def ivimadridaravaca(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=631)
@@ -743,7 +743,7 @@ def clinicatambre(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=632)
@@ -762,7 +762,7 @@ def clinicatambre(request):
             'alllisting': alllisting,
             }
 
-        return render(request, 'clinics/SP/Madrid/ivi-madrid-aravaca.html', context)
+        return render(request, 'clinics/SP/Madrid/clinica-tambre.html', context)
 
     else:
         pass
@@ -775,7 +775,7 @@ def clinicatambre(request):
         'alllisting': alllisting,
         }
 
-    return render(request, 'clinics/SP/Madrid/ivi-madrid-aravaca.html', context)
+    return render(request, 'clinics/SP/Madrid/clinica-tambre.html', context)
 
 def fertilityclinichru(request):
     listing = BasicClinic.objects.get(pk=633)
@@ -794,7 +794,7 @@ def fertilityclinichru(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=633)
@@ -845,7 +845,7 @@ def fivmarbellamadrid(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=634)
@@ -897,7 +897,7 @@ def ivimalaga(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=635)
@@ -948,7 +948,7 @@ def fivmarbellamalaga(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=636)
@@ -999,7 +999,7 @@ def hcfertility(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=637)
@@ -1050,7 +1050,7 @@ def clinicafertia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=638)
@@ -1102,7 +1102,7 @@ def ivisevilla(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=639)
@@ -1153,7 +1153,7 @@ def inebir(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=640)
@@ -1204,7 +1204,7 @@ def ginemedsevilla(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=641)
@@ -1256,7 +1256,7 @@ def ivivalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=642)
@@ -1307,7 +1307,7 @@ def equipojuanacrespo(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=643)
@@ -1358,7 +1358,7 @@ def unidaddereproduccionasistidaimedvalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=644)
@@ -1409,7 +1409,7 @@ def creavalencia(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=645)
@@ -1460,7 +1460,7 @@ def imerinstitutodemedicinareproductiva(request):
     alllisting = alllisting.filter(is_published=True)
     alllisting = alllisting.count()
 
-    
+
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=646)

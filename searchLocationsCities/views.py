@@ -37,7 +37,7 @@ def fertilityClinicPrague(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Prague')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Prague')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -79,7 +79,7 @@ def fertilityClinicBrno(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Brno')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Brno')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -124,7 +124,7 @@ def fertilityClinicsAberdeen(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Aberdeen')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -169,7 +169,7 @@ def fertilityClinicsBath(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Bath')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -214,7 +214,7 @@ def fertilityClinicsBelfast(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Belfast')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -259,7 +259,7 @@ def fertilityClinicsBirmingham(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Birmingham')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -304,7 +304,7 @@ def fertilityClinicsBournemouth(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Bournemouth')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -349,7 +349,7 @@ def fertilityClinicsBrightonHove(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='BrightonHove')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -394,7 +394,7 @@ def fertilityClinicsBristol(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Bristol')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -439,7 +439,7 @@ def fertilityClinicsCambridge(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Cambridge')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -484,7 +484,7 @@ def fertilityClinicsCardiff(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Cardiff')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -529,7 +529,7 @@ def fertilityClinicsColchester(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Colchester')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -574,7 +574,7 @@ def fertilityClinicsDerby(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Derby')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -619,7 +619,7 @@ def fertilityClinicsExeter(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Exeter')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -664,7 +664,7 @@ def fertilityClinicsGlasgow(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Glasgow')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -709,7 +709,7 @@ def fertilityClinicsHull(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Hull')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -754,7 +754,7 @@ def fertilityClinicsChelmsford(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Chelmsford')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -799,7 +799,7 @@ def fertilityClinicsLeeds(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Leeds')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -844,7 +844,7 @@ def fertilityClinicsLeicester(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Leicester')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -889,7 +889,7 @@ def fertilityClinicsLiverpool(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Liverpool')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -934,7 +934,7 @@ def fertilityClinicsLondon(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='London')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -979,7 +979,7 @@ def fertilityClinicsManchester(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Manchester')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1024,7 +1024,7 @@ def fertilityClinicsMiddlesbrough(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Middlesbrough')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1069,7 +1069,7 @@ def fertilityClinicsNewcastle(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Newcastle')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1114,7 +1114,7 @@ def fertilityClinicsNorwich(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Norwich')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1159,7 +1159,7 @@ def fertilityClinicsNottingham(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Nottingham')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1204,7 +1204,7 @@ def fertilityClinicsOxford(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Oxford')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1249,7 +1249,7 @@ def fertilityClinicsPeterborough(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Peterborough')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1294,7 +1294,7 @@ def fertilityClinicsPlymouth(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Plymouth')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1339,7 +1339,7 @@ def fertilityClinicsPortsmouth(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Portsmouth')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1384,7 +1384,7 @@ def fertilityClinicsSalisbury(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Salisbury')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1429,7 +1429,7 @@ def fertilityClinicsSheffield(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Sheffield')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1474,7 +1474,7 @@ def fertilityClinicsSouthampton(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Southampton')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1519,7 +1519,7 @@ def fertilityClinicsSwansea(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Swansea')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1564,7 +1564,7 @@ def fertilityClinicsAlicante(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Alicante')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1609,7 +1609,7 @@ def fertilityClinicsBarcelona(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Barcelona')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1654,7 +1654,7 @@ def fertilityClinicsMadrid(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Madrid')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1699,7 +1699,7 @@ def fertilityClinicsMalaga(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Malaga')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1744,7 +1744,7 @@ def fertilityClinicsSeville(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Seville')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1789,7 +1789,7 @@ def fertilityClinicsValencia(request):
     my_total_count = my_total_count.filter(clinicCity__iexact='Valencia')
     my_total_count = my_total_count.count()
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1834,7 +1834,7 @@ def fertilityClinicsChennai(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Chennai')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Chennai')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1876,7 +1876,7 @@ def fertilityClinicsHyderabad(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Hyderabad')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Hyderabad')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1918,7 +1918,7 @@ def fertilityClinicsMumbai(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Mumbai')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Mumbai')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1960,7 +1960,7 @@ def fertilityClinicsPatna(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Patna')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Patna')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2002,7 +2002,7 @@ def fertilityClinicsRaipur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Raipur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Raipur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2044,7 +2044,7 @@ def fertilityClinicsAmdavad(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Amdavad')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Amdavad')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2086,7 +2086,7 @@ def fertilityClinicsChandigarh(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Chandigarh')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Chandigarh')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2128,7 +2128,7 @@ def fertilityClinicsFaridabad(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Faridabad')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Faridabad')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2170,7 +2170,7 @@ def fertilityClinicsJamshedpur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jamshedpur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jamshedpur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2212,7 +2212,7 @@ def fertilityClinicsBangalore(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bangalore')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bangalore')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2254,7 +2254,7 @@ def fertilityClinicsTrivandrum(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Trivandrum')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Trivandrum')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2296,7 +2296,7 @@ def fertilityClinicsKochi(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kochi')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kochi')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2338,7 +2338,7 @@ def fertilityClinicsBhopal(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bhopal')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bhopal')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2380,7 +2380,7 @@ def fertilityClinicsIndore(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Indore')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Indore')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2422,7 +2422,7 @@ def fertilityClinicsNagpur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Nagpur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Nagpur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2464,7 +2464,7 @@ def fertilityClinicsBhubaneswar(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Bhubaneswar')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Bhubaneswar')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2506,7 +2506,7 @@ def fertilityClinicsLudhiana(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Ludhiana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Ludhiana')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2548,7 +2548,7 @@ def fertilityClinicsJaipur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jaipur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jaipur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2590,7 +2590,7 @@ def fertilityClinicsLucknow(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Lucknow')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Lucknow')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2632,7 +2632,7 @@ def fertilityClinicsKanpur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kanpur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kanpur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2674,7 +2674,7 @@ def fertilityClinicsDehradun(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Dehradun')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Dehradun')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2716,7 +2716,7 @@ def fertilityClinicsKolkata(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Kolkata')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Kolkata')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2758,7 +2758,7 @@ def fertilityClinicsVisakhapatnam(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Visakhapatnam')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Visakhapatnam')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2800,7 +2800,7 @@ def fertilityClinicsVijayawada(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Vijayawada')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Vijayawada')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2842,7 +2842,7 @@ def fertilityClinicsNewDelhi(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='New Delhi')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='New Delhi')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2884,7 +2884,7 @@ def fertilityClinicsVadodara(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Vadodara')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Vadodara')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2926,7 +2926,7 @@ def fertilityClinicsGurugram(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gurugram')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gurugram')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2968,7 +2968,7 @@ def fertilityClinicsRohtak(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Rohtak')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Rohtak')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3010,7 +3010,7 @@ def fertilityClinicsJammu(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Jammu')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Jammu')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3052,7 +3052,7 @@ def fertilityClinicsRanchi(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Ranchi')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Ranchi')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3094,7 +3094,7 @@ def fertilityClinicsGwalior(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gwalior')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gwalior')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3136,7 +3136,7 @@ def fertilityClinicsPune(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Pune')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Pune')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3178,7 +3178,7 @@ def fertilityClinicsWarangal(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Warangal')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Warangal')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3220,7 +3220,7 @@ def fertilityClinicsGachibowli(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Gachibowli')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Gachibowli')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3262,7 +3262,7 @@ def fertilityClinicsMadhapur(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Madhapur')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Madhapur')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3304,7 +3304,7 @@ def fertilityClinicsNoida(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Noida')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Noida')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3346,7 +3346,7 @@ def fertilityClinicsMeerut(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Meerut')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Meerut')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3388,7 +3388,7 @@ def fertilityClinicsHaldwani(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Haldwani')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Haldwani')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3430,7 +3430,7 @@ def fertilityClinicsAthens(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Athens')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Athens')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3472,7 +3472,7 @@ def fertilityClinicsThessaloniki(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Thessaloniki')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Thessaloniki')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3514,7 +3514,7 @@ def fertilityClinicsNicosia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Nicosia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Nicosia')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -3556,7 +3556,7 @@ def fertilityClinicsGirne(request):
     pro_queryset_list = pro_queryset_list.filter(clinicCity__iexact='Girne')
     ppq_queryset_list = ppq_queryset_list.filter(clinicCity__iexact='Girne')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 

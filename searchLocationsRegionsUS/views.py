@@ -37,7 +37,7 @@ def fertilityClinicsAlabama(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alabama')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alabama')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -94,7 +94,7 @@ def fertilityClinicsAlaska(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Alaska')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Alaska')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -151,7 +151,7 @@ def fertilityClinicsArizona(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arizona')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arizona')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -208,7 +208,7 @@ def fertilityClinicsArkansas(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Arkansas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Arkansas')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -265,7 +265,7 @@ def fertilityClinicsCalifornia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='California')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='California')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -322,7 +322,7 @@ def fertilityClinicsColorado(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Colorado')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Colorado')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -379,7 +379,7 @@ def fertilityClinicsConnecticut(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Connecticut')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Connecticut')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -436,7 +436,7 @@ def fertilityClinicsDelaware(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Delaware')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Delaware')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -493,7 +493,7 @@ def fertilityClinicsFlorida(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Florida')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Florida')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -550,7 +550,7 @@ def fertilityClinicsGeorgia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Georgia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Georgia')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -607,7 +607,7 @@ def fertilityClinicsHawaii(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Hawaii')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Hawaii')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -664,7 +664,7 @@ def fertilityClinicsIdaho(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Idaho')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Idaho')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -721,7 +721,7 @@ def fertilityClinicsIllinois(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Illinois')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Illinois')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -778,7 +778,7 @@ def fertilityClinicsIndiana(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Indiana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Indiana')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -835,7 +835,7 @@ def fertilityClinicsIowa(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Iowa')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Iowa')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -892,7 +892,7 @@ def fertilityClinicsKansas(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kansas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kansas')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -949,7 +949,7 @@ def fertilityClinicsKentucky(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Kentucky')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Kentucky')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1006,7 +1006,7 @@ def fertilityClinicsLouisiana(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Louisiana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Louisiana')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1063,7 +1063,7 @@ def fertilityClinicsMaine(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maine')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maine')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1120,7 +1120,7 @@ def fertilityClinicsMaryland(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Maryland')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Maryland')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1177,7 +1177,7 @@ def fertilityClinicsMassachusetts(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Massachusetts')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Massachusetts')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1234,7 +1234,7 @@ def fertilityClinicsMichigan(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Michigan')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Michigan')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1291,7 +1291,7 @@ def fertilityClinicsMinnesota(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Minnesota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Minnesota')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1348,7 +1348,7 @@ def fertilityClinicsMississippi(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Mississippi')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Mississippi')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1405,7 +1405,7 @@ def fertilityClinicsMissouri(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Missouri')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Missouri')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1462,7 +1462,7 @@ def fertilityClinicsMontana(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Montana')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Montana')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1519,7 +1519,7 @@ def fertilityClinicsNebraska(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nebraska')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nebraska')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1576,7 +1576,7 @@ def fertilityClinicsNewHampshire(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Hampshire')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Hampshire')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1633,7 +1633,7 @@ def fertilityClinicsNewJersey(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Jersey')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Jersey')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1690,7 +1690,7 @@ def fertilityClinicsNewMexico(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New Mexico')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New Mexico')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1747,7 +1747,7 @@ def fertilityClinicsNewYork(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='New York')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='New York')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1804,7 +1804,7 @@ def fertilityClinicsNorthCarolina(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Carolina')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Carolina')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1861,7 +1861,7 @@ def fertilityClinicsNorthDakota(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='North Dakota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='North Dakota')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1918,7 +1918,7 @@ def fertilityClinicsNevada(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Nevada')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Nevada')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -1975,7 +1975,7 @@ def fertilityClinicsOhio(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Ohio')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Ohio')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2032,7 +2032,7 @@ def fertilityClinicsOklahoma(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oklahoma')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oklahoma')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2089,7 +2089,7 @@ def fertilityClinicsOregon(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Oregon')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Oregon')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2146,7 +2146,7 @@ def fertilityClinicsPennsylvania(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Pennsylvania')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2203,7 +2203,7 @@ def fertilityClinicsPuertoRico(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Puerto Rico')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Puerto Rico')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2260,7 +2260,7 @@ def fertilityClinicsRhodeIsland(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Rhode Island')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Rhode Island')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2317,7 +2317,7 @@ def fertilityClinicsSouthCarolina(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Carolina')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Carolina')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2374,7 +2374,7 @@ def fertilityClinicsSouthDakota(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='South Dakota')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='South Dakota')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2431,7 +2431,7 @@ def fertilityClinicsTennessee(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Tennessee')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Tennessee')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2488,7 +2488,7 @@ def fertilityClinicsTexas(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Texas')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Texas')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2545,7 +2545,7 @@ def fertilityClinicsUtah(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Utah')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Utah')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2602,7 +2602,7 @@ def fertilityClinicsVermont(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Vermont')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Vermont')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2659,7 +2659,7 @@ def fertilityClinicsVirginia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Virginia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Virginia')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2716,7 +2716,7 @@ def fertilityClinicsWashington(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Washington')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Washington')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2773,7 +2773,7 @@ def fertilityClinicsWestVirginia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='West Virginia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='West Virginia')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2830,7 +2830,7 @@ def fertilityClinicsWisconsin(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wisconsin')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wisconsin')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2887,7 +2887,7 @@ def fertilityClinicsWyoming(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Wyoming')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Wyoming')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -2944,7 +2944,7 @@ def fertilityClinicsDistrictOfColumbia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='DistrictOfColumbia')
     ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='DistrictOfColumbia')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 

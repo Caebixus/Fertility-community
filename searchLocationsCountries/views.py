@@ -38,7 +38,7 @@ def fertilityClinicUSA(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United States')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United States')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -140,7 +140,7 @@ def fertilityClinicUK(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='United Kingdom')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='United Kingdom')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -230,7 +230,7 @@ def fertilityClinicSpain(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Spain')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Spain')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -312,7 +312,7 @@ def fertilityClinicIndia(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='India')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='India')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -418,7 +418,7 @@ def fertilityClinicGreece(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Greece')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Greece')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -484,7 +484,7 @@ def fertilityClinicCzech(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Czech Republic')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Czech Republic')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 
@@ -550,7 +550,7 @@ def fertilityClinicCyprus(request):
     pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Cyprus')
     ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Cyprus')
 
-    queryset_list = queryset_list.order_by('?')
+
     pro_queryset_list = pro_queryset_list.order_by('?')
     ppq_queryset_list = ppq_queryset_list.order_by('?')
 

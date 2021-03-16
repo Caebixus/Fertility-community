@@ -188,12 +188,12 @@
         <li class="breadcrumb-item active" aria-current="page">Fertility clinics in USA</li>
         <li class="breadcrumb-item" aria-current="page">
           <button class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#cityCollapse" role="button" aria-expanded="false" aria-controls="cityCollapse" style="text-decoration: none">
-            Choose city
+            Choose state
           </button>
         </li>
       </ol>
       <div class="collapse" id="cityCollapse">
-        <p class="lead">Most popular IVF USA cities</p>
+        <p class="lead">Most popular IVF USA states</p>
         <div class="row">
           <div class="col-sm-4">
             <li><a class="text-muted" href="{% url 'fertilityClinicsTexas' %}">Texas fertility clinics ({{texasclinics}})</a></li>
@@ -214,7 +214,7 @@
           </div>
         </div>
         <hr>
-        <p class="lead">Other IVF USA cities</p>
+        <p class="lead">Other IVF USA states</p>
         <div class="row">
           <div class="col-sm-3">
             <li><a class="text-muted" href="{% url 'fertilityClinicsAlabama' %}">Alabama fertility clinics</a></li>
@@ -341,13 +341,13 @@
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
@@ -422,7 +422,7 @@
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
@@ -490,13 +490,13 @@
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
@@ -565,13 +565,13 @@
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
@@ -639,13 +639,13 @@
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
@@ -705,13 +705,13 @@
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
                 <a target="_blank" rel="noopener noreferrer" href="{{ order_datas.clinic_url }}">
-                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternative logo for BASIC clinic" style="height:70px; width:70px">
+                  <img class="imgHoverLogo" src="{% static 'img/health.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}

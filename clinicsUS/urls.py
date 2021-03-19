@@ -155,6 +155,7 @@ urlpatterns = [
     path('clinics/us/illinois/vios-fertility-institute-chicago-aurora', views.vfica, name='vfica'),
     path('clinics/us/illinois/vios-fertility-institute-chicago-wicker-park', views.vficwp, name='vficwp'),
     path('clinics/us/illinois/vios-fertility-institute-chicago-west-loop-lab', views.vficwlil, name='vficwlil'),
+    path('clinics/us/illinois/vios-fertility-institute-chicago-west-loop-ivf-lab', views.redvficwlil, name='redvficwlil'),
     path('clinics/us/illinois/vios-fertility-institute-chicago-glenview', views.vficg, name='vficg'),
     path('clinics/us/illinois/vios-fertility-institute-chicago-hoffman-estates', views.vfiche, name='vfiche'),
     path('clinics/us/illinois/davies-fertility-ivf-specialists', views.dfis, name='dfis'),

@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
+from django.urls import reverse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
@@ -25670,3 +25672,8 @@ def gwmedicalfacultyassociates(request):
         }
 
     return render(request, 'clinics/US/Washington-DC/gw-medical-faculty-associates.html', context)
+
+
+# --------------------------------------->>>>>>>> Redirects
+def redvficwlil(request):
+    return HttpResponsePermanentRedirect(reverse('vficwlil'))

@@ -7,7 +7,7 @@ from import_export.admin import ImportExportModelAdmin
 
 class PostAdmin(admin.ModelAdmin):
     save_as = True
-    list_display = ('id', 'clinicName', 'clinicOwner', 'clinicRegionLink', 'update_list_date', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'is_published_list_date', 'pro_update_is_published_list_date', 'clinicRegion', 'clinicState')
+    list_display = ('id', 'clinicName', 'clinicOwner', 'clinicCity', 'update_list_date', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'is_published_list_date', 'pro_update_is_published_list_date', 'clinicRegion', 'clinicState')
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'clinicOwner', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (

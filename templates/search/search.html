@@ -332,7 +332,7 @@
       <p style="font-size: 20px; color: white !important">Clinics with natural IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
 
       {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
-      <p style="font-size: 20px; color: white !important">Clinics with mild IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
+      <p style="font-size: 20px; color: white !important">Clinics with Mild (mini) IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
 
       {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
       <p style="font-size: 20px; color: white !important">Clinics with standard IVF treatment found: <strong>{% if my_total_count %}({{ my_total_count }}){% else %}(0){% endif %}</strong></p>
@@ -508,7 +508,7 @@
                     </div>
                     <div class="form-group form-check">
                       <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
-                      <label class="form-check-label" for="IVF treatment mild">Mild IVF</label>
+                      <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF</label>
                     </div>
                     <div class="form-group form-check">
                       <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
@@ -851,7 +851,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade style="border-top: 1px solid white">
-          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild IVF available</a></p>
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade style="border-top: 1px solid white">
@@ -984,7 +984,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade style="border-top: 1px solid white">
-          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild IVF available</a></p>
+          <p><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none; font-size: 15px; color: white; margin-bottom: 0px">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade style="border-top: 1px solid white">
@@ -1116,7 +1116,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>
@@ -1249,7 +1249,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>
@@ -1380,7 +1380,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>
@@ -1504,7 +1504,7 @@
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{{ order_datas.clinic_url }}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>

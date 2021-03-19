@@ -90,7 +90,7 @@
         {{ form.mild_ivf_treatment.errors }}
         <div class="row">
           <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
-            2. Mild IVF
+            2. Mild (mini) IVF
           </div>
           <div class="col-2 col-md">
             {{ form.mild_ivf_treatment }}
@@ -99,14 +99,14 @@
         {% if form.mild_ivf_treatment.value == True %}
           <div id="js_mild_ivf_cost" style="padding-top:1rem;">
             <br>
-            <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            <p>Cost of Mild (mini) IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
             {{ form.mild_ivf_treatment_cost.errors }}
             {{ form.mild_ivf_treatment_cost }}
           </div>
         {% else %}
           <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
             <br>
-            <p>Cost of Mild IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+            <p>Cost of Mild (mini) IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
             {{ form.mild_ivf_treatment_cost.errors }}
             {{ form.mild_ivf_treatment_cost }}
           </div>

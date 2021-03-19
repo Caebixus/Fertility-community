@@ -27,7 +27,7 @@
       </tr>
       <!-- Mild IVF -->
       <tr>
-        <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Small dose of ovarian stimulating drugs are used"><p style="text-align: left; font-size: 22px">Mild IVF <i class="far fa-question-circle"></i></p></th>
+        <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Small dose of ovarian stimulating drugs are used"><p style="text-align: left; font-size: 22px">Mild (mini) IVF <i class="far fa-question-circle"></i></p></th>
         <td>{% if listing.mild_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
           {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=listing.mild_ivf_treatment_cost|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>

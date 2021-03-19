@@ -35,7 +35,7 @@ CATEGORY_CHOICES_STATES = {
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
     'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
-    'CY': 'Cyprus - ' + str(my_total_count_greece) + ' fertility clinics',
+    'CY': 'Cyprus - ' + str(my_total_count_cyprus) + ' fertility clinics',
     }
 
 

@@ -1,0 +1,190 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}What is MILD (MINI) IVF? | 2021 | FertilityCommunity{% endblock %}
+{% block description %}With mild (mini) IVF, you still take some of the same medications you take during conventional IVF. However, you take far fewer medications and for a shorter period of time. The mild (mini) IVF process works with your natural menstrual cycle.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/what-is-mild-mini-ivf{% endblock %}
+{% block meta_keywords %}what is mild ivf, mild ivf, what is mini ivf, mini ivf{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/what-is-mild-mini-ivf"
+        },
+      "headline": "What is MILD (MINI) IVF?",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "Natural IVF is an alternative to conventional IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more."
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">What is Mild (mini) IVF?</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.created_at }}
+  <hr>
+  <br>
+  <br>
+  <p>As you begin to look into the IVF treatment process, you may be concerned about the number of medications you'll be required to take. You may have heard of <b>mild (mini)</b> IVF as an alternative to conventional IVF. If you'd like to learn more about this treatment and figure out if it may be a good option for you, read on.</p>
+  <br>
+  <p>If you are also looking for more information about standard <a href="https://www.fertilitycommunity.com/ivf-explained">IVF treatment</a> or more information about <a href="https://www.fertilitycommunity.com/blog/everything-you-need-to-know-about-natural-ivf">natural ivf</a>.</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <ol style="font-size: 135%;">
+    <li><p style="font-size: 100%"><a href="#bod1"><u>What is Mild (mini) IVF?</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod2"><u>Pros and Cons of Mild (mini) IVF</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod3"><u>Mild (mini) IVF vs. Tradtional IVF</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod4"><u>Mild (mini) IVF vs. Natural IVF</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod5"><u>Mild (mini) IVF Success Rates</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod6"><u>Is Mild (mini) IVF Right for Me?</u></a></p></li>
+    <li><p style="font-size: 100%"><a href="#bod7"><u>Final Thoughts</u></a></p></li>
+  </ol>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod1">
+    <h2 style="font-size: 160%"><b>What is Mild (mini) IVF?</b></h2>
+    <br>
+    <p>With mild IVF, you still take some of the same medications you take during conventional IVF. However, you take <u>far fewer medications</u> and for a shorter period of time. The mini IVF process works with your natural menstrual cycle. </p>
+    <br>
+    <p>Once your cycle is determined, you'll begin taking stimulation medication around two weeks before ovulation. These drugs will stimulate follicle growth and you'll be monitored through ultrasounds throughout the process. Around day 14 of the treatment, you'll have an egg collection and the procedure will now run the same as conventional IVF. </p>
+    <br>
+    <p>The retrieved eggs will be fertilized and will be monitored for growth for around three to five days. If the embryo or embryos are dividing properly, they'll be transferred. You'll wait about ten days and then you can take a pregnancy test to see if the procedure was successful.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod2">
+    <h2 style="font-size: 160%"><b>Pros and Cons of Mild (mini) IVF</b></h2>
+    <br>
+    <p>There are many <b>benefits</b> to mild IVF:</p>
+      <ul>
+        <li>Since you're taking less medication, your body isn't undergoing as much stress.</li>
+        <li>Many women who undergo conventional IVF report uncomfortable side effects, such as abdominal pain, bloating, mood swings, and more.  While you'll still experience some of these side effects with mini IVF, they should be greatly reduced and last a shorter amount of time.</li>
+        <li>You may elect to undergo mini IVF to reduce risk of complications like OHSS (Ovarian Hyperstimulation Syndrom).</li>
+        <li>You also don't have to take any downregulation medications, since you're working with your natural cycle, not against it. By working with your cycle through mild IVF, you increase your chances for healthier eggs and embryos and successful implantation.</li>
+        <li>While mild IVF can yield quite a few eggs during retrieval, it's nowhere near the name you may retrieve with conventional IVF. While more eggs/embryos increase your chance for success, you may have a religious or other issue that prevents you from discarding the extra embryos. With mild IVF, you usually only get a few eggs. You can transfer a couple at a time and save the others for a future cycle or pregnancy.</li>
+        <li>Mild (mini) IVF is also less expensive than conventional IVF since you aren't buying as many medications.</li>
+        <li>The success rates are good and you have a shorter wait time between cycles if you have to do more than one cycle.</li>
+      </ul>
+    <br>
+    <p>There are some <b>disadvantages</b> to mini IVF:
+      <ul>
+        <li>It isn't as successful as conventional IVF.</li>
+        <li>Mild (mini) IVF is only suited to people with certain fertility issues. If your issue is more severe, mild IVF may not work.</li>
+        <li>There are fewer eggs retrieved with mild IVF, meaning there are fewer chances for a viable embryo.</li>
+        <li>While mini IVF is less expensive, the lower success rate means that it could take several cycles, making it more expensive than conventional IVF.</li>
+      </ul>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod3">
+    <h2 style="font-size: 160%"><b>Mild (mini) IVF vs. Tradtional IVF</b></h2>
+    <br>
+    <p>The main differences between mild and traditional IVF occur during the first half of the procedure. With conventional IVF, you take medication for downregulation, or the stopping of your period. Conventional IVF takes full control of your ovulation cycle and the medicines can be intense.</p>
+    <br>
+    <p>While mild IVF still uses medications, the types, doses, and length of treatment are all less than in conventional IVF. Conventional IVF requires anywhere from <b>21-28 days</b> of treatment before egg retrieval, whereas mini IVF only requires <b>five to nine days</b>.</p>
+    <br>
+    <p>Once the egg retrieval process begins, the two treatments are quite similar, although there are usually more eggs retrieved with conventional IVF. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod4">
+    <h2 style="font-size: 160%"><b>Mild (mini) IVF vs. Natural IVF</b></h2>
+    <br>
+    <p>For natural IVF, no medications are taken before egg retrieval. Like mini IVF, the process works entirely with your body's natural cycle. However, natural IVF doesn't use any hormone-inducing drugs in order to enhance ovulation.</p>
+    <p>Mild (mini) IVF does use some medications to increase your chances of a successful egg retrieval. While there aren't as many eggs retrieved as with conventional IVF, mild IVF yields more eggs than natural IVF. With natural IVF, there's only one egg retrieved. </p>
+    <br>
+    <p>While natural IVF is less invasive and the cheapest of the IVF procedures, mini IVF is usually preferable, as the success rates are higher. More eggs always increase the success rates. Mild (mini) IVF is a happy medium between conventional and natural IVF. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod5">
+    <h2 style="font-size: 160%"><b>Mild (mini) IVF Success Rates</b></h2>
+    <br>
+    <p>Mild (mini) IVF success rates are lower than conventional IVF but higher than natural IVF. Success rates, meaning the percentage of procedures that result in a live birth, are around 49%. This number is in comparison with conventional IVF, which has a success rate of 63%. Simply put, the more eggs retrieved leads to greater chances of success.</p>
+    <blockquote cite="https://www.chelseafertilitynyc.com/blog/what-is-the-role-of-mini-ivf">
+      <p><cite>The clear advantage in utilizing MILD (mini) IVF is cost, with respectable pregnancy rates between 20-30% depending on age for good prognostic patients. The down side is that the cycle will not yield supernumerary embryos for a freeze, and will be very limited in supporting a management plan that involves pre implantation genetic testing or screening as multiple embryos are needed for both.</cite> Said <a rel="nofollow" href="https://www.chelseafertilitynyc.com/our-center/paul-gindoff-fertility-doctor">Dr. Paul Gindoff</a> of Chelsea Fertility NYC.</p>
+    </blockquote>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod6">
+    <h2 style="font-size: 160%"><b>Is Mild (mini) IVF Right for Me?</b></h2>
+    <br>
+    <p>While mini IVF certainly has its benefits, it's not the ideal choice for all patients. Your chances of success with mild IVF are highly dependent on the underlying <b>cause of your fertility</b>. If you're dealing with male factor infertility, mini IVF may be a good option since it's likely that you're ovulating correctly and producing healthy eggs. </p>
+    <br>
+    <p>Mild (mini) IVF may also be a good choice if you have an adequate egg reserve or if you're infertility is caused by PCOS (Polycystic Ovarian Syndrome). Success rates are higher in women who are under 35. If you're over 40, you're probably not the best candidate for mild IVF.</p>
+    <br>
+    <blockquote cite="https://www.dallasfertilitycenter.com/fertility-blog/is-mini-ivf-the-right-choice-for-you/">
+      <cite>
+        <p>These are the main factors by <a href="https://www.dallasfertilitycenter.com/our-center/meet-the-team/">Walid Saleh, MD</a> of Center for Reproductive Endocrinology:</p>
+        <ul>
+          <li><b>Maternal Age</b> – It is very important not to fall for the selling pitch that “less is better” when considering your treatment options. The number of chromosomally normal eggs is 1/3 at age 30, 1/5 at age 35, 1/10 at age 40 and 1/20 at age 45. This is true whether IVF medications are used or not. Because of this, women over 35, who have fewer chromosomally normal eggs, should not utilize Mini-IVF. If anything, it may be necessary to consider using a higher dosage of medications to maximize the number of eggs retrieved and to increase the chance of finding a chromosomally normal embryo. Because women above 35 or those with lower ovarian reserve may not generate many eggs on a low medication dosage, it may take multiple Mini-IVF cycles to create a chromosomally normal embryo. This ultimately makes this option less cost-effective for this age group.</li>
+          <li><b>Male Factor Infertility</b> – If your infertility is due to a male factor, injecting a single sperm into each egg (ICSI) is indicated. For this reason, traditional IVF is the best bet.</li>
+          <li><b>Genetic Conditions</b> – If you or your partner have a genetic condition that can be passed on to your child. Mini-IVF may not be the best treatment option for you. In this case, creating as many embryos as possible gives you the best chance of testing them prior to transfer (PGD) and selecting the genetically normal ones.</li>
+        </ul>
+      </cite>
+    </blockquote>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod7">
+    <h2 style="font-size: 160%"><b>Final Thoughts</b></h2>
+    <br>
+    <p>Mild (mini) IVF can be a good option if you're trying to reduce the effects of hormone-regulating drugs on your body. The procedure is easier and shorter than conventional IVF. </p>
+    <p>However, it's important to remember that mild (mini) IVF only works on some patients with specific underlying causes of fertility and has lower success rates than conventional IVF. Still, it can be an easier alternative to conventional IVF, especially if you're under the age of 35. </p>
+  </div>
+</div>
+{% endblock  %}

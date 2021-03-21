@@ -16,4 +16,5 @@ urlpatterns = [
 
     #Educational
     path('blog/everything-you-need-to-know-about-natural-ivf', views.everythingYouNeedToKnowAboutNaturalIvf, name='everythingYouNeedToKnowAboutNaturalIvf'),
+    path('blog/what-is-mild-mini-ivf', views.whatismildminiivf, name='whatismildminiivf'),
 ]

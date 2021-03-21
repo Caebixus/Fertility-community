@@ -87,3 +87,14 @@ def everythingYouNeedToKnowAboutNaturalIvf(request):
     }
 
     return render(request, 'blog/educational/everything-you-need-to-know-about-natural-ivf.html', context)
+
+def whatismildminiivf(request):
+    author = get_object_or_404(Author, pk=6)
+    blog = get_object_or_404(Blog, pk=11)
+
+    context = {
+        'author': author,
+        'blog': blog,
+    }
+
+    return render(request, 'blog/educational/what-is-mild-mini-ivf.html', context)

@@ -265,3 +265,10 @@ $("body").on("contextmenu",function(e){
 $("img").mousedown(function(e){
      e.preventDefault()
 });
+
+
+if (localStorage.getItem('popup') != 'shown') {
+  $('.popup-banner').show();
+  $('#formModal').modal('show')
+  localStorage.setItem('popup','shown')
+};

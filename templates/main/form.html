@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}2021 | Questionnaire{% endblock %}
+{% block description %}Please share information about your IVF experiences. Thank you.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/form{% endblock %}
+{% block noindexpage %}<meta name="robots" content="noindex">{% endblock %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Questionnaire</h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="container">
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfodQTzwrSv7xga2jWMJVK2gLwvzMbzrFv74waODF1o1EX8Yw/viewform?embedded=true" width="100%" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+<br>
+{% endblock  %}

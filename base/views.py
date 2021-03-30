@@ -323,6 +323,9 @@ def robots(request):
 def team(request):
     return render(request, 'main/team.html')
 
+def form(request):
+    return render(request, 'main/form.html')
+
 def blog(request):
     blog = Blog.objects.all().order_by('-created_at')
 
@@ -331,9 +334,6 @@ def blog(request):
     }
 
     return render(request, 'main/blog.html', context)
-
-def iframe1(request):
-    return render(request, 'main/iframepic1.html')
 
 def cookies(request):
     return render(request, 'main/cookies.html')

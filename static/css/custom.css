@@ -179,6 +179,22 @@ select {
   font-family: 'Josefin Sans';
 }
 
+#brandButtonNoGoal {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonNoGoal:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}
+
+
 #brandButtonGoalPackage {
   border-color: #CD5360;
   background-color: #CD5360;
@@ -321,7 +337,7 @@ p {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 130%;
 }
 
 ul {
@@ -329,7 +345,7 @@ ul {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 130%;
 }
 
 ol {
@@ -337,7 +353,7 @@ ol {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  font-size: 115%;
+  font-size: 130%;
 }
 
 table th:first-child{

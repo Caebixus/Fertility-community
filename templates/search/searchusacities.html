@@ -1,0 +1,364 @@
+{% if values.Region == 'AL' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Alabama City</option>
+        {% for key, value in AL_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'AZ' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Arizona City</option>
+        {% for key, value in AZ_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'CA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select California City</option>
+        {% for key, value in CA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'CO' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Colorado City</option>
+        {% for key, value in CO_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'CT' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Connecticut City</option>
+        {% for key, value in CT_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'DE' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Delaware City</option>
+        {% for key, value in DE_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'FL' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Florida City</option>
+        {% for key, value in FL_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'GA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Georgia City</option>
+        {% for key, value in GA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'HI' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Hawaii City</option>
+        {% for key, value in HI_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'IL' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Illinois City</option>
+        {% for key, value in IL_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'IN' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Indiana City</option>
+        {% for key, value in IN_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'KY' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Kentucky City</option>
+        {% for key, value in KY_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'MA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Massachusetts City</option>
+        {% for key, value in MA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'MO' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Missouri City</option>
+        {% for key, value in MO_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'NV' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Nevada City</option>
+        {% for key, value in NV_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'NJ' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select New Jersey City</option>
+        {% for key, value in NJ_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'NY' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select New York City</option>
+        {% for key, value in NY_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'NC' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select North Carolina City</option>
+        {% for key, value in NC_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'OH' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Ohio City</option>
+        {% for key, value in OH_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'OK' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Oklahoma City</option>
+        {% for key, value in OK_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'OR' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Oregon City</option>
+        {% for key, value in OR_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'PA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Pennsylvania City</option>
+        {% for key, value in PA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'TN' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Tennessee City</option>
+        {% for key, value in TN_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'TX' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Texas City</option>
+        {% for key, value in TX_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'VA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Virginia City</option>
+        {% for key, value in VA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+{% elif values.Region == 'WA' %}
+<div class="form-group" style="padding-top:1rem" id="regions-us">
+  <div class="card" style="border-radius: 8px;">
+    <div class="card-header" style="background-color: white; border-radius: 8px;">
+      <select class="browser-default custom-select custom-select-md" id="City" name="City" class="form-control">
+        <option value="" selected>Select Washington City</option>
+        {% for key, value in WA_CITIES.items %}
+        <option value="{{ key }}" {% if key == values.City %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+{% endif %}

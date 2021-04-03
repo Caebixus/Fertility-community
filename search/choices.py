@@ -199,3 +199,156 @@ CATEGORY_CHOICES_UK_CITIES = {
     'Southampton': 'Southampton',
     'Swansea': 'Swansea',
     }
+
+#----------------------------------------------------------------------------------------------------------------------------
+AL_CITIES = {
+    'Birmingham': 'Birmingham',
+    'Mobile': 'Mobile',
+    }
+
+AZ_CITIES = {
+    'Gilbert': 'Gilbert',
+    'Mesa': 'Mesa',
+    'Scottsdale': 'Scottsdale',
+    }
+
+CA_CITIES = {
+    'Los Angeles': 'Los Angeles',
+    }
+
+CO_CITIES = {
+    'Denver': 'Denver',
+    }
+
+CT_CITIES = {
+    'Norwalk': 'Norwalk',
+    'Stamford': 'Stamford',
+    'Trumbull': 'Trumbull',
+    }
+
+DE_CITIES = {
+    'Newark': 'Newark',
+    }
+
+FL_CITIES = {
+    'Boca Raton': 'Boca Raton',
+    'Brandon': 'Brandon',
+    'Clearwater': 'Clearwater',
+    'Miami': 'Miami',
+    'Tampa': 'Tampa',
+    'Winter Park': 'Winter Park',
+    }
+
+GA_CITIES = {
+    'Atlanta': 'Atlanta',
+    'Marietta': 'Marietta',
+    }
+
+HI_CITIES = {
+    'Honolulu': 'Honolulu',
+    }
+
+IL_CITIES = {
+    'Glenview': 'Glenview',
+    'Hoffman Estates': 'Hoffman Estates',
+    'Chicago': 'Chicago',
+    }
+
+IN_CITIES = {
+    'Bloomington': 'Bloomington',
+    'Indianapolis': 'Indianapolis',
+    'Munster': 'Munster',
+    'Valparaiso': 'Valparaiso',
+    }
+
+KY_CITIES = {
+    'Louisville': 'Louisville',
+    }
+
+LA_CITIES = {
+    'Baton Rouge': 'Baton Rouge',
+    'New Orleans': 'New Orleans',
+    }
+
+KY_CITIES = {
+    'Bangor': 'Bangor',
+    }
+
+MA_CITIES = {
+    'Boston': 'Boston',
+    }
+
+MO_CITIES = {
+    'St. Louis': 'St. Louis',
+    }
+
+NV_CITIES = {
+    'Las Vegas': 'Las Vegas',
+    }
+
+NJ_CITIES = {
+    'Hoboken': 'Hoboken',
+    'Jersey City': 'Jersey City',
+    'Marlton': 'Marlton',
+    'Princeton': 'Princeton',
+    }
+
+NY_CITIES = {
+    'Brooklyn': 'Brooklyn',
+    'New York City': 'New York City',
+    'Staten Island': 'Staten Island',
+    'Syracuse': 'Syracuse',
+    }
+
+NC_CITIES = {
+    'Charlotte': 'Charlotte',
+    }
+
+OH_CITIES = {
+    'Akron': 'Akron',
+    'West Chester': 'West Chester',
+    }
+
+OK_CITIES = {
+    'Oklahoma City': 'Oklahoma City',
+    }
+
+OR_CITIES = {
+    'Portland': 'Portland',
+    }
+
+PA_CITIES = {
+    'Bethlehem': 'Bethlehem',
+    'Lancaster': 'Lancaster',
+    'Philadelphia': 'Philadelphia',
+    'West Chester': 'West Chester',
+    }
+
+TN_CITIES = {
+    'Franklin': 'Franklin',
+    'Chattanooga': 'Chattanooga',
+    'Nashville': 'Nashville',
+    }
+
+TX_CITIES = {
+    'Austin': 'Austin',
+    'Dallas': 'Dallas',
+    'Frisco': 'Frisco',
+    'Houston': 'Houston',
+    'McKinney': 'McKinney',
+    'San Antonio': 'San Antonio',
+    'Sugar Land': 'Sugar Land',
+    'Webster': 'Webster',
+    }
+
+VA_CITIES = {
+    'Arlington': 'Arlington',
+    'Fairfax': 'Fairfax',
+    'Reston': 'Reston',
+    }
+
+WA_CITIES = {
+    'Bellevue': 'Bellevue',
+    'Kirkland': 'Kirkland',
+    'Seattle': 'Seattle',
+    }

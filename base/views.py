@@ -37,6 +37,9 @@ def index(request):
     cyclinics = BasicClinic.objects.filter(clinicState__iexact='Cyprus').exclude(is_published=False)
     cyclinics = cyclinics.count()
 
+    mxclinics = BasicClinic.objects.filter(clinicState__iexact='Mexico').exclude(is_published=False)
+    mxclinics = mxclinics.count()
+
     #UK CITIES
     londonclinics = BasicClinic.objects.filter(clinicRegion__iexact='London').exclude(is_published=False)
     londonclinics = londonclinics.count()
@@ -227,6 +230,13 @@ def index(request):
     girneclinics = BasicClinic.objects.filter(clinicCity__iexact='Girne').exclude(is_published=False)
     girneclinics = girneclinics.count()
 
+    #MX REGIONS
+    cancunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancun').exclude(is_published=False)
+    cancunclinics = cancunclinics.count()
+
+    mexicocityclinics = BasicClinic.objects.filter(clinicCity__iexact='Mexico City').exclude(is_published=False)
+    mexicocityclinics = mexicocityclinics.count()
+
     context = {
         'blog': blog,
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
@@ -240,6 +250,7 @@ def index(request):
         'inclinics': inclinics,
         'grclinics': grclinics,
         'cyclinics': cyclinics,
+        'mxclinics': mxclinics,
         'londonclinics': londonclinics,
         'bristolclinics': bristolclinics,
         'leedsclinics': leedsclinics,
@@ -301,6 +312,8 @@ def index(request):
         'thessalonikiclinics': thessalonikiclinics,
         'nicosiaclinics': nicosiaclinics,
         'girneclinics': girneclinics,
+        'cancunclinics': cancunclinics,
+        'mexicocityclinics': mexicocityclinics,
     }
 
     return render(request, 'main/index.html', context)

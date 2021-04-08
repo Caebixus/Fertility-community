@@ -231,7 +231,7 @@ def index(request):
     girneclinics = girneclinics.count()
 
     #MX REGIONS
-    cancunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancun').exclude(is_published=False)
+    cancunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancún').exclude(is_published=False)
     cancunclinics = cancunclinics.count()
 
     mexicocityclinics = BasicClinic.objects.filter(clinicCity__iexact='Mexico City').exclude(is_published=False)

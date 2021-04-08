@@ -725,6 +725,24 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
         'crownivfcyprus',
         'dunyaivfcyprusfertilityclinic',
         'kyreniaivfcenter',
+
+        #Mexico
+        'iregaacapulco',
+        'fertilityclinicamericas',
+        'advancedfertilitycenterfertilitycentercancun',
+        'newlifemexico',
+        'iregacancun',
+        'embryogengertilitycenterguasave',
+        'enlistalofertilidadmexicociudaddemexico',
+        'citmermedicinareproductiva',
+        'embryogenfertilitycenterculiacan',
+        'embryogenfertilitycenterhermosillo',
+        'embryogenfertilitycentermazatlan',
+        'mexicofertilitycenter',
+        'embryogenfertilitycenternogales',
+        'ivfvallarta',
+        'surrogacymexico',
+        'iregapuebla',
         ]
 
     def location(self, item):

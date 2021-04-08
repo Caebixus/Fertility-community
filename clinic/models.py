@@ -88,6 +88,7 @@ class BasicClinic(models.Model):
         ('EUR', 'EUR'),
         ('GBP', 'GBP'),
         ('INR', 'INR'),
+        ('MXN', 'MXN'),
         )
     defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True)
 

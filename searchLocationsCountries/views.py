@@ -629,8 +629,8 @@ def fertilityClinicMexico(request):
     paginationing = paginator.get_page(page)
 
     #CY CITIES
-    cauncunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancún').exclude(is_published=False)
-    cauncunclinics = cauncunclinics.count()
+    cancunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancún').exclude(is_published=False)
+    cancunclinics = cancunclinics.count()
 
     mexicocityclinics = BasicClinic.objects.filter(clinicCity__iexact='Mexico City').exclude(is_published=False)
     mexicocityclinics = mexicocityclinics.count()
@@ -649,7 +649,7 @@ def fertilityClinicMexico(request):
         'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
         'CATEGORY_CHOICES_MX_CITIES': CATEGORY_CHOICES_MX_CITIES,
         'my_total_count': my_total_count,
-        'cauncunclinics': cauncunclinics,
+        'cancunclinics': cancunclinics,
         'mexicocityclinics': mexicocityclinics,
         }
 

@@ -28,6 +28,10 @@ my_total_count_cyprus = BasicClinic.objects.filter(clinicState__iexact='Cyprus')
 my_total_count_cyprus = my_total_count_cyprus.filter(is_published=True)
 my_total_count_cyprus = my_total_count_cyprus.count()
 
+my_total_count_mexico = BasicClinic.objects.filter(clinicState__iexact='Mexico')
+my_total_count_mexico = my_total_count_mexico.filter(is_published=True)
+my_total_count_mexico = my_total_count_mexico.count()
+
 CATEGORY_CHOICES_STATES = {
     'US': 'United States - ' + str(my_total_count_usa) + ' fertility clinics',
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
@@ -36,9 +40,14 @@ CATEGORY_CHOICES_STATES = {
     'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
     'CY': 'Cyprus - ' + str(my_total_count_cyprus) + ' fertility clinics',
+    'MX': 'Mexico - ' + str(my_total_count_mexico) + ' fertility clinics',
     }
 
-
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_MX_CITIES = {
+    'Cancún': 'Cancún',
+    'Mexico City': 'Mexico City',
+    }
 
 #----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_CZ_CITIES = {
@@ -69,6 +78,7 @@ CATEGORY_CHOICES_SP_CITIES = {
     'Valencia': 'Valencia',
     }
 
+#----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_US_REGION = {
     'AL': 'Alabama',
     'AK': 'Alaska',
@@ -124,6 +134,7 @@ CATEGORY_CHOICES_US_REGION = {
     'DC': 'District of Columbia',
     }
 
+#----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_IN_CITIES = {
     'Amdavad': 'Amdavad',
     'Bangalore': 'Bangalore',
@@ -165,6 +176,7 @@ CATEGORY_CHOICES_IN_CITIES = {
     'Warangal': 'Warangal',
     }
 
+#----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_UK_CITIES = {
     'Aberdeen': 'Aberdeen',
     'Bath': 'Bath',

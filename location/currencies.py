@@ -14,3 +14,7 @@ eurToInr = 88.49
 inrToGbp = 0.010
 inrToEur = 0.011
 inrToUsd = 0.013
+
+mxnToGbp = 0.036
+mxnToEur = 0.042
+mxnToUsd = 0.050

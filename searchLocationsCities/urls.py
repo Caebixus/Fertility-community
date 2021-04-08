@@ -97,6 +97,10 @@ urlpatterns = [
     path('fertility-clinics/cyprus/nicosia', views.fertilityClinicsNicosia, name='fertilityClinicsNicosia'),
     path('fertility-clinics/cyprus/girne', views.fertilityClinicsGirne, name='fertilityClinicsGirne'),
 
+    # Mexico
+    path('fertility-clinics/mexico/cancun', views.fertilityClinicsCancun, name='fertilityClinicsCancun'),
+    path('fertility-clinics/mexico/mexico-city', views.fertilityClinicsMexicoCity, name='fertilityClinicsMexicoCity'),
+
     # --------------------------------------->>>>>>>> Redirects
     path('locations/fertility-clinics-prague', views.fertilityClinicPrague1, name='fertilityClinicPrague1'),
     path('locations/fertility-clinics-brno', views.fertilityClinicBrno1, name='fertilityClinicBrno1'),

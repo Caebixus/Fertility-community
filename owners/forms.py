@@ -4,7 +4,7 @@ from clinic.models import BasicClinic
 from .models import ownerProInterested
 from packages.models import Packages, Package
 from packages.choices import CATEGORY_PACKAGE
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_UK_CITIES
+from search.choices import CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_MX_CITIES
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.forms.widgets import HiddenInput
@@ -16,6 +16,7 @@ CATEGORY_CHOICES_CURRENCY = (
     ('EUR', 'EUR'),
     ('GBP', 'GBP'),
     ('INR', 'INR'),
+    ('MXN', 'MXN'),
     )
 
 PACKAGE_TYPE = (

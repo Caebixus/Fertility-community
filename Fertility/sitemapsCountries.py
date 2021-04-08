@@ -18,6 +18,7 @@ class CountriesViewSitemap(sitemaps.Sitemap):
         'fertilityClinicGreece',
         'fertilityClinicCzech',
         'fertilityClinicCyprus',
+        'fertilityClinicMexico',
         ]
 
     def location(self, item):

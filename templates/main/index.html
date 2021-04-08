@@ -385,6 +385,24 @@
         </div>
       </div>
       <hr>
+      <p>
+        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#mexico_fertility_clinics" role="button" aria-expanded="false" aria-controls="mexico_fertility_clinics">
+          <b>Mexico <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{mxclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="mexico_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicMexico' %}"><b>Fertility clinics in Mexico ({{mxclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCancun' %}">Cancún fertility clinics ({{cancunclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMexicoCity' %}">Mexico City fertility clinics ({{mexicocityclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsMXRegions' %}"><u><b>Mexico IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

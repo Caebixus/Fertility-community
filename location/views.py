@@ -4,7 +4,7 @@ from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
 from itertools import chain
-from .currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
+from .currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd, mxnToGbp, mxnToEur, mxnToUsd
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def locationsStandardIVF(request):
@@ -107,6 +107,22 @@ def locationsStandardIVF(request):
             gbpCurrency_cy_ivf = None
             usdCurrency_cy_ivf = None
 
+#-------------------------------------------------------------------------------
+    queryset_list_mx = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_mx = queryset_list_mx.filter(clinicState__iexact='Mexico')
+    my_total_clinic_count_mx = queryset_list_mx.count()
+    queryset_list_mx_ivf = queryset_list_mx.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_mx_ivf.items():
+        mxnCurrency_mx_ivf = val
+        if mxnCurrency_mx_ivf is not None:
+            eurCurrency_mx_ivf = val * mxnToEur
+            gbpCurrency_mx_ivf = val * mxnToGbp
+            usdCurrency_mx_ivf = val * mxnToUsd
+        else:
+            eurCurrency_mx_ivf = None
+            gbpCurrency_mx_ivf = None
+            usdCurrency_mx_ivf = None
+
     context = {
         'my_total_clinic_count_uk': my_total_clinic_count_uk,
         'gbpCurrency_uk_ivf': gbpCurrency_uk_ivf,
@@ -142,6 +158,11 @@ def locationsStandardIVF(request):
         'gbpCurrency_cy_ivf': gbpCurrency_cy_ivf,
         'usdCurrency_cy_ivf': usdCurrency_cy_ivf,
         'eurCurrency_cy_ivf': eurCurrency_cy_ivf,
+
+        'my_total_clinic_count_mx': my_total_clinic_count_mx,
+        'gbpCurrency_mx_ivf': gbpCurrency_mx_ivf,
+        'usdCurrency_mx_ivf': usdCurrency_mx_ivf,
+        'eurCurrency_mx_ivf': eurCurrency_mx_ivf,
         }
 
     return render(request, 'main/Locations/locations-standard-ivf.html', context)
@@ -9347,3 +9368,199 @@ def locationsCYRegions(request):
         'my_total_count_girne': my_total_count_girne,
         }
     return render(request, 'main/Locations/CYLocations/cy-regions-ivf.html', context)
+
+def locationsMXRegions(request):
+    queryset_list_mx = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_mexicocity = queryset_list_mx.filter(clinicCity__iexact='Mexico City')
+    my_total_count_mexicocity = queryset_list_mexicocity.count()
+    queryset_list_mexicocity_ivf = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_mexicocity_ivf.items():
+        mxnCurrency_mexicocity_ivf = val
+        if mxnCurrency_mexicocity_ivf is not None:
+            usdCurrency_mexicocity_ivf = val * mxnToUsd
+            gbpCurrency_mexicocity_ivf = val * mxnToGbp
+            eurCurrency_mexicocity_ivf = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_ivf = None
+            gbpCurrency_mexicocity_ivf = None
+            eurCurrency_mexicocity_ivf = None
+
+    queryset_list_mexicocity_egg = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_mexicocity_egg.items():
+        mxnCurrency_mexicocity_egg = val
+        if mxnCurrency_mexicocity_egg is not None:
+            usdCurrency_mexicocity_egg = val * mxnToUsd
+            gbpCurrency_mexicocity_egg = val * mxnToGbp
+            eurCurrency_mexicocity_egg = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_egg = None
+            gbpCurrency_mexicocity_egg = None
+            eurCurrency_mexicocity_egg = None
+
+    queryset_list_mexicocity_embryo = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_mexicocity_embryo.items():
+        mxnCurrency_mexicocity_embryo = val
+        if mxnCurrency_mexicocity_embryo is not None:
+            usdCurrency_mexicocity_embryo = val * mxnToUsd
+            gbpCurrency_mexicocity_embryo = val * mxnToGbp
+            eurCurrency_mexicocity_embryo = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_embryo = None
+            gbpCurrency_mexicocity_embryo = None
+            eurCurrency_mexicocity_embryo = None
+
+    queryset_list_mexicocity_sperm = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_mexicocity_sperm.items():
+        mxnCurrency_mexicocity_sperm = val
+        if mxnCurrency_mexicocity_sperm is not None:
+            usdCurrency_mexicocity_sperm = val * mxnToUsd
+            gbpCurrency_mexicocity_sperm = val * mxnToGbp
+            eurCurrency_mexicocity_sperm = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_sperm = None
+            gbpCurrency_mexicocity_sperm = None
+            eurCurrency_mexicocity_sperm = None
+
+    queryset_list_mexicocity_icsi = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_mexicocity_icsi.items():
+        mxnCurrency_mexicocity_icsi = val
+        if mxnCurrency_mexicocity_icsi is not None:
+            usdCurrency_mexicocity_icsi = val * mxnToUsd
+            gbpCurrency_mexicocity_icsi = val * mxnToGbp
+            eurCurrency_mexicocity_icsi = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_icsi = None
+            gbpCurrency_mexicocity_icsi = None
+            eurCurrency_mexicocity_icsi = None
+
+    queryset_list_mexicocity_iui = queryset_list_mexicocity.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_mexicocity_iui.items():
+        mxnCurrency_mexicocity_iui = val
+        if mxnCurrency_mexicocity_iui is not None:
+            usdCurrency_mexicocity_iui = val * mxnToUsd
+            gbpCurrency_mexicocity_iui = val * mxnToGbp
+            eurCurrency_mexicocity_iui = val * mxnToEur
+        else:
+            usdCurrency_mexicocity_iui = None
+            gbpCurrency_mexicocity_iui = None
+            eurCurrency_mexicocity_iui = None
+
+    #--------------------------------------------------------------------------
+    queryset_list_cancun = queryset_list_mx.filter(clinicRegion__iexact='Cancún')
+    my_total_count_cancun = queryset_list_cancun.count()
+    queryset_list_cancun_ivf = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_cancun_ivf.items():
+        mxnCurrency_cancun_ivf = val
+        if mxnCurrency_cancun_ivf is not None:
+            usdCurrency_cancun_ivf = val * mxnToUsd
+            gbpCurrency_cancun_ivf = val * mxnToGbp
+            eurCurrency_cancun_ivf = val * mxnToEur
+        else:
+            usdCurrency_cancun_ivf = None
+            gbpCurrency_cancun_ivf = None
+            eurCurrency_cancun_ivf = None
+
+    queryset_list_cancun_egg = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_cancun_egg.items():
+        mxnCurrency_cancun_egg = val
+        if mxnCurrency_cancun_egg is not None:
+            usdCurrency_cancun_egg = val * mxnToUsd
+            gbpCurrency_cancun_egg = val * mxnToGbp
+            eurCurrency_cancun_egg = val * mxnToEur
+        else:
+            usdCurrency_cancun_egg = None
+            gbpCurrency_cancun_egg = None
+            eurCurrency_cancun_egg = None
+
+    queryset_list_cancun_embryo = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_cancun_embryo.items():
+        mxnCurrency_cancun_embryo = val
+        if mxnCurrency_cancun_embryo is not None:
+            usdCurrency_cancun_embryo = val * mxnToUsd
+            gbpCurrency_cancun_embryo = val * mxnToGbp
+            eurCurrency_cancun_embryo = val * mxnToEur
+        else:
+            usdCurrency_cancun_embryo = None
+            gbpCurrency_cancun_embryo = None
+            eurCurrency_cancun_embryo = None
+
+    queryset_list_cancun_sperm = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_cancun_sperm.items():
+        mxnCurrency_cancun_sperm = val
+        if mxnCurrency_cancun_sperm is not None:
+            usdCurrency_cancun_sperm = val * mxnToUsd
+            gbpCurrency_cancun_sperm = val * mxnToGbp
+            eurCurrency_cancun_sperm = val * mxnToEur
+        else:
+            usdCurrency_cancun_sperm = None
+            gbpCurrency_cancun_sperm = None
+            eurCurrency_cancun_sperm = None
+
+    queryset_list_cancun_icsi = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_cancun_icsi.items():
+        mxnCurrency_cancun_icsi = val
+        if mxnCurrency_cancun_icsi is not None:
+            usdCurrency_cancun_icsi = val * mxnToUsd
+            gbpCurrency_cancun_icsi = val * mxnToGbp
+            eurCurrency_cancun_icsi = val * mxnToEur
+        else:
+            usdCurrency_cancun_icsi = None
+            gbpCurrency_cancun_icsi = None
+            eurCurrency_cancun_icsi = None
+
+    queryset_list_cancun_iui = queryset_list_cancun.filter(is_published=True).aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_cancun_iui.items():
+        mxnCurrency_cancun_iui = val
+        if mxnCurrency_cancun_iui is not None:
+            usdCurrency_cancun_iui = val * mxnToUsd
+            gbpCurrency_cancun_iui = val * mxnToGbp
+            eurCurrency_cancun_iui = val * mxnToEur
+        else:
+            usdCurrency_cancun_iui = None
+            gbpCurrency_cancun_iui = None
+            eurCurrency_cancun_iui = None
+
+    context = {
+        'gbpCurrency_mexicocity_ivf': gbpCurrency_mexicocity_ivf,
+        'usdCurrency_mexicocity_ivf': usdCurrency_mexicocity_ivf,
+        'eurCurrency_mexicocity_ivf': eurCurrency_mexicocity_ivf,
+        'gbpCurrency_mexicocity_egg': gbpCurrency_mexicocity_egg,
+        'usdCurrency_mexicocity_egg': usdCurrency_mexicocity_egg,
+        'eurCurrency_mexicocity_egg': eurCurrency_mexicocity_egg,
+        'gbpCurrency_mexicocity_embryo': gbpCurrency_mexicocity_embryo,
+        'usdCurrency_mexicocity_embryo': usdCurrency_mexicocity_embryo,
+        'eurCurrency_mexicocity_embryo': eurCurrency_mexicocity_embryo,
+        'gbpCurrency_mexicocity_sperm': gbpCurrency_mexicocity_sperm,
+        'usdCurrency_mexicocity_sperm': usdCurrency_mexicocity_sperm,
+        'eurCurrency_mexicocity_sperm': eurCurrency_mexicocity_sperm,
+        'gbpCurrency_mexicocity_icsi': gbpCurrency_mexicocity_icsi,
+        'usdCurrency_mexicocity_icsi': usdCurrency_mexicocity_icsi,
+        'eurCurrency_mexicocity_icsi': eurCurrency_mexicocity_icsi,
+        'gbpCurrency_mexicocity_iui': gbpCurrency_mexicocity_iui,
+        'usdCurrency_mexicocity_iui': usdCurrency_mexicocity_iui,
+        'eurCurrency_mexicocity_iui': eurCurrency_mexicocity_iui,
+        'my_total_count_mexicocity': my_total_count_mexicocity,
+
+        'gbpCurrency_cancun_ivf': gbpCurrency_cancun_ivf,
+        'usdCurrency_cancun_ivf': usdCurrency_cancun_ivf,
+        'eurCurrency_cancun_ivf': eurCurrency_cancun_ivf,
+        'gbpCurrency_cancun_egg': gbpCurrency_cancun_egg,
+        'usdCurrency_cancun_egg': usdCurrency_cancun_egg,
+        'eurCurrency_cancun_egg': eurCurrency_cancun_egg,
+        'gbpCurrency_cancun_embryo': gbpCurrency_cancun_embryo,
+        'usdCurrency_cancun_embryo': usdCurrency_cancun_embryo,
+        'eurCurrency_cancun_embryo': eurCurrency_cancun_embryo,
+        'gbpCurrency_cancun_sperm': gbpCurrency_cancun_sperm,
+        'usdCurrency_cancun_sperm': usdCurrency_cancun_sperm,
+        'eurCurrency_cancun_sperm': eurCurrency_cancun_sperm,
+        'gbpCurrency_cancun_icsi': gbpCurrency_cancun_icsi,
+        'usdCurrency_cancun_icsi': usdCurrency_cancun_icsi,
+        'eurCurrency_cancun_icsi': eurCurrency_cancun_icsi,
+        'gbpCurrency_cancun_iui': gbpCurrency_cancun_iui,
+        'usdCurrency_cancun_iui': usdCurrency_cancun_iui,
+        'eurCurrency_cancun_iui': eurCurrency_cancun_iui,
+        'my_total_count_cancun': my_total_count_cancun,
+        }
+    return render(request, 'main/Locations/MXLocations/mx-regions-ivf.html', context)

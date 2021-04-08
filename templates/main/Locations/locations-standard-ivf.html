@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}IVF costs Comparison | 2020{% endblock %}
+{% block title %}IVF costs Comparison | 2021{% endblock %}
 {% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost{% endblock %}
 {% block content %}
@@ -119,6 +119,15 @@
               <div id="usdBoard1g" style="display:none">{% if usdCurrency_cy_ivf %}{{ usdCurrency_cy_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
               <div id="eurBoard2g" style="display:none">{% if eurCurrency_cy_ivf %}{{ eurCurrency_cy_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
               <div id="gbpBoard3g" style="display:none">{% if gbpCurrency_cy_ivf %}{{ gbpCurrency_cy_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              <div id="defaultBoard1h">Choose currency above</div>
+              <div id="usdBoard1h" style="display:none">{% if usdCurrency_mx_ivf %}{{ usdCurrency_mx_ivf|floatformat:'0'|intcomma }} ${% else %} Unknown{% endif %}</div>
+              <div id="eurBoard2h" style="display:none">{% if eurCurrency_mx_ivf %}{{ eurCurrency_mx_ivf|floatformat:'0'|intcomma }} €{% else %} Unknown{% endif %}</div>
+              <div id="gbpBoard3h" style="display:none">{% if gbpCurrency_mx_ivf %}{{ gbpCurrency_mx_ivf|floatformat:'0'|intcomma }} £{% else %} Unknown{% endif %}</div>
             </td>
           </tr>
         </tbody>

@@ -1,0 +1,92 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% block title %}Mexico IVF costs | 2021 Comparison{% endblock %}
+{% block description %}Search hundreds of Mexico fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/mexico{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Standard IVF Costs in Mexico | 2021</h1>
+    <p class="lead" style="color:white">Compare average IVF costs in Mexico IVF & fertility clinics</p>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Standard IVF treatment
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'locationsCYRegions' %}">Standard IVF treatment</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
+        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'locations' %}" style="text-decoration: none">IVF costs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Mexico</li>
+      </ol>
+    </div>
+  </nav>
+</div>
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP Mexico cities</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <p style="font-size: 15px"><i>*Change currency in top navigation menu</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">
+                <select class="form-control" id="ChooseCurrency">
+                  <option value="" selected>Currency</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>GBP</option>
+                </select>
+              </th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({% if my_total_count_cancun %}{{ my_total_count_cancun }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardCancun">Choose currency above</div>
+                <div id="usdCancun" style="display:none">{% if usdCurrency_cancun_ivf %}{{ usdCurrency_cancun_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurCancun" style="display:none">{% if eurCurrency_cancun_ivf %}{{ eurCurrency_cancun_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpCancun" style="display:none">{% if gbpCurrency_cancun_ivf %}{{ gbpCurrency_cancun_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({% if my_total_count_mexicocity %}{{ my_total_count_mexicocity }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <td style="font-size: 14px">
+                <div id="defaultBoardMexicoCity">Choose currency above</div>
+                <div id="usdMexicoCity" style="display:none">{% if usdCurrency_mexicocity_ivf %}{{ usdCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
+                <div id="eurMexicoCity" style="display:none">{% if eurCurrency_mexicocity_ivf %}{{ eurCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
+                <div id="gbpMexicoCity" style="display:none">{% if gbpCurrency_mexicocity_ivf %}{{ gbpCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
+{% endblock  %}

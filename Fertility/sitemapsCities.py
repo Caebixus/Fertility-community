@@ -98,6 +98,9 @@ class CitiesViewSitemap(sitemaps.Sitemap):
 
         'fertilityClinicsNicosia',
         'fertilityClinicsGirne',
+
+        'fertilityClinicsCancun',
+        'fertilityClinicsMexicoCity',
         ]
 
     def location(self, item):

@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES
+from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_MX_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
@@ -50,7 +50,7 @@ def fertilityClinicUSA(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    #SP CITIES
+    #US REGIONS
     texasclinics = BasicClinic.objects.filter(clinicRegion__iexact='Texas').exclude(is_published=False)
     texasclinics = texasclinics.count()
 
@@ -588,6 +588,72 @@ def fertilityClinicCyprus(request):
         }
 
     return render(request, 'locations-states/Cyprus/fertility-clinic-cyprus.html', context)
+
+# ----------------------------------------------------------------------------
+def fertilityClinicMexico(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Mexico')
+    guestblog = guestblog.filter(guestblogactive=True)
+
+    queryset_list = BasicClinic.objects.all()
+    queryset_list = queryset_list.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
+
+    pro_queryset_list = BasicClinic.objects.all()
+    pro_queryset_list = pro_queryset_list.filter(pro_is_published=True).exclude(ppq_is_published=True)
+
+    ppq_queryset_list = BasicClinic.objects.all()
+    ppq_queryset_list = ppq_queryset_list.filter(ppq_is_published=True)
+
+    my_total_count = BasicClinic.objects.filter(clinicState__iexact='Mexico')
+    my_total_count = my_total_count.filter(is_published=True)
+
+    averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = queryset_list.filter(clinicState__iexact='Mexico')
+    pro_queryset_list = pro_queryset_list.filter(clinicState__iexact='Mexico')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicState__iexact='Mexico')
+
+
+    pro_queryset_list = pro_queryset_list.order_by('?')
+    ppq_queryset_list = ppq_queryset_list.order_by('?')
+
+    order_data = list(ppq_queryset_list) + list(pro_queryset_list) + list(queryset_list)
+
+    my_total_count = queryset_list.count() + pro_queryset_list.count() + ppq_queryset_list.count()
+
+    paginator = Paginator(order_data, 30)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    #CY CITIES
+    cauncunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancún').exclude(is_published=False)
+    cauncunclinics = cauncunclinics.count()
+
+    mexicocityclinics = BasicClinic.objects.filter(clinicCity__iexact='Mexico City').exclude(is_published=False)
+    mexicocityclinics = mexicocityclinics.count()
+
+    context = {
+        'guestblog': guestblog,
+        'listings': queryset_list,
+        'pro_listings': pro_queryset_list,
+        'order_data': paginationing,
+        'paginationing': paginationing,
+        'averageIVFPrice': averageIVFPrice,
+        'averageEggPrice': averageEggPrice,
+        'averageEmbryoPrice': averageEmbryoPrice,
+        'averageSpermPrice': averageSpermPrice,
+        'averageICSIPrice': averageICSIPrice,
+        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
+        'CATEGORY_CHOICES_MX_CITIES': CATEGORY_CHOICES_MX_CITIES,
+        'my_total_count': my_total_count,
+        'cauncunclinics': cauncunclinics,
+        'mexicocityclinics': mexicocityclinics,
+        }
+
+    return render(request, 'locations-states/Mexico/fertility-clinic-mexico.html', context)
 
 # --------------------------------------->>>>>>>> Redirects
 def fertilityClinicUSA1(request):

@@ -20,7 +20,7 @@
         </th>
         <td>{% if listing.ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=listing.ivf_treatment_cost|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=listing.ivf_treatment_cost|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -30,7 +30,7 @@
         <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Small dose of ovarian stimulating drugs are used"><p style="text-align: left; font-size: 22px">Mild (mini) IVF <i class="far fa-question-circle"></i></p></th>
         <td>{% if listing.mild_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=listing.mild_ivf_treatment_cost|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.mild_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=listing.mild_ivf_treatment_cost|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -43,7 +43,7 @@
         </th>
         <td>{% if listing.ovarian_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=listing.ovarian_ivf_treatment_cost|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.ovarian_ivf_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=listing.ovarian_ivf_treatment_cost|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -53,7 +53,7 @@
         <th scope="row"><p style="text-align: left; font-size: 22px">ICSI</p></th>
         <td>{% if listing.icsi_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.icsi_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=listing.icsi_treatment_cost|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.icsi_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=listing.icsi_treatment_cost|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -63,7 +63,7 @@
         <th scope="row"><p style="text-align: left; font-size: 22px">IUI</p></th>
         <td>{% if listing.iui_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.iui_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=listing.iui_treatment_cost|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.iui_treatment_cost != none %}<p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=listing.iui_treatment_cost|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -73,7 +73,7 @@
         <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using egg donors <i class="far fa-question-circle"></i></p></th>
         <td>{% if listing.egg_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=listing.egg_donor_recipients_cost|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.egg_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=listing.egg_donor_recipients_cost|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -83,7 +83,7 @@
         <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using embryo donors <i class="far fa-question-circle"></i></p></th>
         <td>{% if listing.embryo_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=listing.embryo_donor_recipients_cost|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.embryo_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=listing.embryo_donor_recipients_cost|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>
@@ -93,7 +93,7 @@
         <th scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="With single cycle pricing"><p style="text-align: left; font-size: 22px">IVF using sperm donors <i class="far fa-question-circle"></i></p></th>
         <td>{% if listing.sperm_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">{% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">{% endif %}</td>
         <td>
-          {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=listing.sperm_donor_recipients_cost|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% else %}${% endif %}</p>
+          {% if listing.sperm_donor_recipients_cost != none %}<p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=listing.sperm_donor_recipients_cost|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% elif listing.defaultClinicCurrency == 'INR' %}₹{% elif listing.defaultClinicCurrency == 'MXN' %}$ (MXN){% else %}${% endif %}</p>
           {% else %}<p style="text-align: center; font-size: 22px">Unknown</p>
           {% endif %}
         </td>

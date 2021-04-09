@@ -62,6 +62,7 @@
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
+                  {% elif order_datas.packageclinic.defaultClinicCurrency == 'MXN' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $ (MXN)
                   {% else %}
                   {% endif %}
                 </button>
@@ -117,6 +118,7 @@
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
                   {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
+                  {% elif order_datas.packageclinic.defaultClinicCurrency == 'MXN' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $ (MXN)
                   {% else %}
                   {% endif %}
                 </button>

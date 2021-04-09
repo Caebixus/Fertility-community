@@ -33,6 +33,7 @@
                     {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
                     {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
                     {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
+                    {% elif packages.packageclinic.defaultClinicCurrency == 'MXN' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $ (MXN)
                     {% else %}
                     {% endif %}
                   </h5>
@@ -100,6 +101,7 @@
                 {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
                 {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
                 {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
+                {% elif packages.packageclinic.defaultClinicCurrency == 'MXN' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $ (MXN)
                 {% else %}
                 {% endif %}
               </button>

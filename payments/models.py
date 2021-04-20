@@ -10,7 +10,7 @@ from clinic.models import BasicClinic
 class Customer(models.Model):
     customerClinic = models.OneToOneField(BasicClinic, on_delete=models.CASCADE) # Nebo ForeignKey když bude customer mít několik klinik a bude chtít u všech stejný Billing address?
 
-    stripeid = models.CharField(max_length=255)
+    stripeid = models.CharField(max_length=255, null=True, blank=True)
     stripe_subscription_id = models.CharField(max_length=255, null=True, blank=True)
     cancel_at_period_end = models.BooleanField(default=False)
     membership = models.BooleanField(default=False)

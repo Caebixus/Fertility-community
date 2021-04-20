@@ -21,8 +21,8 @@
       <tr>
         <th scope="col" style="text-align: left">Features</th>
         <th scope="col">Basic</th>
-        <th scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO</button></a></th>
-        <th scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM</button></a></th>
+        <th scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO Upgrade</button></a></th>
+        <th scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM Upgrade</button></a></th>
       </tr>
     </thead>
     <tbody>
@@ -186,7 +186,7 @@
         <td style="text-align: left">Supported live chat tools</td>
         <td></td>
         <td></td>
-        <td scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Chatra, LiveChat, Manychat. (Don't see your own tool? <a href='{% url 'contactus' %}'>Contact us</a>, and we'll integrate your tool as well)" data-html="true"><i class="far fa-question-circle"></i></td>
+        <td scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Chatra, LiveChat, Olark, Tidio... (Don't see your own tool? <a href='{% url 'contactus' %}'>Contact us</a>, and we'll integrate your tool as well)" data-html="true"><i class="far fa-question-circle"></i></td>
       </tr>
       <tr>
         <td></td>
@@ -200,17 +200,17 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td style="text-align: left">Monthly payment</td>
+      <tr style="background-color: #286DA8;">
+        <td style="text-align: left; color: white">Monthly payment</td>
         <td></td>
-        <td>15 €</td>
-        <td>30 €</td>
+        <td style="color: white">15 €</td>
+        <td style="color: white">30 €</td>
       </tr>
-      <tr>
-        <td style="text-align: left">Anual payment</td>
+      <tr style="background-color: #286DA8;">
+        <td style="text-align: left; color: white">Anual payment</td>
         <td></td>
-        <td>160 € (save 20€ with yearly)</td>
-        <td>300 € (save 60€ with yearly)</td>
+        <td style="color: white">160 € (save 20€ with yearly)</td>
+        <td style="color: white">300 € (save 60€ with yearly)</td>
       </tr>
       <tr>
         <td></td>
@@ -221,80 +221,14 @@
       <tr>
         <td style="text-align: left"><b>Upgrade your plan</b></td>
         <td></td>
-        <td scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO</button></a></td>
-        <td scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM</button></a></td>
+        <td scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO Upgrade</button></a></td>
+        <td scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM Upgrade</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 
-
-
-<div class="container py-4">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-lg">
-          <div class="card-header bg-primary">
-            <br>
-            <h2 class="my-0 font-weight-normal" style="text-align: center; color: white">PRO</h2>
-            <br>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title pricing-card-title" style="text-align: center">15€/monthly or 160€/yearly <p style="text-align: center"><span style="font-size: 15px; color: green">(save 20€ with yearly)</span></p></h3>
-            <hr>
-            <ul class="list-styled mt-3 mb-4" style="text-align: left">
-              <li><h4>Get a do-follow backlink:</h4> <p style="font-size: 100%">Increase SEO exposure of your page with our <u>powerful domain</u> (<a href="https://ahrefs.com/website-authority-checker" style="text-decoration: none">DA</a> over 30 and growing).</p></li>
-              <li hidden><h4>Apply for "TOP Clinic" banner competition.</h4> <p></p></li>
-              <li><h4>Be more visible with clinics preferred search options:</h4> <p style="font-size: 100%">PRO clinics are positioned at the top of the search page.</p></li>
-              <li><h4>Get access to premium sections in your clinic detail view:</h4> <p style="font-size: 100%">For example: "About us", "Our team" or "Our photos" for a better presentation of your clinic.</p></li>
-              <li><h4><u>Reach potential clients with up to <num style="color:#CD5360; font-size: 25px">2</num> specialized packages per PRO clinic.</u></h4><p style="font-size: 100%">Every day, more than 30% of fertilitycommunity.com users search for the most suitable fertility treatment package in the package section.</p></li>
-              <li><h4>Present your clinic with your own guest blog posts.</h4><p style="font-size: 100%">Reach audiences looking for more information about IVF and IVF clinics in your location. PRO = <num style="color:#CD5360; font-size: 25px">1 article</num></p></li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <div class="col-4 col-sm">
-              <a href="{% url 'billinginfo' listings.pk %}">
-                <button class="btn btn-warning text-dark" type="button">PRO upgrade</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-lg border-success">
-          <div class="card-header bg-primary">
-            <br>
-            <h2 class="my-0 font-weight-normal" style="text-align: center; color: white">PREMIUM</h2>
-            <br>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title pricing-card-title" style="text-align: center">30€/monthly or 300€/yearly <p style="text-align: center"><span style="font-size: 15px; color: green">(save 60€ with yearly)</span></p></h3>
-            <hr>
-            <ul class="list-styled mt-3 mb-4" style="text-align: left">
-              <li><h4>Everything from PRO plan</h4><p style="font-size: 100%">and more to it below!</p></li>
-              <br>
-              <li><h4>Your clinic will always appear in the first search results:</h4> <p style="font-size: 100%">above BASIC clinics and even above PRO clinics.</p></li>
-              <li><h4>IVF Packages with much more visibility on every page:</h4> <p style="font-size: 100%">PREMIUM Packages will always be above PRO packages to increase reach.</p></li>
-              <li><h4><u>Reach potential clients with up to <num style="color:#CD5360; font-size: 25px">6</num> specialized packages per PREMIUM clinic.</u></h4><p style="font-size: 100%">Every day, more than 30% of fertilitycommunity.com users search for the most suitable fertility treatment package in the package section.</p></li>
-              <li><h4>Present your clinic with your own guest blog posts.</h4><p style="font-size: 100%">Reach audiences looking for more information about IVF and IVF clinics in your location. PREMIUM = <num style="color:#CD5360; font-size: 25px">5 articles</num></p></li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <div class="col-4 col-sm">
-              <a href="{% url 'billinginfo1' listings.pk %}">
-                <button class="btn btn-warning text-dark" type="button">PREMIUM upgrade</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 {% endblock  %}

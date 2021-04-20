@@ -5,6 +5,232 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
 {% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Pricing plans</h1>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+
+
+<div class="container py-4">
+  <table class="table table-hover">
+    <thead class="borderless" style="text-align: center">
+      <tr>
+        <th scope="col" style="text-align: left">Features</th>
+        <th scope="col">Basic</th>
+        <th scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO</button></a></th>
+        <th scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM</button></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left"><b>Clinic's editing options</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Update clinic's information</td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Update clinic's pricing</td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Update clinic's description & limitations</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Update clinic's photos</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Add clinic's team with photos</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Official (do-follow) link to your clinic's website</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Search page features</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Search page priority</td>
+        <td>Lowest</td>
+        <td>Above Basic</td>
+        <td>Above Basic & PRO</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Search page badge "verified"</td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Search page badge "popular"</td>
+        <td></td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Listing highlighted by color</td>
+        <td></td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Packages</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Can create & update packages</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Total number of packages</td>
+        <td></td>
+        <td>up to 2</td>
+        <td>up to 6</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Guest Blogging</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Guest blog on clinic's detail page</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Guest blog on search page of your clinics location</td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Total number of guest blogs</td>
+        <td></td>
+        <td>up to 1</td>
+        <td>up to 5</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Live chat</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Live chat icon on your clinic detail page</td>
+        <td></td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Live chat feature badge on search page</td>
+        <td></td>
+        <td></td>
+        <td><img src="/static/img/True.png" class="mr-3" alt="Icon True" style="height: 2rem;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Supported live chat tools</td>
+        <td></td>
+        <td></td>
+        <td scope="row" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Chatra, LiveChat, Manychat. (Don't see your own tool? <a href='{% url 'contactus' %}'>Contact us</a>, and we'll integrate your tool as well)" data-html="true"><i class="far fa-question-circle"></i></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Pricing</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Monthly payment</td>
+        <td></td>
+        <td>15 €</td>
+        <td>30 €</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Anual payment</td>
+        <td></td>
+        <td>160 € (save 20€ with yearly)</td>
+        <td>300 € (save 60€ with yearly)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><b>Upgrade your plan</b></td>
+        <td></td>
+        <td scope="col"><a href="{% url 'billinginfo' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PRO</button></a></td>
+        <td scope="col"><a href="{% url 'billinginfo1' listings.pk %}"><button class="btn btn-warning text-dark" type="button">PREMIUM</button></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
 <div class="container py-4">
   <div class="row">
     <div class="col-sm-6">

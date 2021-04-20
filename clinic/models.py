@@ -6,6 +6,13 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
+LIVE_CHAT_CHOICES = (
+    ('Chatra', 'Chatra'),
+    ('Livechat', 'Livechat'),
+    ('Olark', 'Olark'),
+    ('Tidio', 'Tidio'),
+    )
+
 class BasicClinic(models.Model):
     ### Basic information
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -232,6 +239,15 @@ class BasicClinic(models.Model):
 
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     clinic_pro_photo_6_del = models.BooleanField(default=False, blank=True, null=True)
+
+    ### Clinic Live Chat Code snippets
+    clinicLiveChatChoice = models.CharField(max_length=40, choices=LIVE_CHAT_CHOICES, null = True, blank=True,)
+    clinicChatraCode = models.CharField(max_length=100, blank=True, null = True)
+    clinicLiveChatCode = models.CharField(max_length=100, blank=True, null = True)
+    clinicOlarkCode = models.CharField(max_length=100, blank=True, null = True)
+    clinicTidioCode = models.CharField(max_length=100, blank=True, null = True)
+
+
 
 
 #

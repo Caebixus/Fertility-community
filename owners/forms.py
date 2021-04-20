@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from clinic.models import BasicClinic
+from clinic.models import BasicClinic, LIVE_CHAT_CHOICES
 from .models import ownerProInterested
 from packages.models import Packages, Package
 from packages.choices import CATEGORY_PACKAGE
@@ -1245,4 +1245,27 @@ class ProlongPackage(forms.ModelForm):
         model = Package
         fields = [
         'package_limit_days',
+        ]
+
+class LiveChatForm(forms.ModelForm):
+    clinicLiveChatChoice = forms.CharField(widget=forms.Select(choices=LIVE_CHAT_CHOICES, attrs={'class': 'form-control',}), required=False)
+
+    class Meta:
+        model = BasicClinic
+        fields = [
+        'clinicLiveChatChoice',
+        ]
+
+class LiveChatForm2(forms.ModelForm):
+    clinicChatraCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Snippet Code'), required=False)
+    clinicLiveChatCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Snippet Code'), required=False)
+    clinicOlarkCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Snippet Code'), required=False)
+    clinicTidioCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Snippet Code'), required=False)
+    class Meta:
+        model = BasicClinic
+        fields = [
+        'clinicChatraCode',
+        'clinicLiveChatCode',
+        'clinicOlarkCode',
+        'clinicTidioCode',
         ]

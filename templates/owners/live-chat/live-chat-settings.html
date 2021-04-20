@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Live Chat settings</h1>
+    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Guest Blogging and how to use it?</a></p>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+
+<div class="container py-4">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <main role="main">
+    <div class="container" style="max-width: 70rem; text-align: center">
+      {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+      {% endif %}
+      <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {{ form.source.errors }}
+        {{ form.source }}
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.clinicLiveChatChoice.errors }}
+          <label for="{{ form.clinicLiveChatChoice.id_for_label}}">Choose live chat tool:</label>
+          <div class="fieldWrapper">
+            {{ form.clinicLiveChatChoice }}
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <input class="btn btn-outline-dark " type='submit' value='Next' />
+      </form>
+      <br>
+      <br>
+      <p><i>If you can't find your own live chat tool, <a href="{% url 'contactus' %}">contact us</a>.</i></p>
+    </div>
+  </main>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock  %}

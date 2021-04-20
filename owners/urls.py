@@ -33,6 +33,9 @@ urlpatterns = [
     path('updatepricepro/<int:listing_id>', views.updatePricingPro, name='updatePricingPro'),
     path('updatepro/<int:listing_id>', views.updateproclinic, name='updateproclinic'),
 
+    path('live-chat-settings/<int:listing_id>', views.livechatsettings, name='livechatsettings'),
+    path('live-chat-settings2/<int:listing_id>', views.livechatsettings2, name='livechatsettings2'),
+
     path('activate-user', views.activateUser, name='activateUser'),
 
 ]

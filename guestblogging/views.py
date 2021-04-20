@@ -22,12 +22,17 @@ def guestblogging(request, listing_id):
     author = GuestAuthor.objects.filter(guestauthor_id=listing_id)
     blog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
 
+    listing = GuestBlog.objects.all()
+    listing = listing.filter(guestblogauthor__guestauthor__id=instance.id)
+    count = listing.count()
+
 
 
     context = {
         'instance': instance,
         'author': author,
         'blog': blog,
+        'count': count,
     }
 
     return render(request, 'owners/guest-blogging/guest-blogging.html', context)

@@ -248,7 +248,7 @@ class BasicClinic(models.Model):
     clinicTidioCode = models.CharField(max_length=100, blank=True, null = True)
 
     ### Clinic reviews snippets
-    clinicGoogleReviews = models.URLField(null=True, blank=True, max_length=500)
+    clinicGoogleReviews = models.URLField(null=True, blank=True, max_length=2000)
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
 
 

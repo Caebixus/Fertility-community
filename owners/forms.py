@@ -1269,3 +1269,14 @@ class LiveChatForm2(forms.ModelForm):
         'clinicOlarkCode',
         'clinicTidioCode',
         ]
+
+class IndependentReviewForm(forms.ModelForm):
+    clinicGoogleReviews = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Google reviews link'), required=False)
+    clinicTrustPilotID = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Trustpilot ID'), required=False)
+
+    class Meta:
+        model = BasicClinic
+        fields = [
+        'clinicGoogleReviews',
+        'clinicTrustPilotID',
+        ]

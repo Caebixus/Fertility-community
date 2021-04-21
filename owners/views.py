@@ -14,7 +14,7 @@ from .models import ownerProInterested, ProUser, AuthenticatedUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
@@ -905,3 +905,26 @@ def livechatsettings2(request, listing_id):
     }
 
     return render(request, 'owners/live-chat/live-chat-settings2.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def reviewssettings(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    form = IndependentReviewForm(request.POST or None, request.FILES or None, instance=instance)
+
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.save()
+
+        messages.success(request, '- Succesfully saved')
+        return redirect(dashboard)
+
+    context = {
+        'instance': instance,
+        'form': form,
+    }
+
+    return render(request, 'owners/reviews/reviews-settings.html', context)

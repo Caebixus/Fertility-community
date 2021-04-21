@@ -1,0 +1,92 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Set up independent reviews</h1>
+    <p style="color:white">Add a link to your google reviews and trustpilot and show it on your clinic detail page.</p>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+
+<div class="container py-4">
+  {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  <main role="main">
+    <div class="container" style="max-width: 70rem; text-align: center">
+      {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+      {% endif %}
+      <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {{ form.source.errors }}
+        {{ form.source }}
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.clinicGoogleReviews.errors }}
+          <label for="{{ form.clinicGoogleReviews.id_for_label}}">Copy link to your google reviews:</label>
+          <div class="fieldWrapper">
+            {{ form.clinicGoogleReviews }}
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.clinicTrustPilotID.errors }}
+          <label for="{{ form.clinicTrustPilotID.id_for_label}}">Copy link to your TrustPilot ID:</label>
+          <div class="fieldWrapper">
+            {{ form.clinicTrustPilotID }}
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <input class="btn btn btn-success btn-lg " type='submit' value='Save' />
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p style="text-align: right"><i>If you want show different independent review tool, <a href="{% url 'contactus' %}">contact us</a>.</i></p>
+    </div>
+  </main>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock  %}

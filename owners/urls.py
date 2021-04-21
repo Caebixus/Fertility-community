@@ -36,6 +36,8 @@ urlpatterns = [
     path('live-chat-settings/<int:listing_id>', views.livechatsettings, name='livechatsettings'),
     path('live-chat-settings2/<int:listing_id>', views.livechatsettings2, name='livechatsettings2'),
 
+    path('reviews-settings/<int:listing_id>', views.reviewssettings, name='reviewssettings'),
+
     path('activate-user', views.activateUser, name='activateUser'),
 
 ]

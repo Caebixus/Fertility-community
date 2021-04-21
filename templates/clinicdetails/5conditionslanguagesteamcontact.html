@@ -58,7 +58,7 @@
   </div>
 </div>
 
-{% if listing.is_claimed == True and listing.pro_is_published == True %}
+{% if listing.is_claimed == True and listing.pro_is_published == True or listing.ppq_is_published == True %}
 <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
   <h2>Languages</h2>
   <hr>

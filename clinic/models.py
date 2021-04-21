@@ -13,6 +13,11 @@ LIVE_CHAT_CHOICES = (
     ('Tidio', 'Tidio'),
     )
 
+TRUSTPILOT_CHOICES = (
+    ('Micro Review Count', 'Micro Review Count'),
+    ('Mini', 'Mini'),
+    )
+
 class BasicClinic(models.Model):
     ### Basic information
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -249,6 +254,8 @@ class BasicClinic(models.Model):
 
     ### Clinic reviews snippets
     clinicGoogleReviews = models.URLField(null=True, blank=True, max_length=2000)
+
+    clinicTrustPilotChoice = models.CharField(max_length=40, choices=TRUSTPILOT_CHOICES, null = True, blank=True,)
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
     clinicTrustPilotDomain = models.CharField(max_length=100, blank=True, null = True)
 

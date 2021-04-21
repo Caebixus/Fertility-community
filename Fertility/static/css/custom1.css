@@ -236,6 +236,21 @@ select {
   border-radius: 8px;
 }
 
+#brandButtonGoalPrimary {
+  border-color: #286DA8;
+  background-color: #286DA8;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+#brandButtonGoalPrimary:hover {
+  border-color: #286DA8;
+  background-color: white;
+  color: #286DA8;
+  border-radius: 8px;
+}
+
 #brandButtonGoalPackageEmail {
   border-color: #CD5360;
   background-color: #CD5360;

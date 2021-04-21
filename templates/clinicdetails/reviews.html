@@ -4,19 +4,29 @@
 {% if listing.clinicGoogleReviews != None or listing.clinicTrustPilotID != None %}
 <div class="container py-5" style="text-align: center; z-index: -1;">
   <div class="row">
-    {% if listing.clinicGoogleReviews != Blank %}
-    <div class="col-lg-4" style="padding-top:2rem">
-      <a href="{{ listing.clinicGoogleReviews }}">
+    {% if listing.clinicGoogleReviews != None %}
+    <div class="col-lg-6" style="padding-top:2rem; display: flex; justify-content: center; align-items: center;">
+      <a href="{{ listing.clinicGoogleReviews }}" target="_blank" rel="noopener">
         <img src="{% static 'img/Google-reviews.png' %}" alt="Google reviews" width="70%">
       </a>
     </div>
+    {% else %}
     {% endif %}
-    {% if listing.clinicTrustPilotID != Blank and clinicTrustPilotDomain != Blank %}
-    <div class="col-lg-4" style="padding-top:2rem">
-      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="24px" data-style-width="100%" data-theme="light">
-        <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+    {% if listing.clinicTrustPilotID != None and listing.clinicTrustPilotDomain != None %}
+      {% if listing.clinicTrustPilotChoice == 'Micro Review Count' %}
+      <div class="col-lg-6" style="padding-top:2rem">
+        <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="100%" data-style-width="100%" data-theme="light">
+          <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
       </div>
-    </div>
+      {% elif listing.clinicTrustPilotChoice == 'Mini' %}
+      <div class="col-lg-6" style="padding-top:2rem">
+        <div class="trustpilot-widget" data-locale="en-US" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="100%" data-style-width="100%" data-theme="light">
+          <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
+      </div>
+      {% endif %}
+    {% else %}
     {% endif %}
   </div>
 </div>

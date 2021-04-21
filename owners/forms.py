@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from clinic.models import BasicClinic, LIVE_CHAT_CHOICES
+from clinic.models import BasicClinic, LIVE_CHAT_CHOICES, TRUSTPILOT_CHOICES
 from .models import ownerProInterested
 from packages.models import Packages, Package
 from packages.choices import CATEGORY_PACKAGE
@@ -1272,6 +1272,7 @@ class LiveChatForm2(forms.ModelForm):
 
 class IndependentReviewForm(forms.ModelForm):
     clinicGoogleReviews = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Google reviews link'), required=False)
+    clinicTrustPilotChoice = forms.CharField(widget=forms.Select(choices=TRUSTPILOT_CHOICES, attrs={'class': 'form-control',}), required=False)
     clinicTrustPilotID = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Trustpilot ID'), required=False)
     clinicTrustPilotDomain = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Trustpilot Domain'), required=False)
 
@@ -1279,6 +1280,7 @@ class IndependentReviewForm(forms.ModelForm):
         model = BasicClinic
         fields = [
         'clinicGoogleReviews',
+        'clinicTrustPilotChoice',
         'clinicTrustPilotID',
         'clinicTrustPilotDomain',
         ]

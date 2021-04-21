@@ -64,6 +64,14 @@
         <hr>
         <br>
         <div class="fieldWrapper" style="text-align: left">
+          {{ form.clinicTrustPilotChoice.errors }}
+          <label for="{{ form.clinicTrustPilotChoice.id_for_label}}">Choose widget:</label>
+          <div class="fieldWrapper">
+            {{ form.clinicTrustPilotChoice }}
+          </div>
+        </div>
+        <br>
+        <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicTrustPilotID.errors }}
           <label for="{{ form.clinicTrustPilotID.id_for_label}}">Copy link to your TrustPilot ID:</label>
           <div class="fieldWrapper">

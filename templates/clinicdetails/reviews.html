@@ -10,14 +10,12 @@
         <img src="{% static 'img/Google-reviews.png' %}" alt="Google reviews" width="70%">
       </a>
     </div>
-    {% elif listing.clinicTrustPilotID != Blank %}
+    {% endif %}
+    {% if listing.clinicTrustPilotID != Blank and clinicTrustPilotDomain != Blank %}
     <div class="col-lg-4" style="padding-top:2rem">
-      <script>
-        (function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
-            a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];
-            f.parentNode.insertBefore(a,f)})(window,document,'script', 'https://invitejs.trustpilot.com/tp.min.js', 'tp');
-            tp('register', '{{ listing.clinicTrustPilotID }}');
-      </script>
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="24px" data-style-width="100%" data-theme="light">
+        <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
     </div>
     {% endif %}
   </div>

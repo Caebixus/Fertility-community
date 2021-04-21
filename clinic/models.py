@@ -250,6 +250,7 @@ class BasicClinic(models.Model):
     ### Clinic reviews snippets
     clinicGoogleReviews = models.URLField(null=True, blank=True, max_length=2000)
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
+    clinicTrustPilotDomain = models.CharField(max_length=100, blank=True, null = True)
 
 
 

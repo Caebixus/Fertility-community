@@ -32,12 +32,16 @@ def ivfspainalicante(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=617)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=617)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -52,6 +56,7 @@ def ivfspainalicante(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'alicantelisting': alicantelisting,
@@ -83,12 +88,16 @@ def ivialicante(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=619)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=619)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -103,6 +112,7 @@ def ivialicante(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'alicantelisting': alicantelisting,
@@ -135,12 +145,16 @@ def clinicadefertilidadbarcelonaivf(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=620)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=620)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -155,6 +169,7 @@ def clinicadefertilidadbarcelonaivf(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -186,12 +201,16 @@ def ferttyinternational(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=621)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=621)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -206,6 +225,7 @@ def ferttyinternational(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -237,12 +257,16 @@ def fertilabbarcelona(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=622)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=622)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -257,6 +281,7 @@ def fertilabbarcelona(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -288,12 +313,16 @@ def institutmarquesbarcelona(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=623)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=623)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -308,6 +337,7 @@ def institutmarquesbarcelona(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -339,12 +369,16 @@ def ivfforyou(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=624)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=624)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -359,6 +393,7 @@ def ivfforyou(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -390,12 +425,16 @@ def gravida(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=625)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=625)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -410,6 +449,7 @@ def gravida(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -441,12 +481,16 @@ def ivibarcelona(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=626)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=626)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -461,6 +505,7 @@ def ivibarcelona(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -492,12 +537,16 @@ def fivmarbellabarcelona(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=627)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=627)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -512,6 +561,7 @@ def fivmarbellabarcelona(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'barcelonalisting': barcelonalisting,
@@ -544,12 +594,16 @@ def ivfspainmadrid(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=628)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=628)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -564,6 +618,7 @@ def ivfspainmadrid(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -595,12 +650,16 @@ def fertilitymadrid(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=629)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=629)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -615,6 +674,7 @@ def fertilitymadrid(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -646,12 +706,16 @@ def evafertilityclinicmadrid(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=630)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=630)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -666,6 +730,7 @@ def evafertilityclinicmadrid(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -697,12 +762,16 @@ def ivimadridaravaca(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=631)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=631)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -717,6 +786,7 @@ def ivimadridaravaca(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -748,12 +818,16 @@ def clinicatambre(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=632)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=632)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -768,6 +842,7 @@ def clinicatambre(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -799,12 +874,16 @@ def fertilityclinichru(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=633)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=633)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -819,6 +898,7 @@ def fertilityclinichru(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -850,12 +930,16 @@ def fivmarbellamadrid(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=634)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=634)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -870,6 +954,7 @@ def fivmarbellamadrid(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'madridlisting': madridlisting,
@@ -902,12 +987,16 @@ def ivimalaga(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=635)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=635)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -922,6 +1011,7 @@ def ivimalaga(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'malagalisting': malagalisting,
@@ -953,12 +1043,16 @@ def fivmarbellamalaga(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=636)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=636)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -973,6 +1067,7 @@ def fivmarbellamalaga(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'malagalisting': malagalisting,
@@ -1004,12 +1099,16 @@ def hcfertility(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=637)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=637)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1024,6 +1123,7 @@ def hcfertility(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'malagalisting': malagalisting,
@@ -1055,12 +1155,16 @@ def clinicafertia(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=638)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=638)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1075,6 +1179,7 @@ def clinicafertia(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'malagalisting': malagalisting,
@@ -1107,12 +1212,16 @@ def ivisevilla(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=639)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=639)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1127,6 +1236,7 @@ def ivisevilla(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'sevillelisting': sevillelisting,
@@ -1158,12 +1268,16 @@ def inebir(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=640)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=640)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1178,6 +1292,7 @@ def inebir(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'sevillelisting': sevillelisting,
@@ -1209,12 +1324,16 @@ def ginemedsevilla(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=641)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=641)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1229,6 +1348,7 @@ def ginemedsevilla(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'sevillelisting': sevillelisting,
@@ -1261,12 +1381,16 @@ def ivivalencia(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=642)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=642)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1281,6 +1405,7 @@ def ivivalencia(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'valencialisting': valencialisting,
@@ -1312,12 +1437,16 @@ def equipojuanacrespo(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=643)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=643)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1332,6 +1461,7 @@ def equipojuanacrespo(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'valencialisting': valencialisting,
@@ -1363,12 +1493,16 @@ def unidaddereproduccionasistidaimedvalencia(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=644)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=644)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1383,6 +1517,7 @@ def unidaddereproduccionasistidaimedvalencia(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'valencialisting': valencialisting,
@@ -1414,12 +1549,16 @@ def creavalencia(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=645)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=645)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1434,6 +1573,7 @@ def creavalencia(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'valencialisting': valencialisting,
@@ -1465,12 +1605,16 @@ def imerinstitutodemedicinareproductiva(request):
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
     package = package.filter(packageclinic__id=646)
 
+    author = GuestAuthor.objects.filter(guestauthor_id=646)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
         usergroup = usergroup.filter(user=request.user)
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
             'package': package,
@@ -1485,6 +1629,7 @@ def imerinstitutodemedicinareproductiva(request):
         pass
 
     context = {
+        'guestblog': guestblog,
         'listing': listing,
         'package': package,
         'valencialisting': valencialisting,

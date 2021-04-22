@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
+from django.urls import reverse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
@@ -8,6 +10,7 @@ from packages.models import Packages, Package
 from django.utils import timezone
 from owners.models import ownerProInterested, ProUser
 from datetime import datetime, timedelta
+from guestblogging.models import GuestBlog, GuestAuthor
 
 #Acapulco
 def iregaacapulco(request):

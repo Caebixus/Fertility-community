@@ -54,7 +54,7 @@
 
         {% if instance.clinicLiveChatChoice == 'Chatra' %}
         <p>1. Sign in to your Chatra.com account</p>
-        <p>2. Copy your snippets ID to text input below image.</p>
+        <p>2. Copy your snippets ID</p>
         <p>3. Press save</p>
         <br>
         <img src="{% static 'img/navody/chatraNavod.png' %}" alt="How to add Chatra to FertilityCommunity" width="100%">
@@ -62,7 +62,7 @@
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicChatraCode.errors }}
-          <label for="{{ form.clinicChatraCode.id_for_label}}">Copy Chatra snippet code (<u>without parentheses and quotation marks</u>)</label>
+          <label for="{{ form.clinicChatraCode.id_for_label}}">Copy Chatra snippet ID here (without parentheses and quotation marks)</label>
           <div class="fieldWrapper">
             {{ form.clinicChatraCode }}
           </div>
@@ -71,13 +71,13 @@
 
         {% elif instance.clinicLiveChatChoice == 'Livechat' %}
         <p>1. Sign in to your Livechat.com account</p>
-        <p>2. Copy your snippets ID to text input below image.</p>
+        <p>2. Copy your snippets ID</p>
         <p>3. Press save</p>
         <img src="{% static 'img/navody/livechatNavod.png' %}" alt="How to add Livechat to FertilityCommunity" width="100%">
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicLiveChatCode.errors }}
-          <label for="{{ form.clinicLiveChatCode.id_for_label}}">Copy LiveChat snippet code (<u>without parentheses and quotation marks</u>)</label>
+          <label for="{{ form.clinicLiveChatCode.id_for_label}}">Copy LiveChat snippet ID here (without parentheses and quotation marks)</label>
           <div class="fieldWrapper">
             {{ form.clinicLiveChatCode }}
           </div>
@@ -86,13 +86,13 @@
 
         {% elif instance.clinicLiveChatChoice == 'Olark' %}
         <p>1. Sign in to your Olark.com account</p>
-        <p>2. Copy your snippets ID to text input below image.</p>
+        <p>2. Copy your snippets ID</p>
         <p>3. Press save</p>
         <img src="{% static 'img/navody/olarkNavod.png' %}" alt="How to add Olark to FertilityCommunity" width="100%">
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicOlarkCode.errors }}
-          <label for="{{ form.clinicOlarkCode.id_for_label}}">Copy Olark snippet code (<u>without parentheses and quotation marks</u>)</label>
+          <label for="{{ form.clinicOlarkCode.id_for_label}}">Copy Olark snippet ID here (without parentheses and quotation marks)</label>
           <div class="fieldWrapper">
             {{ form.clinicOlarkCode }}
           </div>
@@ -101,13 +101,13 @@
 
         {% elif instance.clinicLiveChatChoice == 'Tidio' %}
         <p>1. Sign in to your Tidio.com account</p>
-        <p>2. Copy your snippets ID to text input below image.</p>
+        <p>2. Copy your snippets ID</p>
         <p>3. Press save</p>
         <img src="{% static 'img/navody/tidioNavod.png' %}" alt="How to add Olark to FertilityCommunity" width="100%">
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicTidioCode.errors }}
-          <label for="{{ form.clinicTidioCode.id_for_label}}">Copy Tidio snippet code (<u>without parentheses and quotation marks</u>)</label>
+          <label for="{{ form.clinicTidioCode.id_for_label}}">Copy Tidio snippet ID here (without parentheses and quotation marks)</label>
           <div class="fieldWrapper">
             {{ form.clinicTidioCode }}
           </div>

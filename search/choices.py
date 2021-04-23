@@ -282,7 +282,7 @@ LA_CITIES = {
     'New Orleans': 'New Orleans',
     }
 
-KY_CITIES = {
+ME_CITIES = {
     'Bangor': 'Bangor',
     }
 

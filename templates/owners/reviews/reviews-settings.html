@@ -16,7 +16,7 @@
 <br>
 
 
-<div class="container py-4">
+<div class="container py-3">
   {% if form.errors %}
     {% for field in form %}
         {% for error in field.errors %}
@@ -53,40 +53,140 @@
 
         {{ form.source.errors }}
         {{ form.source }}
-        <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicGoogleReviews.errors }}
-          <label for="{{ form.clinicGoogleReviews.id_for_label}}">Copy link to your google reviews:</label>
-          <div class="fieldWrapper">
-            {{ form.clinicGoogleReviews }}
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="fieldWrapper" style="text-align: left">
+              {{ form.clinicGoogleReviews.errors }}
+              <label for="{{ form.clinicGoogleReviews.id_for_label}}">Copy link to your google reviews:</label>
+              <div class="fieldWrapper">
+                {{ form.clinicGoogleReviews }}
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="col-lg-4" style="padding-top:2rem; display: flex; justify-content: center; align-items: center;">
+            <img src="{% static 'img/Google-reviews.png' %}" alt="Google reviews" width="70%">
           </div>
         </div>
+        <br>
+        <a class="btn btn-warning" data-toggle="collapse" href="#helpCollapse" role="button" aria-expanded="false" aria-controls="helpCollapse" style="text-decoration: none">
+          How to copy URL for your Google Reviews?
+        </a>
+        <div class="collapse py-3" id="helpCollapse">
+          <div class="carousel-aff">
+            <div id="carouselExampleControls5" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a target="_blank" href="{% static 'img/navody/googlereviewsurl1.jpg' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/googlereviewsurl1.jpg' %}" alt="How to copy URL for your Google Reviews part 1">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a target="_blank" href="{% static 'img/navody/googlereviewsurl2.jpg' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/googlereviewsurl2.jpg' %}" alt="How to copy URL for your Google Reviews part 2">
+                  </a>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls5" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls5" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <br>
         <br>
         <hr>
         <br>
-        <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicTrustPilotChoice.errors }}
-          <label for="{{ form.clinicTrustPilotChoice.id_for_label}}">Choose widget:</label>
-          <div class="fieldWrapper">
-            {{ form.clinicTrustPilotChoice }}
+
+
+
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="fieldWrapper" style="text-align: left">
+              {{ form.clinicTrustPilotChoice.errors }}
+              <label for="{{ form.clinicTrustPilotChoice.id_for_label}}">Choose widget:</label>
+              <div class="fieldWrapper">
+                {{ form.clinicTrustPilotChoice }}
+              </div>
+            </div>
+            <br>
+            <div class="fieldWrapper" style="text-align: left">
+              {{ form.clinicTrustPilotID.errors }}
+              <label for="{{ form.clinicTrustPilotID.id_for_label}}">Copy link to your TrustPilot ID (without parentheses and quotation marks):</label>
+              <div class="fieldWrapper">
+                {{ form.clinicTrustPilotID }}
+              </div>
+            </div>
+            <br>
+            <div class="fieldWrapper" style="text-align: left">
+              {{ form.clinicTrustPilotDomain.errors }}
+              <label for="{{ form.clinicTrustPilotDomain.id_for_label}}">Copy your domain from TrustPilot (without parentheses and quotation marks):</label>
+              <div class="fieldWrapper">
+                {{ form.clinicTrustPilotDomain }}
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="col-lg-4">
+            <br>
+            <h3>Micro Review Count:</h3>
+            <img src="{% static 'img/navody/trustpilotmicroreviewcount.png' %}" alt="Google reviews">
+            <br>
+            <h3>Mini:</h3>
+            <img src="{% static 'img/navody/trustpilotmini.png' %}" alt="Google reviews" >
           </div>
         </div>
         <br>
-        <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicTrustPilotID.errors }}
-          <label for="{{ form.clinicTrustPilotID.id_for_label}}">Copy link to your TrustPilot ID:</label>
-          <div class="fieldWrapper">
-            {{ form.clinicTrustPilotID }}
+        <a class="btn btn-warning" data-toggle="collapse" href="#helptrustpilotCollapse" role="button" aria-expanded="false" aria-controls="helptrustpilotCollapse" style="text-decoration: none">
+          How to copy your TrustPilot's ID?
+        </a>
+        <div class="collapse py-3" id="helptrustpilotCollapse">
+          <div class="carousel-aff">
+            <div id="carouselExampleControls6" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a target="_blank" href="{% static 'img/navody/microreviewpart1.png' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/microreviewpart1.png' %}" alt="How to copy your TrustPilot's ID part 1">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a target="_blank" href="{% static 'img/navody/microreviewpart2.png' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/microreviewpart2.png' %}" alt="How to copy your TrustPilot's ID part 2">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a target="_blank" href="{% static 'img/navody/microreviewpart3.jpg' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/microreviewpart3.jpg' %}" alt="How to copy your TrustPilot's ID part 3">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a target="_blank" href="{% static 'img/navody/microreviewpart4.png' %}">
+                    <img class="d-block w-100" src="{% static 'img/navody/microreviewpart4.png' %}" alt="How to copy your TrustPilot's ID part 4">
+                  </a>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls6" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls6" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
         </div>
         <br>
-        <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicTrustPilotDomain.errors }}
-          <label for="{{ form.clinicTrustPilotDomain.id_for_label}}">Copy your domain from TrustPilot:</label>
-          <div class="fieldWrapper">
-            {{ form.clinicTrustPilotDomain }}
-          </div>
-        </div>
         <br>
+        <hr>
         <br>
         <br>
         <input class="btn btn btn-success btn-lg " type='submit' value='Save' />

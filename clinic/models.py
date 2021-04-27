@@ -245,7 +245,7 @@ class BasicClinic(models.Model):
     clinic_pro_photo_6 = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     clinic_pro_photo_6_del = models.BooleanField(default=False, blank=True, null=True)
 
-    ### Clinic Live Chat Code snippets
+    ### Clinic Live Chat Code snippets (Pokud přidáváš nový chat tak uprav i badge na search lokacích)
     clinicLiveChatChoice = models.CharField(max_length=40, choices=LIVE_CHAT_CHOICES, null = True, blank=True,)
     clinicChatraCode = models.CharField(max_length=100, blank=True, null = True)
     clinicLiveChatCode = models.CharField(max_length=100, blank=True, null = True)

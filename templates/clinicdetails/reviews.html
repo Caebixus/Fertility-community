@@ -4,7 +4,7 @@
 {% if listing.clinicGoogleReviews != None or listing.clinicTrustPilotID != None %}
 <div class="container py-5" style="text-align: center; z-index: -1;">
   <div class="row">
-    {% if listing.clinicGoogleReviews != None %}
+    {% if listing.clinicGoogleReviews != Null %}
     <div class="col-lg-6" style="padding-top:2rem; display: flex; justify-content: center; align-items: center;">
       <a href="{{ listing.clinicGoogleReviews }}" target="_blank" rel="noopener">
         <img src="{% static 'img/navody/GoogleReviewIcon.jpg' %}" alt="Google reviews" width="70%">

@@ -64,7 +64,24 @@
                   <div class="card" id="cardBox" style="border-radius: 8px;">
                     <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
                       <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Types of treatments
+                        {% if values.treatments == None %}Types of treatments
+                        {% elif values.treatments == '' %}Types of treatments
+                        {% elif values.treatments == 'Alltreatmentstrue' %}All treatments
+                        {% elif values.treatments == 'IVFtreatmenttrue' %}Natural IVF
+                        {% elif values.treatments == 'IVFtreatmentmildtrue' %}Mild (mini) IVF
+                        {% elif values.treatments == 'IVFtreatmentovariantrue' %}Standard IVF
+                        {% elif values.treatments == 'ICSItreatmenttrue' %}ICSI treatment
+                        {% elif values.treatments == 'Eggdonationrecipientstrue' %}IVF with Egg donation
+                        {% elif values.treatments == 'Spermdonationrecipientstrue' %}IVF with Sperm donation
+                        {% elif values.treatments == 'Embryodonationrecipientstrue' %}IVF with Embryo donation
+                        {% elif values.treatments == 'EggFreezingtrue' %}Egg freezing
+                        {% elif values.treatments == 'EmbryoFreezingtrue' %}Embryo freezing
+                        {% elif values.treatments == 'SpermFreezingtrue' %}Sperm freezing
+                        {% elif values.treatments == 'Surrogacytrue' %}Gestational surrogacy
+                        {% elif values.treatments == 'IUItreatmenttrue' %}IUI treatment
+                        {% elif values.treatments == 'Singlewomantreatmenttrue' %}Single woman treatment
+                        {% elif values.treatments == 'ReciprocalIVFtrue' %}Reciprocal IVF (LGBTQ)
+                        {% endif %}
                       </button>
                     </div>
 
@@ -73,69 +90,68 @@
                         <div class="row">
                           <div class="col">
                             <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="All treatment">All treatments</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="IVF treatment">Natural IVF</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
-                          </div>
-                        </div>
-
-                        <div class="col">
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Egg freezing">Egg freezing</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="IUI treatment">IUI treatment</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
-                          </div>
-                          <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
-                            <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                              <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="All treatment">All treatments</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
+                            </div>
                           </div>
 
+                          <div class="col">
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Egg freezing">Egg freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -748,8 +764,8 @@
           <div class="header">
             <div class="container" id="nameInfo" style="padding-bottom:5rem">
               <div class="row align-self-center align-items-center">
-                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search querry.</h2>
-                <p>Please try different country or treatment option.</p>
+                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search query.</h2>
+                <p>Please try different countries or treatment options</p>
               </div>
             </div>
           </div>
@@ -864,7 +880,7 @@
   <div class="container">
     <h2 class="text-white">Packages & Deals | 2021</h2>
     <p class="text-white">Be sure to check out IVF packages and other special offers from fertility clinics.</p>
-      <a href="{% url 'packages' %}">
+      <a href="{% url 'packagesearch' %}">
         <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md"><i class="fas fa-archive"></i>
           All IVF Packages
         </button>

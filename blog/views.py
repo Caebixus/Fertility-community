@@ -11,7 +11,7 @@ from clinic.models import BasicClinic
 from blog.models import Author, Blog
 from packages.models import Package
 from location.currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
-from packages.choices import CATEGORY_PACKAGE
+from packages.packageChoices import CATEGORY_PACKAGE
 from contact.forms import WebsiteForm
 from django.core.mail import send_mail
 from django.contrib import messages, auth

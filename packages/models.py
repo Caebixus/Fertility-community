@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from django.db import models
 from ckeditor.fields import RichTextField
-from .choices import CATEGORY_PACKAGE
+from .packageChoices import CATEGORY_PACKAGE
 from django.db.models import Q
 from django.utils import timezone
 

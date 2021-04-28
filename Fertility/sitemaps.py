@@ -16,10 +16,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'contact',
         'blog1',
         'blog',
-        'packages',
-        'ivfpackages',
-        'eggpackages',
-        'embryopackages',
+        'packagesearch',
         ]
 
     def location(self, item):

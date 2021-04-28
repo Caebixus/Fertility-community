@@ -3,9 +3,9 @@ from django.http import (HttpResponse, HttpResponseNotFound, Http404,
 HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.urls import reverse
 from django.core.paginator import Paginator
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION
+from search.choices import CATEGORY_CHOICES_US_REGION
 from location.currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
-from .choices import CATEGORY_PACKAGE
+from .packageChoices import CATEGORY_PACKAGE
 from django import template
 from contact.forms import WebsiteForm
 from django.core.mail import send_mail

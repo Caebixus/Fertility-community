@@ -183,7 +183,7 @@ CATEGORY_CHOICES_UK_CITIES = {
     'Belfast': 'Belfast',
     'Birmingham': 'Birmingham',
     'Bournemouth': 'Bournemouth',
-    'BrightonHove': 'BrightonHove',
+    'Brighton': 'Brighton',
     'Bristol': 'Bristol',
     'Cambridge': 'Cambridge',
     'Cardiff': 'Cardiff',

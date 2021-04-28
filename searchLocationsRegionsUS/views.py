@@ -27,6 +27,9 @@ def fertilityClinicsAlabama(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Alabama')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -51,6 +54,7 @@ def fertilityClinicsAlabama(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -84,6 +88,9 @@ def fertilityClinicsAlaska(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Alaska')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -108,6 +115,7 @@ def fertilityClinicsAlaska(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -141,6 +149,9 @@ def fertilityClinicsArizona(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Arizona')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -165,6 +176,7 @@ def fertilityClinicsArizona(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -198,6 +210,9 @@ def fertilityClinicsArkansas(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Arkansas')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -222,6 +237,7 @@ def fertilityClinicsArkansas(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -255,6 +271,9 @@ def fertilityClinicsCalifornia(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='California')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -279,6 +298,7 @@ def fertilityClinicsCalifornia(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -312,6 +332,9 @@ def fertilityClinicsColorado(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Colorado')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -336,6 +359,7 @@ def fertilityClinicsColorado(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -369,6 +393,9 @@ def fertilityClinicsConnecticut(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Connecticut')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -393,6 +420,7 @@ def fertilityClinicsConnecticut(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -426,6 +454,9 @@ def fertilityClinicsDelaware(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Delaware')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -450,6 +481,7 @@ def fertilityClinicsDelaware(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -483,6 +515,9 @@ def fertilityClinicsFlorida(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Florida')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -507,6 +542,7 @@ def fertilityClinicsFlorida(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -540,6 +576,9 @@ def fertilityClinicsGeorgia(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Georgia')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -564,6 +603,7 @@ def fertilityClinicsGeorgia(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -597,6 +637,9 @@ def fertilityClinicsHawaii(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Hawaii')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -621,6 +664,7 @@ def fertilityClinicsHawaii(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -654,6 +698,9 @@ def fertilityClinicsIdaho(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Idaho')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -678,6 +725,7 @@ def fertilityClinicsIdaho(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -711,6 +759,9 @@ def fertilityClinicsIllinois(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Illinois')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -735,6 +786,7 @@ def fertilityClinicsIllinois(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -768,6 +820,9 @@ def fertilityClinicsIndiana(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Indiana')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -792,6 +847,7 @@ def fertilityClinicsIndiana(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -825,6 +881,9 @@ def fertilityClinicsIowa(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Iowa')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -849,6 +908,7 @@ def fertilityClinicsIowa(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -882,6 +942,9 @@ def fertilityClinicsKansas(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kansas')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -906,6 +969,7 @@ def fertilityClinicsKansas(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -939,6 +1003,9 @@ def fertilityClinicsKentucky(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Kentucky')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -963,6 +1030,7 @@ def fertilityClinicsKentucky(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -996,6 +1064,9 @@ def fertilityClinicsLouisiana(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Louisiana')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1020,6 +1091,7 @@ def fertilityClinicsLouisiana(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1053,6 +1125,9 @@ def fertilityClinicsMaine(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Maine')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1077,6 +1152,7 @@ def fertilityClinicsMaine(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1110,6 +1186,9 @@ def fertilityClinicsMaryland(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Maryland')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1134,6 +1213,7 @@ def fertilityClinicsMaryland(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1167,6 +1247,9 @@ def fertilityClinicsMassachusetts(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Massachusetts')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1191,6 +1274,7 @@ def fertilityClinicsMassachusetts(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1224,6 +1308,9 @@ def fertilityClinicsMichigan(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Michigan')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1248,6 +1335,7 @@ def fertilityClinicsMichigan(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1281,6 +1369,9 @@ def fertilityClinicsMinnesota(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Minnesota')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1305,6 +1396,7 @@ def fertilityClinicsMinnesota(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1338,6 +1430,9 @@ def fertilityClinicsMississippi(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Mississippi')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1362,6 +1457,7 @@ def fertilityClinicsMississippi(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1395,6 +1491,9 @@ def fertilityClinicsMissouri(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Missouri')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1419,6 +1518,7 @@ def fertilityClinicsMissouri(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1452,6 +1552,9 @@ def fertilityClinicsMontana(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Montana')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1476,6 +1579,7 @@ def fertilityClinicsMontana(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1509,6 +1613,9 @@ def fertilityClinicsNebraska(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Nebraska')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1533,6 +1640,7 @@ def fertilityClinicsNebraska(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1566,6 +1674,9 @@ def fertilityClinicsNewHampshire(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Hampshire')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1590,6 +1701,7 @@ def fertilityClinicsNewHampshire(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1623,6 +1735,9 @@ def fertilityClinicsNewJersey(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Jersey')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1647,6 +1762,7 @@ def fertilityClinicsNewJersey(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1680,6 +1796,9 @@ def fertilityClinicsNewMexico(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New Mexico')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1704,6 +1823,7 @@ def fertilityClinicsNewMexico(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1737,6 +1857,9 @@ def fertilityClinicsNewYork(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='New York')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1761,6 +1884,7 @@ def fertilityClinicsNewYork(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1794,6 +1918,9 @@ def fertilityClinicsNorthCarolina(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='North Carolina')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1818,6 +1945,7 @@ def fertilityClinicsNorthCarolina(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1851,6 +1979,9 @@ def fertilityClinicsNorthDakota(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='North Dakota')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1875,6 +2006,7 @@ def fertilityClinicsNorthDakota(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1908,6 +2040,9 @@ def fertilityClinicsNevada(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Nevada')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1932,6 +2067,7 @@ def fertilityClinicsNevada(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -1965,6 +2101,9 @@ def fertilityClinicsOhio(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Ohio')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1989,6 +2128,7 @@ def fertilityClinicsOhio(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2022,6 +2162,9 @@ def fertilityClinicsOklahoma(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Oklahoma')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2046,6 +2189,7 @@ def fertilityClinicsOklahoma(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2079,6 +2223,9 @@ def fertilityClinicsOregon(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Oregon')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2103,6 +2250,7 @@ def fertilityClinicsOregon(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2136,6 +2284,9 @@ def fertilityClinicsPennsylvania(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Pennsylvania')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2160,6 +2311,7 @@ def fertilityClinicsPennsylvania(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2193,6 +2345,9 @@ def fertilityClinicsPuertoRico(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Puerto Rico')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2217,6 +2372,7 @@ def fertilityClinicsPuertoRico(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2250,6 +2406,9 @@ def fertilityClinicsRhodeIsland(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Rhode Island')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2274,6 +2433,7 @@ def fertilityClinicsRhodeIsland(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2307,6 +2467,9 @@ def fertilityClinicsSouthCarolina(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='South Carolina')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2331,6 +2494,7 @@ def fertilityClinicsSouthCarolina(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2364,6 +2528,9 @@ def fertilityClinicsSouthDakota(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='South Dakota')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2388,6 +2555,7 @@ def fertilityClinicsSouthDakota(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2421,6 +2589,9 @@ def fertilityClinicsTennessee(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Tennessee')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2445,6 +2616,7 @@ def fertilityClinicsTennessee(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2478,6 +2650,9 @@ def fertilityClinicsTexas(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Texas')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2502,6 +2677,7 @@ def fertilityClinicsTexas(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2535,6 +2711,9 @@ def fertilityClinicsUtah(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Utah')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2559,6 +2738,7 @@ def fertilityClinicsUtah(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2592,6 +2772,9 @@ def fertilityClinicsVermont(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Vermont')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2616,6 +2799,7 @@ def fertilityClinicsVermont(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2649,6 +2833,9 @@ def fertilityClinicsVirginia(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Virginia')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2673,6 +2860,7 @@ def fertilityClinicsVirginia(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2706,6 +2894,9 @@ def fertilityClinicsWashington(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Washington')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2730,6 +2921,7 @@ def fertilityClinicsWashington(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2763,6 +2955,9 @@ def fertilityClinicsWestVirginia(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='West Virginia')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2787,6 +2982,7 @@ def fertilityClinicsWestVirginia(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2820,6 +3016,9 @@ def fertilityClinicsWisconsin(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Wisconsin')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2844,6 +3043,7 @@ def fertilityClinicsWisconsin(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2877,6 +3077,9 @@ def fertilityClinicsWyoming(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='Wyoming')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2901,6 +3104,7 @@ def fertilityClinicsWyoming(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,
@@ -2934,6 +3138,9 @@ def fertilityClinicsDistrictOfColumbia(request):
     my_total_count = BasicClinic.objects.filter(clinicRegion__iexact='DistrictOfColumbia')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='United States').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2958,6 +3165,7 @@ def fertilityClinicsDistrictOfColumbia(request):
 
     context = {
         'guestblog': guestblog,
+        'all_clinic_count': all_clinic_count,
         'listings': queryset_list,
         'pro_listings': pro_queryset_list,
         'order_data': paginationing,

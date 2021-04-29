@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}{{ my_total_count }} of the BEST IVF centres in Ludhiana | 2021{% endblock %}
+{% block title %}Search & compare IVF centres in Ludhiana | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Ludhiana to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/punjab/ludhiana{% endblock %}
 {% block meta_keywords %}search fertility clinic ludhiana, search ivf clinics ludhiana, search fertility doctor ludhiana, search fertility specialist ludhiana, search fertility center ludhiana, search private fertility clinic ludhiana{% endblock %}
@@ -365,7 +365,8 @@
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True and order_datas.clinicLiveChatChoice != Blank %}{% if order_datas.clinicChatraCode != Blank or order_datas.clinicLiveChatCode != Blank or order_datas.clinicOlarkCode != Blank or order_datas.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="far fa-comments"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>
@@ -441,7 +442,8 @@
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True and order_datas.clinicLiveChatChoice != Blank %}{% if order_datas.clinicChatraCode != Blank or order_datas.clinicLiveChatCode != Blank or order_datas.clinicOlarkCode != Blank or order_datas.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="far fa-comments"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>
@@ -516,7 +518,8 @@
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.pro_is_published == True and order_datas.clinicLiveChatChoice != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="far fa-comments"></i> LiveChat</span>{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>
@@ -592,7 +595,8 @@
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
             {% if order_datas.pro_is_published == True and order_datas.clinicLiveChatChoice != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="far fa-comments"></i> LiveChat</span>{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>
@@ -666,7 +670,8 @@
             <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>
@@ -733,7 +738,8 @@
             <p>Features:
             {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
             {% if order_datas.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private clinic</span>{% else %}{% endif %}
+            {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> International patients</span>{% else %}{% endif %}
+            {% if order_datas.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
             {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State clinic</span>{% else %}{% endif %}
             </p>
           </div>

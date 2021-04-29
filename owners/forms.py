@@ -626,6 +626,9 @@ class CreateClinic(forms.ModelForm):
     description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics Description'), max_length=800)
 
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics street address'))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics city'))
@@ -665,6 +668,12 @@ class CreateClinic(forms.ModelForm):
     pro_is_published = forms.BooleanField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
+    single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+
     class Meta:
         model = BasicClinic
         fields = [
@@ -700,6 +709,11 @@ class CreateClinic(forms.ModelForm):
         'sundayCloses',
         'is_published',
         'is_published_list_date',
+        'single_woman_treatment',
+        'reciprocal_ivf',
+        'hiv_patients',
+        'sex_selection',
+        'accepts_patients_from_abroad',
         ]
 
 
@@ -756,6 +770,12 @@ class PostForm(forms.ModelForm):
     sundayOpens = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
     sundayCloses = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
 
+    single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+
     class Meta:
         model = BasicClinic
         fields = [
@@ -800,6 +820,11 @@ class PostForm(forms.ModelForm):
         'clinic_pro_photo_4',
         'clinic_pro_photo_5',
         'clinic_pro_photo_6',
+        'single_woman_treatment',
+        'reciprocal_ivf',
+        'hiv_patients',
+        'sex_selection',
+        'accepts_patients_from_abroad',
         ]
 
 
@@ -832,11 +857,6 @@ class UpdatePrice(forms.ModelForm):
     sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-
-    single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package1category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
@@ -873,10 +893,6 @@ class UpdatePrice(forms.ModelForm):
         'sperm_freezing_cost',
         'surrogacy_cost',
         'sperm_donor_recipients_cost',
-        'single_woman_treatment',
-        'reciprocal_ivf',
-        'hiv_patients',
-        'sex_selection',
         'is_published_list_date',
         'package1title',
         'package1desc',
@@ -969,6 +985,12 @@ class PostFormPro(forms.ModelForm):
     sundayOpens = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
     sundayCloses = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
 
+    single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+
 
     class Meta:
         model = BasicClinic
@@ -1035,6 +1057,11 @@ class PostFormPro(forms.ModelForm):
         'clinic_pro_photo_5_del',
         'clinic_pro_photo_6',
         'clinic_pro_photo_6_del',
+        'single_woman_treatment',
+        'reciprocal_ivf',
+        'hiv_patients',
+        'sex_selection',
+        'accepts_patients_from_abroad',
         ]
 
 class UpdatePricePro(forms.ModelForm):
@@ -1066,11 +1093,6 @@ class UpdatePricePro(forms.ModelForm):
     sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-
-    single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     package1category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
@@ -1132,10 +1154,6 @@ class UpdatePricePro(forms.ModelForm):
         'sperm_freezing_cost',
         'surrogacy_cost',
         'sperm_donor_recipients_cost',
-        'single_woman_treatment',
-        'reciprocal_ivf',
-        'hiv_patients',
-        'sex_selection',
         'pro_is_published_list_date',
         'package1title',
         'package1category',
@@ -1161,6 +1179,7 @@ class UpdatePricePro(forms.ModelForm):
         'package6category',
         'package6desc',
         'package6cost',
+        'accepts_patients_from_abroad',
         ]
 
 class OwnerProInterestedForm(forms.ModelForm):

@@ -219,6 +219,7 @@
     <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
     {{ form.fertilitycommunity_email }}
   </div>
+  
   <br>
   <hr>
   <br>
@@ -428,6 +429,68 @@
     <div class="col-2 col-md">
       {{ form.clinicChinese }}
     </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <h2>Conditions</h2>
+  <br>
+  <div class="container">
+    {{ form.single_woman_treatment.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Single woman fertility treatment
+      </div>
+      <div class="col-2 col-md">
+        {{ form.single_woman_treatment }}
+      </div>
+    </div>
+    <br>
+    {{ form.reciprocal_ivf.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Reciprocal treatment (LGBTQ)
+      </div>
+      <div class="col-2 col-md">
+        {{ form.reciprocal_ivf }}
+      </div>
+    </div>
+    <br>
+    {{ form.hiv_patients.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        HIV patients treatment
+      </div>
+      <div class="col-2 col-md">
+        {{ form.hiv_patients }}
+      </div>
+    </div>
+    <br>
+    {{ form.sex_selection.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Sex / Gender selection
+      </div>
+      <div class="col-2 col-md">
+        {{ form.sex_selection }}
+      </div>
+    </div>
+    <br>
+    {{ form.accepts_patients_from_abroad.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Accepts patients from abroad
+      </div>
+      <div class="col-2 col-md">
+        {{ form.accepts_patients_from_abroad }}
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
   </div>
   <br>
   <input class="btn btn-outline-dark" type='submit' value='Update information' />

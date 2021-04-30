@@ -4,13 +4,13 @@ from . import views, views2
 
 urlpatterns = [
     #Package main search page
-    path('package-search', views2.packagesearch, name='packagesearch'),
+    path('packages/search', views2.packagesearch, name='packagesearch'),
 
     # --------------------------------------->>>>>>>> Redirects
-    path('packages', views2.packagesearch, name='packagesearch'),
-    path('packages/ivf-packages', views2.packagesearch, name='packagesearch'),
-    path('packages/ivf-with-donor-eggs-packages', views2.packagesearch, name='packagesearch'),
-    path('packages/ivf-with-donor-embryo-packages', views2.packagesearch, name='packagesearch'),
+    path('packages', views.packages, name='packages'),
+    path('packages/ivf-packages', views.ivfpackages, name='ivfpackages'),
+    path('packages/ivf-with-donor-eggs-packages', views.eggpackages, name='eggpackages'),
+    path('packages/ivf-with-donor-embryo-packages', views.embryopackages, name='embryopackages'),
 
 
     #Location US

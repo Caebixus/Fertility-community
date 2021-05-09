@@ -26,15 +26,21 @@
           </div>
         </div>
         <hr>
-        <div class="row" style="text-align:left">
-          <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+        <div class="row">
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
+            <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
+            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+            </a>
           </div>
         </div>
         <hr>
@@ -79,6 +85,9 @@
 
 
           <div class="col-4 col-sm">
+            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+            </a>
           </div>
 
         </div>
@@ -96,13 +105,19 @@
         <hr>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-tools"></i> <a href="{% url 'updateproclinic' listings.id %}">Clinic information</a></p>
+            <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricingPro' listings.id %}">Clinic pricing</a></p>
+            <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
+            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+            </a>
           </div>
         </div>
         <hr>
@@ -147,6 +162,9 @@
 
 
           <div class="col-4 col-sm">
+            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+            </a>
           </div>
 
         </div>
@@ -170,13 +188,19 @@
         <hr>
         <div class="row" style="text-align:left">
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-tools"></i> <a href="{% url 'update' listings.id %}">Clinic information</a></p>
+            <a href="{% url 'update' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-comment-dollar"></i> <a href="{% url 'updatePricing' listings.id %}">Clinic pricing</a></p>
+            <a href="{% url 'updatePricing' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+            </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <p><i class="fas fa-eye"></i> <a href="{{ listings.clinic_url }}">View clinic</a></p>
+            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+            </a>
           </div>
         </div>
         <hr>
@@ -216,6 +240,20 @@
           </div>
           <div class="col-3 col-sm" tabindex="0" data-toggle="tooltip" title="Paid Feature - Connect your Google reviews or Trustpilot widget and show it on your clinic detail page." data-placement="bottom">
             <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Independent Review <i class="far fa-question-circle"></i></button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-3 col-sm">
+            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+            </a>
+          </div>
+          <div class="col-3 col-sm">
+          </div>
+          <div class="col-3 col-sm">
+          </div>
+          <div class="col-3 col-sm">
           </div>
         </div>
       </div>

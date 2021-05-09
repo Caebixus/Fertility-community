@@ -14,6 +14,7 @@ urlpatterns = [
     path('create1', views.create1, name='create1'),
     path('create', views.create, name='create'),
     path('howtousefertilitycommunity', views.howtousefertilitycommunity, name='howtousefertilitycommunity'),
+    path('fc-traffic/<int:listing_id>', views.fctrafficreport, name='fctrafficreport'),
 
     path('packages/<int:listing_id>', views.packages, name='packages'),
     path('packages/create-package/<int:listing_id>', views.createpackage, name='createpackage'),

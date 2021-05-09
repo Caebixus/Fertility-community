@@ -1943,6 +1943,9 @@ def fertilityClinicsChennai(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Chennai')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -1984,6 +1987,9 @@ def fertilityClinicsHyderabad(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Hyderabad')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2027,6 +2033,9 @@ def fertilityClinicsMumbai(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Mumbai')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2068,6 +2077,9 @@ def fertilityClinicsPatna(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Patna')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2111,6 +2123,9 @@ def fertilityClinicsRaipur(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Raipur')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2152,6 +2167,9 @@ def fertilityClinicsAmdavad(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Amdavad')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2195,6 +2213,9 @@ def fertilityClinicsChandigarh(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Chandigarh')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2236,6 +2257,9 @@ def fertilityClinicsFaridabad(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Faridabad')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2279,6 +2303,9 @@ def fertilityClinicsJamshedpur(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jamshedpur')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2320,6 +2347,9 @@ def fertilityClinicsBangalore(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bangalore')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2363,6 +2393,9 @@ def fertilityClinicsTrivandrum(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Trivandrum')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2404,6 +2437,9 @@ def fertilityClinicsKochi(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kochi')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2447,6 +2483,9 @@ def fertilityClinicsBhopal(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bhopal')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2488,6 +2527,9 @@ def fertilityClinicsIndore(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Indore')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2531,6 +2573,9 @@ def fertilityClinicsNagpur(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Nagpur')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2572,6 +2617,9 @@ def fertilityClinicsBhubaneswar(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Bhubaneswar')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2615,6 +2663,9 @@ def fertilityClinicsLudhiana(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Ludhiana')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2656,6 +2707,9 @@ def fertilityClinicsJaipur(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jaipur')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2699,6 +2753,9 @@ def fertilityClinicsLucknow(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Lucknow')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2740,6 +2797,9 @@ def fertilityClinicsKanpur(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kanpur')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2783,6 +2843,9 @@ def fertilityClinicsDehradun(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Dehradun')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2824,6 +2887,9 @@ def fertilityClinicsKolkata(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Kolkata')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2867,6 +2933,9 @@ def fertilityClinicsVisakhapatnam(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Visakhapatnam')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2908,6 +2977,9 @@ def fertilityClinicsVijayawada(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Vijayawada')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -2951,6 +3023,9 @@ def fertilityClinicsNewDelhi(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='New Delhi')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -2992,6 +3067,9 @@ def fertilityClinicsVadodara(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Vadodara')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3035,6 +3113,9 @@ def fertilityClinicsGurugram(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gurugram')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3076,6 +3157,9 @@ def fertilityClinicsRohtak(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Rohtak')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3119,6 +3203,9 @@ def fertilityClinicsJammu(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Jammu')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3160,6 +3247,9 @@ def fertilityClinicsRanchi(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Ranchi')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3203,6 +3293,9 @@ def fertilityClinicsGwalior(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gwalior')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3244,6 +3337,9 @@ def fertilityClinicsPune(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Pune')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3287,6 +3383,9 @@ def fertilityClinicsWarangal(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Warangal')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3328,6 +3427,9 @@ def fertilityClinicsGachibowli(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Gachibowli')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3371,6 +3473,9 @@ def fertilityClinicsMadhapur(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Madhapur')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3412,6 +3517,9 @@ def fertilityClinicsNoida(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Noida')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3455,6 +3563,9 @@ def fertilityClinicsMeerut(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Meerut')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3496,6 +3607,9 @@ def fertilityClinicsHaldwani(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Haldwani')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='India').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3539,6 +3653,9 @@ def fertilityClinicsAthens(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Athens')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3580,6 +3697,9 @@ def fertilityClinicsThessaloniki(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Thessaloniki')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Greece').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3623,6 +3743,9 @@ def fertilityClinicsNicosia(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Nicosia')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Cyprus').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Cyprus').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Cyprus').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3664,6 +3787,9 @@ def fertilityClinicsGirne(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Girne')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Cyprus').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Cyprus').aggregate(average=Avg('egg_donor_recipients_cost'))
@@ -3707,6 +3833,9 @@ def fertilityClinicsCancun(request):
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Cancún')
     my_total_count = my_total_count.filter(is_published=True)
 
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
+
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('egg_donor_recipients_cost'))
     averageEmbryoPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('embryo_donor_recipients_cost'))
@@ -3748,6 +3877,9 @@ def fertilityClinicsMexicoCity(request):
 
     my_total_count = BasicClinic.objects.filter(clinicCity__iexact='Mexico City')
     my_total_count = my_total_count.filter(is_published=True)
+
+    all_clinic_count = BasicClinic.objects.all()
+    all_clinic_count = all_clinic_count.count()
 
     averageIVFPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('ovarian_ivf_treatment_cost'))
     averageEggPrice = BasicClinic.objects.filter(clinicState__iexact='Mexico').aggregate(average=Avg('egg_donor_recipients_cost'))

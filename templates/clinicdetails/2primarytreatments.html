@@ -1,5 +1,11 @@
 {% load static %}
 {% load humanize %}
+<br>
+<div class="container py-3" style="text-align: center;">
+  {% if listing.accepts_patients_from_abroad == True %}<button type="button" class="btn btn-info btn-block btn-lg">Accepts international patients</button> {% else %}{% endif %}
+</div>
+
+
 <div class="container py-5" style="text-align: center; z-index: -1;" id="pricing">
   <h2>Primary treatments & costs (single cycle)</h2>
   <p>The prices listed below are only estimated and average prices without medication, which do not guarantee the final price.</p>

@@ -28,6 +28,17 @@
         </li>
         {% endif %}
 
+        <!-- single_woman_treatment -->
+        {% if listing.accepts_patients_from_abroad == True %}
+        <li class="list-group-item">
+          <img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem">Accepts international patients
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <img src="{% static 'img/question.svg' %}" class="mr-3" alt="Icon False" style="height: 2rem">Accepts international patients
+        </li>
+        {% endif %}
+
       </ul>
     </div>
     <div class="col-sm" style="text-align: left; padding-top:1rem">

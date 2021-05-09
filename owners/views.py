@@ -927,3 +927,16 @@ def reviewssettings(request, listing_id):
     }
 
     return render(request, 'owners/reviews/reviews-settings.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def fctrafficreport(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    context = {
+        'instance': instance,
+    }
+
+    return render(request, 'owners/fc-traffic.html', context)

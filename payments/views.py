@@ -107,7 +107,7 @@ def billinginfo(request, listing_id):
             return render(request, 'owners/payments/checkout.html', context)
 
     else:
-        messages.error(request, 'Already customer')
+        messages.error(request, 'Already customer, for managing subscriptions go to the customer portal')
         return redirect('dashboard')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
@@ -178,7 +178,7 @@ def billinginfo1(request, listing_id):
             return render(request, 'owners/payments/checkout1.html', context)
 
     else:
-        messages.error(request, 'Already customer')
+        messages.error(request, 'Already customer, for managing subscriptions go to the customer portal')
         return redirect('dashboard')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')

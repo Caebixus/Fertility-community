@@ -9,12 +9,21 @@
     <br>
   </div>
 </div>
-<div class="container py-4">
+<div class="container py-4" style="text-align: center">
   <p>You can easily manage your subscription plans, credit card changes or billing addresses directly via the Stripe interface - customer portal:</p>
-  <form action="" method="post">
-    {% csrf_token %}
-    <input id="brandButton" type="submit" value="Customer portal" class="btn btn-outline-success btn-lg">
-  </form>
+  <div class="row">
+    <div class="col-6">
+      <form action="" method="post">
+        {% csrf_token %}
+        <input id="brandButton" type="submit" value="Customer portal" class="btn btn-lg btn-block">
+      </form>
+    </div>
+    <div class="col-6">
+      <a href="{% url 'upgrade' instance.id %}" style="text-decoration: none; !important">
+        <button id="brandButton" class="btn btn-lg btn-block">Benefits of upgraded profiles</button>
+      </a>
+    </div>
+  </div>
 </div>
 
 {% endblock  %}

@@ -829,28 +829,28 @@
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI treatment price: </p>
           <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Egg donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
           <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Embryo donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
           <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average Sperm donation recipients price: </p>
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
           <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i></p>
           {% else %}
           {% endif  %}

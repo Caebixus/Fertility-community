@@ -313,17 +313,17 @@ select {
 }
 
 #pricingSearchButton {
-  border-color: #15a2b8;
-  background-color: #15a2b8;
+  border-color: #007bff;
+  background-color: #007bff;
   border-radius: 8px;
   border-width:2px;
   color: white;
 }
 
 #pricingSearchButton:hover {
-  border-color: #15a2b8;
+  border-color: #007bff;
   background-color: white;
-  color: #15a2b8;
+  color: #007bff;
   border-radius: 8px;
 }
 

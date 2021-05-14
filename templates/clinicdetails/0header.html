@@ -10,18 +10,20 @@
     {% endif %}
     <div class="row-md">
       <p style="color: white">Features:
-      {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-user-check"></i> Verified</span>{% else %}{% endif %}
-      {% if listing.ppq_is_published == True %}<span class="badge badge-primary" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
-      {% if listing.package1title or listing.package2title or listing.package3title or listing.package4title or listing.package5title or listing.package6title and listing.pro_is_published == True %}<span class="badge badge-danger" style="margin-left: 10px;"><a href="{{ listing.clinic_url }}#packages" style="color: white; text-decoration: none"><i class="fas fa-archive"></i> Packages</a></span>{% else %}{% endif %}
-      {% if listing.clinicOwn == 'Private' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> Private</span>{% else %}{% endif %}
-      {% if listing.clinicOwn == 'State' %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> State</span>{% else %}{% endif %}
+      {% if listing.ppq_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+      {% if listing.verified_is_published == True or listing.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Verified</span>{% else %}{% endif %}
+      {% if listing.ppq_is_published == True and listing.clinicLiveChatChoice != Blank %}{% if listing.clinicChatraCode != Blank or listing.clinicLiveChatCode != Blank or listing.clinicOlarkCode != Blank or listing.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
+      {% if listing.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> International patients</span>{% else %}{% endif %}
+      {% if listing.clinicGoogleReviews != Empty or listing.clinicTrustPilotID != Empty %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Trusted reviews</span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'Private' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Private</span>{% else %}{% endif %}
+      {% if listing.clinicOwn == 'State' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> State</span>{% else %}{% endif %}
       </p>
     </div>
     <div class="row-md">
       {% if listing.clinicSart != Null or listing.clinicHfea != Null %}
       <p style="color: white">Certification:
-        {% if listing.clinicSart %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" target="_blank" style="color:white" rel="nofollow noopener">SART certified</a></span>{% else %}{% endif %}
-        {% if listing.clinicHfea %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" target="_blank" style="color:white" rel="nofollow noopener">HFEA certified</a></span>{% else %}{% endif %}
+        {% if listing.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicSart }}" target="_blank" style="color:white" rel="nofollow noopener">SART certified</a></span>{% else %}{% endif %}
+        {% if listing.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ listing.clinicHfea }}" target="_blank" style="color:white" rel="nofollow noopener">HFEA certified</a></span>{% else %}{% endif %}
       </p>
       {% else %}
       {% endif %}

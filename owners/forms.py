@@ -12,11 +12,164 @@ from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
 
 CATEGORY_CHOICES_CURRENCY = (
-    ('USD', 'USD'),
+    ('AED', 'AED'),
+    ('AFN', 'AFN'),
+    ('ALL', 'ALL'),
+    ('AMD', 'AMD'),
+    ('ANG', 'ANG'),
+    ('AOA', 'AOA'),
+    ('ARS', 'ARS'),
+    ('AUD', 'AUD'),
+    ('AWG', 'AWG'),
+    ('AZN', 'AZN'),
+    ('BAM', 'BAM'),
+    ('BBD', 'BBD'),
+    ('BDT', 'BDT'),
+    ('BGN', 'BGN'),
+    ('BHD', 'BHD'),
+    ('BIF', 'BIF'),
+    ('BMD', 'BMD'),
+    ('BND', 'BND'),
+    ('BOB', 'BOB'),
+    ('BRL', 'BRL'),
+    ('BSD', 'BSD'),
+    ('BTN', 'BTN'),
+    ('BWP', 'BWP'),
+    ('BYN', 'BYN'),
+    ('BZD', 'BZD'),
+    ('CAD', 'CAD'),
+    ('CDF', 'CDF'),
+    ('CLP', 'CLP'),
+    ('CNY', 'CNY'),
+    ('COP', 'COP'),
+    ('CRC', 'CRC'),
+    ('CUP', 'CUP'),
+    ('CVE', 'CVE'),
+    ('CZK', 'CZK'),
+    ('DJF', 'DJF'),
+    ('DKK', 'DKK'),
+    ('DOP', 'DOP'),
+    ('DZD', 'DZD'),
+    ('EGP', 'EGP'),
+    ('ERN', 'ERN'),
+    ('ETB', 'ETB'),
     ('EUR', 'EUR'),
+    ('FJD', 'FJD'),
+    ('FKP', 'FKP'),
     ('GBP', 'GBP'),
-    ('INR', 'INR'),
+    ('GEL', 'GEL'),
+    ('GHS', 'GHS'),
+    ('GIP', 'GIP'),
+    ('GMD', 'GMD'),
+    ('GNF', 'GNF'),
+    ('GTQ', 'GTQ'),
+    ('GYD', 'GYD'),
+    ('HKD', 'HKD'),
+    ('HNL', 'HNL'),
+    ('HRK', 'HRK'),
+    ('HTG', 'HTG'),
+    ('HUF', 'HUF'),
+    ('CHF', 'CHF'),
+    ('CHW', 'CHW'),
+    ('IDR', 'IDR'),
+    ('ILS', 'ILS'),
+    ('IQD', 'IQD'),
+    ('IRR', 'IRR'),
+    ('ISK', 'ISK'),
+    ('JMD', 'JMD'),
+    ('JOD', 'JOD'),
+    ('JPY', 'JPY'),
+    ('KES', 'KES'),
+    ('KGS', 'KGS'),
+    ('KHR', 'KHR'),
+    ('KMF', 'KMF'),
+    ('KRW', 'KRW'),
+    ('KWD', 'KWD'),
+    ('KYD', 'KYD'),
+    ('KZT', 'KZT'),
+    ('LAK', 'LAK'),
+    ('LBP', 'LBP'),
+    ('LKR', 'LKR'),
+    ('LRD', 'LRD'),
+    ('LSL', 'LSL'),
+    ('MAD', 'MAD'),
+    ('MDL', 'MDL'),
+    ('MGA', 'MGA'),
+    ('MKD', 'MKD'),
+    ('MMK', 'MMK'),
+    ('MNT', 'MNT'),
+    ('MOP', 'MOP'),
+    ('MRU', 'MRU'),
+    ('MUR', 'MUR'),
+    ('MVR', 'MVR'),
+    ('MWK', 'MWK'),
     ('MXN', 'MXN'),
+    ('MYR', 'MYR'),
+    ('MZN', 'MZN'),
+    ('NAD', 'NAD'),
+    ('NGN', 'NGN'),
+    ('NIO', 'NIO'),
+    ('NOK', 'NOK'),
+    ('NPR', 'NPR'),
+    ('NZD', 'NZD'),
+    ('OMR', 'OMR'),
+    ('PAB', 'PAB'),
+    ('PEN', 'PEN'),
+    ('PGK', 'PGK'),
+    ('PHP', 'PHP'),
+    ('PKR', 'PKR'),
+    ('PLN', 'PLN'),
+    ('PYG', 'PYG'),
+    ('QAR', 'QAR'),
+    ('RON', 'RON'),
+    ('RSD', 'RSD'),
+    ('RUB', 'RUB'),
+    ('RWF', 'RWF'),
+    ('SAR', 'SAR'),
+    ('SBD', 'SBD'),
+    ('SCR', 'SCR'),
+    ('SDG', 'SDG'),
+    ('SEK', 'SEK'),
+    ('SGD', 'SGD'),
+    ('SHP', 'SHP'),
+    ('SLL', 'SLL'),
+    ('SOS', 'SOS'),
+    ('SRD', 'SRD'),
+    ('SSP', 'SSP'),
+    ('STN', 'STN'),
+    ('SVC', 'SVC'),
+    ('SYP', 'SYP'),
+    ('SZL', 'SZL'),
+    ('THB', 'THB'),
+    ('TJS', 'TJS'),
+    ('TMT', 'TMT'),
+    ('TND', 'TND'),
+    ('TOP', 'TOP'),
+    ('TRY', 'TRY'),
+    ('TTD', 'TTD'),
+    ('TWD', 'TWD'),
+    ('TZS', 'TZS'),
+    ('UAH', 'UAH'),
+    ('UGX', 'UGX'),
+    ('USD', 'USD'),
+    ('USN', 'USN'),
+    ('UYI', 'UYI'),
+    ('UYU', 'UYU'),
+    ('UYW', 'UYW'),
+    ('UZS', 'UZS'),
+    ('VES', 'VES'),
+    ('VND', 'VND'),
+    ('VUV', 'VUV'),
+    ('WST', 'WST'),
+    ('XAF', 'XAF'),
+    ('XCD', 'XCD'),
+    ('XOF', 'XOF'),
+    ('XPF', 'XPF'),
+    ('XSU', 'XSU'),
+    ('XUA', 'XUA'),
+    ('YER', 'YER'),
+    ('ZMW', 'ZMW'),
+    ('ZWL', 'ZWL'),
     )
 
 PACKAGE_TYPE = (
@@ -646,7 +799,7 @@ class CreateClinic(forms.ModelForm):
     clinicGerman = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('German speaking personal'))
     clinicChinese = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Chinese speaking personal'))
 
-    defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}))
+    defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}), required=False,)
 
     mondayOpens = forms.CharField(widget=forms.Select(choices=HOURS, attrs={'class': 'form-control',}), required=False,)
     mondayCloses = forms.CharField(widget=forms.Select(choices=HOURS, attrs={'class': 'form-control',}), required=False,)
@@ -692,7 +845,6 @@ class CreateClinic(forms.ModelForm):
         'clinicRussian',
         'clinicGerman',
         'clinicChinese',
-        'defaultClinicCurrency',
         'mondayOpens',
         'mondayCloses',
         'tuesdayOpens',
@@ -734,7 +886,7 @@ class PostForm(forms.ModelForm):
 
     clinicState = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_WORLD_STATES, attrs={'class': 'form-control',}), label=('Clinics state'))
 
-    clinicRegion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Region/Country'))
+    clinicRegion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Region/Country'))
     clinicPostalCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics postal code'))
 
     clinicEnglish = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('English speaking personal'))
@@ -775,6 +927,13 @@ class PostForm(forms.ModelForm):
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+
+    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
     class Meta:
         model = BasicClinic
@@ -825,6 +984,12 @@ class PostForm(forms.ModelForm):
         'hiv_patients',
         'sex_selection',
         'accepts_patients_from_abroad',
+        'clinicFacebook',
+        'clinicInstagram',
+        'clinicTwitter',
+        'clinicYoutube',
+        'clinicLinkedIn',
+        'clinicPinterest',
         ]
 
 
@@ -992,6 +1157,14 @@ class PostFormPro(forms.ModelForm):
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
 
 
+    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+
+
     class Meta:
         model = BasicClinic
         fields = [
@@ -1062,6 +1235,12 @@ class PostFormPro(forms.ModelForm):
         'hiv_patients',
         'sex_selection',
         'accepts_patients_from_abroad',
+        'clinicFacebook',
+        'clinicInstagram',
+        'clinicTwitter',
+        'clinicYoutube',
+        'clinicLinkedIn',
+        'clinicPinterest',
         ]
 
 class UpdatePricePro(forms.ModelForm):

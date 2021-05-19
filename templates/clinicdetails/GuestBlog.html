@@ -2,6 +2,8 @@
 {% load humanize %}
 {% if guestblog %}
 <div class="container py-5" style="text-align: center; z-index: -1;">
+  <h2>{{ listing.clinicName }} News</h2>
+  <hr>
   <div class="row row-cols-1 row-cols-md-3">
     {% for guestblogs in guestblog %}
     {% if guestblogs.guestblogactive == True %}

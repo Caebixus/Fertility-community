@@ -103,7 +103,7 @@
         <br>
         <div class="fieldWrapper" style="text-align: left">
           {{ form.packagecost.errors }}
-          <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency:</label>
+          <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency ({{ clinic.defaultClinicCurrency }}):</label>
           <div class="fieldWrapper">
             {{ form.packagecost }}
           </div>

@@ -3,13 +3,15 @@
 {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
   {% if listing.clinicGoogleReviews != None or listing.clinicTrustPilotID != None %}
   <div class="container py-5" style="text-align: center; z-index: -1;">
+    <h2>Independent reviews</h2>
+    <hr>
     <div class="row">
       {% if listing.clinicGoogleReviews %}
         <div class="col-lg-6" id="AHOJ" style="padding-top:2rem; display: flex; justify-content: center; align-items: center;">
           {% if listing.clinicGoogleReviews == Null %}
             <img src="{% static 'img/navody/GoogleReviewIcon.jpg' %}" alt="Google reviews" width="70%" style="display: block; margin-left: auto; margin-right: auto;">
           {% else %}
-            <a href="{{ listing.clinicGoogleReviews }}" target="_blank" rel="noopener"><img src="{% static 'img/navody/GoogleReviewIcon.jpg' %}" alt="Google reviews" width="70%" style="display: block; margin-left: auto; margin-right: auto;"></a>
+            <a href="{{ listing.clinicGoogleReviews }}" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/navody/GoogleReviewIcon.jpg' %}" alt="Google reviews" width="70%" style="display: block; margin-left: auto; margin-right: auto;"></a>
           {% endif %}
         </div>
       {% else %}
@@ -18,13 +20,13 @@
         {% if listing.clinicTrustPilotChoice == 'Micro Review Count' %}
         <div class="col-lg-6" style="padding-top:2rem">
           <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="100%" data-style-width="100%" data-theme="light">
-            <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+            <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener noreferrer">Trustpilot</a>
           </div>
         </div>
         {% elif listing.clinicTrustPilotChoice == 'Mini' %}
         <div class="col-lg-6" style="padding-top:2rem">
           <div class="trustpilot-widget" data-locale="en-US" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="{{ listing.clinicTrustPilotID }}" data-style-height="100%" data-style-width="100%" data-theme="light">
-            <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener">Trustpilot</a>
+            <a href="https://www.trustpilot.com/review/{{ listing.clinicTrustPilotDomain }}" target="_blank" rel="noopener noreferrer">Trustpilot</a>
           </div>
         </div>
         {% endif %}

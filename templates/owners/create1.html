@@ -52,13 +52,6 @@
         {{ form.description }}
       </div>
       <br>
-      <div class="fieldWrapper" style="text-align: left">
-        {{ form.defaultClinicCurrency.errors }}
-        <label for="{{ form.defaultClinicCurrency.id_for_label}}">Primarily accepted currency</label>
-        <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.defaultClinicCurrency }}
-        </div>
-      </div>
       <br>
       <hr>
       <br>
@@ -108,13 +101,13 @@
         <div class="col-md-6" style="padding-top:1rem">
           <div class="fieldWrapper" style="text-align: left">
             {{ form.clinicState.errors }}
-            <label for="{{ form.clinicState.id_for_label}}">State:</label>
-            {{ form.clinicState }}
+            <label for="{{ form.clinicState.id_for_label}}">Country:</label>
+              {{ form.clinicState }}
           </div>
           <br>
           <div class="fieldWrapper" style="text-align: left;">
             {{ form.clinicRegion.errors }}
-              <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+              <label for="{{ form.clinicRegion.id_for_label}}">State (optional):</label>
             {{ form.clinicRegion }}
           </div>
         </div>
@@ -356,4 +349,5 @@
   </div>
 </main>
 <br>
+
 {% endblock  %}

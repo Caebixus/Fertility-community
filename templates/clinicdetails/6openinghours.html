@@ -52,7 +52,7 @@
 </div>
 {% endif %}
 
-<div class="container py-3" style="text-align: center; margin-top: 40px; margin-bottom: 60px">
+<div class="container py-3" style="text-align: center; margin-top: 40px; margin-bottom: 40px">
   <h2>Contact</h2>
   <hr>
   <div class="row" style="padding-top:10px">
@@ -85,3 +85,48 @@
     {% endif %}
   </div>
 </div>
+
+{% if listing.clinicFacebook or listing.clinicInstagram or listing.clinicTwitter or listing.clinicYoutube or listing.clinicLinkedIn or listing.clinicPinterest %}
+  <div class="container py-5" style="text-align: center; padding-top: 40px; margin-bottom: 5rem">
+    <h2>Social Media</h2>
+    <hr>
+    <div class="row">
+      {% if listing.clinicFacebook %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicFacebook}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinicInstagram %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicInstagram}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinicTwitter %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicTwitter}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinicYoutube %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicYoutube}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinicLinkedIn %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicLinkedIn}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if listing.clinicPinterest %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{listing.clinicPinterest}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

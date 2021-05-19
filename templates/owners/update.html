@@ -50,14 +50,6 @@
   <br>
   <style> .django-ckeditor-widget { min-width:100% !important; } </style>
   <br>
-  <div class="fieldWrapper" style="text-align: left">
-    {{ form.defaultClinicCurrency.errors }}
-    <label for="{{ form.defaultClinicCurrency.id_for_label}}">Primarily accepted currency</label>
-    <div class="fieldWrapper" style="max-width:6rem">
-      {{ form.defaultClinicCurrency }}
-    </div>
-  </div>
-  <br>
   <hr>
   <br>
 
@@ -219,7 +211,7 @@
     <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
     {{ form.fertilitycommunity_email }}
   </div>
-  
+
   <br>
   <hr>
   <br>
@@ -239,17 +231,15 @@
       </div>
     </div>
     <div class="col-md-6" style="padding-top:1rem">
-      <div id="Statesx">
-        <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicState.errors }}
-          <label for="{{ form.clinicState.id_for_label}}">State:</label>
-            {{ form.clinicState }}
-        </div>
+      <div class="fieldWrapper" style="text-align: left">
+        {{ form.clinicState.errors }}
+        <label for="{{ form.clinicState.id_for_label}}">Country:</label>
+          {{ form.clinicState }}
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left;">
         {{ form.clinicRegion.errors }}
-          <label for="{{ form.clinicRegion.id_for_label}}">Region:</label>
+          <label for="{{ form.clinicRegion.id_for_label}}">State (optional):</label>
         {{ form.clinicRegion }}
       </div>
     </div>
@@ -486,6 +476,73 @@
         {{ form.accepts_patients_from_abroad }}
       </div>
     </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <h2>Social Media</h2>
+  <br>
+  <div class="container">
+    {{ form.clinicFacebook.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's Facebook page URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicFacebook }}
+      </div>
+    </div>
+    <br>
+    {{ form.clinicInstagram.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's Instagram profile URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicInstagram }}
+      </div>
+    </div>
+    <br>
+    {{ form.clinicTwitter.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's Twitter profile URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicTwitter }}
+      </div>
+    </div>
+    <br>
+    {{ form.clinicYoutube.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's Youtube Channel URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicYoutube }}
+      </div>
+    </div>
+    <br>
+    {{ form.clinicLinkedIn.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's LinkedIn page URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicLinkedIn }}
+      </div>
+    </div>
+    <br>
+    {{ form.clinicPinterest.errors }}
+    <div class="row">
+      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+        Clinic's Pinterest profile URL
+      </div>
+      <div class="col-2 col-md">
+        {{ form.clinicPinterest }}
+      </div>
+    </div>
     <br>
     <hr>
     <br>
@@ -499,4 +556,5 @@
 
 
 <br>
+
 {% endblock  %}

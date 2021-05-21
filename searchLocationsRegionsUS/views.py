@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from search.choices import CATEGORY_CHOICES_STATES, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
+from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
@@ -52,22 +52,7 @@ def fertilityClinicsAlabama(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-alabama.html', context)
 
@@ -113,22 +98,7 @@ def fertilityClinicsAlaska(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-alaska.html', context)
 
@@ -174,22 +144,7 @@ def fertilityClinicsArizona(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-arizona.html', context)
 
@@ -235,22 +190,7 @@ def fertilityClinicsArkansas(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-arkansas.html', context)
 
@@ -296,22 +236,7 @@ def fertilityClinicsCalifornia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-california.html', context)
 
@@ -357,22 +282,7 @@ def fertilityClinicsColorado(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-colorado.html', context)
 
@@ -418,22 +328,7 @@ def fertilityClinicsConnecticut(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-connecticut.html', context)
 
@@ -479,22 +374,7 @@ def fertilityClinicsDelaware(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-delaware.html', context)
 
@@ -540,22 +420,7 @@ def fertilityClinicsFlorida(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-florida.html', context)
 
@@ -601,22 +466,7 @@ def fertilityClinicsGeorgia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-georgia.html', context)
 
@@ -662,22 +512,7 @@ def fertilityClinicsHawaii(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-hawaii.html', context)
 
@@ -723,22 +558,7 @@ def fertilityClinicsIdaho(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-idaho.html', context)
 
@@ -784,22 +604,7 @@ def fertilityClinicsIllinois(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-illinois.html', context)
 
@@ -845,22 +650,7 @@ def fertilityClinicsIndiana(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-indiana.html', context)
 
@@ -906,22 +696,7 @@ def fertilityClinicsIowa(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-iowa.html', context)
 
@@ -967,22 +742,7 @@ def fertilityClinicsKansas(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-kansas.html', context)
 
@@ -1028,22 +788,7 @@ def fertilityClinicsKentucky(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-kentucky.html', context)
 
@@ -1089,22 +834,7 @@ def fertilityClinicsLouisiana(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-louisiana.html', context)
 
@@ -1150,22 +880,7 @@ def fertilityClinicsMaine(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-maine.html', context)
 
@@ -1211,22 +926,7 @@ def fertilityClinicsMaryland(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-maryland.html', context)
 
@@ -1272,22 +972,7 @@ def fertilityClinicsMassachusetts(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-massachusetts.html', context)
 
@@ -1333,22 +1018,7 @@ def fertilityClinicsMichigan(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-michigan.html', context)
 
@@ -1394,22 +1064,7 @@ def fertilityClinicsMinnesota(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-minnesota.html', context)
 
@@ -1455,22 +1110,7 @@ def fertilityClinicsMississippi(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-mississippi.html', context)
 
@@ -1516,22 +1156,7 @@ def fertilityClinicsMissouri(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-missouri.html', context)
 
@@ -1577,22 +1202,7 @@ def fertilityClinicsMontana(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-montana.html', context)
 
@@ -1638,22 +1248,7 @@ def fertilityClinicsNebraska(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-nebraska.html', context)
 
@@ -1699,22 +1294,7 @@ def fertilityClinicsNewHampshire(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-new-hampshire.html', context)
 
@@ -1760,22 +1340,7 @@ def fertilityClinicsNewJersey(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-new-jersey.html', context)
 
@@ -1821,22 +1386,7 @@ def fertilityClinicsNewMexico(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-new-mexico.html', context)
 
@@ -1882,22 +1432,7 @@ def fertilityClinicsNewYork(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-new-york.html', context)
 
@@ -1943,22 +1478,7 @@ def fertilityClinicsNorthCarolina(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-north-carolina.html', context)
 
@@ -2004,22 +1524,7 @@ def fertilityClinicsNorthDakota(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-north-dakota.html', context)
 
@@ -2065,22 +1570,7 @@ def fertilityClinicsNevada(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-nevada.html', context)
 
@@ -2126,22 +1616,7 @@ def fertilityClinicsOhio(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-ohio.html', context)
 
@@ -2187,22 +1662,7 @@ def fertilityClinicsOklahoma(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-oklahoma.html', context)
 
@@ -2248,22 +1708,7 @@ def fertilityClinicsOregon(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-oregon.html', context)
 
@@ -2309,22 +1754,7 @@ def fertilityClinicsPennsylvania(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-pennsylvania.html', context)
 
@@ -2370,22 +1800,7 @@ def fertilityClinicsPuertoRico(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-puerto-rico.html', context)
 
@@ -2431,22 +1846,7 @@ def fertilityClinicsRhodeIsland(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-rhode-island.html', context)
 
@@ -2492,22 +1892,7 @@ def fertilityClinicsSouthCarolina(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-south-carolina.html', context)
 
@@ -2553,22 +1938,7 @@ def fertilityClinicsSouthDakota(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-south-dakota.html', context)
 
@@ -2614,22 +1984,7 @@ def fertilityClinicsTennessee(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-tennessee.html', context)
 
@@ -2675,22 +2030,7 @@ def fertilityClinicsTexas(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-texas.html', context)
 
@@ -2736,22 +2076,7 @@ def fertilityClinicsUtah(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-utah.html', context)
 
@@ -2797,22 +2122,7 @@ def fertilityClinicsVermont(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-vermont.html', context)
 
@@ -2858,22 +2168,7 @@ def fertilityClinicsVirginia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-virginia.html', context)
 
@@ -2919,22 +2214,7 @@ def fertilityClinicsWashington(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-washington.html', context)
 
@@ -2980,22 +2260,7 @@ def fertilityClinicsWestVirginia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-west-virginia.html', context)
 
@@ -3041,22 +2306,7 @@ def fertilityClinicsWisconsin(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-wisconsin.html', context)
 
@@ -3102,22 +2352,7 @@ def fertilityClinicsWyoming(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-wyoming.html', context)
 
@@ -3163,22 +2398,7 @@ def fertilityClinicsDistrictOfColumbia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    context = {
-        'guestblog': guestblog,
-        'all_clinic_count': all_clinic_count,
-        'listings': queryset_list,
-        'pro_listings': pro_queryset_list,
-        'order_data': paginationing,
-        'paginationing': paginationing,
-        'averageIVFPrice': averageIVFPrice,
-        'averageEggPrice': averageEggPrice,
-        'averageEmbryoPrice': averageEmbryoPrice,
-        'averageSpermPrice': averageSpermPrice,
-        'averageICSIPrice': averageICSIPrice,
-        'CATEGORY_CHOICES_STATES': CATEGORY_CHOICES_STATES,
-        'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION,
-        'my_total_count': my_total_count,
-        }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'listings': queryset_list, 'pro_listings': pro_queryset_list, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count,}
 
     return render(request, 'locations-regions/USA/fertility-clinics-district-of-columbia.html', context)
 

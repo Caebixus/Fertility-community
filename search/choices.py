@@ -1,5 +1,12 @@
 from clinic.models import BasicClinic
+from packages.models import Package
+from datetime import datetime, timedelta
+from django.utils import timezone
 
+todayDate = timezone.now()
+
+#----------------------------------------------------------------------------------------------------------------------------
+#Fertility clinics
 my_total_count_usa = BasicClinic.objects.filter(clinicState__iexact='United States')
 my_total_count_usa = my_total_count_usa.filter(is_published=True)
 my_total_count_usa = my_total_count_usa.count()
@@ -32,15 +39,65 @@ my_total_count_mexico = BasicClinic.objects.filter(clinicState__iexact='Mexico')
 my_total_count_mexico = my_total_count_mexico.filter(is_published=True)
 my_total_count_mexico = my_total_count_mexico.count()
 
-CATEGORY_CHOICES_STATES = {
+
+CATEGORY_CHOICES_STATES_NORTH_AMERICA = {
     'US': 'United States - ' + str(my_total_count_usa) + ' fertility clinics',
+    'MX': 'Mexico - ' + str(my_total_count_mexico) + ' fertility clinics',
+    }
+
+CATEGORY_CHOICES_STATES_EUROPE = {
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
     'CZ': 'Czech Republic - ' + str(my_total_count_cze) + ' fertility clinics',
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
-    'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
     'CY': 'Cyprus - ' + str(my_total_count_cyprus) + ' fertility clinics',
-    'MX': 'Mexico - ' + str(my_total_count_mexico) + ' fertility clinics',
+    }
+
+CATEGORY_CHOICES_STATES_ASIA = {
+    'IN': 'India - ' + str(my_total_count_india) + ' fertility clinics',
+    }
+
+#----------------------------------------------------------------------------------------------------------------------------
+#Packages
+my_total_package_count_usa = Package.objects.filter(packageclinic__clinicState__iexact='United States').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_usa = my_total_package_count_usa.count()
+
+my_total_package_count_uk = Package.objects.filter(packageclinic__clinicState__iexact='United Kingdom').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_uk = my_total_package_count_uk.count()
+
+my_total_package_count_cze = Package.objects.filter(packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_cze = my_total_package_count_cze.count()
+
+my_total_package_count_spain = Package.objects.filter(packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_spain = my_total_package_count_spain.count()
+
+my_total_package_count_india = Package.objects.filter(packageclinic__clinicState__iexact='India').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_india = my_total_package_count_india.count()
+
+my_total_package_count_greece = Package.objects.filter(packageclinic__clinicState__iexact='Greece').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_greece = my_total_package_count_greece.count()
+
+my_total_package_count_cyprus = Package.objects.filter(packageclinic__clinicState__iexact='Cyprus').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_cyprus = my_total_package_count_cyprus.count()
+
+my_total_package_count_mexico = Package.objects.filter(packageclinic__clinicState__iexact='Mexico').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_mexico = my_total_package_count_mexico.count()
+
+CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA = {
+    'US': 'United States - ' + str(my_total_package_count_usa) + ' packages',
+    'MX': 'Mexico - ' + str(my_total_package_count_mexico) + ' packages',
+    }
+
+CATEGORY_CHOICES_STATES_PACKAGES_EUROPE = {
+    'UK': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
+    'CZ': 'Czech Republic - ' + str(my_total_package_count_cze) + ' packages',
+    'SP': 'Spain - ' + str(my_total_package_count_spain) + ' packages',
+    'GR': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
+    'CY': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
+    }
+
+CATEGORY_CHOICES_STATES_PACKAGES_ASIA = {
+    'IN': 'India - ' + str(my_total_package_count_india) + ' packages',
     }
 
 #----------------------------------------------------------------------------------------------------------------------------

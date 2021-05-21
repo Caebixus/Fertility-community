@@ -39,10 +39,22 @@
                 <div class="card" style="border-radius: 8px;">
                   <div class="card-header" style="background-color: white; border-radius: 8px;">
                     <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
-                      <option value="MX" selected>Select State</option>
-                      {% for key, value in CATEGORY_CHOICES_STATES.items %}
-                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
-                      {% endfor %}
+                      <option value="" selected>Select state</option>
+                      <optgroup label="North America">
+                        {% for key, value in CATEGORY_CHOICES_STATES_NORTH_AMERICA.items %}
+                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                      </optgroup>
+                      <optgroup label="Europe">
+                        {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                      </optgroup>
+                      <optgroup label="Asia">
+                        {% for key, value in CATEGORY_CHOICES_STATES_ASIA.items %}
+                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                      </optgroup>
                     </select>
                   </div>
                 </div>
@@ -181,9 +193,21 @@
                       <div class="card-header" style="background-color: white; border-radius: 8px;">
                         <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
                           <option value="" selected>Select state</option>
-                          {% for key, value in CATEGORY_CHOICES_STATES.items %}
-                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
-                          {% endfor %}
+                          <optgroup label="North America">
+                            {% for key, value in CATEGORY_CHOICES_STATES_NORTH_AMERICA.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
+                          <optgroup label="Europe">
+                            {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
+                          <optgroup label="Asia">
+                            {% for key, value in CATEGORY_CHOICES_STATES_ASIA.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
                         </select>
                       </div>
                     </div>

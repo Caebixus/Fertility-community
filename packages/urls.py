@@ -4,14 +4,14 @@ from . import views, views2
 
 urlpatterns = [
     #Package main search page
-    path('packages/search', views2.packagesearch, name='packagesearch'),
+    path('packages', views2.packagesearch, name='packagesearch'),
 
     # --------------------------------------->>>>>>>> Redirects
-    path('packages', views.packages, name='packages'),
+    path('packages/search', views2.packages2, name='packages2'),
+    path('packages', views.packages1, name='packages1'),
     path('packages/ivf-packages', views.ivfpackages, name='ivfpackages'),
     path('packages/ivf-with-donor-eggs-packages', views.eggpackages, name='eggpackages'),
     path('packages/ivf-with-donor-embryo-packages', views.embryopackages, name='embryopackages'),
-
 
     #Location US
     #path('packages/ivf-packages/united-states', views.ivfpackagesus, name='ivfpackagesus'), #obecná stránka - landing page!

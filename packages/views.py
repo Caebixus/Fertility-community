@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 
 
-def packages(request):
+def packages1(request):
     return HttpResponsePermanentRedirect(reverse('packagesearch'))
 
 def ivfpackages(request):

@@ -73,6 +73,7 @@ CATEGORY_CHOICES_CURRENCY = (
     ('CHW', 'CHW'),
     ('IDR', 'IDR'),
     ('ILS', 'ILS'),
+    ('INR', 'INR'),
     ('IQD', 'IQD'),
     ('IRR', 'IRR'),
     ('ISK', 'ISK'),

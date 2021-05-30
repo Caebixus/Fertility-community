@@ -96,7 +96,7 @@
               <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsAthens' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Athens IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicsThessaloniki' %}"><u>Thessaloniki ({% if my_total_count_thessaloniki %}{{ my_total_count_thessaloniki }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicsThessaloniki' %}"><u>Thessaloniki ({% if my_total_clinic_count_thessaloniki %}{{ my_total_clinic_count_thessaloniki }} clinics){% else %}0 clinics){% endif %}</u></a></th>
               <td style="font-size: 14px">
                 {% if queryset_list_thessaloniki_ivf_val %}
                   <div class="treatmentCostsUSDCurrency">{{ queryset_list_thessaloniki_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>

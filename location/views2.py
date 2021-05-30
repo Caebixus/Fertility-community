@@ -3298,7 +3298,7 @@ def locationsSPRegions(request):
         queryset_list_malaga_iui = val
 
     #--------------------------------------------------------------------------
-    queryset_list_sevilla = queryset_list_sp.filter(clinicRegion__iexact='Sevilla')
+    queryset_list_sevilla = queryset_list_sp.filter(clinicRegion__iexact='Seville')
     my_total_clinic_count_sevilla = queryset_list_sevilla.count()
 
     queryset_list_sevilla_ivf = queryset_list_sevilla.aggregate(average=Avg('ovarian_ivf_treatment_cost'))

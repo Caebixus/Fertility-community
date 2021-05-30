@@ -3,6 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load mathfilters %}
+{% load currencytag %}
 {% block title %}2021 | Compare fertility packages globally{% endblock %}
 {% block description %}Search hundreds of fertility packages at once to discover the deal you need to make the best decisions for your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/package-search{% endblock %}
@@ -10,7 +11,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 style="padding-top:3rem; color:white">Fertility packages & deals</h1>
-    <p class="lead" style="color:white">Search hundreds of fertility treatment packages & limited deals at once. Currently listed <b><i>{{ count }}</i></b> / <b><i>{{countall}}</i></b> active packages.</p>
+    <p class="lead" style="color:white">Search hundreds of fertility treatment packages & limited deals at once.
     <div class="container">
       <div class="searchBox">
         <div class="mainbanner" id="mainhpbanner">
@@ -208,6 +209,22 @@
   </div>
 </div>
 
+<div class="container py-3">
+  <div class="row">
+    <div class="col-8">
+      <p>Currently listed <b>{{ count }}</b> out of <b>{{countall}}</b> active packages.</p>
+    </div>
+    <div class="col-4">
+      <select class="form-control" id="ChooseCurrency">
+        <option value="" selected>Currency</option>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
+    </div>
+  </div>
+</div>
+
 
 <div class="container py-5">
   <div class="row row-cols-1 row-cols-md-3">
@@ -232,13 +249,13 @@
           <p class="card-title">{{ order_datas.packagetitle }}</p>
           <hr>
           <p style="color: #CD5360; text-align: center; font-weight: 900">
-            {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'MXN' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $ (MXN)
-            {% else %}
-            {% endif %}
+            <div class="treatmentCostsUSDCurrency">{{ order_datas.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+            <div class="treatmentCostsEURCurrency" style="display:none">{{ order_datas.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+            <div class="treatmentCostsGBPCurrency" style="display:none">{{ order_datas.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+            <div class="treatmentCostsCZKCurrency" style="display:none">{{ order_datas.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+            <div class="treatmentCostsMXNCurrency" style="display:none">{{ order_datas.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+            <div class="treatmentCostsINRCurrency" style="display:none">{{ order_datas.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+            <div class="treatmentCostsCADCurrency" style="display:none">{{ order_datas.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
           </p>
           <hr>
           <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
@@ -294,13 +311,13 @@
           <p class="card-title">{{ order_datas.packagetitle }}</p>
           <hr>
           <p style="color: #CD5360; text-align: center; font-weight: 900">
-            {% if order_datas.packageclinic.defaultClinicCurrency == 'GBP' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} £
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'EUR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} €
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'USD' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'INR' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} ₹
-            {% elif order_datas.packageclinic.defaultClinicCurrency == 'MXN' %} {{ order_datas.packagecost|floatformat:'0'|intcomma}} $ (MXN)
-            {% else %}
-            {% endif %}
+            <div class="treatmentCostsUSDCurrency">{{ order_datas.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+            <div class="treatmentCostsEURCurrency" style="display:none">{{ order_datas.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+            <div class="treatmentCostsGBPCurrency" style="display:none">{{ order_datas.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+            <div class="treatmentCostsCZKCurrency" style="display:none">{{ order_datas.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+            <div class="treatmentCostsMXNCurrency" style="display:none">{{ order_datas.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+            <div class="treatmentCostsINRCurrency" style="display:none">{{ order_datas.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+            <div class="treatmentCostsCADCurrency" style="display:none">{{ order_datas.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
           </p>
           <hr>
           <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
@@ -401,5 +418,5 @@
   </div>
 </div>
 
-
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
 {% endblock  %}

@@ -1,6 +1,7 @@
 {% load static %}
 {% if package %}
 {% load humanize %}
+{% load currencytag %}
 {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
 <div class="backgroundPackageClinicDetail">
   <br>
@@ -29,13 +30,13 @@
                   <h5 class="card-title">{{ packages.packagetitle }}</h5>
                   <hr>
                   <h5 style="color: #CD5360; text-align: center">
-                    {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %} {{ packages.packagecost|floatformat:'0'|intcomma}} £
-                    {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
-                    {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
-                    {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
-                    {% elif packages.packageclinic.defaultClinicCurrency == 'MXN' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $ (MXN)
-                    {% else %}
-                    {% endif %}
+                    <div class="treatmentCostsUSDCurrency">{{ packages.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                    <div class="treatmentCostsEURCurrency" style="display:none">{{ packages.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                    <div class="treatmentCostsGBPCurrency" style="display:none">{{ packages.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                    <div class="treatmentCostsCZKCurrency" style="display:none">{{ packages.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                    <div class="treatmentCostsMXNCurrency" style="display:none">{{ packages.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                    <div class="treatmentCostsINRCurrency" style="display:none">{{ packages.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                    <div class="treatmentCostsCADCurrency" style="display:none">{{ packages.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
                   </h5>
                   <hr>
                   <a data-toggle="collapse" href="#multiCollapseExample1{{ packages.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
@@ -92,13 +93,13 @@
               <h5 class="card-title">{{ packages.packagetitle }}</h5>
               <hr>
               <h5 style="color: #CD5360; text-align: center">
-                {% if packages.packageclinic.defaultClinicCurrency == 'GBP' %} {{ packages.packagecost|floatformat:'0'|intcomma}} £
-                {% elif packages.packageclinic.defaultClinicCurrency == 'EUR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} €
-                {% elif packages.packageclinic.defaultClinicCurrency == 'USD' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $
-                {% elif packages.packageclinic.defaultClinicCurrency == 'INR' %} {{ packages.packagecost|floatformat:'0'|intcomma}} ₹
-                {% elif packages.packageclinic.defaultClinicCurrency == 'MXN' %} {{ packages.packagecost|floatformat:'0'|intcomma}} $ (MXN)
-                {% else %}
-                {% endif %}
+                <div class="treatmentCostsUSDCurrency">{{ packages.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ packages.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ packages.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ packages.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ packages.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ packages.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ packages.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
               </h5>
               <hr>
               <a data-toggle="collapse" href="#multiCollapseExample1{{ packages.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>

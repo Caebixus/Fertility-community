@@ -326,45 +326,9 @@
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2021:</h2>
-          <p style="font-size:12px"><i>Medications, pretests and additional procedures not included.</i></p>
-          <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
-          <br>
-          {% for k in averageIVFPrice %}
-          {% if averageIVFPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageICSIPrice %}
-          {% if averageICSIPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI treatment price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageEggPrice %}
-          {% if averageEggPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageEmbryoPrice %}
-          {% if averageEmbryoPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          {% for k in averageSpermPrice %}
-          {% if averageSpermPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          <br>
+
+          {% include 'AllInclude/locations/quick-info.html' %}
+
           <div class="row">
             <div class="col-6 col-md">
               <a href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;">
@@ -475,4 +439,5 @@
   </div>
 </div>
 
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/quick-info.js' %}"></script>{% endblock %}
 {% endblock  %}

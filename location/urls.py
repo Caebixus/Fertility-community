@@ -2,7 +2,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from . import views, views2
+from . import views, views2, views3
 
 urlpatterns = [
     path('ivf-cost', views.locationsStandardIVF, name='locations'),
@@ -10,15 +10,21 @@ urlpatterns = [
     path('embryo-donation-cost', views.locationsIVFwithEmbryoDonation, name='locationsIVFwithEmbryoDonation'),
     path('iui-cost', views.locationsIUI, name='locationsIUI'),
 
-    path('ivf-cost/usa', views.locationsUSRegions, name='locationsUSRegions'),
-    path('ivf-cost/uk', views.locationsUKRegions, name='locationsUKRegions'),
-    path('ivf-cost/cz', views.locationsCZRegions, name='locationsCZRegions'),
-    path('ivf-cost/spain', views.locationsSPRegions, name='locationsSPRegions'),
-    path('ivf-cost/india', views.locationsINRegions, name='locationsINRegions'),
-    path('ivf-cost/greece', views.locationsGRRegions, name='locationsGRRegions'),
-    path('ivf-cost/cyprus', views.locationsCYRegions, name='locationsCYRegions'),
-    path('ivf-cost/mexico', views.locationsMXRegions, name='locationsMXRegions'),
+    path('ivf-cost/usa', views2.locationsUSRegions, name='locationsUSRegions'),
+    path('ivf-cost/uk', views2.locationsUKRegions, name='locationsUKRegions'),
+    path('ivf-cost/cz', views2.locationsCZRegions, name='locationsCZRegions'),
+    path('ivf-cost/spain', views2.locationsSPRegions, name='locationsSPRegions'),
+    path('ivf-cost/india', views2.locationsINRegions, name='locationsINRegions'),
+    path('ivf-cost/greece', views2.locationsGRRegions, name='locationsGRRegions'),
+    path('ivf-cost/cyprus', views2.locationsCYRegions, name='locationsCYRegions'),
+    path('ivf-cost/mexico', views2.locationsMXRegions, name='locationsMXRegions'),
     path('currencies', include('currencies.urls')),
 
-    path('ivf-cost/usa/texas', views2.locationsTexasRegions, name='locationsTexasRegions'),
+    path('ivf-cost/usa/texas', views3.locationsTexasRegions, name='locationsTexasRegions'),
+
+    # --------------------------------------->>>>>>>> Redirects
+    path('egg-donation-cost', views.locationsIVFwithEggDonation, name='locationsIVFwithEggDonation'),
+    path('embryo-donation-cost', views.locationsIVFwithEmbryoDonation, name='locationsIVFwithEmbryoDonation'),
+    path('iui-cost', views.locationsIUI, name='locationsIUI'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

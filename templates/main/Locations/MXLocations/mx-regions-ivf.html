@@ -2,24 +2,23 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
+{% load currencytag %}
 {% block title %}Mexico IVF costs | 2021 Comparison{% endblock %}
 {% block description %}Search hundreds of Mexico fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/mexico{% endblock %}
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 style="padding-top:3rem; color:white">Standard IVF Costs in Mexico | 2021</h1>
+    <h1 style="padding-top:3rem; color:white">Standard IVF costs in Mexico | 2021</h1>
     <p class="lead" style="color:white">Compare average IVF costs in Mexico IVF & fertility clinics</p>
-    <br>
-    <div class="dropdown">
-      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Standard IVF treatment
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{% url 'locationsCYRegions' %}">Standard IVF treatment</a>
-        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEggDonation' %}">Egg donation IVF</a>
-        <a hidden class="dropdown-item" href="{% url 'locationsIVFwithEmbryoDonation' %}">Embryo donation IVF</a>
-        <a hidden class="dropdown-item" href="{% url 'locationsIUI' %}">IUI treatment</a>
+    <div class="row">
+      <div class="col-4">
+        <select class="form-control" id="ChooseCurrency">
+          <option value="" selected>Currency</option>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+        </select>
       </div>
     </div>
     <br>
@@ -37,48 +36,341 @@
     </div>
   </nav>
 </div>
+
+<br>
+<br>
+
 <div class="container">
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-ivf" role="tabpanel" aria-labelledby="pills-ivf-tab">
-      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation) procedures compared by TOP Mexico cities</h2>
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#standardIVF" role="tab" aria-controls="home" aria-selected="true" style="text-align: center; text-decoration: none">Standard IVF</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#eggDonation" role="tab" aria-controls="profile" aria-selected="false" style="text-align: center; text-decoration: none">IVF with egg donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#embryoDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with embryo donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#spermDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with sperm donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#icsi" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">ICSI</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#iui" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IUI</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="standardIVF" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation)</h2>
       <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
-      <p style="font-size: 15px"><i>*Change currency in top navigation menu</i></p>
       <div class="table-responsive-xl">
         <table class="table table-hover">
           <thead class="thead" style="background-color: #286DA8; color: white">
             <tr>
               <th scope="col">City</th>
-              <th scope="col" style="text-align: center;">
-                <select class="form-control" id="ChooseCurrency">
-                  <option value="" selected>Currency</option>
-                  <option>USD</option>
-                  <option>EUR</option>
-                  <option>GBP</option>
-                </select>
-              </th>
+              <th scope="col" style="text-align: center;">Average cost</th>
               <th scope="col" style="text-align: right;">Clinics</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_ivf_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+            <tr>
               <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({% if my_total_count_cancun %}{{ my_total_count_cancun }} clinics){% else %}0 clinics){% endif %}</u></a></th>
               <td style="font-size: 14px">
-                <div id="defaultBoardCancun">Choose currency above</div>
-                <div id="usdCancun" style="display:none">{% if usdCurrency_cancun_ivf %}{{ usdCurrency_cancun_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
-                <div id="eurCancun" style="display:none">{% if eurCurrency_cancun_ivf %}{{ eurCurrency_cancun_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
-                <div id="gbpCancun" style="display:none">{% if gbpCurrency_cancun_ivf %}{{ gbpCurrency_cancun_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+                {% if queryset_list_cancun_ivf_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="eggDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with egg donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_egg_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_egg_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
               </td>
               <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
             </tr>
             <tr>
-              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({% if my_total_count_mexicocity %}{{ my_total_count_mexicocity }} clinics){% else %}0 clinics){% endif %}</u></a></th>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({{ my_total_clinic_count_cancun }} clinics)</u></a></th>
               <td style="font-size: 14px">
-                <div id="defaultBoardMexicoCity">Choose currency above</div>
-                <div id="usdMexicoCity" style="display:none">{% if usdCurrency_mexicocity_ivf %}{{ usdCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} ${% else %} ?{% endif %}</div>
-                <div id="eurMexicoCity" style="display:none">{% if eurCurrency_mexicocity_ivf %}{{ eurCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} €{% else %} ?{% endif %}</div>
-                <div id="gbpMexicoCity" style="display:none">{% if gbpCurrency_mexicocity_ivf %}{{ gbpCurrency_mexicocity_ivf|floatformat:'0'|intcomma }} £{% else %} ?{% endif %}</div>
+                {% if queryset_list_cancun_egg_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_egg_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="embryoDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with embryo donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_embryo_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_embryo_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
               </td>
               <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({{ my_total_clinic_count_cancun }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_cancun_embryo_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_embryo_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="spermDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with sperm donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_sperm_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_sperm_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({{ my_total_clinic_count_cancun }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_cancun_sperm_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_sperm_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="icsi" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of ICSI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_icsi_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_icsi_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({{ my_total_clinic_count_cancun }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_cancun_icsi_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_icsi_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="iui" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IUI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsMexicoCity' %}"><u>Mexico City ({{ my_total_clinic_count_mexicocity }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_mexicocity_iui_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_mexicocity_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_mexicocity_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsMexicoCity' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Mexico City IVF Clinics</button></a></td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicsCancun' %}"><u>Cancún ({{ my_total_clinic_count_cancun }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_cancun_iui_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_cancun_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cancun_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsCancun' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Cancún IVF Clinics</button></a></td>
             </tr>
           </tbody>
         </table>
@@ -88,5 +380,6 @@
 </div>
 <br>
 <br>
-{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/ivf-cost1.js' %}"></script>{% endblock %}
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
 {% endblock  %}

@@ -2,6 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
+{% load currencytag %}
 {% block title %}2021 | Search and find the best fertility Clinics{% endblock %}
 {% block description %}Choose a location around the globe as well as IVF treatment of your need and find the best fertility clinics that suits your conditions.{% endblock %}
 {% block meta_keywords %}search fertility clinic near me, search ivf clinics near me, search fertility doctor near me, search fertility specialist near me, search fertility center near me, search private fertility clinic near me{% endblock %}
@@ -1392,178 +1393,353 @@
         <div class="container">
           {% if values.States == 'UK' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'US' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - USA fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'CZ' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'SP' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'IN' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'GR' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Greece fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'CY' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Cyprus fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'MX' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Mexico fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% endif %}
           <p style="font-size:12px"><i>Medications, pretests and additional procedures not included</i></p>
           <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
           <br>
+
           {% if values.States == 'UK' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           <hr>
           {% else %}
           {% endif  %}
           {% endfor %}
-
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           <hr>
           {% else %}
           {% endif  %}
           {% endfor %}
-
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           <hr>
           {% else %}
           {% endif  %}
           {% endfor %}
-
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          <hr>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           <hr>
           {% else %}
           {% endif  %}
           {% endfor %}
 
-          {% for k in averageSpermPrice %}
-          {% if averageSpermPrice.average != None  %}
-          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-pound-sign"></i></p>
-          <hr>
-          {% else %}
-          {% endif  %}
-          {% endfor %}
-          <br>
+
           {% elif values.States == 'US' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
-          <br>
+
+
           {% elif values.States == 'CZ' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
-          <br>
+
 
           {% elif values.States == 'SP' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
@@ -1573,146 +1749,269 @@
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-rupee-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-rupee-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-rupee-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-rupee-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-rupee-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
+
 
           {% elif values.States == 'GR' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
+
 
           {% elif values.States == 'CY' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-euro-sign"></i></p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
+
 
           {% elif values.States == 'MX' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
-          <p style="font-size:22px">{{ averageIVFPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i> (MXN)</p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageICSIPrice %}
           {% if averageICSIPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
-          <p style="font-size:22px">{{ averageICSIPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i> (MXN)</p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEggPrice %}
           {% if averageEggPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
-          <p style="font-size:22px">{{ averageEggPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i> (MXN)</p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageEmbryoPrice %}
           {% if averageEmbryoPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
-          <p style="font-size:22px">{{ averageEmbryoPrice.average|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i> (MXN)</p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
           {% for k in averageSpermPrice %}
           {% if averageSpermPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
-          <p style="font-size:22px">{{ averageSpermPrice.average|floatformat:'0' }} <i class="fas fa-dollar-sign"></i> (MXN)</p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
           {% else %}
           {% endif  %}
           {% endfor %}
@@ -2065,5 +2364,5 @@
 </div>
 {% endif %}
 
-
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/quick-info.js' %}"></script>{% endblock %}
 {% endblock  %}

@@ -10,6 +10,7 @@ from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
 
+
 # Create your views here.
 # ----------------------------------------------------------------------------
 def fertilityClinicUSA(request):

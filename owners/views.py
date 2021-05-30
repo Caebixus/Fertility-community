@@ -357,24 +357,7 @@ def create1(request):
             form = CreateClinic(request.POST or None, request.FILES or None)
             if form.is_valid():
                 form = form.save(commit=False)
-                if form.clinicState == 'United States':
-                    form.defaultClinicCurrency = 'USD'
-                elif form.clinicState == 'United Kingdom':
-                    form.defaultClinicCurrency = 'GBP'
-                elif form.clinicState == 'Czech Republic':
-                    form.defaultClinicCurrency = 'CZK'
-                elif form.clinicState == 'Spain':
-                    form.defaultClinicCurrency = 'EUR'
-                elif form.clinicState == 'Cyprus':
-                    form.defaultClinicCurrency = 'EUR'
-                elif form.clinicState == 'Greece':
-                    form.defaultClinicCurrency = 'EUR'
-                elif form.clinicState == 'India':
-                    form.defaultClinicCurrency = 'INR'
-                elif form.clinicState == 'Mexico':
-                    form.defaultClinicCurrency = 'MXN'
-                else:
-                    form.defaultClinicCurrency = 'EUR'
+                form.defaultClinicCurrency = 'USD'
                 form.is_published_list_date = datetime.now()
                 form.clinicOwner = request.user
                 form.is_claimed = True

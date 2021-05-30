@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
-from django.db import models
 from ckeditor.fields import RichTextField
 
 # Create your models here.
@@ -265,7 +264,7 @@ class BasicClinic(models.Model):
     clinicChinese = models.BooleanField(default=False)
 
     ### Clinic Currency - primarily accepted currency by clinic
-    defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True)
+    defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True, default='USD')
 
     ### -----------------------------------------------------------------------
     ### Primary treatments + ### anonymous egg donation = egg_donor_recipients

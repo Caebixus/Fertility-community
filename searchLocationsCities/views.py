@@ -341,7 +341,7 @@ def fertilityClinicsBournemouth(request):
     return render(request, 'locations-cities/UK/fertility-clinics-bournemouth.html', context)
 
 def fertilityClinicsBrightonHove(request):
-    guestblog = GuestBlog.objects.filter(guestblogcity__iexact='BrightonHove')
+    guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Brighton')
     guestblog = guestblog.filter(guestblogactive=True)
 
     queryset_list = BasicClinic.objects.all()
@@ -365,11 +365,11 @@ def fertilityClinicsBrightonHove(request):
     averageSpermPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').aggregate(average=Avg('icsi_treatment_cost'))
 
-    queryset_list = queryset_list.filter(clinicRegion__iexact='BrightonHove')
-    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='BrightonHove')
-    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='BrightonHove')
+    queryset_list = queryset_list.filter(clinicRegion__iexact='Brighton')
+    pro_queryset_list = pro_queryset_list.filter(clinicRegion__iexact='Brighton')
+    ppq_queryset_list = ppq_queryset_list.filter(clinicRegion__iexact='Brighton')
 
-    my_total_count = my_total_count.filter(clinicRegion__iexact='BrightonHove')
+    my_total_count = my_total_count.filter(clinicRegion__iexact='Brighton')
     my_total_count = my_total_count.count()
 
 

@@ -782,7 +782,7 @@ class CreateClinic(forms.ModelForm):
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics street address'))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics city'))
@@ -799,8 +799,6 @@ class CreateClinic(forms.ModelForm):
     clinicRussian = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Russian speaking personal'))
     clinicGerman = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('German speaking personal'))
     clinicChinese = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Chinese speaking personal'))
-
-    defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}), required=False,)
 
     mondayOpens = forms.CharField(widget=forms.Select(choices=HOURS, attrs={'class': 'form-control',}), required=False,)
     mondayCloses = forms.CharField(widget=forms.Select(choices=HOURS, attrs={'class': 'form-control',}), required=False,)
@@ -880,7 +878,7 @@ class PostForm(forms.ModelForm):
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics street address'))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics city'))
@@ -903,8 +901,6 @@ class PostForm(forms.ModelForm):
     clinic_pro_photo_4 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
     clinic_pro_photo_5 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
     clinic_pro_photo_6 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
-
-    defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}))
 
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
@@ -929,12 +925,12 @@ class PostForm(forms.ModelForm):
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
 
-    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     class Meta:
         model = BasicClinic
@@ -958,7 +954,6 @@ class PostForm(forms.ModelForm):
         'clinicRussian',
         'clinicGerman',
         'clinicChinese',
-        'defaultClinicCurrency',
         'mondayOpens',
         'mondayCloses',
         'tuesdayOpens',
@@ -1084,7 +1079,7 @@ class PostFormPro(forms.ModelForm):
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     query_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    fertilitycommunity_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     clinicStreetAddress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     clinicCity = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
@@ -1132,8 +1127,6 @@ class PostFormPro(forms.ModelForm):
     clinic_pro_photo_6 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
     clinic_pro_photo_6_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
-    defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control',}))
-
     pro_is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
     mondayOpens = forms.CharField(widget=forms.Select(choices=HOURS, attrs={'class': 'form-control',}), required=False,)
@@ -1157,13 +1150,12 @@ class PostFormPro(forms.ModelForm):
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
 
-
-    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicTwitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
 
     class Meta:
@@ -1194,7 +1186,6 @@ class PostFormPro(forms.ModelForm):
         'clinicRussian',
         'clinicGerman',
         'clinicChinese',
-        'defaultClinicCurrency',
         'pro_is_published_list_date',
         'mondayOpens',
         'mondayCloses',

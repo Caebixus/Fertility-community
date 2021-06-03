@@ -563,6 +563,61 @@ def medistella(request):
 
     return render(request, 'clinics/CZ/Prague/medistella.html', context)
 
+def europeivfprague(request):
+    listing = BasicClinic.objects.get(pk=728)
+
+    pragueclisting = BasicClinic.objects.all()
+    pragueclisting = pragueclisting.filter(is_published=True)
+    pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
+    pragueclisting = pragueclisting.count()
+
+    czlisting = BasicClinic.objects.all()
+    czlisting = czlisting.filter(is_published=True)
+    czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
+    czlisting = czlisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=728)
+
+    author = GuestAuthor.objects.filter(guestauthor_id=728)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'guestblog': guestblog,
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'pragueclisting': pragueclisting,
+            'czlisting': czlisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/CZ/Prague/europe-ivf-prague.html', context)
+
+    else:
+        pass
+
+    context = {
+        'guestblog': guestblog,
+        'listing': listing,
+        'package': package,
+        'pragueclisting': pragueclisting,
+        'czlisting': czlisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/CZ/Prague/europe-ivf-prague.html', context)
+
 # BRNO
 def ivfzlinczechrep(request):
     listing = BasicClinic.objects.get(pk=603)

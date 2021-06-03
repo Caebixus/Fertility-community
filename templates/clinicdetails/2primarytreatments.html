@@ -21,7 +21,11 @@
       </select>
     </div>
   </div>
+  {% if listing.is_claimed == True %}
+  <p>The prices listed below are managed by clinic staff, but are generally average prices without medication, so they may not match your final price.</p>
+  {% else %}
   <p>The prices listed below are only estimated average prices without medication and do not guarantee the final price.</p>
+  {% endif %}
   <table class="table table-hover">
     <thead>
       <tr>

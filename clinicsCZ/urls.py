@@ -14,6 +14,7 @@ urlpatterns = [
     path('clinics/cz/prague/pronatal-sanatorium-prague4', views.pronatalsanatoriumprague, name='pronatalsanatoriumprague'),
     path('clinics/cz/prague/ivf-cube', views.ivfcube, name='ivfcube'),
     path('clinics/cz/prague/medistella', views.medistella, name='medistella'),
+    path('clinics/cz/prague/europe-ivf-prague', views.europeivfprague, name='europeivfprague'),
     #BRNO
     path('clinics/cz/brno/ivf-zlin-czech-republic', views.ivfzlinczechrep, name='ivfzlinczechrep'),
     path('clinics/cz/brno/reprofit-brno', views.reprofitbrno, name='reprofitbrno'),

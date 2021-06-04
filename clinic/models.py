@@ -194,6 +194,9 @@ class BasicClinic(models.Model):
     description = models.TextField(max_length=800, blank=True, null = True)
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
+    ### Clinic's digital transparency index
+    digitalTransparencyIndex = models.PositiveSmallIntegerField(blank=True, null = True)
+
     ### Contact information
     clinic_url = models.URLField(null=True, blank=True, max_length=500)
     contact_url = models.URLField(max_length=500)

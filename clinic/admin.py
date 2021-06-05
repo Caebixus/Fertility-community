@@ -11,7 +11,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'clinicOwner', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (
-        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle',)}),
+        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'digitalTransparencyIndex',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
         ('Contact information', {'fields': ('clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email', 'fertilitycommunity_email', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber')}),
         ('Address information', {'fields': ('clinicStreetAddress', 'clinicCity', 'clinicState', 'clinicRegion', 'clinicPostalCode',)}),
@@ -30,7 +30,6 @@ class PostAdmin(admin.ModelAdmin):
         ('LiveChat tools', {'fields': ('clinicLiveChatChoice', 'clinicChatraCode', 'clinicLiveChatCode', 'clinicOlarkCode', 'clinicTidioCode',)}),
         ('Independent reviews', {'fields': ('clinicGoogleReviews', 'clinicTrustPilotChoice', 'clinicTrustPilotID', 'clinicTrustPilotDomain',)}),
         ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'clinic_staff', 'type',)}),
-
     )
     actions = ['clinicLocationLink_update_g']
 

@@ -195,7 +195,7 @@ class BasicClinic(models.Model):
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
     ### Clinic's digital transparency index
-    digitalTransparencyIndex = models.PositiveSmallIntegerField(blank=True, null = True)
+    digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null = True)
 
     ### Contact information
     clinic_url = models.URLField(null=True, blank=True, max_length=500)
@@ -424,7 +424,6 @@ class BasicClinic(models.Model):
     clinicTrustPilotChoice = models.CharField(max_length=40, choices=TRUSTPILOT_CHOICES, null = True, blank=True,)
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
     clinicTrustPilotDomain = models.CharField(max_length=100, blank=True, null = True)
-
 
 
 #

@@ -25,3 +25,10 @@ rate.usd_to_mxn_exchange = new_usd_to_mxn_exchange
 rate.usd_to_inr_exchange = new_usd_to_inr_exchange
 rate.usd_to_cad_exchange = new_usd_to_cad_exchange
 rate.save()
+
+
+def cron_test():
+    rate = CurrenciesExchangeRates.objects.get(pk=1)
+    pointsBasic = 1
+    rate.usd_to_cad_exchange = pointsBasic + 1
+    rate.save()

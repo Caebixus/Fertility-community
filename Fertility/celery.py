@@ -23,5 +23,5 @@ app.conf.beat_schedule = {
 app.conf.timezone = 'UTC'
 app.autodiscover_tasks()
 
-app.conf.broker_url = BASE_REDIS_URL
+app.conf.broker_url = amqp://guest:guest@localhost:5672//
 app.conf.beat_scheduler = 'django_celery_beat.schedulers.DatabaseScheduler'

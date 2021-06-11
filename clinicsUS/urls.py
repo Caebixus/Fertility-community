@@ -210,6 +210,7 @@ urlpatterns = [
     path('clinics/us/maine/boston-ivf-bangor-fertility-center', views.bivfbfc, name='bivfbfc'),
     path('clinics/us/maine/boston-ivf-portland-fertility-center', views.bivfpfc, name='bivfpfc'),
     #MARYLAND
+    path('clinics/us/maryland/montgomery-fertility-center', views.montgofercert, name='montgofercert'),
     #MASSACHUSETTS
     path('clinics/us/massachusetts/massachusetts-general-hospital-fertility-center', views.masghfc, name='masghfc'),
     path('clinics/us/massachusetts/ccrm-boston-main-center', views.ccrmbmc, name='ccrmbmc'),

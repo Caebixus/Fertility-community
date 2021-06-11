@@ -10392,6 +10392,61 @@ def bivfpfc(request):
 
 # MARYLAND Views --------------------------------------------------------------------------------------------------------
 
+def montgofercert(request):
+    listing = BasicClinic.objects.get(pk=729)
+
+    marylandlisting = BasicClinic.objects.all()
+    marylandlisting = marylandlisting.filter(is_published=True)
+    marylandlisting = marylandlisting.filter(clinicRegion__iexact='Maryland')
+    marylandlisting = marylandlisting.count()
+
+    uslisting = BasicClinic.objects.all()
+    uslisting = uslisting.filter(is_published=True)
+    uslisting = uslisting.filter(clinicState__iexact='United States')
+    uslisting = uslisting.count()
+
+    alllisting = BasicClinic.objects.all()
+    alllisting = alllisting.filter(is_published=True)
+    alllisting = alllisting.count()
+
+    todayDate = timezone.now()
+    package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
+    package = package.filter(packageclinic__id=729)
+
+    author = GuestAuthor.objects.filter(guestauthor_id=729)
+    guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    if request.user.is_authenticated:
+        usergroup = ProUser.objects.all()
+        usergroup = usergroup.filter(user=request.user)
+        usergroup = usergroup.filter(paidPropublished=True)
+
+        context = {
+            'guestblog': guestblog,
+            'usergroup': usergroup,
+            'listing': listing,
+            'package': package,
+            'marylandlisting': marylandlisting,
+            'uslisting': uslisting,
+            'alllisting': alllisting,
+            }
+
+        return render(request, 'clinics/US/Maryland/montgomery-fertility-center.html', context)
+
+    else:
+        pass
+
+    context = {
+        'guestblog': guestblog,
+        'listing': listing,
+        'package': package,
+        'marylandlisting': marylandlisting,
+        'uslisting': uslisting,
+        'alllisting': alllisting,
+        }
+
+    return render(request, 'clinics/US/Maryland/montgomery-fertility-center.html', context)
+
 # MASSACHUSETTS Views --------------------------------------------------------------------------------------------------------
 
 def masghfc(request):

@@ -70,7 +70,6 @@ snowballstemmer==2.0.0
 soupsieve==1.9.5
 sqlparse==0.3.0
 stripe==2.51.0
-supervisor==4.2.2
 tablib==2.0.0
 toml==0.10.1
 ujson==4.0.1

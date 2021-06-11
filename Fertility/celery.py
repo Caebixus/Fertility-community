@@ -16,7 +16,7 @@ app = Celery('Fertility')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 # here is the beat schedule dictionary defined
 
-app.conf.timezone = 'UTC'
+
 app.autodiscover_tasks()
 
 CELERY_BROKER_URL = 'redis://localhost:6379'

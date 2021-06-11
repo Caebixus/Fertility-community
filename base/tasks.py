@@ -1,11 +1,11 @@
 from __future__ import absolute_import, unicode_literals
-from celery import shared_task
+from celery import task
 from clinic.models import BasicClinic
 
 import logging
 logger = logging.getLogger(__name__)
 
-@shared_task
+@task()
 def calculate_dti():
     basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published = True, ppq_is_published = True)
     for bas in basic:

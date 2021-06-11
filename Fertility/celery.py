@@ -19,4 +19,15 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.timezone = 'UTC'
 app.autodiscover_tasks()
 
-app.conf.beat_scheduler = 'django_celery_beat.schedulers.DatabaseScheduler'
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+CELERY_BEAT_SCHEDULE = {
+    'dti-calc': {
+        'task': 'base.tasks.calculate_dti',
+        'schedule': 30
+        }
+    }

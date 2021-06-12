@@ -1,5 +1,5 @@
 from Fertility.celery import app
-import celery
+from celery import Celery
 from clinic.models import BasicClinic
 
 import logging
@@ -399,3 +399,10 @@ def calculate_dti():
 
         pre.digitalTransparencyIndex = pointsPremium
         pre.save()
+
+app.conf.beat_schedule = {
+ “run-me-every-ten-seconds”: {
+     “task”: “tasks.calculate_dti,
+     “schedule”: 3600
+     }
+}

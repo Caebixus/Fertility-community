@@ -1,5 +1,5 @@
 from Fertility.celery import app
-import celery
+from celery import Celery
 from .models import BasicClinic
 
 import logging
@@ -26,3 +26,10 @@ def currencies_rate_update():
     rate.usd_to_inr_exchange = new_usd_to_inr_exchange
     rate.usd_to_cad_exchange = new_usd_to_cad_exchange
     rate.save()
+
+app.conf.beat_schedule = {
+ “run-me-every-thirty-seconds”: {
+     “task”: “tasks.currencies_rate_update,
+     “schedule”: 30
+     }
+}

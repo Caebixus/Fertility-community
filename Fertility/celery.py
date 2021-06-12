@@ -26,7 +26,7 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': 30
     },
     'task-number-two': {
-        'task': 'clinic.tasks.currencies_rate_update',
+        'task': 'base.tasks.currencies_rate_update',
         'schedule': 15
     },
 }

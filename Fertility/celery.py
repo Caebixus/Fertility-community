@@ -13,8 +13,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
 
 # celery settings for the demo_project
 app = Celery('Fertility')
-app.config_from_object('django.conf:settings', namespace='CELERY')
-# here is the beat schedule dictionary defined
 
-
+app.config_from_object(settings)
 app.autodiscover_tasks(lambda: [n.name for n in apps.get_app_configs()])

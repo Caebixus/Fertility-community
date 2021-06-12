@@ -16,3 +16,5 @@ app = Celery('Fertility')
 
 app.config_from_object(settings)
 app.autodiscover_tasks(lambda: [n.name for n in apps.get_app_configs()])
+
+app.conf.beat_scheduler = 'django_celery_beat.schedulers.DatabaseScheduler'

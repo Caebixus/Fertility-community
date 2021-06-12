@@ -401,8 +401,8 @@ def calculate_dti():
         pre.save()
 
 app.conf.beat_schedule = {
- “run-me-every-ten-seconds”: {
-     “task”: “tasks.calculate_dti,
-     “schedule”: 3600
+ 'run-me-every-three-thousand-seconds': {
+     'task': 'tasks.calculate_dti',
+     'schedule': 3000
      }
 }

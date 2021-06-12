@@ -1,9 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 from celery import task
 
-import requests
-from base.models import CurrenciesExchangeRates
-
 from clinic.models import BasicClinic
 
 import logging
@@ -405,6 +402,15 @@ def calculate_dti():
         pre.save()
 
 @task()
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
+django.setup()
+
+import requests
+from base.models import CurrenciesExchangeRates
+
 def currencies_rate_update():
 
     response = requests.get(f'http://api.currencylayer.com/live?access_key=c36176bb29d50514cb4c0181503a4fb9&currencies=EUR,CZK,GBP, MXN, INR, CAD')

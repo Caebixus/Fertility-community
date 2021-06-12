@@ -20,6 +20,6 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks(  # Add other tasks not included in the apps.
     [
-        'Fertility.base.tasks',
+        'base.tasks',
     ]
 )

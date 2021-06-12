@@ -6,6 +6,15 @@ from clinic.models import BasicClinic
 import logging
 logger = logging.getLogger(__name__)
 
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
+django.setup()
+
+import requests
+from base.models import CurrenciesExchangeRates
+
 @task()
 def calculate_dti():
     basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published = True, ppq_is_published = True)
@@ -402,15 +411,6 @@ def calculate_dti():
         pre.save()
 
 @task()
-import os
-import django
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
-django.setup()
-
-import requests
-from base.models import CurrenciesExchangeRates
-
 def currencies_rate_update():
 
     response = requests.get(f'http://api.currencylayer.com/live?access_key=c36176bb29d50514cb4c0181503a4fb9&currencies=EUR,CZK,GBP, MXN, INR, CAD')

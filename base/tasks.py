@@ -400,10 +400,3 @@ def calculate_dti():
 
         pre.digitalTransparencyIndex = pointsPremium
         pre.save()
-
-app.conf.beat_schedule = {
- 'run-me-every-three-thousand-seconds': {
-     'task': 'tasks.calculate_dti',
-     'schedule': 3000
-     }
-}

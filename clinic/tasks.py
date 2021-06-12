@@ -1,11 +1,12 @@
-from Fertility.celery import app
-from celery import Celery
+from __future__ import absolute_import, unicode_literals
+from celery import task
+
 from .models import BasicClinic
 
 import logging
 logger = logging.getLogger(__name__)
 
-@app.task
+@task()
 def currencies_rate_update():
 
     response = requests.get(f'http://api.currencylayer.com/live?access_key=c36176bb29d50514cb4c0181503a4fb9&currencies=EUR,CZK,GBP, MXN, INR, CAD')

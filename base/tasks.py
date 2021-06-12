@@ -1,11 +1,12 @@
-from Fertility.celery import app
-from celery import Celery
+from __future__ import absolute_import, unicode_literals
+from celery import task
+
 from clinic.models import BasicClinic
 
 import logging
 logger = logging.getLogger(__name__)
 
-@app.task
+@task()
 def calculate_dti():
     basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published = True, ppq_is_published = True)
     for bas in basic:

@@ -19,18 +19,6 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks()
 
-from celery.schedules import crontab
-CELERY_BEAT_SCHEDULE = {
-    'task-number-one': {
-        'task': 'base.tasks.calculate_dti',
-        'schedule': 30
-    },
-    'task-number-two': {
-        'task': 'base.tasks.currencies_rate_update',
-        'schedule': 15
-    },
-}
-
 @app.task(bind=True)
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))

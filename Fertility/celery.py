@@ -9,6 +9,7 @@ from celery.schedules import crontab
 
 
 from django.conf import settings
+from django.apps import apps
 
 
 # celery settings for the demo_project
@@ -17,4 +18,8 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # here is the beat schedule dictionary defined
 
 
-app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
+app.autodiscover_tasks(  # Add other tasks not included in the apps.
+    [
+        'Fertility.base.tasks',
+    ]
+)

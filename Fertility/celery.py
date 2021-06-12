@@ -4,6 +4,8 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
 import sys
 
+import django
+
 from celery import Celery
 from celery.schedules import crontab
 

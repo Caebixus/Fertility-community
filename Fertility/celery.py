@@ -17,3 +17,15 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 
 app.autodiscover_tasks()
+
+app.conf.beat_schedule = {
+    'dti-calc': {
+        'task': 'dti-calc',
+        'schedule': 3600
+    },
+    'currencies_rate_update': {
+        'task': 'currencies_rate_update',
+        'schedule': 30
+
+    },
+}

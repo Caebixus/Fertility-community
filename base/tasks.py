@@ -25,29 +25,29 @@ def calculate_dti():
 
         ### Pricing
         if bas.ivf_treatment_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.mild_ivf_treatment_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.ovarian_ivf_treatment_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.iui_treatment_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.icsi_treatment_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 1
+            pointsBasic = pointsBasic + 2
         if bas.sperm_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.egg_freezing_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.embryo_freezing_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.sperm_freezing_cost is not None:
-            pointsBasic = pointsBasic + 4
+            pointsBasic = pointsBasic + 2
         if bas.surrogacy_cost is not None:
-            pointsBasic = pointsBasic + 3
+            pointsBasic = pointsBasic + 2
 
         ### Clinic's Basic Information
         if bas.clinicTitle is not None:
@@ -120,29 +120,29 @@ def calculate_dti():
 
         ### Pricing
         if pro.ivf_treatment_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.mild_ivf_treatment_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.ovarian_ivf_treatment_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.iui_treatment_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.icsi_treatment_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.egg_donor_recipients_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.embryo_donor_recipients_cost is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
         if pro.sperm_donor_recipients_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.egg_freezing_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.embryo_freezing_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.sperm_freezing_cost is not None:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         if pro.surrogacy_cost is not None:
-            pointsPro = pointsPro + 3
+            pointsPro = pointsPro + 2
 
         ### Clinic's Basic Information
         if pro.clinicTitle is not None:
@@ -237,9 +237,9 @@ def calculate_dti():
         if pro.packageClinicCounterNumber == 0:
             pointsPro = pointsPro + 0
         elif pro.packageClinicCounterNumber == 1:
-            pointsPro = pointsPro + 2
+            pointsPro = pointsPro + 1
         elif pro.packageClinicCounterNumber == 2:
-            pointsPro = pointsPro + 4
+            pointsPro = pointsPro + 2
         else:
             pointsPro = pointsPro + 0
 
@@ -262,29 +262,29 @@ def calculate_dti():
 
         ### Pricing
         if pre.ivf_treatment_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.mild_ivf_treatment_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.ovarian_ivf_treatment_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.iui_treatment_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.icsi_treatment_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.egg_donor_recipients_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.embryo_donor_recipients_cost is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 2
         if pre.sperm_donor_recipients_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.egg_freezing_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.embryo_freezing_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.sperm_freezing_cost is not None:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         if pre.surrogacy_cost is not None:
-            pointsPremium = pointsPremium + 3
+            pointsPremium = pointsPremium + 2
 
         ### Clinic's Basic Information
         if pre.clinicTitle is not None:
@@ -379,17 +379,17 @@ def calculate_dti():
         if pre.packageClinicCounterNumber == 0:
             pointsPremium = pointsPremium + 0
         elif pre.packageClinicCounterNumber == 1:
-            pointsPremium = pointsPremium + 2
+            pointsPremium = pointsPremium + 1
         elif pre.packageClinicCounterNumber == 2:
-            pointsPremium = pointsPremium + 4
+            pointsPremium = pointsPremium + 2
         elif pre.packageClinicCounterNumber == 3:
-            pointsPremium = pointsPremium + 6
+            pointsPremium = pointsPremium + 4
         elif pre.packageClinicCounterNumber == 4:
-            pointsPremium = pointsPremium + 8
+            pointsPremium = pointsPremium + 6
         elif pre.packageClinicCounterNumber == 5:
-            pointsPremium = pointsPremium + 10
+            pointsPremium = pointsPremium + 7
         elif pre.packageClinicCounterNumber == 6:
-            pointsPremium = pointsPremium + 12
+            pointsPremium = pointsPremium + 8
         else:
             pointsPremium = pointsPremium + 0
 
@@ -430,11 +430,4 @@ def currencies_rate_update():
     rate.usd_to_mxn_exchange = new_usd_to_mxn_exchange
     rate.usd_to_inr_exchange = new_usd_to_inr_exchange
     rate.usd_to_cad_exchange = new_usd_to_cad_exchange
-    rate.save()
-
-@task()
-def cron_test():
-    rate = CurrenciesExchangeRates.objects.get(pk=1)
-    pointsBasic = 1
-    rate.usd_to_cad_exchange = pointsBasic + 1
     rate.save()

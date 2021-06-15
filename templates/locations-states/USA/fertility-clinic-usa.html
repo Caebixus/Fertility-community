@@ -377,7 +377,7 @@
       </script>
       {% endif %}
       {% endfor %}
-      {% include 'AllInclude/locations/clinic-boxes.html' %}
+      {% include 'AllInclude/locations/clinic-boxes-dti.html' %}
 
       {% else %}
       <div class="container" style="background-color: white; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
@@ -397,12 +397,12 @@
 
     <!-- Treatment average prices -->
     <div class="col-sm-4">
-      <div class="jumbotron jumbotron-fluid">
+      <div class="jumbotron jumbotron-fluid" style="background-color: #dedede;">
         <div class="container">
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - US fertility treatment costs in 2021:</h2>
 
           {% include 'AllInclude/locations/quick-info.html' %}
-          
+
           <div class="row">
             <div class="col-6 col-md">
               <a href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;">

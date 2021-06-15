@@ -2,6 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
+{% load currencytag %}
 {% block title %}Search & compare IVF centres in Jamshedpur | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Jamshedpur to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/jharkhand/jamshedpur{% endblock %}
@@ -349,7 +350,7 @@
       </script>
       {% endif %}
       {% endfor %}
-      {% include 'AllInclude/locations/clinic-boxes.html' %}
+      {% include 'AllInclude/locations/clinic-boxes-dti.html' %}
 
       {% else %}
       <div class="container" style="background-color: white; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">

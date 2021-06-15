@@ -85,7 +85,7 @@
 
 
           <div class="col-4 col-sm">
-            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
+            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
               <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
             </a>
           </div>
@@ -162,7 +162,7 @@
 
 
           <div class="col-4 col-sm">
-            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
+            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
               <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
             </a>
           </div>
@@ -244,7 +244,7 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-3 col-sm">
+          <div class="col-3 col-sm" hidden>
             <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important">
               <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
             </a>

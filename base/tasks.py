@@ -1,7 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-from celery import task
-
-from clinic.models import BasicClinic
+from celery import shared_task
 
 import logging
 logger = logging.getLogger(__name__)
@@ -14,8 +12,9 @@ django.setup()
 
 import requests
 from base.models import CurrenciesExchangeRates
+from clinic.models import BasicClinic
 
-@task()
+@shared_task
 def calculate_dti():
     basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published = True, ppq_is_published = True)
     for bas in basic:
@@ -410,7 +409,7 @@ def calculate_dti():
         pre.digitalTransparencyIndex = pointsPremium
         pre.save()
 
-@task()
+@shared_task
 def currencies_rate_update():
 
     response = requests.get(f'http://api.currencylayer.com/live?access_key=c36176bb29d50514cb4c0181503a4fb9&currencies=EUR,CZK,GBP, MXN, INR, CAD')

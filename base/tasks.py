@@ -21,7 +21,7 @@ def calculate_dti():
     for bas in basic:
         pointsBasic = 0
         if bas.is_claimed == True:
-            pointsBasic = pointsBasic + 7
+            pointsBasic = pointsBasic + 10
 
         ### Pricing
         if bas.ivf_treatment_cost is not None:
@@ -55,7 +55,7 @@ def calculate_dti():
 
         ### Clinic's Images
         if bas.clinic_pro_logo_pic is not None:
-            pointsBasic = pointsBasic + 1
+            pointsBasic = pointsBasic + 3
         if bas.clinic_pro_photo_1 is not None:
             pointsBasic = pointsBasic + 1
         if bas.clinic_pro_photo_2 is not None:
@@ -116,7 +116,7 @@ def calculate_dti():
     for pro in pro:
         pointsPro = 0
         if pro.is_claimed == True:
-            pointsPro = pointsPro + 7
+            pointsPro = pointsPro + 10
 
         ### Pricing
         if pro.ivf_treatment_cost is not None:
@@ -148,13 +148,13 @@ def calculate_dti():
         if pro.clinicTitle is not None:
             pointsPro = pointsPro + 1
         if pro.description is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
         if pro.treatmentLimitations is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
 
         ### Clinic's Images
         if pro.clinic_pro_logo_pic is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 3
         if pro.clinic_pro_photo_1 is not None:
             pointsPro = pointsPro + 1
         if pro.clinic_pro_photo_2 is not None:
@@ -224,22 +224,22 @@ def calculate_dti():
 
         ### Clinic's Independent Reviews
         if pro.clinicGoogleReviews is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
         if pro.clinicTrustPilotID is not None:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
 
         ### Clinic's Live Chat
         if pro.clinicLiveChatChoice is not None:
             if pro.clinicChatraCode or pro.clinicLiveChatCode or pro.clinicOlarkCode or pro.clinicTidioCode is not None:
-                pointsPro = pointsPro + 1
+                pointsPro = pointsPro + 3
 
         ### Clinic's Packages
         if pro.packageClinicCounterNumber == 0:
             pointsPro = pointsPro + 0
         elif pro.packageClinicCounterNumber == 1:
-            pointsPro = pointsPro + 1
-        elif pro.packageClinicCounterNumber == 2:
             pointsPro = pointsPro + 2
+        elif pro.packageClinicCounterNumber == 2:
+            pointsPro = pointsPro + 4
         else:
             pointsPro = pointsPro + 0
 
@@ -247,7 +247,7 @@ def calculate_dti():
         if pro.guestBlogCounterNumber == 0:
             pointsPro = pointsPro + 0
         elif pro.guestBlogCounterNumber == 1:
-            pointsPro = pointsPro + 1
+            pointsPro = pointsPro + 2
         else:
             pointsPro = pointsPro + 0
 
@@ -258,7 +258,7 @@ def calculate_dti():
     for pre in premium:
         pointsPremium = 0
         if pre.is_claimed == True:
-            pointsPremium = pointsPremium + 7
+            pointsPremium = pointsPremium + 10
 
         ### Pricing
         if pre.ivf_treatment_cost is not None:
@@ -290,13 +290,13 @@ def calculate_dti():
         if pre.clinicTitle is not None:
             pointsPremium = pointsPremium + 1
         if pre.description is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 2
         if pre.treatmentLimitations is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 2
 
         ### Clinic's Images
         if pre.clinic_pro_logo_pic is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 3
         if pre.clinic_pro_photo_1 is not None:
             pointsPremium = pointsPremium + 1
         if pre.clinic_pro_photo_2 is not None:
@@ -366,30 +366,30 @@ def calculate_dti():
 
         ### Clinic's Independent Reviews
         if pre.clinicGoogleReviews is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 2
         if pre.clinicTrustPilotID is not None:
-            pointsPremium = pointsPremium + 1
+            pointsPremium = pointsPremium + 2
 
         ### Clinic's Live Chat
         if pre.clinicLiveChatChoice is not None:
             if pre.clinicChatraCode or pre.clinicLiveChatCode or pre.clinicOlarkCode or pre.clinicTidioCode is not None:
-                pointsPremium = pointsPremium + 1
+                pointsPremium = pointsPremium + 3
 
         ### Clinic's Packages
         if pre.packageClinicCounterNumber == 0:
             pointsPremium = pointsPremium + 0
         elif pre.packageClinicCounterNumber == 1:
-            pointsPremium = pointsPremium + 1
-        elif pre.packageClinicCounterNumber == 2:
             pointsPremium = pointsPremium + 2
-        elif pre.packageClinicCounterNumber == 3:
+        elif pre.packageClinicCounterNumber == 2:
             pointsPremium = pointsPremium + 4
-        elif pre.packageClinicCounterNumber == 4:
+        elif pre.packageClinicCounterNumber == 3:
             pointsPremium = pointsPremium + 6
-        elif pre.packageClinicCounterNumber == 5:
-            pointsPremium = pointsPremium + 7
-        elif pre.packageClinicCounterNumber == 6:
+        elif pre.packageClinicCounterNumber == 4:
             pointsPremium = pointsPremium + 8
+        elif pre.packageClinicCounterNumber == 5:
+            pointsPremium = pointsPremium + 10
+        elif pre.packageClinicCounterNumber == 6:
+            pointsPremium = pointsPremium + 12
         else:
             pointsPremium = pointsPremium + 0
 
@@ -397,15 +397,15 @@ def calculate_dti():
         if pre.guestBlogCounterNumber == 0:
             pointsPremium = pointsPremium + 0
         elif pre.guestBlogCounterNumber == 1:
-            pointsPremium = pointsPremium + 1
-        elif pre.guestBlogCounterNumber == 2:
             pointsPremium = pointsPremium + 2
-        elif pre.guestBlogCounterNumber == 3:
-            pointsPremium = pointsPremium + 3
-        elif pre.guestBlogCounterNumber == 4:
+        elif pre.guestBlogCounterNumber == 2:
             pointsPremium = pointsPremium + 4
+        elif pre.guestBlogCounterNumber == 3:
+            pointsPremium = pointsPremium + 6
+        elif pre.guestBlogCounterNumber == 4:
+            pointsPremium = pointsPremium + 8
         elif pre.guestBlogCounterNumber == 5:
-            pointsPremium = pointsPremium + 5
+            pointsPremium = pointsPremium + 10
 
         pre.digitalTransparencyIndex = pointsPremium
         pre.save()

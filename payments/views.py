@@ -74,7 +74,7 @@ def billinginfo(request, listing_id):
             session1 = stripe.checkout.Session.create(
                 payment_method_types=['card'],
                 line_items=[{
-                    'price': 'plan_I81Wbz50cpcCF4',
+                    'price': 'price_1J2wXxEHpkY9RbxJ0cGbdiMS',
                     'quantity': 1,
                 }],
                 customer=customer.stripeid,
@@ -87,7 +87,7 @@ def billinginfo(request, listing_id):
             session2 = stripe.checkout.Session.create(
                 payment_method_types=['card'],
                 line_items=[{
-                    'price': 'price_1HZGfYEHpkY9RbxJZxXhZXW5',
+                    'price': 'price_1J2wY2EHpkY9RbxJSYYqge4l',
                     'quantity': 1,
                 }],
                 customer=customer.stripeid,
@@ -214,7 +214,7 @@ def checkout(request, pk):
     session1 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'plan_I81Wbz50cpcCF4',
+            'price': 'price_1J2wXxEHpkY9RbxJ0cGbdiMS',
             'quantity': 1,
         }],
         customer=customer.stripeid,
@@ -227,7 +227,7 @@ def checkout(request, pk):
     session2 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'price_1HZGfYEHpkY9RbxJZxXhZXW5',
+            'price': 'price_1J2wY2EHpkY9RbxJSYYqge4l',
             'quantity': 1,
         }],
         customer=customer.stripeid,
@@ -293,7 +293,7 @@ def checkout2(request, pk):
     session1 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'price_1HZGfYEHpkY9RbxJZxXhZXW5',
+            'price': 'price_1J2wY2EHpkY9RbxJSYYqge4l',
             'quantity': 1,
         }],
         customer=customer.stripeid,
@@ -305,7 +305,7 @@ def checkout2(request, pk):
     session2 = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'plan_I81Wbz50cpcCF4',
+            'price': 'price_1J2wXxEHpkY9RbxJ0cGbdiMS',
             'quantity': 1,
         }],
         customer=customer.stripeid,
@@ -521,7 +521,7 @@ def stripe_webhook(request):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-        elif planidplan == 'plan_I81Wbz50cpcCF4' or planidplan == 'price_1HZGfYEHpkY9RbxJZxXhZXW5': #PRO Plans
+        elif planidplan == 'price_1J2wXxEHpkY9RbxJ0cGbdiMS' or planidplan == 'price_1J2wY2EHpkY9RbxJSYYqge4l': #PRO Plans
             instance.ppq_is_published = False
             instance.pro_is_published = True
             instance.save()

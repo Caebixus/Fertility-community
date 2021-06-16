@@ -20,6 +20,9 @@ from search.choices import CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, CATEG
 def packages2(request):
     return HttpResponsePermanentRedirect(reverse('packagesearch'))
 
+def packages3(request):
+    return HttpResponsePermanentRedirect(reverse('packagesearch'))
+
 def packagesearch(request):
     todayDate = timezone.now()
     blog = Blog.objects.filter(tag__iexact='IVF Packages').order_by('-created_at')

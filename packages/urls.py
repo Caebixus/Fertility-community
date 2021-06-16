@@ -4,9 +4,10 @@ from . import views, views2
 
 urlpatterns = [
     #Package main search page
-    path('packages', views2.packagesearch, name='packagesearch'),
+    path('ivf-packages', views2.packagesearch, name='packagesearch'),
 
     # --------------------------------------->>>>>>>> Redirects
+    path('packages', views2.packages3, name='packages3'),
     path('packages/search', views2.packages2, name='packages2'),
     path('packages', views.packages1, name='packages1'),
     path('packages/ivf-packages', views.ivfpackages, name='ivfpackages'),

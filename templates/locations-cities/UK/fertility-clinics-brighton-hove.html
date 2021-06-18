@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics & centers in Brighton & Hove | 2021{% endblock %}
+{% block title %}Fertility clinics in Brighton & Hove | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Brighton & Hove to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/brighton-and-hove{% endblock %}
 {% block meta_keywords %}search fertility clinic brighton hove, search ivf clinics brighton hove, search fertility doctor brighton hove, search fertility specialist brighton hove, search fertility center brighton hove, search private fertility clinic brighton hove{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Brighton & Hove, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Brighton & Hove
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Brighton & Hove with different treatment pricings and IVF packages. The IVF clinics in Brighton & Hove offer fertility treatment and diagnosis options including male and female infertility, intrauterine insemination, In Vitro Fertilization, egg donation, and other services.</p>
   </div>

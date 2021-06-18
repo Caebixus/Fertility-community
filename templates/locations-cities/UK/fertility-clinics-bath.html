@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics & centers in Bath | 2021{% endblock %}
+{% block title %}Fertility clinics in Bath | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Bath to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/bath{% endblock %}
 {% block meta_keywords %}search fertility clinic bath, search ivf clinics bath, search fertility doctor bath, search fertility specialist bath, search fertility center bath, search private fertility clinic bath{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Bath, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Bath
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Bath with different treatment pricings and IVF packages. The IVF clinics in Bath offer various kinds of fertility diagnosis, such as In Vitro Fertilization, egg donation, sperm donation, IUI insemination, male infertility treatment, egg freezing, surrogacy programs and LGBT family building.</p>
   </div>

@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics & centers in Plymouth | 2021{% endblock %}
+{% block title %}Fertility clinics in Plymouth | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Plymouth to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/plymouth{% endblock %}
 {% block meta_keywords %}search fertility clinic plymouth, search ivf clinics plymouth, search fertility doctor plymouth, search fertility specialist plymouth, search fertility center plymouth, search private fertility clinic plymouth{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Plymouth, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Plymouth
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Plymouth with different treatment pricings and IVF packages. The IVF clinics in Plymouth offer many options of male and female infertility testing, and a number of procedures, such as ovulation induction, intrauterine insemination, In Vitro Fertilization, donor sperm, LGBT family planning, egg donation, egg freezing, and other options. </p>
   </div>

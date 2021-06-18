@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics & centers Belfast | 2021{% endblock %}
+{% block title %}Fertility clinics in Belfast | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Belfast to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/belfast{% endblock %}
 {% block meta_keywords %}search fertility clinic belfast, search ivf clinics belfast, search fertility doctor belfast, search fertility specialist belfast, search fertility center belfast, search private fertility clinic belfast{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Belfast, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Belfast
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Belfast with different treatment pricings and IVF packages. The IVF clinics in Belfast offer fertility treatment and diagnosis options including male and female infertility, intrauterine insemination, In Vitro Fertilization, egg donation, and other services.</p>
   </div>

@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics & centers in Leicester | 2021{% endblock %}
+{% block title %}Fertility clinics in Leicester | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Leicester to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/leicester{% endblock %}
 {% block meta_keywords %}search fertility clinic leicester, search ivf clinics leicester, search fertility doctor leicester, search fertility specialist leicester, search fertility center leicester, search private fertility clinic leicester{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Leicester, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Leicester
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Leicester with different treatment pricings and IVF packages. The IVF clinics in Leicester offer fertility treatment and diagnosis options including male and female infertility, intrauterine insemination, In Vitro Fertilization, egg donation, and other services.</p>
   </div>

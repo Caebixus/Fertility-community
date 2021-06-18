@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics in Kingston upon Hull | 2021{% endblock %}
+{% block title %}Fertility clinics in Kingston upon Hull | Found {{ my_total_count }} clinics | 2021{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Kingston upon Hull to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/kingston-upon-hull{% endblock %}
 {% block meta_keywords %}search fertility clinic hull, search ivf clinics hull, search fertility doctor hull, search fertility specialist hull, search fertility center hull, search private fertility clinic hull{% endblock %}
@@ -19,7 +19,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
-      Fertility clinics in Kingston upon Hull, United Kingdom
+      Compare {{ my_total_count }} fertility clinics in Kingston upon Hull
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Kingston upon Hull with different treatment pricings and IVF packages. The IVF clinics in Kingston upon Hull offer fertility treatment and diagnosis options including male and female infertility, intrauterine insemination, In Vitro Fertilization, egg donation, and other services.</p>
   </div>

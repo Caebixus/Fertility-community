@@ -37,7 +37,7 @@ def locationsUSRegions(request):
 
     queryset_list_alabama_iui = queryset_list_alabama.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_alabama_iui.items():
-        queryset_list_alabama_iui = val
+        queryset_list_alabama_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_alaska = queryset_list_us.filter(clinicRegion__iexact='Alaska')
@@ -65,7 +65,7 @@ def locationsUSRegions(request):
 
     queryset_list_alaska_iui = queryset_list_alaska.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_alaska_iui.items():
-        queryset_list_alaska_iui = val
+        queryset_list_alaska_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_arizona = queryset_list_us.filter(clinicRegion__iexact='Arizona')
@@ -93,7 +93,7 @@ def locationsUSRegions(request):
 
     queryset_list_arizona_iui = queryset_list_arizona.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_arizona_iui.items():
-        queryset_list_arizona_iui = val
+        queryset_list_arizona_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_arkansas = queryset_list_us.filter(clinicRegion__iexact='Arkansas')
@@ -121,7 +121,7 @@ def locationsUSRegions(request):
 
     queryset_list_arkansas_iui = queryset_list_arkansas.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_arkansas_iui.items():
-        queryset_list_arkansas_iui = val
+        queryset_list_arkansas_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_california = queryset_list_us.filter(clinicRegion__iexact='California')
@@ -149,7 +149,7 @@ def locationsUSRegions(request):
 
     queryset_list_california_iui = queryset_list_california.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_california_iui.items():
-        queryset_list_california_iui = val
+        queryset_list_california_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_colorado = queryset_list_us.filter(clinicRegion__iexact='Colorado')
@@ -177,7 +177,7 @@ def locationsUSRegions(request):
 
     queryset_list_colorado_iui = queryset_list_colorado.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_colorado_iui.items():
-        queryset_list_colorado_iui = val
+        queryset_list_colorado_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_connecticut = queryset_list_us.filter(clinicRegion__iexact='Connecticut')
@@ -205,7 +205,7 @@ def locationsUSRegions(request):
 
     queryset_list_connecticut_iui = queryset_list_connecticut.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_connecticut_iui.items():
-        queryset_list_connecticut_iui = val
+        queryset_list_connecticut_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_delaware = queryset_list_us.filter(clinicRegion__iexact='Delaware')
@@ -233,7 +233,7 @@ def locationsUSRegions(request):
 
     queryset_list_delaware_iui = queryset_list_delaware.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_delaware_iui.items():
-        queryset_list_delaware_iui = val
+        queryset_list_delaware_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_florida = queryset_list_us.filter(clinicRegion__iexact='Florida')
@@ -261,7 +261,7 @@ def locationsUSRegions(request):
 
     queryset_list_florida_iui = queryset_list_florida.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_florida_iui.items():
-        queryset_list_florida_iui = val
+        queryset_list_florida_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_georgia = queryset_list_us.filter(clinicRegion__iexact='Georgia')
@@ -289,7 +289,7 @@ def locationsUSRegions(request):
 
     queryset_list_georgia_iui = queryset_list_georgia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_georgia_iui.items():
-        queryset_list_georgia_iui = val
+        queryset_list_georgia_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_hawaii = queryset_list_us.filter(clinicRegion__iexact='Hawaii')
@@ -317,7 +317,7 @@ def locationsUSRegions(request):
 
     queryset_list_hawaii_iui = queryset_list_hawaii.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_hawaii_iui.items():
-        queryset_list_hawaii_iui = val
+        queryset_list_hawaii_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_idaho = queryset_list_us.filter(clinicRegion__iexact='Idaho')
@@ -345,7 +345,7 @@ def locationsUSRegions(request):
 
     queryset_list_idaho_iui = queryset_list_idaho.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_idaho_iui.items():
-        queryset_list_idaho_iui = val
+        queryset_list_idaho_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_illinois = queryset_list_us.filter(clinicRegion__iexact='Illinois')
@@ -373,7 +373,7 @@ def locationsUSRegions(request):
 
     queryset_list_illinois_iui = queryset_list_illinois.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_illinois_iui.items():
-        queryset_list_illinois_iui = val
+        queryset_list_illinois_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_indiana = queryset_list_us.filter(clinicRegion__iexact='Indiana')
@@ -401,7 +401,7 @@ def locationsUSRegions(request):
 
     queryset_list_indiana_iui = queryset_list_indiana.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_indiana_iui.items():
-        queryset_list_indiana_iui = val
+        queryset_list_indiana_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_iowa = queryset_list_us.filter(clinicRegion__iexact='Iowa')
@@ -429,7 +429,7 @@ def locationsUSRegions(request):
 
     queryset_list_iowa_iui = queryset_list_iowa.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_iowa_iui.items():
-        queryset_list_iowa_iui = val
+        queryset_list_iowa_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_kansas = queryset_list_us.filter(clinicRegion__iexact='Kansas')
@@ -457,7 +457,7 @@ def locationsUSRegions(request):
 
     queryset_list_kansas_iui = queryset_list_kansas.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_kansas_iui.items():
-        queryset_list_kansas_iui = val
+        queryset_list_kansas_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_kentucky = queryset_list_us.filter(clinicRegion__iexact='Kentucky')
@@ -485,7 +485,7 @@ def locationsUSRegions(request):
 
     queryset_list_kentucky_iui = queryset_list_kentucky.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_kentucky_iui.items():
-        queryset_list_kentucky_iui = val
+        queryset_list_kentucky_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_louisiana = queryset_list_us.filter(clinicRegion__iexact='Louisiana')
@@ -513,7 +513,7 @@ def locationsUSRegions(request):
 
     queryset_list_louisiana_iui = queryset_list_louisiana.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_louisiana_iui.items():
-        queryset_list_louisiana_iui = val
+        queryset_list_louisiana_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_maine = queryset_list_us.filter(clinicRegion__iexact='Maine')
@@ -541,7 +541,7 @@ def locationsUSRegions(request):
 
     queryset_list_maine_iui = queryset_list_maine.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_maine_iui.items():
-        queryset_list_maine_iui = val
+        queryset_list_maine_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_maryland = queryset_list_us.filter(clinicRegion__iexact='Maryland')
@@ -569,7 +569,7 @@ def locationsUSRegions(request):
 
     queryset_list_maryland_iui = queryset_list_maryland.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_maryland_iui.items():
-        queryset_list_maryland_iui = val
+        queryset_list_maryland_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_massachusetts = queryset_list_us.filter(clinicRegion__iexact='Massachusetts')
@@ -597,7 +597,7 @@ def locationsUSRegions(request):
 
     queryset_list_massachusetts_iui = queryset_list_massachusetts.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_massachusetts_iui.items():
-        queryset_list_massachusetts_iui = val
+        queryset_list_massachusetts_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_michigan = queryset_list_us.filter(clinicRegion__iexact='Michigan')
@@ -625,7 +625,7 @@ def locationsUSRegions(request):
 
     queryset_list_michigan_iui = queryset_list_michigan.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_michigan_iui.items():
-        queryset_list_michigan_iui = val
+        queryset_list_michigan_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_minnesota = queryset_list_us.filter(clinicRegion__iexact='Minnesota')
@@ -653,7 +653,7 @@ def locationsUSRegions(request):
 
     queryset_list_minnesota_iui = queryset_list_minnesota.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_minnesota_iui.items():
-        queryset_list_minnesota_iui = val
+        queryset_list_minnesota_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_mississippi = queryset_list_us.filter(clinicRegion__iexact='Mississippi')
@@ -681,7 +681,7 @@ def locationsUSRegions(request):
 
     queryset_list_mississippi_iui = queryset_list_mississippi.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_mississippi_iui.items():
-        queryset_list_mississippi_iui = val
+        queryset_list_mississippi_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_missouri = queryset_list_us.filter(clinicRegion__iexact='Missouri')
@@ -709,7 +709,7 @@ def locationsUSRegions(request):
 
     queryset_list_missouri_iui = queryset_list_missouri.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_missouri_iui.items():
-        queryset_list_missouri_iui = val
+        queryset_list_missouri_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_montana = queryset_list_us.filter(clinicRegion__iexact='Montana')
@@ -737,7 +737,7 @@ def locationsUSRegions(request):
 
     queryset_list_montana_iui = queryset_list_montana.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_montana_iui.items():
-        queryset_list_montana_iui = val
+        queryset_list_montana_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_nebraska = queryset_list_us.filter(clinicRegion__iexact='Nebraska')
@@ -765,7 +765,7 @@ def locationsUSRegions(request):
 
     queryset_list_nebraska_iui = queryset_list_nebraska.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_nebraska_iui.items():
-        queryset_list_nebraska_iui = val
+        queryset_list_nebraska_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newhampshire = queryset_list_us.filter(clinicRegion__iexact='New Hampshire')
@@ -793,7 +793,7 @@ def locationsUSRegions(request):
 
     queryset_list_newhampshire_iui = queryset_list_newhampshire.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newhampshire_iui.items():
-        queryset_list_newhampshire_iui = val
+        queryset_list_newhampshire_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newjersey = queryset_list_us.filter(clinicRegion__iexact='New Jersey')
@@ -821,7 +821,7 @@ def locationsUSRegions(request):
 
     queryset_list_newjersey_iui = queryset_list_newjersey.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newjersey_iui.items():
-        queryset_list_newjersey_iui = val
+        queryset_list_newjersey_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newmexico = queryset_list_us.filter(clinicRegion__iexact='New Mexico')
@@ -849,7 +849,7 @@ def locationsUSRegions(request):
 
     queryset_list_newmexico_iui = queryset_list_newmexico.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newmexico_iui.items():
-        queryset_list_newmexico_iui = val
+        queryset_list_newmexico_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newyork = queryset_list_us.filter(clinicRegion__iexact='New York')
@@ -877,7 +877,7 @@ def locationsUSRegions(request):
 
     queryset_list_newyork_iui = queryset_list_newyork.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newyork_iui.items():
-        queryset_list_newyork_iui = val
+        queryset_list_newyork_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_northcarolina = queryset_list_us.filter(clinicRegion__iexact='North Carolina')
@@ -905,7 +905,7 @@ def locationsUSRegions(request):
 
     queryset_list_northcarolina_iui = queryset_list_northcarolina.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_northcarolina_iui.items():
-        queryset_list_northcarolina_iui = val
+        queryset_list_northcarolina_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_northdakota = queryset_list_us.filter(clinicRegion__iexact='North Dakota')
@@ -933,7 +933,7 @@ def locationsUSRegions(request):
 
     queryset_list_northdakota_iui = queryset_list_northdakota.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_northdakota_iui.items():
-        queryset_list_northdakota_iui = val
+        queryset_list_northdakota_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_nevada = queryset_list_us.filter(clinicRegion__iexact='Nevada')
@@ -961,7 +961,7 @@ def locationsUSRegions(request):
 
     queryset_list_nevada_iui = queryset_list_nevada.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_nevada_iui.items():
-        queryset_list_nevada_iui = val
+        queryset_list_nevada_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_ohio = queryset_list_us.filter(clinicRegion__iexact='Ohio')
@@ -989,7 +989,7 @@ def locationsUSRegions(request):
 
     queryset_list_ohio_iui = queryset_list_ohio.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_ohio_iui.items():
-        queryset_list_ohio_iui = val
+        queryset_list_ohio_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_oklahoma = queryset_list_us.filter(clinicRegion__iexact='Oklahoma')
@@ -1017,7 +1017,7 @@ def locationsUSRegions(request):
 
     queryset_list_oklahoma_iui = queryset_list_oklahoma.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_oklahoma_iui.items():
-        queryset_list_oklahoma_iui = val
+        queryset_list_oklahoma_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_oregon = queryset_list_us.filter(clinicRegion__iexact='Oregon')
@@ -1045,7 +1045,7 @@ def locationsUSRegions(request):
 
     queryset_list_oregon_iui = queryset_list_oregon.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_oregon_iui.items():
-        queryset_list_oregon_iui = val
+        queryset_list_oregon_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_pennsylvania = queryset_list_us.filter(clinicRegion__iexact='Pennsylvania')
@@ -1073,7 +1073,7 @@ def locationsUSRegions(request):
 
     queryset_list_pennsylvania_iui = queryset_list_pennsylvania.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_pennsylvania_iui.items():
-        queryset_list_pennsylvania_iui = val
+        queryset_list_pennsylvania_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_puertorico = queryset_list_us.filter(clinicRegion__iexact='Puerto Rico')
@@ -1101,7 +1101,7 @@ def locationsUSRegions(request):
 
     queryset_list_puertorico_iui = queryset_list_puertorico.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_puertorico_iui.items():
-        queryset_list_puertorico_iui = val
+        queryset_list_puertorico_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_southcarolina = queryset_list_us.filter(clinicRegion__iexact='South Carolina')
@@ -1129,7 +1129,7 @@ def locationsUSRegions(request):
 
     queryset_list_southcarolina_iui = queryset_list_southcarolina.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_southcarolina_iui.items():
-        queryset_list_southcarolina_iui = val
+        queryset_list_southcarolina_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_rhodeisland = queryset_list_us.filter(clinicRegion__iexact='Rhode Island')
@@ -1157,7 +1157,7 @@ def locationsUSRegions(request):
 
     queryset_list_rhodeisland_iui = queryset_list_rhodeisland.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_rhodeisland_iui.items():
-        queryset_list_rhodeisland_iui = val
+        queryset_list_rhodeisland_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_southdakota = queryset_list_us.filter(clinicRegion__iexact='South Dakota')
@@ -1185,7 +1185,7 @@ def locationsUSRegions(request):
 
     queryset_list_southdakota_iui = queryset_list_southdakota.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_southdakota_iui.items():
-        queryset_list_southdakota_iui = val
+        queryset_list_southdakota_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_tennessee = queryset_list_us.filter(clinicRegion__iexact='Tennessee')
@@ -1213,7 +1213,7 @@ def locationsUSRegions(request):
 
     queryset_list_tennessee_iui = queryset_list_tennessee.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_tennessee_iui.items():
-        queryset_list_tennessee_iui = val
+        queryset_list_tennessee_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_texas = queryset_list_us.filter(clinicRegion__iexact='Texas')
@@ -1241,7 +1241,7 @@ def locationsUSRegions(request):
 
     queryset_list_texas_iui = queryset_list_texas.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_texas_iui.items():
-        queryset_list_texas_iui = val
+        queryset_list_texas_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_utah = queryset_list_us.filter(clinicRegion__iexact='Utah')
@@ -1269,7 +1269,7 @@ def locationsUSRegions(request):
 
     queryset_list_utah_iui = queryset_list_utah.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_utah_iui.items():
-        queryset_list_utah_iui = val
+        queryset_list_utah_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_vermont = queryset_list_us.filter(clinicRegion__iexact='Vermont')
@@ -1297,7 +1297,7 @@ def locationsUSRegions(request):
 
     queryset_list_vermont_iui = queryset_list_vermont.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_vermont_iui.items():
-        queryset_list_vermont_iui = val
+        queryset_list_vermont_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_virginia = queryset_list_us.filter(clinicRegion__iexact='Virginia')
@@ -1325,7 +1325,7 @@ def locationsUSRegions(request):
 
     queryset_list_virginia_iui = queryset_list_virginia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_virginia_iui.items():
-        queryset_list_virginia_iui = val
+        queryset_list_virginia_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_washington = queryset_list_us.filter(clinicRegion__iexact='Washington')
@@ -1353,7 +1353,7 @@ def locationsUSRegions(request):
 
     queryset_list_washington_iui = queryset_list_washington.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_washington_iui.items():
-        queryset_list_washington_iui = val
+        queryset_list_washington_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_westvirginia = queryset_list_us.filter(clinicRegion__iexact='West Virginia')
@@ -1381,7 +1381,7 @@ def locationsUSRegions(request):
 
     queryset_list_westvirginia_iui = queryset_list_westvirginia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_westvirginia_iui.items():
-        queryset_list_westvirginia_iui = val
+        queryset_list_westvirginia_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_wisconsin = queryset_list_us.filter(clinicRegion__iexact='Wisconsin')
@@ -1409,7 +1409,7 @@ def locationsUSRegions(request):
 
     queryset_list_wisconsin_iui = queryset_list_wisconsin.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_wisconsin_iui.items():
-        queryset_list_wisconsin_iui = val
+        queryset_list_wisconsin_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_wyoming = queryset_list_us.filter(clinicRegion__iexact='Wyoming')
@@ -1437,7 +1437,7 @@ def locationsUSRegions(request):
 
     queryset_list_wyoming_iui = queryset_list_wyoming.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_wyoming_iui.items():
-        queryset_list_wyoming_iui = val
+        queryset_list_wyoming_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_districtofcolumbia = queryset_list_us.filter(clinicRegion__iexact='District of Columbia')
@@ -1465,7 +1465,7 @@ def locationsUSRegions(request):
 
     queryset_list_districtofcolumbia_iui = queryset_list_districtofcolumbia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_districtofcolumbia_iui.items():
-        queryset_list_districtofcolumbia_iui = val
+        queryset_list_districtofcolumbia_iui_val = val
 
     context = {
         'queryset_list_alabama_ivf_val': queryset_list_alabama_ivf_val,
@@ -1473,364 +1473,364 @@ def locationsUSRegions(request):
         'queryset_list_alabama_embryo_val': queryset_list_alabama_embryo_val,
         'queryset_list_alabama_sperm_val': queryset_list_alabama_sperm_val,
         'queryset_list_alabama_icsi_val': queryset_list_alabama_icsi_val,
-        'queryset_list_alabama_iui': queryset_list_alabama_iui,
+        'queryset_list_alabama_iui_val': queryset_list_alabama_iui_val,
 
         'queryset_list_arizona_ivf_val': queryset_list_arizona_ivf_val,
         'queryset_list_arizona_egg_val': queryset_list_arizona_egg_val,
         'queryset_list_arizona_embryo_val': queryset_list_arizona_embryo_val,
         'queryset_list_arizona_sperm_val': queryset_list_arizona_sperm_val,
         'queryset_list_arizona_icsi_val': queryset_list_arizona_icsi_val,
-        'queryset_list_arizona_iui': queryset_list_arizona_iui,
+        'queryset_list_arizona_iui_val': queryset_list_arizona_iui_val,
 
         'queryset_list_alaska_ivf_val': queryset_list_alaska_ivf_val,
         'queryset_list_alaska_egg_val': queryset_list_alaska_egg_val,
         'queryset_list_alaska_embryo_val': queryset_list_alaska_embryo_val,
         'queryset_list_alaska_sperm_val': queryset_list_alaska_sperm_val,
         'queryset_list_alaska_icsi_val': queryset_list_alaska_icsi_val,
-        'queryset_list_alaska_iui': queryset_list_alaska_iui,
+        'queryset_list_alaska_iui_val': queryset_list_alaska_iui_val,
 
         'queryset_list_arkansas_ivf_val': queryset_list_arkansas_ivf_val,
         'queryset_list_arkansas_egg_val': queryset_list_arkansas_egg_val,
         'queryset_list_arkansas_embryo_val': queryset_list_arkansas_embryo_val,
         'queryset_list_arkansas_sperm_val': queryset_list_arkansas_sperm_val,
         'queryset_list_arkansas_icsi_val': queryset_list_arkansas_icsi_val,
-        'queryset_list_arkansas_iui': queryset_list_arkansas_iui,
+        'queryset_list_arkansas_iui_val': queryset_list_arkansas_iui_val,
 
         'queryset_list_california_ivf_val': queryset_list_california_ivf_val,
         'queryset_list_california_egg_val': queryset_list_california_egg_val,
         'queryset_list_california_embryo_val': queryset_list_california_embryo_val,
         'queryset_list_california_sperm_val': queryset_list_california_sperm_val,
         'queryset_list_california_icsi_val': queryset_list_california_icsi_val,
-        'queryset_list_california_iui': queryset_list_california_iui,
+        'queryset_list_california_iui_val': queryset_list_california_iui_val,
 
         'queryset_list_colorado_ivf_val': queryset_list_colorado_ivf_val,
         'queryset_list_colorado_egg_val': queryset_list_colorado_egg_val,
         'queryset_list_colorado_embryo_val': queryset_list_colorado_embryo_val,
         'queryset_list_colorado_sperm_val': queryset_list_colorado_sperm_val,
         'queryset_list_colorado_icsi_val': queryset_list_colorado_icsi_val,
-        'queryset_list_colorado_iui': queryset_list_colorado_iui,
+        'queryset_list_colorado_iui_val': queryset_list_colorado_iui_val,
 
         'queryset_list_connecticut_ivf_val': queryset_list_connecticut_ivf_val,
         'queryset_list_connecticut_egg_val': queryset_list_connecticut_egg_val,
         'queryset_list_connecticut_embryo_val': queryset_list_connecticut_embryo_val,
         'queryset_list_connecticut_sperm_val': queryset_list_connecticut_sperm_val,
         'queryset_list_connecticut_icsi_val': queryset_list_connecticut_icsi_val,
-        'queryset_list_connecticut_iui': queryset_list_connecticut_iui,
+        'queryset_list_connecticut_iui_val': queryset_list_connecticut_iui_val,
 
         'queryset_list_delaware_ivf_val': queryset_list_delaware_ivf_val,
         'queryset_list_delaware_egg_val': queryset_list_delaware_egg_val,
         'queryset_list_delaware_embryo_val': queryset_list_delaware_embryo_val,
         'queryset_list_delaware_sperm_val': queryset_list_delaware_sperm_val,
         'queryset_list_delaware_icsi_val': queryset_list_delaware_icsi_val,
-        'queryset_list_delaware_iui': queryset_list_delaware_iui,
+        'queryset_list_delaware_iui_val': queryset_list_delaware_iui_val,
 
         'queryset_list_florida_ivf_val': queryset_list_florida_ivf_val,
         'queryset_list_florida_egg_val': queryset_list_florida_egg_val,
         'queryset_list_florida_embryo_val': queryset_list_florida_embryo_val,
         'queryset_list_florida_sperm_val': queryset_list_florida_sperm_val,
         'queryset_list_florida_icsi_val': queryset_list_florida_icsi_val,
-        'queryset_list_florida_iui': queryset_list_florida_iui,
+        'queryset_list_florida_iui_val': queryset_list_florida_iui_val,
 
         'queryset_list_georgia_ivf_val': queryset_list_georgia_ivf_val,
         'queryset_list_georgia_egg_val': queryset_list_georgia_egg_val,
         'queryset_list_georgia_embryo_val': queryset_list_georgia_embryo_val,
         'queryset_list_georgia_sperm_val': queryset_list_georgia_sperm_val,
         'queryset_list_georgia_icsi_val': queryset_list_georgia_icsi_val,
-        'queryset_list_georgia_iui': queryset_list_georgia_iui,
+        'queryset_list_georgia_iui_val': queryset_list_georgia_iui_val,
 
         'queryset_list_hawaii_ivf_val': queryset_list_hawaii_ivf_val,
         'queryset_list_hawaii_egg_val': queryset_list_hawaii_egg_val,
         'queryset_list_hawaii_embryo_val': queryset_list_hawaii_embryo_val,
         'queryset_list_hawaii_sperm_val': queryset_list_hawaii_sperm_val,
         'queryset_list_hawaii_icsi_val': queryset_list_hawaii_icsi_val,
-        'queryset_list_hawaii_iui': queryset_list_hawaii_iui,
+        'queryset_list_hawaii_iui_val': queryset_list_hawaii_iui_val,
 
         'queryset_list_idaho_ivf_val': queryset_list_idaho_ivf_val,
         'queryset_list_idaho_egg_val': queryset_list_idaho_egg_val,
         'queryset_list_idaho_embryo_val': queryset_list_idaho_embryo_val,
         'queryset_list_idaho_sperm_val': queryset_list_idaho_sperm_val,
         'queryset_list_idaho_icsi_val': queryset_list_idaho_icsi_val,
-        'queryset_list_idaho_iui': queryset_list_idaho_iui,
+        'queryset_list_idaho_iui_val': queryset_list_idaho_iui_val,
 
         'queryset_list_illinois_ivf_val': queryset_list_illinois_ivf_val,
         'queryset_list_illinois_egg_val': queryset_list_illinois_egg_val,
         'queryset_list_illinois_embryo_val': queryset_list_illinois_embryo_val,
         'queryset_list_illinois_sperm_val': queryset_list_illinois_sperm_val,
         'queryset_list_illinois_icsi_val': queryset_list_illinois_icsi_val,
-        'queryset_list_illinois_iui': queryset_list_illinois_iui,
+        'queryset_list_illinois_iui_val': queryset_list_illinois_iui_val,
 
         'queryset_list_indiana_ivf_val': queryset_list_indiana_ivf_val,
         'queryset_list_indiana_egg_val': queryset_list_indiana_egg_val,
         'queryset_list_indiana_embryo_val': queryset_list_indiana_embryo_val,
         'queryset_list_indiana_sperm_val': queryset_list_indiana_sperm_val,
         'queryset_list_indiana_icsi_val': queryset_list_indiana_icsi_val,
-        'queryset_list_indiana_iui': queryset_list_indiana_iui,
+        'queryset_list_indiana_iui_val': queryset_list_indiana_iui_val,
 
         'queryset_list_iowa_ivf_val': queryset_list_iowa_ivf_val,
         'queryset_list_iowa_egg_val': queryset_list_iowa_egg_val,
         'queryset_list_iowa_embryo_val': queryset_list_iowa_embryo_val,
         'queryset_list_iowa_sperm_val': queryset_list_iowa_sperm_val,
         'queryset_list_iowa_icsi_val': queryset_list_iowa_icsi_val,
-        'queryset_list_iowa_iui': queryset_list_iowa_iui,
+        'queryset_list_iowa_iui_val': queryset_list_iowa_iui_val,
 
         'queryset_list_kansas_ivf_val': queryset_list_kansas_ivf_val,
         'queryset_list_kansas_egg_val': queryset_list_kansas_egg_val,
         'queryset_list_kansas_embryo_val': queryset_list_kansas_embryo_val,
         'queryset_list_kansas_sperm_val': queryset_list_kansas_sperm_val,
         'queryset_list_kansas_icsi_val': queryset_list_kansas_icsi_val,
-        'queryset_list_kansas_iui': queryset_list_kansas_iui,
+        'queryset_list_kansas_iui_val': queryset_list_kansas_iui_val,
 
         'queryset_list_kentucky_ivf_val': queryset_list_kentucky_ivf_val,
         'queryset_list_kentucky_egg_val': queryset_list_kentucky_egg_val,
         'queryset_list_kentucky_embryo_val': queryset_list_kentucky_embryo_val,
         'queryset_list_kentucky_sperm_val': queryset_list_kentucky_sperm_val,
         'queryset_list_kentucky_icsi_val': queryset_list_kentucky_icsi_val,
-        'queryset_list_kentucky_iui': queryset_list_kentucky_iui,
+        'queryset_list_kentucky_iui_val': queryset_list_kentucky_iui_val,
 
         'queryset_list_louisiana_ivf_val': queryset_list_louisiana_ivf_val,
         'queryset_list_louisiana_egg_val': queryset_list_louisiana_egg_val,
         'queryset_list_louisiana_embryo_val': queryset_list_louisiana_embryo_val,
         'queryset_list_louisiana_sperm_val': queryset_list_louisiana_sperm_val,
         'queryset_list_louisiana_icsi_val': queryset_list_louisiana_icsi_val,
-        'queryset_list_louisiana_iui': queryset_list_louisiana_iui,
+        'queryset_list_louisiana_iui_val': queryset_list_louisiana_iui_val,
 
         'queryset_list_maine_ivf_val': queryset_list_maine_ivf_val,
         'queryset_list_maine_egg_val': queryset_list_maine_egg_val,
         'queryset_list_maine_embryo_val': queryset_list_maine_embryo_val,
         'queryset_list_maine_sperm_val': queryset_list_maine_sperm_val,
         'queryset_list_maine_icsi_val': queryset_list_maine_icsi_val,
-        'queryset_list_maine_iui': queryset_list_maine_iui,
+        'queryset_list_maine_iui_val': queryset_list_maine_iui_val,
 
         'queryset_list_maryland_ivf_val': queryset_list_maryland_ivf_val,
         'queryset_list_maryland_egg_val': queryset_list_maryland_egg_val,
         'queryset_list_maryland_embryo_val': queryset_list_maryland_embryo_val,
         'queryset_list_maryland_sperm_val': queryset_list_maryland_sperm_val,
         'queryset_list_maryland_icsi_val': queryset_list_maryland_icsi_val,
-        'queryset_list_maryland_iui': queryset_list_maryland_iui,
+        'queryset_list_maryland_iui_val': queryset_list_maryland_iui_val,
 
         'queryset_list_massachusetts_ivf_val': queryset_list_massachusetts_ivf_val,
         'queryset_list_massachusetts_egg_val': queryset_list_massachusetts_egg_val,
         'queryset_list_massachusetts_embryo_val': queryset_list_massachusetts_embryo_val,
         'queryset_list_massachusetts_sperm_val': queryset_list_massachusetts_sperm_val,
         'queryset_list_massachusetts_icsi_val': queryset_list_massachusetts_icsi_val,
-        'queryset_list_massachusetts_iui': queryset_list_massachusetts_iui,
+        'queryset_list_massachusetts_iui_val': queryset_list_massachusetts_iui_val,
 
         'queryset_list_michigan_ivf_val': queryset_list_michigan_ivf_val,
         'queryset_list_michigan_egg_val': queryset_list_michigan_egg_val,
         'queryset_list_michigan_embryo_val': queryset_list_michigan_embryo_val,
         'queryset_list_michigan_sperm_val': queryset_list_michigan_sperm_val,
         'queryset_list_michigan_icsi_val': queryset_list_michigan_icsi_val,
-        'queryset_list_michigan_iui': queryset_list_michigan_iui,
+        'queryset_list_michigan_iui_val': queryset_list_michigan_iui_val,
 
         'queryset_list_minnesota_ivf_val': queryset_list_minnesota_ivf_val,
         'queryset_list_minnesota_egg_val': queryset_list_minnesota_egg_val,
         'queryset_list_minnesota_embryo_val': queryset_list_minnesota_embryo_val,
         'queryset_list_minnesota_sperm_val': queryset_list_minnesota_sperm_val,
         'queryset_list_minnesota_icsi_val': queryset_list_minnesota_icsi_val,
-        'queryset_list_minnesota_iui': queryset_list_minnesota_iui,
+        'queryset_list_minnesota_iui_val': queryset_list_minnesota_iui_val,
 
         'queryset_list_mississippi_ivf_val': queryset_list_mississippi_ivf_val,
         'queryset_list_mississippi_egg_val': queryset_list_mississippi_egg_val,
         'queryset_list_mississippi_embryo_val': queryset_list_mississippi_embryo_val,
         'queryset_list_mississippi_sperm_val': queryset_list_mississippi_sperm_val,
         'queryset_list_mississippi_icsi_val': queryset_list_mississippi_icsi_val,
-        'queryset_list_mississippi_iui': queryset_list_mississippi_iui,
+        'queryset_list_mississippi_iui_val': queryset_list_mississippi_iui_val,
 
         'queryset_list_missouri_ivf_val': queryset_list_missouri_ivf_val,
         'queryset_list_missouri_egg_val': queryset_list_missouri_egg_val,
         'queryset_list_missouri_embryo_val': queryset_list_missouri_embryo_val,
         'queryset_list_missouri_sperm_val': queryset_list_missouri_sperm_val,
         'queryset_list_missouri_icsi_val': queryset_list_missouri_icsi_val,
-        'queryset_list_missouri_iui': queryset_list_missouri_iui,
+        'queryset_list_missouri_iui_val': queryset_list_missouri_iui_val,
 
         'queryset_list_montana_ivf_val': queryset_list_montana_ivf_val,
         'queryset_list_montana_egg_val': queryset_list_montana_egg_val,
         'queryset_list_montana_embryo_val': queryset_list_montana_embryo_val,
         'queryset_list_montana_sperm_val': queryset_list_montana_sperm_val,
         'queryset_list_montana_icsi_val': queryset_list_montana_icsi_val,
-        'queryset_list_montana_iui': queryset_list_montana_iui,
+        'queryset_list_montana_iui_val': queryset_list_montana_iui_val,
 
         'queryset_list_nebraska_ivf_val': queryset_list_nebraska_ivf_val,
         'queryset_list_nebraska_egg_val': queryset_list_nebraska_egg_val,
         'queryset_list_nebraska_embryo_val': queryset_list_nebraska_embryo_val,
         'queryset_list_nebraska_sperm_val': queryset_list_nebraska_sperm_val,
         'queryset_list_nebraska_icsi_val': queryset_list_nebraska_icsi_val,
-        'queryset_list_nebraska_iui': queryset_list_nebraska_iui,
+        'queryset_list_nebraska_iui_val': queryset_list_nebraska_iui_val,
 
         'queryset_list_newhampshire_ivf_val': queryset_list_newhampshire_ivf_val,
         'queryset_list_newhampshire_egg_val': queryset_list_newhampshire_egg_val,
         'queryset_list_newhampshire_embryo_val': queryset_list_newhampshire_embryo_val,
         'queryset_list_newhampshire_sperm_val': queryset_list_newhampshire_sperm_val,
         'queryset_list_newhampshire_icsi_val': queryset_list_newhampshire_icsi_val,
-        'queryset_list_newhampshire_iui': queryset_list_newhampshire_iui,
+        'queryset_list_newhampshire_iui_val': queryset_list_newhampshire_iui_val,
 
         'queryset_list_newjersey_ivf_val': queryset_list_newjersey_ivf_val,
         'queryset_list_newjersey_egg_val': queryset_list_newjersey_egg_val,
         'queryset_list_newjersey_embryo_val': queryset_list_newjersey_embryo_val,
         'queryset_list_newjersey_sperm_val': queryset_list_newjersey_sperm_val,
         'queryset_list_newjersey_icsi_val': queryset_list_newjersey_icsi_val,
-        'queryset_list_newjersey_iui': queryset_list_newjersey_iui,
+        'queryset_list_newjersey_iui_val': queryset_list_newjersey_iui_val,
 
         'queryset_list_newmexico_ivf_val': queryset_list_newmexico_ivf_val,
         'queryset_list_newmexico_egg_val': queryset_list_newmexico_egg_val,
         'queryset_list_newmexico_embryo_val': queryset_list_newmexico_embryo_val,
         'queryset_list_newmexico_sperm_val': queryset_list_newmexico_sperm_val,
         'queryset_list_newmexico_icsi_val': queryset_list_newmexico_icsi_val,
-        'queryset_list_newmexico_iui': queryset_list_newmexico_iui,
+        'queryset_list_newmexico_iui_val': queryset_list_newmexico_iui_val,
 
         'queryset_list_newyork_ivf_val': queryset_list_newyork_ivf_val,
         'queryset_list_newyork_egg_val': queryset_list_newyork_egg_val,
         'queryset_list_newyork_embryo_val': queryset_list_newyork_embryo_val,
         'queryset_list_newyork_sperm_val': queryset_list_newyork_sperm_val,
         'queryset_list_newyork_icsi_val': queryset_list_newyork_icsi_val,
-        'queryset_list_newyork_iui': queryset_list_newyork_iui,
+        'queryset_list_newyork_iui_val': queryset_list_newyork_iui_val,
 
         'queryset_list_northcarolina_ivf_val': queryset_list_northcarolina_ivf_val,
         'queryset_list_northcarolina_egg_val': queryset_list_northcarolina_egg_val,
         'queryset_list_northcarolina_embryo_val': queryset_list_northcarolina_embryo_val,
         'queryset_list_northcarolina_sperm_val': queryset_list_northcarolina_sperm_val,
         'queryset_list_northcarolina_icsi_val': queryset_list_northcarolina_icsi_val,
-        'queryset_list_northcarolina_iui': queryset_list_northcarolina_iui,
+        'queryset_list_northcarolina_iui_val': queryset_list_northcarolina_iui_val,
 
         'queryset_list_northdakota_ivf_val': queryset_list_northdakota_ivf_val,
         'queryset_list_northdakota_egg_val': queryset_list_northdakota_egg_val,
         'queryset_list_northdakota_embryo_val': queryset_list_northdakota_embryo_val,
         'queryset_list_northdakota_sperm_val': queryset_list_northdakota_sperm_val,
         'queryset_list_northdakota_icsi_val': queryset_list_northdakota_icsi_val,
-        'queryset_list_northdakota_iui': queryset_list_northdakota_iui,
+        'queryset_list_northdakota_iui_val': queryset_list_northdakota_iui_val,
 
         'queryset_list_nevada_ivf_val': queryset_list_nevada_ivf_val,
         'queryset_list_nevada_egg_val': queryset_list_nevada_egg_val,
         'queryset_list_nevada_embryo_val': queryset_list_nevada_embryo_val,
         'queryset_list_nevada_sperm_val': queryset_list_nevada_sperm_val,
         'queryset_list_nevada_icsi_val': queryset_list_nevada_icsi_val,
-        'queryset_list_nevada_iui': queryset_list_nevada_iui,
+        'queryset_list_nevada_iui_val': queryset_list_nevada_iui_val,
 
         'queryset_list_ohio_ivf_val': queryset_list_ohio_ivf_val,
         'queryset_list_ohio_egg_val': queryset_list_ohio_egg_val,
         'queryset_list_ohio_embryo_val': queryset_list_ohio_embryo_val,
         'queryset_list_ohio_sperm_val': queryset_list_ohio_sperm_val,
         'queryset_list_ohio_icsi_val': queryset_list_ohio_icsi_val,
-        'queryset_list_ohio_iui': queryset_list_ohio_iui,
+        'queryset_list_ohio_iui_val': queryset_list_ohio_iui_val,
 
         'queryset_list_oklahoma_ivf_val': queryset_list_oklahoma_ivf_val,
         'queryset_list_oklahoma_egg_val': queryset_list_oklahoma_egg_val,
         'queryset_list_oklahoma_embryo_val': queryset_list_oklahoma_embryo_val,
         'queryset_list_oklahoma_sperm_val': queryset_list_oklahoma_sperm_val,
         'queryset_list_oklahoma_icsi_val': queryset_list_oklahoma_icsi_val,
-        'queryset_list_oklahoma_iui': queryset_list_oklahoma_iui,
+        'queryset_list_oklahoma_iui_val': queryset_list_oklahoma_iui_val,
 
         'queryset_list_oregon_ivf_val': queryset_list_oregon_ivf_val,
         'queryset_list_oregon_egg_val': queryset_list_oregon_egg_val,
         'queryset_list_oregon_embryo_val': queryset_list_oregon_embryo_val,
         'queryset_list_oregon_sperm_val': queryset_list_oregon_sperm_val,
         'queryset_list_oregon_icsi_val': queryset_list_oregon_icsi_val,
-        'queryset_list_oregon_iui': queryset_list_oregon_iui,
+        'queryset_list_oregon_iui_val': queryset_list_oregon_iui_val,
 
         'queryset_list_pennsylvania_ivf_val': queryset_list_pennsylvania_ivf_val,
         'queryset_list_pennsylvania_egg_val': queryset_list_pennsylvania_egg_val,
         'queryset_list_pennsylvania_embryo_val': queryset_list_pennsylvania_embryo_val,
         'queryset_list_pennsylvania_sperm_val': queryset_list_pennsylvania_sperm_val,
         'queryset_list_pennsylvania_icsi_val': queryset_list_pennsylvania_icsi_val,
-        'queryset_list_pennsylvania_iui': queryset_list_pennsylvania_iui,
+        'queryset_list_pennsylvania_iui_val': queryset_list_pennsylvania_iui_val,
 
         'queryset_list_puertorico_ivf_val': queryset_list_puertorico_ivf_val,
         'queryset_list_puertorico_egg_val': queryset_list_puertorico_egg_val,
         'queryset_list_puertorico_embryo_val': queryset_list_puertorico_embryo_val,
         'queryset_list_puertorico_sperm_val': queryset_list_puertorico_sperm_val,
         'queryset_list_puertorico_icsi_val': queryset_list_puertorico_icsi_val,
-        'queryset_list_puertorico_iui': queryset_list_puertorico_iui,
+        'queryset_list_puertorico_iui_val': queryset_list_puertorico_iui_val,
 
         'queryset_list_rhodeisland_ivf_val': queryset_list_rhodeisland_ivf_val,
         'queryset_list_rhodeisland_egg_val': queryset_list_rhodeisland_egg_val,
         'queryset_list_rhodeisland_embryo_val': queryset_list_rhodeisland_embryo_val,
         'queryset_list_rhodeisland_sperm_val': queryset_list_rhodeisland_sperm_val,
         'queryset_list_rhodeisland_icsi_val': queryset_list_rhodeisland_icsi_val,
-        'queryset_list_rhodeisland_iui': queryset_list_rhodeisland_iui,
+        'queryset_list_rhodeisland_iui_val': queryset_list_rhodeisland_iui_val,
 
         'queryset_list_southcarolina_ivf_val': queryset_list_southcarolina_ivf_val,
         'queryset_list_southcarolina_egg_val': queryset_list_southcarolina_egg_val,
         'queryset_list_southcarolina_embryo_val': queryset_list_southcarolina_embryo_val,
         'queryset_list_southcarolina_sperm_val': queryset_list_southcarolina_sperm_val,
         'queryset_list_southcarolina_icsi_val': queryset_list_southcarolina_icsi_val,
-        'queryset_list_southcarolina_iui': queryset_list_southcarolina_iui,
+        'queryset_list_southcarolina_iui_val': queryset_list_southcarolina_iui_val,
 
         'queryset_list_southdakota_ivf_val': queryset_list_southdakota_ivf_val,
         'queryset_list_southdakota_egg_val': queryset_list_southdakota_egg_val,
         'queryset_list_southdakota_embryo_val': queryset_list_southdakota_embryo_val,
         'queryset_list_southdakota_sperm_val': queryset_list_southdakota_sperm_val,
         'queryset_list_southdakota_icsi_val': queryset_list_southdakota_icsi_val,
-        'queryset_list_southdakota_iui': queryset_list_southdakota_iui,
+        'queryset_list_southdakota_iui_val': queryset_list_southdakota_iui_val,
 
         'queryset_list_tennessee_ivf_val': queryset_list_tennessee_ivf_val,
         'queryset_list_tennessee_egg_val': queryset_list_tennessee_egg_val,
         'queryset_list_tennessee_embryo_val': queryset_list_tennessee_embryo_val,
         'queryset_list_tennessee_sperm_val': queryset_list_tennessee_sperm_val,
         'queryset_list_tennessee_icsi_val': queryset_list_tennessee_icsi_val,
-        'queryset_list_tennessee_iui': queryset_list_tennessee_iui,
+        'queryset_list_tennessee_iui_val': queryset_list_tennessee_iui_val,
 
         'queryset_list_texas_ivf_val': queryset_list_texas_ivf_val,
         'queryset_list_texas_egg_val': queryset_list_texas_egg_val,
         'queryset_list_texas_embryo_val': queryset_list_texas_embryo_val,
         'queryset_list_texas_sperm_val': queryset_list_texas_sperm_val,
         'queryset_list_texas_icsi_val': queryset_list_texas_icsi_val,
-        'queryset_list_texas_iui': queryset_list_texas_iui,
+        'queryset_list_texas_iui_val': queryset_list_texas_iui_val,
 
         'queryset_list_utah_ivf_val': queryset_list_utah_ivf_val,
         'queryset_list_utah_egg_val': queryset_list_utah_egg_val,
         'queryset_list_utah_embryo_val': queryset_list_utah_embryo_val,
         'queryset_list_utah_sperm_val': queryset_list_utah_sperm_val,
         'queryset_list_utah_icsi_val': queryset_list_utah_icsi_val,
-        'queryset_list_utah_iui': queryset_list_utah_iui,
+        'queryset_list_utah_iui_val': queryset_list_utah_iui_val,
 
         'queryset_list_vermont_ivf_val': queryset_list_vermont_ivf_val,
         'queryset_list_vermont_egg_val': queryset_list_vermont_egg_val,
         'queryset_list_vermont_embryo_val': queryset_list_vermont_embryo_val,
         'queryset_list_vermont_sperm_val': queryset_list_vermont_sperm_val,
         'queryset_list_vermont_icsi_val': queryset_list_vermont_icsi_val,
-        'queryset_list_vermont_iui': queryset_list_vermont_iui,
+        'queryset_list_vermont_iui_val': queryset_list_vermont_iui_val,
 
         'queryset_list_virginia_ivf_val': queryset_list_virginia_ivf_val,
         'queryset_list_virginia_egg_val': queryset_list_virginia_egg_val,
         'queryset_list_virginia_embryo_val': queryset_list_virginia_embryo_val,
         'queryset_list_virginia_sperm_val': queryset_list_virginia_sperm_val,
         'queryset_list_virginia_icsi_val': queryset_list_virginia_icsi_val,
-        'queryset_list_virginia_iui': queryset_list_virginia_iui,
+        'queryset_list_virginia_iui_val': queryset_list_virginia_iui_val,
 
         'queryset_list_washington_ivf_val': queryset_list_washington_ivf_val,
         'queryset_list_washington_egg_val': queryset_list_washington_egg_val,
         'queryset_list_washington_embryo_val': queryset_list_washington_embryo_val,
         'queryset_list_washington_sperm_val': queryset_list_washington_sperm_val,
         'queryset_list_washington_icsi_val': queryset_list_washington_icsi_val,
-        'queryset_list_washington_iui': queryset_list_washington_iui,
+        'queryset_list_washington_iui_val': queryset_list_washington_iui_val,
 
         'queryset_list_westvirginia_ivf_val': queryset_list_westvirginia_ivf_val,
         'queryset_list_westvirginia_egg_val': queryset_list_westvirginia_egg_val,
         'queryset_list_westvirginia_embryo_val': queryset_list_westvirginia_embryo_val,
         'queryset_list_westvirginia_sperm_val': queryset_list_westvirginia_sperm_val,
         'queryset_list_westvirginia_icsi_val': queryset_list_westvirginia_icsi_val,
-        'queryset_list_westvirginia_iui': queryset_list_westvirginia_iui,
+        'queryset_list_westvirginia_iui_val': queryset_list_westvirginia_iui_val,
 
         'queryset_list_wisconsin_ivf_val': queryset_list_wisconsin_ivf_val,
         'queryset_list_wisconsin_egg_val': queryset_list_wisconsin_egg_val,
         'queryset_list_wisconsin_embryo_val': queryset_list_wisconsin_embryo_val,
         'queryset_list_wisconsin_sperm_val': queryset_list_wisconsin_sperm_val,
         'queryset_list_wisconsin_icsi_val': queryset_list_wisconsin_icsi_val,
-        'queryset_list_wisconsin_iui': queryset_list_wisconsin_iui,
+        'queryset_list_wisconsin_iui_val': queryset_list_wisconsin_iui_val,
 
         'queryset_list_wyoming_ivf_val': queryset_list_wyoming_ivf_val,
         'queryset_list_wyoming_egg_val': queryset_list_wyoming_egg_val,
         'queryset_list_wyoming_embryo_val': queryset_list_wyoming_embryo_val,
         'queryset_list_wyoming_sperm_val': queryset_list_wyoming_sperm_val,
         'queryset_list_wyoming_icsi_val': queryset_list_wyoming_icsi_val,
-        'queryset_list_wyoming_iui': queryset_list_wyoming_iui,
+        'queryset_list_wyoming_iui_val': queryset_list_wyoming_iui_val,
 
         'queryset_list_districtofcolumbia_ivf_val': queryset_list_districtofcolumbia_ivf_val,
         'queryset_list_districtofcolumbia_egg_val': queryset_list_districtofcolumbia_egg_val,
         'queryset_list_districtofcolumbia_embryo_val': queryset_list_districtofcolumbia_embryo_val,
         'queryset_list_districtofcolumbia_sperm_val': queryset_list_districtofcolumbia_sperm_val,
         'queryset_list_districtofcolumbia_icsi_val': queryset_list_districtofcolumbia_icsi_val,
-        'queryset_list_districtofcolumbia_iui': queryset_list_districtofcolumbia_iui,
+        'queryset_list_districtofcolumbia_iui_val': queryset_list_districtofcolumbia_iui_val,
 
         'my_total_clinic_count_alabama': my_total_clinic_count_alabama,
         'my_total_clinic_count_alaska': my_total_clinic_count_alaska,
@@ -1926,7 +1926,7 @@ def locationsUKRegions(request):
 
     queryset_list_aberdeen_iui = queryset_list_aberdeen.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_aberdeen_iui.items():
-        queryset_list_aberdeen_iui = val
+        queryset_list_aberdeen_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bath = queryset_list_uk.filter(clinicRegion__iexact='Bath')
@@ -1954,7 +1954,7 @@ def locationsUKRegions(request):
 
     queryset_list_bath_iui = queryset_list_bath.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bath_iui.items():
-        queryset_list_bath_iui = val
+        queryset_list_bath_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_belfast = queryset_list_uk.filter(clinicRegion__iexact='Belfast')
@@ -1982,7 +1982,7 @@ def locationsUKRegions(request):
 
     queryset_list_belfast_iui = queryset_list_belfast.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_belfast_iui.items():
-        queryset_list_belfast_iui = val
+        queryset_list_belfast_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_birmingham = queryset_list_uk.filter(clinicRegion__iexact='Birmingham')
@@ -2010,7 +2010,7 @@ def locationsUKRegions(request):
 
     queryset_list_birmingham_iui = queryset_list_birmingham.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_birmingham_iui.items():
-        queryset_list_birmingham_iui = val
+        queryset_list_birmingham_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bournemouth = queryset_list_uk.filter(clinicRegion__iexact='Bournemouth')
@@ -2038,7 +2038,7 @@ def locationsUKRegions(request):
 
     queryset_list_bournemouth_iui = queryset_list_bournemouth.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bournemouth_iui.items():
-        queryset_list_bournemouth_iui = val
+        queryset_list_bournemouth_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_brighton = queryset_list_uk.filter(clinicRegion__iexact='Brighton')
@@ -2066,7 +2066,7 @@ def locationsUKRegions(request):
 
     queryset_list_brighton_iui = queryset_list_brighton.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_brighton_iui.items():
-        queryset_list_brighton_iui = val
+        queryset_list_brighton_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bristol = queryset_list_uk.filter(clinicRegion__iexact='Bristol')
@@ -2094,7 +2094,7 @@ def locationsUKRegions(request):
 
     queryset_list_bristol_iui = queryset_list_bristol.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bristol_iui.items():
-        queryset_list_bristol_iui = val
+        queryset_list_bristol_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_cambridge = queryset_list_uk.filter(clinicRegion__iexact='Cambridge')
@@ -2122,7 +2122,7 @@ def locationsUKRegions(request):
 
     queryset_list_cambridge_iui = queryset_list_cambridge.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_cambridge_iui.items():
-        queryset_list_cambridge_iui = val
+        queryset_list_cambridge_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_cardiff = queryset_list_uk.filter(clinicRegion__iexact='Cardiff')
@@ -2150,7 +2150,7 @@ def locationsUKRegions(request):
 
     queryset_list_cardiff_iui = queryset_list_cardiff.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_cardiff_iui.items():
-        queryset_list_cardiff_iui = val
+        queryset_list_cardiff_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_colchester = queryset_list_uk.filter(clinicRegion__iexact='Colchester')
@@ -2178,7 +2178,7 @@ def locationsUKRegions(request):
 
     queryset_list_colchester_iui = queryset_list_colchester.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_colchester_iui.items():
-        queryset_list_colchester_iui = val
+        queryset_list_colchester_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_derby = queryset_list_uk.filter(clinicRegion__iexact='Derby')
@@ -2206,7 +2206,7 @@ def locationsUKRegions(request):
 
     queryset_list_derby_iui = queryset_list_derby.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_derby_iui.items():
-        queryset_list_derby_iui = val
+        queryset_list_derby_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_derby = queryset_list_uk.filter(clinicRegion__iexact='Derby')
@@ -2234,7 +2234,7 @@ def locationsUKRegions(request):
 
     queryset_list_derby_iui = queryset_list_derby.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_derby_iui.items():
-        queryset_list_derby_iui = val
+        queryset_list_derby_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_exeter = queryset_list_uk.filter(clinicRegion__iexact='Exeter')
@@ -2262,7 +2262,7 @@ def locationsUKRegions(request):
 
     queryset_list_exeter_iui = queryset_list_exeter.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_exeter_iui.items():
-        queryset_list_exeter_iui = val
+        queryset_list_exeter_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_glasgow = queryset_list_uk.filter(clinicRegion__iexact='Glasgow')
@@ -2290,7 +2290,7 @@ def locationsUKRegions(request):
 
     queryset_list_glasgow_iui = queryset_list_glasgow.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_glasgow_iui.items():
-        queryset_list_glasgow_iui = val
+        queryset_list_glasgow_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_hull = queryset_list_uk.filter(clinicRegion__iexact='Hull')
@@ -2318,7 +2318,7 @@ def locationsUKRegions(request):
 
     queryset_list_hull_iui = queryset_list_hull.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_hull_iui.items():
-        queryset_list_hull_iui = val
+        queryset_list_hull_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_chelmsford = queryset_list_uk.filter(clinicRegion__iexact='Chelmsford')
@@ -2346,7 +2346,7 @@ def locationsUKRegions(request):
 
     queryset_list_chelmsford_iui = queryset_list_chelmsford.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_chelmsford_iui.items():
-        queryset_list_chelmsford_iui = val
+        queryset_list_chelmsford_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_leeds = queryset_list_uk.filter(clinicRegion__iexact='Leeds')
@@ -2374,7 +2374,7 @@ def locationsUKRegions(request):
 
     queryset_list_leeds_iui = queryset_list_leeds.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_leeds_iui.items():
-        queryset_list_leeds_iui = val
+        queryset_list_leeds_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_leicester = queryset_list_uk.filter(clinicRegion__iexact='Leicester')
@@ -2402,7 +2402,7 @@ def locationsUKRegions(request):
 
     queryset_list_leicester_iui = queryset_list_leicester.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_leicester_iui.items():
-        queryset_list_leicester_iui = val
+        queryset_list_leicester_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_liverpool = queryset_list_uk.filter(clinicRegion__iexact='Liverpool')
@@ -2430,7 +2430,7 @@ def locationsUKRegions(request):
 
     queryset_list_liverpool_iui = queryset_list_liverpool.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_liverpool_iui.items():
-        queryset_list_liverpool_iui = val
+        queryset_list_liverpool_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_london = queryset_list_uk.filter(clinicRegion__iexact='London')
@@ -2458,7 +2458,7 @@ def locationsUKRegions(request):
 
     queryset_list_london_iui = queryset_list_london.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_london_iui.items():
-        queryset_list_london_iui = val
+        queryset_list_london_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_manchester = queryset_list_uk.filter(clinicRegion__iexact='Manchester')
@@ -2486,7 +2486,7 @@ def locationsUKRegions(request):
 
     queryset_list_manchester_iui = queryset_list_manchester.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_manchester_iui.items():
-        queryset_list_manchester_iui = val
+        queryset_list_manchester_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_middlesbrough = queryset_list_uk.filter(clinicRegion__iexact='Middlesbrough')
@@ -2514,7 +2514,7 @@ def locationsUKRegions(request):
 
     queryset_list_middlesbrough_iui = queryset_list_middlesbrough.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_middlesbrough_iui.items():
-        queryset_list_middlesbrough_iui = val
+        queryset_list_middlesbrough_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newcastle = queryset_list_uk.filter(clinicRegion__iexact='Newcastle')
@@ -2542,7 +2542,7 @@ def locationsUKRegions(request):
 
     queryset_list_newcastle_iui = queryset_list_newcastle.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newcastle_iui.items():
-        queryset_list_newcastle_iui = val
+        queryset_list_newcastle_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_norwich = queryset_list_uk.filter(clinicRegion__iexact='Norwich')
@@ -2570,7 +2570,7 @@ def locationsUKRegions(request):
 
     queryset_list_norwich_iui = queryset_list_norwich.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_norwich_iui.items():
-        queryset_list_norwich_iui = val
+        queryset_list_norwich_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_nottingham = queryset_list_uk.filter(clinicRegion__iexact='Nottingham')
@@ -2598,7 +2598,7 @@ def locationsUKRegions(request):
 
     queryset_list_nottingham_iui = queryset_list_nottingham.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_nottingham_iui.items():
-        queryset_list_nottingham_iui = val
+        queryset_list_nottingham_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_oxford = queryset_list_uk.filter(clinicRegion__iexact='Oxford')
@@ -2626,7 +2626,7 @@ def locationsUKRegions(request):
 
     queryset_list_oxford_iui = queryset_list_oxford.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_oxford_iui.items():
-        queryset_list_oxford_iui = val
+        queryset_list_oxford_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_peterborough = queryset_list_uk.filter(clinicRegion__iexact='Peterborough')
@@ -2654,7 +2654,7 @@ def locationsUKRegions(request):
 
     queryset_list_peterborough_iui = queryset_list_peterborough.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_peterborough_iui.items():
-        queryset_list_peterborough_iui = val
+        queryset_list_peterborough_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_plymouth = queryset_list_uk.filter(clinicRegion__iexact='Plymouth')
@@ -2682,7 +2682,7 @@ def locationsUKRegions(request):
 
     queryset_list_plymouth_iui = queryset_list_plymouth.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_plymouth_iui.items():
-        queryset_list_plymouth_iui = val
+        queryset_list_plymouth_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_portsmouth = queryset_list_uk.filter(clinicRegion__iexact='Portsmouth')
@@ -2710,7 +2710,7 @@ def locationsUKRegions(request):
 
     queryset_list_portsmouth_iui = queryset_list_portsmouth.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_portsmouth_iui.items():
-        queryset_list_portsmouth_iui = val
+        queryset_list_portsmouth_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_salisbury = queryset_list_uk.filter(clinicRegion__iexact='Salisbury')
@@ -2738,7 +2738,7 @@ def locationsUKRegions(request):
 
     queryset_list_salisbury_iui = queryset_list_salisbury.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_salisbury_iui.items():
-        queryset_list_salisbury_iui = val
+        queryset_list_salisbury_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_sheffield = queryset_list_uk.filter(clinicRegion__iexact='Sheffield')
@@ -2766,7 +2766,7 @@ def locationsUKRegions(request):
 
     queryset_list_sheffield_iui = queryset_list_sheffield.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_sheffield_iui.items():
-        queryset_list_sheffield_iui = val
+        queryset_list_sheffield_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_southampton = queryset_list_uk.filter(clinicRegion__iexact='Southampton')
@@ -2794,7 +2794,7 @@ def locationsUKRegions(request):
 
     queryset_list_southampton_iui = queryset_list_southampton.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_southampton_iui.items():
-        queryset_list_southampton_iui = val
+        queryset_list_southampton_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_swansea = queryset_list_uk.filter(clinicRegion__iexact='Swansea')
@@ -2822,7 +2822,7 @@ def locationsUKRegions(request):
 
     queryset_list_swansea_iui = queryset_list_swansea.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_swansea_iui.items():
-        queryset_list_swansea_iui = val
+        queryset_list_swansea_iui_val = val
 
 
     context = {
@@ -2832,7 +2832,7 @@ def locationsUKRegions(request):
         'queryset_list_aberdeen_embryo_val': queryset_list_aberdeen_embryo_val,
         'queryset_list_aberdeen_sperm_val': queryset_list_aberdeen_sperm_val,
         'queryset_list_aberdeen_icsi_val': queryset_list_aberdeen_icsi_val,
-        'queryset_list_aberdeen_iui': queryset_list_aberdeen_iui,
+        'queryset_list_aberdeen_iui_val': queryset_list_aberdeen_iui_val,
 
         'my_total_clinic_count_bath': my_total_clinic_count_bath,
         'queryset_list_bath_ivf_val': queryset_list_bath_ivf_val,
@@ -2840,7 +2840,7 @@ def locationsUKRegions(request):
         'queryset_list_bath_embryo_val': queryset_list_bath_embryo_val,
         'queryset_list_bath_sperm_val': queryset_list_bath_sperm_val,
         'queryset_list_bath_icsi_val': queryset_list_bath_icsi_val,
-        'queryset_list_bath_iui': queryset_list_bath_iui,
+        'queryset_list_bath_iui_val': queryset_list_bath_iui_val,
 
         'my_total_clinic_count_belfast': my_total_clinic_count_belfast,
         'queryset_list_belfast_ivf_val': queryset_list_belfast_ivf_val,
@@ -2848,7 +2848,7 @@ def locationsUKRegions(request):
         'queryset_list_belfast_embryo_val': queryset_list_belfast_embryo_val,
         'queryset_list_belfast_sperm_val': queryset_list_belfast_sperm_val,
         'queryset_list_belfast_icsi_val': queryset_list_belfast_icsi_val,
-        'queryset_list_belfast_iui': queryset_list_belfast_iui,
+        'queryset_list_belfast_iui_val': queryset_list_belfast_iui_val,
 
         'my_total_clinic_count_birmingham': my_total_clinic_count_birmingham,
         'queryset_list_birmingham_ivf_val': queryset_list_birmingham_ivf_val,
@@ -2856,7 +2856,7 @@ def locationsUKRegions(request):
         'queryset_list_birmingham_embryo_val': queryset_list_birmingham_embryo_val,
         'queryset_list_birmingham_sperm_val': queryset_list_birmingham_sperm_val,
         'queryset_list_birmingham_icsi_val': queryset_list_birmingham_icsi_val,
-        'queryset_list_birmingham_iui': queryset_list_birmingham_iui,
+        'queryset_list_birmingham_iui_val': queryset_list_birmingham_iui_val,
 
         'my_total_clinic_count_bournemouth': my_total_clinic_count_bournemouth,
         'queryset_list_bournemouth_ivf_val': queryset_list_bournemouth_ivf_val,
@@ -2864,7 +2864,7 @@ def locationsUKRegions(request):
         'queryset_list_bournemouth_embryo_val': queryset_list_bournemouth_embryo_val,
         'queryset_list_bournemouth_sperm_val': queryset_list_bournemouth_sperm_val,
         'queryset_list_bournemouth_icsi_val': queryset_list_bournemouth_icsi_val,
-        'queryset_list_bournemouth_iui': queryset_list_bournemouth_iui,
+        'queryset_list_bournemouth_iui_val': queryset_list_bournemouth_iui_val,
 
         'my_total_clinic_count_brighton': my_total_clinic_count_brighton,
         'queryset_list_brighton_ivf_val': queryset_list_brighton_ivf_val,
@@ -2872,7 +2872,7 @@ def locationsUKRegions(request):
         'queryset_list_brighton_embryo_val': queryset_list_brighton_embryo_val,
         'queryset_list_brighton_sperm_val': queryset_list_brighton_sperm_val,
         'queryset_list_brighton_icsi_val': queryset_list_brighton_icsi_val,
-        'queryset_list_brighton_iui': queryset_list_brighton_iui,
+        'queryset_list_brighton_iui_val': queryset_list_brighton_iui_val,
 
         'my_total_clinic_count_bristol': my_total_clinic_count_bristol,
         'queryset_list_bristol_ivf_val': queryset_list_bristol_ivf_val,
@@ -2880,7 +2880,7 @@ def locationsUKRegions(request):
         'queryset_list_bristol_embryo_val': queryset_list_bristol_embryo_val,
         'queryset_list_bristol_sperm_val': queryset_list_bristol_sperm_val,
         'queryset_list_bristol_icsi_val': queryset_list_bristol_icsi_val,
-        'queryset_list_bristol_iui': queryset_list_bristol_iui,
+        'queryset_list_bristol_iui_val': queryset_list_bristol_iui_val,
 
         'my_total_clinic_count_cambridge': my_total_clinic_count_cambridge,
         'queryset_list_cambridge_ivf_val': queryset_list_cambridge_ivf_val,
@@ -2888,7 +2888,7 @@ def locationsUKRegions(request):
         'queryset_list_cambridge_embryo_val': queryset_list_cambridge_embryo_val,
         'queryset_list_cambridge_sperm_val': queryset_list_cambridge_sperm_val,
         'queryset_list_cambridge_icsi_val': queryset_list_cambridge_icsi_val,
-        'queryset_list_cambridge_iui': queryset_list_cambridge_iui,
+        'queryset_list_cambridge_iui_val': queryset_list_cambridge_iui_val,
 
         'my_total_clinic_count_cardiff': my_total_clinic_count_cardiff,
         'queryset_list_cardiff_ivf_val': queryset_list_cardiff_ivf_val,
@@ -2896,7 +2896,7 @@ def locationsUKRegions(request):
         'queryset_list_cardiff_embryo_val': queryset_list_cardiff_embryo_val,
         'queryset_list_cardiff_sperm_val': queryset_list_cardiff_sperm_val,
         'queryset_list_cardiff_icsi_val': queryset_list_cardiff_icsi_val,
-        'queryset_list_cardiff_iui': queryset_list_cardiff_iui,
+        'queryset_list_cardiff_iui_val': queryset_list_cardiff_iui_val,
 
         'my_total_clinic_count_colchester': my_total_clinic_count_colchester,
         'queryset_list_colchester_ivf_val': queryset_list_colchester_ivf_val,
@@ -2904,7 +2904,7 @@ def locationsUKRegions(request):
         'queryset_list_colchester_embryo_val': queryset_list_colchester_embryo_val,
         'queryset_list_colchester_sperm_val': queryset_list_colchester_sperm_val,
         'queryset_list_colchester_icsi_val': queryset_list_colchester_icsi_val,
-        'queryset_list_colchester_iui': queryset_list_colchester_iui,
+        'queryset_list_colchester_iui_val': queryset_list_colchester_iui_val,
 
         'my_total_clinic_count_derby': my_total_clinic_count_derby,
         'queryset_list_derby_ivf_val': queryset_list_derby_ivf_val,
@@ -2912,7 +2912,7 @@ def locationsUKRegions(request):
         'queryset_list_derby_embryo_val': queryset_list_derby_embryo_val,
         'queryset_list_derby_sperm_val': queryset_list_derby_sperm_val,
         'queryset_list_derby_icsi_val': queryset_list_derby_icsi_val,
-        'queryset_list_derby_iui': queryset_list_derby_iui,
+        'queryset_list_derby_iui_val': queryset_list_derby_iui_val,
 
         'my_total_clinic_count_exeter': my_total_clinic_count_exeter,
         'queryset_list_exeter_ivf_val': queryset_list_exeter_ivf_val,
@@ -2920,7 +2920,7 @@ def locationsUKRegions(request):
         'queryset_list_exeter_embryo_val': queryset_list_exeter_embryo_val,
         'queryset_list_exeter_sperm_val': queryset_list_exeter_sperm_val,
         'queryset_list_exeter_icsi_val': queryset_list_exeter_icsi_val,
-        'queryset_list_exeter_iui': queryset_list_exeter_iui,
+        'queryset_list_exeter_iui_val': queryset_list_exeter_iui_val,
 
         'my_total_clinic_count_glasgow': my_total_clinic_count_glasgow,
         'queryset_list_glasgow_ivf_val': queryset_list_glasgow_ivf_val,
@@ -2928,7 +2928,7 @@ def locationsUKRegions(request):
         'queryset_list_glasgow_embryo_val': queryset_list_glasgow_embryo_val,
         'queryset_list_glasgow_sperm_val': queryset_list_glasgow_sperm_val,
         'queryset_list_glasgow_icsi_val': queryset_list_glasgow_icsi_val,
-        'queryset_list_glasgow_iui': queryset_list_glasgow_iui,
+        'queryset_list_glasgow_iui_val': queryset_list_glasgow_iui_val,
 
         'my_total_clinic_count_hull': my_total_clinic_count_hull,
         'queryset_list_hull_ivf_val': queryset_list_hull_ivf_val,
@@ -2936,7 +2936,7 @@ def locationsUKRegions(request):
         'queryset_list_hull_embryo_val': queryset_list_hull_embryo_val,
         'queryset_list_hull_sperm_val': queryset_list_hull_sperm_val,
         'queryset_list_hull_icsi_val': queryset_list_hull_icsi_val,
-        'queryset_list_hull_iui': queryset_list_hull_iui,
+        'queryset_list_hull_iui_val': queryset_list_hull_iui_val,
 
         'my_total_clinic_count_chelmsford': my_total_clinic_count_chelmsford,
         'queryset_list_chelmsford_ivf_val': queryset_list_chelmsford_ivf_val,
@@ -2944,7 +2944,7 @@ def locationsUKRegions(request):
         'queryset_list_chelmsford_embryo_val': queryset_list_chelmsford_embryo_val,
         'queryset_list_chelmsford_sperm_val': queryset_list_chelmsford_sperm_val,
         'queryset_list_chelmsford_icsi_val': queryset_list_chelmsford_icsi_val,
-        'queryset_list_chelmsford_iui': queryset_list_chelmsford_iui,
+        'queryset_list_chelmsford_iui_val': queryset_list_chelmsford_iui_val,
 
         'my_total_clinic_count_leeds': my_total_clinic_count_leeds,
         'queryset_list_leeds_ivf_val': queryset_list_leeds_ivf_val,
@@ -2952,7 +2952,7 @@ def locationsUKRegions(request):
         'queryset_list_leeds_embryo_val': queryset_list_leeds_embryo_val,
         'queryset_list_leeds_sperm_val': queryset_list_leeds_sperm_val,
         'queryset_list_leeds_icsi_val': queryset_list_leeds_icsi_val,
-        'queryset_list_leeds_iui': queryset_list_leeds_iui,
+        'queryset_list_leeds_iui_val': queryset_list_leeds_iui_val,
 
         'my_total_clinic_count_leicester': my_total_clinic_count_leicester,
         'queryset_list_leicester_ivf_val': queryset_list_leicester_ivf_val,
@@ -2960,7 +2960,7 @@ def locationsUKRegions(request):
         'queryset_list_leicester_embryo_val': queryset_list_leicester_embryo_val,
         'queryset_list_leicester_sperm_val': queryset_list_leicester_sperm_val,
         'queryset_list_leicester_icsi_val': queryset_list_leicester_icsi_val,
-        'queryset_list_leicester_iui': queryset_list_leicester_iui,
+        'queryset_list_leicester_iui_val': queryset_list_leicester_iui_val,
 
         'my_total_clinic_count_liverpool': my_total_clinic_count_liverpool,
         'queryset_list_liverpool_ivf_val': queryset_list_liverpool_ivf_val,
@@ -2968,7 +2968,7 @@ def locationsUKRegions(request):
         'queryset_list_liverpool_embryo_val': queryset_list_liverpool_embryo_val,
         'queryset_list_liverpool_sperm_val': queryset_list_liverpool_sperm_val,
         'queryset_list_liverpool_icsi_val': queryset_list_liverpool_icsi_val,
-        'queryset_list_liverpool_iui': queryset_list_liverpool_iui,
+        'queryset_list_liverpool_iui_val': queryset_list_liverpool_iui_val,
 
         'my_total_clinic_count_london': my_total_clinic_count_london,
         'queryset_list_london_ivf_val': queryset_list_london_ivf_val,
@@ -2976,7 +2976,7 @@ def locationsUKRegions(request):
         'queryset_list_london_embryo_val': queryset_list_london_embryo_val,
         'queryset_list_london_sperm_val': queryset_list_london_sperm_val,
         'queryset_list_london_icsi_val': queryset_list_london_icsi_val,
-        'queryset_list_london_iui': queryset_list_london_iui,
+        'queryset_list_london_iui_val': queryset_list_london_iui_val,
 
         'my_total_clinic_count_manchester': my_total_clinic_count_manchester,
         'queryset_list_manchester_ivf_val': queryset_list_manchester_ivf_val,
@@ -2984,7 +2984,7 @@ def locationsUKRegions(request):
         'queryset_list_manchester_embryo_val': queryset_list_manchester_embryo_val,
         'queryset_list_manchester_sperm_val': queryset_list_manchester_sperm_val,
         'queryset_list_manchester_icsi_val': queryset_list_manchester_icsi_val,
-        'queryset_list_manchester_iui': queryset_list_manchester_iui,
+        'queryset_list_manchester_iui_val': queryset_list_manchester_iui_val,
 
         'my_total_clinic_count_middlesbrough': my_total_clinic_count_middlesbrough,
         'queryset_list_middlesbrough_ivf_val': queryset_list_middlesbrough_ivf_val,
@@ -2992,7 +2992,7 @@ def locationsUKRegions(request):
         'queryset_list_middlesbrough_embryo_val': queryset_list_middlesbrough_embryo_val,
         'queryset_list_middlesbrough_sperm_val': queryset_list_middlesbrough_sperm_val,
         'queryset_list_middlesbrough_icsi_val': queryset_list_middlesbrough_icsi_val,
-        'queryset_list_middlesbrough_iui': queryset_list_middlesbrough_iui,
+        'queryset_list_middlesbrough_iui_val': queryset_list_middlesbrough_iui_val,
 
         'my_total_clinic_count_newcastle': my_total_clinic_count_newcastle,
         'queryset_list_newcastle_ivf_val': queryset_list_newcastle_ivf_val,
@@ -3000,7 +3000,7 @@ def locationsUKRegions(request):
         'queryset_list_newcastle_embryo_val': queryset_list_newcastle_embryo_val,
         'queryset_list_newcastle_sperm_val': queryset_list_newcastle_sperm_val,
         'queryset_list_newcastle_icsi_val': queryset_list_newcastle_icsi_val,
-        'queryset_list_newcastle_iui': queryset_list_newcastle_iui,
+        'queryset_list_newcastle_iui_val': queryset_list_newcastle_iui_val,
 
         'my_total_clinic_count_norwich': my_total_clinic_count_norwich,
         'queryset_list_norwich_ivf_val': queryset_list_norwich_ivf_val,
@@ -3008,7 +3008,7 @@ def locationsUKRegions(request):
         'queryset_list_norwich_embryo_val': queryset_list_norwich_embryo_val,
         'queryset_list_norwich_sperm_val': queryset_list_norwich_sperm_val,
         'queryset_list_norwich_icsi_val': queryset_list_norwich_icsi_val,
-        'queryset_list_norwich_iui': queryset_list_norwich_iui,
+        'queryset_list_norwich_iui_val': queryset_list_norwich_iui_val,
 
         'my_total_clinic_count_nottingham': my_total_clinic_count_nottingham,
         'queryset_list_nottingham_ivf_val': queryset_list_nottingham_ivf_val,
@@ -3016,7 +3016,7 @@ def locationsUKRegions(request):
         'queryset_list_nottingham_embryo_val': queryset_list_nottingham_embryo_val,
         'queryset_list_nottingham_sperm_val': queryset_list_nottingham_sperm_val,
         'queryset_list_nottingham_icsi_val': queryset_list_nottingham_icsi_val,
-        'queryset_list_nottingham_iui': queryset_list_nottingham_iui,
+        'queryset_list_nottingham_iui_val': queryset_list_nottingham_iui_val,
 
         'my_total_clinic_count_oxford': my_total_clinic_count_oxford,
         'queryset_list_oxford_ivf_val': queryset_list_oxford_ivf_val,
@@ -3024,7 +3024,7 @@ def locationsUKRegions(request):
         'queryset_list_oxford_embryo_val': queryset_list_oxford_embryo_val,
         'queryset_list_oxford_sperm_val': queryset_list_oxford_sperm_val,
         'queryset_list_oxford_icsi_val': queryset_list_oxford_icsi_val,
-        'queryset_list_oxford_iui': queryset_list_oxford_iui,
+        'queryset_list_oxford_iui_val': queryset_list_oxford_iui_val,
 
         'my_total_clinic_count_peterborough': my_total_clinic_count_peterborough,
         'queryset_list_peterborough_ivf_val': queryset_list_peterborough_ivf_val,
@@ -3032,7 +3032,7 @@ def locationsUKRegions(request):
         'queryset_list_peterborough_embryo_val': queryset_list_peterborough_embryo_val,
         'queryset_list_peterborough_sperm_val': queryset_list_peterborough_sperm_val,
         'queryset_list_peterborough_icsi_val': queryset_list_peterborough_icsi_val,
-        'queryset_list_peterborough_iui': queryset_list_peterborough_iui,
+        'queryset_list_peterborough_iui_val': queryset_list_peterborough_iui_val,
 
         'my_total_clinic_count_plymouth': my_total_clinic_count_plymouth,
         'queryset_list_plymouth_ivf_val': queryset_list_plymouth_ivf_val,
@@ -3040,7 +3040,7 @@ def locationsUKRegions(request):
         'queryset_list_plymouth_embryo_val': queryset_list_plymouth_embryo_val,
         'queryset_list_plymouth_sperm_val': queryset_list_plymouth_sperm_val,
         'queryset_list_plymouth_icsi_val': queryset_list_plymouth_icsi_val,
-        'queryset_list_plymouth_iui': queryset_list_plymouth_iui,
+        'queryset_list_plymouth_iui_val': queryset_list_plymouth_iui_val,
 
         'my_total_clinic_count_portsmouth': my_total_clinic_count_portsmouth,
         'queryset_list_portsmouth_ivf_val': queryset_list_portsmouth_ivf_val,
@@ -3048,7 +3048,7 @@ def locationsUKRegions(request):
         'queryset_list_portsmouth_embryo_val': queryset_list_portsmouth_embryo_val,
         'queryset_list_portsmouth_sperm_val': queryset_list_portsmouth_sperm_val,
         'queryset_list_portsmouth_icsi_val': queryset_list_portsmouth_icsi_val,
-        'queryset_list_portsmouth_iui': queryset_list_portsmouth_iui,
+        'queryset_list_portsmouth_iui_val': queryset_list_portsmouth_iui_val,
 
         'my_total_clinic_count_salisbury': my_total_clinic_count_salisbury,
         'queryset_list_salisbury_ivf_val': queryset_list_salisbury_ivf_val,
@@ -3056,7 +3056,7 @@ def locationsUKRegions(request):
         'queryset_list_salisbury_embryo_val': queryset_list_salisbury_embryo_val,
         'queryset_list_salisbury_sperm_val': queryset_list_salisbury_sperm_val,
         'queryset_list_salisbury_icsi_val': queryset_list_salisbury_icsi_val,
-        'queryset_list_salisbury_iui': queryset_list_salisbury_iui,
+        'queryset_list_salisbury_iui_val': queryset_list_salisbury_iui_val,
 
         'my_total_clinic_count_sheffield': my_total_clinic_count_sheffield,
         'queryset_list_sheffield_ivf_val': queryset_list_sheffield_ivf_val,
@@ -3064,7 +3064,7 @@ def locationsUKRegions(request):
         'queryset_list_sheffield_embryo_val': queryset_list_sheffield_embryo_val,
         'queryset_list_sheffield_sperm_val': queryset_list_sheffield_sperm_val,
         'queryset_list_sheffield_icsi_val': queryset_list_sheffield_icsi_val,
-        'queryset_list_sheffield_iui': queryset_list_sheffield_iui,
+        'queryset_list_sheffield_iui_val': queryset_list_sheffield_iui_val,
 
         'my_total_clinic_count_southampton': my_total_clinic_count_southampton,
         'queryset_list_southampton_ivf_val': queryset_list_southampton_ivf_val,
@@ -3072,7 +3072,7 @@ def locationsUKRegions(request):
         'queryset_list_southampton_embryo_val': queryset_list_southampton_embryo_val,
         'queryset_list_southampton_sperm_val': queryset_list_southampton_sperm_val,
         'queryset_list_southampton_icsi_val': queryset_list_southampton_icsi_val,
-        'queryset_list_southampton_iui': queryset_list_southampton_iui,
+        'queryset_list_southampton_iui_val': queryset_list_southampton_iui_val,
 
         'my_total_clinic_count_swansea': my_total_clinic_count_swansea,
         'queryset_list_swansea_ivf_val': queryset_list_swansea_ivf_val,
@@ -3080,7 +3080,7 @@ def locationsUKRegions(request):
         'queryset_list_swansea_embryo_val': queryset_list_swansea_embryo_val,
         'queryset_list_swansea_sperm_val': queryset_list_swansea_sperm_val,
         'queryset_list_swansea_icsi_val': queryset_list_swansea_icsi_val,
-        'queryset_list_swansea_iui': queryset_list_swansea_iui,
+        'queryset_list_swansea_iui_val': queryset_list_swansea_iui_val,
         }
 
 
@@ -3124,7 +3124,7 @@ def locationsCZRegions(request):
 
     queryset_list_prague_iui = queryset_list_prague.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_prague_iui.items():
-        queryset_list_prague_iui = val
+        queryset_list_prague_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_brno = queryset_list_cz.filter(clinicRegion__iexact='Brno')
@@ -3152,7 +3152,7 @@ def locationsCZRegions(request):
 
     queryset_list_brno_iui = queryset_list_brno.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_brno_iui.items():
-        queryset_list_brno_iui = val
+        queryset_list_brno_iui_val = val
 
     context = {
         'my_total_clinic_count_prague': my_total_clinic_count_prague,
@@ -3161,7 +3161,7 @@ def locationsCZRegions(request):
         'queryset_list_prague_embryo_val': queryset_list_prague_embryo_val,
         'queryset_list_prague_sperm_val': queryset_list_prague_sperm_val,
         'queryset_list_prague_icsi_val': queryset_list_prague_icsi_val,
-        'queryset_list_prague_iui': queryset_list_prague_iui,
+        'queryset_list_prague_iui_val': queryset_list_prague_iui_val,
 
         'my_total_clinic_count_brno': my_total_clinic_count_brno,
         'queryset_list_brno_ivf_val': queryset_list_brno_ivf_val,
@@ -3169,7 +3169,7 @@ def locationsCZRegions(request):
         'queryset_list_brno_embryo_val': queryset_list_brno_embryo_val,
         'queryset_list_brno_sperm_val': queryset_list_brno_sperm_val,
         'queryset_list_brno_icsi_val': queryset_list_brno_icsi_val,
-        'queryset_list_brno_iui': queryset_list_brno_iui,
+        'queryset_list_brno_iui_val': queryset_list_brno_iui_val,
         }
     return render(request, 'main/Locations/CZLocations/cz-regions-ivf.html', context)
 
@@ -3211,7 +3211,7 @@ def locationsSPRegions(request):
 
     queryset_list_alicante_iui = queryset_list_alicante.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_alicante_iui.items():
-        queryset_list_alicante_iui = val
+        queryset_list_alicante_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_barcelona = queryset_list_sp.filter(clinicRegion__iexact='Barcelona')
@@ -3239,7 +3239,7 @@ def locationsSPRegions(request):
 
     queryset_list_barcelona_iui = queryset_list_barcelona.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_barcelona_iui.items():
-        queryset_list_barcelona_iui = val
+        queryset_list_barcelona_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_madrid = queryset_list_sp.filter(clinicRegion__iexact='Madrid')
@@ -3267,7 +3267,7 @@ def locationsSPRegions(request):
 
     queryset_list_madrid_iui = queryset_list_madrid.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_madrid_iui.items():
-        queryset_list_madrid_iui = val
+        queryset_list_madrid_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_malaga = queryset_list_sp.filter(clinicRegion__iexact='Malaga')
@@ -3295,7 +3295,7 @@ def locationsSPRegions(request):
 
     queryset_list_malaga_iui = queryset_list_malaga.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_malaga_iui.items():
-        queryset_list_malaga_iui = val
+        queryset_list_malaga_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_sevilla = queryset_list_sp.filter(clinicRegion__iexact='Seville')
@@ -3323,7 +3323,7 @@ def locationsSPRegions(request):
 
     queryset_list_sevilla_iui = queryset_list_sevilla.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_sevilla_iui.items():
-        queryset_list_sevilla_iui = val
+        queryset_list_sevilla_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_valencia = queryset_list_sp.filter(clinicRegion__iexact='Valencia')
@@ -3351,7 +3351,7 @@ def locationsSPRegions(request):
 
     queryset_list_valencia_iui = queryset_list_valencia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_valencia_iui.items():
-        queryset_list_valencia_iui = val
+        queryset_list_valencia_iui_val = val
 
     context = {
         'my_total_clinic_count_barcelona': my_total_clinic_count_barcelona,
@@ -3360,7 +3360,7 @@ def locationsSPRegions(request):
         'queryset_list_alicante_embryo_val': queryset_list_alicante_embryo_val,
         'queryset_list_alicante_sperm_val': queryset_list_alicante_sperm_val,
         'queryset_list_alicante_icsi_val': queryset_list_alicante_icsi_val,
-        'queryset_list_alicante_iui': queryset_list_alicante_iui,
+        'queryset_list_alicante_iui_val': queryset_list_alicante_iui_val,
 
         'my_total_clinic_count_barcelona': my_total_clinic_count_barcelona,
         'queryset_list_barcelona_ivf_val': queryset_list_barcelona_ivf_val,
@@ -3368,7 +3368,7 @@ def locationsSPRegions(request):
         'queryset_list_barcelona_embryo_val': queryset_list_barcelona_embryo_val,
         'queryset_list_barcelona_sperm_val': queryset_list_barcelona_sperm_val,
         'queryset_list_barcelona_icsi_val': queryset_list_barcelona_icsi_val,
-        'queryset_list_barcelona_iui': queryset_list_barcelona_iui,
+        'queryset_list_barcelona_iui_val': queryset_list_barcelona_iui_val,
 
         'my_total_clinic_count_madrid': my_total_clinic_count_madrid,
         'queryset_list_madrid_ivf_val': queryset_list_madrid_ivf_val,
@@ -3376,7 +3376,7 @@ def locationsSPRegions(request):
         'queryset_list_madrid_embryo_val': queryset_list_madrid_embryo_val,
         'queryset_list_madrid_sperm_val': queryset_list_madrid_sperm_val,
         'queryset_list_madrid_icsi_val': queryset_list_madrid_icsi_val,
-        'queryset_list_madrid_iui': queryset_list_madrid_iui,
+        'queryset_list_madrid_iui_val': queryset_list_madrid_iui_val,
 
         'my_total_clinic_count_malaga': my_total_clinic_count_malaga,
         'queryset_list_malaga_ivf_val': queryset_list_malaga_ivf_val,
@@ -3384,7 +3384,7 @@ def locationsSPRegions(request):
         'queryset_list_malaga_embryo_val': queryset_list_malaga_embryo_val,
         'queryset_list_malaga_sperm_val': queryset_list_malaga_sperm_val,
         'queryset_list_malaga_icsi_val': queryset_list_malaga_icsi_val,
-        'queryset_list_malaga_iui': queryset_list_malaga_iui,
+        'queryset_list_malaga_iui_val': queryset_list_malaga_iui_val,
 
         'my_total_clinic_count_sevilla': my_total_clinic_count_sevilla,
         'queryset_list_sevilla_ivf_val': queryset_list_sevilla_ivf_val,
@@ -3392,7 +3392,7 @@ def locationsSPRegions(request):
         'queryset_list_sevilla_embryo_val': queryset_list_sevilla_embryo_val,
         'queryset_list_sevilla_sperm_val': queryset_list_sevilla_sperm_val,
         'queryset_list_sevilla_icsi_val': queryset_list_sevilla_icsi_val,
-        'queryset_list_sevilla_iui': queryset_list_sevilla_iui,
+        'queryset_list_sevilla_iui_val': queryset_list_sevilla_iui_val,
 
         'my_total_clinic_count_valencia': my_total_clinic_count_valencia,
         'queryset_list_valencia_ivf_val': queryset_list_valencia_ivf_val,
@@ -3400,7 +3400,7 @@ def locationsSPRegions(request):
         'queryset_list_valencia_embryo_val': queryset_list_valencia_embryo_val,
         'queryset_list_valencia_sperm_val': queryset_list_valencia_sperm_val,
         'queryset_list_valencia_icsi_val': queryset_list_valencia_icsi_val,
-        'queryset_list_valencia_iui': queryset_list_valencia_iui,
+        'queryset_list_valencia_iui_val': queryset_list_valencia_iui_val,
         }
 
     return render(request, 'main/Locations/SPLocations/sp-regions-ivf.html', context)
@@ -3443,7 +3443,7 @@ def locationsINRegions(request):
 
     queryset_list_amdavad_iui = queryset_list_amdavad.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_amdavad_iui.items():
-        queryset_list_amdavad_iui = val
+        queryset_list_amdavad_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bangalore = queryset_list_in.filter(clinicCity__iexact='Bangalore')
@@ -3471,7 +3471,7 @@ def locationsINRegions(request):
 
     queryset_list_bangalore_iui = queryset_list_bangalore.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bangalore_iui.items():
-        queryset_list_bangalore_iui = val
+        queryset_list_bangalore_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bhopal = queryset_list_in.filter(clinicCity__iexact='Bhopal')
@@ -3499,7 +3499,7 @@ def locationsINRegions(request):
 
     queryset_list_bhopal_iui = queryset_list_bhopal.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bhopal_iui.items():
-        queryset_list_bhopal_iui = val
+        queryset_list_bhopal_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_bhubaneswar = queryset_list_in.filter(clinicCity__iexact='Bhubaneswar')
@@ -3527,7 +3527,7 @@ def locationsINRegions(request):
 
     queryset_list_bhubaneswar_iui = queryset_list_bhubaneswar.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_bhubaneswar_iui.items():
-        queryset_list_bhubaneswar_iui = val
+        queryset_list_bhubaneswar_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_dehradun = queryset_list_in.filter(clinicCity__iexact='Dehradun')
@@ -3555,7 +3555,7 @@ def locationsINRegions(request):
 
     queryset_list_dehradun_iui = queryset_list_dehradun.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_dehradun_iui.items():
-        queryset_list_dehradun_iui = val
+        queryset_list_dehradun_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_faridabad = queryset_list_in.filter(clinicCity__iexact='Faridabad')
@@ -3583,7 +3583,7 @@ def locationsINRegions(request):
 
     queryset_list_faridabad_iui = queryset_list_faridabad.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_faridabad_iui.items():
-        queryset_list_faridabad_iui = val
+        queryset_list_faridabad_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_hyderabad = queryset_list_in.filter(clinicCity__iexact='Hyderabad')
@@ -3611,7 +3611,7 @@ def locationsINRegions(request):
 
     queryset_list_hyderabad_iui = queryset_list_hyderabad.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_hyderabad_iui.items():
-        queryset_list_hyderabad_iui = val
+        queryset_list_hyderabad_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_chandigarh = queryset_list_in.filter(clinicCity__iexact='Chandigarh')
@@ -3639,7 +3639,7 @@ def locationsINRegions(request):
 
     queryset_list_chandigarh_iui = queryset_list_chandigarh.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_chandigarh_iui.items():
-        queryset_list_chandigarh_iui = val
+        queryset_list_chandigarh_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_chennai = queryset_list_in.filter(clinicCity__iexact='Chennai')
@@ -3667,7 +3667,7 @@ def locationsINRegions(request):
 
     queryset_list_chennai_iui = queryset_list_chennai.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_chennai_iui.items():
-        queryset_list_chennai_iui = val
+        queryset_list_chennai_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_indore = queryset_list_in.filter(clinicCity__iexact='Indore')
@@ -3695,7 +3695,7 @@ def locationsINRegions(request):
 
     queryset_list_indore_iui = queryset_list_indore.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_indore_iui.items():
-        queryset_list_indore_iui = val
+        queryset_list_indore_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_jaipur = queryset_list_in.filter(clinicCity__iexact='Jaipur')
@@ -3723,7 +3723,7 @@ def locationsINRegions(request):
 
     queryset_list_jaipur_iui = queryset_list_jaipur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_jaipur_iui.items():
-        queryset_list_jaipur_iui = val
+        queryset_list_jaipur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_jamshedpur = queryset_list_in.filter(clinicCity__iexact='Jamshedpur')
@@ -3751,7 +3751,7 @@ def locationsINRegions(request):
 
     queryset_list_jamshedpur_iui = queryset_list_jamshedpur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_jamshedpur_iui.items():
-        queryset_list_jamshedpur_iui = val
+        queryset_list_jamshedpur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_kanpur = queryset_list_in.filter(clinicCity__iexact='Kanpur')
@@ -3779,7 +3779,7 @@ def locationsINRegions(request):
 
     queryset_list_kanpur_iui = queryset_list_kanpur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_kanpur_iui.items():
-        queryset_list_kanpur_iui = val
+        queryset_list_kanpur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_kochi = queryset_list_in.filter(clinicCity__iexact='Kochi')
@@ -3807,7 +3807,7 @@ def locationsINRegions(request):
 
     queryset_list_kochi_iui = queryset_list_kochi.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_kochi_iui.items():
-        queryset_list_kochi_iui = val
+        queryset_list_kochi_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_kolkata = queryset_list_in.filter(clinicCity__iexact='Kolkata')
@@ -3835,7 +3835,7 @@ def locationsINRegions(request):
 
     queryset_list_kolkata_iui = queryset_list_kolkata.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_kolkata_iui.items():
-        queryset_list_kolkata_iui = val
+        queryset_list_kolkata_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_lucknow = queryset_list_in.filter(clinicCity__iexact='Lucknow')
@@ -3863,7 +3863,7 @@ def locationsINRegions(request):
 
     queryset_list_lucknow_iui = queryset_list_lucknow.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_lucknow_iui.items():
-        queryset_list_lucknow_iui = val
+        queryset_list_lucknow_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_mumbai = queryset_list_in.filter(clinicCity__iexact='Mumbai')
@@ -3891,7 +3891,7 @@ def locationsINRegions(request):
 
     queryset_list_mumbai_iui = queryset_list_mumbai.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_mumbai_iui.items():
-        queryset_list_mumbai_iui = val
+        queryset_list_mumbai_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_nagpur = queryset_list_in.filter(clinicCity__iexact='Nagpur')
@@ -3919,7 +3919,7 @@ def locationsINRegions(request):
 
     queryset_list_nagpur_iui = queryset_list_nagpur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_nagpur_iui.items():
-        queryset_list_nagpur_iui = val
+        queryset_list_nagpur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_patna = queryset_list_in.filter(clinicCity__iexact='Patna')
@@ -3947,7 +3947,7 @@ def locationsINRegions(request):
 
     queryset_list_patna_iui = queryset_list_patna.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_patna_iui.items():
-        queryset_list_patna_iui = val
+        queryset_list_patna_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_raipur = queryset_list_in.filter(clinicCity__iexact='Raipur')
@@ -3975,7 +3975,7 @@ def locationsINRegions(request):
 
     queryset_list_raipur_iui = queryset_list_raipur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_raipur_iui.items():
-        queryset_list_raipur_iui = val
+        queryset_list_raipur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_trivandrum = queryset_list_in.filter(clinicCity__iexact='Trivandrum')
@@ -4003,7 +4003,7 @@ def locationsINRegions(request):
 
     queryset_list_trivandrum_iui = queryset_list_trivandrum.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_trivandrum_iui.items():
-        queryset_list_trivandrum_iui = val
+        queryset_list_trivandrum_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_ludhiana = queryset_list_in.filter(clinicCity__iexact='Ludhiana')
@@ -4031,7 +4031,7 @@ def locationsINRegions(request):
 
     queryset_list_ludhiana_iui = queryset_list_ludhiana.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_ludhiana_iui.items():
-        queryset_list_ludhiana_iui = val
+        queryset_list_ludhiana_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_visakhapatnam = queryset_list_in.filter(clinicCity__iexact='Visakhapatnam')
@@ -4059,7 +4059,7 @@ def locationsINRegions(request):
 
     queryset_list_visakhapatnam_iui = queryset_list_visakhapatnam.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_visakhapatnam_iui.items():
-        queryset_list_visakhapatnam_iui = val
+        queryset_list_visakhapatnam_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_vijayawada = queryset_list_in.filter(clinicCity__iexact='Vijayawada')
@@ -4087,7 +4087,7 @@ def locationsINRegions(request):
 
     queryset_list_vijayawada_iui = queryset_list_vijayawada.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_vijayawada_iui.items():
-        queryset_list_vijayawada_iui = val
+        queryset_list_vijayawada_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_newdelhi = queryset_list_in.filter(clinicCity__iexact='New Delhi')
@@ -4115,7 +4115,7 @@ def locationsINRegions(request):
 
     queryset_list_newdelhi_iui = queryset_list_newdelhi.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_newdelhi_iui.items():
-        queryset_list_newdelhi_iui = val
+        queryset_list_newdelhi_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_vadodara = queryset_list_in.filter(clinicCity__iexact='Vadodara')
@@ -4143,7 +4143,7 @@ def locationsINRegions(request):
 
     queryset_list_vadodara_iui = queryset_list_vadodara.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_vadodara_iui.items():
-        queryset_list_vadodara_iui = val
+        queryset_list_vadodara_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_gurugram = queryset_list_in.filter(clinicCity__iexact='Gurugram')
@@ -4171,7 +4171,7 @@ def locationsINRegions(request):
 
     queryset_list_gurugram_iui = queryset_list_gurugram.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_gurugram_iui.items():
-        queryset_list_gurugram_iui = val
+        queryset_list_gurugram_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_rohtak = queryset_list_in.filter(clinicCity__iexact='Rohtak')
@@ -4199,7 +4199,7 @@ def locationsINRegions(request):
 
     queryset_list_rohtak_iui = queryset_list_rohtak.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_rohtak_iui.items():
-        queryset_list_rohtak_iui = val
+        queryset_list_rohtak_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_jammu = queryset_list_in.filter(clinicCity__iexact='Jammu')
@@ -4227,7 +4227,7 @@ def locationsINRegions(request):
 
     queryset_list_jammu_iui = queryset_list_jammu.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_jammu_iui.items():
-        queryset_list_jammu_iui = val
+        queryset_list_jammu_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_ranchi = queryset_list_in.filter(clinicCity__iexact='Ranchi')
@@ -4255,7 +4255,7 @@ def locationsINRegions(request):
 
     queryset_list_ranchi_iui = queryset_list_ranchi.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_ranchi_iui.items():
-        queryset_list_ranchi_iui = val
+        queryset_list_ranchi_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_pune = queryset_list_in.filter(clinicCity__iexact='Pune')
@@ -4283,7 +4283,7 @@ def locationsINRegions(request):
 
     queryset_list_pune_iui = queryset_list_pune.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_pune_iui.items():
-        queryset_list_pune_iui = val
+        queryset_list_pune_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_gwalior = queryset_list_in.filter(clinicCity__iexact='Gwalior')
@@ -4311,7 +4311,7 @@ def locationsINRegions(request):
 
     queryset_list_gwalior_iui = queryset_list_gwalior.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_gwalior_iui.items():
-        queryset_list_gwalior_iui = val
+        queryset_list_gwalior_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_warangal = queryset_list_in.filter(clinicCity__iexact='Warangal')
@@ -4339,7 +4339,7 @@ def locationsINRegions(request):
 
     queryset_list_warangal_iui = queryset_list_warangal.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_warangal_iui.items():
-        queryset_list_warangal_iui = val
+        queryset_list_warangal_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_gachibowli = queryset_list_in.filter(clinicCity__iexact='Gachibowli')
@@ -4367,7 +4367,7 @@ def locationsINRegions(request):
 
     queryset_list_gachibowli_iui = queryset_list_gachibowli.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_gachibowli_iui.items():
-        queryset_list_gachibowli_iui = val
+        queryset_list_gachibowli_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_madhapur = queryset_list_in.filter(clinicCity__iexact='Madhapur')
@@ -4395,7 +4395,7 @@ def locationsINRegions(request):
 
     queryset_list_madhapur_iui = queryset_list_madhapur.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_madhapur_iui.items():
-        queryset_list_madhapur_iui = val
+        queryset_list_madhapur_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_noida = queryset_list_in.filter(clinicCity__iexact='Noida')
@@ -4423,7 +4423,7 @@ def locationsINRegions(request):
 
     queryset_list_noida_iui = queryset_list_noida.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_noida_iui.items():
-        queryset_list_noida_iui = val
+        queryset_list_noida_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_meerut = queryset_list_in.filter(clinicCity__iexact='Meerut')
@@ -4451,7 +4451,7 @@ def locationsINRegions(request):
 
     queryset_list_meerut_iui = queryset_list_meerut.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_meerut_iui.items():
-        queryset_list_meerut_iui = val
+        queryset_list_meerut_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_haldwani = queryset_list_in.filter(clinicCity__iexact='Haldwani')
@@ -4479,7 +4479,7 @@ def locationsINRegions(request):
 
     queryset_list_haldwani_iui = queryset_list_haldwani.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_haldwani_iui.items():
-        queryset_list_haldwani_iui = val
+        queryset_list_haldwani_iui_val = val
 
     context = {
         'my_total_clinic_count_amdavad': my_total_clinic_count_amdavad,
@@ -4488,7 +4488,7 @@ def locationsINRegions(request):
         'queryset_list_amdavad_embryo_val': queryset_list_amdavad_embryo_val,
         'queryset_list_amdavad_sperm_val': queryset_list_amdavad_sperm_val,
         'queryset_list_amdavad_icsi_val': queryset_list_amdavad_icsi_val,
-        'queryset_list_amdavad_iui': queryset_list_amdavad_iui,
+        'queryset_list_amdavad_iui_val': queryset_list_amdavad_iui_val,
 
         'my_total_clinic_count_bangalore': my_total_clinic_count_bangalore,
         'queryset_list_bangalore_ivf_val': queryset_list_bangalore_ivf_val,
@@ -4496,7 +4496,7 @@ def locationsINRegions(request):
         'queryset_list_bangalore_embryo_val': queryset_list_bangalore_embryo_val,
         'queryset_list_bangalore_sperm_val': queryset_list_bangalore_sperm_val,
         'queryset_list_bangalore_icsi_val': queryset_list_bangalore_icsi_val,
-        'queryset_list_bangalore_iui': queryset_list_bangalore_iui,
+        'queryset_list_bangalore_iui_val': queryset_list_bangalore_iui_val,
 
         'my_total_clinic_count_bhopal': my_total_clinic_count_bhopal,
         'queryset_list_bhopal_ivf_val': queryset_list_bhopal_ivf_val,
@@ -4504,7 +4504,7 @@ def locationsINRegions(request):
         'queryset_list_bhopal_embryo_val': queryset_list_bhopal_embryo_val,
         'queryset_list_bhopal_sperm_val': queryset_list_bhopal_sperm_val,
         'queryset_list_bhopal_icsi_val': queryset_list_bhopal_icsi_val,
-        'queryset_list_bhopal_iui': queryset_list_bhopal_iui,
+        'queryset_list_bhopal_iui_val': queryset_list_bhopal_iui_val,
 
         'my_total_clinic_count_bhubaneswar': my_total_clinic_count_bhubaneswar,
         'queryset_list_bhubaneswar_ivf_val': queryset_list_bhubaneswar_ivf_val,
@@ -4512,7 +4512,7 @@ def locationsINRegions(request):
         'queryset_list_bhubaneswar_embryo_val': queryset_list_bhubaneswar_embryo_val,
         'queryset_list_bhubaneswar_sperm_val': queryset_list_bhubaneswar_sperm_val,
         'queryset_list_bhubaneswar_icsi_val': queryset_list_bhubaneswar_icsi_val,
-        'queryset_list_bhubaneswar_iui': queryset_list_bhubaneswar_iui,
+        'queryset_list_bhubaneswar_iui_val': queryset_list_bhubaneswar_iui_val,
 
         'my_total_clinic_count_dehradun': my_total_clinic_count_dehradun,
         'queryset_list_dehradun_ivf_val': queryset_list_dehradun_ivf_val,
@@ -4520,7 +4520,7 @@ def locationsINRegions(request):
         'queryset_list_dehradun_embryo_val': queryset_list_dehradun_embryo_val,
         'queryset_list_dehradun_sperm_val': queryset_list_dehradun_sperm_val,
         'queryset_list_dehradun_icsi_val': queryset_list_dehradun_icsi_val,
-        'queryset_list_dehradun_iui': queryset_list_dehradun_iui,
+        'queryset_list_dehradun_iui_val': queryset_list_dehradun_iui_val,
 
         'my_total_clinic_count_faridabad': my_total_clinic_count_faridabad,
         'queryset_list_faridabad_ivf_val': queryset_list_faridabad_ivf_val,
@@ -4528,7 +4528,7 @@ def locationsINRegions(request):
         'queryset_list_faridabad_embryo_val': queryset_list_faridabad_embryo_val,
         'queryset_list_faridabad_sperm_val': queryset_list_faridabad_sperm_val,
         'queryset_list_faridabad_icsi_val': queryset_list_faridabad_icsi_val,
-        'queryset_list_faridabad_iui': queryset_list_faridabad_iui,
+        'queryset_list_faridabad_iui_val': queryset_list_faridabad_iui_val,
 
         'my_total_clinic_count_hyderabad': my_total_clinic_count_hyderabad,
         'queryset_list_hyderabad_ivf_val': queryset_list_hyderabad_ivf_val,
@@ -4536,7 +4536,7 @@ def locationsINRegions(request):
         'queryset_list_hyderabad_embryo_val': queryset_list_hyderabad_embryo_val,
         'queryset_list_hyderabad_sperm_val': queryset_list_hyderabad_sperm_val,
         'queryset_list_hyderabad_icsi_val': queryset_list_hyderabad_icsi_val,
-        'queryset_list_hyderabad_iui': queryset_list_hyderabad_iui,
+        'queryset_list_hyderabad_iui_val': queryset_list_hyderabad_iui_val,
 
         'my_total_clinic_count_chandigarh': my_total_clinic_count_chandigarh,
         'queryset_list_chandigarh_ivf_val': queryset_list_chandigarh_ivf_val,
@@ -4544,7 +4544,7 @@ def locationsINRegions(request):
         'queryset_list_chandigarh_embryo_val': queryset_list_chandigarh_embryo_val,
         'queryset_list_chandigarh_sperm_val': queryset_list_chandigarh_sperm_val,
         'queryset_list_chandigarh_icsi_val': queryset_list_chandigarh_icsi_val,
-        'queryset_list_chandigarh_iui': queryset_list_chandigarh_iui,
+        'queryset_list_chandigarh_iui_val': queryset_list_chandigarh_iui_val,
 
         'my_total_clinic_count_chennai': my_total_clinic_count_chennai,
         'queryset_list_chennai_ivf_val': queryset_list_chennai_ivf_val,
@@ -4552,7 +4552,7 @@ def locationsINRegions(request):
         'queryset_list_chennai_embryo_val': queryset_list_chennai_embryo_val,
         'queryset_list_chennai_sperm_val': queryset_list_chennai_sperm_val,
         'queryset_list_chennai_icsi_val': queryset_list_chennai_icsi_val,
-        'queryset_list_chennai_iui': queryset_list_chennai_iui,
+        'queryset_list_chennai_iui_val': queryset_list_chennai_iui_val,
 
         'my_total_clinic_count_indore': my_total_clinic_count_indore,
         'queryset_list_indore_ivf_val': queryset_list_indore_ivf_val,
@@ -4560,7 +4560,7 @@ def locationsINRegions(request):
         'queryset_list_indore_embryo_val': queryset_list_indore_embryo_val,
         'queryset_list_indore_sperm_val': queryset_list_indore_sperm_val,
         'queryset_list_indore_icsi_val': queryset_list_indore_icsi_val,
-        'queryset_list_indore_iui': queryset_list_indore_iui,
+        'queryset_list_indore_iui_val': queryset_list_indore_iui_val,
 
         'my_total_clinic_count_jaipur': my_total_clinic_count_jaipur,
         'queryset_list_jaipur_ivf_val': queryset_list_jaipur_ivf_val,
@@ -4568,7 +4568,7 @@ def locationsINRegions(request):
         'queryset_list_jaipur_embryo_val': queryset_list_jaipur_embryo_val,
         'queryset_list_jaipur_sperm_val': queryset_list_jaipur_sperm_val,
         'queryset_list_jaipur_icsi_val': queryset_list_jaipur_icsi_val,
-        'queryset_list_jaipur_iui': queryset_list_jaipur_iui,
+        'queryset_list_jaipur_iui_val': queryset_list_jaipur_iui_val,
 
         'my_total_clinic_count_jamshedpur': my_total_clinic_count_jamshedpur,
         'queryset_list_jamshedpur_ivf_val': queryset_list_jamshedpur_ivf_val,
@@ -4576,7 +4576,7 @@ def locationsINRegions(request):
         'queryset_list_jamshedpur_embryo_val': queryset_list_jamshedpur_embryo_val,
         'queryset_list_jamshedpur_sperm_val': queryset_list_jamshedpur_sperm_val,
         'queryset_list_jamshedpur_icsi_val': queryset_list_jamshedpur_icsi_val,
-        'queryset_list_jamshedpur_iui': queryset_list_jamshedpur_iui,
+        'queryset_list_jamshedpur_iui_val': queryset_list_jamshedpur_iui_val,
 
         'my_total_clinic_count_kanpur': my_total_clinic_count_kanpur,
         'queryset_list_kanpur_ivf_val': queryset_list_kanpur_ivf_val,
@@ -4584,7 +4584,7 @@ def locationsINRegions(request):
         'queryset_list_kanpur_embryo_val': queryset_list_kanpur_embryo_val,
         'queryset_list_kanpur_sperm_val': queryset_list_kanpur_sperm_val,
         'queryset_list_kanpur_icsi_val': queryset_list_kanpur_icsi_val,
-        'queryset_list_kanpur_iui': queryset_list_kanpur_iui,
+        'queryset_list_kanpur_iui_val': queryset_list_kanpur_iui_val,
 
         'my_total_clinic_count_kochi': my_total_clinic_count_kochi,
         'queryset_list_kochi_ivf_val': queryset_list_kochi_ivf_val,
@@ -4592,7 +4592,7 @@ def locationsINRegions(request):
         'queryset_list_kochi_embryo_val': queryset_list_kochi_embryo_val,
         'queryset_list_kochi_sperm_val': queryset_list_kochi_sperm_val,
         'queryset_list_kochi_icsi_val': queryset_list_kochi_icsi_val,
-        'queryset_list_kochi_iui': queryset_list_kochi_iui,
+        'queryset_list_kochi_iui_val': queryset_list_kochi_iui_val,
 
         'my_total_clinic_count_kolkata': my_total_clinic_count_kolkata,
         'queryset_list_kolkata_ivf_val': queryset_list_kolkata_ivf_val,
@@ -4600,7 +4600,7 @@ def locationsINRegions(request):
         'queryset_list_kolkata_embryo_val': queryset_list_kolkata_embryo_val,
         'queryset_list_kolkata_sperm_val': queryset_list_kolkata_sperm_val,
         'queryset_list_kolkata_icsi_val': queryset_list_kolkata_icsi_val,
-        'queryset_list_kolkata_iui': queryset_list_kolkata_iui,
+        'queryset_list_kolkata_iui_val': queryset_list_kolkata_iui_val,
 
         'my_total_clinic_count_lucknow': my_total_clinic_count_lucknow,
         'queryset_list_lucknow_ivf_val': queryset_list_lucknow_ivf_val,
@@ -4608,7 +4608,7 @@ def locationsINRegions(request):
         'queryset_list_lucknow_embryo_val': queryset_list_lucknow_embryo_val,
         'queryset_list_lucknow_sperm_val': queryset_list_lucknow_sperm_val,
         'queryset_list_lucknow_icsi_val': queryset_list_lucknow_icsi_val,
-        'queryset_list_lucknow_iui': queryset_list_lucknow_iui,
+        'queryset_list_lucknow_iui_val': queryset_list_lucknow_iui_val,
 
         'my_total_clinic_count_mumbai': my_total_clinic_count_mumbai,
         'queryset_list_mumbai_ivf_val': queryset_list_mumbai_ivf_val,
@@ -4616,7 +4616,7 @@ def locationsINRegions(request):
         'queryset_list_mumbai_embryo_val': queryset_list_mumbai_embryo_val,
         'queryset_list_mumbai_sperm_val': queryset_list_mumbai_sperm_val,
         'queryset_list_mumbai_icsi_val': queryset_list_mumbai_icsi_val,
-        'queryset_list_mumbai_iui': queryset_list_mumbai_iui,
+        'queryset_list_mumbai_iui_val': queryset_list_mumbai_iui_val,
 
         'my_total_clinic_count_nagpur': my_total_clinic_count_nagpur,
         'queryset_list_nagpur_ivf_val': queryset_list_nagpur_ivf_val,
@@ -4624,7 +4624,7 @@ def locationsINRegions(request):
         'queryset_list_nagpur_embryo_val': queryset_list_nagpur_embryo_val,
         'queryset_list_nagpur_sperm_val': queryset_list_nagpur_sperm_val,
         'queryset_list_nagpur_icsi_val': queryset_list_nagpur_icsi_val,
-        'queryset_list_nagpur_iui': queryset_list_nagpur_iui,
+        'queryset_list_nagpur_iui_val': queryset_list_nagpur_iui_val,
 
         'my_total_clinic_count_patna': my_total_clinic_count_patna,
         'queryset_list_patna_ivf_val': queryset_list_patna_ivf_val,
@@ -4632,7 +4632,7 @@ def locationsINRegions(request):
         'queryset_list_patna_embryo_val': queryset_list_patna_embryo_val,
         'queryset_list_patna_sperm_val': queryset_list_patna_sperm_val,
         'queryset_list_patna_icsi_val': queryset_list_patna_icsi_val,
-        'queryset_list_patna_iui': queryset_list_patna_iui,
+        'queryset_list_patna_iui_val': queryset_list_patna_iui_val,
 
         'my_total_clinic_count_raipur': my_total_clinic_count_raipur,
         'queryset_list_raipur_ivf_val': queryset_list_raipur_ivf_val,
@@ -4640,7 +4640,7 @@ def locationsINRegions(request):
         'queryset_list_raipur_embryo_val': queryset_list_raipur_embryo_val,
         'queryset_list_raipur_sperm_val': queryset_list_raipur_sperm_val,
         'queryset_list_raipur_icsi_val': queryset_list_raipur_icsi_val,
-        'queryset_list_raipur_iui': queryset_list_raipur_iui,
+        'queryset_list_raipur_iui_val': queryset_list_raipur_iui_val,
 
         'my_total_clinic_count_trivandrum': my_total_clinic_count_trivandrum,
         'queryset_list_trivandrum_ivf_val': queryset_list_trivandrum_ivf_val,
@@ -4648,7 +4648,7 @@ def locationsINRegions(request):
         'queryset_list_trivandrum_embryo_val': queryset_list_trivandrum_embryo_val,
         'queryset_list_trivandrum_sperm_val': queryset_list_trivandrum_sperm_val,
         'queryset_list_trivandrum_icsi_val': queryset_list_trivandrum_icsi_val,
-        'queryset_list_trivandrum_iui': queryset_list_trivandrum_iui,
+        'queryset_list_trivandrum_iui_val': queryset_list_trivandrum_iui_val,
 
         'my_total_clinic_count_ludhiana': my_total_clinic_count_ludhiana,
         'queryset_list_ludhiana_ivf_val': queryset_list_ludhiana_ivf_val,
@@ -4656,7 +4656,7 @@ def locationsINRegions(request):
         'queryset_list_ludhiana_embryo_val': queryset_list_ludhiana_embryo_val,
         'queryset_list_ludhiana_sperm_val': queryset_list_ludhiana_sperm_val,
         'queryset_list_ludhiana_icsi_val': queryset_list_ludhiana_icsi_val,
-        'queryset_list_ludhiana_iui': queryset_list_ludhiana_iui,
+        'queryset_list_ludhiana_iui_val': queryset_list_ludhiana_iui_val,
 
         'my_total_clinic_count_visakhapatnam': my_total_clinic_count_visakhapatnam,
         'queryset_list_visakhapatnam_ivf_val': queryset_list_visakhapatnam_ivf_val,
@@ -4664,7 +4664,7 @@ def locationsINRegions(request):
         'queryset_list_visakhapatnam_embryo_val': queryset_list_visakhapatnam_embryo_val,
         'queryset_list_visakhapatnam_sperm_val': queryset_list_visakhapatnam_sperm_val,
         'queryset_list_visakhapatnam_icsi_val': queryset_list_visakhapatnam_icsi_val,
-        'queryset_list_visakhapatnam_iui': queryset_list_visakhapatnam_iui,
+        'queryset_list_visakhapatnam_iui_val': queryset_list_visakhapatnam_iui_val,
 
         'my_total_clinic_count_vijayawada': my_total_clinic_count_vijayawada,
         'queryset_list_vijayawada_ivf_val': queryset_list_vijayawada_ivf_val,
@@ -4672,7 +4672,7 @@ def locationsINRegions(request):
         'queryset_list_vijayawada_embryo_val': queryset_list_vijayawada_embryo_val,
         'queryset_list_vijayawada_sperm_val': queryset_list_vijayawada_sperm_val,
         'queryset_list_vijayawada_icsi_val': queryset_list_vijayawada_icsi_val,
-        'queryset_list_vijayawada_iui': queryset_list_vijayawada_iui,
+        'queryset_list_vijayawada_iui_val': queryset_list_vijayawada_iui_val,
 
         'my_total_clinic_count_newdelhi': my_total_clinic_count_newdelhi,
         'queryset_list_newdelhi_ivf_val': queryset_list_newdelhi_ivf_val,
@@ -4680,7 +4680,7 @@ def locationsINRegions(request):
         'queryset_list_newdelhi_embryo_val': queryset_list_newdelhi_embryo_val,
         'queryset_list_newdelhi_sperm_val': queryset_list_newdelhi_sperm_val,
         'queryset_list_newdelhi_icsi_val': queryset_list_newdelhi_icsi_val,
-        'queryset_list_newdelhi_iui': queryset_list_newdelhi_iui,
+        'queryset_list_newdelhi_iui_val': queryset_list_newdelhi_iui_val,
 
         'my_total_clinic_count_vadodara': my_total_clinic_count_vadodara,
         'queryset_list_vadodara_ivf_val': queryset_list_vadodara_ivf_val,
@@ -4688,7 +4688,7 @@ def locationsINRegions(request):
         'queryset_list_vadodara_embryo_val': queryset_list_vadodara_embryo_val,
         'queryset_list_vadodara_sperm_val': queryset_list_vadodara_sperm_val,
         'queryset_list_vadodara_icsi_val': queryset_list_vadodara_icsi_val,
-        'queryset_list_vadodara_iui': queryset_list_vadodara_iui,
+        'queryset_list_vadodara_iui_val': queryset_list_vadodara_iui_val,
 
         'my_total_clinic_count_gurugram': my_total_clinic_count_gurugram,
         'queryset_list_gurugram_ivf_val': queryset_list_gurugram_ivf_val,
@@ -4696,7 +4696,7 @@ def locationsINRegions(request):
         'queryset_list_gurugram_embryo_val': queryset_list_gurugram_embryo_val,
         'queryset_list_gurugram_sperm_val': queryset_list_gurugram_sperm_val,
         'queryset_list_gurugram_icsi_val': queryset_list_gurugram_icsi_val,
-        'queryset_list_gurugram_iui': queryset_list_gurugram_iui,
+        'queryset_list_gurugram_iui_val': queryset_list_gurugram_iui_val,
 
         'my_total_clinic_count_rohtak': my_total_clinic_count_rohtak,
         'queryset_list_rohtak_ivf_val': queryset_list_rohtak_ivf_val,
@@ -4704,7 +4704,7 @@ def locationsINRegions(request):
         'queryset_list_rohtak_embryo_val': queryset_list_rohtak_embryo_val,
         'queryset_list_rohtak_sperm_val': queryset_list_rohtak_sperm_val,
         'queryset_list_rohtak_icsi_val': queryset_list_rohtak_icsi_val,
-        'queryset_list_rohtak_iui': queryset_list_rohtak_iui,
+        'queryset_list_rohtak_iui_val': queryset_list_rohtak_iui_val,
 
         'my_total_clinic_count_jammu': my_total_clinic_count_jammu,
         'queryset_list_jammu_ivf_val': queryset_list_jammu_ivf_val,
@@ -4712,7 +4712,7 @@ def locationsINRegions(request):
         'queryset_list_jammu_embryo_val': queryset_list_jammu_embryo_val,
         'queryset_list_jammu_sperm_val': queryset_list_jammu_sperm_val,
         'queryset_list_jammu_icsi_val': queryset_list_jammu_icsi_val,
-        'queryset_list_jammu_iui': queryset_list_jammu_iui,
+        'queryset_list_jammu_iui_val': queryset_list_jammu_iui_val,
 
         'my_total_clinic_count_ranchi': my_total_clinic_count_ranchi,
         'queryset_list_ranchi_ivf_val': queryset_list_ranchi_ivf_val,
@@ -4720,7 +4720,7 @@ def locationsINRegions(request):
         'queryset_list_ranchi_embryo_val': queryset_list_ranchi_embryo_val,
         'queryset_list_ranchi_sperm_val': queryset_list_ranchi_sperm_val,
         'queryset_list_ranchi_icsi_val': queryset_list_ranchi_icsi_val,
-        'queryset_list_ranchi_iui': queryset_list_ranchi_iui,
+        'queryset_list_ranchi_iui_val': queryset_list_ranchi_iui_val,
 
         'my_total_clinic_count_gwalior': my_total_clinic_count_gwalior,
         'queryset_list_gwalior_ivf_val': queryset_list_gwalior_ivf_val,
@@ -4728,7 +4728,7 @@ def locationsINRegions(request):
         'queryset_list_gwalior_embryo_val': queryset_list_gwalior_embryo_val,
         'queryset_list_gwalior_sperm_val': queryset_list_gwalior_sperm_val,
         'queryset_list_gwalior_icsi_val': queryset_list_gwalior_icsi_val,
-        'queryset_list_gwalior_iui': queryset_list_gwalior_iui,
+        'queryset_list_gwalior_iui_val': queryset_list_gwalior_iui_val,
 
         'my_total_clinic_count_pune': my_total_clinic_count_pune,
         'queryset_list_pune_ivf_val': queryset_list_pune_ivf_val,
@@ -4736,7 +4736,7 @@ def locationsINRegions(request):
         'queryset_list_pune_embryo_val': queryset_list_pune_embryo_val,
         'queryset_list_pune_sperm_val': queryset_list_pune_sperm_val,
         'queryset_list_pune_icsi_val': queryset_list_pune_icsi_val,
-        'queryset_list_pune_iui': queryset_list_pune_iui,
+        'queryset_list_pune_iui_val': queryset_list_pune_iui_val,
 
         'my_total_clinic_count_warangal': my_total_clinic_count_warangal,
         'queryset_list_warangal_ivf_val': queryset_list_warangal_ivf_val,
@@ -4744,7 +4744,7 @@ def locationsINRegions(request):
         'queryset_list_warangal_embryo_val': queryset_list_warangal_embryo_val,
         'queryset_list_warangal_sperm_val': queryset_list_warangal_sperm_val,
         'queryset_list_warangal_icsi_val': queryset_list_warangal_icsi_val,
-        'queryset_list_warangal_iui': queryset_list_warangal_iui,
+        'queryset_list_warangal_iui_val': queryset_list_warangal_iui_val,
 
         'my_total_clinic_count_gachibowli': my_total_clinic_count_gachibowli,
         'queryset_list_gachibowli_ivf_val': queryset_list_gachibowli_ivf_val,
@@ -4752,7 +4752,7 @@ def locationsINRegions(request):
         'queryset_list_gachibowli_embryo_val': queryset_list_gachibowli_embryo_val,
         'queryset_list_gachibowli_sperm_val': queryset_list_gachibowli_sperm_val,
         'queryset_list_gachibowli_icsi_val': queryset_list_gachibowli_icsi_val,
-        'queryset_list_gachibowli_iui': queryset_list_gachibowli_iui,
+        'queryset_list_gachibowli_iui_val': queryset_list_gachibowli_iui_val,
 
         'my_total_clinic_count_madhapur': my_total_clinic_count_madhapur,
         'queryset_list_madhapur_ivf_val': queryset_list_madhapur_ivf_val,
@@ -4760,7 +4760,7 @@ def locationsINRegions(request):
         'queryset_list_madhapur_embryo_val': queryset_list_madhapur_embryo_val,
         'queryset_list_madhapur_sperm_val': queryset_list_madhapur_sperm_val,
         'queryset_list_madhapur_icsi_val': queryset_list_madhapur_icsi_val,
-        'queryset_list_madhapur_iui': queryset_list_madhapur_iui,
+        'queryset_list_madhapur_iui_val': queryset_list_madhapur_iui_val,
 
         'my_total_clinic_count_noida': my_total_clinic_count_noida,
         'queryset_list_noida_ivf_val': queryset_list_noida_ivf_val,
@@ -4768,7 +4768,7 @@ def locationsINRegions(request):
         'queryset_list_noida_embryo_val': queryset_list_noida_embryo_val,
         'queryset_list_noida_sperm_val': queryset_list_noida_sperm_val,
         'queryset_list_noida_icsi_val': queryset_list_noida_icsi_val,
-        'queryset_list_noida_iui': queryset_list_noida_iui,
+        'queryset_list_noida_iui_val': queryset_list_noida_iui_val,
 
         'my_total_clinic_count_meerut': my_total_clinic_count_meerut,
         'queryset_list_meerut_ivf_val': queryset_list_meerut_ivf_val,
@@ -4776,7 +4776,7 @@ def locationsINRegions(request):
         'queryset_list_meerut_embryo_val': queryset_list_meerut_embryo_val,
         'queryset_list_meerut_sperm_val': queryset_list_meerut_sperm_val,
         'queryset_list_meerut_icsi_val': queryset_list_meerut_icsi_val,
-        'queryset_list_meerut_iui': queryset_list_meerut_iui,
+        'queryset_list_meerut_iui_val': queryset_list_meerut_iui_val,
 
         'my_total_clinic_count_haldwani': my_total_clinic_count_haldwani,
         'queryset_list_haldwani_ivf_val': queryset_list_haldwani_ivf_val,
@@ -4784,7 +4784,7 @@ def locationsINRegions(request):
         'queryset_list_haldwani_embryo_val': queryset_list_haldwani_embryo_val,
         'queryset_list_haldwani_sperm_val': queryset_list_haldwani_sperm_val,
         'queryset_list_haldwani_icsi_val': queryset_list_haldwani_icsi_val,
-        'queryset_list_haldwani_iui': queryset_list_haldwani_iui,
+        'queryset_list_haldwani_iui_val': queryset_list_haldwani_iui_val,
         }
 
     return render(request, 'main/Locations/INLocations/in-regions-ivf.html', context)
@@ -4827,7 +4827,7 @@ def locationsGRRegions(request):
 
     queryset_list_athens_iui = queryset_list_athens.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_athens_iui.items():
-        queryset_list_athens_iui = val
+        queryset_list_athens_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_thessaloniki = queryset_list_gr.filter(clinicCity__iexact='Thessaloniki')
@@ -4855,7 +4855,7 @@ def locationsGRRegions(request):
 
     queryset_list_thessaloniki_iui = queryset_list_thessaloniki.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_thessaloniki_iui.items():
-        queryset_list_thessaloniki_iui = val
+        queryset_list_thessaloniki_iui_val = val
 
     context = {
         'my_total_clinic_count_athens': my_total_clinic_count_athens,
@@ -4864,7 +4864,7 @@ def locationsGRRegions(request):
         'queryset_list_athens_embryo_val': queryset_list_athens_embryo_val,
         'queryset_list_athens_sperm_val': queryset_list_athens_sperm_val,
         'queryset_list_athens_icsi_val': queryset_list_athens_icsi_val,
-        'queryset_list_athens_iui': queryset_list_athens_iui,
+        'queryset_list_athens_iui_val': queryset_list_athens_iui_val,
 
         'my_total_clinic_count_thessaloniki': my_total_clinic_count_thessaloniki,
         'queryset_list_thessaloniki_ivf_val': queryset_list_thessaloniki_ivf_val,
@@ -4872,7 +4872,7 @@ def locationsGRRegions(request):
         'queryset_list_thessaloniki_embryo_val': queryset_list_thessaloniki_embryo_val,
         'queryset_list_thessaloniki_sperm_val': queryset_list_thessaloniki_sperm_val,
         'queryset_list_thessaloniki_icsi_val': queryset_list_thessaloniki_icsi_val,
-        'queryset_list_thessaloniki_iui': queryset_list_thessaloniki_iui,
+        'queryset_list_thessaloniki_iui_val': queryset_list_thessaloniki_iui_val,
         }
 
     return render(request, 'main/Locations/GRLocations/gr-regions-ivf.html', context)
@@ -4915,7 +4915,7 @@ def locationsCYRegions(request):
 
     queryset_list_nicosia_iui = queryset_list_nicosia.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_nicosia_iui.items():
-        queryset_list_nicosia_iui = val
+        queryset_list_nicosia_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_girne = queryset_list_cy.filter(clinicCity__iexact='girne')
@@ -4943,7 +4943,7 @@ def locationsCYRegions(request):
 
     queryset_list_girne_iui = queryset_list_girne.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_girne_iui.items():
-        queryset_list_girne_iui = val
+        queryset_list_girne_iui_val = val
 
 
     context = {
@@ -4953,7 +4953,7 @@ def locationsCYRegions(request):
         'queryset_list_nicosia_embryo_val': queryset_list_nicosia_embryo_val,
         'queryset_list_nicosia_sperm_val': queryset_list_nicosia_sperm_val,
         'queryset_list_nicosia_icsi_val': queryset_list_nicosia_icsi_val,
-        'queryset_list_nicosia_iui': queryset_list_nicosia_iui,
+        'queryset_list_nicosia_iui_val': queryset_list_nicosia_iui_val,
 
         'my_total_clinic_count_girne': my_total_clinic_count_girne,
         'queryset_list_girne_ivf_val': queryset_list_girne_ivf_val,
@@ -4961,7 +4961,7 @@ def locationsCYRegions(request):
         'queryset_list_girne_embryo_val': queryset_list_girne_embryo_val,
         'queryset_list_girne_sperm_val': queryset_list_girne_sperm_val,
         'queryset_list_girne_icsi_val': queryset_list_girne_icsi_val,
-        'queryset_list_girne_iui': queryset_list_girne_iui,
+        'queryset_list_girne_iui_val': queryset_list_girne_iui_val,
         }
     return render(request, 'main/Locations/CYLocations/cy-regions-ivf.html', context)
 
@@ -5003,7 +5003,7 @@ def locationsMXRegions(request):
 
     queryset_list_mexicocity_iui = queryset_list_mexicocity.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_mexicocity_iui.items():
-        queryset_list_mexicocity_iui = val
+        queryset_list_mexicocity_iui_val = val
 
     #--------------------------------------------------------------------------
     queryset_list_cancun = queryset_list_mx.filter(clinicCity__iexact='Cancún')
@@ -5031,7 +5031,7 @@ def locationsMXRegions(request):
 
     queryset_list_cancun_iui = queryset_list_cancun.aggregate(average=Avg('iui_treatment_cost'))
     for key,val in queryset_list_cancun_iui.items():
-        queryset_list_cancun_iui = val
+        queryset_list_cancun_iui_val = val
 
     context = {
         'my_total_clinic_count_mexicocity': my_total_clinic_count_mexicocity,
@@ -5040,7 +5040,7 @@ def locationsMXRegions(request):
         'queryset_list_mexicocity_embryo_val': queryset_list_mexicocity_embryo_val,
         'queryset_list_mexicocity_sperm_val': queryset_list_mexicocity_sperm_val,
         'queryset_list_mexicocity_icsi_val': queryset_list_mexicocity_icsi_val,
-        'queryset_list_mexicocity_iui': queryset_list_mexicocity_iui,
+        'queryset_list_mexicocity_iui_val': queryset_list_mexicocity_iui_val,
 
         'my_total_clinic_count_cancun': my_total_clinic_count_cancun,
         'queryset_list_cancun_ivf_val': queryset_list_cancun_ivf_val,
@@ -5048,6 +5048,6 @@ def locationsMXRegions(request):
         'queryset_list_cancun_embryo_val': queryset_list_cancun_embryo_val,
         'queryset_list_cancun_sperm_val': queryset_list_cancun_sperm_val,
         'queryset_list_cancun_icsi_val': queryset_list_cancun_icsi_val,
-        'queryset_list_cancun_iui': queryset_list_cancun_iui,
+        'queryset_list_cancun_iui_val': queryset_list_cancun_iui_val,
         }
     return render(request, 'main/Locations/MXLocations/mx-regions-ivf.html', context)

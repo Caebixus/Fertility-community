@@ -223,7 +223,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_us_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_us_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -239,7 +239,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_uk_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_uk_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -255,7 +255,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cz_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -271,7 +271,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_sp_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -287,7 +287,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_in_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_in_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -303,7 +303,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_gr_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_gr_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -319,7 +319,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cy_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cy_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -335,7 +335,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_mx_egg_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_mx_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -368,7 +368,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_us_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_us_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -384,7 +384,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_uk_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_uk_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -400,7 +400,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cz_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -416,7 +416,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_sp_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -432,7 +432,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_in_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_in_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -448,7 +448,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_gr_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_gr_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -464,7 +464,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cy_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cy_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -480,7 +480,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_mx_embryo_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_mx_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -513,7 +513,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_us_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_us_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -529,7 +529,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_uk_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_uk_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -545,7 +545,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cz_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -561,7 +561,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_sp_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -577,7 +577,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_in_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_in_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -593,7 +593,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_gr_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_gr_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -609,7 +609,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cy_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cy_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -625,7 +625,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_mx_sperm_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_mx_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -658,7 +658,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_us_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_us_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -674,7 +674,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_uk_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_uk_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -690,7 +690,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cz_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -706,7 +706,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_sp_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -722,7 +722,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_in_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_in_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -738,7 +738,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_gr_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_gr_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -754,7 +754,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cy_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cy_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -770,7 +770,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_mx_icsi_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_mx_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -803,7 +803,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUSRegions' %}">United States <u>({{ my_total_clinic_count_us }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_us_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_us_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -819,7 +819,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsUKRegions' %}">United Kingdom <u>({{ my_total_clinic_count_uk }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_uk_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_uk_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -835,7 +835,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cz_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -851,7 +851,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_sp_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -867,7 +867,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsINRegions' %}">India <u>({{ my_total_clinic_count_in }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_in_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_in_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -883,7 +883,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsGRRegions' %}">Greece <u>({{ my_total_clinic_count_gr }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_gr_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_gr_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -899,7 +899,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsCYRegions' %}">Cyprus <u>({{ my_total_clinic_count_cy }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_cy_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cy_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
@@ -915,7 +915,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><a href="">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
+            <th scope="row"><a href="{% url 'locationsMXRegions' %}">Mexico <u>({{ my_total_clinic_count_mx }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_mx_iui_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_mx_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>

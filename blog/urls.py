@@ -19,5 +19,5 @@ urlpatterns = [
     path('blog/what-is-mild-mini-ivf', views.whatismildminiivf, name='whatismildminiivf'),
 
     #Research
-    path('blog/fertility-treatments-how-americans-compare-with-the-rest-of-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),
+    path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),
 ]

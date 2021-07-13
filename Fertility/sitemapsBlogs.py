@@ -17,6 +17,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'ivfabroadpackages',
         'everythingYouNeedToKnowAboutNaturalIvf',
         'whatismildminiivf',
+        'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
         ]
 
     def location(self, item):

@@ -191,5 +191,47 @@
     <p>While there is much to consider when choosing a location to have your fertility treatments, you have many options that can fit your unique situation. Many places will offer an affordable opportunity to get pregnant and grow your family.</p>
     <br>
   </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock  %}

@@ -211,107 +211,15 @@
 <br>
 <br>
 
-<div class="container py-5">
+<div class="container py-4">
   <h2><i class="fas fa-search-location"></i> Featured fertility & IVF clinics locations</h2>
   <br>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4 py-4">
+      <h3>North America:</h3>
+      <br>
       <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#united_kingdom_fertility_clinics" role="button" aria-expanded="false" aria-controls="united_kingdom_fertility_clinics">
-          <b>United Kingdom <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{ukclinics}} fertility clinics</span></p>
-        </a>
-      </p>
-      <div class="collapse" id="united_kingdom_fertility_clinics" style="padding-bottom: 2rem">
-        <div class="card card-body">
-          <ul>
-            <li><a href="{% url 'fertilityClinicUK' %}"><b>Fertility clinics in UK ({{ukclinics}})</b></a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics ({{londonclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics ({{bristolclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics ({{leedsclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics ({{nottinghamclinics}})</a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics ({{birminghamclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics ({{exeterclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics ({{liverpoolclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics ({{portsmouthclinics}})</a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics ({{bournemouthclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics ({{glasgowclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics ({{manchesterclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics ({{sheffieldclinics}})</a></li>
-            <hr>
-            <li><a href="{% url 'locationsUKRegions' %}"><u><b>UK IVF costs comparison</b></u></a></li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-      <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#czech_republic_fertility_clinics" role="button" aria-expanded="false" aria-controls="czech_republic_fertility_clinics">
-          <b>Czech Republic <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{czclinics}} fertility clinics</span></p>
-        </a>
-      </p>
-      <div class="collapse" id="czech_republic_fertility_clinics" style="padding-bottom: 2rem">
-        <div class="card card-body">
-          <ul>
-            <li><a href="{% url 'fertilityClinicCzech' %}"><b>Fertility clinics in Czech Republic ({{czclinics}})</b></a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicPrague' %}">Prague fertility clinics ({{pragueclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicBrno' %}">Brno fertility clinics ({{brnoclinics}})</a></li>
-            <hr>
-            <li><a href="{% url 'locationsCZRegions' %}"><u><b>Czech IVF costs comparison</b></u></a></li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-      <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#spain_fertility_clinics" role="button" aria-expanded="false" aria-controls="spain_fertility_clinics">
-          <b>Spain <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{spclinics}} fertility clinics</span></p>
-        </a>
-      </p>
-      <div class="collapse" id="spain_fertility_clinics" style="padding-bottom: 2rem">
-        <div class="card card-body">
-          <ul>
-            <li><a href="{% url 'fertilityClinicSpain' %}"><b>Fertility clinics in Spain ({{spclinics}})</b></a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsAlicante' %}">Alicante fertility clinics ({{alicanteclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsBarcelona' %}">Barcelona fertility clinics ({{barcelonaclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsSeville' %}">Seville fertility clinics ({{sevilleclinics}})</a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsMadrid' %}">Madrid fertility clinics ({{madridclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsMalaga' %}">Malaga fertility clinics ({{malagaclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsValencia' %}">Valencia fertility clinics ({{valenciaclinics}})</a></li>
-            <hr>
-            <li><a href="{% url 'locationsSPRegions' %}"><u><b>Spain IVF costs comparison</b></u></a></li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-      <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#cyprus_fertility_clinics" role="button" aria-expanded="false" aria-controls="cyprus_fertility_clinics">
-          <b>Cyprus <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{cyclinics}} fertility clinics</span></p>
-        </a>
-      </p>
-      <div class="collapse" id="cyprus_fertility_clinics" style="padding-bottom: 2rem">
-        <div class="card card-body">
-          <ul>
-            <li><a href="{% url 'fertilityClinicCyprus' %}"><b>Fertility clinics in Cyprus ({{cyclinics}})</b></a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsNicosia' %}">Nicosia fertility clinics ({{nicosiaclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsGirne' %}">Girne fertility clinics ({{girneclinics}})</a></li>
-            <hr>
-            <li><a href="{% url 'locationsCYRegions' %}"><u><b>Cyprus IVF costs comparison</b></u></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#united_states_fertility_clinics" role="button" aria-expanded="false" aria-controls="united_states_fertility_clinics">
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#united_states_fertility_clinics" role="button" aria-expanded="false" aria-controls="united_states_fertility_clinics">
           <b>United States <i class="fas fa-angle-down"></i></b>
           <p><span>Found {{usclinics}} fertility clinics</span></p>
         </a>
@@ -345,7 +253,123 @@
       </div>
       <hr>
       <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#greece_fertility_clinics" role="button" aria-expanded="false" aria-controls="greece_fertility_clinics">
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#mexico_fertility_clinics" role="button" aria-expanded="false" aria-controls="mexico_fertility_clinics">
+          <b>Mexico <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{mxclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="mexico_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicMexico' %}"><b>Fertility clinics in Mexico ({{mxclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCancun' %}">Cancún fertility clinics ({{cancunclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMexicoCity' %}">Mexico City fertility clinics ({{mexicocityclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsMXRegions' %}"><u><b>Mexico IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4 py-4">
+      <h3>Europe:</h3>
+      <br>
+      <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#united_kingdom_fertility_clinics" role="button" aria-expanded="false" aria-controls="united_kingdom_fertility_clinics">
+          <b>United Kingdom <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{ukclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="united_kingdom_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicUK' %}"><b>Fertility clinics in UK ({{ukclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics ({{londonclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics ({{bristolclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics ({{leedsclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics ({{nottinghamclinics}})</a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics ({{birminghamclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics ({{exeterclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics ({{liverpoolclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics ({{portsmouthclinics}})</a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics ({{bournemouthclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics ({{glasgowclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics ({{manchesterclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics ({{sheffieldclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsUKRegions' %}"><u><b>UK IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#czech_republic_fertility_clinics" role="button" aria-expanded="false" aria-controls="czech_republic_fertility_clinics">
+          <b>Czech Republic <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{czclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="czech_republic_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicCzech' %}"><b>Fertility clinics in Czech Republic ({{czclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicPrague' %}">Prague fertility clinics ({{pragueclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicBrno' %}">Brno fertility clinics ({{brnoclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsCZRegions' %}"><u><b>Czech IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#spain_fertility_clinics" role="button" aria-expanded="false" aria-controls="spain_fertility_clinics">
+          <b>Spain <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{spclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="spain_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicSpain' %}"><b>Fertility clinics in Spain ({{spclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAlicante' %}">Alicante fertility clinics ({{alicanteclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBarcelona' %}">Barcelona fertility clinics ({{barcelonaclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSeville' %}">Seville fertility clinics ({{sevilleclinics}})</a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMadrid' %}">Madrid fertility clinics ({{madridclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMalaga' %}">Malaga fertility clinics ({{malagaclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsValencia' %}">Valencia fertility clinics ({{valenciaclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsSPRegions' %}"><u><b>Spain IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#cyprus_fertility_clinics" role="button" aria-expanded="false" aria-controls="cyprus_fertility_clinics">
+          <b>Cyprus <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{cyclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="cyprus_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicCyprus' %}"><b>Fertility clinics in Cyprus ({{cyclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNicosia' %}">Nicosia fertility clinics ({{nicosiaclinics}})</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGirne' %}">Girne fertility clinics ({{girneclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsCYRegions' %}"><u><b>Cyprus IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#greece_fertility_clinics" role="button" aria-expanded="false" aria-controls="greece_fertility_clinics">
           <b>Greece <i class="fas fa-angle-down"></i></b>
           <p><span>Found {{grclinics}} fertility clinics</span></p>
         </a>
@@ -362,9 +386,12 @@
           </ul>
         </div>
       </div>
-      <hr>
+    </div>
+    <div class="col-md-4 py-4">
+      <h3>Asia:</h3>
+      <br>
       <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#india_fertility_clinics" role="button" aria-expanded="false" aria-controls="india_fertility_clinics">
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#india_fertility_clinics" role="button" aria-expanded="false" aria-controls="india_fertility_clinics">
           <b>India <i class="fas fa-angle-down"></i></b>
           <p><span>Found {{inclinics}} fertility clinics</span></p>
         </a>
@@ -393,25 +420,6 @@
             <li><a class="text-muted" href="{% url 'fertilityClinicsNagpur' %}">Nagpur IVF centre ({{nagpurclinics}})</a></li>
             <hr>
             <li><a href="{% url 'locationsINRegions' %}"><u><b>India IVF costs comparison</b></u></a></li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-      <p>
-        <a class="text-muted" style="text-decoration: none" data-toggle="collapse" href="#mexico_fertility_clinics" role="button" aria-expanded="false" aria-controls="mexico_fertility_clinics">
-          <b>Mexico <i class="fas fa-angle-down"></i></b>
-          <p><span>Found {{mxclinics}} fertility clinics</span></p>
-        </a>
-      </p>
-      <div class="collapse" id="mexico_fertility_clinics" style="padding-bottom: 2rem">
-        <div class="card card-body">
-          <ul>
-            <li><a href="{% url 'fertilityClinicMexico' %}"><b>Fertility clinics in Mexico ({{mxclinics}})</b></a></li>
-            <hr>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsCancun' %}">Cancún fertility clinics ({{cancunclinics}})</a></li>
-            <li><a class="text-muted" href="{% url 'fertilityClinicsMexicoCity' %}">Mexico City fertility clinics ({{mexicocityclinics}})</a></li>
-            <hr>
-            <li><a href="{% url 'locationsMXRegions' %}"><u><b>Mexico IVF costs comparison</b></u></a></li>
           </ul>
         </div>
       </div>

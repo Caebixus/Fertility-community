@@ -111,7 +111,7 @@ def whatismildminiivf(request):
     return render(request, 'blog/educational/what-is-mild-mini-ivf.html', context)
 
 def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    otherBlogs = Blog.objects.order_by('-created_at')[1:4]
 
     author = get_object_or_404(Author, pk=6)
     blog = get_object_or_404(Blog, pk=12)

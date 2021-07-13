@@ -1,0 +1,2073 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Fertility Treatments: How Americans Compare With the Rest of the World | 2021{% endblock %}
+{% block description %}Fertility Community recently surveyed our users to get an idea of how Americans compare with the rest of the world when it comes to fertility treatments. Read more{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/fertility-treatments-how-americans-compare-with-the-rest-of-the-world{% endblock %}
+{% block meta_keywords %}fertiltiy treatments statistics in USA{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.js" ></script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/fertility-treatments-how-americans-compare-with-the-rest-of-the-world"
+        },
+      "headline": "Fertility Treatments: How Americans Compare With the Rest of the World in 2021",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "Natural IVF is an alternative to conventional IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more."
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Fertility Treatments: How Americans Compare With the World in 2021</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.created_at }}
+  <hr>
+  <br>
+  <br>
+  <p>Fertility Community recently surveyed our users to get an idea of how Americans compare with the world when it comes to fertility treatments. Our goal was to discover the differences in the types of treatments Americans get compared to the world and how willing Americans are to go out of the country for their fertility treatments.</p>
+  <p>Overall, we got some interesting answers that should lead to some new questions for research. Read on to learn more about what we discovered.</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <ol style="font-size: 120%">
+    <li>
+      <a href="#bod1" style="font-size: 120%; text-decoration: none">The Respondents</a>
+      <ul style="font-size: 120%;">
+        <li><a href="#bod1.1" style="font-size: 100%; text-decoration: none">Where Were Respondents on Their Treatment Journey?</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#bod2" style="font-size: 120%; text-decoration: none">Respondents Who've Undergone Fertility Treatments</a>
+      <ul style="font-size: 120%;">
+        <li><a href="#bod2.1" style="font-size: 100%; text-decoration: none">Respondents' Relationship Statuses</a></li>
+        <li><a href="#bod2.2" style="font-size: 100%; text-decoration: none">Age at the Time of Treatment</a></li>
+        <li><a href="#bod2.3" style="font-size: 100%; text-decoration: none">Most Common Fertility Treatments</a></li>
+        <li><a href="#bod2.4" style="font-size: 100%; text-decoration: none">Number of Treatments</a></li>
+        <li><a href="#bod2.5" style="font-size: 100%; text-decoration: none">Local vs. International Fertility Treatment</a></li>
+        <li><a href="#bod2.6" style="font-size: 100%; text-decoration: none">What Do Respondents Look for in a Fertility Clinic?</a></li>
+        <li><a href="#bod2.7" style="font-size: 100%; text-decoration: none">Side Effects During IVF</a></li>
+        <li><a href="#bod2.8" style="font-size: 100%; text-decoration: none">Side Effects After IVF</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#bod3" style="font-size: 120%; text-decoration: none">Respondents Considering Fertility Treatments</a>
+      <ul style="font-size: 120%; text-decoration: none">
+        <li><a href="#bod3.1" style="font-size: 100%; text-decoration: none">Respondents' Relationship Statuses</a></li>
+        <li><a href="#bod3.2" style="font-size: 100%; text-decoration: none">Age at the Time of Treatment</a></li>
+        <li><a href="#bod3.3" style="font-size: 100%; text-decoration: none">Which Treatments Are Respondents Considering?</a></li>
+        <li><a href="#bod3.4" style="font-size: 100%; text-decoration: none">Treatment Abroad vs. Treatment at Home</a></li>
+        <li><a href="#bod3.5" style="font-size: 100%; text-decoration: none">What Respondents Will Look for in a Fertility Clinic</a></li>
+        <li><a href="#bod3.6" style="font-size: 100%; text-decoration: none">How Has the COVID-19 Pandemic Affected Decisions Regarding Fertility Treatments?</a></li>
+      </ul>
+    </li>
+    <li><a href="#bod4" style="font-size: 120%; text-decoration: none">Final Thoughts</a></li>
+  </ol>
+  <br>
+  <hr>
+  <br>
+
+
+
+
+  <!-- Research Content PART 1 -->
+
+
+
+
+
+  <div class="feature" id="bod1">
+    <h2 style="font-size: 160%"><b>The Respondents</b></h2>
+    <br>
+    <p>The survey was posted both on the fertilitycommunity.com website and the site's Facebook page. There were 358 respondents in total, with 141 coming from the website and 217 from Facebook.</p>
+    <br>
+    <p>Of the respondents, 180 came from the US, making up almost 51% of the total. Other respondents came from outside the US, and the top countries represented were Australia and the UK. Overall, there were also respondents from Europe, Asia, Africa, and the Middle East.</p>
+    <br>
+    <canvas id="myChart1" style="text-align: center"></canvas>
+    <script>
+    var xValues = ["US residents", "UK residents", "Canada residents", "Australia residents", "Rest of the world"];
+    var yValues = [180, 38, 13, 89, 38];
+    var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+      "#1e7145"
+    ];
+
+
+    new Chart("myChart1", {
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              data: [50, 10, 4, 24, 11],
+              backgroundColor: ["#2b5797", "#00aba9", "#ff9600", "#e8c3b9", "#1e7145", ],
+            },
+          ],
+          labels: ["US residents", "UK residents", "Canada residents", "Australia residents", "Rest of the world"],
+        },
+        options: {
+          responsive: true,
+          legend: {display: false},
+          title: {
+            display: true,
+            text: "Respondents locations"
+          },
+          tooltips: {
+            enabled: true,
+            mode: 'single',
+            callbacks: {
+              label: function(tooltipItem, data) {
+                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                var tooltipLabel = data.labels[tooltipItem.index];
+                var tooltipData = allData[tooltipItem.index];
+                return tooltipLabel + ": " + tooltipData + "%";
+              }
+            }
+          }
+        }
+    });
+    </script>
+  </div>
+
+  <div class="feature py-5" id="bod1.1">
+    <h3 style="font-size: 135%"><b>Where Were Respondents on Their Treatment Journey?</b></h3>
+    <br>
+    <p>The survey split the respondents into three groups - those who had undergone fertility treatments, those who were thinking about undergoing fertility treatments, and those who had no plans to undergo fertility treatments. It's important to note that not all fertility treatments were IVF.</p>
+    <br>
+    <p>Out of the respondents, 232 had undergone some type of fertility treatment, a little over 65% of the total. Of those 232, 96 were from the US, meaning US respondents made up 41% of the people who'd had fertility treatments.</p>
+    <br>
+    <p>88 of the respondents (25%) had yet to have fertility treatment but were considering it. Of those, 53 were American. Americans made up 62% of the respondents who were considering treatment.</p>
+    <br>
+    <p>37 of the respondents (10%) hadn't undergone fertility treatments and had no plans to in the future. Of those, 31 were American, making up the majority.</p>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart2" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Had fertility treatment", "Considering fertility treatment", "No fertility treatments"];
+        var bValues = [232, 88, 38];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart2", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Respondents fertility treatment journey - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart0" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Had fertility treatment", "Considering fertility treatment", "No fertility treatments"];
+        var bValues = [96, 53, 31];
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart0", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Respondents fertility treatment journey - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+          },
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Research Content PART 2 -->
+
+
+
+
+  <div class="feature py-5" id="bod2">
+    <h2 style="font-size: 160%"><b>Respondents Who've Undergone Fertility Treatments</b></h2>
+    <br>
+    <p>First, we'll dig into the responses from the respondents who've gone through some sort of fertility treatment. This sample size was 232 respondents and 41% of them were from the US.</p>
+  </div>
+
+  <div class="feature py-3" id="bod2.1">
+    <h3 style="font-size: 135%"><b>Respondents' Relationship Statuses</b></h3>
+    <p>The majority of respondents were in a heterosexual marriage or de facto relationship. 195 of the respondents were in a heterosexual relationship. Of the Americans, 81 were in a heterosexual couple.</p>
+    <br>
+    <p>Furthermore, there were 16 people without a relationship (single), of which 5 respondets were from America.</p>
+    <br>
+    <p>Only seven respondents were part of an LGBTQ couple, with four of those from the US. Of those, one couple was a male couple with one trans member who was male assigned female at birth.</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart2.1a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart2.1a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [84, 6.8, 3],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Total respondents (232)"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart2.1b" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart2.1b", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [84.4, 5.2, 4.2],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents (96)"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod2.2">
+    <h3 style="font-size: 135%"><b>Age at the Time of Treatment</b></h3>
+    <br>
+    <p>Age is an important factor in fertility, since a woman's chances of getting pregnant decrease as she gets older. Our survey measured to see which age group the respondents fell into. </p>
+    <br>
+    <ul>
+      <li>Only three respondents were between the ages of 20 and 24, with two from the US.</li>
+      <li>32 of the respondents were in the 25-29 age group, with 14 coming from the US.</li>
+      <li>60 participants were between 30 and 34, with 28 from the US.</li>
+      <li>In the 35-39 age group, there were 86 participants with 39 of those from the US. </li>
+      <li>In the 40-44 age group, there were 46 respondents with 14 of those from the US.</li>
+      <li>There were two participants in the 45-49 group and two participants in the 50+ group, each with one person from the US.</li>
+      <li>A few respondents answered (6 total + 2 from US) in a way that the age category could not be identified.</li>
+    </ul>
+    <br>
+    <p>These numbers are consistent with <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1889954/#:~:text=The%20average%20age%20of%20a,compared%20with%2033.8%20in%201992">the average age of fertility treatments - 34</a>, and make sense, considering many women are trying to have children in their 30s and are aware of their declining fertility.</p>
+
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart16" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+        var bValues = [1.3, 14.1, 26.5, 38, 20.4, 0.8, 0.8];
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart16", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Age at the time of treatment - Total respondents (226)"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart15" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+        var bValues = [2.1, 14.9, 29.8, 41.5, 14.9, 1, 1];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart15", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Age at the time of treatment - US respondents (94)"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod2.3">
+    <h3 style="font-size: 135%"><b>Most Common Fertility Treatments</b></h3>
+    <br>
+    <p>Respondents who had undergone fertility treatments were asked about the types of treatments they'd had. It's also important to note that quite a few of the respondents had <u>more than one type</u> of fertility treatment. It's common to start with milder forms of treatment and move to more intensive treatments if those aren't effective.  </p>
+    <br>
+    <p>While most of the treatments should be familiar, note that natural IVF refers to IVF that doesn't rely on stimulation medication and instead works with a woman's natural cycle. Mild IVF also works with the woman's cycle but also uses stimulants to increase egg production. Mild IVF uses lower doses than standard IVF. </p>
+    <br>
+    <ul>
+      <li>65 of the participants had been treated with IUI (intrauterine insemination). Of those, 39 were from the US.</li>
+      <li>For natural IVF, 19 participants had undergone treatment. Of those, only two were from the US.</li>
+      <li>14 participants had undergone mild IVF, with 9 coming from the US.</li>
+      <li>200 respondents had gone through standard IVF. 89 of those were from the US.</li>
+      <li>There were 17 respondents who'd undergone IVF using egg donors. Of those, six were from the US.</li>
+      <li>23 respondents used IVF with sperm donors with six from the US.</li>
+      <li>Only seven participants underwent IVF with embryo donation, six of which were from the US.</li>
+    </ul>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart7" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["IUI treatment", "Natural IVF", "Mild IVF", "Standard IVF", "IVF using egg donors", "IVF using sperm donors", "IVF with embryo donation"];
+        var bValues = [18.8, 5.5, 4, 57.9, 4.9, 6.6, 2];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart7", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Most common fertility treatments - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart8" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["IUI treatment", "Natural IVF", "Mild IVF", "Standard IVF", "IVF using egg donors", "IVF using sperm donors", "IVF with embryo donation"];
+        var bValues = [24.8, 1.2, 5.7, 56.6, 3.8, 3.8, 3.8];
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart8", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Most common fertility treatments - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+
+
+    <p>For fertility treatments, the numbers between the US and the rest of the world were relatively the same. Embryo donation and mild IVF seem to be slightly more popular in the US than in other countries, but larger sample size is needed for more accurate statistics.</p>
+    <br>
+    <p>Standard IVF appears to be the most popular choice for the US and around the world. There may be a few reasons for this popularity. Many patients start with less intense fertility treatment, such as medications or IUI, and if those are unsuccessful, they move on to IVF.</p>
+    <br>
+    <p>Many people also start with standard IVF, skipping over less intense treatments. Fertility treatments can be expensive and both physically and mentally exhausting. Many people feel that standard IVF is their best chance of getting pregnant, and so they start there.</p>
+  </div>
+
+  <div class="feature py-3" id="bod2.4">
+    <h3 style="font-size: 135%"><b>Number of Treatments</b></h3>
+    <br>
+    <p>Participants were asked how many fertility treatments they'd had in the past. </p>
+    <ul>
+      <li>82 had only one treatment, 23 of those came from the US.</li>
+      <li>57 respondents had two treatments, with 35 coming from the US.</li>
+      <li>93 respondents had more than two treatments. 38 were from the US.</li>
+    </ul>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart9" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["1 treatment", "2 treatments", "2+ treatments"];
+        var bValues = [35.3, 24.6, 40];232
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart9", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Number of treatments - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart10" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["1 treatment", "2 treatments", "2+ treatments"];
+        var bValues = [24, 36.5, 39.5];96
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart10", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Number of treatments - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+
+    <p>These percentages make sense. For many patients, it only takes one treatment to result in a successful pregnancy. However, if the first treatment doesn't work, there are usually more complicated issues. These patients often wind up having several treatments before achieving pregnancy, if at all.</p>
+  </div>
+
+  <div class="feature py-3" id="bod2.5">
+    <h3 style="font-size: 135%"><b>Local vs. International Fertility Treatment</b></h3>
+    <br>
+    <p>Respondents who'd undergone fertility treatments were asked whether they had their treatment locally or internationally. Local meant they stayed in their own country, while international meant they went out of the country.</p>
+    <ul>
+      <li>199 of the respondents had their fertility treatments in their home countries, with 76 of them coming from the US.</li>
+      <li>18 responders had their treatment in different state, with 15 from the US.</li>
+      <li>Only 20 of the respondents went out of the country for their treatment and five came from the US.</li>
+    </ul>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart11" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Home country", "Different state", "Different country"];
+        var bValues = [84, 7.6, 8.4];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart11", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Local vs. international fertility treatment - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart12" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Home country", "Different state", "Different country"];
+        var bValues = [79.2, 15.6, 5.2];96
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart12", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Local vs. international fertility treatment - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+
+
+    <p>It's important to note that these numbers reflect people who had done treatments both in their home country and internationally. Some people stayed in their home country but traveled several hours or more to get to the fertility clinic.</p>
+    <br>
+    <p>These numbers show that most people still seem reluctant to go out of the country for their fertility treatments. There are several reasons people may stay in their home country. They may feel that it's cheaper and easier to stay local. They may feel that their home country offers the best care. For Americans, they may choose not to go with international treatments because most international clinics are very far away.</p>
+  </div>
+
+  <div class="feature py-3" id="bod2.6">
+    <h3 style="font-size: 135%"><b>What Do Respondents Look for in a Fertility Clinic?</b></h3>
+    <br>
+    <p>Struggling with infertility is a sensitive issue and people are often selective in choosing a fertility clinic. We asked respondents what were the main things they looked for in a fertility clinic. <u>Note that respondents were able to choose more than one factor, so the numbers will reflect multiple answers.</u> </p>
+    <br>
+    <ul>
+      <li>The biggest factor for the majority of people was the clinic's success rate. 128 listed success rate. 62 of those were from the US. </li>
+      <li>The second-largest factor was the price. A total of 101 respondents chose price, with 40 of those coming from the US.</li>
+      <li>The third biggest factor was the respondent's distance from the fertility clinic. 96 of the respondents chose distance with 45 coming from the US.</li>
+      <li>A clinic's reviews and reputations were important, but not as important as success rate and price. 91 of the participants wanted a clinic with a well-known professional medical team, with 31 of those coming from the US.</li>
+      <li>70 of the patients valued doctor evaluations when choosing a clinic with 32 coming from America.</li>
+      <li>21 respondents wanted clinics with high evaluations on review sites like Trustpilot, etc. 13 of those were from the US.</li>
+      <li>The least important factor was the types of fertility treatments a clinic offered. Only 19 respondents listed a variety of treatments offered as a factor, with 10 from the US.</li>
+    </ul>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart13" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Success rate", "Treatment price", "Clinics distance", "Well-known professional medical team", "Doctor evaluations", "Clinics evaluations", "Types of fertility treatments"];
+        var bValues = [24.3, 19.2, 18.2, 17.3, 13, 4, 4,];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart13", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Local vs. international fertility treatment - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart14" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["Success rate", "Treatment price", "Clinics distance", "Well-known professional medical team", "Doctor evaluations", "Clinics evaluations", "Types of fertility treatments"];
+        var bValues = [26.6, 17.2, 19.3, 13.3, 13.7, 5.6, 4.3];
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart14", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Local vs. international fertility treatment - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+
+
+    <p>Respondents were able to fill in their own responses as well. Several respondents chose a clinic based on how they were treated. They wanted to feel like the doctor treated their case individually and that the staff cared about them. A few respondents also chose a clinic based on who their insurance or national healthcare accepted. Respondents also preferred clinics that a friend was happy with. </p>
+    <br>
+    <p>The three biggest factors make a lot of sense. The success rate is obviously important because people who undergo treatment want the clinic with the best possible results. Price and distance are more practical choices, but since IVF is so expensive, people have to consider the cost and their budgets. Patients also realize that they'll need to visit their IVF clinic at least several times throughout the process, so distance can be an issue.</p>
+    <br>
+    <p>It's interesting to note that finding a clinic with several different types of fertility treatments was the least important of the options. It seems counterintuitive that people wouldn't value a clinic with a variety of options. However, this number does line up with the number of people who've had standard IVF. If most people are looking for standard IVF, they can get that at most clinics. </p>
+
+  </div>
+
+  <div class="feature py-3" id="bod2.7">
+    <h3 style="font-size: 135%"><b>Side Effects During IVF</b></h3>
+    <br>
+    <p>Patients who'd undergone IVF were asked about any side effects they experienced during the procedure. <u>They were allowed to choose more than one option and could add any side effects that weren't listed</u>.</p>
+    <ul>
+      <li>The majority of participants, 91 said they experienced no side effects. Of these, 44 were from the US.</li>
+      <li>The most common side effect was severe stomach pain and bloating. 85 of the participants experienced this side effect, with 24 coming from the US. As many of the patients underwent IVF, this number makes sense, since the associated stimulants and follicle growth can cause bloating.</li>
+      <li>Nausea or vomiting were the next most common reported side effects. 62 of the patients reported this side effect and 25 of those came from the US.</li>
+      <li>There were 60 patients in total who experienced significant weight gain within three-five days. 23 of those came from the US.</li>
+      <li>The other side effects were less common. 25 of the respondents experienced feelings of faintness, and seven were from the US.</li>
+      <li>16 had shortness of breath, with eight coming from the US.</li>
+      <li>Only five participants had decreased frequency of urination, with two of these coming from the US.</li>
+      <li>Several patients reported experiencing mood swings during IVF. This effect is common, as many of the hormonal treatments can cause shifts in mood and the procedure itself can be stressful.  </li>
+    </ul>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart20" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["No side effects", "Stomach pain and bloating", "Nausea or vomiting", "Weight gain", "Feelings of faintness", "Shortness of breath", "Decreased frequency of urination"];
+        var bValues = [26.5, 24.7, 18, 17.4, 7.3, 4.7, 1.4];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart20", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Side Effects During IVF - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart21" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["No side effects", "Stomach pain and bloating", "Nausea or vomiting", "Weight gain", "Feelings of faintness", "Shortness of breath", "Decreased frequency of urination"];
+        var bValues = [33, 18, 18.8, 17.3, 5.3, 6, 1.5];133
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart21", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Side Effects During IVF - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod2.8">
+    <h3 style="font-size: 135%"><b>Side Effects After IVF</b></h3>
+    <br>
+    <p>Many patients experience side effects after going through the IVF process, typically when they're in the two-week wait to see if they've achieved pregnancy.</p>
+    <ul>
+      <li>59 of the participants said they didn't experience any of the side effects after IVF. 27 came from the US. </li>
+      <li>Of the participants in this survey, the most common side effect after IVF was mild bloating. 46 patients said they experienced bloating, with 16 coming from the US.</li>
+      <li>The second most common side effect after IVF was mild cramping, with 38 participants and 16 of those coming from the US.</li>
+      <li>32 of the respondents reported constipation after IVF, with 18 of those coming from the US.</li>
+      <li>28 participants experienced breast tenderness. 9 of those came from the US.</li>
+      <li>Only 12 of the respondents reported excreted a small amount of blood- or clear-colored fluid after the procedure. Of those, 2 were from the US.</li>
+    </ul>
+    <br>
+    <p>Respondents also had the option to fill in their own side effects. A few said that their bloating and cramping were severe. Two of the participants experienced Ovarian hyperstimulation syndrome (OHSS).</p>
+
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart22" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["No side effects", "Mild bloating", "Mild cramping", "Constipation", "Breast tenderness", "Excreting a tiny small amount of clear or blood colored fluid after the procedure"];
+        var bValues = [27.4, 21.4, 17.7, 14.9, 13, 5.6];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart22", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Side Effects During IVF - Total respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart23" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["No side effects", "Mild bloating", "Mild cramping", "Constipation", "Breast tenderness", "Excreting a tiny small amount of clear or blood colored fluid after the procedure"];
+        var bValues = [30.7, 18.2, 18.2, 20.5, 10.2, 2.3];
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart23", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Side Effects During IVF - US respondents"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Research Content PART 3 -->
+
+
+
+
+  <div class="feature py-5" id="bod3">
+    <h2 style="font-size: 160%"><b>Respondents Considering Fertility Treatments</b></h2>
+    <br>
+    <p>Quite a few of the survey respondents hadn't undergone any fertility treatments but were considering it. The sample size was 88 participants who were considering treatment, with 53 coming from the US.</p>
+  </div>
+
+  <div class="feature py-3" id="bod3.1">
+    <h3 style="font-size: 135%"><b>Respondents' Relationship Statuses</b></h3>
+    <p>Respondents considering fertility treatments were asked about their relationship statuses.</p>
+    <ul>
+      <li>50 participants were in a heterosexual marriage. 29 came from the US. </li>
+      <li>24 were single, with 19 coming from the US.</li>
+      <li>6 were in an LGBTQ marriage, with 3 participants coming from the US.</li>
+    </ul>
+    <br>
+    <p>A few respondents were outside the choices. One person was in an LGBTQ relationship but not married and two people were in heterosexual unmarried relationships.</p>
+    <br>
+    <p>It's interesting to note that only 7% of the participants who'd undergone a fertility treatment were single while 30% of those considering treatment are single. This number may be higher because getting pregnant is a big life and financial decision, and it's an even bigger decision to make when one isn't part of a partnership.</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart31a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart31a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [62.5, 30, 7.5],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Total respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart31ab" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart31ab", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [56.9, 37.3, 5.9],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod3.2">
+    <h3 style="font-size: 135%"><b>Age at the Time of Treatment</b></h3>
+    <p>Of the respondents considering fertility treatments:  Five respondents (6%) were between 20-24 and five (6%) were over the age of fifty. Only four respondents (5%) were between 44-49. One respondent was 62 and two were in their late teens. </p>
+    <ul>
+      <li>Five respondents were between the ages of 20 and 24, with 4 from the US.</li>
+      <li>16 of the respondents were in the 25-29 age group, with 9 coming from the US.</li>
+      <li>14 participants were between 30 and 34, with 10 from the US.</li>
+      <li>In the 35-39 age group, there were 25 participants with 12 of those from the US. </li>
+      <li>In the 40-44 age group, there were 16 respondents with 10 of those from the US.</li>
+      <li>There were four participants in the 45-49 group, with 2 person from the US.</li>
+      <li>Five participants in the 50+ group, with 3 respondents from the US.</li>
+      <li>One respondent was 62 and two were in their late teens, which we did not count in the chart.</li>
+    </ul>
+    <br>
+    <p>These numbers align with the findings of those who'd undergone treatments. Most people who're looking into treatments are in their 30s or early 40s, as this is the time when people tend to get serious about starting a family and/or issues with fertility become evident and more pressing.</p>
+    <br>
+    <div class="row py-5">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart32a" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+        var bValues = [5.8, 18.8, 16.5, 38, 20.4, 0.8, 0.8];85
+        var bar2Colors = [
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+          "#2b5797",
+        ];
+
+        new Chart("myChart32a", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Age at the time of treatment - Total respondents (226)"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart32b" style="max-height: 300px; text-align: center"></canvas>
+        <script>
+        var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+        var bValues = [2.1, 14.9, 29.8, 41.5, 14.9, 1, 1];
+        var bar2Colors = [
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+          "#b91d47",
+        ];
+
+        new Chart("myChart32b", {
+          type: "bar",
+          data: {
+            labels: aValues,
+            datasets: [{
+              backgroundColor: bar2Colors,
+              data: bValues
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Age at the time of treatment - US respondents (94)"
+            },
+            animation: {
+              onComplete: () => {
+                delayed = true;
+              },
+              delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                  delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                }
+                return delay;
+              },
+            },
+            scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'single',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var allData = data.datasets[tooltipItem.datasetIndex].data;
+                  var tooltipData = allData[tooltipItem.index];
+                  return tooltipData + "%";
+                }
+              }
+            }
+          },
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod3.3">
+    <h3 style="font-size: 135%"><b>Which Treatments Are Respondents Considering?</b></h3>
+    <p>There were XXX answers in total, XXX from respondents outside the US and XX answers from US responders for this question.</p>
+    <br>
+    <p>Respondents were given several options and asked to choose which types of treatments they were considering. The majority were considering standard IVF - 48 participants, making up 55% of the group. 39 of the participants (44%) were considering natural IVF and 29 (33%) were considering IUI.</p>
+    <br>
+    <p>23 (26%) were considering mild IVF. 21 respondents (24%) were considering IVF with sperm donors. Only a few participants were considering using egg and embryo donors. Seven (8%) were considering IVF with egg donation, and three (3%) were considering embryo donation. These numbers are also consistent. Most people still place their trust in standard IVF, either for their perceived chances of success or for their budgets</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1b" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1b", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [90, 5.6, 4.5],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [88.8, 8.7, 2.4],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Respondents outside the US"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod3.4">
+    <h3 style="font-size: 135%"><b>Treatment Abroad vs. Treatment at Home</b></h3>
+    <p>There were XXX answers in total, XXX from respondents outside the US and XX answers from US responders for this question.</p>
+    <br>
+    <p>When asked about whether they'd go abroad for treatment, the split was nearly half and half. 40 participants (45%) said they would go abroad, while 48 (55%) would not consider going abroad.</p>
+    <br>
+    <p>These numbers are quite different from the people who'd gone through fertility treatments, the majority of which were treated at home. Perhaps people are becoming more open to going abroad for their treatments, or people may simply be more open to the idea when they're still in the consideration phase.</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1b" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1b", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [90, 5.6, 4.5],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [88.8, 8.7, 2.4],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Respondents outside the US"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod3.5">
+    <h3 style="font-size: 135%"><b>What Respondents Will Look for in a Fertility Clinic</b></h3>
+    <p>There were XXX answers in total, XXX from respondents outside the US and XX answers from US responders for this question.</p>
+    <br>
+    <p>Respondents were asked what they plan to look for when choosing a fertility clinic. The majority said success rate, followed by price. 68 participants (77%) were concerned with a clinic's success rate and 50 (57%) listed price as an important factor.</p>
+    <br>
+    <p>29 participants (33%) wanted a doctor with a high evaluation while 28 (32%) wanted a well-known medical team. 22 people (25%) considered the distance as a factor. 19 (22%) wanted a clinic with good reviews.</p>
+    <br>
+    <p>Only 16 of the respondents (18%) wanted a clinic that offered a variety of treatments. This number aligns with the people who'd had treatments. It seems that people aren't as interested in different types of treatments and are pursuing standard IVF.</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1b" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1b", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [90, 5.6, 4.5],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [88.8, 8.7, 2.4],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Respondents outside the US"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature py-3" id="bod3.6">
+    <h3 style="font-size: 135%"><b>How Has the COVID-19 Pandemic Affected Decisions Regarding Fertility Treatments?</b></h3>
+    <p>The pandemic has affected all aspects of life, including fertility treatments. Participants were asked about the pandemic and whether it would affect their decisions about treatments. 71 of the participants said that the pandemic hadn't affected their decision, with some saying they didn't have a choice about waiting.</p>
+    <br>
+    <p>For those who'd chosen to wait, several said travel restrictions were posing a problem. One said that finances were an issue due to income loss during the pandemic. One person didn't want to go to a clinic that required masks and had other restrictions.</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1b" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1b", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [90, 5.6, 4.5],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - US respondents"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+      <div class="col-sm-6 py-3">
+        <canvas id="myChart1a" style="text-align: center"></canvas>
+        <script>
+        new Chart("myChart1a", {
+            type: 'doughnut',
+            data: {
+              datasets: [
+                {
+                  data: [88.8, 8.7, 2.4],
+                  backgroundColor: ["#1e7145", "#00aba9", "#ff9600",],
+                },
+              ],
+              labels: ["heterosexual marriage", "Single", "LGTBQ"],
+            },
+            options: {
+              responsive: true,
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Respondents' relationship statuses - Respondents outside the US"
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var allData = data.datasets[tooltipItem.datasetIndex].data;
+                    var tooltipLabel = data.labels[tooltipItem.index];
+                    var tooltipData = allData[tooltipItem.index];
+                    return tooltipLabel + ": " + tooltipData + "%";
+                  }
+                }
+              }
+            }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- Research Content PART 3 -->
+
+
+
+
+  <div class="feature py-5" id="bod4">
+    <h2 style="font-size: 160%"><b>Final Thoughts</b></h2>
+    <br>
+    <p>When looking at America vs. the rest of the world, it seems that opinions and decisions are pretty similar. This survey shows that people largely still have traditional views about fertility treatments. Most want affordable, proven treatments. They don't want to travel too far and prefer treatments like standard IVF over less tested treatments like natural and mild IVF. It'll be interesting to see how fertility treatments progress over the next few years as a younger generation reaches the age to start a family.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+</div>
+
+{% endblock  %}

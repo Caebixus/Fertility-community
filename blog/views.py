@@ -97,3 +97,14 @@ def whatismildminiivf(request):
     }
 
     return render(request, 'blog/educational/what-is-mild-mini-ivf.html', context)
+
+def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
+    author = get_object_or_404(Author, pk=6)
+    blog = get_object_or_404(Blog, pk=12)
+
+    context = {
+        'author': author,
+        'blog': blog,
+    }
+
+    return render(request, 'blog/research/fertility-treatments-how-americans-compare-with-the-rest-of-the-world.html', context)

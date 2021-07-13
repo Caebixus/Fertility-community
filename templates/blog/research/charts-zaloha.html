@@ -1,0 +1,441 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Fertility Treatments: How Americans Compare With the Rest of the World | 2021{% endblock %}
+{% block description %}Fertility Community recently surveyed our users to get an idea of how Americans compare with the rest of the world when it comes to fertility treatments. Read more{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/fertility-treatments-how-americans-compare-with-the-rest-of-the-world{% endblock %}
+{% block meta_keywords %}fertiltiy treatments statistics in USA{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.js" ></script>
+<script type="application/ld+json">
+
+<canvas id="myChart" style="max-height: 300px; text-align: center"></canvas>
+<script>
+var xValues = ["Website", "Facebook groups"];
+var yValues = [141, 217];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+      plugins: {
+          title: {
+              display: true,
+              text: 'Total respondents'
+          }
+      }
+  }
+});
+</script>
+
+<canvas id="myChart2" style="max-height: 300px; text-align: center"></canvas>
+<script>
+var aValues = ["US residents", "UK residents", "Canada residents", "Australia residents", "Rest of the world"];
+var bValues = [180, 38, 13, 89, 38];
+var bar2Colors = [
+  "#2b5797",
+  "#00aba9",
+  "#b91d47",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart2", {
+  type: "pie",
+  data: {
+    labels: aValues,
+    datasets: [{
+      backgroundColor: bar2Colors,
+      data: bValues
+    }]
+  },
+  options: {
+      plugins: {
+          title: {
+              display: true,
+              text: 'Total respondents2'
+          }
+      },
+  }
+});
+</script>
+
+<canvas id="myChart1" style="text-align: center"></canvas>
+<script>
+var xValues = ["US residents", "UK residents", "Canada residents", "Australia residents", "Rest of the world"];
+var yValues = [180, 38, 13, 89, 38];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+
+new Chart("myChart1", {
+    type: 'doughnut',
+    data: {
+      datasets: [
+        {
+          data: [50, 10, 3, 24, 11],
+          backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', ],
+        },
+      ],
+      labels: ["US residents", "UK residents", "Canada residents", "Australia residents", "Rest of the world"],
+    },
+    options: {
+      tooltips: {
+        enabled: true,
+        mode: 'single',
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var allData = data.datasets[tooltipItem.datasetIndex].data;
+            var tooltipLabel = data.labels[tooltipItem.index];
+            var tooltipData = allData[tooltipItem.index];
+            return tooltipLabel + ": " + tooltipData + "%";
+          }
+        }
+      }
+    }
+});
+</script>
+
+
+<canvas id="myChart3" style="text-align: center"></canvas>
+<script>
+var xValues = ["Undergone some type of IVF", "Yet to have some type of IVF", "Hadn't undergone IVF"];
+var yValues = [232, 88, 38];
+var wValues = [96, 53, 30]
+var barColorsTotal = ["#b91d47", "#b91d47", "#b91d47"];
+var barColorsUS = ["#2b5797", "#2b5797", "#2b5797"];
+var delayed;
+
+new Chart("myChart3", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [
+      {
+        label: 'Total',
+        data: yValues,
+        backgroundColor: barColorsTotal,
+        stacked: false,
+      },
+      {
+        label: 'US residents',
+        data: wValues,
+        backgroundColor: barColorsUS,
+        stacked: false,
+        type: 'bar'
+      },
+    ]
+  },
+  options: {
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    },
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+    scales: {
+      xAxes: [{
+          stacked: true
+      }],
+      yAxes: [{
+          stacked: true
+      }]
+    }
+  },
+});
+</script>
+
+<canvas id="myChart4" style="max-height: 300px; text-align: center"></canvas>
+<script>
+var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+var bValues = [3, 32, 71, 82, 46, 2, 2];
+var bar2Colors = [
+  "#b91d47",
+  "#b91d47",
+  "#b91d47",
+  "#b91d47",
+  "#b91d47",
+  "#b91d47",
+  "#b91d47",
+];
+
+new Chart("myChart4", {
+  type: "bar",
+  data: {
+    labels: aValues,
+    datasets: [{
+      backgroundColor: bar2Colors,
+      data: bValues
+    }]
+  },
+  options: {
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Age of Total respondents who undergone fertility treatment"
+    },
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+    scales: {
+      xAxes: [{
+          stacked: true
+      }],
+      yAxes: [{
+          stacked: true
+      }]
+    }
+  },
+});
+</script>
+
+<canvas id="myChart5" style="max-height: 300px; text-align: center"></canvas>
+<script>
+var aValues = ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50+"];
+var bValues = [2, 14, 28, 34, 14, 1, 1];
+var bar2Colors = [
+  "#2b5797",
+  "#2b5797",
+  "#2b5797",
+  "#2b5797",
+  "#2b5797",
+  "#2b5797",
+  "#2b5797",
+];
+
+new Chart("myChart5", {
+  type: "bar",
+  data: {
+    labels: aValues,
+    datasets: [{
+      backgroundColor: bar2Colors,
+      data: bValues
+    }]
+  },
+  options: {
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Age of US respondents who undergone fertility treatment"
+    },
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+    scales: {
+      xAxes: [{
+          stacked: true
+      }],
+      yAxes: [{
+          stacked: true
+      }]
+    }
+  },
+});
+</script>
+
+<canvas id="myChart6" style="text-align: center"></canvas>
+<script>
+var xValues = ["Website", "Facebook groups"];
+var yValues = [141, 217];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+
+new Chart("myChart6", {
+    type: 'doughnut',
+    data: {
+      datasets: [
+        {
+          data: [10, 20, 15, 5, 50],
+          backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', ],
+        },
+      ],
+      labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+    },
+    options: {
+      tooltips: {
+        enabled: true,
+        mode: 'single',
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var allData = data.datasets[tooltipItem.datasetIndex].data;
+            var tooltipLabel = data.labels[tooltipItem.index];
+            var tooltipData = allData[tooltipItem.index];
+            return tooltipLabel + ": " + tooltipData + "%";
+          }
+        }
+      }
+    }
+});
+</script>
+
+<canvas id="myChart7" style="text-align: center"></canvas>
+<script>
+var aValues = ["IUI treatment", "Natural IVF", "Mild IVF", "Standard IVF", "IVF using egg donors", "IVF using sperm donors", "IVF with embryo donation"];
+var bValues = [65, 18, 14, 200, 17, 23, 7];
+var cValues = [28, 2, 9, 89, 6, 6, 6];
+var barColorsTotal = ["#b91d47", "#b91d47", "#b91d47", "#b91d47", "#b91d47", "#b91d47", "#b91d47"];
+var barColorsUS = ["#2b5797", "#2b5797", "#2b5797", "#2b5797", "#2b5797", "#2b5797", "#2b5797"];
+
+new Chart("myChart7", {
+  type: "bar",
+  data: {
+    labels: aValues,
+    datasets: [
+      {
+        label: 'Total',
+        data: bValues,
+        backgroundColor: barColorsTotal,
+        stacked: false,
+      },
+      {
+        label: 'US residents',
+        data: cValues,
+        backgroundColor: barColorsUS,
+        stacked: false,
+        type: 'bar'
+      },
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    },
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+    scales: {
+      xAxes: [{
+          stacked: true
+      }],
+      yAxes: [{
+          stacked: true
+      }]
+    },
+    tooltips: {
+      enabled: true,
+      mode: 'single',
+    }
+  }
+});
+</script>
+
+
+
+<canvas id="myChart8" style="text-align: center"></canvas>
+<script>
+var xValues = ["Website", "Facebook groups"];
+var yValues = [141, 217];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+
+new Chart("myChart8", {
+    type: 'doughnut',
+    data: {
+      datasets: [
+        {
+          data: [10, 20, 15, 5, 50],
+          backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', ],
+        },
+      ],
+      labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+    },
+    options: {
+      tooltips: {
+        enabled: true,
+        mode: 'single',
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var allData = data.datasets[tooltipItem.datasetIndex].data;
+            var tooltipLabel = data.labels[tooltipItem.index];
+            var tooltipData = allData[tooltipItem.index];
+            return tooltipLabel + ": " + tooltipData + "%";
+          }
+        }
+      }
+    }
+});
+</script>

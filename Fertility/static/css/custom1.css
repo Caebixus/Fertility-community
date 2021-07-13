@@ -404,6 +404,14 @@ a {
   text-decoration: underline;
 }
 
+#anonedecoration {
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  color: #282c34;
+  text-align: left;
+  text-decoration: none;
+}
+
 td {
   font-family: 'Josefin Sans';
   font-weight: 300;

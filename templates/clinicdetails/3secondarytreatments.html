@@ -109,7 +109,7 @@
   </table>
 </div>
 
-<div class="container py-3" style="text-align: center; margin-top: 40px; margin-bottom: 60px" id="contact">
+<div class="container py-5" style="text-align: center" id="contact">
   <h2>Contact</h2>
   <hr>
   <div class="row" style="padding-top:10px">
@@ -142,3 +142,20 @@
     {% endif %}
   </div>
 </div>
+
+{% if listing.description and listing.pro_is_published == True or listing.ppq_is_published == True %}
+  <div class="container py-5">
+    <br>
+    <br>
+    <h2>About our clinic:</h2>
+    <p>{{ listing.description|safe }}</p>
+  </div>
+{% else %}
+{% endif %}
+{% if listing.treatmentLimitations and listing.pro_is_published == True or listing.ppq_is_published == True %}
+  <div class="container py-5">
+    <h2>Treatment limitations and restrictions:</h2>
+    <p>{{ listing.treatmentLimitations|safe }}</p>
+  </div>
+{% else %}
+{% endif %}

@@ -34,7 +34,7 @@ def fertilityClinicPrague(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -65,7 +65,7 @@ def fertilityClinicBrno(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -96,7 +96,7 @@ def fertilityClinicsAberdeen(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -127,7 +127,7 @@ def fertilityClinicsBath(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -158,7 +158,7 @@ def fertilityClinicsBelfast(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -189,7 +189,7 @@ def fertilityClinicsBirmingham(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -220,7 +220,7 @@ def fertilityClinicsBournemouth(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -251,7 +251,7 @@ def fertilityClinicsBrightonHove(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -282,7 +282,7 @@ def fertilityClinicsBristol(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -313,7 +313,7 @@ def fertilityClinicsCambridge(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -344,7 +344,7 @@ def fertilityClinicsCardiff(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -375,7 +375,7 @@ def fertilityClinicsColchester(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -406,7 +406,7 @@ def fertilityClinicsDerby(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -437,7 +437,7 @@ def fertilityClinicsExeter(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -468,7 +468,7 @@ def fertilityClinicsGlasgow(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -499,7 +499,7 @@ def fertilityClinicsHull(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -530,7 +530,7 @@ def fertilityClinicsChelmsford(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -561,7 +561,7 @@ def fertilityClinicsLeeds(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -592,7 +592,7 @@ def fertilityClinicsLeicester(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -623,7 +623,7 @@ def fertilityClinicsLiverpool(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -654,7 +654,7 @@ def fertilityClinicsLondon(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -685,7 +685,7 @@ def fertilityClinicsManchester(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -716,7 +716,7 @@ def fertilityClinicsMiddlesbrough(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -747,7 +747,7 @@ def fertilityClinicsNewcastle(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -778,7 +778,7 @@ def fertilityClinicsNorwich(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -809,7 +809,7 @@ def fertilityClinicsNottingham(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -840,7 +840,7 @@ def fertilityClinicsOxford(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -871,7 +871,7 @@ def fertilityClinicsPeterborough(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -902,7 +902,7 @@ def fertilityClinicsPlymouth(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -933,7 +933,7 @@ def fertilityClinicsPortsmouth(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -964,7 +964,7 @@ def fertilityClinicsSalisbury(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -995,7 +995,7 @@ def fertilityClinicsSheffield(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1026,7 +1026,7 @@ def fertilityClinicsSouthampton(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1057,7 +1057,7 @@ def fertilityClinicsSwansea(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1088,7 +1088,7 @@ def fertilityClinicsAlicante(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1119,7 +1119,7 @@ def fertilityClinicsBarcelona(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1150,7 +1150,7 @@ def fertilityClinicsMadrid(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1181,7 +1181,7 @@ def fertilityClinicsMalaga(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1212,7 +1212,7 @@ def fertilityClinicsSeville(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1243,7 +1243,7 @@ def fertilityClinicsValencia(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1277,7 +1277,7 @@ def fertilityClinicsChennai(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1308,7 +1308,7 @@ def fertilityClinicsHyderabad(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1339,7 +1339,7 @@ def fertilityClinicsMumbai(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1370,7 +1370,7 @@ def fertilityClinicsPatna(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1401,7 +1401,7 @@ def fertilityClinicsRaipur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1432,7 +1432,7 @@ def fertilityClinicsAmdavad(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1463,7 +1463,7 @@ def fertilityClinicsChandigarh(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1494,7 +1494,7 @@ def fertilityClinicsFaridabad(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1525,7 +1525,7 @@ def fertilityClinicsJamshedpur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1556,7 +1556,7 @@ def fertilityClinicsBangalore(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1587,7 +1587,7 @@ def fertilityClinicsTrivandrum(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1618,7 +1618,7 @@ def fertilityClinicsKochi(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1649,7 +1649,7 @@ def fertilityClinicsBhopal(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1680,7 +1680,7 @@ def fertilityClinicsIndore(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1711,7 +1711,7 @@ def fertilityClinicsNagpur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1742,7 +1742,7 @@ def fertilityClinicsBhubaneswar(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1773,7 +1773,7 @@ def fertilityClinicsLudhiana(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1804,7 +1804,7 @@ def fertilityClinicsJaipur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1835,7 +1835,7 @@ def fertilityClinicsLucknow(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1866,7 +1866,7 @@ def fertilityClinicsKanpur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1897,7 +1897,7 @@ def fertilityClinicsDehradun(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1928,7 +1928,7 @@ def fertilityClinicsKolkata(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1959,7 +1959,7 @@ def fertilityClinicsVisakhapatnam(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -1990,7 +1990,7 @@ def fertilityClinicsVijayawada(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2021,7 +2021,7 @@ def fertilityClinicsNewDelhi(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2052,7 +2052,7 @@ def fertilityClinicsVadodara(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2083,7 +2083,7 @@ def fertilityClinicsGurugram(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2114,7 +2114,7 @@ def fertilityClinicsRohtak(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2145,7 +2145,7 @@ def fertilityClinicsJammu(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2176,7 +2176,7 @@ def fertilityClinicsRanchi(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2207,7 +2207,7 @@ def fertilityClinicsGwalior(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2238,7 +2238,7 @@ def fertilityClinicsPune(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2269,7 +2269,7 @@ def fertilityClinicsWarangal(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2300,7 +2300,7 @@ def fertilityClinicsGachibowli(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2331,7 +2331,7 @@ def fertilityClinicsMadhapur(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2362,7 +2362,7 @@ def fertilityClinicsNoida(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2393,7 +2393,7 @@ def fertilityClinicsMeerut(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2424,7 +2424,7 @@ def fertilityClinicsHaldwani(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2455,7 +2455,7 @@ def fertilityClinicsAthens(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2486,7 +2486,7 @@ def fertilityClinicsThessaloniki(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2517,7 +2517,7 @@ def fertilityClinicsNicosia(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2548,7 +2548,7 @@ def fertilityClinicsGirne(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2579,7 +2579,7 @@ def fertilityClinicsCancun(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -2610,7 +2610,7 @@ def fertilityClinicsMexicoCity(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 

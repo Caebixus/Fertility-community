@@ -22,19 +22,3 @@
     </div>
   </nav>
 </div>
-{% if listing.description and listing.pro_is_published == True %}
-<div class="container py-3">
-  <br>
-  <br>
-  <h2>About our clinic:</h2>
-  <p>{{ listing.description|safe }}</p>
-</div>
-{% else %}
-{% endif %}
-{% if listing.treatmentLimitations and listing.pro_is_published == True %}
-<div class="container py-5">
-  <h2>Treatment limitations and restrictions:</h2>
-  <p>{{ listing.treatmentLimitations|safe }}</p>
-</div>
-{% else %}
-{% endif %}

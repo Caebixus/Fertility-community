@@ -35,7 +35,7 @@ def fertilityClinicUSA(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -100,7 +100,7 @@ def fertilityClinicUK(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -156,7 +156,7 @@ def fertilityClinicSpain(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -206,7 +206,7 @@ def fertilityClinicIndia(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -274,7 +274,7 @@ def fertilityClinicGreece(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -312,7 +312,7 @@ def fertilityClinicCzech(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -350,7 +350,7 @@ def fertilityClinicCyprus(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
@@ -388,7 +388,7 @@ def fertilityClinicMexico(request):
 
     order_data = list(queryset_list)
 
-    paginator = Paginator(order_data, 30)
+    paginator = Paginator(order_data, 10)
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 

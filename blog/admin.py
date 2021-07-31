@@ -4,7 +4,7 @@ from .models import Blog, Author
 
 class BlogAdmin(admin.ModelAdmin):
     model = Blog
-    list_display = ('id', 'title', 'created_at', 'last_modified', 'blog_url',)
+    list_display = ('id', 'title', 'created_at', 'last_modified', 'blog_url')
 
 class AuthorAdmin(admin.ModelAdmin):
     model = Author

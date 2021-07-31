@@ -30,6 +30,6 @@ class Blog(models.Model):
         )
     tag = models.CharField(max_length=40, choices=TAG_CHOICES, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
+    last_modified = models.DateTimeField(default=datetime.now, blank=True)
     blog_url = models.URLField()
     minute_read = models.IntegerField(null=True, blank=True)

@@ -366,10 +366,10 @@ def contactWebsite(request):
         form.save()
 
         send_mail(
-            'Někdo prosí o kontakt',
-            'Obyčejný smrtelník prosí o kontakt - zkontroluj!',
-            'langr.marketing@gmail.com',
-            ['langr.marketing@gmail.com'],
+            'Neregistrovaný user prosí o kontakt',
+            'Někdo neregistrovaný napsal na kontaktní formulář - zkontroluj!',
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
             fail_silently=False,
             )
 

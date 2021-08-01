@@ -991,38 +991,62 @@ class PostForm(forms.ModelForm):
 
 class UpdatePrice(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
+    ### Primary treatments
     ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     mild_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     ovarian_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
 
+    ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    mild_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    ovarian_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    icsi_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    iui_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+
+    ### IVF with donation & costs treatments
+    egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+
+    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+
+    egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    embryo_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_embryo_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    sperm_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_sperm_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+
+    ### Additional treatments & costs
     egg_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     embryo_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sperm_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     surrogacy = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
 
-    package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package1category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package1desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package1cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    egg_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    embryo_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    sperm_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    surrogacy_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
 
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
@@ -1035,29 +1059,47 @@ class UpdatePrice(forms.ModelForm):
         'ovarian_ivf_treatment',
         'icsi_treatment',
         'iui_treatment',
-        'egg_donor_recipients',
-        'embryo_donor_recipients',
         'ivf_treatment_cost',
         'mild_ivf_treatment_cost',
         'ovarian_ivf_treatment_cost',
         'icsi_treatment_cost',
         'iui_treatment_cost',
+        'ivf_treatment_faqs',
+        'mild_ivf_treatment_faqs',
+        'ovarian_ivf_treatment_faqs',
+        'icsi_treatment_faqs',
+        'iui_treatment_faqs',
+        'egg_donor_recipients',
+        'known_egg_donor_recipients',
+        'embryo_donor_recipients',
+        'known_embryo_donor_recipients',
+        'sperm_donor_recipients',
+        'known_sperm_donor_recipients',
         'egg_donor_recipients_cost',
+        'known_egg_donor_recipients_cost',
         'embryo_donor_recipients_cost',
+        'known_embryo_donor_recipients_cost',
+        'sperm_donor_recipients_cost',
+        'known_sperm_donor_recipients_cost',
+        'egg_donor_recipients_faqs',
+        'known_egg_donor_recipients_faqs',
+        'embryo_donor_recipients_faqs',
+        'known_embryo_donor_recipients_faqs',
+        'sperm_donor_recipients_faqs',
+        'known_sperm_donor_recipients_faqs',
         'egg_freezing',
         'embryo_freezing',
         'sperm_freezing',
         'surrogacy',
-        'sperm_donor_recipients',
         'egg_freezing_cost',
         'embryo_freezing_cost',
         'sperm_freezing_cost',
         'surrogacy_cost',
-        'sperm_donor_recipients_cost',
+        'egg_freezing_faqs',
+        'embryo_freezing_faqs',
+        'sperm_freezing_faqs',
+        'surrogacy_faqs',
         'is_published_list_date',
-        'package1title',
-        'package1desc',
-        'package1cost',
         ]
 
 
@@ -1237,63 +1279,63 @@ class PostFormPro(forms.ModelForm):
 
 class UpdatePricePro(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
+
+    ### Primary treatments
     ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     mild_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     ovarian_ivf_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
 
+    ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    mild_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    ovarian_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    icsi_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    iui_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+
+    ### IVF with donation & costs treatments
+    egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_egg_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_embryo_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    known_sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+
+    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+
+    egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    embryo_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_embryo_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    sperm_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    known_sperm_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+
+    ### Additional treatments & costs
     egg_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     embryo_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sperm_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     surrogacy = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
     surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
 
-    package1title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package1category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package1desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package1cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
-
-    package2title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package2category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package2desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package2cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
-
-    package3title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package3category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package3desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package3cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
-
-    package4title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package4category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package4desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package4cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
-
-    package5title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package5category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False,)
-    package5desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package5cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
-
-    package6title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
-    package6category = forms.CharField(widget=forms.Select(choices=CATEGORY_PACKAGE, attrs={'class': 'form-control',}), required=False)
-    package6desc = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
-    package6cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False)
+    egg_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    embryo_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    sperm_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
+    surrogacy_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
 
     pro_is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
@@ -1306,51 +1348,47 @@ class UpdatePricePro(forms.ModelForm):
         'ovarian_ivf_treatment',
         'icsi_treatment',
         'iui_treatment',
-        'egg_donor_recipients',
-        'embryo_donor_recipients',
         'ivf_treatment_cost',
         'mild_ivf_treatment_cost',
         'ovarian_ivf_treatment_cost',
         'icsi_treatment_cost',
         'iui_treatment_cost',
+        'ivf_treatment_faqs',
+        'mild_ivf_treatment_faqs',
+        'ovarian_ivf_treatment_faqs',
+        'icsi_treatment_faqs',
+        'iui_treatment_faqs',
+        'egg_donor_recipients',
+        'known_egg_donor_recipients',
+        'embryo_donor_recipients',
+        'known_embryo_donor_recipients',
+        'sperm_donor_recipients',
+        'known_sperm_donor_recipients',
         'egg_donor_recipients_cost',
+        'known_egg_donor_recipients_cost',
         'embryo_donor_recipients_cost',
+        'known_embryo_donor_recipients_cost',
+        'sperm_donor_recipients_cost',
+        'known_sperm_donor_recipients_cost',
+        'egg_donor_recipients_faqs',
+        'known_egg_donor_recipients_faqs',
+        'embryo_donor_recipients_faqs',
+        'known_embryo_donor_recipients_faqs',
+        'sperm_donor_recipients_faqs',
+        'known_sperm_donor_recipients_faqs',
         'egg_freezing',
         'embryo_freezing',
         'sperm_freezing',
         'surrogacy',
-        'sperm_donor_recipients',
         'egg_freezing_cost',
         'embryo_freezing_cost',
         'sperm_freezing_cost',
         'surrogacy_cost',
-        'sperm_donor_recipients_cost',
+        'egg_freezing_faqs',
+        'embryo_freezing_faqs',
+        'sperm_freezing_faqs',
+        'surrogacy_faqs',
         'pro_is_published_list_date',
-        'package1title',
-        'package1category',
-        'package1desc',
-        'package1cost',
-        'package2title',
-        'package2category',
-        'package2desc',
-        'package2cost',
-        'package3title',
-        'package3category',
-        'package3desc',
-        'package3cost',
-        'package4title',
-        'package4category',
-        'package4desc',
-        'package4cost',
-        'package5title',
-        'package5category',
-        'package5desc',
-        'package5cost',
-        'package6title',
-        'package6category',
-        'package6desc',
-        'package6cost',
-        'accepts_patients_from_abroad',
         ]
 
 class OwnerProInterestedForm(forms.ModelForm):

@@ -300,6 +300,22 @@ class BasicClinic(models.Model):
     embryo_donor_recipients_cost = models.FloatField(blank=True, null=True)
     known_embryo_donor_recipients_cost = models.FloatField(blank=True, null=True)
 
+    ### Primary treatments faqs
+    initial_consultation_faqs = models.CharField(max_length=500, null=True, blank=True)
+    follow_up_consultation_faqs = models.CharField(max_length=500, null=True, blank=True)
+    ivf_treatment_faqs = models.CharField(max_length=500, null=True, blank=True)
+    mild_ivf_treatment_faqs = models.CharField(max_length=500, null=True, blank=True)
+    ovarian_ivf_treatment_faqs = models.CharField(max_length=500, null=True, blank=True)
+    icsi_treatment_faqs = models.CharField(max_length=500, null=True, blank=True)
+    egg_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    known_egg_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    shared_egg_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    sperm_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    known_sperm_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    embryo_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+    known_embryo_donor_recipients_faqs = models.CharField(max_length=500, null=True, blank=True)
+
+
     ### -----------------------------------------------------------------------
     ### Additional treatments
     egg_freezing = models.BooleanField(default=False)
@@ -326,6 +342,19 @@ class BasicClinic(models.Model):
     pgta_pgs_cost = models.FloatField(blank=True, null=True)
     pgtst_pgs_cost = models.FloatField(blank=True, null=True)
     iui_treatment_cost = models.FloatField(blank=True, null=True)
+
+    ### Additional treatments faqs
+    egg_freezing_faqs = models.CharField(max_length=500, null=True, blank=True)
+    embryo_freezing_faqs = models.CharField(max_length=500, null=True, blank=True)
+    sperm_freezing_faqs = models.CharField(max_length=500, null=True, blank=True)
+    assisted_hatching_faqs = models.CharField(max_length=500, null=True, blank=True)
+    vasectomy_reversal_faqs = models.CharField(max_length=500, null=True, blank=True)
+    fertility_preservation_faqs = models.CharField(max_length=500, null=True, blank=True)
+    surrogacy_faqs = models.CharField(max_length=500, null=True, blank=True)
+    pgd_faqs = models.CharField(max_length=500, null=True, blank=True)
+    pgta_pgs_faqs = models.CharField(max_length=500, null=True, blank=True)
+    pgtst_pgs_faqs = models.CharField(max_length=500, null=True, blank=True)
+    iui_treatment_faqs = models.CharField(max_length=500, null=True, blank=True)
 
     ### -----------------------------------------------------------------------
     ### Donations

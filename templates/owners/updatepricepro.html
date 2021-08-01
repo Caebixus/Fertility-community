@@ -40,7 +40,7 @@
 
   <div class="container" style="background-color: red; margin-top: 15px; padding-top: 1rem; padding-bottom: 1rem">
     <h2 style="color: white; text-align: center;">
-      Provide all average treatment costs in USD (<i class="fas fa-dollar-sign"></i> United States dollar)
+      Primary treatments & costs - Provide all average treatment costs in USD (<i class="fas fa-dollar-sign"></i> United States dollar)
     </h2>
     <p style="color: white; text-align: center;">Calculation into other currencies will be automatic</p>
   </div>
@@ -66,13 +66,25 @@
             {{ form.ivf_treatment_cost.errors }}
             {{ form.ivf_treatment_cost }}
           </div>
-        {% else %}
-          <div id="js_ivf_cost" style="padding-top:1rem; display: none">
+          <div id="js_ivf_faqs" style="padding-top:1rem;">
             <br>
-            <p>Cost of IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.ivf_treatment_cost.errors }}
-            {{ form.ivf_treatment_cost }}
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.ivf_treatment_faqs.errors }}
+            {{ form.ivf_treatment_faqs }}
           </div>
+        {% else %}
+        <div id="js_ivf_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Natural IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+          {{ form.ivf_treatment_cost.errors }}
+          {{ form.ivf_treatment_cost }}
+        </div>
+        <div id="js_ivf_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.ivf_treatment_faqs.errors }}
+          {{ form.ivf_treatment_faqs }}
+        </div>
         {% endif %}
 
         <br>
@@ -95,13 +107,25 @@
             {{ form.mild_ivf_treatment_cost.errors }}
             {{ form.mild_ivf_treatment_cost }}
           </div>
-        {% else %}
-          <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
+          <div id="js_mild_ivf_faqs" style="padding-top:1rem;">
             <br>
-            <p>Cost of Mild (mini) IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.mild_ivf_treatment_cost.errors }}
-            {{ form.mild_ivf_treatment_cost }}
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.mild_ivf_treatment_faqs.errors }}
+            {{ form.mild_ivf_treatment_faqs }}
           </div>
+        {% else %}
+        <div id="js_mild_ivf_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Mild (mini) IVF Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+          {{ form.mild_ivf_treatment_cost.errors }}
+          {{ form.mild_ivf_treatment_cost }}
+        </div>
+        <div id="js_mild_ivf_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.mild_ivf_treatment_faqs.errors }}
+          {{ form.mild_ivf_treatment_faqs }}
+        </div>
         {% endif %}
 
         <br>
@@ -123,13 +147,25 @@
             {{ form.ovarian_ivf_treatment_cost.errors }}
             {{ form.ovarian_ivf_treatment_cost }}
           </div>
-        {% else %}
-          <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
+          <div id="js_ovarian_ivf_faqs" style="padding-top:1rem;">
             <br>
-            <p>Cost of Standard IVF using ovarian stimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.ovarian_ivf_treatment_cost.errors }}
-            {{ form.ovarian_ivf_treatment_cost }}
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.ovarian_ivf_treatment_faqs.errors }}
+            {{ form.ovarian_ivf_treatment_faqs }}
           </div>
+        {% else %}
+        <div id="js_ovarian_ivf_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Standard IVF using ovarian stimulation<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+          {{ form.ovarian_ivf_treatment_cost.errors }}
+          {{ form.ovarian_ivf_treatment_cost }}
+        </div>
+        <div id="js_ovarian_ivf_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.ovarian_ivf_treatment_faqs.errors }}
+          {{ form.ovarian_ivf_treatment_faqs }}
+        </div>
         {% endif %}
 
         <br>
@@ -151,13 +187,25 @@
             {{ form.iui_treatment_cost.errors }}
             {{ form.iui_treatment_cost }}
           </div>
-        {% else %}
-          <div id="js_iui_cost" style="padding-top:1rem; display: none">
+          <div id="js_iui_faqs" style="padding-top:1rem">
             <br>
-            <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.iui_treatment_cost.errors }}
-            {{ form.iui_treatment_cost }}
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.iui_treatment_faqs.errors }}
+            {{ form.iui_treatment_faqs }}
           </div>
+        {% else %}
+        <div id="js_iui_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of IUI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+          {{ form.iui_treatment_cost.errors }}
+          {{ form.iui_treatment_cost }}
+        </div>
+        <div id="js_iui_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.iui_treatment_faqs.errors }}
+          {{ form.iui_treatment_faqs }}
+        </div>
         {% endif %}
 
         <br>
@@ -176,21 +224,47 @@
           <div id="js_icsi_cost" style="padding-top:1rem">
             <br>
             <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.icsi_treatment.errors }}
+            {{ form.icsi_treatment_cost.errors }}
             {{ form.icsi_treatment_cost }}
+          </div>
+          <div id="js_icsi_faqs" style="padding-top:1rem">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.icsi_treatment_faqs.errors }}
+            {{ form.icsi_treatment_faqs }}
           </div>
         {% else %}
-          <div id="js_icsi_cost" style="padding-top:1rem; display: none">
-            <br>
-            <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
-            {{ form.icsi_treatment.errors }}
-            {{ form.icsi_treatment_cost }}
-          </div>
+        <div id="js_icsi_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of ICSI Treatment<i> (Single treatment cost only - no package (no meds etc), use your selected currency)</i></p>
+          {{ form.icsi_treatment_cost.errors }}
+          {{ form.icsi_treatment_cost }}
+        </div>
+        <div id="js_icsi_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.icsi_treatment_faqs.errors }}
+          {{ form.icsi_treatment_faqs }}
+        </div>
         {% endif %}
+      </div>
+    </div>
+  </div>
+  <br>
 
-        <br>
-        <br>
 
+
+  <div class="container" style="background-color: red; margin-top: 15px; padding-top: 1rem; padding-bottom: 1rem">
+    <h2 style="color: white; text-align: center;">
+      IVF with donation & costs - Provide all average treatment costs in USD (<i class="fas fa-dollar-sign"></i> United States dollar)
+    </h2>
+    <p style="color: white; text-align: center;">Calculation into other currencies will be automatic</p>
+  </div>
+
+  <br>
+  <div class="container py-4">
+    <div class="container" style="max-width: 70rem">
+      <div class="container">
         {{ form.egg_donor_recipients.errors }}
         <div class="row">
           <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
@@ -204,15 +278,67 @@
           <div id="js_egg_cost" style="padding-top:1rem">
             <br>
             <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-            {{ form.egg_donor_recipients.errors }}
+            {{ form.egg_donor_recipients_cost.errors }}
             {{ form.egg_donor_recipients_cost }}
           </div>
-        {% else %}
-          <div id="js_egg_cost" style="padding-top:1rem; display: none">
+          <div id="js_egg_faqs" style="padding-top:1rem">
             <br>
-            <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-            {{ form.egg_donor_recipients.errors }}
-            {{ form.egg_donor_recipients_cost }}
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.egg_donor_recipients_faqs.errors }}
+            {{ form.egg_donor_recipients_faqs }}
+          </div>
+        {% else %}
+        <div id="js_egg_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Egg donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.egg_donor_recipients_cost.errors }}
+          {{ form.egg_donor_recipients_cost }}
+        </div>
+        <div id="js_egg_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.egg_donor_recipients_faqs.errors }}
+          {{ form.egg_donor_recipients_faqs }}
+        </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.known_egg_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            7. Egg donor recipients (known)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.known_egg_donor_recipients }}
+          </div>
+        </div>
+        {% if form.known_egg_donor_recipients.value == True %}
+          <div id="js_known_egg_cost" style="padding-top:1rem">
+            <br>
+            <p>Cost of Egg donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+            {{ form.known_egg_donor_recipients_cost.errors }}
+            {{ form.known_egg_donor_recipients_cost }}
+          </div>
+          <div id="js_known_egg_faqs" style="padding-top:1rem">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.known_egg_donor_recipients_faqs.errors }}
+            {{ form.known_egg_donor_recipients_faqs }}
+          </div>
+        {% else %}
+          <div id="js_known_egg_cost" style="padding-top:1rem; display: none">
+            <br>
+            <p>Cost of Egg donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+            {{ form.known_egg_donor_recipients_cost.errors }}
+            {{ form.known_egg_donor_recipients_cost }}
+          </div>
+          <div id="js_known_egg_faqs" style="padding-top:1rem; display: none">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.known_egg_donor_recipients_faqs.errors }}
+            {{ form.known_egg_donor_recipients_faqs }}
           </div>
         {% endif %}
 
@@ -222,7 +348,7 @@
         {{ form.embryo_donor_recipients.errors }}
         <div class="row">
           <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
-            7. Embryo donor recipients (anonymous)
+            8. Embryo donor recipients (anonymous)
           </div>
           <div class="col-2 col-md">
             {{ form.embryo_donor_recipients }}
@@ -232,15 +358,67 @@
         <div id="js_embryo_cost" style="padding-top:1rem">
           <br>
           <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-          {{ form.embryo_donor_recipients.errors }}
+          {{ form.embryo_donor_recipients_cost.errors }}
           {{ form.embryo_donor_recipients_cost }}
+        </div>
+        <div id="js_embryo_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.embryo_donor_recipients_faqs.errors }}
+          {{ form.embryo_donor_recipients_faqs }}
         </div>
         {% else %}
         <div id="js_embryo_cost" style="padding-top:1rem; display: none">
           <br>
           <p>Cost of Embryo donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-          {{ form.embryo_donor_recipients.errors }}
+          {{ form.embryo_donor_recipients_cost.errors }}
           {{ form.embryo_donor_recipients_cost }}
+        </div>
+        <div id="js_embryo_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.embryo_donor_recipients_faqs.errors }}
+          {{ form.embryo_donor_recipients_faqs }}
+        </div>
+        {% endif %}
+
+        <br>
+        <br>
+
+        {{ form.known_embryo_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            9. Embryo donor recipients (known)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.known_embryo_donor_recipients }}
+          </div>
+        </div>
+        {% if form.known_embryo_donor_recipients.value == True %}
+        <div id="js_known_embryo_cost" style="padding-top:1rem">
+          <br>
+          <p>Cost of Embryo donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.known_embryo_donor_recipients_cost.errors }}
+          {{ form.known_embryo_donor_recipients_cost }}
+        </div>
+        <div id="js_known_embryo_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.known_embryo_donor_recipients_faqs.errors }}
+          {{ form.known_embryo_donor_recipients_faqs }}
+        </div>
+        {% else %}
+        <div id="js_known_embryo_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of Embryo donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.known_embryo_donor_recipients_cost.errors }}
+          {{ form.known_embryo_donor_recipients_cost }}
+        </div>
+        <div id="js_known_embryo_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.known_embryo_donor_recipients_faqs.errors }}
+          {{ form.known_embryo_donor_recipients_faqs }}
         </div>
         {% endif %}
 
@@ -250,7 +428,7 @@
         {{ form.sperm_donor_recipients.errors }}
         <div class="row">
           <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
-            8. Sperm donor recipients (anonymous)
+            10. Sperm donor recipients (anonymous)
           </div>
           <div class="col-2 col-md">
             {{ form.sperm_donor_recipients }}
@@ -259,9 +437,15 @@
         {% if form.sperm_donor_recipients.value == True %}
         <div id="js_sperm_cost" style="padding-top:1rem">
           <br>
-          <p>Cost of Sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
-          {{ form.sperm_donor_recipients.errors }}
+          <p>Cost of anonymous sperm donor recipients (anonymous)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.sperm_donor_recipients_cost.errors }}
           {{ form.sperm_donor_recipients_cost }}
+        </div>
+        <div id="js_sperm_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.sperm_donor_recipients_faqs.errors }}
+          {{ form.sperm_donor_recipients_faqs }}
         </div>
         {% else %}
         <div id="js_sperm_cost" style="padding-top:1rem; display: none">
@@ -270,18 +454,68 @@
           {{ form.sperm_donor_recipients.errors }}
           {{ form.sperm_donor_recipients_cost }}
         </div>
+        <div id="js_sperm_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.sperm_donor_recipients_faqs.errors }}
+          {{ form.sperm_donor_recipients_faqs }}
+        </div>
         {% endif %}
 
+        <br>
+        <br>
 
-
+        {{ form.known_sperm_donor_recipients.errors }}
+        <div class="row">
+          <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+            11. Sperm donor recipients (known)
+          </div>
+          <div class="col-2 col-md">
+            {{ form.known_sperm_donor_recipients }}
+          </div>
+        </div>
+        {% if form.known_sperm_donor_recipients.value == True %}
+        <div id="js_known_sperm_cost" style="padding-top:1rem">
+          <br>
+          <p>Cost of known sperm donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.known_sperm_donor_recipients.errors }}
+          {{ form.known_sperm_donor_recipients_cost }}
+        </div>
+        <div id="js_known_sperm_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.known_sperm_donor_recipients_faqs.errors }}
+          {{ form.known_sperm_donor_recipients_faqs }}
+        </div>
+        {% else %}
+        <div id="js_known_sperm_cost" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of known sperm donor recipients (known)<i> (Single treatment cost only (1 cycle), use your selected currency)</i></p>
+          {{ form.known_sperm_donor_recipients.errors }}
+          {{ form.known_sperm_donor_recipients_cost }}
+        </div>
+        <div id="js_known_sperm_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.known_sperm_donor_recipients_faqs.errors }}
+          {{ form.known_sperm_donor_recipients_faqs }}
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
   <br>
 
+
+
+
+
+
+
+
   <div class="container" style="background-color: red; margin-top: 15px; padding-top: 1rem; padding-bottom: 1rem">
     <h2 style="color: white; text-align: center;">
-      Provide all average treatment costs in USD (<i class="fas fa-dollar-sign"></i> United States dollar)
+      Additional treatments & costs - Provide all average treatment costs in USD (<i class="fas fa-dollar-sign"></i> United States dollar)
     </h2>
     <p style="color: white; text-align: center;">Calculation into other currencies will be automatic</p>
   </div>
@@ -306,16 +540,28 @@
           <div id="js_egg_freezing" style="padding-top:1rem">
             <br>
             <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
-            {{ form.egg_freezing.errors }}
+            {{ form.egg_freezing_cost.errors }}
             {{ form.egg_freezing_cost }}
+          </div>
+          <div id="js_egg_freezing_faqs" style="padding-top:1rem">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.egg_freezing_faqs.errors }}
+            {{ form.egg_freezing_faqs }}
           </div>
         {% else %}
-          <div id="js_egg_freezing" style="padding-top:1rem; display: none">
-            <br>
-            <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
-            {{ form.egg_freezing.errors }}
-            {{ form.egg_freezing_cost }}
-          </div>
+        <div id="js_egg_freezing" style="padding-top:1rem; display: none">
+          <br>
+          <p>Cost of egg freezing, includes egg collection and 1 year of storage<i> (Single treatment cost only, use your selected currency)</i></p>
+          {{ form.egg_freezing_cost.errors }}
+          {{ form.egg_freezing_cost }}
+        </div>
+        <div id="js_egg_freezing_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.egg_freezing_faqs.errors }}
+          {{ form.egg_freezing_faqs }}
+        </div>
         {% endif %}
 
         <br>
@@ -334,15 +580,27 @@
           <div id="js_embryo_freezing" style="padding-top:1rem">
             <br>
             <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-            {{ form.embryo_freezing.errors }}
+            {{ form.embryo_freezing_cost.errors }}
             {{ form.embryo_freezing_cost }}
+          </div>
+          <div id="js_embryo_freezing_faqs" style="padding-top:1rem">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.embryo_freezing_faqs.errors }}
+            {{ form.embryo_freezing_faqs }}
           </div>
         {% else %}
           <div id="js_embryo_freezing" style="padding-top:1rem; display: none">
             <br>
             <p>Cost of Embryo freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-            {{ form.embryo_freezing.errors }}
+            {{ form.embryo_freezing_cost.errors }}
             {{ form.embryo_freezing_cost }}
+          </div>
+          <div id="js_embryo_freezing_faqs" style="padding-top:1rem; display: none">
+            <br>
+            <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+            {{ form.embryo_freezing_faqs.errors }}
+            {{ form.embryo_freezing_faqs }}
           </div>
         {% endif %}
 
@@ -362,15 +620,27 @@
         <div id="js_sperm_freezing" style="padding-top:1rem">
           <br>
           <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-          {{ form.sperm_freezing.errors }}
+          {{ form.sperm_freezing_cost.errors }}
           {{ form.sperm_freezing_cost }}
+        </div>
+        <div id="js_sperm_freezing_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.sperm_freezing_faqs.errors }}
+          {{ form.sperm_freezing_faqs }}
         </div>
         {% else %}
         <div id="js_sperm_freezing" style="padding-top:1rem; display: none">
           <br>
           <p>Cost of Sperm freezing (1 year of storage)<i> (Single treatment cost only - no package, use your selected currency)</i></p>
-          {{ form.sperm_freezing.errors }}
+          {{ form.sperm_freezing_cost.errors }}
           {{ form.sperm_freezing_cost }}
+        </div>
+        <div id="js_sperm_freezing_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.sperm_freezing_faqs.errors }}
+          {{ form.sperm_freezing_faqs }}
         </div>
         {% endif %}
 
@@ -390,15 +660,27 @@
         <div id="js_surrogacy_cost" style="padding-top:1rem">
           <br>
           <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
-          {{ form.surrogacy.errors }}
+          {{ form.surrogacy_cost.errors }}
           {{ form.surrogacy_cost }}
+        </div>
+        <div id="js_surrogacy_faqs" style="padding-top:1rem">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.surrogacy_faqs.errors }}
+          {{ form.surrogacy_faqs }}
         </div>
         {% else %}
         <div id="js_surrogacy_cost" style="padding-top:1rem; display: none">
           <br>
           <p>Cost of Gestational surrogacy<i> (Single treatment cost only, use your selected currency)</i></p>
-          {{ form.surrogacy.errors }}
+          {{ form.surrogacy_cost.errors }}
           {{ form.surrogacy_cost }}
+        </div>
+        <div id="js_surrogacy_faqs" style="padding-top:1rem; display: none">
+          <br>
+          <p>Any additional information about this treatmetn<i> (Limitations, restrictions, FAQs)</i></p>
+          {{ form.surrogacy_faqs.errors }}
+          {{ form.surrogacy_faqs }}
         </div>
         {% endif %}
 

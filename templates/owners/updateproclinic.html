@@ -14,13 +14,6 @@
 
 <div class="container py-4">
   {% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-        {% endfor %}
-    {% endfor %}
     {% for error in form.non_field_errors %}
         <div class="alert alert-danger">
             <strong>{{ error|escape }}</strong>
@@ -589,6 +582,12 @@
           {{ form.team1name }}
         </div>
         <br>
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.team1position.errors }}
+          <label style="font-weight:400"> Position of first team member:</label>
+          {{ form.team1position }}
+        </div>
+        <br>
 
         {% if instance.team1pic %}
         <div class="col-md" style="text-align: left">
@@ -623,7 +622,12 @@
           {{ form.team2name }}
         </div>
         <br>
-
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.team2position.errors }}
+          <label style="font-weight:400"> Position of second team member:</label>
+          {{ form.team2position }}
+        </div>
+        <br>
         {% if instance.team2pic %}
         <div class="col-md" style="text-align: left">
           <p>Currently uploaded picture: </p>
@@ -657,7 +661,12 @@
           {{ form.team3name }}
         </div>
         <br>
-
+        <div class="fieldWrapper" style="text-align: left">
+          {{ form.team3position.errors }}
+          <label style="font-weight:400"> Position of third team member:</label>
+          {{ form.team3position }}
+        </div>
+        <br>
         {% if instance.team3pic %}
         <div class="col-md" style="text-align: left">
           <p>Currently uploaded picture: </p>

@@ -405,14 +405,17 @@ class BasicClinic(models.Model):
     team1name = models.CharField(max_length=25, blank=True, null=True)
     team1pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     team1pic_del = models.BooleanField(default=False, blank=True, null=True)
+    team1position = models.CharField(max_length=30, blank=True, null=True)
 
     team2name = models.CharField(max_length=25, blank=True, null=True)
     team2pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     team2pic_del = models.BooleanField(default=False, blank=True, null=True)
+    team2position = models.CharField(max_length=30, blank=True, null=True)
 
     team3name = models.CharField(max_length=25, blank=True, null=True)
     team3pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
     team3pic_del = models.BooleanField(default=False, blank=True, null=True)
+    team3position = models.CharField(max_length=30, blank=True, null=True)
 
     ### Clinics PRO logo of the clinic
     clinic_pro_logo_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)

@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <div class="container py-5" style="text-align: center; z-index: -1;" id="conditions">
   <h2>Conditions</h2>
   <hr>
@@ -120,52 +121,9 @@
       </div>
     </div>
   </div>
-  {% else %}
-  {% endif %}
+{% else %}
+{% endif %}
 
-  {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
-  <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-    <h2>Our team</h2>
-    <hr>
-    <div class="row" style="text-align: center">
-      <div class="col-4 col-md">
-        {% if listing.team1name and listing.team1pic %}
-        <img class="imgHoverTeam" src="{{ listing.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team1name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-      <div class="col-4 col-md">
-        {% if listing.team2name and listing.team2pic %}
-        <img class="imgHoverTeam" src="{{ listing.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team2name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-      <div class="col-4 col-md">
-        {% if listing.team3name and listing.team3pic %}
-        <img class="imgHoverTeam" src="{{ listing.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
-        <p class="display-5" style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team3name }}</p>
-        {% else %}
-        {% endif %}
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <br>
-      {{ listing.clinic_staff|safe }}
-    </div>
-    <br>
-    <div class="row" style="text-align: center">
-      <div class="col-12 col-md">
-        <a href="mailto:{{ listing.contact_email }}">
-          <button id="brandButtonGoalAskTeam" type="button" class="btn btn-outline-success btn-lg shadow-lg" style="width: 15rem;"><i class="fas fa-envelope"></i> Ask team directly</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  {% else %}
-  {% endif %}
 
 {% if listing.is_claimed == True and listing.pro_is_published == True or listing.ppq_is_published == True %}
   {% if listing.clinic_pro_photo_1 or listing.clinic_pro_photo_2 or listing.clinic_pro_photo_3 or listing.clinic_pro_photo_4 or listing.clinic_pro_photo_5 or listing.clinic_pro_photo_6 %}

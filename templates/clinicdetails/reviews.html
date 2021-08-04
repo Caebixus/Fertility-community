@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+
 {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
   {% if listing.clinicGoogleReviews != None or listing.clinicTrustPilotID != None %}
   <div class="container py-5" style="text-align: center; z-index: -1;">
@@ -36,4 +37,43 @@
   </div>
   {% else %}
   {% endif %}
+{% endif %}
+
+{% if listing.pro_is_published == True or listing.ppq_is_published == True %}
+<div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+  <h2>Our team</h2>
+  <hr>
+  <div class="row" style="text-align: center">
+    <div class="col-4 col-md">
+      {% if listing.team1name and listing.team1pic %}
+      <img class="imgHoverTeam" src="{{ listing.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
+      <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><b>{{ listing.team1name }}</b></p>
+      {% else %}
+      {% endif %}
+    </div>
+    <div class="col-4 col-md">
+      {% if listing.team2name and listing.team2pic %}
+      <img class="imgHoverTeam" src="{{ listing.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
+      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ listing.team2name }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 18px; text-align: center">CEO & COO</p>
+      {% else %}
+      {% endif %}
+    </div>
+    <div class="col-4 col-md">
+      {% if listing.team3name and listing.team3pic %}
+      <img class="imgHoverTeam" src="{{ listing.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
+      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ listing.team3name }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 18px; text-align: center">Marketing Manager</p>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <br>
+    {{ listing.clinic_staff|safe }}
+  </div>
+  <br>
+</div>
+{% else %}
 {% endif %}

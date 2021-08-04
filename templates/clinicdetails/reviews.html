@@ -48,6 +48,7 @@
       {% if listing.team1name and listing.team1pic %}
       <img class="imgHoverTeam" src="{{ listing.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
       <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><b>{{ listing.team1name }}</b></p>
+      {% if listing.team1position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team1position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}
     </div>
@@ -55,7 +56,7 @@
       {% if listing.team2name and listing.team2pic %}
       <img class="imgHoverTeam" src="{{ listing.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
       <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ listing.team2name }}</b></p>
-      <p style="margin-bottom: 0px; font-size: 18px; text-align: center">CEO & COO</p>
+      {% if listing.team2position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team2position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}
     </div>
@@ -63,7 +64,7 @@
       {% if listing.team3name and listing.team3pic %}
       <img class="imgHoverTeam" src="{{ listing.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
       <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ listing.team3name }}</b></p>
-      <p style="margin-bottom: 0px; font-size: 18px; text-align: center">Marketing Manager</p>
+      {% if listing.team3position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ listing.team3position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}
     </div>

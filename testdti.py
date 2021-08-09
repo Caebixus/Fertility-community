@@ -94,17 +94,17 @@ for bas in basic:
         pointsBasic = pointsBasic + 1
 
     ### Clinic's Social Media
-    if bas.clinicFacebook is not None:
+    if bas.clinicFacebook:
         pointsBasic = pointsBasic + 1
-    if bas.clinicInstagram is not None:
+    if bas.clinicInstagram:
         pointsBasic = pointsBasic + 1
-    if bas.clinicTwitter is not None:
+    if bas.clinicTwitter:
         pointsBasic = pointsBasic + 1
-    if bas.clinicYoutube is not None:
+    if bas.clinicYoutube:
         pointsBasic = pointsBasic + 1
-    if bas.clinicLinkedIn is not None:
+    if bas.clinicLinkedIn:
         pointsBasic = pointsBasic + 1
-    if bas.clinicPinterest is not None:
+    if bas.clinicPinterest:
         pointsBasic = pointsBasic + 1
 
     bas.digitalTransparencyIndex = pointsBasic
@@ -202,17 +202,17 @@ for pro in pro:
         pointsPro = pointsPro + 1
 
     ### Clinic's Social Media
-    if pro.clinicFacebook is not None:
+    if pro.clinicFacebook:
         pointsPro = pointsPro + 1
-    if pro.clinicInstagram is not None:
+    if pro.clinicInstagram:
         pointsPro = pointsPro + 1
-    if pro.clinicTwitter is not None:
+    if pro.clinicTwitter:
         pointsPro = pointsPro + 1
-    if pro.clinicYoutube is not None:
+    if pro.clinicYoutube:
         pointsPro = pointsPro + 1
-    if pro.clinicLinkedIn is not None:
+    if pro.clinicLinkedIn:
         pointsPro = pointsPro + 1
-    if pro.clinicPinterest is not None:
+    if pro.clinicPinterest:
         pointsPro = pointsPro + 1
 
     ### Clinic's Independent Reviews
@@ -338,17 +338,17 @@ for pre in premium:
         pointsPremium = pointsPremium + 1
 
     ### Clinic's Social Media
-    if pre.clinicFacebook is not None:
+    if pre.clinicFacebook:
         pointsPremium = pointsPremium + 1
-    if pre.clinicInstagram is not None:
+    if pre.clinicInstagram:
         pointsPremium = pointsPremium + 1
-    if pre.clinicTwitter is not None:
+    if pre.clinicTwitter:
         pointsPremium = pointsPremium + 1
-    if pre.clinicYoutube is not None:
+    if pre.clinicYoutube:
         pointsPremium = pointsPremium + 1
-    if pre.clinicLinkedIn is not None:
+    if pre.clinicLinkedIn:
         pointsPremium = pointsPremium + 1
-    if pre.clinicPinterest is not None:
+    if pre.clinicPinterest:
         pointsPremium = pointsPremium + 1
 
     ### Clinic's Independent Reviews

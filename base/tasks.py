@@ -17,77 +17,77 @@ from base.models import CurrenciesExchangeRates
 
 @task()
 def calculate_dti():
-    basic = BasicClinic.objects.filter(is_published=True, pro_is_published = False, ppq_is_published = False)
+    basic = BasicClinic.objects.filter(is_published=True, pro_is_published = False, ppq_is_published=False)
     for bas in basic:
         pointsBasic = 0
         if bas.is_claimed == True:
             pointsBasic = pointsBasic + 10
 
         ### Pricing
-        if bas.ivf_treatment_cost is not None:
+        if bas.ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if bas.mild_ivf_treatment_cost is not None:
+        if bas.mild_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if bas.ovarian_ivf_treatment_cost is not None:
+        if bas.ovarian_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if bas.iui_treatment_cost is not None:
+        if bas.iui_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if bas.icsi_treatment_cost is not None:
-            pointsBasic = pointsBasic + 2
-
-        if bas.egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if bas.known_egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if bas.embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if bas.known_embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if bas.sperm_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if bas.known_sperm_donor_recipients_cost is not None:
+        if bas.icsi_treatment_cost:
             pointsBasic = pointsBasic + 2
 
+        if bas.egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if bas.known_egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if bas.embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if bas.known_embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if bas.sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if bas.known_sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
 
-        if bas.egg_freezing_cost is not None:
+
+        if bas.egg_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if bas.embryo_freezing_cost is not None:
+        if bas.embryo_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if bas.sperm_freezing_cost is not None:
+        if bas.sperm_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if bas.surrogacy_cost is not None:
+        if bas.surrogacy_cost:
             pointsBasic = pointsBasic + 2
 
         ### Clinic's Basic Information
-        if bas.clinicTitle is not None:
+        if bas.clinicTitle:
             pointsBasic = pointsBasic + 1
 
         ### Clinic's Images
-        if bas.clinic_pro_logo_pic is not None:
+        if bas.clinic_pro_logo_pic:
             pointsBasic = pointsBasic + 3
-        if bas.clinic_pro_photo_1 is not None:
+        if bas.clinic_pro_photo_1:
             pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_2 is not None:
+        if bas.clinic_pro_photo_2:
             pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_3 is not None:
+        if bas.clinic_pro_photo_3:
             pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_4 is not None:
+        if bas.clinic_pro_photo_4:
             pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_5 is not None:
+        if bas.clinic_pro_photo_5:
             pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_6 is not None:
+        if bas.clinic_pro_photo_6:
             pointsBasic = pointsBasic + 1
 
         ### Clinic's Contact Information
-        if bas.contact_url is not None:
+        if bas.contact_url:
             pointsBasic = pointsBasic + 1
-        if bas.contact_phone is not None:
+        if bas.contact_phone:
             pointsBasic = pointsBasic + 1
-        if bas.contact_email is not None:
+        if bas.contact_email:
             pointsBasic = pointsBasic + 1
-        if bas.query_email is not None:
+        if bas.query_email:
             pointsBasic = pointsBasic + 1
-        if bas.fertilitycommunity_email is not None:
+        if bas.fertilitycommunity_email:
             pointsBasic = pointsBasic + 1
 
         ### Clinic's Languages
@@ -128,74 +128,74 @@ def calculate_dti():
             pointsPro = pointsPro + 10
 
         ### Pricing
-        if pro.ivf_treatment_cost is not None:
+        if pro.ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pro.mild_ivf_treatment_cost is not None:
+        if pro.mild_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pro.ovarian_ivf_treatment_cost is not None:
+        if pro.ovarian_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pro.iui_treatment_cost is not None:
+        if pro.iui_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pro.icsi_treatment_cost is not None:
-            pointsBasic = pointsBasic + 2
-
-        if pro.egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pro.known_egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pro.embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pro.known_embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pro.sperm_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pro.known_sperm_donor_recipients_cost is not None:
+        if pro.icsi_treatment_cost:
             pointsBasic = pointsBasic + 2
 
+        if pro.egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pro.known_egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pro.embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pro.known_embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pro.sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pro.known_sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
 
-        if pro.egg_freezing_cost is not None:
+
+        if pro.egg_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pro.embryo_freezing_cost is not None:
+        if pro.embryo_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pro.sperm_freezing_cost is not None:
+        if pro.sperm_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pro.surrogacy_cost is not None:
+        if pro.surrogacy_cost:
             pointsBasic = pointsBasic + 2
 
         ### Clinic's Basic Information
-        if pro.clinicTitle is not None:
+        if pro.clinicTitle:
             pointsPro = pointsPro + 1
-        if pro.description is not None:
+        if pro.description:
             pointsPro = pointsPro + 1
-        if pro.treatmentLimitations is not None:
+        if pro.treatmentLimitations:
             pointsPro = pointsPro + 1
 
         ### Clinic's Images
-        if pro.clinic_pro_logo_pic is not None:
+        if pro.clinic_pro_logo_pic:
             pointsPro = pointsPro + 3
-        if pro.clinic_pro_photo_1 is not None:
+        if pro.clinic_pro_photo_1:
             pointsPro = pointsPro + 1
-        if pro.clinic_pro_photo_2 is not None:
+        if pro.clinic_pro_photo_2:
             pointsPro = pointsPro + 1
-        if pro.clinic_pro_photo_3 is not None:
+        if pro.clinic_pro_photo_3:
             pointsPro = pointsPro + 1
-        if pro.clinic_pro_photo_4 is not None:
+        if pro.clinic_pro_photo_4:
             pointsPro = pointsPro + 1
-        if pro.clinic_pro_photo_5 is not None:
+        if pro.clinic_pro_photo_5:
             pointsPro = pointsPro + 1
-        if pro.clinic_pro_photo_6 is not None:
+        if pro.clinic_pro_photo_6:
             pointsPro = pointsPro + 1
 
         ### Clinic's Contact Information
-        if pro.contact_url is not None:
+        if pro.contact_url:
             pointsPro = pointsPro + 1
-        if pro.contact_phone is not None:
+        if pro.contact_phone:
             pointsPro = pointsPro + 1
-        if pro.contact_email is not None:
+        if pro.contact_email:
             pointsPro = pointsPro + 1
-        if pro.query_email is not None:
+        if pro.query_email:
             pointsPro = pointsPro + 1
-        if pro.fertilitycommunity_email is not None:
+        if pro.fertilitycommunity_email:
             pointsPro = pointsPro + 1
 
         ### Clinic's Languages
@@ -227,15 +227,14 @@ def calculate_dti():
             pointsPro = pointsPro + 1
 
         ### Clinic's Independent Reviews
-        if pro.clinicGoogleReviews is not None:
+        if pro.clinicGoogleReviews:
             pointsPro = pointsPro + 2
-        if pro.clinicTrustPilotID is not None:
+        if pro.clinicTrustPilotID:
             pointsPro = pointsPro + 2
 
         ### Clinic's Live Chat
-        if pro.clinicLiveChatChoice is not None:
-            if pro.clinicChatraCode or pro.clinicLiveChatCode or pro.clinicOlarkCode or pro.clinicTidioCode is not None:
-                pointsPro = pointsPro + 3
+        if pro.clinicLiveChatChoice:
+            pointsPro = pointsPro + 3
 
         ### Clinic's Packages
         if pro.packageClinicCounterNumber == 0:
@@ -265,74 +264,74 @@ def calculate_dti():
             pointsPremium = pointsPremium + 10
 
         ### Pricing
-        if pre.ivf_treatment_cost is not None:
+        if pre.ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pre.mild_ivf_treatment_cost is not None:
+        if pre.mild_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pre.ovarian_ivf_treatment_cost is not None:
+        if pre.ovarian_ivf_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pre.iui_treatment_cost is not None:
+        if pre.iui_treatment_cost:
             pointsBasic = pointsBasic + 2
-        if pre.icsi_treatment_cost is not None:
-            pointsBasic = pointsBasic + 2
-
-        if pre.egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pre.known_egg_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pre.embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pre.known_embryo_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pre.sperm_donor_recipients_cost is not None:
-            pointsBasic = pointsBasic + 2
-        if pre.known_sperm_donor_recipients_cost is not None:
+        if pre.icsi_treatment_cost:
             pointsBasic = pointsBasic + 2
 
+        if pre.egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pre.known_egg_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pre.embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pre.known_embryo_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pre.sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
+        if pre.known_sperm_donor_recipients_cost:
+            pointsBasic = pointsBasic + 2
 
-        if pre.egg_freezing_cost is not None:
+
+        if pre.egg_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pre.embryo_freezing_cost is not None:
+        if pre.embryo_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pre.sperm_freezing_cost is not None:
+        if pre.sperm_freezing_cost:
             pointsBasic = pointsBasic + 2
-        if pre.surrogacy_cost is not None:
+        if pre.surrogacy_cost:
             pointsBasic = pointsBasic + 2
 
         ### Clinic's Basic Information
-        if pre.clinicTitle is not None:
+        if pre.clinicTitle:
             pointsPremium = pointsPremium + 1
-        if pre.description is not None:
+        if pre.description:
             pointsPremium = pointsPremium + 1
-        if pre.treatmentLimitations is not None:
+        if pre.treatmentLimitations:
             pointsPremium = pointsPremium + 1
 
         ### Clinic's Images
-        if pre.clinic_pro_logo_pic is not None:
+        if pre.clinic_pro_logo_pic:
             pointsPremium = pointsPremium + 3
-        if pre.clinic_pro_photo_1 is not None:
+        if pre.clinic_pro_photo_1:
             pointsPremium = pointsPremium + 1
-        if pre.clinic_pro_photo_2 is not None:
+        if pre.clinic_pro_photo_2:
             pointsPremium = pointsPremium + 1
-        if pre.clinic_pro_photo_3 is not None:
+        if pre.clinic_pro_photo_3:
             pointsPremium = pointsPremium + 1
-        if pre.clinic_pro_photo_4 is not None:
+        if pre.clinic_pro_photo_4:
             pointsPremium = pointsPremium + 1
-        if pre.clinic_pro_photo_5 is not None:
+        if pre.clinic_pro_photo_5:
             pointsPremium = pointsPremium + 1
-        if pre.clinic_pro_photo_6 is not None:
+        if pre.clinic_pro_photo_6:
             pointsPremium = pointsPremium + 1
 
         ### Clinic's Contact Information
-        if pre.contact_url is not None:
+        if pre.contact_url:
             pointsPremium = pointsPremium + 1
-        if pre.contact_phone is not None:
+        if pre.contact_phone:
             pointsPremium = pointsPremium + 1
-        if pre.contact_email is not None:
+        if pre.contact_email:
             pointsPremium = pointsPremium + 1
-        if pre.query_email is not None:
+        if pre.query_email:
             pointsPremium = pointsPremium + 1
-        if pre.fertilitycommunity_email is not None:
+        if pre.fertilitycommunity_email:
             pointsPremium = pointsPremium + 1
 
         ### Clinic's Languages
@@ -364,15 +363,14 @@ def calculate_dti():
             pointsPremium = pointsPremium + 1
 
         ### Clinic's Independent Reviews
-        if pre.clinicGoogleReviews is not None:
+        if pre.clinicGoogleReviews:
             pointsPremium = pointsPremium + 2
-        if pre.clinicTrustPilotID is not None:
+        if pre.clinicTrustPilotID:
             pointsPremium = pointsPremium + 2
 
         ### Clinic's Live Chat
-        if pre.clinicLiveChatChoice is not None:
-            if pre.clinicChatraCode or pre.clinicLiveChatCode or pre.clinicOlarkCode or pre.clinicTidioCode is not None:
-                pointsPremium = pointsPremium + 3
+        if pre.clinicLiveChatChoice:
+            pointsPremium = pointsPremium + 3
 
         ### Clinic's Packages
         if pre.packageClinicCounterNumber == 0:

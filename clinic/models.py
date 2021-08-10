@@ -376,12 +376,12 @@ class BasicClinic(models.Model):
     reciprocal_treatment = models.BooleanField(default=False)
     hiv_patients_treatment = models.BooleanField(default=False)
     sex_selection = models.BooleanField(default=False)
+    accepts_patients_from_abroad = models.BooleanField(default=False)
 
     ### -----------------------------------------------------------------------
     ### Clinic Booleands
     is_published = models.BooleanField(default=False)
     is_claimed = models.BooleanField(default=False)
-    accepts_patients_from_abroad = models.BooleanField(default=False)
     pro_is_published = models.BooleanField(default=False)
     ppq_is_published  = models.BooleanField(default=False)
     no_waiting_list = models.BooleanField(default=False)

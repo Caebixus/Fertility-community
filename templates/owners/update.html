@@ -42,6 +42,17 @@
   </div>
   <br>
   <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.description.errors }}
+    <label>Description of your clinic (max 800 characters):</label>
+    {{ form.description }}
+  </div>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    {{ form.treatmentLimitations.errors }}
+    <label>Treatment limitations (Age restrictions, law restrictions, Blood level requirements, BMI etc - max 800 characters):</label>
+    {{ form.treatmentLimitations }}
+  </div>
   <br>
   <hr>
   <br>

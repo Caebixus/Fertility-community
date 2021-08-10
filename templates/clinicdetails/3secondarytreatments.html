@@ -196,7 +196,7 @@
   </div>
 </div>
 
-{% if listing.description and listing.pro_is_published == True or listing.ppq_is_published == True %}
+{% if listing.description %}
   <div class="container py-5">
     <h2>About our clinic:</h2>
     <hr>
@@ -204,7 +204,7 @@
   </div>
 {% else %}
 {% endif %}
-{% if listing.treatmentLimitations and listing.pro_is_published == True or listing.ppq_is_published == True %}
+{% if listing.treatmentLimitations %}
   <div class="container py-5">
     <h2>Treatment limitations and restrictions:</h2>
     <hr>

@@ -871,6 +871,8 @@ class CreateClinic(forms.ModelForm):
 class PostForm(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
+    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'), required=False, max_length=800)
+    treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics treatment limitations'), required=False, max_length=800)
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
     clinic_pro_logo_pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
@@ -937,6 +939,8 @@ class PostForm(forms.ModelForm):
         fields = [
         'clinicName',
         'clinicTitle',
+        'description',
+        'treatmentLimitations',
         'clinic_pro_logo_pic',
         'clinic_pro_logo_pic_del',
         'contact_url',

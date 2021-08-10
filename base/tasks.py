@@ -147,6 +147,10 @@ def calculate_dti():
         ### Clinic's Basic Information = 1
         if bas.clinicTitle:
             pointsBasic = pointsBasic + 1
+        if bas.description:
+            pointsBasic = pointsBasic + 1
+        if bas.treatmentLimitations:
+            pointsBasic = pointsBasic + 1
 
         ### Clinic's Images = 9
         if bas.clinic_pro_logo_pic:

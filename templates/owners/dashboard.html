@@ -53,6 +53,9 @@
           </div>
           {% else %}
           <div class="col-4 col-sm">
+            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+              <button class="btn btn-outline-dark btn-block" type="button" disabled>Payments</button>
+            </a>
           </div>
           {% endif %}
           <div class="col-4 col-sm">

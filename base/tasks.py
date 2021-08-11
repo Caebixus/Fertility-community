@@ -155,18 +155,6 @@ def calculate_dti():
         ### Clinic's Images = 9
         if bas.clinic_pro_logo_pic:
             pointsBasic = pointsBasic + 3
-        if bas.clinic_pro_photo_1:
-            pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_2:
-            pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_3:
-            pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_4:
-            pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_5:
-            pointsBasic = pointsBasic + 1
-        if bas.clinic_pro_photo_6:
-            pointsBasic = pointsBasic + 1
 
         ### Clinic's Contact Information = 5
         if bas.contact_url:

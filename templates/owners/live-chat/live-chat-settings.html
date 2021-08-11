@@ -6,7 +6,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Live Chat settings</h1>
-    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Guest Blogging and how to use it?</a></p>
+    <p style="color:white" hidden><a href="{% url 'howtousefertilitycommunity' %}#bod6" style="color:white">What is Live Chat and how to use it?</a></p>
     <br>
     <br>
   </div>
@@ -34,7 +34,7 @@
         {{ form.source }}
         <div class="fieldWrapper" style="text-align: left">
           {{ form.clinicLiveChatChoice.errors }}
-          <label for="{{ form.clinicLiveChatChoice.id_for_label}}">Choose live chat tool:</label>
+          <label for="{{ form.clinicLiveChatChoice.id_for_label}}">Choose live chat tool which you want to connect and show on clinic detail page:</label>
           <div class="fieldWrapper">
             {{ form.clinicLiveChatChoice }}
           </div>

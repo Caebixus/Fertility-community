@@ -8,7 +8,7 @@
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Packages - {{ instance.clinicName }}</h1>
     <p style="color:white">You have {{package_count}} packages. Your maximum limit for live packages is {% if instance.pro_is_published == True and instance.ppq_is_published == False %} 2. {% elif instance.ppq_is_published == True and instance.pro_is_published == False %} 6. {% else %} 0. {% endif %}</p>
-    <p style="color:white"><a href="{% url 'howtousefertilitycommunity' %}#bod4" style="color:white">What is package?</a></p>
+    <p style="color:white" hidden><a href="{% url 'howtousefertilitycommunity' %}#bod4" style="color:white">What is package?</a></p>
     <a href="{% url 'createpackage' instance.pk %}">
       <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;"> Create Package</button>
     </a>

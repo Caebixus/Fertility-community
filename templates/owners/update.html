@@ -86,35 +86,40 @@
   {% endif %}
   <br>
 
-  {% if instance.is_claimed == True %}
   <hr>
   <div class="row">
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_1 %}
-      <p>Currently uploaded picture 1: </p>
-      <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      {{ form.clinic_pro_photo_1.errors }}
-      <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
+        <p>Currently uploaded picture 1: </p>
+        <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_1.errors }}
+        <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
+        {{ form.clinic_pro_photo_1_del.errors}}
+        <label for="{{ form.clinic_pro_photo_1_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_1_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
-      <p>Upload Picture 1 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
+        <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
+        <p>Upload Picture 1 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
       {% endif %}
     </div>
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_2 %}
-      <p>Currently uploaded picture 2: </p>
-      <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      {{ form.clinic_pro_photo_2.errors }}
-      <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
+        <p>Currently uploaded picture 2: </p>
+        <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_2.errors }}
+        <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
+        {{ form.clinic_pro_photo_2_del.errors}}
+        <label for="{{ form.clinic_pro_photo_2_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_2_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
-      <p>Upload Picture 2 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
+        <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
+        <p>Upload Picture 2 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
       {% endif %}
     </div>
   </div>
@@ -124,30 +129,36 @@
   <div class="row">
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_3 %}
-      <p>Currently uploaded picture 3: </p>
-      <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      {{ form.clinic_pro_photo_3.errors }}
-      <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
+        <p>Currently uploaded picture 3: </p>
+        <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_3.errors }}
+        <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
+        {{ form.clinic_pro_photo_3_del.errors}}
+        <label for="{{ form.clinic_pro_photo_3_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_3_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
-      <p>Upload Picture 3 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
+        <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
+        <p>Upload Picture 3 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
       {% endif %}
     </div>
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_4 %}
-      <p>Currently uploaded picture 4: </p>
-      <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      <p style="font-size:10px">{{ form.clinic_pro_photo_4.errors }}</p>
-      <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      {{ form.clinic_pro_photo_4 }}
+        <p>Currently uploaded picture 4: </p>
+        <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_4.errors }}
+        <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
+        {{ form.clinic_pro_photo_4_del.errors}}
+        <label for="{{ form.clinic_pro_photo_4_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_4_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
-      <p>Upload Picture 4 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
+        <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
+        <p>Upload Picture 4 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
       {% endif %}
     </div>
   </div>
@@ -157,35 +168,39 @@
   <div class="row">
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_5 %}
-      <p>Currently uploaded picture 5: </p>
-      <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      {{ form.clinic_pro_photo_5.errors }}
-      <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
+        <p>Currently uploaded picture 5: </p>
+        <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_5.errors }}
+        <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
+        {{ form.clinic_pro_photo_5_del.errors}}
+        <label for="{{ form.clinic_pro_photo_5_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_5_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
-      <p>Upload Picture 5 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
+        <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
+        <p>Upload Picture 5 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
       {% endif %}
     </div>
     <div class="col-6" style="text-align: left">
       {% if instance.clinic_pro_photo_6 %}
-      <p>Currently uploaded picture 6: </p>
-      <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-      {{ form.clinic_pro_photo_6.errors }}
-      <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
-      <p>Re-upload (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
+        <p>Currently uploaded picture 6: </p>
+        <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+        {{ form.clinic_pro_photo_6.errors }}
+        <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
+        <p>Re-upload (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
+        {{ form.clinic_pro_photo_6_del.errors}}
+        <label for="{{ form.clinic_pro_photo_6_del.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.clinic_pro_photo_6_del }}
       {% else %}
-      <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
-      <p>Upload Picture 6 (1080x1080 px):</p>
-      <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
+        <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
+        <p>Upload Picture 6 (1080x1080 px):</p>
+        <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
       {% endif %}
     </div>
   </div>
-  {% else %}
-  {% endif %}
 
   <br>
   <hr>

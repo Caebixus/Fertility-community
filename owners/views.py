@@ -397,6 +397,28 @@ def update(request, listing_id):
         instance = form.save(commit=False)
         if instance.clinic_pro_logo_pic_del == True:
             instance.clinic_pro_logo_pic.delete()
+        if instance.clinic_pro_photo_1_del == True:
+            instance.clinic_pro_photo_1.delete()
+        else:
+            pass
+        if instance.clinic_pro_photo_2_del == True:
+            instance.clinic_pro_photo_2.delete()
+        else:
+            pass
+        if instance.clinic_pro_photo_3_del == True:
+            instance.clinic_pro_photo_3.delete()
+        else:
+            pass
+        if instance.clinic_pro_photo_4_del == True:
+            instance.clinic_pro_photo_4.delete()
+        else:
+            pass
+        if instance.clinic_pro_photo_5_del == True:
+            instance.clinic_pro_photo_5.delete()
+        else:
+            pass
+        if instance.clinic_pro_photo_6_del == True:
+            instance.clinic_pro_photo_6.delete()
         else:
             pass
         instance.update_list_date = datetime.now()

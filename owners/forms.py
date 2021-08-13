@@ -898,11 +898,22 @@ class PostForm(forms.ModelForm):
     clinicChinese = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Chinese speaking personal'))
 
     clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_2 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_2_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_3 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_3_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_4 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_4_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_5 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_5_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
     clinic_pro_photo_6 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
+    clinic_pro_photo_6_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
@@ -974,11 +985,17 @@ class PostForm(forms.ModelForm):
         'sundayCloses',
         'is_published_list_date',
         'clinic_pro_photo_1',
+        'clinic_pro_photo_1_del',
         'clinic_pro_photo_2',
+        'clinic_pro_photo_2_del',
         'clinic_pro_photo_3',
+        'clinic_pro_photo_3_del',
         'clinic_pro_photo_4',
+        'clinic_pro_photo_4_del',
         'clinic_pro_photo_5',
+        'clinic_pro_photo_5_del',
         'clinic_pro_photo_6',
+        'clinic_pro_photo_6_del',
         'single_woman_treatment',
         'reciprocal_ivf',
         'hiv_patients',

@@ -4,7 +4,7 @@
 {% load humanize %}
 {% load currencytag %}
 {% block title %}Compare {{ my_total_count }} fertility clinics in India | 2021{% endblock %}
-{% block description %}Need to quickly compare the best IVF clinics in Spain to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
+{% block description %}Need to quickly compare the best IVF clinics in India to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india{% endblock %}
 {% block meta_keywords %}fertility clinic in india, best ivf centre in india, best ivf doctor in india, best ivf clinic in india, india ivf clinic{% endblock %}
 
@@ -13,6 +13,12 @@
 {% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/locations/FertilityClinicsIndia.webp" />{% endblock %}
 {% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
 {% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="Compare {{ my_total_count }} fertility clinics in India | 2021">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="Need to quickly compare the best IVF clinics in India to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="https://fertilitycommunity.com/static/img/locations/FertilityClinicsIndia.webp" />{% endblock %}
 
 {% block content %}
 

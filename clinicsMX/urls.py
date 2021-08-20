@@ -20,7 +20,7 @@ urlpatterns = [
     path('clinics/mx/mexico-city/citmer-medicina-reproductiva', views.citmermedicinareproductiva, name='citmermedicinareproductiva'),
 
     #Cualican rosales
-    path('clinics/mx/cualican-rosales/embryogen-fertility-center-culiacan', views.embryogenfertilitycenterculiacan, name='embryogenfertilitycenterculiacan'),
+    path('clinics/mx/culiacan-rosales/embryogen-fertility-center-culiacan', views.embryogenfertilitycenterculiacan, name='embryogenfertilitycenterculiacan'),
 
     #Hermosillo
     path('clinics/mx/hermosillo/embryogen-fertility-center-hermosillo', views.embryogenfertilitycenterhermosillo, name='embryogenfertilitycenterhermosillo'),

@@ -11,9 +11,7 @@ class CostsViewSitemap(sitemaps.Sitemap):
     def items(self):
         return [
         'locations',
-        'locationsIVFwithEggDonation',
-        'locationsIVFwithEmbryoDonation',
-        'locationsIUI',
+        
         'locationsUSRegions',
         'locationsUKRegions',
         'locationsCZRegions',

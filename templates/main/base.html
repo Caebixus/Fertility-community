@@ -57,6 +57,13 @@
   {% block ogImageWidth %}{% endblock %}
   {% block ogImageHeight %}{% endblock %}
 
+{% block twittercard %}{% endblock %}
+{% block twittersite %}{% endblock %}
+{% block twittertitle%}{% endblock %}
+{% block twitterdescription %}{% endblock %}
+{% block twitterimage %}{% endblock %}
+
+
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
   {% if 'localhost' in request.get_host %}

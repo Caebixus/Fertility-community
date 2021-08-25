@@ -43,7 +43,8 @@ def ivfspainalicante(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -110,7 +111,8 @@ def ivialicante(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -178,7 +180,8 @@ def clinicadefertilidadbarcelonaivf(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -245,7 +248,8 @@ def ferttyinternational(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -312,7 +316,8 @@ def fertilabbarcelona(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -379,7 +384,8 @@ def institutmarquesbarcelona(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -446,7 +452,8 @@ def ivfforyou(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -513,7 +520,8 @@ def gravida(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -580,7 +588,8 @@ def ivibarcelona(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -647,7 +656,8 @@ def fivmarbellabarcelona(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -715,7 +725,8 @@ def ivfspainmadrid(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -782,7 +793,8 @@ def fertilitymadrid(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -849,7 +861,8 @@ def evafertilityclinicmadrid(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -916,7 +929,8 @@ def ivimadridaravaca(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -983,7 +997,8 @@ def clinicatambre(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1050,7 +1065,8 @@ def fertilityclinichru(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1117,7 +1133,8 @@ def fivmarbellamadrid(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1185,7 +1202,8 @@ def ivimalaga(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1252,7 +1270,8 @@ def fivmarbellamalaga(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1319,7 +1338,8 @@ def hcfertility(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1386,7 +1406,8 @@ def clinicafertia(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1454,7 +1475,8 @@ def ivisevilla(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1521,7 +1543,8 @@ def inebir(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1588,7 +1611,8 @@ def ginemedsevilla(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1656,7 +1680,8 @@ def ivivalencia(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1723,7 +1748,8 @@ def equipojuanacrespo(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1790,7 +1816,8 @@ def unidaddereproduccionasistidaimedvalencia(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1857,7 +1884,8 @@ def creavalencia(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1924,7 +1952,8 @@ def imerinstitutodemedicinareproductiva(request):
         user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
         user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
     else:
-        pass
+        user_objects_count = 0
+        user_objects = None
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()

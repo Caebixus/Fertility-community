@@ -3354,7 +3354,7 @@ def locationsSPRegions(request):
         queryset_list_valencia_iui_val = val
 
     context = {
-        'my_total_clinic_count_barcelona': my_total_clinic_count_barcelona,
+        'my_total_clinic_count_alicante': my_total_clinic_count_alicante,
         'queryset_list_alicante_ivf_val': queryset_list_alicante_ivf_val,
         'queryset_list_alicante_egg_val': queryset_list_alicante_egg_val,
         'queryset_list_alicante_embryo_val': queryset_list_alicante_embryo_val,

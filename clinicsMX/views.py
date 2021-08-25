@@ -16,21 +16,30 @@ from guestblogging.models import GuestBlog, GuestAuthor
 def iregaacapulco(request):
     listing = BasicClinic.objects.get(pk=709)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=709)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=709)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -38,6 +47,8 @@ def iregaacapulco(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -52,6 +63,8 @@ def iregaacapulco(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -65,21 +78,30 @@ def iregaacapulco(request):
 def fertilityclinicamericas(request):
     listing = BasicClinic.objects.get(pk=710)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=710)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=710)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -87,6 +109,8 @@ def fertilityclinicamericas(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -101,6 +125,8 @@ def fertilityclinicamericas(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -113,21 +139,30 @@ def fertilityclinicamericas(request):
 def advancedfertilitycenterfertilitycentercancun(request):
     listing = BasicClinic.objects.get(pk=711)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=711)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=711)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -135,6 +170,8 @@ def advancedfertilitycenterfertilitycentercancun(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -149,6 +186,8 @@ def advancedfertilitycenterfertilitycentercancun(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -161,21 +200,30 @@ def advancedfertilitycenterfertilitycentercancun(request):
 def newlifemexico(request):
     listing = BasicClinic.objects.get(pk=712)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=712)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=712)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -183,6 +231,8 @@ def newlifemexico(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -197,6 +247,8 @@ def newlifemexico(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -209,21 +261,30 @@ def newlifemexico(request):
 def iregacancun(request):
     listing = BasicClinic.objects.get(pk=713)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=713)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=713)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -231,6 +292,8 @@ def iregacancun(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -245,6 +308,8 @@ def iregacancun(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -258,21 +323,30 @@ def iregacancun(request):
 def embryogengertilitycenterguasave(request):
     listing = BasicClinic.objects.get(pk=714)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=714)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=714)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -280,6 +354,8 @@ def embryogengertilitycenterguasave(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -294,6 +370,8 @@ def embryogengertilitycenterguasave(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -307,21 +385,30 @@ def embryogengertilitycenterguasave(request):
 def enlistalofertilidadmexicociudaddemexico(request):
     listing = BasicClinic.objects.get(pk=715)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=715)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=715)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -329,6 +416,8 @@ def enlistalofertilidadmexicociudaddemexico(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -343,6 +432,8 @@ def enlistalofertilidadmexicociudaddemexico(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -355,21 +446,30 @@ def enlistalofertilidadmexicociudaddemexico(request):
 def citmermedicinareproductiva(request):
     listing = BasicClinic.objects.get(pk=716)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=716)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=716)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -377,6 +477,8 @@ def citmermedicinareproductiva(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -391,6 +493,8 @@ def citmermedicinareproductiva(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -404,21 +508,30 @@ def citmermedicinareproductiva(request):
 def embryogenfertilitycenterculiacan(request):
     listing = BasicClinic.objects.get(pk=717)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=717)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=717)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -426,6 +539,8 @@ def embryogenfertilitycenterculiacan(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -440,6 +555,8 @@ def embryogenfertilitycenterculiacan(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -453,21 +570,30 @@ def embryogenfertilitycenterculiacan(request):
 def embryogenfertilitycenterhermosillo(request):
     listing = BasicClinic.objects.get(pk=718)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=718)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=718)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -475,6 +601,8 @@ def embryogenfertilitycenterhermosillo(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -489,6 +617,8 @@ def embryogenfertilitycenterhermosillo(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -502,21 +632,30 @@ def embryogenfertilitycenterhermosillo(request):
 def embryogenfertilitycentermazatlan(request):
     listing = BasicClinic.objects.get(pk=719)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=719)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=719)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -524,6 +663,8 @@ def embryogenfertilitycentermazatlan(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -538,6 +679,8 @@ def embryogenfertilitycentermazatlan(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -551,21 +694,30 @@ def embryogenfertilitycentermazatlan(request):
 def mexicofertilitycenter(request):
     listing = BasicClinic.objects.get(pk=720)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=720)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=720)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -573,6 +725,8 @@ def mexicofertilitycenter(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -587,6 +741,8 @@ def mexicofertilitycenter(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -600,21 +756,30 @@ def mexicofertilitycenter(request):
 def embryogenfertilitycenternogales(request):
     listing = BasicClinic.objects.get(pk=721)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=721)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=721)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -622,6 +787,8 @@ def embryogenfertilitycenternogales(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -636,6 +803,8 @@ def embryogenfertilitycenternogales(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -649,21 +818,30 @@ def embryogenfertilitycenternogales(request):
 def ivfvallarta(request):
     listing = BasicClinic.objects.get(pk=722)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=722)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=722)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -671,6 +849,8 @@ def ivfvallarta(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -685,6 +865,8 @@ def ivfvallarta(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -697,21 +879,30 @@ def ivfvallarta(request):
 def surrogacymexico(request):
     listing = BasicClinic.objects.get(pk=723)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=723)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=723)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -719,6 +910,8 @@ def surrogacymexico(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -733,6 +926,8 @@ def surrogacymexico(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -746,21 +941,30 @@ def surrogacymexico(request):
 def iregapuebla(request):
     listing = BasicClinic.objects.get(pk=724)
 
-    mxlisting = BasicClinic.objects.all()
-    mxlisting = mxlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    mxlisting = allcliniclisting.filter(is_published=True)
     mxlisting = mxlisting.filter(clinicState__iexact='Mexico')
     mxlisting = mxlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=724)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=724)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -768,6 +972,8 @@ def iregapuebla(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -782,6 +988,8 @@ def iregapuebla(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,

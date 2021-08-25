@@ -69,10 +69,11 @@
           {% endif %}
         </a>
         <div class="card-body">
-          <a href="{{ guestblogs.guestblogblogurl }}">
-            <h3 class="card-title">{{ guestblogs.guestblogtitle }}</h3>
+          <a href="{{ guestblogs.guestblogblogurl }}" style="text-decoration: none">
+            <h3 class="card-title" style="font-size: 25px">{{ guestblogs.guestblogtitle }}</h3>
           </a>
-          <p class="card-text" style="font-size: 17px">{{ guestblogs.guestblogdescription|truncatechars:100 }}</p>
+          <br>
+          <p>{{ guestblogs.guestblogdescription|safe|truncatechars:100 }}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
               <a href="{{ guestblogs.guestblogblogurl }}">

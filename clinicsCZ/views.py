@@ -16,26 +16,34 @@ from guestblogging.models import GuestBlog, GuestAuthor
 def pragamedica(request):
     listing = BasicClinic.objects.get(pk=36)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=36)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=36)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -43,6 +51,8 @@ def pragamedica(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -58,6 +68,8 @@ def pragamedica(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -71,26 +83,34 @@ def pragamedica(request):
 def fertilityportx(request):
     listing = BasicClinic.objects.get(pk=600)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=600)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=600)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -98,6 +118,8 @@ def fertilityportx(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -113,6 +135,8 @@ def fertilityportx(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -126,26 +150,34 @@ def fertilityportx(request):
 def praguefertilitycentre(request):
     listing = BasicClinic.objects.get(pk=601)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=601)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=601)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -153,6 +185,8 @@ def praguefertilitycentre(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -168,6 +202,8 @@ def praguefertilitycentre(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -181,26 +217,34 @@ def praguefertilitycentre(request):
 def gynemfertilityclinic(request):
     listing = BasicClinic.objects.get(pk=602)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=602)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=602)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -208,6 +252,8 @@ def gynemfertilityclinic(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -223,6 +269,8 @@ def gynemfertilityclinic(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -236,26 +284,34 @@ def gynemfertilityclinic(request):
 def gennet(request):
     listing = BasicClinic.objects.get(pk=604)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=604)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=604)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -263,6 +319,8 @@ def gennet(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -278,6 +336,8 @@ def gennet(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -291,26 +351,34 @@ def gennet(request):
 def medicaltravelczechrep(request):
     listing = BasicClinic.objects.get(pk=605)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=605)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=605)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -318,6 +386,8 @@ def medicaltravelczechrep(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -333,6 +403,8 @@ def medicaltravelczechrep(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -346,26 +418,34 @@ def medicaltravelczechrep(request):
 def pronatalplusprague(request):
     listing = BasicClinic.objects.get(pk=606)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=606)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=606)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -373,6 +453,8 @@ def pronatalplusprague(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -388,6 +470,8 @@ def pronatalplusprague(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -401,26 +485,34 @@ def pronatalplusprague(request):
 def pronatalsanatoriumprague(request):
     listing = BasicClinic.objects.get(pk=607)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=607)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=607)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -428,6 +520,8 @@ def pronatalsanatoriumprague(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -443,6 +537,8 @@ def pronatalsanatoriumprague(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -456,26 +552,34 @@ def pronatalsanatoriumprague(request):
 def ivfcube(request):
     listing = BasicClinic.objects.get(pk=612)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=612)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=612)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -483,6 +587,8 @@ def ivfcube(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -498,6 +604,8 @@ def ivfcube(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -511,26 +619,34 @@ def ivfcube(request):
 def medistella(request):
     listing = BasicClinic.objects.get(pk=705)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=705)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=705)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -538,6 +654,8 @@ def medistella(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -553,6 +671,8 @@ def medistella(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -566,26 +686,34 @@ def medistella(request):
 def europeivfprague(request):
     listing = BasicClinic.objects.get(pk=728)
 
-    pragueclisting = BasicClinic.objects.all()
-    pragueclisting = pragueclisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    pragueclisting = allcliniclisting.filter(is_published=True)
     pragueclisting = pragueclisting.filter(clinicRegion__iexact='Prague')
     pragueclisting = pragueclisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=728)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=728)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -593,6 +721,8 @@ def europeivfprague(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -608,6 +738,8 @@ def europeivfprague(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -622,26 +754,34 @@ def europeivfprague(request):
 def ivfzlinczechrep(request):
     listing = BasicClinic.objects.get(pk=603)
 
-    brnolisting = BasicClinic.objects.all()
-    brnolisting = brnolisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    brnolisting = allcliniclisting.filter(is_published=True)
     brnolisting = brnolisting.filter(clinicRegion__iexact='Brno')
     brnolisting = brnolisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=603)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=603)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -649,6 +789,8 @@ def ivfzlinczechrep(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -664,6 +806,8 @@ def ivfzlinczechrep(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -677,26 +821,34 @@ def ivfzlinczechrep(request):
 def reprofitbrno(request):
     listing = BasicClinic.objects.get(pk=613)
 
-    brnolisting = BasicClinic.objects.all()
-    brnolisting = brnolisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    brnolisting = allcliniclisting.filter(is_published=True)
     brnolisting = brnolisting.filter(clinicRegion__iexact='Brno')
     brnolisting = brnolisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=613)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=613)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -704,6 +856,8 @@ def reprofitbrno(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -719,6 +873,8 @@ def reprofitbrno(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -732,26 +888,34 @@ def reprofitbrno(request):
 def reprogenesis(request):
     listing = BasicClinic.objects.get(pk=615)
 
-    brnolisting = BasicClinic.objects.all()
-    brnolisting = brnolisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    brnolisting = allcliniclisting.filter(is_published=True)
     brnolisting = brnolisting.filter(clinicRegion__iexact='Brno')
     brnolisting = brnolisting.count()
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=615)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=615)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -759,6 +923,8 @@ def reprogenesis(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -774,6 +940,8 @@ def reprogenesis(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -788,21 +956,30 @@ def reprogenesis(request):
 def pronatalkolin(request):
     listing = BasicClinic.objects.get(pk=608)
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=608)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=608)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -810,6 +987,8 @@ def pronatalkolin(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -824,6 +1003,8 @@ def pronatalkolin(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -837,21 +1018,30 @@ def pronatalkolin(request):
 def pronatalreproceskebudejovice(request):
     listing = BasicClinic.objects.get(pk=609)
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=609)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=609)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -859,6 +1049,8 @@ def pronatalreproceskebudejovice(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -873,6 +1065,8 @@ def pronatalreproceskebudejovice(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -886,21 +1080,30 @@ def pronatalreproceskebudejovice(request):
 def pronatalnordteplice(request):
     listing = BasicClinic.objects.get(pk=610)
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=610)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=610)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -908,6 +1111,8 @@ def pronatalnordteplice(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -922,6 +1127,8 @@ def pronatalnordteplice(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -935,21 +1142,30 @@ def pronatalnordteplice(request):
 def pronatalspakarlovyvary(request):
     listing = BasicClinic.objects.get(pk=611)
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=611)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=611)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -957,6 +1173,8 @@ def pronatalspakarlovyvary(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -971,6 +1189,8 @@ def pronatalspakarlovyvary(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,
@@ -984,21 +1204,30 @@ def pronatalspakarlovyvary(request):
 def reprofitostrava(request):
     listing = BasicClinic.objects.get(pk=614)
 
-    czlisting = BasicClinic.objects.all()
-    czlisting = czlisting.filter(is_published=True)
+    allcliniclisting = BasicClinic.objects.all()
+
+    czlisting = allcliniclisting.filter(is_published=True)
     czlisting = czlisting.filter(clinicState__iexact='Czech Republic')
     czlisting = czlisting.count()
 
-    alllisting = BasicClinic.objects.all()
-    alllisting = alllisting.filter(is_published=True)
+    alllisting = allcliniclisting.filter(is_published=True)
     alllisting = alllisting.count()
+
+    pkid = listing.id
 
     todayDate = timezone.now()
     package = Package.objects.all().exclude(package_end_list_date__lte=todayDate)
-    package = package.filter(packageclinic__id=614)
+    package = package.filter(packageclinic__id=pkid)
 
-    author = GuestAuthor.objects.filter(guestauthor_id=614)
+    author = GuestAuthor.objects.filter(guestauthor_id=pkid)
     guestblog = GuestBlog.objects.filter(guestblogauthor_id__in=author)
+
+    user_owner = User.objects.filter(basicclinic__pk=listing.pk)
+    if BasicClinic.objects.filter(clinicOwner_id__in=user_owner).count() >= 2:
+        user_objects_count = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True).count()
+        user_objects = BasicClinic.objects.filter(clinicOwner_id__in=user_owner).exclude(id=pkid).filter(is_claimed=True, is_published=True)
+    else:
+        pass
 
     if request.user.is_authenticated:
         usergroup = ProUser.objects.all()
@@ -1006,6 +1235,8 @@ def reprofitostrava(request):
         usergroup = usergroup.filter(paidPropublished=True)
 
         context = {
+            'user_objects_count': user_objects_count,
+            'user_objects': user_objects,
             'guestblog': guestblog,
             'usergroup': usergroup,
             'listing': listing,
@@ -1020,6 +1251,8 @@ def reprofitostrava(request):
         pass
 
     context = {
+        'user_objects_count': user_objects_count,
+        'user_objects': user_objects,
         'guestblog': guestblog,
         'listing': listing,
         'package': package,

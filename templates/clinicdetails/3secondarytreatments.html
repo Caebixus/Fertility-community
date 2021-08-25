@@ -212,3 +212,34 @@
   </div>
 {% else %}
 {% endif %}
+
+{% if user_objects %}
+<div class="container py-5">
+  {% if user_objects_count <= 1 %}
+    <h2>This clinic has {{ user_objects_count }} other office:</h2>
+  {% else %}
+    <h2>This clinic has {{ user_objects_count }} other offices:</h2>
+  {% endif %}
+  <hr>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for i in user_objects %}
+      <div class="col mb-5">
+        <div class="card">
+          <div class="card-body">
+            {% if i.clinic_pro_logo_pic %}
+            <p style="font-size: 20px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ i.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{{ i.clinic_url }}">{{ i.clinicName }}</a></p>
+            {% else %}
+            <p style="font-size: 20px; margin-bottom: 0px"><img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px"> <a href="{{ i.clinic_url }}">{{ i.clinicName }}</a></p>
+            {% endif %}
+          </div>
+          <a href="{{ i.clinic_url }}">
+            <button type="button" class="btn btn-link btn-block btn-md shadow" role="button">
+              Learn more
+            </button>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

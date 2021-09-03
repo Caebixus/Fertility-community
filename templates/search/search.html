@@ -359,65 +359,6 @@
   <div class="row">
     <div class="col-sm-8">
       {% if paginationing %}
-      {% for order_datas in order_data %}
-
-      <script type="application/ld+json">
-        {
-          "name" : "{{ order_datas.clinicName }}",
-          "address" : {
-            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
-            "addressLocality" : "{{ order_datas.clinicCity }}",
-            "postalCode" : "{{ order_datas.clinicPostalCode }}",
-            "addressRegion" : "{{ order_datas.clinicRegion }}",
-            "addressCountry" : "{{ order_datas.clinicState }}",
-            "@type" : "PostalAddress"
-          },
-          {% if order_datas.mondayOpens %}
-          "openingHoursSpecification" : [ {
-          "dayOfWeek" : [ "MONDAY" ],
-          "opens" : "{{ order_datas.mondayOpens }}",
-          "closes" : "{{ order_datas.mondayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
-          }, {
-          {% if order_datas.tuesdayOpens %}
-          "dayOfWeek" : [ "TUESDAY" ],
-          "opens" : "{{ order_datas.tuesdayOpens }}",
-          "closes" : "{{ order_datas.tuesdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
-          }, {
-          {% if order_datas.wednesdayOpens %}
-          "dayOfWeek" : [ "WEDNESDAY" ],
-          "opens" : "{{ order_datas.wednesdayOpens }}",
-          "closes" : "{{ order_datas.wednesdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
-          }, {
-          {% if order_datas.thursdayOpens %}
-          "dayOfWeek" : [ "THURSDAY" ],
-          "opens" : "{{ order_datas.thursdayOpens }}",
-          "closes" : "{{ order_datas.thursdayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
-          }, {
-          {% if order_datas.fridayOpens %}
-          "dayOfWeek" : [ "FRIDAY" ],
-          "opens" : "{{ order_datas.fridayOpens }}",
-          "closes" : "{{ order_datas.fridayCloses }}",
-          "@type" : "OpeningHoursSpecification"
-          {% else %}
-          {% endif %}
-          }, ],
-          "@type" : "MedicalClinic",
-          "@context" : "http://schema.org"
-        }
-      </script>
-      {% endfor %}
 
       {% for order_datas in order_data %}
 

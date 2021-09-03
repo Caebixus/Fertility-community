@@ -347,44 +347,9 @@
   <div class="row">
     <div class="col-sm-8">
       {% if paginationing %}
-      {% for order_datas in order_data %}
 
-      {% if order_datas.clinic_pro_logo_pic %}
-      <script type="application/ld+json">
-        {
-          "name" : "{{ order_datas.clinicName }}",
-          "image" : "{{ order_datas.clinic_pro_logo_pic }}",
-          "address" : {
-            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
-            "addressLocality" : "{{ order_datas.clinicCity }}",
-            "postalCode" : "{{ order_datas.clinicPostalCode }}",
-            "addressRegion" : "{{ order_datas.clinicRegion }}",
-            "addressCountry" : "{{ order_datas.clinicState }}",
-            "@type" : "PostalAddress"
-          },
-          "@type" : "MedicalClinic",
-          "@context" : "http://schema.org"
-        }
-      </script>
-      {% else %}
-      <script type="application/ld+json">
-        {
-          "name" : "{{ order_datas.clinicName }}",
-          "image" : "{% static 'img/hospital.svg' %}",
-          "address" : {
-            "streetAddress" : "{{ order_datas.clinicStreetAddress }}",
-            "addressLocality" : "{{ order_datas.clinicCity }}",
-            "postalCode" : "{{ order_datas.clinicPostalCode }}",
-            "addressRegion" : "{{ order_datas.clinicRegion }}",
-            "addressCountry" : "{{ order_datas.clinicState }}",
-            "@type" : "PostalAddress"
-          },
-          "@type" : "MedicalClinic",
-          "@context" : "http://schema.org"
-        }
-      </script>
-      {% endif %}
-      {% endfor %}
+      {% include 'AllInclude/locations/ld-json.html' %}
+
       {% include 'AllInclude/locations/clinic-boxes-dti.html' %}
 
       {% else %}

@@ -1,13 +1,30 @@
 {% load static %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 style="padding-top:3rem; color:white">
-      <u>{{ listing.clinicName }}</u>
-    </h1>
-    {% if listing.clinicTitle %}
-      <p class="lead" style="color:white">{{ listing.clinicTitle }}</p>
-    {% else %}
-    {% endif %}
+    <div class="header" style="padding-top:3rem; min-height:80px;">
+    {% if listing.clinic_pro_logo_pic %}
+      <div id="imgInfo" class="img align-self-center align-items-center">
+        <a target="_blank" rel="noopener noreferrer" href="{{ listing.clinic_url }}">
+          <img class="imgHoverLogo" src="{{ listing.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
+        </a>
+      </div>
+      {% else %}
+      <div id="imgInfo" class="img align-self-center align-items-center">
+        <a target="_blank" rel="noopener noreferrer" href="{{ listing.clinic_url }}">
+          <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
+        </a>
+      </div>
+      {% endif %}
+      <div class="container" id="nameInfo">
+        <div class="row-md">
+          <h1 style="color:white">
+            <u>{{ listing.clinicName }}</u>
+          </h1>
+        </div>
+        {% if listing.clinicTitle %}<p class="lead" style="color:white">{{ listing.clinicTitle }}</p>{% else %}<br>{% endif %}
+      </div>
+    </div>
+
     <div class="row-md">
       <p style="color: white">Features:
       {% if listing.ppq_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}

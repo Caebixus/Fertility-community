@@ -22,7 +22,7 @@ def calculate_dti():
         pointsBasic = 0
         ### Pricing = 10
         if bas.is_claimed == True:
-            pointsBasic = pointsBasic + 5
+            pointsBasic = pointsBasic + 4
 
         ### Pricing = 15
         if bas.ivf_treatment is not None:
@@ -132,6 +132,10 @@ def calculate_dti():
         if bas.surrogacy_faqs:
             pointsBasic = pointsBasic + 1
 
+        ### Clinic's Payment Information = 1
+        if bas.payment_type_cash == True or bas.payment_type_major_credit_cards == True or bas.payment_type_debit_cards == True or bas.payment_type_check == True or bas.payment_type_cryptocurrency == True or bas.payment_type_wire_transfer == True:
+            pointsBasic = pointsBasic + 1
+
         ### Clinic's Conditions = 2
         if bas.single_woman_treatment == True or bas.reciprocal_treatment == True or bas.hiv_patients_treatment == True or bas.sex_selection == True:
             pointsBasic = pointsBasic + 1
@@ -201,7 +205,7 @@ def calculate_dti():
     for pro in profesional:
         pointsPro = 0
         if pro.is_claimed == True:
-            pointsPro = pointsPro + 5
+            pointsPro = pointsPro + 4
 
         ### Pricing = 15
         if pro.ivf_treatment is not None:
@@ -309,6 +313,10 @@ def calculate_dti():
         if pro.surrogacy_cost:
             pointsPro = pointsPro + 1
         if pro.surrogacy_faqs:
+            pointsPro = pointsPro + 1
+
+        ### Clinic's Payment Information = 1
+        if pro.payment_type_cash == True or pro.payment_type_major_credit_cards == True or pro.payment_type_debit_cards == True or pro.payment_type_check == True or pro.payment_type_cryptocurrency == True or pro.payment_type_wire_transfer == True:
             pointsPro = pointsPro + 1
 
         ### Clinic's Conditions = 2
@@ -422,7 +430,7 @@ def calculate_dti():
     for pre in premium:
         pointsPremium = 0
         if pre.is_claimed == True:
-            pointsPremium = pointsPremium + 5
+            pointsPremium = pointsPremium + 4
 
         ### Pricing = 15
         if pre.ivf_treatment is not None:
@@ -530,6 +538,10 @@ def calculate_dti():
         if pre.surrogacy_cost:
             pointsPremium = pointsPremium + 1
         if pre.surrogacy_faqs:
+            pointsPremium = pointsPremium + 1
+
+        ### Clinic's Payment Information = 1
+        if pre.payment_type_cash == True or pre.payment_type_major_credit_cards == True or pre.payment_type_debit_cards == True or pre.payment_type_check == True or pre.payment_type_cryptocurrency == True or pre.payment_type_wire_transfer == True:
             pointsPremium = pointsPremium + 1
 
         ### Clinic's Conditions = 2

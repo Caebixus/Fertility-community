@@ -236,6 +236,53 @@
       <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
       {{ form.fertilitycommunity_email }}
     </div>
+
+  <br>
+  <hr>
+  <br>
+  <h2>Payment information</h2>
+  <div class="row">
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Cash
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_cash }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Major Credit Cards
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_major_credit_cards }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Debit Cards
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_debit_cards }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Checks
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_check }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Cryptocurrency
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_cryptocurrency }}
+    </div>
+    <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'">
+      Wire Transfer
+    </div>
+    <div class="col-2 col-md">
+      {{ form.payment_type_wire_transfer }}
+    </div>
+  </div>
+
+
     <br>
     <hr>
     <br>
@@ -688,8 +735,6 @@
           {{ form.team3pic }}
         </div>
         {% endif %}
-      </div>
-      <div class="col-md">
       </div>
     </div>
     <br>

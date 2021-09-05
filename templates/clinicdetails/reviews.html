@@ -39,6 +39,60 @@
   {% endif %}
 {% endif %}
 
+{% if listing.payment_type_cash == True or listing.payment_type_major_credit_cards == True or listing.payment_type_debit_cards == True or listing.payment_type_check == True or listing.payment_type_cryptocurrency == True or listing.payment_type_wire_transfer == True %}
+<div class="container py-5" style="text-align: center; z-index: -1;" id="conditions">
+  <h2>Payment options </h2>
+  <hr>
+  <div class="row">
+    <hr class="featurette-divider">
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+
+        {% if listing.payment_type_cash == True %}
+        <li class="list-group-item">
+          <i class="fas fa-money-bill"></i> Cash
+        </li>
+        {% endif %}
+
+        {% if listing.payment_type_major_credit_cards == True %}
+        <li class="list-group-item">
+          <i class="fas fa-credit-card"></i> Major Credit Cards
+        </li>
+        {% endif %}
+
+        {% if listing.payment_type_debit_cards == True %}
+        <li class="list-group-item">
+          <i class="far fa-credit-card"></i> Debit Cards
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+    <div class="col-sm" style="text-align: left; padding-top:1rem">
+      <ul class="list-group list-group-flush">
+        {% if listing.payment_type_check == True %}
+        <li class="list-group-item">
+          <i class="fas fa-money-check"></i> Check
+        </li>
+        {% endif %}
+
+        {% if listing.payment_type_cryptocurrency == True %}
+        <li class="list-group-item">
+          <i class="fab fa-btc"></i> Cryptocurrency
+        </li>
+        {% endif %}
+
+        {% if listing.payment_type_wire_transfer == True %}
+        <li class="list-group-item">
+          <i class="fas fa-university"></i> Wire Transfer
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 {% if listing.pro_is_published == True or listing.ppq_is_published == True %}
 <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
   <h2>Our team</h2>

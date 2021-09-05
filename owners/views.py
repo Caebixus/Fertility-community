@@ -392,9 +392,12 @@ def update(request, listing_id):
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-    form = PostForm(request.POST or None, request.FILES or None, instance=instance)
+
+    form = PostForm(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
+
     if form.is_valid():
         instance = form.save(commit=False)
+
         if instance.clinic_pro_logo_pic_del == True:
             instance.clinic_pro_logo_pic.delete()
         if instance.clinic_pro_photo_1_del == True:
@@ -421,10 +424,12 @@ def update(request, listing_id):
             instance.clinic_pro_photo_6.delete()
         else:
             pass
+
         instance.update_list_date = datetime.now()
         instance.save()
 
         data = form.cleaned_data
+
         klinika = instance.clinicName
 
         if instance.is_claimed == True:
@@ -456,7 +461,7 @@ def updatePricing(request, listing_id):
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-    form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
+    form = UpdatePrice(request.POST or None, request.FILES or None, pk=listing_id)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.update_list_date = datetime.now()

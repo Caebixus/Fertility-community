@@ -1,6 +1,7 @@
 from django import forms
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.models import User
-from clinic.models import BasicClinic, LIVE_CHAT_CHOICES, TRUSTPILOT_CHOICES
+from clinic.models import BasicClinic, LIVE_CHAT_CHOICES, TRUSTPILOT_CHOICES, AcceptedPayment, AcceptedCurrency
 from .models import ownerProInterested
 from packages.models import Packages, Package
 from packages.packageChoices import CATEGORY_PACKAGE
@@ -936,7 +937,7 @@ class PostForm(forms.ModelForm):
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -944,6 +945,14 @@ class PostForm(forms.ModelForm):
     clinicYoutube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
+    payment_type_cash = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_major_credit_cards = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_debit_cards = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_check = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_cryptocurrency = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_wire_transfer = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+
 
     class Meta:
         model = BasicClinic
@@ -1007,8 +1016,13 @@ class PostForm(forms.ModelForm):
         'clinicYoutube',
         'clinicLinkedIn',
         'clinicPinterest',
+        'payment_type_cash',
+        'payment_type_major_credit_cards',
+        'payment_type_debit_cards',
+        'payment_type_check',
+        'payment_type_cryptocurrency',
+        'payment_type_wire_transfer',
         ]
-
 
 class UpdatePrice(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
@@ -1214,7 +1228,7 @@ class PostFormPro(forms.ModelForm):
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
+    accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     clinicFacebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     clinicInstagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -1223,6 +1237,12 @@ class PostFormPro(forms.ModelForm):
     clinicLinkedIn = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     clinicPinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
+    payment_type_cash = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_major_credit_cards = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_debit_cards = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_check = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_cryptocurrency = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    payment_type_wire_transfer = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
     class Meta:
         model = BasicClinic
@@ -1302,6 +1322,12 @@ class PostFormPro(forms.ModelForm):
         'clinicYoutube',
         'clinicLinkedIn',
         'clinicPinterest',
+        'payment_type_cash',
+        'payment_type_major_credit_cards',
+        'payment_type_debit_cards',
+        'payment_type_check',
+        'payment_type_cryptocurrency',
+        'payment_type_wire_transfer',
         ]
 
 class UpdatePricePro(forms.ModelForm):

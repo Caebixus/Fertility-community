@@ -198,6 +198,7 @@ class BasicClinic(models.Model):
     digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null = True)
 
     ### Contact information
+    slug = models.SlugField(null=True)
     clinic_url = models.URLField(null=True, blank=True, max_length=500)
     contact_url = models.URLField(max_length=500)
     contact_phone = models.CharField(max_length=20, blank=True)
@@ -267,6 +268,16 @@ class BasicClinic(models.Model):
     clinicChinese = models.BooleanField(default=False)
 
     ### Clinic Currency - primarily accepted currency by clinic
+    accepted_currency_type = models.ManyToManyField('AcceptedCurrency', blank=True)
+    accepted_payment_type = models.ManyToManyField('AcceptedPayment', blank=True, related_name='payment_types_related_name')
+
+    payment_type_cash = models.BooleanField(default=False)
+    payment_type_major_credit_cards = models.BooleanField(default=False)
+    payment_type_debit_cards = models.BooleanField(default=False)
+    payment_type_check = models.BooleanField(default=False)
+    payment_type_cryptocurrency = models.BooleanField(default=False)
+    payment_type_wire_transfer = models.BooleanField(default=False)
+
     defaultClinicCurrency = models.CharField(max_length=40, choices=CATEGORY_CHOICES_CURRENCY, null = True, default='USD')
 
     ### -----------------------------------------------------------------------
@@ -457,57 +468,22 @@ class BasicClinic(models.Model):
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
     clinicTrustPilotDomain = models.CharField(max_length=100, blank=True, null = True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.clinicName)
+        return super().save(*args, **kwargs)
 
-#
-###
-####
-#####
-######
-#######
-######## DEPRECIATED MODELS FIELDS ------------------- ------------------- ------------------- ------------------- -------------------
-    CATEGORY_PACKAGE = (
-        ('IVF', 'IVF'),
-        ('Egg Donation', 'Egg Donation'),
-        ('Embryo Donation', 'Embryo Donation'),
-        )
-
-    package1title = models.CharField(max_length=30, blank=True, null = True)
-    package1category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package1desc = models.TextField(max_length=500, blank=True, null = True)
-    package1cost = models.FloatField(blank=True, null=True)
-
-    package2title = models.CharField(max_length=30, blank=True, null = True)
-    package2category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package2desc = models.TextField(max_length=500, blank=True, null = True)
-    package2cost = models.FloatField(blank=True, null=True)
-
-    package3title = models.CharField(max_length=30, blank=True, null = True)
-    package3category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package3desc = models.TextField(max_length=500, blank=True, null = True)
-    package3cost = models.FloatField(blank=True, null=True)
-
-    package4title = models.CharField(max_length=30, blank=True, null = True)
-    package4category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package4desc = models.TextField(max_length=500, blank=True, null = True)
-    package4cost = models.FloatField(blank=True, null=True)
-
-    package5title = models.CharField(max_length=30, blank=True, null = True)
-    package5category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package5desc = models.TextField(max_length=500, blank=True, null = True)
-    package5cost = models.FloatField(blank=True, null=True)
-
-    package6title = models.CharField(max_length=30, blank=True, null = True)
-    package6category = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
-    package6desc = models.TextField(max_length=500, blank=True, null = True)
-    package6cost = models.FloatField(blank=True, null=True)
-
-    clinic_pro_promotion_name = models.CharField(max_length=80, blank=True, null=True)
-    clinic_pro_promotion_description = models.TextField(max_length=800, blank=True, null=True)
-    clinic_pro_promotion_landing_url = models.URLField(null=True, blank=True, max_length=500)
-    clinic_staff = RichTextField(blank=True, null=True, max_length=300)
+class AcceptedPayment(models.Model):
+    accepted_payment = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return str(self.clinicName)
+        return str(self.accepted_payment)
+
+class AcceptedCurrency(models.Model):
+    accepted_currency = models.CharField(max_length=10, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.accepted_currency)
 
 class ClinicsExportProxy(BasicClinic):
     class Meta:

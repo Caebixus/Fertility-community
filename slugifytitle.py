@@ -10,5 +10,5 @@ from clinic.models import BasicClinic
 clinic = BasicClinic.objects.all()
 
 for clinics in clinic:
-    clinics.slug = slugify(clinics.clinicName, allow_unicode=True)
+    clinics.slug = slugify(clinics.clinicName, allow_unicode=False)
     clinics.save()

@@ -1,0 +1,443 @@
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+<br>
+
+<div class="container py-3">
+  <h2>
+    <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="The Digital Transparency Index (DTI) is published by FertilityCommunity. This index appreciates the transparency of data and content of individual IVF clinics from around the world in the clinic-client relationship. Paid membership can affect the index.">
+      Digital transparency index - {{ clinic.clinicName }}
+    </i>
+    <hr>
+  </h2>
+
+  <div class="progress">
+    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{clinic.digitalTransparencyIndex}}%" aria-valuenow="{{clinic.digitalTransparencyIndex}}" aria-valuemin="0" aria-valuemax="100"><strong>{{clinic.digitalTransparencyIndex}}%</strong></div>
+  </div>
+</div>
+
+<br>
+<div class="container py-3" style="text-align: center;">
+  {% if clinic.accepts_patients_from_abroad == True %}<button type="button" class="btn btn-info btn-block btn-lg">Accepts international patients</button> {% else %}{% endif %}
+</div>
+
+<div class="container py-5" style="text-align: center; z-index: -1;" id="pricing">
+  <div class="row">
+    <div class="col-8">
+      <h2>Primary treatments & costs (single cycle)</h2>
+    </div>
+    <div class="col-4">
+      <select class="form-control" id="ChooseCurrency">
+        <option value="" selected>Currency</option>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
+    </div>
+  </div>
+  <hr>
+  {% if clinic.is_claimed == True %}
+  <p>The prices listed below are managed by clinic staff, but are generally average prices without medication, so they may not match your final price.</p>
+  {% else %}
+  <p>The prices listed below are only estimated average prices without medication and do not guarantee the final price.</p>
+  {% endif %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left">Treatment name</th>
+        <th scope="col">Provide</th>
+        <th scope="col">Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Natural IVF -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.ivf_treatment_faqs and clinic.ivf_treatment == True %}<a data-toggle="collapse" href="#naturalivf" role="button" aria-expanded="false" aria-controls="naturalivf"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} Natural IVF <a href='{% url 'everythingYouNeedToKnowAboutNaturalIvf' %}'><i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Natural IVF without ovarian stimulation drugs - read more"></i></a></p>
+          <div class="collapse multi-collapse" id="naturalivf">
+            <p>
+              {{ clinic.ivf_treatment_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.ivf_treatment == True %}
+            {% if clinic.ivf_treatment_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'USD'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'EUR'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'GBP'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'CZK'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'MXN'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'INR'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ivf_treatment_cost=clinic.ivf_treatment_cost|convert:'CAD'|floatformat:'0' %}{{ ivf_treatment_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+      <!-- Mild IVF -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.mild_ivf_treatment_faqs and clinic.mild_ivf_treatment == True %}<a data-toggle="collapse" href="#mildivf" role="button" aria-expanded="false" aria-controls="mildivf"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} Mild (mini) IVF <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Small dose of ovarian stimulating drugs are used"></i></p>
+          <div class="collapse multi-collapse" id="mildivf">
+            <p>
+              {{ clinic.mild_ivf_treatment_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.mild_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.mild_ivf_treatment == True %}
+            {% if clinic.mild_ivf_treatment_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'USD'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'EUR'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'GBP'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'CZK'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'MXN'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'INR'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with mild_ivf_treatment_cost=clinic.mild_ivf_treatment_cost|convert:'CAD'|floatformat:'0' %}{{ mild_ivf_treatment_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+      <!-- Standard IVF with stimulation -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.ovarian_ivf_treatment_faqs and clinic.ovarian_ivf_treatment == True %}<a data-toggle="collapse" href="#standardivf" role="button" aria-expanded="false" aria-controls="standardivf"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} Standard IVF <a href='{% url 'blog1' %}'><i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="IVF using ovarian stimulation - read more"></i></a></p>
+          <div class="collapse multi-collapse" id="standardivf">
+            <p>
+              {{ clinic.ovarian_ivf_treatment_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.ovarian_ivf_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.ovarian_ivf_treatment == True %}
+            {% if clinic.ovarian_ivf_treatment_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'USD'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'EUR'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'GBP'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'CZK'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'MXN'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'INR'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with ovarian_ivf_treatment_cost=clinic.ovarian_ivf_treatment_cost|convert:'CAD'|floatformat:'0' %}{{ ovarian_ivf_treatment_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+      <!-- ICSI_treatment -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.icsi_treatment_faqs and clinic.icsi_treatment == True %}<a data-toggle="collapse" href="#icsifaqs" role="button" aria-expanded="false" aria-controls="icsifaqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} ICSI (Intracytoplasmic sperm injection)</p>
+          <div class="collapse multi-collapse" id="icsifaqs">
+            <p>
+              {{ clinic.icsi_treatment_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.icsi_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.icsi_treatment == True %}
+            {% if clinic.icsi_treatment_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'USD'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'EUR'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'GBP'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'CZK'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'MXN'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'INR'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with icsi_treatment_cost=clinic.icsi_treatment_cost|convert:'CAD'|floatformat:'0' %}{{ icsi_treatment_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+      <!-- iui_treatment -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.iui_treatment_faqs and clinic.iui_treatment == True %}<a data-toggle="collapse" href="#iuifaqs" role="button" aria-expanded="false" aria-controls="iuifaqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IUI (Intrauterine insemination)</p>
+          <div class="collapse multi-collapse" id="iuifaqs">
+            <p>
+              {{ clinic.iui_treatment_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.iui_treatment == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.iui_treatment == True %}
+            {% if clinic.iui_treatment_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'USD'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'EUR'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'GBP'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'CZK'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'MXN'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'INR'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with iui_treatment_cost=clinic.iui_treatment_cost|convert:'CAD'|floatformat:'0' %}{{ iui_treatment_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container py-3" style="text-align: center; z-index: -1;" id="pricing">
+  <div class="row">
+    <div class="col-8">
+      <h2>IVF with donation & costs (single cycle)</h2>
+    </div>
+  </div>
+  <hr>
+  {% if clinic.is_claimed == True %}
+  <p>The prices listed below are managed by clinic staff, but are generally average prices without medication, so they may not match your final price.</p>
+  {% else %}
+  <p>The prices listed below are only estimated average prices without medication and do not guarantee the final price.</p>
+  {% endif %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left">Treatment name</th>
+        <th scope="col">Provide</th>
+        <th scope="col">Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Anonymous egg_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.egg_donor_recipients_faqs and clinic.egg_donor_recipients == True %}<a data-toggle="collapse" href="#egg_donor_faqs" role="button" aria-expanded="false" aria-controls="egg_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using anonymous egg donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="egg_donor_faqs">
+            <p>
+              {{ clinic.egg_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.egg_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.egg_donor_recipients == True %}
+            {% if clinic.egg_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_donor_recipients_cost=clinic.egg_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ egg_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+      <!-- Known egg_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.known_egg_donor_recipients_faqs and clinic.known_egg_donor_recipients == True %}<a data-toggle="collapse" href="#known_egg_donor_faqs" role="button" aria-expanded="false" aria-controls="known_egg_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using known egg donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="known_egg_donor_faqs">
+            <p>
+              {{ clinic.known_egg_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.known_egg_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.known_egg_donor_recipients == True %}
+            {% if clinic.known_egg_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_egg_donor_recipients_cost=clinic.known_egg_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ known_egg_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+      <!-- Anonymous embryo_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.embryo_donor_recipients_faqs and clinic.embryo_donor_recipients == True %}<a data-toggle="collapse" href="#embryo_donor_faqs" role="button" aria-expanded="false" aria-controls="embryo_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using anonymous embryo donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="embryo_donor_faqs">
+            <p>
+              {{ clinic.embryo_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.embryo_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.embryo_donor_recipients == True %}
+            {% if clinic.embryo_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_donor_recipients_cost=clinic.embryo_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ embryo_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+
+      <!-- Known embryo_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.known_embryo_donor_recipients_faqs and clinic.known_embryo_donor_recipients == True %}<a data-toggle="collapse" href="#know_embryo_donor_faqs" role="button" aria-expanded="false" aria-controls="know_embryo_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using known embryo donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="know_embryo_donor_faqs">
+            <p>
+              {{ clinic.known_embryo_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.known_embryo_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.known_embryo_donor_recipients == True %}
+            {% if clinic.known_embryo_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_embryo_donor_recipients_cost=clinic.known_embryo_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ known_embryo_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+
+      <!-- sperm_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.sperm_donor_recipients_faqs and clinic.sperm_donor_recipients == True %}<a data-toggle="collapse" href="#sperm_donor_faqs" role="button" aria-expanded="false" aria-controls="sperm_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using anonymous sperm donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="sperm_donor_faqs">
+            <p>
+              {{ clinic.sperm_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.sperm_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.sperm_donor_recipients == True %}
+            {% if clinic.sperm_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_donor_recipients_cost=clinic.sperm_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ sperm_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+
+
+      <!-- sperm_donor_recipients -->
+      <tr>
+        <th>
+          <p style="text-align: left; font-size: 22px">{% if clinic.known_sperm_donor_recipients_faqs and clinic.known_sperm_donor_recipients == True %}<a data-toggle="collapse" href="#known_sperm_donor_faqs" role="button" aria-expanded="false" aria-controls="known_sperm_donor_faqs"><i class="fas fa-angle-double-down"></i></a>{% else %}{% endif %} IVF using known sperm donors <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="With single cycle pricing"></i></p>
+          <div class="collapse multi-collapse" id="known_sperm_donor_faqs">
+            <p>
+              {{ clinic.known_sperm_donor_recipients_faqs|safe }}
+            </p>
+          </div>
+        </th>
+        <td>
+          {% if clinic.known_sperm_donor_recipients == True %}<img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 2rem;">
+          {% else %}<img src="{% static 'img/False.png' %}" class="mr-3" alt="Icon False" style="height: 2rem;">
+          {% endif %}
+        </td>
+        <td>
+          {% if clinic.known_sperm_donor_recipients == True %}
+            {% if clinic.known_sperm_donor_recipients_cost != none %}
+              <div class="treatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'USD'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} USD</p></div>
+              <div class="treatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'EUR'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} EUR</p></div>
+              <div class="treatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'GBP'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} GBP</p></div>
+              <div class="treatmentCostsCZKCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'CZK'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} CZK</p></div>
+              <div class="treatmentCostsMXNCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'MXN'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} MXN</p></div>
+              <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'INR'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} INR</p></div>
+              <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with known_sperm_donor_recipients_cost=clinic.known_sperm_donor_recipients_cost|convert:'CAD'|floatformat:'0' %}{{ known_sperm_donor_recipients_cost|intcomma }}{% endwith %} CAD</p></div>
+            {% else %}
+              <p style="text-align: center; font-size: 22px">Unknown</p>
+            {% endif %}
+          {% else %}
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

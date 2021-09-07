@@ -1,0 +1,29 @@
+<div class="container py-4">
+  <h3>Find similar clinics near you:</h3>
+  <ul class="nav justify-content-left">
+    {% if clinic.clinicCityLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ clinic.clinicCityLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ clinic.clinicCity }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if clinic.clinicRegionLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ clinic.clinicRegionLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ clinic.clinicRegion }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if clinic.clinicStateLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ clinic.clinicStateLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Fertility clinics in {{ clinic.clinicState }}</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% if clinic.clinicLocationLink %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ clinic.clinicLocationLink }}" style="font-size: 14px !important;"><u><i class="fas fa-undo"></i> Compare IVF worldwide</u></a>
+    </li>
+    {% else %}
+    {% endif %}
+  </ul>
+</div>

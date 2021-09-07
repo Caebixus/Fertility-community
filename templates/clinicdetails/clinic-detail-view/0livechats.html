@@ -1,0 +1,52 @@
+{% load static %}
+{% load humanize %}
+{% if clinic.pro_is_published == True or clinic.ppq_is_published == True and clinic.clinicLiveChatChoice == 'Chatra' %}
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = '{{ clinic.clinicChatraCode }}';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+
+{% elif clinic.pro_is_published == True or clinic.ppq_is_published == True and clinic.clinicLiveChatChoice == 'Livechat' %}
+
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = {{ clinic.clinicLiveChatCode }};
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechatinc.com/chat-with/{{ clinic.clinicLiveChatCode }}/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+{% elif clinic.pro_is_published == True or clinic.ppq_is_published == True and clinic.clinicLiveChatChoice == 'Olark' %}
+
+<!-- begin olark code -->
+<script type="text/javascript">
+;(function(o,l,a,r,k,y){if(o.olark)return;
+r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+y.extend=function(i,j){y("extend",i,j)};
+y.identify=function(i){y("identify",k.i=i)};
+y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+k=y._={s:[],t:[+new Date],c:{},l:a};
+})(window,document,"static.olark.com/jsclient/loader.js");
+/* Add configuration calls below this comment */
+olark.identify('{{ clinic.clinicOlarkCode }}');</script>
+<!-- end olark code -->
+
+{% elif clinic.pro_is_published == True or clinic.ppq_is_published == True and clinic.clinicLiveChatChoice == 'Tidio' %}
+
+<script src="//code.tidio.co/{{ clinic.clinicTidioCode }}.js" async></script>
+
+{% endif %}

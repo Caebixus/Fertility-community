@@ -1,0 +1,50 @@
+{% load static %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <div class="header" style="padding-top:3rem; min-height:80px;">
+    {% if clinic.clinic_pro_logo_pic %}
+      <div id="imgInfo" class="img align-self-center align-items-center">
+        <a target="_blank" rel="noopener noreferrer" href="{{ clinic.clinic_url }}">
+          <img class="imgHoverLogo" src="{{ clinic.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
+        </a>
+      </div>
+      {% else %}
+      <div id="imgInfo" class="img align-self-center align-items-center">
+        <a target="_blank" rel="noopener noreferrer" href="{{ clinic.clinic_url }}">
+          <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
+        </a>
+      </div>
+      {% endif %}
+      <div class="container" id="nameInfo">
+        <div class="row-md">
+          <h1 style="color:white">
+            <u>{{ clinic.clinicName }}</u>
+          </h1>
+        </div>
+        {% if clinic.clinicTitle %}<p class="lead" style="color:white">{{ clinic.clinicTitle }}</p>{% else %}<br>{% endif %}
+      </div>
+    </div>
+
+    <div class="row-md">
+      <p style="color: white">Features:
+      {% if clinic.ppq_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+      {% if clinic.verified_is_published == True or clinic.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Verified</span>{% else %}{% endif %}
+      {% if clinic.ppq_is_published == True and clinic.clinicLiveChatChoice != Blank %}{% if clinic.clinicChatraCode != Blank or clinic.clinicLiveChatCode != Blank or clinic.clinicOlarkCode != Blank or clinic.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
+      {% if clinic.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> International patients</span>{% else %}{% endif %}
+      {% if clinic.clinicGoogleReviews != Empty or clinic.clinicTrustPilotID != Empty %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Trusted reviews</span>{% else %}{% endif %}
+      {% if clinic.clinicOwn == 'Private' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Private</span>{% else %}{% endif %}
+      {% if clinic.clinicOwn == 'State' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> State</span>{% else %}{% endif %}
+      </p>
+    </div>
+    <div class="row-md">
+      {% if clinic.clinicSart != Null or clinic.clinicHfea != Null %}
+      <p style="color: white">Certification:
+        {% if clinic.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ clinic.clinicSart }}" target="_blank" style="color:white" rel="nofollow noopener">SART certified</a></span>{% else %}{% endif %}
+        {% if clinic.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ clinic.clinicHfea }}" target="_blank" style="color:white" rel="nofollow noopener">HFEA certified</a></span>{% else %}{% endif %}
+      </p>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+</div>

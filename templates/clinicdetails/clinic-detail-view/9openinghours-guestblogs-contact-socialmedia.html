@@ -1,0 +1,159 @@
+{% load static %}
+{% load humanize %}
+
+{% if clinic.mondayOpens == None or clinic.mondayCloses == None or clinic.tuesdayOpens == None or clinic.tuesdayCloses == None or clinic.wednesdayOpens == None or clinic.wednesdayCloses == None or clinic.thursdayOpens == None or clinic.thursdayCloses == None or clinic.fridayOpens == None or clinic.fridayCloses == None %}
+{% else %}
+<div class="container py-3" style="text-align: center; z-index: -1;">
+  <h2>Opening hours</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"><u>Day</u></th>
+        <th scope="col"><u>Opening hours</u></th>
+        <th scope="col"><u>Closing hours</u></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Monday</th>
+        <td>{{ clinic.mondayOpens }}</td>
+        <td>{{ clinic.mondayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Tuesday</th>
+        <td>{{ clinic.tuesdayOpens }}</td>
+        <td>{{ clinic.tuesdayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Wednesday</th>
+        <td>{{ clinic.wednesdayOpens }}</td>
+        <td>{{ clinic.wednesdayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Thursday</th>
+        <td>{{ clinic.thursdayOpens }}</td>
+        <td>{{ clinic.thursdayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Friday</th>
+        <td>{{ clinic.fridayOpens }}</td>
+        <td>{{ clinic.fridayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Saturday</th>
+        <td>{{ clinic.saturdayOpens }}</td>
+        <td>{{ clinic.saturdayCloses }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Sunday</th>
+        <td>{{ clinic.sundayOpens }}</td>
+        <td>{{ clinic.sundayCloses }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+{% if guestblog %}
+<div class="container py-5" style="text-align: center; z-index: -1;">
+  <h2>{{ clinic.clinicName }} News</h2>
+  <hr>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for guestblogs in guestblog %}
+    {% if guestblogs.guestblogactive == True %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <a href="{{ guestblogs.guestblogblogurl }}">
+          {% if guestblogs.guestblogpicblogmain %}<img src="{{ guestblogs.guestblogpicblogmain.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+          {% else %}
+          {% endif %}
+        </a>
+        <div class="card-body">
+          <a href="{{ guestblogs.guestblogblogurl }}" style="text-decoration: none">
+            <h3 class="card-title" style="font-size: 25px">{{ guestblogs.guestblogtitle }}</h3>
+          </a>
+          <br>
+          <p>{{ guestblogs.guestblogdescription|safe|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ guestblogs.guestblogblogurl }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
+            </div>
+            <small class="text-muted">{{ guestblogs.guestblogminuteread }} mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<div class="container py-3" style="text-align: center; margin-top: 40px; margin-bottom: 40px">
+  <h2>Contact</h2>
+  <hr>
+  <div class="row" style="padding-top:10px">
+
+    {% if clinic.contact_url %}
+    <div class="col" style="text-align: center">
+    </div>
+    <div class="col" style="text-align: center">
+      <a href="{{ clinic.contact_url }}" style="text-align: center; text-decoration: none" rel="ugc noopener" target="_blank">
+        <button id="brandButtonGoalPrimary" type="button" class="btn btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
+      </a>
+    </div>
+    <div class="col" style="text-align: center">
+    </div>
+    {% else %}
+    {% endif %}
+
+  </div>
+</div>
+
+{% if clinic.clinicFacebook or clinic.clinicInstagram or clinic.clinicTwitter or clinic.clinicYoutube or clinic.clinicLinkedIn or clinic.clinicPinterest %}
+  <div class="container py-5" style="text-align: center; padding-top: 40px; margin-bottom: 5rem">
+    <h2>Social Media</h2>
+    <hr>
+    <div class="row">
+      {% if clinic.clinicFacebook %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicFacebook}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if clinic.clinicInstagram %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicInstagram}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if clinic.clinicTwitter %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicTwitter}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if clinic.clinicYoutube %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicYoutube}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if clinic.clinicLinkedIn %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicLinkedIn}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+      {% if clinic.clinicPinterest %}
+      <div class="col" style="padding-top:2rem">
+        <a href="{{clinic.clinicPinterest}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-square" style="font-size: 350%"></i></a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

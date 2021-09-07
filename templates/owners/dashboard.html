@@ -38,7 +38,7 @@
             </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+            <a href="{% url 'clinics:clinic-detail' listings.slug %}" style="text-decoration: none; !important">
               <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
             </a>
           </div>
@@ -118,7 +118,7 @@
             </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+            <a href="{% url 'clinics:clinic-detail' listings.slug %}" style="text-decoration: none; !important">
               <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
             </a>
           </div>
@@ -201,7 +201,7 @@
             </a>
           </div>
           <div class="col-sm" style="padding-top: 1rem">
-            <a href="{{ listings.clinic_url }}" style="text-decoration: none; !important">
+            <a href="{% url 'clinics:clinic-detail' listings.slug %}" style="text-decoration: none; !important">
               <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
             </a>
           </div>

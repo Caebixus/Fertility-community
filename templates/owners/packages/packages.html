@@ -45,7 +45,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-8">
-              <p><b>Name of the clinic:</b> <a href="{{ listings.packageClinic.clinic_url }}">{{ listings.packageClinic.clinicName }}</a></p>
+              <p><b>Name of the clinic:</b> <a href="{% url 'clinics:clinic-detail' listings.packageclinic.slug %}">{{ listings.packageClinic.clinicName }}</a></p>
               <p><b>Category:</b> <i>{{ listings.packagescategory }}</i></p>
             </div>
             <div class="col-sm-4">

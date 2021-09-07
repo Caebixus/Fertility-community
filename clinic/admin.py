@@ -6,14 +6,16 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('clinicName',), }
     save_as = True
     list_display = ('id', 'digitalTransparencyIndex', 'clinicName', 'clinicOwner', 'clinicCity', 'update_list_date', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'is_published_list_date', 'pro_update_is_published_list_date', 'clinicRegion', 'clinicState')
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'clinicOwner', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (
-        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'digitalTransparencyIndex',)}),
+        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
-        ('Contact information', {'fields': ('slug', 'clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email', 'fertilitycommunity_email', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber')}),
+        ('Slugs', {'fields': ('slug',)}),
+        ('Contact information', {'fields': ('clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email', 'fertilitycommunity_email', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber')}),
         ('Address information', {'fields': ('clinicStreetAddress', 'clinicCity', 'clinicState', 'clinicRegion', 'clinicPostalCode',)}),
         ('Opening hours', {'fields': ('mondayOpens', 'mondayCloses', 'tuesdayOpens', 'tuesdayCloses', 'wednesdayOpens', 'wednesdayCloses', 'thursdayOpens', 'thursdayCloses', 'fridayOpens', 'fridayCloses', 'saturdayOpens', 'saturdayCloses', 'sundayOpens', 'sundayCloses',)}),
         ('Secondary information', {'fields': ('clinicSart', 'clinicHfea', 'clinicOwn', 'clinicEnglish', 'clinicSpanish', 'clinicPortuguese', 'clinicRussian', 'clinicGerman', 'clinicChinese',)}),
@@ -28,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
         ('Images', {'fields': ('clinic_pro_logo_pic', 'clinic_pro_main_pic', 'clinic_pro_photo_1', 'clinic_pro_photo_2', 'clinic_pro_photo_3', 'clinic_pro_photo_4', 'clinic_pro_photo_5', 'clinic_pro_photo_6',)}),
         ('LiveChat tools', {'fields': ('clinicLiveChatChoice', 'clinicChatraCode', 'clinicLiveChatCode', 'clinicOlarkCode', 'clinicTidioCode',)}),
         ('Independent reviews', {'fields': ('clinicGoogleReviews', 'clinicTrustPilotChoice', 'clinicTrustPilotID', 'clinicTrustPilotDomain',)}),
-        ('The rest', {'fields': ('clinicGoogleReviewsUrl', 'description', 'treatmentLimitations', 'type',)}),
+        ('The rest', {'fields': ('description', 'treatmentLimitations', 'type',)}),
     )
     actions = ['clinicLocationLink_update_g']
 

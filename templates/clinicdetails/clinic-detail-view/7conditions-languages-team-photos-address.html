@@ -192,7 +192,7 @@
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ clinic.clinicStreetAddress }}</p>
       <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ clinic.clinicCity }}</p>
 
-      {% if clinic.clinicPostalCode or clinic.clinicPostalCode == None %}
+      {% if clinic.clinicPostalCode or clinic.clinicPostalCode == 'None' %}
         <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ clinic.clinicPostalCode }}</p>
       {% else %}
         <p></p>

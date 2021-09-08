@@ -12,8 +12,6 @@ class StaticViewSitemap(sitemaps.Sitemap):
     def items(self):
         return [
         'index',
-        'team',
-        'contact',
         'blog1',
         'blog',
         'packagesearch',

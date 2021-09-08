@@ -200,7 +200,7 @@ class BasicClinic(models.Model):
     digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null = True)
 
     ### Contact information
-    slug = models.SlugField(max_length=100, null=True)
+    slug = models.SlugField(max_length=100, null=True, unique=True)
     clinic_url = models.URLField(null=True, blank=True, max_length=500)
     contact_url = models.URLField(max_length=500)
     contact_phone = models.CharField(max_length=20, blank=True)
@@ -476,7 +476,7 @@ class BasicClinic(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('clinics:clinic-detail', kwargs={'slug': self.slug})
+        return reverse('clinics:clinic-detail', kwargs={'pk': self.id, 'slug': self.slug()})
 
 class AcceptedPayment(models.Model):
     accepted_payment = models.CharField(max_length=100, blank=True, null=True)

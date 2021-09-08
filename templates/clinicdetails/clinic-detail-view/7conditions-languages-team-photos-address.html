@@ -191,12 +191,20 @@
     <div class="col-sm-6" style="padding-top:2rem">
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ clinic.clinicStreetAddress }}</p>
       <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ clinic.clinicCity }}</p>
+
+      {% if clinic.clinicPostalCode %}
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ clinic.clinicPostalCode }}</p>
+      {% else %}
+      <p></p>
+      {% endif %}
+
       <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ clinic.clinicState }}</p>
       <br>
+
       {% if clinic.clinicRegion %}
         <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{clinic.clinicRegion}}</p>
       {% endif %}
+      
     </div>
     {% if clinic.clinicGoogleReviewsUrl %}
     <div class="col-sm-6" style="padding-top:2rem">

@@ -52,7 +52,7 @@
           </p>
 
           <p>
-            <a href="{% url 'clinics:clinic-detail' listings.packageclinic.slug %}#packages" style="text-decoration: none">
+            <a href="{% url 'clinics:clinic-detail' listings.packageclinic.pk listings.packageclinic.slug %}#packages" style="text-decoration: none">
               <button type="button" class="btn btn-outline-dark btn-block">Live view</button>
             </a>
           </p>

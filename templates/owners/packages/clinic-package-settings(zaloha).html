@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-8 sm-8">
               <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ listings.packagetitle }}</h2>
-              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' listings.packageclinic.slug %}">Clinic: {{ listings.packageclinic.clinicName }}</a></p>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' listings.packageclinic.pk listings.packageclinic.slug %}">Clinic: {{ listings.packageclinic.clinicName }}</a></p>
               <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ listings.packagecategory }} </p>
             </div>
             <div class="col-4 sm-4 text-right">
@@ -77,7 +77,7 @@
         </div>
         <br>
         <div class="col-4 md-4 text-center">
-          <a href="{% url 'clinics:clinic-detail' listings.packageclinic.slug %}#packages">
+          <a href="{% url 'clinics:clinic-detail' listings.packageclinic.pk listings.packageclinic.slug %}#packages">
             <button type="button" class="btn btn-dark btn-block">Live view</button>
           </a>
         </div>
@@ -118,7 +118,7 @@
           <div class="row">
             <div class="col-8 sm-8">
               <h2 class="display-5" style="margin-bottom: 0px; font-size: 28px"><i class="fas fa-archive"></i> {{ notactivelistings.packagetitle }}</h2>
-              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' notactivelistings.packageclinic.slug %}">Clinic: {{ notactivelistings.packageclinic.clinicName }}</a></p>
+              <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' notactivelistings.packageclinic.pk notactivelistings.packageclinic.slug %}">Clinic: {{ notactivelistings.packageclinic.clinicName }}</a></p>
               <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-chart-pie"></i> Category: {{ notactivelistings.packagecategory }} </p>
             </div>
             <div class="col-4 sm-4 text-right">

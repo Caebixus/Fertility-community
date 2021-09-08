@@ -200,7 +200,7 @@ class BasicClinic(models.Model):
     digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null = True)
 
     ### Contact information
-    slug = models.SlugField(max_length=100, null=True, unique=True)
+    slug = models.SlugField(max_length=100, null=True)
     clinic_url = models.URLField(null=True, blank=True, max_length=500)
     contact_url = models.URLField(max_length=500)
     contact_phone = models.CharField(max_length=20, blank=True)

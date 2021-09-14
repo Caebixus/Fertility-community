@@ -778,7 +778,7 @@ CATEGORY_CHOICES_US_REGION = (
 class CreateClinic(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
-    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics Description'), max_length=800)
+    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, label=('Clinics Description'), max_length=1300)
 
     contact_url = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -872,7 +872,7 @@ class CreateClinic(forms.ModelForm):
 class PostForm(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False, label=('Clinics Title'))
-    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'), required=False, max_length=800)
+    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'), required=False, max_length=1300)
     treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics treatment limitations'), required=False, max_length=800)
 
     clinic_pro_logo_pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Clinics Logo'))
@@ -1141,7 +1141,7 @@ class UpdatePrice(forms.ModelForm):
 class PostFormPro(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'))
     clinicTitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Title'))
-    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'), required=False, max_length=800)
+    description = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics Description'), required=False, max_length=1300)
     treatmentLimitations = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics treatment limitations'), required=False, max_length=800)
 
     clinic_staff = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), label=('Clinics staff'), required=False, max_length=300)

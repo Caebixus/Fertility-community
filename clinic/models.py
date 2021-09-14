@@ -193,7 +193,7 @@ class BasicClinic(models.Model):
         ('DonorBank', 'DonorBank'),
         )
     type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
-    description = models.TextField(max_length=800, blank=True, null = True)
+    description = models.TextField(max_length=1300, blank=True, null = True)
     treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
 
     ### Clinic's digital transparency index

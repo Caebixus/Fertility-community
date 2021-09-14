@@ -460,8 +460,11 @@ def updatePricing(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
+
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-    form = UpdatePrice(request.POST or None, request.FILES or None, pk=listing_id)
+
+    form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
+
     if form.is_valid():
         instance = form.save(commit=False)
         instance.update_list_date = datetime.now()
@@ -498,8 +501,11 @@ def updateproclinic(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
+
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
     form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
+
     if form.is_valid():
         instance = form.save(commit=False)
         if instance.clinic_pro_logo_pic_del == True:
@@ -577,8 +583,11 @@ def updatePricingPro(request, listing_id):
     usergroup = ProUser.objects.all()
     usergroup = usergroup.filter(user=request.user)
     usergroup = usergroup.filter(paidPropublished=True)
+
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
     form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
+    
     if form.is_valid():
         instance = form.save(commit=False)
         instance.pro_update_is_published_list_date = datetime.now()

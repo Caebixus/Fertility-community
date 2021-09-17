@@ -2,6 +2,7 @@
 User-agent: *
 Disallow: /search/*
 Disallow: /account/*
+Disallow: /clinics/*
 Disallow: /*?*
 
 Sitemap: https://www.fertilitycommunity.com/sitemap.xml

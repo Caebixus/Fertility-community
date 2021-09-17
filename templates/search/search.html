@@ -370,20 +370,20 @@
             <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
-                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                   <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
-                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                   <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
               <div class="container" id="nameInfo">
                 <div class="row-md">
-                  <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                  <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                     <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
@@ -405,65 +405,65 @@
 
           {% if 'IVFtreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Natural IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Natural IVF available</a></p>
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Standard IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Standard IVF available</a></p>
 
           {% elif 'ICSItreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">ICSI available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">ICSI available</a></p>
 
           {% elif 'IUItreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IUI available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IUI available</a></p>
 
           {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using egg donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using egg donors available</a></p>
 
           {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using embryo donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using embryo donors available</a></p>
 
           {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using sperm donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using sperm donors available</a></p>
 
           {% elif 'EggFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Egg freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Egg freezing available</a></p>
 
           {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Embryo freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Embryo freezing available</a></p>
 
           {% elif 'SpermFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Sperm freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Sperm freezing available</a></p>
 
           {% elif 'Surrogacytrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Gestational surrogacy available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Gestational surrogacy available</a></p>
 
           {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#conditions" style="text-decoration: none">Single woman treatment available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#conditions" rel="nofollow" style="text-decoration: none">Single woman treatment available</a></p>
 
           {% elif 'ReciprocalIVFtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#conditions" style="text-decoration: none">Reciprocal IVF (LGBTQ) available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#conditions" rel="nofollow" style="text-decoration: none">Reciprocal IVF (LGBTQ) available</a></p>
           {% endif %}
 
           <hr noshade>
           <div class="row-md">
             <p>Features:
-              {% if order_datas.ppq_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+              {% if order_datas.ppq_is_published == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
               {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Verified</span>{% else %}{% endif %}
               {% if order_datas.ppq_is_published == True and order_datas.clinicLiveChatChoice != Blank %}{% if order_datas.clinicChatraCode != Blank or order_datas.clinicLiveChatCode != Blank or order_datas.clinicOlarkCode != Blank or order_datas.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
               {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> International patients</span>{% else %}{% endif %}
@@ -472,32 +472,38 @@
               {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> State</span>{% else %}{% endif %}
             </p>
           </div>
-
-          {% if order_datas.clinicSart != Null or order_datas.clinicHfea != Null %}
-          <hr noshade>
           <div class="row-md">
-            <p>Certification:
-            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicSart }}" style="color: white"> SART member</a></span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicHfea }}" style="color: white"> HFAE member</a></span>{% else %}{% endif %}
-            </p>
+            {% if order_datas.clinicSart != Null or order_datas.clinicHfea != Null %}
+              <p>Certification:
+              {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicSart }}" target="_blank" style="color:white" rel="nofollow noopener"> SART member</a></span>{% else %}{% endif %}
+              {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicHfea }}" target="_blank" style="color:white" rel="nofollow noopener"> HFAE member</a></span>{% else %}{% endif %}
+              </p>
+            {% else %}
+            {% endif %}
           </div>
-          {% else %}
-          {% endif %}
 
           <hr noshade>
           <div class="row">
             <div class="col-4 col-sm" style="padding-top:1rem">
-              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                 <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
             <div class="col-4 col-sm" style="padding-top:1rem">
-              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing">
+              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow">
                 <button id="pricingSearchButton" type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-tags"></i> Pricing</button>
               </a>
             </div>
+            {% if order_datas.pro_is_published == True or order_datas.ppq_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
+            {% endif %}
           </div>
         </div>
         <br>
@@ -508,20 +514,20 @@
             <div class="header" style="min-height:80px;">
               {% if order_datas.clinic_pro_logo_pic %}
               <div id="imgInfo" class="img align-self-center align-items-center">
-                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                   <img class="imgHoverLogo" src="{{ order_datas.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% else %}
               <div id="imgInfo" class="img align-self-center align-items-center">
-                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                   <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px">
                 </a>
               </div>
               {% endif %}
               <div class="container" id="nameInfo">
                 <div class="row-md">
-                  <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+                  <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                     <p class="display-5" style="margin-bottom: 0px; color: #6c757d; font-size: 28px">{{ order_datas.clinicName }}</p>
                   </a>
                 </div>
@@ -543,51 +549,51 @@
 
           {% if 'IVFtreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Natural IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Natural IVF available</a></p>
 
           {% elif 'IVFtreatmentmildtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Mild (mini) IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Mild (mini) IVF available</a></p>
 
           {% elif 'IVFtreatmentovariantrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">Standard IVF available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">Standard IVF available</a></p>
 
           {% elif 'ICSItreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">ICSI available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">ICSI available</a></p>
 
           {% elif 'IUItreatmenttrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IUI available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IUI available</a></p>
 
           {% elif 'Eggdonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using egg donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using egg donors available</a></p>
 
           {% elif 'Embryodonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using embryo donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using embryo donors available</a></p>
 
           {% elif 'Spermdonationrecipientstrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" style="text-decoration: none">IVF using sperm donors available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#pricing" rel="nofollow" style="text-decoration: none">IVF using sperm donors available</a></p>
 
           {% elif 'EggFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Egg freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Egg freezing available</a></p>
 
           {% elif 'EmbryoFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Embryo freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Embryo freezing available</a></p>
 
           {% elif 'SpermFreezingtrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Sperm freezing available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Sperm freezing available</a></p>
 
           {% elif 'Surrogacytrue' in request.get_full_path %}
           <hr noshade>
-          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" style="text-decoration: none">Gestational surrogacy available</a></p>
+          <p style="font-size: 15px; color: #6c757d; margin-bottom: 0px"><img src="{% static 'img/True.png' %}" class="mr-3" alt="Icon True" style="height: 25px;"><a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#secondPricing" rel="nofollow" style="text-decoration: none">Gestational surrogacy available</a></p>
 
           {% elif 'Singlewomantreatmenttrue' in request.get_full_path %}
           <hr noshade>
@@ -601,7 +607,7 @@
           <hr noshade>
           <div class="row-md">
             <p>Features:
-              {% if order_datas.ppq_is_published == True %}<span class="badge badge-success" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
+              {% if order_datas.ppq_is_published == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-fire-alt"></i> Popular</span>{% else %}{% endif %}
               {% if order_datas.verified_is_published == True or order_datas.is_claimed == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> Verified</span>{% else %}{% endif %}
               {% if order_datas.ppq_is_published == True and order_datas.clinicLiveChatChoice != Blank %}{% if order_datas.clinicChatraCode != Blank or order_datas.clinicLiveChatCode != Blank or order_datas.clinicOlarkCode != Blank or order_datas.clinicTidioCode != Blank %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> LiveChat</span>{% else %}{% endif %}{% else %}{% endif %}
               {% if order_datas.accepts_patients_from_abroad == True %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> International patients</span>{% else %}{% endif %}
@@ -610,29 +616,35 @@
               {% if order_datas.clinicOwn == 'State' %}<span class="badge badge-info" style="margin-left: 10px"><i class="fas fa-check-circle"></i> State</span>{% else %}{% endif %}
             </p>
           </div>
-
-          {% if order_datas.clinicSart != Null or order_datas.clinicHfea != Null %}
-          <hr noshade>
           <div class="row-md">
-            <p>Certification:
-            {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicSart }}" style="color: white"> SART member</a></span>{% else %}{% endif %}
-            {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicHfea }}" style="color: white"> HFAE member</a></span>{% else %}{% endif %}
-            </p>
+            {% if order_datas.clinicSart != Null or order_datas.clinicHfea != Null %}
+              <p>Certification:
+              {% if order_datas.clinicSart %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicSart }}" target="_blank" style="color:white" rel="nofollow noopener"> SART member</a></span>{% else %}{% endif %}
+              {% if order_datas.clinicHfea %}<span class="badge badge-secondary" style="margin-left: 10px"><i class="fas fa-user-check"></i> <a href="{{ order_datas.clinicHfea }}" target="_blank" style="color:white" rel="nofollow noopener"> HFAE member</a></span>{% else %}{% endif %}
+              </p>
+            {% else %}
+            {% endif %}
           </div>
-          {% else %}
-          {% endif %}
 
           <hr noshade>
           <div class="row">
             <div class="col-4 col-sm" style="padding-top:1rem">
-              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}">
+              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}" rel="nofollow">
                 <button type="button" class="btn btn-outline-secondary btn-md" style="max-width: 10rem; font-size: 18px"><i class="fas fa-info-circle"></i> Detail</button>
               </a>
             </div>
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
+            {% if order_datas.pro_is_published == True or order_datas.ppq_is_published == True %}
+            <div class="col-4 col-sm" style="padding-top:1rem">
+              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+              </a>
+            </div>
+            {% else %}
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
+            {% endif %}
           </div>
         </div>
         <br>

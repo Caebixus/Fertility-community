@@ -8,5 +8,7 @@ Disallow: /*?*
 Sitemap: https://www.fertilitycommunity.com/sitemap.xml
 Sitemap: https://fertilitycommunity.com/sitemap-static.xml
 Sitemap: https://fertilitycommunity.com/sitemap-regions.xml
+Sitemap: https://fertilitycommunity.com/sitemap-blogs.xml
 Sitemap: https://fertilitycommunity.com/sitemap-cities.xml
+Sitemap: https://fertilitycommunity.com/sitemap-costs.xml
 Sitemap: https://fertilitycommunity.com/sitemap-countries.xml

@@ -39,6 +39,8 @@ urlpatterns = [
 
     path('reviews-settings/<int:listing_id>', views.reviewssettings, name='reviewssettings'),
 
+    path('best-clinic-articles/<int:listing_id>', views.bestclinicarticles, name='bestclinicarticles'),
+
     path('activate-user', views.activateUser, name='activateUser'),
 
 ]

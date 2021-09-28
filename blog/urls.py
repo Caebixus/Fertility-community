@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.conf import settings
 
-from . import views
+from . import views, views2bestclinics
 
 urlpatterns = [
     #Authors
@@ -20,4 +20,8 @@ urlpatterns = [
 
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),
+
+
+    #Best Clinics In
+    path('blog/best-ivf-clinics-in-czech', views2bestclinics.bestivfclinicsinczech, name='bestivfclinicsinczech'),
 ]

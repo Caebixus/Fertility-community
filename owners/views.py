@@ -13,7 +13,7 @@ from .models import ownerProInterested, ProUser, AuthenticatedUser
 from contact.models import contactClinic
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm, bestarticleproposition, picclinicform
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.forms.fields import Field, FileField
@@ -374,7 +374,7 @@ def create1(request):
                     fail_silently=False,
                     )
 
-                messages.success(request, '- Clinic created - please wait for out team to review your clinic')
+                messages.success(request, '- Clinic created - please wait for our team to review your clinic')
                 return redirect(dashboard)
 
             context = {
@@ -441,10 +441,10 @@ def update(request, listing_id):
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-            messages.success(request, '- Clinics pricing succesfully updated')
+            messages.success(request, '- Clinics pricing successfully updated')
             return redirect(dashboard)
         else:
-            messages.success(request, '- Clinics information succesfully updated')
+            messages.success(request, '- Clinics information successfully updated')
             return redirect(dashboard)
 
     context = {
@@ -482,10 +482,10 @@ def updatePricing(request, listing_id):
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-            messages.success(request, '- Clinics pricing succesfully updated')
+            messages.success(request, '- Clinics pricing successfully updated')
             return redirect(dashboard)
         else:
-            messages.success(request, '- Clinics pricing succesfully updated')
+            messages.success(request, '- Clinics pricing successfully updated')
             return redirect(dashboard)
 
     context = {
@@ -563,11 +563,11 @@ def updateproclinic(request, listing_id):
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-            messages.success(request, '- Clinics information succesfully updated')
+            messages.success(request, '- Clinics information successfully updated')
             return redirect(dashboard)
 
         else:
-            messages.success(request, '- Clinics information succesfully updated')
+            messages.success(request, '- Clinics information successfully updated')
             return redirect(dashboard)
 
     context = {
@@ -587,7 +587,7 @@ def updatePricingPro(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
 
     form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
-    
+
     if form.is_valid():
         instance = form.save(commit=False)
         instance.pro_update_is_published_list_date = datetime.now()
@@ -605,10 +605,10 @@ def updatePricingPro(request, listing_id):
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-            messages.success(request, '- Clinics pricing succesfully updated')
+            messages.success(request, '- Clinics pricing successfully updated')
             return redirect(dashboard)
         else:
-            messages.success(request, '- Clinics pricing succesfully updated')
+            messages.success(request, '- Clinics pricing successfully updated')
             return redirect(dashboard)
 
     context = {
@@ -832,7 +832,7 @@ def updatepropackage(request, package_id):
             instance.save()
             emailform.save()
 
-            messages.success(request, '- Package information succesfully updated')
+            messages.success(request, '- Package information successfully updated')
             return redirect(dashboard)
         else:
             instance.package_update_date = datetime.now()
@@ -840,7 +840,7 @@ def updatepropackage(request, package_id):
             instance.save()
             emailform.save()
 
-            messages.success(request, '- Package information succesfully updated')
+            messages.success(request, '- Package information successfully updated')
             return redirect(dashboard)
 
     context = {
@@ -873,7 +873,7 @@ def prolongpropackage(request, package_id):
             form.package_end_list_date = form.package_list_date + timedelta(days=90)
         form.save()
 
-        messages.success(request, '- Package end date succesfully prolonged')
+        messages.success(request, '- Package end date successfully prolonged')
         return redirect(dashboard)
 
     context = {
@@ -933,7 +933,7 @@ def livechatsettings2(request, listing_id):
         form = form.save(commit=False)
         form.save()
 
-        messages.success(request, '- Snippet succesfully saved, please try it on your clinic detail page')
+        messages.success(request, '- Snippet successfully saved, please test it on your clinic detail page')
         return redirect(dashboard)
 
     context = {
@@ -956,7 +956,7 @@ def reviewssettings(request, listing_id):
         form = form.save(commit=False)
         form.save()
 
-        messages.success(request, '- Succesfully saved')
+        messages.success(request, '- Review settings successfully saved')
         return redirect(dashboard)
 
     context = {
@@ -978,3 +978,41 @@ def fctrafficreport(request, listing_id):
     }
 
     return render(request, 'owners/fc-traffic.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def bestclinicarticles(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
+    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
+
+
+    if form.is_valid() and picform.is_valid():
+        form = form.save(commit=False)
+        form.save()
+        picform.save()
+
+        klinika = instance.clinicName
+
+        send_mail(
+            'Klinika updatovala Best IVF Clinic Blogpost -' + str(klinika),
+            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
+
+        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
+        return redirect(dashboard)
+
+    context = {
+        'picform': picform,
+        'instance': instance,
+        'form': form,
+    }
+
+    return render(request, 'owners/best-articles/owners-best-articles.html', context)

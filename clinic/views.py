@@ -20,14 +20,6 @@ class ClinicDetailView(DetailView):
 
         allcliniclisting = BasicClinic.objects.all()
 
-        nicosialisting = allcliniclisting.filter(is_published=True)
-        nicosialisting = nicosialisting.filter(clinicCity__iexact='Nicosia')
-        nicosialisting = nicosialisting.count()
-
-        cylisting = allcliniclisting.filter(is_published=True)
-        cylisting = cylisting.filter(clinicState__iexact='Cyprus')
-        cylisting = cylisting.count()
-
         alllisting = allcliniclisting.filter(is_published=True)
         alllisting = alllisting.count()
         context['alllisting'] = alllisting

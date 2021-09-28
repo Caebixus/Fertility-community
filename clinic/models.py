@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from blog.models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
 
 # Create your models here.
 
@@ -469,6 +470,24 @@ class BasicClinic(models.Model):
     clinicTrustPilotChoice = models.CharField(max_length=40, choices=TRUSTPILOT_CHOICES, null = True, blank=True,)
     clinicTrustPilotID = models.CharField(max_length=100, blank=True, null = True)
     clinicTrustPilotDomain = models.CharField(max_length=100, blank=True, null = True)
+
+    ### Article - Best Clinics in Country
+    best_article_country_boolean = models.BooleanField(default=False, blank=True, null=True)
+    best_article_country_actual_text = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_country_actual_prototype = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_country_blogpost_obj = models.ForeignKey(BestClinicArticleCountry, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_country_fk')
+
+    ### Article - Best Clinics in State
+    best_article_state_boolean = models.BooleanField(default=False, blank=True, null=True)
+    best_article_state_actual_text = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_state_actual_prototype = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_state_blogpost_obj = models.ForeignKey(BestClinicArticleState, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_state_fk')
+
+    ### Article - Best Clinics in City
+    best_article_city_boolean = models.BooleanField(default=False, blank=True, null=True)
+    best_article_city_actual_text = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_city_actual_prototype = models.TextField(max_length=3600, blank=True, null = True)
+    best_article_city_blogpost_obj = models.ForeignKey(BestClinicArticleCity, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_city_fk')
 
     def save(self, *args, **kwargs):
         if not self.slug:

@@ -69,7 +69,7 @@
   <br>
   <div class="col-6 col-md" style="text-align: left">
     {{ form.clinic_pro_logo_pic.errors }}
-      <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (50x50 px):</p></label>
+      <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (70x70 px):</p></label>
     <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
   </div>
   <div class="col-4 col-md" style="text-align: left">
@@ -80,7 +80,7 @@
   {% else %}
   <div class="fieldWrapper" style="text-align: left">
     {{ form.clinic_pro_logo_pic.errors }}
-    <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Logo (50x50 px):</p></label>
+    <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Logo (70x70 px):</p></label>
     <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
   </div>
   {% endif %}
@@ -88,7 +88,7 @@
 
   <hr>
   <div class="row">
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_1 %}
         <p>Currently uploaded picture 1: </p>
         <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -105,7 +105,7 @@
         <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
       {% endif %}
     </div>
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_2 %}
         <p>Currently uploaded picture 2: </p>
         <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -127,7 +127,7 @@
   <hr>
   <br>
   <div class="row">
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_3 %}
         <p>Currently uploaded picture 3: </p>
         <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -144,7 +144,7 @@
         <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
       {% endif %}
     </div>
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_4 %}
         <p>Currently uploaded picture 4: </p>
         <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -166,7 +166,7 @@
   <hr>
   <br>
   <div class="row">
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_5 %}
         <p>Currently uploaded picture 5: </p>
         <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -183,7 +183,7 @@
         <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
       {% endif %}
     </div>
-    <div class="col-6" style="text-align: left">
+    <div class="col-md" style="text-align: left">
       {% if instance.clinic_pro_photo_6 %}
         <p>Currently uploaded picture 6: </p>
         <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
@@ -552,60 +552,60 @@
   <div class="container">
     {{ form.clinicFacebook.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic Facebook page URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicFacebook }}
       </div>
     </div>
     <br>
     {{ form.clinicInstagram.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic Instagram profile URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicInstagram }}
       </div>
     </div>
     <br>
     {{ form.clinicTwitter.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic Twitter profile URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicTwitter }}
       </div>
     </div>
     <br>
     {{ form.clinicYoutube.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic Youtube Channel URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicYoutube }}
       </div>
     </div>
     <br>
     {{ form.clinicLinkedIn.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic LinkedIn page URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicLinkedIn }}
       </div>
     </div>
     <br>
     {{ form.clinicPinterest.errors }}
     <div class="row">
-      <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
+      <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
         Clinic Pinterest profile URL
       </div>
-      <div class="col-2 col-md">
+      <div class="col-md">
         {{ form.clinicPinterest }}
       </div>
     </div>

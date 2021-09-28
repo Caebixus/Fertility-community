@@ -1,0 +1,17 @@
+Wiki.txt slouží jako wikipedie postupů a postupné zapisování vědomostí u FC webu:
+
+
+
+
+
+
+
+
+- Přidání Best Clinic Blogpostu
+1) v /mojeadministrace se musí zadat nový Objekt blogpostu. Například když se připravuje nový článek pro nejlepší španělské kliniky
+2) Kliniky který se to týká se musejí propojit manuálně z /mojeadministrace k tomuto článku.
+3) je potřeba v templates /blog/best-article vytvořit html takového blogpostu a také přidat parametry do /blog/views2bestclinics.py a urls.py
+4) ještě je potřeba přidat určité parametry do views.py té lokace + do template html té lokace přidat odkaz nad "Quick info"
+
+Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
+1)

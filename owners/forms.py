@@ -1565,3 +1565,41 @@ class IndependentReviewForm(forms.ModelForm):
         'clinicTrustPilotID',
         'clinicTrustPilotDomain',
         ]
+
+class bestarticleproposition(forms.ModelForm):
+    best_article_country_boolean = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    best_article_country_actual_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - actual text'), max_length=3600)
+    best_article_country_actual_prototype = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - proposition text'), max_length=3600)
+
+    class Meta:
+        model = BasicClinic
+        fields = [
+        'best_article_country_boolean',
+        'best_article_country_actual_text',
+        'best_article_country_actual_prototype',
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['best_article_country_actual_text'].disabled = True
+
+class picclinicform(forms.ModelForm):
+    clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of your clinic'))
+    clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
+    clinic_pro_photo_2 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of your clinic'))
+    clinic_pro_photo_2_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
+    clinic_pro_photo_3 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of your clinic'))
+    clinic_pro_photo_3_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
+
+    class Meta:
+        model = BasicClinic
+        fields = [
+        'clinic_pro_photo_1',
+        'clinic_pro_photo_2',
+        'clinic_pro_photo_3',
+        'clinic_pro_photo_1_del',
+        'clinic_pro_photo_2_del',
+        'clinic_pro_photo_3_del',
+        ]

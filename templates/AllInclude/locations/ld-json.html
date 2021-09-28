@@ -22,6 +22,7 @@
       "ratingCount": "{{ my_total_count }}",
       "ratingValue": "{{ order_datas.digitalTransparencyIndex }}"
     },
+    "paymentAccepted": "{% if order_datas.payment_type_cash == True %}Cash, {% endif %}{% if order_datas.payment_type_major_credit_cards == True %}Major Credit Card, {% endif %}{% if order_datas.payment_type_debit_cards == True%}Debit cards, {% endif %}{% if order_datas.payment_type_check == True %}Check, {% endif %}{% if order_datas.payment_type_cryptocurrency == True %}Cryptocurrency, {% endif %}{% if order_datas.payment_type_wire_transfer == True %}Wire Transfer, {% endif %}",
     "medicalSpecialty": "Gynecologic",
     "availableService": "MedicalProcedure",
     "@type" : "MedicalClinic",
@@ -49,6 +50,7 @@
       "ratingCount": "{{ my_total_count }}",
       "ratingValue": "{{ order_datas.digitalTransparencyIndex }}"
     },
+    "paymentAccepted": "{% if order_datas.payment_type_cash == True %}Cash, {% endif %}{% if order_datas.payment_type_major_credit_cards == True %}Major Credit Card, {% endif %}{% if order_datas.payment_type_debit_cards == True%}Debit cards, {% endif %}{% if order_datas.payment_type_check == True %}Check, {% endif %}{% if order_datas.payment_type_cryptocurrency == True %}Cryptocurrency, {% endif %}{% if order_datas.payment_type_wire_transfer == True %}Wire Transfer, {% endif %}",
     "medicalSpecialty": "Gynecologic",
     "availableService": "MedicalProcedure",
     "@type" : "MedicalClinic",

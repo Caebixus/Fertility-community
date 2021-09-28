@@ -1,0 +1,205 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Best clinics articles - {{instance.clinicName}}</h1>
+    <p style="color:white">Show your clinic to even more people and rank it among the best of the best.</p>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+<div class="container">
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    {% if instance.best_article_country_blogpost_obj != None %}
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#country" role="tab" aria-controls="home" aria-selected="true" style="text-align: center; text-decoration: none">Best clinics in country</a>
+    </li>
+    {% else %}
+    {% endif %}
+
+    {% if instance.best_article_state_blogpost_obj != None %}
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#state" role="tab" aria-controls="profile" aria-selected="false" style="text-align: center; text-decoration: none">Best clinics in state</a>
+    </li>
+    {% else %}
+    {% endif %}
+
+    {% if instance.best_article_city_blogpost_obj != None %}
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#city" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">Best clinics in city</a>
+    </li>
+    {% else %}
+    {% endif %}
+  </ul>
+</div>
+
+
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="country" role="tabpanel" aria-labelledby="pills-ivf-tab">
+    {% if instance.best_article_country_blogpost_obj != None %}
+      <div class="container py-5" style="text-align: center">
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+        {% endif %}
+        {% if picform.errors %}
+          {% for error in picform.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+        {% endif %}
+        <form method='POST' enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+
+          {{ form.source.errors }}
+          {{ form.source }}
+
+          {{ picform.non_field_errors }}
+
+          {{ picform.source.errors }}
+          {{ picform.source }}
+          <br>
+          <br>
+
+          <div class="row py-5">
+            <div class="col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+              Article URL:
+            </div>
+            <div class="col-md">
+              <a href="https://www.fertilitycommunity.com/blog/{{ instance.best_article_country_blogpost_obj.slug }}">https://www.fertilitycommunity.com/blog/{{ instance.best_article_country_blogpost_obj.slug }}</a>
+            </div>
+          </div>
+
+          <br>
+          <hr>
+          <br>
+
+          <div class="row py-5">
+            <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%">
+              Uncheck if you want to stop showing your clinic in the article:
+            </div>
+            <div class="col-2 col-md">
+              {{ form.best_article_country_boolean }}
+            </div>
+          </div>
+
+          <br>
+          <hr>
+          <br>
+
+          <div class="row py-5">
+            <div class="align-self-center" style="font-family: 'Josefin Sans'; font-size: 150%; margin-bottom: 45px">
+              For article to be published, it is required to upload at least 3 images of your clinic (delete images <a href="{% url 'updateproclinic' instance.id %}">here</a>):
+            </div>
+
+            <div class="col-md" style="text-align: left">
+              {% if instance.clinic_pro_photo_1 %}
+                <p>Currently uploaded picture 1: </p>
+                <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+                {{ picform.clinic_pro_photo_1.errors }}
+                <label for="{{ picform.clinic_pro_photo_1.id_for_label}}"></label>
+                <p>Re-upload (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_1 }}</p>
+              {% else %}
+                <label for="{{ picform.clinic_pro_photo_1.id_for_label}}"></label>
+                <p>Upload Picture 1 (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_1 }}</p>
+              {% endif %}
+            </div>
+            <div class="col-md" style="text-align: left">
+              {% if instance.clinic_pro_photo_2 %}
+                <p>Currently uploaded picture 2: </p>
+                <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+                {{ picform.clinic_pro_photo_2.errors }}
+                <label for="{{ picform.clinic_pro_photo_2.id_for_label}}"></label>
+                <p>Re-upload (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_2 }}</p>
+              {% else %}
+                <label for="{{ picform.clinic_pro_photo_2.id_for_label}}"></label>
+                <p>Upload Picture 2 (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_2 }}</p>
+              {% endif %}
+            </div>
+            <div class="col-md" style="text-align: left">
+              {% if instance.clinic_pro_photo_3 %}
+                <p>Currently uploaded picture 3: </p>
+                <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
+                {{ picform.clinic_pro_photo_3.errors }}
+                <label for="{{ picform.clinic_pro_photo_3.id_for_label}}"></label>
+                <p>Re-upload (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_3 }}</p>
+              {% else %}
+                <label for="{{ picform.clinic_pro_photo_3.id_for_label}}"></label>
+                <p>Upload Picture 3 (1080x1080 px):</p>
+                <p style="font-size:10px">{{ picform.clinic_pro_photo_3 }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <br>
+          <hr>
+          <br>
+
+          <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.best_article_country_actual_text.errors }}
+            <label>Your clinics actual text in article (READ ONLY):</label>
+            {{ form.best_article_country_actual_text }}
+          </div>
+
+          <br>
+          <br>
+
+          <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+          <div class="fieldWrapper" style="text-align: left">
+            {{ form.best_article_country_actual_prototype.errors }}
+            <label>Propose text update here (3600 chars max):</label>
+            {{ form.best_article_country_actual_prototype }}
+          </div>
+
+          <br>
+          <br>
+
+          <input class="btn btn-success" type='submit' value='Update' />
+        </form>
+      </div>
+
+    {% else %}
+    <div class="container py-5">
+      <p>Sorry, this feature for your clinic and location is comming soon</p>
+    </div>
+    {% endif %}
+
+
+
+    </div>
+
+    <div class="tab-pane fade" id="state" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <p>Comming soon</p>
+    </div>
+
+
+
+    <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <p>Comming soon</p>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

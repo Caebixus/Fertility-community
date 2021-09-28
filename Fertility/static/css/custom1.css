@@ -678,3 +678,20 @@ border-radius:0 4px 4px 0;
     background-size: cover;
   }
 }
+
+.circle{
+  background: url('/static/img/qualityicon.jpg');
+  width: 60%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  position: relative;
+}
+.circle p{
+  color: white;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+}

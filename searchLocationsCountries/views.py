@@ -310,6 +310,11 @@ def fertilityClinicCzech(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
+    pkid = 1
+    best_clinics = basic_queryset.filter(best_article_country_blogpost_obj=pkid)
+    best_clinics = best_clinics.filter(best_article_country_boolean=True)
+    best_clinics_count = best_clinics.count()
+
     order_data = list(queryset_list)
 
     paginator = Paginator(order_data, 10)
@@ -323,7 +328,7 @@ def fertilityClinicCzech(request):
     brnoclinics = basic_queryset.filter(clinicRegion__iexact='Brno').exclude(is_published=False)
     brnoclinics = brnoclinics.count()
 
-    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'my_total_count': my_total_count, 'pragueclinics': pragueclinics, 'brnoclinics': brnoclinics,}
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'my_total_count': my_total_count, 'pragueclinics': pragueclinics, 'brnoclinics': brnoclinics, 'best_clinics_count': best_clinics_count}
 
     return render(request, 'locations-states/CZ/fertility-clinic-czech-republic.html', context)
 

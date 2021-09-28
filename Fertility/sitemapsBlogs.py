@@ -18,6 +18,8 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'everythingYouNeedToKnowAboutNaturalIvf',
         'whatismildminiivf',
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
+
+        'bestivfclinicsinczech',
         ]
 
     def location(self, item):

@@ -8,10 +8,13 @@ Wiki.txt slouží jako wikipedie postupů a postupné zapisování vědomostí u
 
 
 - Přidání Best Clinic Blogpostu
-1) v /mojeadministrace se musí zadat nový Objekt blogpostu. Například když se připravuje nový článek pro nejlepší španělské kliniky. Picture je nutný a je ve složce Fertilitydocs -> 
+1) v /mojeadministrace se musí zadat nový Objekt blogpostu. Například když se připravuje nový článek pro nejlepší španělské kliniky. Picture je nutný a je ve složce Fertilitydocs -> je tam template.
 2) Kliniky který se to týká se musejí propojit manuálně z /mojeadministrace k tomuto článku.
-3) je potřeba v templates /blog/best-article vytvořit html takového blogpostu a také přidat parametry do /blog/views2bestclinics.py a urls.py
+3) je potřeba v templates /blog/best-article vytvořit html takového blogpostu a také přidat parametry do /blog/views2bestclinics.py a urls.py. BACHA na slug který musí odpovídat slugu který je vytvořený v /mojeadministrace jinak se nepropojí odkaz z owners na ten článek
 4) ještě je potřeba přidat určité parametry do views.py té lokace + do template html té lokace přidat odkaz nad "Quick info"
+5) poté je potřeba přidat ještě tento článek na sitemaps.py
 
 Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
-1)
+1) musí se nakopírovat text do /mojeadministrace, ale musí se to udělat včetně html tagů. Čili uložit jej za přihlášení za kliniku na propose a teprve potomz /mojeadministrace to nakopírovat z propose do vostrého text pole
+2) je potřeba mít 3 obrázky, bez toho je to blbé
+3) vše by mělo jinak fungovat

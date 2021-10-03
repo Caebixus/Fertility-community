@@ -479,14 +479,14 @@ class BasicClinic(models.Model):
 
     ### Article - Best Clinics in State
     best_article_state_boolean = models.BooleanField(default=False, blank=True, null=True)
-    best_article_state_actual_text = models.TextField(max_length=3700, blank=True, null = True)
-    best_article_state_actual_prototype = models.TextField(max_length=3700, blank=True, null = True)
+    best_article_state_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_state_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     best_article_state_blogpost_obj = models.ForeignKey(BestClinicArticleState, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_state_fk')
 
     ### Article - Best Clinics in City
     best_article_city_boolean = models.BooleanField(default=False, blank=True, null=True)
-    best_article_city_actual_text = models.TextField(max_length=3700, blank=True, null = True)
-    best_article_city_actual_prototype = models.TextField(max_length=3700, blank=True, null = True)
+    best_article_city_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_city_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     best_article_city_blogpost_obj = models.ForeignKey(BestClinicArticleCity, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_city_fk')
 
     def save(self, *args, **kwargs):

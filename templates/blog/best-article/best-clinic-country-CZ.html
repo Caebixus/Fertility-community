@@ -137,19 +137,19 @@
   <div class="card-columns">
     {% if clinic.clinic_pro_photo_1 %}
     <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_1.url }}" class="card-img-top" alt="...">
+      <img src="{{ clinic.clinic_pro_photo_1.url }}" class="card-img-top" alt="clinic photo 1">
     </div>
     {% else %}
     {% endif %}
     {% if clinic.clinic_pro_photo_2 %}
     <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_2.url }}" class="card-img-top" alt="...">
+      <img src="{{ clinic.clinic_pro_photo_2.url }}" class="card-img-top" alt="clinic photo 2">
     </div>
     {% else %}
     {% endif %}
     {% if clinic.clinic_pro_photo_3 %}
     <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_3.url }}" class="card-img-top" alt="...">
+      <img src="{{ clinic.clinic_pro_photo_3.url }}" class="card-img-top" alt="clinic photo 3">
     </div>
     {% else %}
     {% endif %}
@@ -161,7 +161,7 @@
   <hr>
   <br>
 
-  {{ clinic.best_article_country_actual_prototype|safe }}
+  {{ clinic.best_article_country_actual_text|safe }}
 
   <br>
   <br>

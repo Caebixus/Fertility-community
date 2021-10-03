@@ -473,8 +473,8 @@ class BasicClinic(models.Model):
 
     ### Article - Best Clinics in Country
     best_article_country_boolean = models.BooleanField(default=False, blank=True, null=True)
-    best_article_country_actual_text = models.TextField(max_length=3700, blank=True, null = True)
-    best_article_country_actual_prototype = models.TextField(max_length=3700, blank=True, null = True)
+    best_article_country_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_country_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     best_article_country_blogpost_obj = models.ForeignKey(BestClinicArticleCountry, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_country_fk')
 
     ### Article - Best Clinics in State

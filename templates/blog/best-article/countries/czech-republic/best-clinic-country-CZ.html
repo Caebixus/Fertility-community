@@ -3,7 +3,7 @@
 {% load humanize %}
 {% block title %}{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
 {% block description %}{{best_clinics_blogpost.description}}{% endblock %}
-{% block noindexpage %}{% endblock %}
+{% block noindexpage %}{% if best_clinics_blogpost.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}/{% endblock %}
 {% block clinicdetailtrustpilotwidgetscript %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endblock %}
 {% block meta_keywords %}what is natural ivf, natural ivf{% endblock %}
@@ -206,7 +206,7 @@
 
 <div class="container py-3 text-center">
   <a href="{% url 'fertilityClinicCzech' %}" rel="dofollow">
-    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of ({{clinics_location_count}}) IVF clinics in Czech </button>
+    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of {{clinics_location_count}} IVF clinics in Czech </button>
   </a>
 </div>
 

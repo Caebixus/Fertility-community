@@ -29,4 +29,4 @@ def bestivfclinicsinczech(request):
         'clinics_location_count': clinics_location_count,
     }
 
-    return render(request, 'blog/best-article/best-clinic-country-CZ.html', context)
+    return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)

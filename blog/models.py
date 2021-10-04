@@ -52,6 +52,7 @@ class BestClinicArticleCountry(models.Model):
     slug = models.SlugField(max_length=100, null=True)
 
     minute_read = models.IntegerField(null=True, blank=True)
+    best_article_country_noindex_sitemap_boolean = models.BooleanField(default=False, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -75,6 +76,7 @@ class BestClinicArticleState(models.Model):
     slug = models.SlugField(max_length=100, null=True)
 
     minute_read = models.IntegerField(null=True, blank=True)
+    best_article_state_noindex_sitemap_boolean = models.BooleanField(default=False, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -98,6 +100,7 @@ class BestClinicArticleCity(models.Model):
     slug = models.SlugField(max_length=100, null=True)
 
     minute_read = models.IntegerField(null=True, blank=True)
+    best_article_city_noindex_sitemap_boolean = models.BooleanField(default=False, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

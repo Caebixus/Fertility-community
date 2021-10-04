@@ -19,7 +19,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'whatismildminiivf',
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
 
-        'bestivfclinicsinczech',
+        'bestivfclinicsinprague',
         ]
 
     def location(self, item):

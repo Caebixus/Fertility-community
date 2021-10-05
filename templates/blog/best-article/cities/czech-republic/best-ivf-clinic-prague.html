@@ -79,6 +79,8 @@
 
 
 {% for clinic in best_clinics %}
+<br>
+<hr>
 <div class="container py-3" id="best-clinic-{{forloop.counter}}">
   <div class="header" style="padding-top:3rem; min-height:80px;">
   {% if clinic.clinic_pro_logo_pic %}
@@ -169,33 +171,40 @@
   <br>
 
   <div class="row text-center">
-    <div class="col-4 col-sm" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow">
-        <button type="button" class="btn btn-outline-dark btn-lg">Find out more</button>
+    <div class="col-lg-3" style="padding-top:1rem">
+      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration:none">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Find out more</button>
       </a>
     </div>
 
     {% if clinic.ivf_treatment_cost != Null or clinic.mild_ivf_treatment_cost != Null or clinic.ovarian_ivf_treatment_cost != Null or clinic.icsi_treatment_cost != Null or clinic.egg_donor_recipients_cost != Null or clinic.sperm_donor_recipients_cost != Null or clinic.embryo_donor_recipients_cost != Null %}
-    <div class="col-4 col-sm" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#pricing" rel="nofollow">
-        <button type="button" class="btn btn-outline-dark btn-lg">Pricing list</button>
+    <div class="col-lg-3" style="padding-top:1rem">
+      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#pricing" rel="nofollow" style="text-decoration:none">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Pricing</button>
       </a>
     </div>
     {% else %}
-    <div class="col-4 col-sm" style="padding-top:1rem">
+    <div class="col-lg-3" style="padding-top:1rem">
     </div>
     {% endif %}
 
     {% if clinic.pro_is_published == True or clinic.ppq_is_published == True %}
-    <div class="col-4 col-sm" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#packages" rel="nofollow">
-        <button type="button" class="btn btn-outline-dark btn-lg">Packages list</button>
+    <div class="col-lg-3" style="padding-top:1rem">
+      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#packages" rel="nofollow" style="text-decoration:none">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Packages</button>
       </a>
     </div>
     {% else %}
-    <div class="col-4 col-sm" style="padding-top:1rem">
+    <div class="col-lg-3" style="padding-top:1rem">
     </div>
     {% endif %}
+
+    <div class="col-lg-3" style="padding-top:1rem">
+      <a href="{{ clinic.contact_url }}" rel="noopener" style="text-decoration:none" target="_blank">
+        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Website</button>
+      </a>
+    </div>
+
 
   </div>
 </div>
@@ -205,8 +214,8 @@
 {% endfor %}
 
 <div class="container py-3 text-center">
-  <a href="{% url 'fertilityClinicPrague' %}" rel="dofollow">
-    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of {{clinics_location_count}} IVF clinics in Prague </button>
+  <a href="{% url 'fertilityClinicPrague' %}" rel="dofollow" style="text-decoration:none">
+    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg btn-block">Full list of {{clinics_location_count}} IVF clinics in Prague </button>
   </a>
 </div>
 

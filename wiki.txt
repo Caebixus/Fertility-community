@@ -18,3 +18,7 @@ Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
 1) musí se nakopírovat text do /mojeadministrace, ale musí se to udělat včetně html tagů. Čili uložit jej za přihlášení za kliniku na propose a teprve potomz /mojeadministrace to nakopírovat z propose do vostrého text pole
 2) je potřeba mít 3 obrázky, bez toho je to blbé
 3) vše by mělo jinak fungovat
+
+
+- Jak fungují more office?
+1) registrovaný účet musí mít vícero klinik, které jsou "is_claimed == True"

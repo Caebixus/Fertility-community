@@ -28,6 +28,9 @@
           Compare {{ my_total_count }} fertility clinics in Prague
     </h1>
     <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Prague with different treatment pricings and IVF packages. The infertility treatment options in Prague clinics offer many options of male and female infertility testing, and a number of procedures, such as ovulation induction, intrauterine insemination, In Vitro Fertilization, donor sperm, egg donation, egg freezing, and other options. </p>
+    <a href="{% url 'bestivfclinicsinprague' %}" style="color: white"><h2 style="font-size: 22px !important; color: white !important"><i class="fas fa-medal"></i> Find out more about best {{ best_city_article_count }} IVF clinics in Prague</h2></a>
+
+    <br>
   </div>
 
   <!-- Filter section -->
@@ -292,6 +295,12 @@
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
+          <div class="alert alert-success" role="alert">
+            <a href="{% url 'bestivfclinicsinprague' %}">
+              <h2 style="font-size: 22px !important;"><i class="fas fa-medal"></i> Read about best {{ best_city_article_count }} IVF clinics in Prague</h2>
+            </a>
+          </div>
+          <br>
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech Republic fertility treatment costs in 2021:</h2>
 
           {% include 'AllInclude/locations/quick-info.html' %}

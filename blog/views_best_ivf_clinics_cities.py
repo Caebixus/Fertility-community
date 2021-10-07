@@ -10,12 +10,12 @@ from packages.models import Package
 def bestivfclinicsinprague(request):
     pkid = 1
 
-    clinics = BasicClinic.objects.all()
+    clinics = BasicClinic.objects.all().exclude(is_published=False)
 
     best_clinics = clinics.filter(best_article_city_blogpost_obj=pkid)
     best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')
 
-    clinics_location_count = clinics.filter(clinicCity='Prague')
+    clinics_location_count = clinics.filter(clinicRegion__iexact='Prague')
     clinics_location_count = clinics_location_count.count()
 
     best_clinics_count = best_clinics.count()

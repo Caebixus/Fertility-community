@@ -1,11 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
-from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
+from .models import BestClinicArticleCountry
 
-from .models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
-
-from packages.models import Package
 
 def bestivfclinicsinczech(request):
     pkid = 1

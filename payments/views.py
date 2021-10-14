@@ -1,29 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages, auth
+from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
-from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from .models import Customer
 from packages.models import Package
-from guestblogging.models import GuestBlog, GuestAuthor
-from owners.models import ownerProInterested, ProUser
-from django.utils import timezone
-from datetime import datetime
+from guestblogging.models import GuestBlog
 from django.core.mail import send_mail
-from owners.decorators import allowed_users
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-import os
-import json
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from .choices import CATEGORY_CHOICES_ISO
-from django.contrib.auth.models import Group
-
 import stripe
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY

@@ -1,14 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
+from django.shortcuts import render
+from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse
-from . import views2, views3
-from django.core.paginator import Paginator
-from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from itertools import chain
-from .currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd, mxnToGbp, mxnToEur, mxnToUsd
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def locationsStandardIVF(request):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)

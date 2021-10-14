@@ -1,10 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
-from django import template
+from django.shortcuts import render
 from clinic.models import BasicClinic
-from django.db.models import Avg
-from itertools import chain
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Avg, Max, Min
 
 

@@ -1,21 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
-from django.urls import reverse
-from django.core.paginator import Paginator
-from django import template
-from contact.forms import WebsiteForm
-from django.core.mail import send_mail
-from django.contrib import messages, auth
-from clinic.models import BasicClinic
+from django.shortcuts import render, get_object_or_404
 from blog.models import Author, Blog
 from packages.models import Package
-from location.currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
-from packages.packageChoices import CATEGORY_PACKAGE
-from contact.forms import WebsiteForm
-from django.core.mail import send_mail
-from django.contrib import messages, auth
-from clinic.models import BasicClinic
-from datetime import datetime, timedelta
 from django.utils import timezone
 
 #Authors

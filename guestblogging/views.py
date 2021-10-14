@@ -1,18 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
-from django.contrib.auth import update_session_auth_hash
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib import messages, auth
-from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib import messages
 from clinic.models import BasicClinic
-from django.utils import timezone
-from datetime import datetime, timedelta
-from contact.forms import ContactForm, ClaimForm
+from datetime import datetime
 from django.core.mail import send_mail
-from django.forms.fields import Field, FileField
 from .models import GuestAuthor, GuestBlog
-from .choices import GUEST_BLOG_TAG_CHOICES
 from .forms import CreateGuestAuthor, CreateGuestBlog
 
 

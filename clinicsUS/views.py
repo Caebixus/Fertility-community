@@ -1,32 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
-from django.views.generic.detail import DetailView
+from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages, auth
-from django.contrib.auth.models import User
-from clinic.models import BasicClinic
-from packages.models import Packages, Package
-from django.utils import timezone
-from owners.models import ownerProInterested, ProUser
-from datetime import datetime, timedelta
-from guestblogging.models import GuestBlog, GuestAuthor
 
-from searchLocationsCountries import views
-
-
-def bestclinicczech(request):
-    return render(request, 'blog/best-article/best-article.html')
-
-
-
-
-
-
-
-
-# Create your views here.
 def wfi(request):
     return HttpResponsePermanentRedirect(reverse('fertilityClinicUSA'))
 

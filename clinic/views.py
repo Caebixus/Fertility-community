@@ -1,13 +1,10 @@
 from django.views.generic.detail import DetailView
-from django.http import (HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect)
 from .models import BasicClinic
 from django.contrib.auth.models import User
-from packages.models import Packages, Package
+from packages.models import Package
 from django.utils import timezone
 from owners.models import ProUser
-from datetime import datetime, timedelta
 from guestblogging.models import GuestBlog, GuestAuthor
-import requests
 
 class ClinicDetailView(DetailView):
     model = BasicClinic

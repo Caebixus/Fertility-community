@@ -49,9 +49,9 @@ def register(request):
                 send_mail(
                     "Confirm registration - fertilitycommunity.com",
                     "Please activate your new account. Copy code below into a field in your account dashboard:\n" +
-                    "%0A\n" +
+                    "\n" +
                     str(random_auth_number) +
-                    "%0A\n" +
+                    "\n" +
                     "FertilityCommunity team\n" +
                     "This is an automated message, please do not reply",
                     "info@fertilitycommunity.com",

@@ -3,24 +3,20 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages, auth
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from packages.models import Package
 from payments.models import Customer
-from .models import ownerProInterested, ProUser, AuthenticatedUser
-from contact.models import contactClinic
+from .models import ProUser, AuthenticatedUser
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, OwnerProInterestedForm, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm, bestarticleproposition, picclinicform
+from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm, bestarticleproposition, picclinicform
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
-from django.forms.fields import Field, FileField
-from .decorators import allowed_users
-from django.contrib.auth.models import Group
 from django.db.models import F
 from django.db.models import Count
+from .functions import get_random_string
 
 # Create your views here.
 def register(request):
@@ -42,18 +38,30 @@ def register(request):
                 auth.login(request, user)
                 messages.success(request, '- You are now logged in')
 
+                random_auth_number = get_random_string(10)
+                print(random_auth_number)
+                auth_user = request.user
+
+                authenticateduser = AuthenticatedUser()
+                authenticateduser.user = auth_user
+                authenticateduser.random_auth_string = random_auth_number
+                authenticateduser.save()
+
                 send_mail(
                     'Confirm registration - fertilitycommunity.com',
-                    'Please activate your account via this link (copy this): https://www.fertilitycommunity.com/account/activate-user?xx1kfdj4sdsdsf48a6aasd7' +
+                    'Please activate your new FC account.' +
                     '\n' +
+                    'Copy code below into a field in your account dashboard:' +
+                    '\n' +
+                    str(random_auth_number) +
                     '\nFertilityCommunity team' +
                     '\nThis is an automated message, please do not reply',
                     'info@fertilitycommunity.com',
                     [user.email],
                     fail_silently=False,
-                    )
-
+                )
                 return redirect('notActiveUser')
+
         else:
             messages.error(request, '- Passwords do not match')
             return redirect('register')
@@ -95,23 +103,39 @@ def howtousefertilitycommunity(request):
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def notActiveUser(request):
+    user = request.user
+
+    auth_user = AuthenticatedUser.objects.get(user__id=user.pk)
+
+    if request.method == 'POST':
+        activateaccount = request.POST['activateaccount']
+        if activateaccount == auth_user.random_auth_string:
+            auth_user.is_activated = True
+            auth_user.save()
+            return render(request, 'owners/user-active.html')
+        else:
+            messages.error(request, ' this code is wrong. Check your email or contact us.')
+            return redirect('notActiveUser')
+
     return render(request, 'owners/not-active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def activateUser(request):
     user = request.user
-    try:
-        authenticateduser = AuthenticatedUser()
-        authenticateduser.user = user
-        authenticateduser.is_activated = True
-        authenticateduser.save()
-        return render(request, 'owners/user-active.html')
-    except ObjectDoesNotExist:
-        authenticateduser = AuthenticatedUser()
-        authenticateduser.user = user
-        authenticateduser.is_activated = True
-        authenticateduser.save()
-        return render(request, 'owners/user-active.html')
+
+    auth_user = AuthenticatedUser.objects.get(user__id=user.pk)
+
+    if request.method == 'POST':
+        activateaccount = request.POST['activateaccount']
+        if activateaccount == auth_user.random_auth_string:
+            auth_user.is_activated = True
+            auth_user.save()
+            return render(request, 'owners/user-active.html')
+        else:
+            messages.error(request, ' this code is wrong. Check your email or contact us.')
+            return redirect('notActiveUser')
+
+    return render(request, 'owners/not-active-user.html')
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def logout(request):

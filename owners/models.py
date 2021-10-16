@@ -1,8 +1,5 @@
-from django.db import models
-from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
-from ckeditor.fields import RichTextField
 
 class ownerProInterested(models.Model):
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -21,3 +18,9 @@ class ProUser(models.Model):
 class AuthenticatedUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_activated = models.BooleanField(default=False)
+    random_auth_string = models.CharField(max_length=10, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
+
+

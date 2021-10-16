@@ -1,12 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% load humanize %}
-{% block title %}{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
-{% block description %}{{best_clinics_blogpost.description}}{% endblock %}
-{% block noindexpage %}{% if best_clinics_blogpost.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}/{% endblock %}
-{% block clinicdetailtrustpilotwidgetscript %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endblock %}
-{% block meta_keywords %}best ivf clinics in Czech Republic, best fertility clinics Czech Republic{% endblock %}
 
 {% block ogType %}<meta property='og:type' content='article' />{% endblock %}
 {% block articleAuthor %}<meta property='article:author' content='{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}' />{% endblock %}
@@ -15,6 +9,13 @@
 {% block ogImage %}<meta property="og:image" content="https://www.fertilitycommunity.com/media/blogPhotos/Bestclinicspicczech.jpg" />{% endblock %}
 {% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
 {% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block title %}{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
+{% block description %}{{best_clinics_blogpost.description}}{% endblock %}
+{% block noindexpage %}{% if best_clinics_blogpost.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}/{% endblock %}
+{% block clinicdetailtrustpilotwidgetscript %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endblock %}
+{% block meta_keywords %}best ivf clinics in Czech Republic, best fertility clinics Czech Republic{% endblock %}
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
 {% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}

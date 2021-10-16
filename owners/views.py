@@ -52,7 +52,7 @@ def register(request):
                     "\n" +
                     str(random_auth_number) +
                     "\n" +
-                    "FertilityCommunity team\n" +
+                    "\nFertilityCommunity team\n" +
                     "This is an automated message, please do not reply",
                     "info@fertilitycommunity.com",
                     [user.email],

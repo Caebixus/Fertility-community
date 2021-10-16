@@ -36,7 +36,6 @@ def register(request):
                 user = User.objects.create_user(email=email, password=password, username=username)
                 #login after registered
                 auth.login(request, user)
-                messages.success(request, '- You are now logged in')
 
                 random_auth_number = get_random_string(10)
                 print(random_auth_number)
@@ -49,13 +48,12 @@ def register(request):
 
                 send_mail(
                     'Confirm registration - fertilitycommunity.com',
-                    'Please activate your new FC account.' +
-                    '\n' +
-                    'Copy code below into a field in your account dashboard:' +
-                    '\n' +
+                    'Please activate your new account. Copy code below into a field in your account dashboard:' +
+                    '%0A' +
                     str(random_auth_number) +
-                    '\nFertilityCommunity team' +
-                    '\nThis is an automated message, please do not reply',
+                    '%0A' +
+                    'FertilityCommunity team' +
+                    'This is an automated message, please do not reply',
                     'info@fertilitycommunity.com',
                     [user.email],
                     fail_silently=False,

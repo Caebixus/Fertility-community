@@ -20,6 +20,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
 
         'bestivfclinicsinprague',
+        'bestivfclinicsinczech',
         ]
 
     def location(self, item):

@@ -47,14 +47,14 @@ def register(request):
                 authenticateduser.save()
 
                 send_mail(
-                    'Confirm registration - fertilitycommunity.com',
-                    'Please activate your new account. Copy code below into a field in your account dashboard:\n' +
-                    '%0A\n' +
+                    "Confirm registration - fertilitycommunity.com",
+                    "Please activate your new account. Copy code below into a field in your account dashboard:\n" +
+                    "%0A\n" +
                     str(random_auth_number) +
-                    '%0A\n' +
-                    'FertilityCommunity team\n' +
-                    'This is an automated message, please do not reply',
-                    'info@fertilitycommunity.com',
+                    "%0A\n" +
+                    "FertilityCommunity team\n" +
+                    "This is an automated message, please do not reply",
+                    "info@fertilitycommunity.com",
                     [user.email],
                     fail_silently=False,
                 )

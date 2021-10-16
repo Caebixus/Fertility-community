@@ -14,329 +14,325 @@
     <br>
   </div>
 </div>
-<br>
+
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
   {% for listings in listingsppq %}
     {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-sm-9">
-            <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-primary">PREMIUM clinic</span></h2>
-          </div>
+      <div class="card text-center mt-5">
+        <div class="card-header" style="background-color:#007bff;">
+           <h2 class="text-color-white text-center"<u>{{ listings.clinicName }}</u></h2>
         </div>
-        <hr>
-        <div class="row">
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
-            </a>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+              </a>
+            </div>
           </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
-            </a>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          {% if listings.customer.membership == True %}
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
-            </a>
-          </div>
-          {% else %}
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button" disabled>Payments</button>
-            </a>
-          </div>
-          {% endif %}
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'livechatsettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Live Chat</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'reviewssettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Independent reviews</button>
-            </a>
-          </div>
-
-          <div class="col-sm" style="padding-top: 1rem;">
-            {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
-            <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
-              <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
-            </a>
+          <hr>
+          <div class="row">
+            {% if listings.customer.membership == True %}
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
+              </a>
+            </div>
             {% else %}
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button" disabled>Payments</button>
+              </a>
+            </div>
             {% endif %}
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'livechatsettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Live Chat</button>
+              </a>
+            </div>
           </div>
 
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
-              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
-            </a>
-          </div>
+          <div class="row mt-3">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'reviewssettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Independent reviews</button>
+              </a>
+            </div>
 
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
+              <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
+                <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
+              </a>
+              {% else %}
+              {% endif %}
+            </div>
 
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
+                <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+              </a>
+            </div>
+
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+
+          </div>
         </div>
+
       </div>
     {% endif %}
   {% endfor %}
+
   {% for listings in listingspro %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == True and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-sm-9">
-            <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-success">PRO clinic</span></h2>
-          </div>
+      <div class="card text-center mt-5">
+        <div class="card-header" style="background-color:#007bff;">
+           <h2 class="text-color-white text-center"<u>{{ listings.clinicName }}</u></h2>
         </div>
-        <hr>
-        <div class="row" style="text-align:left">
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
-            </a>
+        <div class="card-body">
+          <div class="row" style="text-align:left">
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'updateproclinic' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+              </a>
+            </div>
           </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updatePricingPro' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
-            </a>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          {% if listings.customer.membership == True %}
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
-            </a>
-          </div>
-          {% else %}
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          {% endif %}
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'livechatsettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Live Chat</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'reviewssettings' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-outline-dark btn-block" type="button">Independent reviews</button>
-            </a>
-          </div>
-
-          <div class="col-sm" style="padding-top: 1rem;">
-            {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
-            <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
-              <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
-            </a>
+          <hr>
+          <div class="row">
+            {% if listings.customer.membership == True %}
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'payments' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Payments</button>
+              </a>
+            </div>
             {% else %}
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
             {% endif %}
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'clinicpackagesettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Packages</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'guestblogging' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Guest Blogging</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'livechatsettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Live Chat</button>
+              </a>
+            </div>
           </div>
 
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
-              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
-            </a>
-          </div>
+          <div class="row mt-3">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'reviewssettings' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-outline-dark btn-block" type="button">Independent reviews</button>
+              </a>
+            </div>
 
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
+              <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
+                <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
+              </a>
+              {% else %}
+              {% endif %}
+            </div>
 
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
+                <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+              </a>
+            </div>
+
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+
+          </div>
         </div>
       </div>
     {% endif %}
   {% endfor %}
-  <br>
-  <hr>
-  <br>
-  <br>
+
   {% for listings in listingsbasic %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-sm-9">
-            <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-warning">Basic clinic</span></h2>
-            <p>This clinic cannot have any IVF packages. Please upgrade your clinic so that you can use and show your IVF packages. </p>
-            <p>Did you know almost <u>30% of our users visit and search IVF packages</u> on our website?</p>
-          </div>
+      <div class="card text-center mt-5">
+        <div class="card-header">
+          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+          <p>This clinic cannot have any IVF packages. Please upgrade your clinic so that you can use and show your IVF packages. </p>
+          <p>Did you know almost <u>30% of our users visit and search IVF packages</u> on our website?</p>
         </div>
-        <hr>
-        <div class="row" style="text-align:left">
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'update' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
-            </a>
+        <div class="card-body">
+          <div class="row" style="text-align:left">
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'update' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Clinic information</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'updatePricing' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem">
+              <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
+              </a>
+            </div>
           </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'updatePricing' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-comment-dollar"></i> Clinic pricing</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem">
-            <a href="{% url 'clinics:clinic-detail' listings.pk listings.slug %}" style="text-decoration: none; !important">
-              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View clinic</button>
-            </a>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          {% if listings.customer.stripeid %}
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'checkout2' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-success text-light btn-block" type="button">Upgrade clinic</button>
-            </a>
-          </div>
-          {% else %}
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'upgrade' listings.id %}" style="text-decoration: none; !important">
-              <button class="btn btn-success text-light btn-block" type="button">Why upgrade?</button>
-            </a>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;">
-          </div>
-          {% endif %}
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Offer unique fertility / IVF treatment packages for potential clients with parameters that only your clinic can offer." data-placement="bottom">
-            <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Packages <i class="far fa-question-circle"></i></button>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Write unique content for us to expose your brand to a relevant audience. It's an effective method to generate awareness with social proof and SEO backlinks." data-placement="bottom">
-            <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Guest Blogging <i class="far fa-question-circle"></i></button>
-          </div>
-          <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Connect your live chat tools and communicate with potential clients immediately." data-placement="bottom">
-            <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Live Chat <i class="far fa-question-circle"></i></button>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Connect your Google reviews or Trustpilot widget and show it on your clinic detail page." data-placement="bottom">
-            <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Independent Review <i class="far fa-question-circle"></i></button>
-          </div>
-
-          <div class="col-sm" style="padding-top: 1rem;">
-            {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
-            <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
-              <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
-            </a>
+          <hr>
+          <div class="row">
+            {% if listings.customer.stripeid %}
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'checkout2' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-success text-light btn-block" type="button">Upgrade clinic</button>
+              </a>
+            </div>
             {% else %}
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'upgrade' listings.id %}" style="text-decoration: none; !important">
+                <button class="btn btn-success text-light btn-block" type="button">Why upgrade?</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
             {% endif %}
           </div>
-
-          <div class="col-sm" style="padding-top: 1rem;">
-            <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
-              <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
-            </a>
+          <hr>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Offer unique fertility / IVF treatment packages for potential clients with parameters that only your clinic can offer." data-placement="bottom">
+              <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Packages <i class="far fa-question-circle"></i></button>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Write unique content for us to expose your brand to a relevant audience. It's an effective method to generate awareness with social proof and SEO backlinks." data-placement="bottom">
+              <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Guest Blogging <i class="far fa-question-circle"></i></button>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Connect your live chat tools and communicate with potential clients immediately." data-placement="bottom">
+              <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Live Chat <i class="far fa-question-circle"></i></button>
+            </div>
           </div>
+          <br>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;" tabindex="0" data-toggle="tooltip" title="Paid Feature - Connect your Google reviews or Trustpilot widget and show it on your clinic detail page." data-placement="bottom">
+              <button class="btn btn-outline-dark btn-block" style="pointer-events: none;" type="button" disabled>Independent Review <i class="far fa-question-circle"></i></button>
+            </div>
 
-          <div class="col-sm" style="padding-top: 1rem;">
+            <div class="col-sm" style="padding-top: 1rem;">
+              {% if listings.best_article_country_blogpost_obj != None or listings.best_article_state_blogpost_obj != None or listings.best_article_city_blogpost_obj != None %}
+              <a href="{% url 'bestclinicarticles' listings.id %}" style="text-decoration: none; !important" >
+                <button class="btn btn-outline-dark btn-block" type="button">Best clinic articles</button>
+              </a>
+              {% else %}
+              {% endif %}
+            </div>
+
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'fctrafficreport' listings.id %}" style="text-decoration: none; !important" hidden>
+                <button class="btn btn-outline-dark btn-block" type="button">Website traffic</button>
+              </a>
+            </div>
+
+            <div class="col-sm" style="padding-top: 1rem;">
+            </div>
+
           </div>
-
         </div>
       </div>
     {% endif %}
   {% endfor %}
   {% for listings in listingsbasic %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == False %}
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-sm-9">
-          <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-warning">Basic clinic</span></h2>
+      <div class="card text-center mt-5">
+        <div class="card-header">
+          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+        </div>
+        <div class="card-body">
+          <div class="row" style="text-align:left">
+            <div class="col-sm" style="padding-top: 1rem">
+              <p><i class="fas fa-search"></i> Your clinic is in review - please wait (approximately 24 hours)</p>
+            </div>
+          </div>
         </div>
       </div>
-      <br>
-      <br>
-      <div class="row" style="text-align:left">
-        <div class="col-sm" style="padding-top: 1rem">
-          <p><i class="fas fa-search"></i> Your clinic is in review - please wait</p>
-        </div>
-      </div>
-    </div>
     {% elif listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == True %}
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-sm-9">
-          <h2><u>{{ listings.clinicName }}</u> <span class="badge badge-pill badge-danger">Not Approved</span></h2>
+      <div class="card text-center mt-5">
+        <div class="card-header">
+          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+        </div>
+        <div class="card-body">
+          <div class="row" style="text-align:left">
+            <div class="col-sm" style="padding-top: 1rem">
+              <p><i class="fas fa-search"></i> Your clinic has not been approved and will not appear in search or anywhere else on the website. This usually happens if the FertilityCommunity team decides that your project is not a fertility clinic or agency offering IVF and fertility treatment. You can <a href="{% url 'contactus' %}">contact us</a> for more information.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <br>
-      <br>
-      <div class="row" style="text-align:left">
-        <div class="col-sm" style="padding-top: 1rem">
-          <p><i class="fas fa-search"></i> Your clinic has not been approved and will not appear in search or anywhere else on the website. This usually happens if the FertilityCommunity team decides that your project is not a fertility clinic or agency offering IVF and fertility treatment. You can <a href="{% url 'contactus' %}">contact us</a> for more information.</p>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-{% endfor %}
+    {% endif %}
+  {% endfor %}
   {% for listings in listingsbasic %}
-  {% empty %}
-  <div class="jumbotron">
-    <p>There is no clinic connected to your account. <a href="{% url 'claim' %}"><u>Claim</u></a> or <a href="{% url 'create1' %}"><u>add new</u></a> one.</p>
-  </div>
+    {% empty %}
+    <div class="jumbotron">
+      <p>There is no clinic connected to your account. <a href="{% url 'claim' %}"><u>Claim</u></a> or <a href="{% url 'create1' %}"><u>add</u></a> new one.</p>
+    </div>
   {% endfor %}
 </div>
+
+
+
+
 
 {% endblock  %}

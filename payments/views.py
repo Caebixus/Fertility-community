@@ -381,8 +381,6 @@ def stripe_webhook(request):
 
     if event['type'] == 'customer.deleted':
         session = event['data']['object']
-        print('CUSTOMER DELETED')
-        print(session)
         customer = get_object_or_404(Customer, stripeid=session.id)
         customer.delete()
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
@@ -406,17 +404,13 @@ def stripe_webhook(request):
             )
 
     if event['type'] == 'customer.subscription.created':
-        session = event['data']['object']
+        pass
 
     if event['type'] == 'payment_intent.succeeded':
-        session = event['data']['object']
-        customer = get_object_or_404(Customer, stripeid=session.customer)
-        instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
+        pass
 
     if event['type'] == 'invoice.paid':
         session = event['data']['object']
-        print('INVOICE PAID')
-        print(session)
         customer = get_object_or_404(Customer, stripeid=session.customer)
         customer.membership = True
         customer.save()
@@ -475,15 +469,9 @@ def stripe_webhook(request):
 
     if event['type'] == 'customer.subscription.updated':
         session = event['data']['object']
-        print('CUSTOMER SUBSCRIPTION UPDATED')
-        print(session)
         lines = stripe.Subscription.list(limit=3)
         planid = lines.data[-1]
-        print('planid')
-        print(planid)
         planidplan = planid.plan.id
-        print('planidplan')
-        print(planidplan)
         customer = get_object_or_404(Customer, stripeid=session.customer)
         instance = get_object_or_404(BasicClinic, pk=customer.customerClinic.id)
         if planidplan == 'price_1HZetuEHpkY9RbxJyRjQvzGe' or planidplan == 'price_1HZetuEHpkY9RbxJs17Cfx5h': #PREMIUM Plans
@@ -547,8 +535,6 @@ def stripe_webhook(request):
 
     if event['type'] == 'invoice.payment_failed':
         session = event['data']['object']
-        print('-------> invoice.payment_failed')
-        print(session)
         customer = get_object_or_404(Customer, stripeid=session.id)
         customer.membership = False
         customer.save()
@@ -586,5 +572,18 @@ def stripe_webhook(request):
                 ['info@fertilitycommunity.com'],
                 fail_silently=False,
                 )
+
+    if event['Type'] == 'subscription_schedule.canceled':
+        session = event['data']['object']
+        customer = get_object_or_404(Customer, stripeid=session.id)
+
+        send_mail(
+            'Subscription canceled',
+            'Someone just now canceled subscription on stripe' +
+            '\nClinic username: ' + str(customer.customerClinic),
+            'info@fertilitycommunity.com',
+            ['info@fertilitycommunity.com'],
+            fail_silently=False,
+        )
 
     return HttpResponse(status=200)

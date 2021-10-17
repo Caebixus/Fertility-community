@@ -51,7 +51,7 @@ def register(request):
                     "Hello,\n" +
                     "Please activate your new account. Copy code below into a field in your account dashboard:\n" +
                     "\n" +
-                    str(random_auth_number)+
+                    str(random_auth_number) +
                     "\n" +
                     "\nFertilityCommunity team\n" +
                     "This is an automated message, please do not reply",
@@ -1039,3 +1039,114 @@ def bestclinicarticles(request, listing_id):
     }
 
     return render(request, 'owners/best-articles/owners-best-articles.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def bestclinicarticlescity(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
+    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
+
+    if form.is_valid() and picform.is_valid():
+        form = form.save(commit=False)
+        form.save()
+        picform.save()
+
+        klinika = instance.clinicName
+
+        send_mail(
+            'Klinika updatovala "Best IVF clinic - city" blogpost -' + str(klinika),
+            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
+
+        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
+        return redirect(dashboard)
+
+    context = {
+        'picform': picform,
+        'instance': instance,
+        'form': form,
+    }
+
+    return render(request, 'owners/best-articles/owners-best-articles-city.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def bestclinicarticlesstate(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
+    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
+
+    if form.is_valid() and picform.is_valid():
+        form = form.save(commit=False)
+        form.save()
+        picform.save()
+
+        klinika = instance.clinicName
+
+        send_mail(
+            'Klinika updatovala "Best IVF clinic - state" blogpost -' + str(klinika),
+            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
+
+        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
+        return redirect(dashboard)
+
+    context = {
+        'picform': picform,
+        'instance': instance,
+        'form': form,
+    }
+
+    return render(request, 'owners/best-articles/owners-best-articles-state.html', context)
+
+@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
+def bestclinicarticlescountry(request, listing_id):
+    usergroup = ProUser.objects.all()
+    usergroup = usergroup.filter(user=request.user)
+    usergroup = usergroup.filter(paidPropublished=True)
+
+    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
+
+    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
+    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
+
+    if form.is_valid() and picform.is_valid():
+        form = form.save(commit=False)
+        form.save()
+        picform.save()
+
+        klinika = instance.clinicName
+
+        send_mail(
+            'Klinika updatovala "Best IVF clinic - country" blogpost -' + str(klinika),
+            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
+
+        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
+        return redirect(dashboard)
+
+    context = {
+        'picform': picform,
+        'instance': instance,
+        'form': form,
+    }
+
+    return render(request, 'owners/best-articles/owners-best-articles-country.html', context)

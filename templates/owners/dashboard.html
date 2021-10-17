@@ -19,9 +19,10 @@
   {% include 'partials/_alerts.html' %}
   {% for listings in listingsppq %}
     {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="card text-center mt-5">
-        <div class="card-header" style="background-color:#007bff;">
-           <h2 class="text-color-white text-center"<u>{{ listings.clinicName }}</u></h2>
+      <div class="card mt-5">
+        <div class="card-header">
+          <span class="badge badge-primary text-left mb-2">PREMIUM</span>
+          <h2>{{ listings.clinicName }}</h2>
         </div>
         <div class="card-body">
           <div class="row">
@@ -102,9 +103,6 @@
               </a>
             </div>
 
-            <div class="col-sm" style="padding-top: 1rem;">
-            </div>
-
           </div>
         </div>
 
@@ -114,9 +112,10 @@
 
   {% for listings in listingspro %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == True and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="card text-center mt-5">
-        <div class="card-header" style="background-color:#007bff;">
-           <h2 class="text-color-white text-center"<u>{{ listings.clinicName }}</u></h2>
+      <div class="card mt-5">
+        <div class="card-header">
+          <span class="badge badge-primary text-left mb-2">PRO</span>
+          <h2>{{ listings.clinicName }}</h2>
         </div>
         <div class="card-body">
           <div class="row" style="text-align:left">
@@ -194,9 +193,6 @@
               </a>
             </div>
 
-            <div class="col-sm" style="padding-top: 1rem;">
-            </div>
-
           </div>
         </div>
       </div>
@@ -205,9 +201,10 @@
 
   {% for listings in listingsbasic %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}
-      <div class="card text-center mt-5">
+      <div class="card mt-5">
         <div class="card-header">
-          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+          <span class="badge badge-secondary text-left mb-2">BASIC</span>
+          <h2>{{ listings.clinicName }}</h2>
           <p>This clinic cannot have any IVF packages. Please upgrade your clinic so that you can use and show your IVF packages. </p>
           <p>Did you know almost <u>30% of our users visit and search IVF packages</u> on our website?</p>
         </div>
@@ -286,9 +283,6 @@
               </a>
             </div>
 
-            <div class="col-sm" style="padding-top: 1rem;">
-            </div>
-
           </div>
         </div>
       </div>
@@ -296,9 +290,10 @@
   {% endfor %}
   {% for listings in listingsbasic %}
     {% if listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == False %}
-      <div class="card text-center mt-5">
+      <div class="card mt-5">
         <div class="card-header">
-          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+          <span class="badge badge-warning text-left mb-2">REVIEWING</span>
+          <h2>{{ listings.clinicName }}</h2>
         </div>
         <div class="card-body">
           <div class="row" style="text-align:left">
@@ -309,9 +304,10 @@
         </div>
       </div>
     {% elif listings.ppq_is_published == False and listings.pro_is_published == False and listings.is_published == False and listings.is_not_approved == True %}
-      <div class="card text-center mt-5">
+      <div class="card mt-5">
         <div class="card-header">
-          <h2 class="text-color-normal text-center">{{ listings.clinicName }}</h2>
+          <span class="badge badge-danger text-left mb-2">NOT APPROVED</span>
+          <h2>{{ listings.clinicName }}</h2>
         </div>
         <div class="card-body">
           <div class="row" style="text-align:left">
@@ -330,7 +326,6 @@
     </div>
   {% endfor %}
 </div>
-
 
 
 

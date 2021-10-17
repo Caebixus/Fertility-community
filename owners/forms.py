@@ -1033,11 +1033,11 @@ class UpdatePrice(forms.ModelForm):
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     mild_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1053,12 +1053,12 @@ class UpdatePrice(forms.ModelForm):
     sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     known_sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     known_egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1073,10 +1073,10 @@ class UpdatePrice(forms.ModelForm):
     sperm_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     surrogacy = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     egg_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     embryo_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1340,11 +1340,11 @@ class UpdatePricePro(forms.ModelForm):
     icsi_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     iui_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    mild_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    ovarian_ivf_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    icsi_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    iui_treatment_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     mild_ivf_treatment_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1360,12 +1360,12 @@ class UpdatePricePro(forms.ModelForm):
     sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     known_sperm_donor_recipients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_egg_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_embryo_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    known_sperm_donor_recipients_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     known_egg_donor_recipients_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1380,10 +1380,10 @@ class UpdatePricePro(forms.ModelForm):
     sperm_freezing = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     surrogacy = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
-    egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
-    surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0)
+    egg_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    embryo_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    sperm_freezing_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
+    surrogacy_cost = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control',}), required=False, min_value=0, help_text='put price in USD ($)')
 
     egg_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
     embryo_freezing_faqs = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}), required=False, max_length=500)
@@ -1571,12 +1571,20 @@ class bestarticleproposition(forms.ModelForm):
     best_article_country_actual_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - actual text'), max_length=3600)
     best_article_country_actual_prototype = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - proposition text'), max_length=3600)
 
+    best_article_city_boolean = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    best_article_city_actual_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - actual text'), max_length=3600)
+    best_article_city_actual_prototype = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - proposition text'), max_length=3600)
+
     class Meta:
         model = BasicClinic
         fields = [
         'best_article_country_boolean',
         'best_article_country_actual_text',
         'best_article_country_actual_prototype',
+
+        'best_article_city_boolean',
+        'best_article_city_actual_text',
+        'best_article_city_actual_prototype',
         ]
 
     def __init__(self, *args, **kwargs):

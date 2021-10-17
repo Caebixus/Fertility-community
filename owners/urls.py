@@ -40,6 +40,9 @@ urlpatterns = [
     path('reviews-settings/<int:listing_id>', views.reviewssettings, name='reviewssettings'),
 
     path('best-clinic-articles/<int:listing_id>', views.bestclinicarticles, name='bestclinicarticles'),
+    path('best-clinic-articles-city/<int:listing_id>', views.bestclinicarticlescity, name='bestclinicarticlescity'),
+    path('best-clinic-articles-state/<int:listing_id>', views.bestclinicarticlesstate, name='bestclinicarticlesstate'),
+    path('best-clinic-articles-country/<int:listing_id>', views.bestclinicarticlescountry, name='bestclinicarticlescountry'),
 
     path('activate-user', views.activateUser, name='activateUser'),
 

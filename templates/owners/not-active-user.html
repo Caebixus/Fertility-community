@@ -15,7 +15,7 @@
   <form action="{% url 'notActiveUser' %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
-      <label for="email">Please copy your code here:</label>
+      <label for="email">Please copy your code here (make sure there are no blank spaces):</label>
       <input type="text" name="activateaccount" class="form-control" required>
     </div>
     <input id="brandButton" type="submit" value="Activate account" class="btn btn-outline-success btn-lg">

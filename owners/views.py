@@ -51,7 +51,7 @@ def register(request):
                     "Hello,\n" +
                     "Please activate your new account. Copy code below into a field in your account dashboard:\n" +
                     "\n" +
-                    str(random_auth_number) +
+                    str(random_auth_number)+
                     "\n" +
                     "\nFertilityCommunity team\n" +
                     "This is an automated message, please do not reply",

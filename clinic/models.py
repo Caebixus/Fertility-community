@@ -500,6 +500,9 @@ class BasicClinic(models.Model):
     def get_absolute_url(self):
         return reverse('clinics:clinic-detail', kwargs={'pk': self.id, 'slug': self.slug()})
 
+    def __str__(self):
+        return self.clinicName
+
 class AcceptedPayment(models.Model):
     accepted_payment = models.CharField(max_length=100, blank=True, null=True)
 

@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
 from .models import BestClinicArticleCountry
+from django.http import HttpResponsePermanentRedirect
+from django.urls import reverse
 
 
 def bestivfclinicsinczech(request):
@@ -26,3 +28,6 @@ def bestivfclinicsinczech(request):
     }
 
     return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+
+def bestivfclinicsinczechbezin(request):
+    return HttpResponsePermanentRedirect(reverse('bestivfclinicsinczech'))

@@ -6,7 +6,7 @@
 
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Update clinic information - {{instance.clinicName}}</h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">{{instance.clinicName}}</h1>
     <br>
   </div>
 </div>
@@ -28,7 +28,8 @@
   {{ form.non_field_errors }}
   {{ form.source.errors }}
   {{ form.source }}
-  <h2>Clinic Basic Information</h2>
+  <h2>Update basic clinic information</h2>
+  <br>
   <div class="fieldWrapper" style="text-align: left">
     {{ form.clinicName.errors }}
     <label for="{{ form.clinicName.id_for_label}}">Name:</label>

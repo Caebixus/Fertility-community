@@ -1,0 +1,49 @@
+<div class="background py-5" style="background-color: #286DA8">
+  <div class="container">
+    <h2 class="text-white"><i class="fab fa-medapps"></i> Have a look at which IVF clinics are the best in popular locations and why:</h2>
+    <div class="row row-cols-1 row-cols-md-2">
+      {% for blogs in best_city %}
+      <div class="col-sm" style="padding-top: 2rem;">
+        <article>
+
+            <header>
+                <h2 class="entry-title text-white"><a href="{{ blogs.blog_url }}" title="link to {{ blogs.title }}" rel="bookmark" class="text-white">{{ blogs.title }} in {{ blogs.year }}</a></h2>
+            </header>
+
+            <div class="text-white">
+                <p class="text-white">{{ blogs.description|truncatechars:200 }}</p>
+            </div>
+
+            <div>
+              <a href="{{ blogs.blog_url }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Check it out</button>
+              </a>
+            </div>
+
+        </article>
+      </div>
+      {% endfor %}
+            {% for blogs in best_country %}
+      <div class="col-sm" style="padding-top: 2rem;">
+        <article>
+
+            <header class="text-white">
+                <h2 class="entry-title text-white"><a href="{{ blogs.blog_url }}" title="link to {{ blogs.title }}" rel="bookmark" class="text-white">{{ blogs.title }} in {{ blogs.year }}</a></h2>
+            </header>
+
+            <div class="text-white">
+                <p class="text-white">{{ blogs.description|truncatechars:200 }}</p>
+            </div>
+
+            <div>
+              <a href="{{ blogs.blog_url }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Check it out</button>
+              </a>
+            </div>
+
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

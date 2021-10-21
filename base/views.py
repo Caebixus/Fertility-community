@@ -6,10 +6,12 @@ from contact.forms import WebsiteForm
 from django.core.mail import send_mail
 from django.contrib import messages
 from clinic.models import BasicClinic
-from blog.models import Blog
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState
 
 def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:6]
+    best_city = BestClinicArticleCity.objects.all().order_by('-created_at')[:1]
+    best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')[:1]
 
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count
@@ -237,6 +239,8 @@ def index(request):
 
     context = {
         'blog': blog,
+        'best_city': best_city,
+        'best_country': best_country,
         'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA,
         'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE,
         'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA,

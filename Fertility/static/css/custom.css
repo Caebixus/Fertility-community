@@ -715,3 +715,12 @@ border-radius:0 4px 4px 0;
 .text-color-normal {
     color: black !important;
 }
+
+.strong {
+    font-weight: 300;
+    font-family:"Raleway",Helvetica;
+}
+
+.no-underline {
+    text-decoration: none;
+}

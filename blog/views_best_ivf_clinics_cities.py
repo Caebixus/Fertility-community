@@ -2,13 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
 from .models import BestClinicArticleCity
 
+
 def bestivfclinicsinprague(request):
     pkid = 1
 
     clinics = BasicClinic.objects.all().exclude(is_published=False)
 
     best_clinics = clinics.filter(best_article_city_blogpost_obj=pkid)
-    best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')
+    best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')[:5]
 
     clinics_location_count = clinics.filter(clinicRegion__iexact='Prague')
     clinics_location_count = clinics_location_count.count()

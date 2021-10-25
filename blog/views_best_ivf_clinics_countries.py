@@ -11,7 +11,7 @@ def bestivfclinicsinczech(request):
     clinics = BasicClinic.objects.all()
 
     best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid)
-    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
 
     clinics_location_count = clinics.filter(clinicState='Czech Republic')
     clinics_location_count = clinics_location_count.count()
@@ -28,6 +28,7 @@ def bestivfclinicsinczech(request):
     }
 
     return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+
 
 def bestivfclinicsinczechbezin(request):
     return HttpResponsePermanentRedirect(reverse('bestivfclinicsinczech'))

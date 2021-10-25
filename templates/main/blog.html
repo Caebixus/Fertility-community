@@ -10,13 +10,88 @@
 {% include 'partials/_alerts.html' %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">IVF Journal & News</h1>
+    <h1 class="display-4" style="padding-top:3rem; color:white">IVF Blog & Journal</h1>
     <p class="lead" style="color:white">Providing you with the most actionable IVF news, blogposts and stories all over the world</p>
     <br>
   </div>
 </div>
 
 <div class="container py-5">
+  <h2>The latest articles on the best IVF clinics in different countries:</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for blogs in BestClinicBlogCountry %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <div class="card-body">
+          <a href="{{ blogs.blog_url }}">
+            <h3 class="card-title">{{ blogs.title }} in {{ blogs.year }}</h3>
+          </a>
+          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ blogs.blog_url }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
+            </div>
+            <small class="text-muted">{{ blogs.minute_read }} mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <br>
+  <br>
+  <div class="text-right" hidden>
+    <a href="" style="text-decoration: none;">
+      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all articles</button>
+    </a>
+  </div>
+</div>
+
+<div class="container py-3">
+  <hr>
+</div>
+
+<div class="container py-5">
+  <h2>The latest articles on the best IVF clinics in different cities:</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for blogs in BestClinicBlogCity %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <div class="card-body">
+          <a href="{{ blogs.blog_url }}">
+            <h3 class="card-title">{{ blogs.title }} in {{ blogs.year }}</h3>
+          </a>
+          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ blogs.blog_url }}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
+            </div>
+            <small class="text-muted">{{ blogs.minute_read }} mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <br>
+  <br>
+  <div class="text-right" hidden>
+    <a href="" style="text-decoration: none;">
+      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all articles</button>
+    </a>
+  </div>
+</div>
+
+<div class="container py-3">
+  <hr>
+</div>
+
+<div class="container py-5">
+  <h2>Explore tips and tricks for IVF treatment:</h2>
   <div class="row row-cols-1 row-cols-md-3">
     {% for blogs in blog %}
     {% if blogs.author != None %}
@@ -46,5 +121,14 @@
     {% endif %}
     {% endfor %}
   </div>
+  <br>
+  <br>
+  <div class="text-right" hidden>
+    <a href="" style="text-decoration: none;">
+      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all posts</button>
+    </a>
+  </div>
 </div>
+
+
 {% endblock  %}

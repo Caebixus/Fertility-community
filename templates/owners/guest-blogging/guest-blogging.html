@@ -21,8 +21,8 @@
     <table class="table text-center">
       <thead>
         <tr>
-          <th scope="col">Blog nost name</th>
-          <th scope="col">Is blog post live on web?</th>
+          <th scope="col">Blogpost name</th>
+          <th scope="col">Is blogpost live on web?</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -34,7 +34,7 @@
             {% if blogs.guestblogactive == True %}
             <i class="fas fa-check-circle" style="color:green"></i>
             {% else %}
-            <i class="fas fa-minus-circle" style="color:red"></i> Blog post is in review - please wait
+            <i class="fas fa-minus-circle" style="color:red"></i> Blogpost is in review - please wait
             {% endif %}
           </td>
           <td>
@@ -61,7 +61,7 @@
       <div class="col">
         <p style="font-size: 80%; text-align: center">
           <a href="{% url 'create_guest_blog' instance.pk %}">
-            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create new blog post</button>
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create new blogpost</button>
           </a>
         </p>
       </div>
@@ -76,7 +76,7 @@
 
   {% else %}
   <div class="container py-5">
-    <p>Author created - now create blog posts for <b>{{ instance.clinicName }}</b>.</p>
+    <p>Author created - now create blogposts for <b>{{ instance.clinicName }}</b>.</p>
     <br>
     <ol>
       <li>
@@ -89,12 +89,12 @@
       <li>
         <p style="font-size: 80%">
           <a href="{% url 'create_guest_blog' instance.pk %}">
-            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create blog post</button>
+            <button id="brandButtonNoGoal" type="button" class="btn btn-outline-success btn-md shadow" style="min-width: 10rem;">Create blogpost</button>
           </a>
         </p>
       </li>
       <li>
-        <p style="font-size: 80%">Check out your blog posts
+        <p style="font-size: 80%">Check out your blogposts
         </p>
       </li>
     </ol>
@@ -102,7 +102,7 @@
   {% endif %}
 {% else %}
 <div class="container py-5">
-  <p>You don't have any authors & blog posts created for <b>{{ instance.clinicName }}</b>.</p>
+  <p>You don't have any authors & blogposts created for <b>{{ instance.clinicName }}</b>.</p>
   <br>
   <ol>
     <li>
@@ -113,11 +113,11 @@
       </p>
     </li>
     <li>
-      <p style="font-size: 80%">Create blog post
+      <p style="font-size: 80%">Create blogpost
       </p>
     </li>
     <li>
-      <p style="font-size: 80%">Check out your blog posts
+      <p style="font-size: 80%">Check out your blogposts
       </p>
     </li>
   </ol>
@@ -137,7 +137,7 @@
     <li style="font-size: 80%">Your article must be presented in a non-advertorial, non-promotional fashion. You are welcome to make mention of (and link to) your clinic or other landing page, <b><u>once</u></b> within the body.</li>
     <li style="font-size: 80%">We only accept topics related to <b>infertility treatment</b>, <b>unique IVF technologies</b> or <b>services regarding your clinic</b>. You can always <a href="{% url 'contactus' %}">contact us</a> ahead.</li>
     <li style="font-size: 80%">We reserve the right not to accept the article.</li>
-    <li style="font-size: 80%">If you cancel your subscription and have active blog posts - these blog posts will no longer be published on the location pages or in the detail of your clinic. However, the blog post web address will still be accessible to you or anyone else.</li>
+    <li style="font-size: 80%">If you cancel your subscription and have active blogposts - these blogposts will no longer be published on the location pages or in the detail of your clinic. However, the blogpost web address will still be accessible to you or anyone else.</li>
     <li style="font-size: 80%">If you want to change your active and already published article - <a href="{% url 'contactus' %}">contact us</a>.</li>
   </ul>
 </div>

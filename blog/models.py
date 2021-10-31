@@ -40,6 +40,7 @@ class Blog(models.Model):
 
 class BestClinicArticleCountry(models.Model):
     title = models.CharField(max_length=200)
+    meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_country')
     description = models.TextField(max_length=1000, blank=True, null=True)
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
@@ -64,6 +65,7 @@ class BestClinicArticleCountry(models.Model):
 
 class BestClinicArticleState(models.Model):
     title = models.CharField(max_length=200)
+    meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_state')
     description = models.TextField(max_length=1000, blank=True, null=True)
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
@@ -88,6 +90,7 @@ class BestClinicArticleState(models.Model):
 
 class BestClinicArticleCity(models.Model):
     title = models.CharField(max_length=200)
+    meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_city')
     description = models.TextField(max_length=1000, blank=True, null=True)
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)

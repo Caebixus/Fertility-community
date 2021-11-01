@@ -12,7 +12,7 @@ class RegionsViewSitemap(sitemaps.Sitemap):
     def items(self):
         return [
         'fertilityClinicsAlabama',
-        'fertilityClinicsAlaska',
+        #'fertilityClinicsAlaska',
         'fertilityClinicsArizona',
         'fertilityClinicsArkansas',
         'fertilityClinicsCalifornia',
@@ -38,7 +38,7 @@ class RegionsViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsMissouri',
         'fertilityClinicsMontana',
         'fertilityClinicsNebraska',
-        'fertilityClinicsNewHampshire',
+        #'fertilityClinicsNewHampshire',
         'fertilityClinicsNewJersey',
         'fertilityClinicsNewMexico',
         'fertilityClinicsNewYork',
@@ -50,7 +50,7 @@ class RegionsViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsOregon',
         'fertilityClinicsPennsylvania',
         'fertilityClinicsPuertoRico',
-        'fertilityClinicsRhodeIsland',
+        #'fertilityClinicsRhodeIsland',
         'fertilityClinicsSouthCarolina',
         'fertilityClinicsSouthDakota',
         'fertilityClinicsTennessee',
@@ -62,7 +62,7 @@ class RegionsViewSitemap(sitemaps.Sitemap):
         'fertilityClinicsWestVirginia',
         'fertilityClinicsWisconsin',
         'fertilityClinicsWyoming',
-        'fertilityClinicsDistrictOfColumbia',
+        #'fertilityClinicsDistrictOfColumbia',
         ]
 
     def location(self, item):

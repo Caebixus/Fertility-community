@@ -10,8 +10,6 @@ class BlogsViewSitemap(sitemaps.Sitemap):
 
     def items(self):
         return [
-        'authorlisaholliman',
-
         'ivfabroadcosts',
         'fertilityTreatmentAbroadWhatYouNeedToKnow',
         'ivfabroadpackages',

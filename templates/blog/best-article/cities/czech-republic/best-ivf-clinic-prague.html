@@ -14,7 +14,6 @@
 {% block description %}These are the best IVF clinics in Prague for {{ best_clinics_blogpost.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing. {% endblock %}
 {% block noindexpage %}{% if best_clinics_blogpost.best_article_city_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}{% endblock %}
-{% block clinicdetailtrustpilotwidgetscript %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endblock %}
 {% block meta_keywords %}best ivf clinics in prague, best fertility clinics prague{% endblock %}
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}

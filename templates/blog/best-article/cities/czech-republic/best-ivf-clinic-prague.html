@@ -77,9 +77,10 @@
 
 <div class="container mt-5">
 
-  <p>{{ best_clinics_blogpost.description|safe }}</p>
+  <p>Fertility clinics in the Prague are among the world's best. People come here from abroad to receive professional treatment for a reasonable price, and they also learn about the country's broad history.</p>
+  <p>There are many <a href="{% url 'fertilityClinicPrague' %}">IVF clinics in Prague</a> and some are better than others. We have reviewed and compared several clinics and compare them below based on our digital transparency index.</p>
   <br>
-  <p>Here is our list of the <b><a href="{% url 'fertilityClinicPrague' %}">{{best_clinics_count}} {{best_clinics_blogpost.title}}.</a></b></p>
+  <p>Here is our list of the <b>{{best_clinics_count}} {{best_clinics_blogpost.title}}:</b></p>
 </div>
 
 {% for clinic in best_clinics %}

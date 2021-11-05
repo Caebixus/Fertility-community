@@ -1,15 +1,66 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
-from django import template
+from django.shortcuts import render
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from itertools import chain
-from .currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd, mxnToGbp, mxnToEur, mxnToUsd
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
 
 def locationsUSRegions(request):
     queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
+
+    queryset_list_us = queryset_list_us.filter(clinicState='United States')
+    my_total_clinic_count_usa = queryset_list_us.count()
+
+    queryset_list_us_natural_ivf = queryset_list_us.aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_us_natural_ivf.items():
+        queryset_list_us_natural_ivf_val = val
+
+    queryset_list_us_mild_ivf = queryset_list_us.aggregate(average=Avg('mild_ivf_treatment_cost'))
+    for key,val in queryset_list_us_mild_ivf.items():
+        queryset_list_us_mild_ivf_val = val
+
+    queryset_list_us_standard_ivf = queryset_list_us.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_us_standard_ivf.items():
+        queryset_list_us_standard_ivf_val = val
+
+
+    queryset_list_us_egg_ivf = queryset_list_us.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_us_egg_ivf.items():
+        queryset_list_us_egg_ivf_val = val
+
+    queryset_list_us_known_egg_ivf = queryset_list_us.aggregate(average=Avg('known_egg_donor_recipients_cost'))
+    for key,val in queryset_list_us_known_egg_ivf.items():
+        queryset_list_us_known_egg_ivf_val = val
+
+    queryset_list_us_shared_egg_ivf = queryset_list_us.aggregate(average=Avg('shared_egg_donor_recipients_cost'))
+    for key,val in queryset_list_us_shared_egg_ivf.items():
+        queryset_list_us_shared_egg_ivf_val = val
+
+
+    queryset_list_us_embryo_ivf = queryset_list_us.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_us_embryo_ivf.items():
+        queryset_list_us_embryo_ivf_val = val
+
+    queryset_list_us_known_embryo_ivf = queryset_list_us.aggregate(average=Avg('known_embryo_donor_recipients_cost'))
+    for key,val in queryset_list_us_known_embryo_ivf.items():
+        queryset_list_us_known_embryo_ivf_val = val
+
+
+    queryset_list_us_sperm_ivf = queryset_list_us.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_us_sperm_ivf.items():
+        queryset_list_us_sperm_ivf_val = val
+
+    queryset_list_us_known_sperm_ivf = queryset_list_us.aggregate(average=Avg('known_sperm_donor_recipients_cost'))
+    for key,val in queryset_list_us_known_sperm_ivf.items():
+        queryset_list_us_known_sperm_ivf_val = val
+
+
+    queryset_list_us_icsi = queryset_list_us.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_us_icsi.items():
+        queryset_list_us_icsi_val = val
+
+
+    queryset_list_us_iui = queryset_list_us.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_us_iui.items():
+        queryset_list_us_iui_val = val
+
 
     #--------------------------------------------------------------------------
     queryset_list_alabama = queryset_list_us.filter(clinicRegion__iexact='Alabama')
@@ -1468,6 +1519,26 @@ def locationsUSRegions(request):
         queryset_list_districtofcolumbia_iui_val = val
 
     context = {
+        'my_total_clinic_count_usa': my_total_clinic_count_usa,
+        
+        'queryset_list_us_natural_ivf_val': queryset_list_us_natural_ivf_val,
+        'queryset_list_us_mild_ivf_val': queryset_list_us_mild_ivf_val,
+        'queryset_list_us_standard_ivf_val': queryset_list_us_standard_ivf_val,
+
+        'queryset_list_us_egg_ivf_val': queryset_list_us_egg_ivf_val,
+        'queryset_list_us_known_egg_ivf_val': queryset_list_us_known_egg_ivf_val,
+        'queryset_list_us_shared_egg_ivf_val': queryset_list_us_shared_egg_ivf_val,
+
+        'queryset_list_us_embryo_ivf_val': queryset_list_us_embryo_ivf_val,
+        'queryset_list_us_known_embryo_ivf_val': queryset_list_us_known_embryo_ivf_val,
+
+        'queryset_list_us_sperm_ivf_val': queryset_list_us_sperm_ivf_val,
+        'queryset_list_us_known_sperm_ivf_val': queryset_list_us_known_sperm_ivf_val,
+
+        'queryset_list_us_icsi_val': queryset_list_us_icsi_val,
+        'queryset_list_us_iui_val': queryset_list_us_iui_val,
+
+
         'queryset_list_alabama_ivf_val': queryset_list_alabama_ivf_val,
         'queryset_list_alabama_egg_val': queryset_list_alabama_egg_val,
         'queryset_list_alabama_embryo_val': queryset_list_alabama_embryo_val,

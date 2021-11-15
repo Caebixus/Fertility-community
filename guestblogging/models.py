@@ -1,10 +1,7 @@
 from django.db import models
-from datetime import datetime
-from django.contrib.auth.models import User
-from django.db import models
-from ckeditor.fields import RichTextField
 from .choices import GUEST_BLOG_TAG_CHOICES
 from clinic.models import BasicClinic
+from clinic.validators import validate_file_size
 
 
 class GuestAuthor(models.Model):
@@ -27,10 +24,10 @@ class GuestBlog(models.Model):
     guestblogauthor = models.ForeignKey(GuestAuthor, on_delete=models.CASCADE)
     guestblogdescription = models.TextField()
 
-    guestblogpicblogmain = models.ImageField(upload_to='guestBloggingPhotos')
-    guestblogpicblog1 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True)
-    guestblogpicblog2 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True)
-    guestblogpicblog3 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True)
+    guestblogpicblogmain = models.ImageField(upload_to='guestBloggingPhotos', validators=[validate_file_size])
+    guestblogpicblog1 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True, validators=[validate_file_size])
+    guestblogpicblog2 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True, validators=[validate_file_size])
+    guestblogpicblog3 = models.ImageField(upload_to='guestBloggingPhotos', blank=True, null=True, validators=[validate_file_size])
 
     guestblogcity = models.CharField(max_length=200, blank=True, null=True)
     guestblogregion = models.CharField(max_length=200, blank=True, null=True)

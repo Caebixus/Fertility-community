@@ -1,14 +1,12 @@
-from django.db import models
 from datetime import datetime
-from django.contrib.auth.models import User
 from django.db import models
-from ckeditor.fields import RichTextField
 from django.utils.text import slugify
+from clinic.validators import validate_file_size
 
 class Author(models.Model):
     author_name = models.CharField(max_length=40)
     author_lastname = models.CharField(max_length=40)
-    author_pic = models.ImageField(upload_to='authorPhotos', blank=True, null=True)
+    author_pic = models.ImageField(upload_to='authorPhotos', blank=True, null=True, validators=[validate_file_size])
     author_small_bio = models.CharField(max_length=250, blank=True, null=True)
     author_description = models.TextField()
     linkedin_url = models.URLField(blank=True, null=True)
@@ -21,7 +19,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries')
     description = models.TextField()
-    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
     TAG_CHOICES = (
         ('IVF-Abroad', 'IVF-Abroad'),
         ('IVF Packages', 'IVF Packages'),
@@ -43,7 +41,7 @@ class BestClinicArticleCountry(models.Model):
     meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_country')
     description = models.TextField(max_length=1000, blank=True, null=True)
-    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
 
     year = models.PositiveIntegerField(blank=True, null=True)
 
@@ -68,7 +66,7 @@ class BestClinicArticleState(models.Model):
     meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_state')
     description = models.TextField(max_length=1000, blank=True, null=True)
-    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
 
     year = models.PositiveIntegerField(blank=True, null=True)
 
@@ -93,7 +91,7 @@ class BestClinicArticleCity(models.Model):
     meta_description = models.CharField(max_length=155, blank=True, null=True,)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_city')
     description = models.TextField(max_length=1000, blank=True, null=True)
-    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True)
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
 
     year = models.PositiveIntegerField(blank=True, null=True)
 

@@ -1,18 +1,16 @@
-from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 from clinic.models import BasicClinic
 from django.db import models
 from ckeditor.fields import RichTextField
 from .packageChoices import CATEGORY_PACKAGE
-from django.db.models import Q
-from django.utils import timezone
+from clinic.validators import validate_file_size
 
 
 class Package(models.Model):
     packageclinic = models.ForeignKey(BasicClinic, on_delete=models.CASCADE)
 
-    package_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True)
+    package_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True, validators=[validate_file_size])
     package_pic_delete = models.BooleanField(default=False, blank=True, null=True)
     packagetitle = models.CharField(max_length=30, blank=True, null = True)
     packagecategory = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])

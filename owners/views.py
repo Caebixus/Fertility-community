@@ -431,7 +431,7 @@ def update(request, listing_id):
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,
                 )
-            messages.success(request, '- Clinics pricing successfully updated')
+            messages.success(request, '- Clinics information successfully updated')
             return redirect(dashboard)
         else:
             messages.success(request, '- Clinics information successfully updated')

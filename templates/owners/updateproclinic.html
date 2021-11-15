@@ -14,10 +14,13 @@
 
 <div class="container py-4">
   {% if form.errors %}
-    {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-            <strong>{{ error|escape }}</strong>
-        </div>
+    {% for key, value in form.errors.items %}
+    <div class="alert alert-danger" role="alert">
+        <p> Error occured in this field:</p>
+        <span class="fieldWrapper">
+            {{ key }} {{ value }} {{ form.non_field_errors }}
+        </span>
+    </div>
     {% endfor %}
   {% endif %}
 </div>
@@ -26,32 +29,27 @@
   <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.non_field_errors }}
-
     {{ form.source.errors }}
     {{ form.source }}
   <h2>Update basic clinic information</h2>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.clinicName.errors }}
       <label for="{{ form.clinicName.id_for_label}}">Name:</label>
       {{ form.clinicName }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.clinicTitle.errors }}
       <label for="{{ form.clinicTitle.id_for_label}}">Title:</label>
       {{ form.clinicTitle }}
     </div>
     <br>
     <style> .django-ckeditor-widget { min-width:100% !important; } </style>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.description.errors }}
       <label>Description of your clinic (max 1300 characters):</label>
       {{ form.description }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.treatmentLimitations.errors }}
       <label>Treatment limitations (Age restrictions, law restrictions, Blood level requirements, BMI etc - max 800 characters):</label>
       {{ form.treatmentLimitations }}
     </div>
@@ -68,18 +66,15 @@
     </div>
     <br>
     <div class="col-4 col-md" style="text-align: left">
-      {{ form.clinic_pro_logo_pic.errors }}
         <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Re-upload (70x70 px):</p></label>
       <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
     </div>
     <div class="col-4 col-md" style="text-align: left">
-      {{ form.clinic_pro_logo_pic_del.errors}}
       <label for="{{ form.clinic_pro_logo_pic_del.id_for_label}}"><p>Check to delete</p></label>
       {{ form.clinic_pro_logo_pic_del }}
     </div>
     {% else %}
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.clinic_pro_logo_pic.errors }}
       <label for="{{ form.clinic_pro_logo_pic.id_for_label}}"><p>Logo (70x70 px):</p></label>
       <p style="font-size:10px">{{ form.clinic_pro_logo_pic }}</p>
     </div>
@@ -92,11 +87,9 @@
         {% if instance.clinic_pro_photo_1 %}
           <p>Currently uploaded picture 1: </p>
           <img src="{{ instance.clinic_pro_photo_1.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_1.errors }}
           <label for="{{ form.clinic_pro_photo_1.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_1 }}</p>
-          {{ form.clinic_pro_photo_1_del.errors}}
           <label for="{{ form.clinic_pro_photo_1_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_1_del }}
         {% else %}
@@ -109,11 +102,9 @@
         {% if instance.clinic_pro_photo_2 %}
           <p>Currently uploaded picture 2: </p>
           <img src="{{ instance.clinic_pro_photo_2.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_2.errors }}
           <label for="{{ form.clinic_pro_photo_2.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_2 }}</p>
-          {{ form.clinic_pro_photo_2_del.errors}}
           <label for="{{ form.clinic_pro_photo_2_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_2_del }}
         {% else %}
@@ -131,11 +122,9 @@
         {% if instance.clinic_pro_photo_3 %}
           <p>Currently uploaded picture 3: </p>
           <img src="{{ instance.clinic_pro_photo_3.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_3.errors }}
           <label for="{{ form.clinic_pro_photo_3.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_3 }}</p>
-          {{ form.clinic_pro_photo_3_del.errors}}
           <label for="{{ form.clinic_pro_photo_3_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_3_del }}
         {% else %}
@@ -148,11 +137,9 @@
         {% if instance.clinic_pro_photo_4 %}
           <p>Currently uploaded picture 4: </p>
           <img src="{{ instance.clinic_pro_photo_4.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_4.errors }}
           <label for="{{ form.clinic_pro_photo_4.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_4 }}</p>
-          {{ form.clinic_pro_photo_4_del.errors}}
           <label for="{{ form.clinic_pro_photo_4_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_4_del }}
         {% else %}
@@ -170,11 +157,9 @@
         {% if instance.clinic_pro_photo_5 %}
           <p>Currently uploaded picture 5: </p>
           <img src="{{ instance.clinic_pro_photo_5.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_5.errors }}
           <label for="{{ form.clinic_pro_photo_5.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_5 }}</p>
-          {{ form.clinic_pro_photo_5_del.errors}}
           <label for="{{ form.clinic_pro_photo_5_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_5_del }}
         {% else %}
@@ -187,11 +172,9 @@
         {% if instance.clinic_pro_photo_6 %}
           <p>Currently uploaded picture 6: </p>
           <img src="{{ instance.clinic_pro_photo_6.url }}" alt="Uploaded picture" style="width:100px; height 100px;">
-          {{ form.clinic_pro_photo_6.errors }}
           <label for="{{ form.clinic_pro_photo_6.id_for_label}}"></label>
           <p>Re-upload (1080x1080 px):</p>
           <p style="font-size:10px">{{ form.clinic_pro_photo_6 }}</p>
-          {{ form.clinic_pro_photo_6_del.errors}}
           <label for="{{ form.clinic_pro_photo_6_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.clinic_pro_photo_6_del }}
         {% else %}
@@ -208,31 +191,26 @@
     <h2>Clinic Contact Information</h2>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.contact_url.errors }}
       <label for="{{ form.contact_url.id_for_label}}">Clinic URL (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your google analytics):</label>
       {{ form.contact_url }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.contact_phone.errors }}
       <label for="{{ form.contact_phone.id_for_label}}">Phone number for clients:</label>
       {{ form.contact_phone }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.contact_email.errors }}
       <label for="{{ form.contact_email.id_for_label}}">General clinic email  (visible on clinic detail page):</label>
       {{ form.contact_email }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.query_email.errors }}
       <label for="{{ form.query_email.id_for_label}}">Inquiry email (for your packages inquiry):</label>
       {{ form.query_email }}
     </div>
     <br>
     <div class="fieldWrapper" style="text-align: left">
-      {{ form.fertilitycommunity_email.errors }}
       <label for="{{ form.fertilitycommunity_email.id_for_label}}">Email for discounts or deals from FertilityCommunity website:</label>
       {{ form.fertilitycommunity_email }}
     </div>
@@ -290,33 +268,28 @@
     <div class="row">
       <div class="col-md-6" style="padding-top:1rem">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicStreetAddress.errors }}
           <label for="{{ form.clinicStreetAddress.id_for_label}}">Street address:</label>
           {{ form.clinicStreetAddress }}
         </div>
         <br>
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicCity.errors }}
           <label for="{{ form.clinicCity.id_for_label}}">City:</label>
           {{ form.clinicCity }}
         </div>
       </div>
       <div class="col-md-6" style="padding-top:1rem">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicState.errors }}
           <label for="{{ form.clinicState.id_for_label}}">Country:</label>
           {{ form.clinicState }}
         </div>
         <br>
         <div class="fieldWrapper" style="text-align: left;">
-          {{ form.clinicRegion.errors }}
             <label for="{{ form.clinicRegion.id_for_label}}">State (optional):</label>
           {{ form.clinicRegion }}
         </div>
       </div>
       <div class="col-md-6" style="padding-top:1rem">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.clinicPostalCode.errors }}
           <label for="{{ form.clinicPostalCode.id_for_label}}">ZIP/Postal Code:</label>
           {{ form.clinicPostalCode }}
         </div>
@@ -333,13 +306,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.mondayOpens.errors }}
           {{ form.mondayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.mondayCloses.errors }}
           {{ form.mondayCloses }}
         </div>
       </div>
@@ -350,13 +321,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.tuesdayOpens.errors }}
           {{ form.tuesdayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.tuesdayCloses.errors }}
           {{ form.tuesdayCloses }}
         </div>
       </div>
@@ -367,13 +336,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.wednesdayOpens.errors }}
           {{ form.wednesdayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.wednesdayCloses.errors }}
           {{ form.wednesdayCloses }}
         </div>
       </div>
@@ -384,13 +351,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.thursdayOpens.errors }}
           {{ form.thursdayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.thursdayCloses.errors }}
           {{ form.thursdayCloses }}
         </div>
       </div>
@@ -401,13 +366,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.fridayOpens.errors }}
           {{ form.fridayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.fridayCloses.errors }}
           {{ form.fridayCloses }}
         </div>
       </div>
@@ -418,13 +381,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.saturdayOpens.errors }}
           {{ form.saturdayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.saturdayCloses.errors }}
           {{ form.saturdayCloses }}
         </div>
       </div>
@@ -435,13 +396,11 @@
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.sundayOpens.errors }}
           {{ form.sundayOpens }}
         </div>
       </div>
       <div class="col-4 col-md align-self-center" style="padding-top:1rem">
         <div class="fieldWrapper" style="max-width:6rem">
-          {{ form.sundayCloses.errors }}
           {{ form.sundayCloses }}
         </div>
       </div>
@@ -498,7 +457,6 @@
     <h2>Clinic Conditions</h2>
     <br>
     <div class="container">
-      {{ form.single_woman_treatment.errors }}
       <div class="row">
         <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
           Single woman fertility treatment
@@ -508,7 +466,6 @@
         </div>
       </div>
       <br>
-      {{ form.reciprocal_ivf.errors }}
       <div class="row">
         <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
           Reciprocal treatment (LGBTQ)
@@ -518,7 +475,6 @@
         </div>
       </div>
       <br>
-      {{ form.hiv_patients.errors }}
       <div class="row">
         <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
           HIV patients treatment
@@ -528,7 +484,6 @@
         </div>
       </div>
       <br>
-      {{ form.sex_selection.errors }}
       <div class="row">
         <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
           Sex / Gender selection
@@ -538,7 +493,6 @@
         </div>
       </div>
       <br>
-      {{ form.accepts_patients_from_abroad.errors }}
       <div class="row">
         <div class="col-10 col-md align-self-center" style="font-family: 'Josefin Sans';">
           Accepts patients from abroad
@@ -554,7 +508,6 @@
       <h2>Clinic Social Media</h2>
       <br>
       <div class="container">
-        {{ form.clinicFacebook.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic Facebook page URL
@@ -564,7 +517,6 @@
           </div>
         </div>
         <br>
-        {{ form.clinicInstagram.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic Instagram profile URL
@@ -574,7 +526,6 @@
           </div>
         </div>
         <br>
-        {{ form.clinicTwitter.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic Twitter profile URL
@@ -584,7 +535,6 @@
           </div>
         </div>
         <br>
-        {{ form.clinicYoutube.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic Youtube Channel URL
@@ -594,7 +544,6 @@
           </div>
         </div>
         <br>
-        {{ form.clinicLinkedIn.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic LinkedIn page URL
@@ -604,7 +553,6 @@
           </div>
         </div>
         <br>
-        {{ form.clinicPinterest.errors }}
         <div class="row">
           <div class="col-md align-self-center" style="font-family: 'Josefin Sans';">
             Clinic Pinterest profile URL
@@ -622,13 +570,11 @@
     <div class="row">
       <div class="col-md" style="padding-bottom: 4rem">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team1name.errors }}
           <label style="font-weight:400"> Name of first team member:</label>
           {{ form.team1name }}
         </div>
         <br>
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team1position.errors }}
           <label style="font-weight:400"> Position of first team member:</label>
           {{ form.team1position }}
         </div>
@@ -641,18 +587,15 @@
         </div>
         <br>
         <div class="col-md" style="text-align: left">
-          {{ form.team1pic.errors }}
             <label for="{{ form.team1pic.id_for_label}}"><p>Re-upload (120x120 px):</p></label>
           {{ form.team1pic }}
         </div>
         <div class="col-md" style="text-align: left">
-          {{ form.team1pic_del.errors}}
           <label for="{{ form.team1pic_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.team1pic_del }}
         </div>
         {% else %}
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team1pic.errors }}
           <label for="{{ form.team1pic.id_for_label}}">First team member (120x120 px):</label>
           {{ form.team1pic }}
         </div>
@@ -662,13 +605,11 @@
 
       <div class="col-md" style="padding-bottom: 4rem">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team2name.errors }}
           <label style="font-weight:400"> Name of second team member:</label>
           {{ form.team2name }}
         </div>
         <br>
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team2position.errors }}
           <label style="font-weight:400"> Position of second team member:</label>
           {{ form.team2position }}
         </div>
@@ -680,18 +621,15 @@
         </div>
         <br>
         <div class="col-md" style="text-align: left">
-          {{ form.team2pic.errors }}
             <label for="{{ form.team2pic.id_for_label}}"><p>Re-upload (120x120 px):</p></label>
           {{ form.team2pic }}
         </div>
         <div class="col-md" style="text-align: left">
-          {{ form.team2pic_del.errors}}
           <label for="{{ form.team2pic_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.team2pic_del }}
         </div>
         {% else %}
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team2pic.errors }}
           <label for="{{ form.team2pic.id_for_label}}">Second team member (120x120 px):</label>
           {{ form.team2pic }}
         </div>
@@ -701,13 +639,11 @@
 
       <div class="col-md">
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team3name.errors }}
           <label style="font-weight:400"> Name of third team member:</label>
           {{ form.team3name }}
         </div>
         <br>
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team3position.errors }}
           <label style="font-weight:400"> Position of third team member:</label>
           {{ form.team3position }}
         </div>
@@ -719,18 +655,15 @@
         </div>
         <br>
         <div class="col-md" style="text-align: left">
-          {{ form.team3pic.errors }}
             <label for="{{ form.team3pic.id_for_label}}"><p>Re-upload (120x120 px):</p></label>
           {{ form.team3pic }}
         </div>
         <div class="col-md" style="text-align: left">
-          {{ form.team3pic_del.errors}}
           <label for="{{ form.team3pic_del.id_for_label}}"><p>Check to delete</p></label>
           {{ form.team3pic_del }}
         </div>
         {% else %}
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.team3pic.errors }}
           <label for="{{ form.team3pic.id_for_label}}">Third team member (120x120 px):</label>
           {{ form.team3pic }}
         </div>

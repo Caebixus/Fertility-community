@@ -823,7 +823,7 @@ class CreateClinic(forms.ModelForm):
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
 
@@ -863,7 +863,7 @@ class CreateClinic(forms.ModelForm):
         'is_published_list_date',
         'single_woman_treatment',
         'reciprocal_ivf',
-        'hiv_patients',
+        'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',
         ]
@@ -935,7 +935,7 @@ class PostForm(forms.ModelForm):
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
@@ -1007,7 +1007,7 @@ class PostForm(forms.ModelForm):
         'clinic_pro_photo_6_del',
         'single_woman_treatment',
         'reciprocal_ivf',
-        'hiv_patients',
+        'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',
         'clinicFacebook',
@@ -1226,7 +1226,7 @@ class PostFormPro(forms.ModelForm):
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    hiv_patients = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
 
@@ -1313,7 +1313,7 @@ class PostFormPro(forms.ModelForm):
         'clinic_pro_photo_6_del',
         'single_woman_treatment',
         'reciprocal_ivf',
-        'hiv_patients',
+        'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',
         'clinicFacebook',

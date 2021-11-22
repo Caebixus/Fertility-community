@@ -822,7 +822,7 @@ class CreateClinic(forms.ModelForm):
     is_published_list_date = forms.DateTimeField(widget=forms.HiddenInput(attrs={'class': 'form-control',}), initial=False, required=False)
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}))
@@ -862,7 +862,7 @@ class CreateClinic(forms.ModelForm):
         'is_published',
         'is_published_list_date',
         'single_woman_treatment',
-        'reciprocal_ivf',
+        'reciprocal_treatment',
         'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',
@@ -934,7 +934,7 @@ class PostForm(forms.ModelForm):
     sundayCloses = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
@@ -1006,7 +1006,7 @@ class PostForm(forms.ModelForm):
         'clinic_pro_photo_6',
         'clinic_pro_photo_6_del',
         'single_woman_treatment',
-        'reciprocal_ivf',
+        'reciprocal_treatment',
         'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',
@@ -1225,7 +1225,7 @@ class PostFormPro(forms.ModelForm):
     sundayCloses = forms.CharField(widget=forms.Select(choices = HOURS, attrs={'class': 'form-control',}), required=False,)
 
     single_woman_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
-    reciprocal_ivf = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+    reciprocal_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     hiv_patients_treatment = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     sex_selection = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     accepts_patients_from_abroad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
@@ -1312,7 +1312,7 @@ class PostFormPro(forms.ModelForm):
         'clinic_pro_photo_6',
         'clinic_pro_photo_6_del',
         'single_woman_treatment',
-        'reciprocal_ivf',
+        'reciprocal_treatment',
         'hiv_patients_treatment',
         'sex_selection',
         'accepts_patients_from_abroad',

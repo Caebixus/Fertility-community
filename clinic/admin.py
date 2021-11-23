@@ -8,7 +8,7 @@ from import_export.admin import ImportExportModelAdmin
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('clinicName',), }
     save_as = True
-    list_display = ('id', 'digitalTransparencyIndex', 'clinicName', 'clinicOwner', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'clinicCity', 'clinicRegion', 'clinicState', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'best_article_country_boolean')
+    list_display = ('id', 'digitalTransparencyIndex', 'clinicName', 'clinicOwner', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'clinicCity', 'clinicRegion', 'clinicState', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'best_article_country_boolean', 'contact_url')
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'clinicOwner', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (

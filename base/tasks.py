@@ -17,7 +17,7 @@ from base.models import CurrenciesExchangeRates
 
 @task()
 def calculate_dti():
-    basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published = True).exclude(ppq_is_published=True)
+    basic = BasicClinic.objects.filter(is_published=True).exclude(pro_is_published=True).exclude(ppq_is_published=True)
     for bas in basic:
         pointsBasic = 0
         ### Pricing = 10
@@ -193,7 +193,7 @@ def calculate_dti():
         bas.digitalTransparencyIndex = pointsBasic
         bas.save()
 
-    profesional = BasicClinic.objects.filter(pro_is_published = True)
+    profesional = BasicClinic.objects.filter(pro_is_published=True)
     for pro in profesional:
         pointsPro = 0
         ### Pricing = 10
@@ -411,7 +411,7 @@ def calculate_dti():
         pro.digitalTransparencyIndex = pointsPro
         pro.save()
 
-    premium = BasicClinic.objects.filter(ppq_is_published = True)
+    premium = BasicClinic.objects.filter(ppq_is_published=True)
     for pre in premium:
         pointsPremium = 0
         if pre.is_claimed == True:

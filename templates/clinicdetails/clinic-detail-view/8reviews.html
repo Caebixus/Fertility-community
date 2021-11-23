@@ -93,7 +93,7 @@
 </div>
 {% endif %}
 
-{% if clinic.pro_is_published == True or clinic.ppq_is_published == True %}
+{% if clinic.pro_is_published == True or clinic.ppq_is_published == True and if clinic.team1name and clinic.team1pic %}
 <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
   <h2>Our team</h2>
   <hr>

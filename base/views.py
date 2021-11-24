@@ -344,7 +344,7 @@ def form(request):
     return render(request, 'main/form.html')
 
 def blog(request):
-    blog = Blog.objects.all().order_by('-created_at')[:6]
+    blog = Blog.objects.all().order_by('-created_at')
 
     BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
     BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')[:6]

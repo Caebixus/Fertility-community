@@ -16,6 +16,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'everythingYouNeedToKnowAboutNaturalIvf',
         'whatismildminiivf',
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
+        'whydoesivffails',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

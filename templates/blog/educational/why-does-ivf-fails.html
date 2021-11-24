@@ -1,0 +1,187 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Why does IVF fails?{% endblock %}
+{% block description %}In this article we will take a look at some of the reasons why IVF may fail and what you can do about it. Read more{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/why-does-ivf-fails{% endblock %}
+{% block meta_keywords %}Why does IVF fails{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/what-is-mild-mini-ivf"
+        },
+      "headline": "Why does IVF fails?",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "In this article we will take a look at some of the reasons why IVF may fail and what you can do about it. Read more"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Why does IVF fails?</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  <hr>
+  <br>
+  <br>
+  <p>The word "in vitro" means outside the body, so during "in vitro fertilization" (IVF), the process of fertilizing an egg that normally takes place in the body happens with some technological assistance outside the body. for example women who have gone a couple of years ahead of the age (35+) may have lower chances of getting pregnant directly and may require the assistance of such an option as IVF.</p>
+  <br>
+  <p>We will take a look at some of the reasons why IVF may fail and what you can do about it. But first of all, it’s important to know that in most cases, it is normal and okay if you do not get pregnant after your first IVF. So, if you tried once, and had no positive outcome, do not be afraid to try again. Yes, the procedure may not be simple, but it is normal and accounted for that couples may not get pregnant after their first three or more trials of IVF.</p>
+  <br>
+  <p>Also read more about our <a href="https://www.fertilitycommunity.com/ivf-explained">standard IVF</a> article and <a href="https://www.fertilitycommunity.com/blog/everything-you-need-to-know-about-natural-ivf">natural ivf</a> article.</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Quality of the embryo</b></h2>
+    <br>
+    <p>When the egg and the sperm are combined, an embryo is formed, which would be implanted into the uterus. But, while the fertilization may be successful, there is every possibility that the embryo will not be successfully planted in.</p>
+    <br>
+    <p>This would be because of the quality of the embryo; it may just not be as excellent as it looks in a lab dish. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>The egg’s age</b></h2>
+    <br>
+    <p>As earlier mentioned, from the age of thirty-five, women have relatively lower chances of getting pregnant. The older a woman gets, the more the quality and quantity of her eggs begin to slack. So, there is also the issue of how old the egg is. That is why some older women use the eggs of younger women to do an IVF, as they have a higher chance of being successful. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Chromosomal abnormalities</b></h2>
+    <br>
+    <p>From the age of thirty, whether it is through natural conception or the technologically assisted procedure of an IVF, the eggs begin to experience chromosomal deviations, which in turn can result in failure to conceive. This abnormality is true for both the male and the female, but it is much slower in the male than it is in the female.</p>
+    <br>
+    <p>The solution to this would be to run a screening procedure known as PGS (pre-implantation genetic screening). This is to monitor your chromosome presence and ensure that the right amount of chromosome cells required for successful fertilization is present and that it is the right time to carry out an IVF. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Infections</b></h2>
+    <br>
+    <p>A record of infections, especially if it had affected a part of the reproductive system, can be a factor contributing to the failure of an IVF. So, it is important to get checked in order to ensure that there is no disease or infection that can affect your reproductive system. An untreated or improperly treated infection can be a reason why an IVF or natural conception will not be successful.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Poor ovulation</b></h2>
+    <br>
+    <p>There are women who have a hard time ovulating; that is, ovulation does not easily occur unless it is induced by the use of drugs and other supplements. Such women will have lower chances of a successful IVF procedure.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Quality of the sperm</b></h2>
+    <br>
+    <p>Sperm quality is also important, even when doing IVF/ICSI. Thought about 90% of chromosomal embryo issues occur due to egg quality.</p>
+    <br>
+    <p>At least 10x10(6) spermatozoa/ml, of which at least 30% are motile and 15% have progressive motility, are required for IVF or insemination therapy, despite the fact that pregnancies can be achieved with lower parameters. As a minimum, 20% of spermatozoa should be of normal morphology.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Laboratory Factors</b></h2>
+    <br>
+    <p>IVF is a delicate procedure that has to be carried out under controlled conditions. Oxygen and carbon dioxide concentrations, temperature, PH, humidity, and even the amount of light present have to be strictly controlled during an IVF procedure. So, it's important to work with embryologists that pay great attention to these details. </p>
+  </div>
+  <br>
+  <br>
+  <p>There are even more reasons why an IVF procedure would fail; these are just some of them. Biological pregnancy is quite complex in all of the stages involved, and that applies to IVF too. But fortunately, IVF accounts for lots of success stories on a daily basis, so feel free to consult a specialist who can determine what is best for you to do to have a successful IVF.</p>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

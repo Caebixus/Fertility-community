@@ -11,16 +11,18 @@
     <br>
   </div>
 </div>
-<br>
+
+<div class="container pt-4">
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <p>Errors occurred in one or more fields - check below</p>
+    </div>
+  {% endif %}
+</div>
+
 <main role="main">
   <div class="container" style="max-width: 70rem; text-align: center">
-    {% if form.errors %}
-      {% for error in form.non_field_errors %}
-          <div class="alert alert-danger">
-              <strong>{{ error|escape }}</strong>
-          </div>
-      {% endfor %}
-    {% endif %}
+
     <form method='POST' enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.non_field_errors }}
@@ -29,8 +31,8 @@
       {{ form.source }}
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagetitle.errors }}
-        <label for="{{ form.packagetitle.id_for_label}}">Package title:</label>
+        <label for="{{ form.packagetitle.id_for_label}}">Package title*:</label>
+        {% if form.packagetitle.errors %}<div class="alert alert-danger" role="alert">{{ form.packagetitle.errors }}</div>{% endif %}
         {{ form.packagetitle }}
       </div>
       <br>
@@ -43,70 +45,72 @@
         </div>
         <br>
         <div class="col-md" style="text-align: left">
-          {{ form.package_pic.errors }}
-            <label for="{{ form.package_pic.id_for_label}}"><p>Re-upload (500x500 px):</p></label>
+          <label for="{{ form.package_pic.id_for_label}}"><p>Re-upload (500x500 px):</p></label>
+          {% if form.package_pic.errors %}<div class="alert alert-danger" role="alert">{{ form.package_pic.errors }}</div>{% endif %}
           {{ form.package_pic }}
         </div>
         {% else %}
         <div class="fieldWrapper" style="text-align: left">
-          {{ form.package_pic.errors }}
           <label for="{{ form.package_pic.id_for_label}}">Package Image (500x500 px):</label>
+          {% if form.package_pic.errors %}<div class="alert alert-danger" role="alert">{{ form.package_pic.errors }}</div>{% endif %}
           {{ form.package_pic }}
         </div>
       {% endif %}
       <br>
+      <hr>
+      <br>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagedesc.errors }}
-        <label>Package Description (max 800 characters):</label>
+        <label>Package Description (max 800 characters)*:</label>
+        {% if form.packagedesc.errors %}<div class="alert alert-danger" role="alert">{{ form.packagedesc.errors }}</div>{% endif %}
         {{ form.packagedesc }}
       </div>
       <br>
       <hr>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagecategory.errors }}
-        <label for="{{ form.packagecategory.id_for_label}}">Package category:</label>
+        <label for="{{ form.packagecategory.id_for_label}}">Package category*:</label>
+        {% if form.packagecategory.errors %}<div class="alert alert-danger" role="alert">{{ form.packagecategory.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ form.packagecategory }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.package_limit_days.errors }}
         <label for="{{ form.package_limit_days.id_for_label}}">Package day offer:</label>
+        {% if form.package_limit_days.errors %}<div class="alert alert-danger" role="alert">{{ form.package_limit_days.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ form.package_limit_days }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.packagecost.errors }}
-        <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency ({{ clinic.defaultClinicCurrency }}) - We will automatically calculate the price on our website into other currencies:</label>
+        <label for="{{ form.packagecost.id_for_label}}">Package cost in your clinic currency ({{ clinic.defaultClinicCurrency }}) - We will automatically calculate the price on our website into other currencies*:</label>
+        {% if form.packagecost.errors %}<div class="alert alert-danger" role="alert">{{ form.packagecost.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ form.packagecost }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ emailform.query_email.errors }}
         <label for="{{ emailform.query_email.id_for_label}}">Inquiry email (this email will receive inquiries):</label>
+        {% if emailform.query_email.errors %}<div class="alert alert-danger" role="alert">{{ emailform.query_email.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ emailform.query_email }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.package_url.errors }}
         <label for="{{ form.package_url.id_for_label}}">Package URL on your website (add <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">UTM codes</a> as well for your google analytics):</label>
+        {% if form.package_url.errors %}<div class="alert alert-danger" role="alert">{{ form.package_url.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ form.package_url }}
         </div>
       </div>
       <br>
       <div class="fieldWrapper" style="text-align: left">
-        {{ form.package_phone.errors }}
         <label for="{{ form.package_phone.id_for_label}}">Package phone number for clients:</label>
+        {% if form.package_phone.errors %}<div class="alert alert-danger" role="alert">{{ form.package_phone.errors }}</div>{% endif %}
         <div class="fieldWrapper">
           {{ form.package_phone }}
         </div>

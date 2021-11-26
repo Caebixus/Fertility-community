@@ -20,6 +20,7 @@ def calculate_dti():
     clinics = BasicClinic.objects.filter(is_published=True)
     basic = clinics.exclude(pro_is_published=True, ppq_is_published=True)
     for bas in basic:
+        bas.digitalTransparencyIndex = 0
         pointsBasic = 0
         # Pricing = 10
         if bas.is_claimed:
@@ -196,6 +197,7 @@ def calculate_dti():
 
     profesional = clinics.filter(pro_is_published=True).exclude(ppq_is_published=True)
     for pro in profesional:
+        pro.digitalTransparencyIndex = 0
         pointsPro = 0
         # Pricing = 10
         if pro.is_claimed:
@@ -414,6 +416,7 @@ def calculate_dti():
 
     premium = clinics.filter(ppq_is_published=True).exclude(pro_is_published=True)
     for pre in premium:
+        pre.digitalTransparencyIndex = 0
         pointsPremium = 0
         if pre.is_claimed:
             pointsPremium = pointsPremium + 4

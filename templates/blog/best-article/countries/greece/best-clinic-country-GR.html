@@ -1,0 +1,143 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://www.fertilitycommunity.com/media/{{ best_clinics_blogpost.pic_blog }}" />{% endblock %}
+{% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
+{% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block title %}{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
+{% block description %}These are the best IVF clinics in Greece for {{ best_clinics_blogpost.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
+{% block noindexpage %}{% if best_clinics_blogpost.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}{% endblock %}
+{% block meta_keywords %}best ivf clinics in Greece, best fertility clinics Greece{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{best_clinics_blogpost.description}}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="https://www.fertilitycommunity.com/media/{{ best_clinics_blogpost.pic_blog }}" />{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<!-- ================================================== -->
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}"
+        },
+      "headline": "{{best_clinics_blogpost.title}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ best_clinics_blogpost.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ best_clinics_blogpost.created_at }}",
+      "dateModified": "{{ best_clinics_blogpost.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ best_clinics_blogpost.description }}"
+    }
+</script>
+
+
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container py-5">
+    <h1 style="padding-top:3rem; color:white">{{best_clinics_count}} {{ best_clinics_blogpost.title }} | {{ best_clinics_blogpost.year }}</h1>
+    <br>
+   {% if best_clinics_blogpost.author.author_page_url %}<a href="{{ best_clinics_blogpost.author.author_page_url }}" style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</a>{% else %}<p style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <p>In this article, we would be discussing the best <a href="{% url 'fertilityClinicGreece' %}">IVF clinics in Greece</a>. Greece is one of the most popular countries for IVF treatments mainly because of the anonymity laws put in place and the cost of treatment. Getting treatment at one of the IVF clinics in Greece means that you would not have to wait to get a donor and you will not need to break the bank to pay for the treatment as the cost of treatment in Greece is rather low compared to other countries. The cost of travel is fair as well and considering how beautiful Greece is, you would be returning home with several amazing pictures that mark a beautiful time in your life.</p>
+  <br>
+  <p>If you are considering a clinic in Greece for your IVF treatment, then this guide is for you. We will be highlighting some of the best IVF clinics in Greece with the most innovative technologies, high success rates, and a lot of other important factors to ensure you have options that are not only guaranteed to give you a breakthrough but will also make the journey a great experience.</p>
+  <p>Here is our list of the <b>{{best_clinics_count}} {{best_clinics_blogpost.title}}:</b></p>
+  <br>
+  <i>Select currency for treatment pricings</i>
+  <div class="row">
+    <div class="col-6">
+      <select class="form-control" id="ChooseCurrency">
+        <option value="" selected>Currency</option>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
+    </div>
+    <div class="col-6">
+    </div>
+  </div>
+</div>
+
+
+{% for clinic in best_clinics %}
+
+<div class="container py-3" id="best-clinic-{{forloop.counter}}">
+
+  {% include 'blog/best-article/header.html' %}
+
+  {{ clinic.best_article_country_actual_text|safe }}
+
+  {% include 'blog/best-article/treatmentsinblogposts.html' %}
+
+  {% include 'blog/best-article/finalthoughts.html' %}
+
+  {% include 'blog/best-article/footerbtns.html' %}
+
+</div>
+
+<br>
+<br>
+
+{% endfor %}
+
+<div class="container py-5 text-center">
+  <a href="{% url 'fertilityClinicGreece' %}" rel="dofollow">
+    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of {{clinics_location_count}} IVF clinics in Greece </button>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================================================== -->
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
+
+{% endblock  %}

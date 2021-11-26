@@ -20,6 +20,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',
+        'bestivfclinicsinspain',
         ]
 
     def location(self, item):

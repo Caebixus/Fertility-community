@@ -17,6 +17,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'whatismildminiivf',
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
         'whydoesivffails',
+        'whatisicsitreatment',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

@@ -18,6 +18,7 @@ urlpatterns = [
     path('blog/everything-you-need-to-know-about-natural-ivf', views.everythingYouNeedToKnowAboutNaturalIvf, name='everythingYouNeedToKnowAboutNaturalIvf'),
     path('blog/what-is-mild-mini-ivf', views.whatismildminiivf, name='whatismildminiivf'),
     path('blog/why-does-ivf-fails', views.whydoesivffails, name='whydoesivffails'),
+    path('blog/what-is-icsi-treatment', views.whatisicsitreatment, name='whatisicsitreatment'),
 
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),

@@ -1,0 +1,219 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}What is ICSI treatment, ICSI procedure{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  <hr>
+  <br>
+  <br>
+  <p>With the rise of infertility cases, Assisted Reproductive Technology (ART) has become a popular option for couples who suffer from various conditions. ICSI (Intracytoplasmic Sperm Injection) has become one the most common male infertility treatment, as it is an alternative for In Vitro Fertilization and has a higher success rate.</p>
+  <br>
+  <p>Intracytoplasmic Sperm Injection (ICSI) is a specialized treatment that is sometimes done as a part of <a href="https://www.fertilitycommunity.com/ivf-explained">In Vitro Fertilization (IVF)</a>a> to treat severe cases of male infertility.</p>
+  <br>
+  <p>The ICSI treatment involves injecting single sperm cells into the center of each egg using micro-manipulation equipment. It is a treatment created to assist couples who had failed to fertilize in a previous In Vitro Fertilization (IVF) attempt to achieve conception. The method removes many of the obstacles to fertilization, allowing couples with slim chances of conceiving to acquire viable embryos.</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Who is ICSI for?</b></h2>
+    <br>
+    <p>Most fertility clinics would recommend ICSI to couples having problems with conception to increase the possibility of a successful result. While it is necessary for success in some cases, it is not always needed.</p>
+    <br>
+    <p>ICSI treatment is necessary for cases of male factor infertility, however, almost 75 percent of all IVF procedures use ICSI in an attempt to increase the possibility of a positive outcome whether the cause is male infertility or not.</p>
+    <br>
+    <p>There is no benefit when ICSI is used in IVF treatments with no male factor infertility and given the additional costs and potential downsides, patients must understand whether or not ICSI will help them achieve success in their case.</p>
+    <br>
+    <p>ICSI is recommended if:</p>
+    <ul>
+      <li>There is poor sperm mobility</li>
+      <li>Previous IVF procedures produced fewer fertilized eggs or none at all</li>
+      <li>Embryo testing is being performed</li>
+      <li>Surgical sperm retrieval is needed</li>
+      <li>Frozen sperm that may be of low quality is being used</li>
+      <li>Sperm is irregularly shaped</li>
+    </ul>
+    <br>
+    <p>If the issue with conception has not been identified as male infertility then the same results would be gotten with or without ICSI.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Why is ICSI needed?</b></h2>
+    <br>
+    <p>ICSI is needed for a vast number of reasons, some of which are:</p>
+    <ul>
+      <li><strong>It is used to treat male factor infertility:</strong> When a man has problems with ejaculation, sperm motility, sperm count, or general sperm quality then ICSI should be considered. The goal of the ICSI treatment is to increase the chances of fertilization by giving more control over where the sperm goes and removing the obstacles of natural fertilization and IVF treatment.</li>
+      <li><strong>It increases the chances of fertilization:</strong> For fertilization to occur, the sperm must pass through the outer layer of the egg to get to the cytoplasm. In cases where this is not possible due to poor mobility or other reasons, ICSI is used and the sperm is simply injected into the egg, which increases the possibility of fertilization.</li>
+    </ul>
+    <br>
+    <p>The use of ICSI treatment has helped more patients to successfully bring the child they’ve been longing for into the world.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Why ICSI fails?</b></h2>
+    <br>
+    <p>The rate of fertilization after ICSI is roughly 70-80%. This means that although the treatment increases the possibility of fertilization, it does not guarantee a positive result.</p>
+    <br>
+    <p>Total fertilization failure (TFF), or the failure of all oocytes to fertilize, occurs in 5–10% of IVF cycles. Human oocytes still fail to fertilize almost 30% of the time after Intracytoplasmic Sperm Injection (ICSI), and TFF occurs in 2–3% of ICSI cycles. In IVF, sperm abnormalities are the most common cause of fertilization failure, while in ICSI, oocyte activation problems are the most common reason.</p>
+    <br>
+    <p></p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Failed fertilization can be caused by different reasons. Some of which are:</b></h2>
+    <br>
+    <ul>
+      <li>
+        <strong>Oocytes activation failure</strong>
+        This is the most likely cause of fertilization failure in ICSI. It occurs when the oocytes are unable to continue growing after fertilization. Oocyte activation is the series of events that lead to the transformation of an oocyte into a zygote. It involves the release of calcium ions from the endoplasmic reticulum into the cytosol that act as modulators in the early stages of embryo development. This means that sperm or oocyte defects will result in failed activation and therefore lead to failed fertilization.
+        Artificial oocyte activation (AOA) is a method that can be used to avoid oocyte activation failure. It involves the use of calcium ionophore or strontium chloride to induce the formation of calcium oscillation in oocytes which is needed to initiate fertilization.
+      </li>
+      <li>
+        <strong>Technical failure during procedure</strong>
+        Even though the ICSI has become a routine procedure, it is a delicate procedure that can easily be subject to technical failure. A common one is not injecting through the oocyte membrane before depositing the sperm. This leaves the sperm next to the membrane or inside a sac formed by the membrane thereby resulting in failed fertilization.
+      </li>
+      <li>
+        <strong>Sperm mortility disorder</strong>
+        The main cause of sperm motility disorder is defective sperm tail. Sperm defects of genetic origin are uncommon conditions that cause severe asthenozoospermia or total sperm immobility. The speed of sperm movement does not affect the success of ICSI but injecting an immotile sperm would result in impaired fertilization.
+The Hypo-osmotic swelling (HOS) test is a common method used to determine sperm viability. During the test, sperm samples are exposed to hypo-osmotic conditions, an intact sperm membrane would allow inflow of water which would result in swelling cytoplasmic region. Since dead sperm cells do not react to HOS solution it is easy to select the viable sperm.
+      </li>
+      <li>
+        <strong>Poor responde to gonadotropin</strong>
+        Gonadotropins are drugs that contain follicle-stimulating hormone (FSH) and luteinizing hormone which is used during fertility treatment. It is used to stimulate follicle production in the ovaries. Poor response to gonadotropin is more common in older women but it can also happen in younger women regardless of their endocrinology profile. In comparison, women with poor responses have a considerably lower pregnancy rate than those who have a normal or high response to the medication. It is possible for younger women with poor responses to have normal pregnancies but the quality of embryos and fertilization rate in older women who have poor response is usually low and the chances of pregnancy are slim.
+      </li>
+      <li>
+        <strong>Oocyte maturity</strong>
+        Another cause of failed fertilization after ICSI is retrieving a low number of MII oocytes. During IVF, approximately 20% of the oocytes gotten from ovarian stimulation cycles are immature, at either metaphase I or the germinal vesicle stage. Some of these immature oocytes might get through the first polar body during IVF, allowing them to be injected in ICSI cycles. This could be a good option for patients with a low amount of retrieved oocytes, however, embryos generated from immature oocytes do not result in successful pregnancies.
+      </li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Conclusion</b></h2>
+    <br>
+    <p>The ‘go-to’ treatment for patients looking for fertility treatment is IVF because it might be more common in certain areas and amongst certain people. ICSI treatment is another worthy, and more affordable fertility treatment option that can increase success rates depending on the patient.</p>
+    <br>
+    <p>As a mother or father-to-be, we implore you to find the best fertility clinic, have a good talk with your doctor, consider all your options thoroughly, and then prepare yourself for the baby on the way.</p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

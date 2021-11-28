@@ -5,8 +5,9 @@ from django.utils import timezone
 
 #Authors
 def authorlisaholliman(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
-    author = get_object_or_404(Author, pk=6)
+    blogpk=6
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=blogpk)
     blog = author.entries.all()
 
     context = {
@@ -19,9 +20,10 @@ def authorlisaholliman(request):
 
 
 def ivfabroadcosts(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    blogpk=7
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -32,9 +34,10 @@ def ivfabroadcosts(request):
     return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
 
 def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    blogpk=8
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=8)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -45,9 +48,10 @@ def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
     return render(request, 'blog/IVF-abroad/fertility-treatment-abroad-what-you-need-to-know.html', context)
 
 def ivfabroadpackages(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    blogpk=9
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=9)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     todayDate = timezone.now()
 
@@ -70,9 +74,10 @@ def ivfabroadpackages(request):
     return render(request, 'blog/Packages/ivf-abroad-packages.html', context)
 
 def everythingYouNeedToKnowAboutNaturalIvf(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    blogpk=10
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=10)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -83,9 +88,10 @@ def everythingYouNeedToKnowAboutNaturalIvf(request):
     return render(request, 'blog/educational/everything-you-need-to-know-about-natural-ivf.html', context)
 
 def whatismildminiivf(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
+    blogpk=11
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=11)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -96,10 +102,10 @@ def whatismildminiivf(request):
     return render(request, 'blog/educational/what-is-mild-mini-ivf.html', context)
 
 def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[:3]
-
+    blogpk=12
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
-    blog = get_object_or_404(Blog, pk=12)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -110,9 +116,10 @@ def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
     return render(request, 'blog/research/fertility-treatments-how-americans-compare-with-the-rest-of-the-world.html', context)
 
 def whydoesivffails(request):
-    otherBlogs = Blog.objects.order_by('-created_at')[1:4]
+    blogpk=13
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=7)
-    blog = get_object_or_404(Blog, pk=13)
+    blog = get_object_or_404(Blog, pk=blogpk)
 
     context = {
         'author': author,
@@ -121,3 +128,17 @@ def whydoesivffails(request):
     }
 
     return render(request, 'blog/educational/why-does-ivf-fails.html', context)
+
+def whatisicsitreatment(request):
+    blogpk=14
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    context = {
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+    }
+
+    return render(request, 'blog/educational/what-is-icsi-treatment.html', context)

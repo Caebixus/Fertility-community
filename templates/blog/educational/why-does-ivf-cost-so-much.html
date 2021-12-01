@@ -1,0 +1,232 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}why ivf costs high US, why does ivf cost so much in USA{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  <hr>
+  <br>
+  <br>
+  <p>For couples or individuals going through IVF in order to make their dreams of conceiving come true, it can be an emotionally taxing and lengthy road. Unfortunately, the extensive treatment process is also known for how costly it is, making it an option only for some not all wannabe parents. </p>
+  <br>
+  <p>There are a plethora of reasons why <a href="https://www.fertilitycommunity.com/ivf-cost">IVF costs</a> as much as it does, and it will be discussed in the following paragraphs. </p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Factors Adding To the Cost</b></h2>
+    <br>
+    <p>On average IVF treatments cost ${{ usclinicivf.average|convert:'USD'|floatformat:'0'|intcomma }} (without medication) per cycle according to data from <a href="https://www.fertilitycommunity.com/ivf-cost/usa">{{ countclinicsusa }} IVF clinics in USA</a>. Many states’ health insurance isn’t required to offer any financial assistance or coverage in this treatment, forcing many to pay out of pocket for the whole procedure. Only 17 states offer some sort of health insurance coverage, while 33 do not. This, of course, isn’t feasible for everyone. But what actually adds to the cost?</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Technology & Other Clinic Costs</b></h2>
+    <br>
+    <p>The entire treatment process relies on the most cutting-edge modern technology, which drives the price. There are many modern machines necessary in order to “create” a baby. Add on top of that storage facility that requires certain cooling mechanisms to ensure that embryos stay frozen at just the right temperature, and you have a medical technological wonder. </p>
+    <br>
+    <p>All these things cost facilities large amounts of money, which they then have to divide up between all of their patients in order to break even themselves. Rent can also impact pricing as well, which can account for the differences in cost between locations. This may make it useful to shop around to a certain extent.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Basic Costs</b></h2>
+    <br>
+    <p>There are big differences between treatment plans and you’ll often notice that doctors quote you a basic plan and additional opt-ins for more support and success. Most basic plans cover the following things: </p>
+    <br>
+    <ul>
+      <li>Monitoring appointments</li>
+      <li>Egg retrieval & anesthesia</li>
+      <li>Conventional fertilization</li>
+      <li>Fresh embryo transfer</li>
+    </ul>
+    <p>As mentioned most, but not all basic treatment plans include these services, so in order to be sure it’s best to consult the doctor and ask for clarification on what’s all included in the basic treatment. </p>
+    <br>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Add-on Services</h2>
+    <br>
+    <p>Successful IVF treatments rarely just include the basic treatment package. Not only do many patients simply need more rounds in order to be successful, but they also may simply need additional care or services offered by the fertility clinic. Some additional costs are optional, others are not. For example, monitoring appointments may be included in your basic treatment price, while others may not. If it’s not, then it’s a necessary add-on service to include into factoring the cost of your treatment plan.</p>
+    <br>
+    <p>Other services include:</p>
+    <ul>
+      <li>Assisted hatching cost</li>
+      <li><a href="https://www.fertilitycommunity.com/blog/what-is-icsi-treatment">Intracytoplasmic sperm injection (ICSI)</a></li>
+      <li>Cryopreservation</li>
+      <li>Storage of Embryo</li>
+      <li>Frozen Embryo Transfer</li>
+      <li>Preimplantation genetic testing</li>
+      <li>Using an egg donor</li>
+      <li>Using a gestational carrier</li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Several Rounds</h2>
+    <br>
+    <p>Couples or single parents-to-be are prepared by doctors at the fertility clinic to not expect results to occur right after the first round. This is simply because only about 50-60% of people conceive after the first initial round. Success rates drop the older the woman is, and therefore is more likely to require several rounds.</p>
+    <br>
+    <p>This bumps up the cost immensely, as each round roughly costs ${{ usclinicivf.average|convert:'USD'|floatformat:'0'|intcomma }}. On average, two to three rounds are needed to conceive. Not every couple or individual has ${{ usclinicivf2|floatformat:'0'|intcomma }} - ${{ usclinicivf3|floatformat:'0'|intcomma }} to spend on fertility treatments, and understandably so!</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Additional costs</h2>
+    <br>
+    <p>While the bulk of the cost is attributed to the actual treatment cost, there are many expenses that add on and increase that price even more. Things like medications, blood work, injectable hormones, and ultrasounds can add on additional thousands to the cost. Medications and hormones are also largely not covered by insurance.</p>
+    <br>
+    <p>Other factors include if you are visiting a larger or boutique-style fertility clinic. Larger clinics due to their size often have some say and negotiating power when it comes to medication prices. Should the price still be too high for medication, some pharmacies offer more affordable pricing. Sometimes simply the brand of medication can drive the cost, as some will be known for its high prices, while a generic brand can offer more cost-saving.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Transportation costs</h2>
+    <br>
+    <p>When treatment costs so much on its own, but you live in a rural area or you may simply find a more cost-effective fertility clinic further away, transportation also has to be factored into the cost. Taking the train, bus, or car can add up to expenses when making several visits to the treatment center and facility.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Outside Services</h2>
+    <br>
+    <p>Since the process of getting pregnant is an intense process, many also seek additional holistic treatments to prep their bodies for success. They may seek out a nutritionist or an acupuncturist for example. Or due to the mental and emotional toll the treatment cycle can take on some, they may go to a counselor or therapist for support. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>IVF is costly, and there are many hidden or unexpected costs associated with the treatment procedure. While there are ways to keep costs low, individuals seeking treatment are put into a precarious situation where they’re forced between the likelihood of conceiving or cost. And it’s important to note that while the treatment cycle is expensive, the expenses don’t end there! </p>
+    <br>
+    <p>If you live in a country with high IVF costs and don't have health insurance covering these procedures, you may be looking outside of your country for IVF treatment - check out <a href="https://www.fertilitycommunity.com/blog/ivf-abroad-costs">IVF costs abroad</a></p>
+    <br>
+    <p>Should a couple or single mother be successful, the cost of raising a child nowadays is also quite high. It’s important that IVF treatments are made affordable as not to bankrupt and punish individuals who dream of continuing their legacy, or completely use up all of their resources so that when they are pregnant, they are financially distraught when facing the mounting expenses that child-rearing brings with itself.</p>
+    <br>
+    <p>While IVF treatments do add up to a child’s college fund, there are ways to keep costs low. <a href="https://www.fertilitycommunity.com/fertility-clinics/usa">Comparing different IVF clinics rates in USA</a> (make sure to also compare success rates), asking about the availability of payment plans, and participating in clinics that offer refunds (this often requires an initial higher investment but then gives you a percentage back if you are unsuccessful) can all be great cost-saving tools that allow you to not skimp on the necessary care for you and your future family. </p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

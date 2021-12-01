@@ -18,10 +18,12 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'fertilitytreatmentshowamericanscomparewiththerestoftheworld',
         'whydoesivffails',
         'whatisicsitreatment',
+        'whydoesivfcostsomuch',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',
         'bestivfclinicsinspain',
+        'bestivfclinicsingreece',
         ]
 
     def location(self, item):

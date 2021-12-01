@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from blog.models import Author, Blog
 from packages.models import Package
 from django.utils import timezone
+from clinic.models import BasicClinic
+from django.db.models import Avg
 
 #Authors
 def authorlisaholliman(request):
@@ -142,3 +144,40 @@ def whatisicsitreatment(request):
     }
 
     return render(request, 'blog/educational/what-is-icsi-treatment.html', context)
+
+def whydoesivfcostsomuch(request):
+    blogpk=15
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    usclinics = BasicClinic.objects.all()
+    usclinics = usclinics.filter(is_published=True).filter(clinicState__iexact='United States')
+    countclinicsusa = usclinics.count()
+
+    usclinicivf = usclinics.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    usclinicivf2 = usclinicivf['average'] * 2
+    usclinicivf3 = usclinicivf['average'] * 3
+
+    usclinicegg = usclinics.aggregate(average=Avg('egg_donor_recipients_cost'))
+    usclinicembryo = usclinics.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    usclinicsperm = usclinics.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    usclinicicsi = usclinics.aggregate(average=Avg('icsi_treatment_cost'))
+    uscliniciui = usclinics.aggregate(average=Avg('iui_treatment_cost'))
+
+    context = {
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+        'usclinicivf': usclinicivf,
+        'usclinicegg': usclinicegg,
+        'usclinicembryo': usclinicembryo,
+        'usclinicsperm': usclinicsperm,
+        'usclinicicsi': usclinicicsi,
+        'uscliniciui': uscliniciui,
+        'countclinicsusa': countclinicsusa,
+        'usclinicivf2': usclinicivf2,
+        'usclinicivf3': usclinicivf3,
+    }
+
+    return render(request, 'blog/educational/why-does-ivf-cost-so-much.html', context)

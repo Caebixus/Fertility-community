@@ -181,3 +181,17 @@ def whydoesivfcostsomuch(request):
     }
 
     return render(request, 'blog/educational/why-does-ivf-cost-so-much.html', context)
+
+def whatisivfwitheggdonation(request):
+    blogpk=16
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    context = {
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+    }
+
+    return render(request, 'blog/educational/ivf-with-egg-donation-process.html', context)

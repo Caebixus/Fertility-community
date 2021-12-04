@@ -1,0 +1,256 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}what is ivf with egg donation, egg donation{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  <hr>
+  <br>
+  <br>
+  <p>IVF using egg donation has been available since 1984. Since then more than <a href="https://www.winfertility.com/blog/should-i-use-fresh-or-frozen-donor-eggs/">47,000 people have been born using these methods</a> in the US alone. But IVF with egg donation is far more than a statistic. These numbers represent tens of thousands of people who have been able to welcome a child into their loving home through these recent developments in technology.</p>
+  <br>
+  <p>This blog post will take you through the IVF with egg donation process and discuss some commonly asked questions you may have relating to IVF using an egg donor. </p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="couple holding baby shoes" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>What is IVF with egg donation?</b></h2>
+    <br>
+    <p>IVF with an egg donor is a variation of IFV that requires another woman’s eggs. This process will involve fertilising the donor eggs and then implanting them into the womb of the woman who is trying to conceive. Many women and couples may choose to use a donor egg due to the increase in the success of becoming pregnant and birthing a healthy child using eggs donation. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>How does egg donation work</b></h2>
+    <br>
+    <h3>Process of giving a donor egg</h3>
+    <p>To give an egg, the donor must undergo a 1-2 week treatment of hormones to stimulate her ovaries to produce more than one egg. The donor will then have to endure a small operation where the mature eggs will be harvested. The whole process takes around one month to complete and involves at least twice weekly appointments to the hospital during this time.</p>
+    <br>
+    <h3>Step by step process of receiving a donor egg</h3>
+    <p>The whole process of the egg donation process and undergoing IVF can take around 3-6 months to complete. Although the process of egg donation can be different between countries, here is typically how you should expect each stage of this process to go as an egg recipient:</p>
+    <br>
+    <div class="container">
+      <ol>
+        <li><strong>Speaking to a Doctor:</strong> In the initial stage of looking into IVF with an egg donor, your doctor will discuss your medical notes and go over your history in trying to conceive naturally or through general IVF. From there, your physician will then discuss your options and explain the process of IVF with an egg donor. To continue, you must be under 50 years old and be in generally good health. </li>
+      <br>
+      <li><strong>Counselling and Mental Preparation:</strong> The decision to undergo IVF, in general, can be challenging for yourself and your partner. Therefore, it is imperative that you receive the appropriate counselling by talking to a psychologist or therapist. Then you can discuss your feelings and thoughts about undergoing IVF and using an egg donor and mentally prepare for the next stages in the process. </li>
+      <br>
+        <li><strong>Physical Testing and Preparations:</strong> After your psychological examination, the doctors will advise you on how to best physically prepare for IVF. This may include receiving hormones to prepare your womb’s lining to accept the fertilised donor egg and other examinations such as a blood test. </li>
+      <br>
+        <li><strong>Matching You With an Egg Donor:</strong> Matching egg recipients with egg donors is the most varied stage of the IFV with the egg donor process between countries. In some places, you can choose your egg donor, and in other countries, a third party will match you with a donor.</li>
+      <br>
+        <li><strong>Preparing the Embryo for IVF and Your Womb Lining:</strong> Depending on the clinic and option you choose, there are two methods for preparing the egg for IVF:
+          <br>
+          <br><strong>Fresh donor eggs:</strong> When using fresh eggs, your doctors will attempt to synchronise your hormonal cycle with that of the egg donors using hormones, including estrogen and progesterone. This allows your lining to develop in preparation. The doctors will then recommend a date to harvest the eggs from the donor and then collect sperm on the same day for fertilisation. The donor eggs are then retrieved and transported to the laboratory, where specialists will then fertilise the eggs.
+          <br><strong>Frozen donor eggs:</strong> Embryologists will freeze the harvested eggs immediately. You will then receive hormones, including estrogen and progesterone, as per the normal hormonal cycle to encourage your lining to develop. Your doctors will then use prediction charts to decide on the best date to go ahead with the embryo fertilisation process. The donor eggs are transferred while frozen, and laboratory specialists will fertilise the eggs when they have thawed.
+        </li>
+      <br>
+        <li><strong>Receiving the Embryo:</strong> Typically you will undergo transfer of the fertilised eggs into your uterus up to 5 days after egg retrieval and the rest of the IVF process will continue as normal. </li>
+      </ol>
+    </div>
+    <br>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Why is egg donation good?</b></h2>
+    <br>
+    <p>There are many reasons why an individual or a couple may choose IVF with an egg donor, including:</p>
+    <br>
+    <ul>
+      <li>Trouble conceiving using traditional methods of IVF using their eggs.</li>
+      <li>Improved odds of pregnancy for older women. </li>
+      <li>Genetic reasons. For example, if a woman has primary ovarian insufficiency or primary ovarian failure and cannot produce eggs. Or, if a woman is carrying a genetic condition, they do not wish to risk passing on to any offspring. </li>
+      <li>Single individuals, mainly single men, who wish to become parents through surrogacy instead of adoption. Single women may also choose to use an egg donor for the reasons mentioned earlier.</li>
+      <li>Gay men in relationships may use an egg donor for similar reasons to the previous point. </li>
+    </ul>
+    <br>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Why is egg donation bad?</h2>
+    <br>
+    <p>Donors can face some risks and side effects, such as developing <a href="https://www.verywellfamily.com/ovarian-hyperstimulation-syndrome-ohss-1960185">OHSS</a> or psychological trauma. In addition, egg donors can be paid to donate their eggs in some countries. Unfortunately, this can lead desperate women to undergo the egg donation procedure in haste, which means they often fail to comprehend the risks.</p>
+    <br>
+    <p>However, this isn’t the case in most instances, as most countries do not allow payment for egg donations. The egg donation process is also highly regulated globally. </p>
+    <br>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">FAQS:</h2>
+    <br>
+    <h3>Cost of IVF with egg donation</h3>
+    <p>The costs for IVF with egg donation are significantly more than standard IVF or IVF with sperm donation. We have put together a helpful spreadsheet of the average costs of IVF using an egg donor on our <a href="https://www.fertilitycommunity.com/ivf-cost">FertilityCommunity costs page</a>. You can compare the prices of different methods of IVF in several countries worldwide, including North America, Europe or Asia. </p>
+    <br>
+    <h3>Can you choose your egg donor?</h3>
+    <p>The answer depends on where in the world you are getting your IVF treatment. For example, in the US, you can view profiles of potential donors and then choose your egg donor. However, in the UK, you won’t be able to choose the egg donor, although the organisations involved will attempt to match egg donors with recipients. </p>
+    <br>
+    <h3>What is the success rate of IVF with donor eggs?</h3>
+    <p>Many factors can alter the effectiveness of using a donor egg for IVF, including the age of the women who donated the eggs and the women undergoing IVF treatment and other physical or genetic factors. The success rate will also vary depending on which clinic you use for your treatment. Therefore, there is no way to know whether you will be able to become pregnant and birth a healthy child from a donor egg in the early stages.</p>
+    <br>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <p>Read more about why IVF can fail in our <a href="https://www.fertilitycommunity.com/blog/why-does-ivf-fails">previous blog post</a></p>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Should you use fresh or frozen donor eggs?</h2>
+    <br>
+    <p>There are many factors to consider when choosing to use fresh or frozen donor eggs. IVF using frozen eggs is a more recent advancement in technology. Therefore, more scientific studies back up IVF using fresh donor eggs. As mentioned previously, there is also a slightly higher success rate using fresh eggs compared to frozen eggs.</p>
+    <br>
+    <p>However, you shouldn’t discount using frozen eggs just yet. Using frozen eggs is more convenient as it can be challenging to match the hormonal cycles of the recipient and the donor to allow for fresh egg IVF. You may also find the waiting list is significantly longer when waiting for fresh eggs. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Learn more about IVF</h2>
+    <br>
+    <p>At FertilityCommunity, we aim to provide you with the latest news about IVF, go over some common topics relating to fertility treatments and act as the most extensive worldwide fertility search engine. Explore the articles in our online journal to learn more about IVF, including posts on everything you need to know about natural IVF and why you should consider undergoing <a href="https://www.fertilitycommunity.com/blog/ivf-abroad-costs">IVF abroad</a>.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Outside Services</h2>
+    <br>
+    <p>Since the process of getting pregnant is an intense process, many also seek additional holistic treatments to prep their bodies for success. They may seek out a nutritionist or an acupuncturist for example. Or due to the mental and emotional toll the treatment cycle can take on some, they may go to a counselor or therapist for support. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>IVF is costly, and there are many hidden or unexpected costs associated with the treatment procedure. While there are ways to keep costs low, individuals seeking treatment are put into a precarious situation where they’re forced between the likelihood of conceiving or cost. And it’s important to note that while the treatment cycle is expensive, the expenses don’t end there! </p>
+    <br>
+    <p>If you live in a country with high IVF costs and don't have health insurance covering these procedures, you may be looking outside of your country for IVF treatment - check out <a href="https://www.fertilitycommunity.com/blog/ivf-abroad-costs">IVF costs abroad</a></p>
+    <br>
+    <p>Should a couple or single mother be successful, the cost of raising a child nowadays is also quite high. It’s important that IVF treatments are made affordable as not to bankrupt and punish individuals who dream of continuing their legacy, or completely use up all of their resources so that when they are pregnant, they are financially distraught when facing the mounting expenses that child-rearing brings with itself.</p>
+    <br>
+    <p>While IVF treatments do add up to a child’s college fund, there are ways to keep costs low. <a href="https://www.fertilitycommunity.com/fertility-clinics/usa">Comparing different IVF clinics rates in USA</a> (make sure to also compare success rates), asking about the availability of payment plans, and participating in clinics that offer refunds (this often requires an initial higher investment but then gives you a percentage back if you are unsuccessful) can all be great cost-saving tools that allow you to not skimp on the necessary care for you and your future family. </p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

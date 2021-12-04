@@ -19,6 +19,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'whydoesivffails',
         'whatisicsitreatment',
         'whydoesivfcostsomuch',
+        'whatisivfwitheggdonation',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

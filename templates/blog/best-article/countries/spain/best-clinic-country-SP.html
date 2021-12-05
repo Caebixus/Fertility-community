@@ -101,6 +101,7 @@
 
 {% for clinic in best_clinics %}
 
+{% if clinic.best_article_country_actual_text %}
 <div class="container py-3" id="best-clinic-{{forloop.counter}}">
 
   {% include 'blog/best-article/header.html' %}
@@ -114,6 +115,7 @@
   {% include 'blog/best-article/footerbtns.html' %}
 
 </div>
+{% endif %}
 
 <br>
 <br>

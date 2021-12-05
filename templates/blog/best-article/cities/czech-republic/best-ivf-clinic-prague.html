@@ -84,6 +84,8 @@
 </div>
 
 {% for clinic in best_clinics %}
+
+{% if clinic.best_article_city_actual_text %}
 <br>
 <hr>
 <div class="container py-3" id="best-clinic-{{forloop.counter}}">
@@ -212,6 +214,9 @@
 
   </div>
 </div>
+
+{% endif %}
+
 <br>
 <br>
 

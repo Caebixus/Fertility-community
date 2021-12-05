@@ -29,5 +29,5 @@ Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
 1) Nové Locations Cities / Countries (udělat textace)
 2) Nové Costs landing pages
 3) Přidat lokaci i do celkového IVF costs
-3) Přidat if else do Search + Search Packages
+3) Přidat if else do Search + Search Packages (Bacha, pokud přidáváš do search views.py tak musíš změnit i clinicState_iexact které je někde pod regionama, jinak nebude fungovat search)
 4) Přidat URLs do Sitemaps

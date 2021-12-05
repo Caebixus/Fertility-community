@@ -8,7 +8,7 @@ def bestivfclinicsinprague(request):
 
     clinics = BasicClinic.objects.all().exclude(is_published=False)
 
-    best_clinics = clinics.filter(best_article_city_blogpost_obj=pkid)
+    best_clinics = clinics.filter(best_article_city_blogpost_obj=pkid).exclude(best_article_city_actual_text__isnull=True).exclude(best_article_city_actual_text__exact='')
     best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')[:5]
 
     clinics_location_count = clinics.filter(clinicRegion__iexact='Prague')

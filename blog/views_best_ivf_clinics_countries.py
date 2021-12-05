@@ -9,7 +9,7 @@ clinics = BasicClinic.objects.all()
 def bestivfclinicsinczech(request):
     pkid = 1
 
-    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
 
     clinics_location_count = clinics.filter(clinicState='Czech Republic').exclude(is_published=False)
@@ -31,7 +31,7 @@ def bestivfclinicsinczech(request):
 def bestivfclinicsinspain(request):
     pkid = 2
 
-    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
 
     clinics_location_count = clinics.filter(clinicState='Spain').exclude(is_published=False)
@@ -53,7 +53,7 @@ def bestivfclinicsinspain(request):
 def bestivfclinicsingreece(request):
     pkid = 3
 
-    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:5]
 
     clinics_location_count = clinics.filter(clinicState='Greece').exclude(is_published=False)

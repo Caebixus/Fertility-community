@@ -112,7 +112,7 @@
           <tr>
             <th scope="row"><a href="{% url 'locationsCZRegions' %}">Czech Republic <u>({{ my_total_clinic_count_cz }} clinics)</u></a></th>
             <td style="font-size: 14px">
-              {% if queryset_list_uk_ivf_val %}
+              {% if queryset_list_cz_ivf_val %}
                 <div class="treatmentCostsUSDCurrency">{{ queryset_list_cz_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
                 <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_cz_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
                 <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_cz_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
@@ -120,6 +120,22 @@
                 <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cz_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
                 <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cz_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
                 <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cz_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_ivf_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
               {% else %}
                 Unknown
               {% endif %}
@@ -271,6 +287,22 @@
             </td>
           </tr>
           <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_egg_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_egg_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
             <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_egg_val %}
@@ -410,6 +442,22 @@
                 <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cz_embryo_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
                 <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cz_embryo_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
                 <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cz_embryo_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_embryo_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_embryo_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
               {% else %}
                 Unknown
               {% endif %}
@@ -561,6 +609,22 @@
             </td>
           </tr>
           <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_sperm_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_sperm_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
             <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_sperm_val %}
@@ -706,6 +770,22 @@
             </td>
           </tr>
           <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_icsi_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_icsi_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
             <th scope="row"><a href="{% url 'locationsSPRegions' %}">Spain <u>({{ my_total_clinic_count_sp }} clinics)</u></a></th>
             <td style="font-size: 14px">
               {% if queryset_list_sp_icsi_val %}
@@ -845,6 +925,22 @@
                 <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_cz_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
                 <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_cz_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
                 <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_cz_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+              {% else %}
+                Unknown
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="{% url 'locationsSKRegions' %}">Slovakia <u>({{ my_total_clinic_count_sk }} clinics)</u></a></th>
+            <td style="font-size: 14px">
+              {% if queryset_list_sk_iui_val %}
+                <div class="treatmentCostsUSDCurrency">{{ queryset_list_sk_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_sk_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
               {% else %}
                 Unknown
               {% endif %}

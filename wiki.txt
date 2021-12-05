@@ -28,5 +28,6 @@ Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
 - Přidání Nové Lokace
 1) Nové Locations Cities / Countries (udělat textace)
 2) Nové Costs landing pages
+3) Přidat lokaci i do celkového IVF costs
 3) Přidat if else do Search + Search Packages
 4) Přidat URLs do Sitemaps

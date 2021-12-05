@@ -189,6 +189,14 @@
   {% elif values.Region == 'Brno'%}
     Search fertility clinics & agencies in Brno, Czech Republic
   {% endif %}
+{% elif values.States == 'SK' %}
+  {% if values.Region == '' %}
+    Search fertility clinics & agencies in Slovakia
+  {% elif values.Region == None %}
+    Search fertility clinics & agencies in Slovakia
+  {% elif values.Region == 'Bratislava' %}
+    Search fertility clinics & agencies in Bratislava, Slovakia
+  {% endif %}
 {% elif values.States == 'SP' %}
   {% if values.Region == '' %}
     Search fertility clinics & agencies in Spain

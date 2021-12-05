@@ -76,6 +76,40 @@ def fertilityClinicBrno(request):
 
     return render(request, 'locations-cities/Czech/fertility-clinic-brno.html', context)
 
+def fertilityClinicBratislava(request):
+    guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Bratislava')
+    guestblog = guestblog.filter(guestblogactive=True)
+
+    all_clinic_count = BasicClinic.objects.filter(is_published=True)
+    all_clinic_count = all_clinic_count.count()
+
+    average = BasicClinic.objects.filter(clinicState__iexact='Slovakia')
+    averageIVFPrice = average.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = average.aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = average.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = average.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = average.aggregate(average=Avg('icsi_treatment_cost'))
+
+    basic_queryset = BasicClinic.objects.filter(clinicRegion__iexact='Bratislava').filter(is_published=True)
+
+    my_total_count = basic_queryset.filter(is_published=True)
+    my_total_count = my_total_count.count()
+
+    queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
+
+    best_city_article_count = basic_queryset.filter(best_article_city_boolean=True)
+    best_city_article_count = best_city_article_count.count()
+
+    order_data = list(queryset_list)
+
+    paginator = Paginator(order_data, 10)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    context = {'listings': queryset_list, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'CATEGORY_CHOICES_MX_CITIES': CATEGORY_CHOICES_MX_CITIES, 'my_total_count': my_total_count, 'guestblog': guestblog, 'best_city_article_count': best_city_article_count,}
+
+    return render(request, 'locations-cities/Slovakia/fertility-clinic-bratislava.html', context)
+
 def fertilityClinicsAberdeen(request):
     guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Aberdeen')
     guestblog = guestblog.filter(guestblogactive=True)

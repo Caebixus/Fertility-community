@@ -17,6 +17,7 @@ class CountriesViewSitemap(sitemaps.Sitemap):
         'fertilityClinicIndia',
         'fertilityClinicGreece',
         'fertilityClinicCzech',
+        'fertilityClinicSlovakia',
         'fertilityClinicCyprus',
         'fertilityClinicMexico',
         ]

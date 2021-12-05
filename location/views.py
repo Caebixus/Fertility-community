@@ -92,33 +92,61 @@ def locationsStandardIVF(request):
 
 #-------------------------------------------------------------------------------
 
+    queryset_list_sk = queryset_list.filter(clinicState__iexact='Slovakia')
+    my_total_clinic_count_sk = queryset_list_sk.count()
+    queryset_list_sk_ivf = queryset_list_sk.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_sk_ivf.items():
+        queryset_list_sk_ivf_val = val
+
+    queryset_list_sk_egg = queryset_list_sk.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_sk_egg.items():
+        queryset_list_sk_egg_val = val
+
+    queryset_list_sk_embryo = queryset_list_sk.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_sk_embryo.items():
+        queryset_list_sk_embryo_val = val
+
+    queryset_list_sk_sperm = queryset_list_sk.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_sk_sperm.items():
+        queryset_list_sk_sperm_val = val
+
+    queryset_list_sk_icsi = queryset_list_sk.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_sk_icsi.items():
+        queryset_list_sk_icsi_val = val
+
+    queryset_list_sk_iui = queryset_list_sk.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_sk_iui.items():
+        queryset_list_sk_iui_val = val
+
+#-------------------------------------------------------------------------------
+
     queryset_list_sp = queryset_list.filter(clinicState__iexact='Spain')
     my_total_clinic_count_sp = queryset_list_sp.count()
     queryset_list_sp_ivf = queryset_list_sp.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
-    for key,val in queryset_list_sp_ivf.items():
+    for key, val in queryset_list_sp_ivf.items():
         queryset_list_sp_ivf_val = val
 
     queryset_list_sp_egg = queryset_list_sp.aggregate(average=Avg('egg_donor_recipients_cost'))
-    for key,val in queryset_list_sp_egg.items():
+    for key, val in queryset_list_sp_egg.items():
         queryset_list_sp_egg_val = val
 
     queryset_list_sp_embryo = queryset_list_sp.aggregate(average=Avg('embryo_donor_recipients_cost'))
-    for key,val in queryset_list_sp_embryo.items():
+    for key, val in queryset_list_sp_embryo.items():
         queryset_list_sp_embryo_val = val
 
     queryset_list_sp_sperm = queryset_list_sp.aggregate(average=Avg('sperm_donor_recipients_cost'))
-    for key,val in queryset_list_sp_sperm.items():
+    for key, val in queryset_list_sp_sperm.items():
         queryset_list_sp_sperm_val = val
 
     queryset_list_sp_icsi = queryset_list_sp.aggregate(average=Avg('icsi_treatment_cost'))
-    for key,val in queryset_list_sp_icsi.items():
+    for key, val in queryset_list_sp_icsi.items():
         queryset_list_sp_icsi_val = val
 
     queryset_list_sp_iui = queryset_list_sp.aggregate(average=Avg('iui_treatment_cost'))
-    for key,val in queryset_list_sp_iui.items():
+    for key, val in queryset_list_sp_iui.items():
         queryset_list_sp_iui_val = val
 
-#-------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
     queryset_list_in = queryset_list.filter(clinicState__iexact='India')
     my_total_clinic_count_in = queryset_list_in.count()
@@ -254,6 +282,14 @@ def locationsStandardIVF(request):
         'queryset_list_cz_sperm_val': queryset_list_cz_sperm_val,
         'queryset_list_cz_icsi_val': queryset_list_cz_icsi_val,
         'queryset_list_cz_iui_val': queryset_list_cz_iui_val,
+
+        'my_total_clinic_count_sk': my_total_clinic_count_sk,
+        'queryset_list_sk_ivf_val': queryset_list_sk_ivf_val,
+        'queryset_list_sk_egg_val': queryset_list_sk_egg_val,
+        'queryset_list_sk_embryo_val': queryset_list_sk_embryo_val,
+        'queryset_list_sk_sperm_val': queryset_list_sk_sperm_val,
+        'queryset_list_sk_icsi_val': queryset_list_sk_icsi_val,
+        'queryset_list_sk_iui_val': queryset_list_sk_iui_val,
 
         'my_total_clinic_count_sp': my_total_clinic_count_sp,
         'queryset_list_sp_ivf_val': queryset_list_sp_ivf_val,

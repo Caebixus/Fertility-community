@@ -17,7 +17,9 @@
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 style="padding-top:3rem; color:white">IVF packages & deals</h1>
+    <h1 style="padding-top:3rem; color:white">
+      {% include 'packages/h1values.html' %}
+    </h1>
     <p class="lead" style="color:white">Search different IVF packages & limited deals at once.
     <div class="container">
       <div class="searchBox">
@@ -80,6 +82,19 @@
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                     <option value="" selected>Select Czech city</option>
                     {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'SK' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-cz">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Slovak city</option>
+                    {% for key, value in CATEGORY_CHOICES_SK_CITIES.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
                   </select>

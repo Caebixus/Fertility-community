@@ -16,225 +16,234 @@ def index(request):
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count
 
-    ukclinics = BasicClinic.objects.filter(clinicState__iexact='United Kingdom').exclude(is_published=False)
+    clinicsall = BasicClinic.objects.all().exclude(is_published=False)
+
+    ukclinics = clinicsall.filter(clinicState__iexact='United Kingdom')
     ukclinics = ukclinics.count()
 
-    usclinics = BasicClinic.objects.filter(clinicState__iexact='United States').exclude(is_published=False)
+    usclinics = clinicsall.filter(clinicState__iexact='United States')
     usclinics = usclinics.count()
 
-    czclinics = BasicClinic.objects.filter(clinicState__iexact='Czech Republic').exclude(is_published=False)
+    czclinics = clinicsall.filter(clinicState__iexact='Czech Republic')
     czclinics = czclinics.count()
 
-    spclinics = BasicClinic.objects.filter(clinicState__iexact='Spain').exclude(is_published=False)
+    skclinics = clinicsall.filter(clinicState__iexact='Slovakia')
+    skclinics = skclinics.count()
+
+    spclinics = clinicsall.filter(clinicState__iexact='Spain')
     spclinics = spclinics.count()
 
-    inclinics = BasicClinic.objects.filter(clinicState__iexact='India').exclude(is_published=False)
+    inclinics = clinicsall.filter(clinicState__iexact='India')
     inclinics = inclinics.count()
 
-    grclinics = BasicClinic.objects.filter(clinicState__iexact='Greece').exclude(is_published=False)
+    grclinics = clinicsall.filter(clinicState__iexact='Greece')
     grclinics = grclinics.count()
 
-    cyclinics = BasicClinic.objects.filter(clinicState__iexact='Cyprus').exclude(is_published=False)
+    cyclinics = clinicsall.filter(clinicState__iexact='Cyprus')
     cyclinics = cyclinics.count()
 
-    mxclinics = BasicClinic.objects.filter(clinicState__iexact='Mexico').exclude(is_published=False)
+    mxclinics = clinicsall.filter(clinicState__iexact='Mexico')
     mxclinics = mxclinics.count()
 
     #UK CITIES
-    londonclinics = BasicClinic.objects.filter(clinicRegion__iexact='London').exclude(is_published=False)
+    londonclinics = clinicsall.filter(clinicRegion__iexact='London')
     londonclinics = londonclinics.count()
 
-    bristolclinics = BasicClinic.objects.filter(clinicRegion__iexact='Bristol').exclude(is_published=False)
+    bristolclinics = clinicsall.filter(clinicRegion__iexact='Bristol')
     bristolclinics = bristolclinics.count()
 
-    leedsclinics = BasicClinic.objects.filter(clinicRegion__iexact='Leeds').exclude(is_published=False)
+    leedsclinics = clinicsall.filter(clinicRegion__iexact='Leeds')
     leedsclinics = leedsclinics.count()
 
-    nottinghamclinics = BasicClinic.objects.filter(clinicRegion__iexact='Nottingham').exclude(is_published=False)
+    nottinghamclinics = clinicsall.filter(clinicRegion__iexact='Nottingham')
     nottinghamclinics = nottinghamclinics.count()
 
-    birminghamclinics = BasicClinic.objects.filter(clinicRegion__iexact='Birmingham').exclude(is_published=False)
+    birminghamclinics = clinicsall.filter(clinicRegion__iexact='Birmingham')
     birminghamclinics = birminghamclinics.count()
 
-    exeterclinics = BasicClinic.objects.filter(clinicRegion__iexact='Exeter').exclude(is_published=False)
+    exeterclinics = clinicsall.filter(clinicRegion__iexact='Exeter')
     exeterclinics = exeterclinics.count()
 
-    liverpoolclinics = BasicClinic.objects.filter(clinicRegion__iexact='Liverpool').exclude(is_published=False)
+    liverpoolclinics = clinicsall.filter(clinicRegion__iexact='Liverpool')
     liverpoolclinics = liverpoolclinics.count()
 
-    portsmouthclinics = BasicClinic.objects.filter(clinicRegion__iexact='Portsmouth').exclude(is_published=False)
+    portsmouthclinics = clinicsall.filter(clinicRegion__iexact='Portsmouth')
     portsmouthclinics = portsmouthclinics.count()
 
-    bournemouthclinics = BasicClinic.objects.filter(clinicRegion__iexact='Bournemouth').exclude(is_published=False)
+    bournemouthclinics = clinicsall.filter(clinicRegion__iexact='Bournemouth')
     bournemouthclinics = bournemouthclinics.count()
 
-    glasgowclinics = BasicClinic.objects.filter(clinicRegion__iexact='Glasgow').exclude(is_published=False)
+    glasgowclinics = clinicsall.filter(clinicRegion__iexact='Glasgow')
     glasgowclinics = glasgowclinics.count()
 
-    manchesterclinics = BasicClinic.objects.filter(clinicRegion__iexact='Manchester').exclude(is_published=False)
+    manchesterclinics = clinicsall.filter(clinicRegion__iexact='Manchester')
     manchesterclinics = manchesterclinics.count()
 
-    sheffieldclinics = BasicClinic.objects.filter(clinicRegion__iexact='Sheffield').exclude(is_published=False)
+    sheffieldclinics = clinicsall.filter(clinicRegion__iexact='Sheffield')
     sheffieldclinics = sheffieldclinics.count()
 
     #CZ REGIONS
-    pragueclinics = BasicClinic.objects.filter(clinicRegion__iexact='Prague').exclude(is_published=False)
+    pragueclinics = clinicsall.filter(clinicRegion__iexact='Prague')
     pragueclinics = pragueclinics.count()
 
-    brnoclinics = BasicClinic.objects.filter(clinicRegion__iexact='Brno').exclude(is_published=False)
+    brnoclinics = clinicsall.filter(clinicRegion__iexact='Brno')
     brnoclinics = brnoclinics.count()
 
+    #SK REGIONS
+    bratislavaclinics = clinicsall.filter(clinicRegion__iexact='Bratislava')
+    bratislavaclinics = bratislavaclinics.count()
+
     #US REGIONS
-    californiaclinics = BasicClinic.objects.filter(clinicRegion__iexact='California').exclude(is_published=False)
+    californiaclinics = clinicsall.filter(clinicRegion__iexact='California')
     californiaclinics = californiaclinics.count()
 
-    alabamaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Alabama').exclude(is_published=False)
+    alabamaclinics = clinicsall.filter(clinicRegion__iexact='Alabama')
     alabamaclinics = alabamaclinics.count()
 
-    arizonaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Arizona').exclude(is_published=False)
+    arizonaclinics = clinicsall.filter(clinicRegion__iexact='Arizona')
     arizonaclinics = arizonaclinics.count()
 
-    floridaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Florida').exclude(is_published=False)
+    floridaclinics = clinicsall.filter(clinicRegion__iexact='Florida')
     floridaclinics = floridaclinics.count()
 
-    texasclinics = BasicClinic.objects.filter(clinicRegion__iexact='Texas').exclude(is_published=False)
+    texasclinics = clinicsall.filter(clinicRegion__iexact='Texas')
     texasclinics = texasclinics.count()
 
-    newyorkclinics = BasicClinic.objects.filter(clinicRegion__iexact='New York').exclude(is_published=False)
+    newyorkclinics = clinicsall.filter(clinicRegion__iexact='New York')
     newyorkclinics = newyorkclinics.count()
 
-    arkansasclinics = BasicClinic.objects.filter(clinicRegion__iexact='Arkansas').exclude(is_published=False)
+    arkansasclinics = clinicsall.filter(clinicRegion__iexact='Arkansas')
     arkansasclinics = arkansasclinics.count()
 
-    coloradoclinics = BasicClinic.objects.filter(clinicRegion__iexact='Colorado').exclude(is_published=False)
+    coloradoclinics = clinicsall.filter(clinicRegion__iexact='Colorado')
     coloradoclinics = coloradoclinics.count()
 
-    hawaiiclinics = BasicClinic.objects.filter(clinicRegion__iexact='Hawaii').exclude(is_published=False)
+    hawaiiclinics = clinicsall.filter(clinicRegion__iexact='Hawaii')
     hawaiiclinics = hawaiiclinics.count()
 
-    utahclinics = BasicClinic.objects.filter(clinicRegion__iexact='Utah').exclude(is_published=False)
+    utahclinics = clinicsall.filter(clinicRegion__iexact='Utah')
     utahclinics = utahclinics.count()
 
-    connecticutclinics = BasicClinic.objects.filter(clinicRegion__iexact='Connecticut').exclude(is_published=False)
+    connecticutclinics = clinicsall.filter(clinicRegion__iexact='Connecticut')
     connecticutclinics = connecticutclinics.count()
 
-    delawareclinics = BasicClinic.objects.filter(clinicRegion__iexact='Delaware').exclude(is_published=False)
+    delawareclinics = clinicsall.filter(clinicRegion__iexact='Delaware')
     delawareclinics = delawareclinics.count()
 
-    georgiaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Georgia').exclude(is_published=False)
+    georgiaclinics = clinicsall.filter(clinicRegion__iexact='Georgia')
     georgiaclinics = georgiaclinics.count()
 
-    illinoisclinics = BasicClinic.objects.filter(clinicRegion__iexact='Illinois').exclude(is_published=False)
+    illinoisclinics = clinicsall.filter(clinicRegion__iexact='Illinois')
     illinoisclinics = illinoisclinics.count()
 
-    newjerseyclinics = BasicClinic.objects.filter(clinicRegion__iexact='New Jersey').exclude(is_published=False)
+    newjerseyclinics = clinicsall.filter(clinicRegion__iexact='New Jersey')
     newjerseyclinics = newjerseyclinics.count()
 
     #SP REGIONS
-    alicanteclinics = BasicClinic.objects.filter(clinicRegion__iexact='Alicante').exclude(is_published=False)
+    alicanteclinics = clinicsall.filter(clinicRegion__iexact='Alicante')
     alicanteclinics = alicanteclinics.count()
 
-    barcelonaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Barcelona').exclude(is_published=False)
+    barcelonaclinics = clinicsall.filter(clinicRegion__iexact='Barcelona')
     barcelonaclinics = barcelonaclinics.count()
 
-    madridclinics = BasicClinic.objects.filter(clinicRegion__iexact='Madrid').exclude(is_published=False)
+    madridclinics = clinicsall.filter(clinicRegion__iexact='Madrid')
     madridclinics = madridclinics.count()
 
-    malagaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Malaga').exclude(is_published=False)
+    malagaclinics = clinicsall.filter(clinicRegion__iexact='Malaga')
     malagaclinics = malagaclinics.count()
 
-    sevilleclinics = BasicClinic.objects.filter(clinicRegion__iexact='Seville').exclude(is_published=False)
+    sevilleclinics = clinicsall.filter(clinicRegion__iexact='Seville')
     sevilleclinics = sevilleclinics.count()
 
-    valenciaclinics = BasicClinic.objects.filter(clinicRegion__iexact='Valencia').exclude(is_published=False)
+    valenciaclinics = clinicsall.filter(clinicRegion__iexact='Valencia')
     valenciaclinics = valenciaclinics.count()
 
     #IN REGIONS
-    chennaiclinics = BasicClinic.objects.filter(clinicCity__iexact='Chennai').exclude(is_published=False)
+    chennaiclinics = clinicsall.filter(clinicCity__iexact='Chennai')
     chennaiclinics = chennaiclinics.count()
 
-    hyderabadclinics = BasicClinic.objects.filter(clinicCity__iexact='Hyderabad').exclude(is_published=False)
+    hyderabadclinics = clinicsall.filter(clinicCity__iexact='Hyderabad')
     hyderabadclinics = hyderabadclinics.count()
 
-    mumbaiclinics = BasicClinic.objects.filter(clinicCity__iexact='Mumbai').exclude(is_published=False)
+    mumbaiclinics = clinicsall.filter(clinicCity__iexact='Mumbai')
     mumbaiclinics = mumbaiclinics.count()
 
-    patnaclinics = BasicClinic.objects.filter(clinicCity__iexact='Patna').exclude(is_published=False)
+    patnaclinics = clinicsall.filter(clinicCity__iexact='Patna')
     patnaclinics = patnaclinics.count()
 
-    raipurclinics = BasicClinic.objects.filter(clinicCity__iexact='Raipur').exclude(is_published=False)
+    raipurclinics = clinicsall.filter(clinicCity__iexact='Raipur')
     raipurclinics = raipurclinics.count()
 
-    amdavadclinics = BasicClinic.objects.filter(clinicCity__iexact='Amdavad').exclude(is_published=False)
+    amdavadclinics = clinicsall.filter(clinicCity__iexact='Amdavad')
     amdavadclinics = amdavadclinics.count()
 
-    chandigarhclinics = BasicClinic.objects.filter(clinicCity__iexact='Chandigarh').exclude(is_published=False)
+    chandigarhclinics = clinicsall.filter(clinicCity__iexact='Chandigarh')
     chandigarhclinics = chandigarhclinics.count()
 
-    faridabadclinics = BasicClinic.objects.filter(clinicCity__iexact='Faridabad').exclude(is_published=False)
+    faridabadclinics = clinicsall.filter(clinicCity__iexact='Faridabad')
     faridabadclinics = faridabadclinics.count()
 
-    jamshedpurclinics = BasicClinic.objects.filter(clinicCity__iexact='Jamshedpur').exclude(is_published=False)
+    jamshedpurclinics = clinicsall.filter(clinicCity__iexact='Jamshedpur')
     jamshedpurclinics = jamshedpurclinics.count()
 
-    bangaloreclinics = BasicClinic.objects.filter(clinicCity__iexact='Bangalore').exclude(is_published=False)
+    bangaloreclinics = clinicsall.filter(clinicCity__iexact='Bangalore')
     bangaloreclinics = bangaloreclinics.count()
 
-    trivandrumclinics = BasicClinic.objects.filter(clinicCity__iexact='Trivandrum').exclude(is_published=False)
+    trivandrumclinics = clinicsall.filter(clinicCity__iexact='Trivandrum')
     trivandrumclinics = trivandrumclinics.count()
 
-    kochiclinics = BasicClinic.objects.filter(clinicCity__iexact='Kochi').exclude(is_published=False)
+    kochiclinics = clinicsall.filter(clinicCity__iexact='Kochi')
     kochiclinics = kochiclinics.count()
 
-    bhopalclinics = BasicClinic.objects.filter(clinicCity__iexact='Bhopal').exclude(is_published=False)
+    bhopalclinics = clinicsall.filter(clinicCity__iexact='Bhopal')
     bhopalclinics = bhopalclinics.count()
 
-    indoreclinics = BasicClinic.objects.filter(clinicCity__iexact='Indore').exclude(is_published=False)
+    indoreclinics = clinicsall.filter(clinicCity__iexact='Indore')
     indoreclinics = indoreclinics.count()
 
-    nagpurclinics = BasicClinic.objects.filter(clinicCity__iexact='Nagpur').exclude(is_published=False)
+    nagpurclinics = clinicsall.filter(clinicCity__iexact='Nagpur')
     nagpurclinics = nagpurclinics.count()
 
-    bhubaneswarclinics = BasicClinic.objects.filter(clinicCity__iexact='Bhubaneswar').exclude(is_published=False)
+    bhubaneswarclinics = clinicsall.filter(clinicCity__iexact='Bhubaneswar')
     bhubaneswarclinics = bhubaneswarclinics.count()
 
-    ludhianaclinics = BasicClinic.objects.filter(clinicCity__iexact='Ludhiana').exclude(is_published=False)
+    ludhianaclinics = clinicsall.filter(clinicCity__iexact='Ludhiana')
     ludhianaclinics = ludhianaclinics.count()
 
-    jaipurclinics = BasicClinic.objects.filter(clinicCity__iexact='Jaipur').exclude(is_published=False)
+    jaipurclinics = clinicsall.filter(clinicCity__iexact='Jaipur')
     jaipurclinics = jaipurclinics.count()
 
-    lucknowclinics = BasicClinic.objects.filter(clinicCity__iexact='Lucknow').exclude(is_published=False)
+    lucknowclinics = clinicsall.filter(clinicCity__iexact='Lucknow')
     lucknowclinics = lucknowclinics.count()
 
-    kanpurclinics = BasicClinic.objects.filter(clinicCity__iexact='Kanpur').exclude(is_published=False)
+    kanpurclinics = clinicsall.filter(clinicCity__iexact='Kanpur')
     kanpurclinics = kanpurclinics.count()
 
-    dehradunclinics = BasicClinic.objects.filter(clinicCity__iexact='Dehradun').exclude(is_published=False)
+    dehradunclinics = clinicsall.filter(clinicCity__iexact='Dehradun')
     dehradunclinics = dehradunclinics.count()
 
-    kolkataclinics = BasicClinic.objects.filter(clinicCity__iexact='Kolkata').exclude(is_published=False)
+    kolkataclinics = clinicsall.filter(clinicCity__iexact='Kolkata')
     kolkataclinics = kolkataclinics.count()
 
     #GR REGIONS
-    athensclinics = BasicClinic.objects.filter(clinicCity__iexact='Athens').exclude(is_published=False)
+    athensclinics = clinicsall.filter(clinicCity__iexact='Athens')
     athensclinics = athensclinics.count()
 
-    thessalonikiclinics = BasicClinic.objects.filter(clinicCity__iexact='Thessaloniki').exclude(is_published=False)
+    thessalonikiclinics = clinicsall.filter(clinicCity__iexact='Thessaloniki')
     thessalonikiclinics = thessalonikiclinics.count()
 
     #CY REGIONS
-    nicosiaclinics = BasicClinic.objects.filter(clinicCity__iexact='Nicosia').exclude(is_published=False)
+    nicosiaclinics = clinicsall.filter(clinicCity__iexact='Nicosia')
     nicosiaclinics = nicosiaclinics.count()
 
-    girneclinics = BasicClinic.objects.filter(clinicCity__iexact='Girne').exclude(is_published=False)
+    girneclinics = clinicsall.filter(clinicCity__iexact='Girne')
     girneclinics = girneclinics.count()
 
     #MX REGIONS
-    cancunclinics = BasicClinic.objects.filter(clinicCity__iexact='Cancún').exclude(is_published=False)
+    cancunclinics = clinicsall.filter(clinicCity__iexact='Cancún')
     cancunclinics = cancunclinics.count()
 
-    mexicocityclinics = BasicClinic.objects.filter(clinicCity__iexact='Mexico City').exclude(is_published=False)
+    mexicocityclinics = clinicsall.filter(clinicCity__iexact='Mexico City')
     mexicocityclinics = mexicocityclinics.count()
 
     context = {
@@ -250,6 +259,7 @@ def index(request):
         'ukclinics': ukclinics,
         'usclinics': usclinics,
         'czclinics': czclinics,
+        'skclinics': skclinics,
         'spclinics': spclinics,
         'inclinics': inclinics,
         'grclinics': grclinics,
@@ -269,6 +279,7 @@ def index(request):
         'sheffieldclinics': sheffieldclinics,
         'pragueclinics': pragueclinics,
         'brnoclinics': brnoclinics,
+        'bratislavaclinics': bratislavaclinics,
         'californiaclinics': californiaclinics,
         'alabamaclinics': alabamaclinics,
         'arizonaclinics': arizonaclinics,

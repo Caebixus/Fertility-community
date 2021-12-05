@@ -131,6 +131,19 @@
             </div>
           </div>
         </div>
+        {% elif values.States == 'SK' %}
+        <div class="form-group" style="padding-top:1rem" id="regions-cz">
+          <div class="card" style="border-radius: 8px;">
+            <div class="card-header" style="background-color: white; border-radius: 8px;">
+              <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                <option value="" selected>Select Slovak city</option>
+                {% for key, value in CATEGORY_CHOICES_SK_CITIES.items %}
+                <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
         {% elif values.States == 'SP' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
@@ -701,6 +714,15 @@
             <option>GBP</option>
           </select>
           <br>
+          {% elif values.States == 'SK' %}
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Slovak fertility treatment costs in 2021:</h2>
+          <select class="form-control" id="ChooseCurrency">
+            <option value="" selected>Currency</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+          </select>
+          <br>
           {% elif values.States == 'SP' %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spain fertility treatment costs in 2021:</h2>
           <select class="form-control" id="ChooseCurrency">
@@ -893,6 +915,74 @@
 
 
           {% elif values.States == 'CZ' %}
+          {% for k in averageIVFPrice %}
+          {% if averageIVFPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
+          <div id="quickInfoUSD"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD" style="display:none"><p style="font-size:22px">{{ averageIVFPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageICSIPrice %}
+          {% if averageICSIPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average ICSI price: </p>
+          <div id="quickInfoUSD1"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD1" style="display:none"><p style="font-size:22px">{{ averageICSIPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEggPrice %}
+          {% if averageEggPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Egg donation: </p>
+          <div id="quickInfoUSD2"><p style="font-size:22px">{{ averageEggPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD2" style="display:none"><p style="font-size:22px">{{ averageEggPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageEmbryoPrice %}
+          {% if averageEmbryoPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Embryo donation: </p>
+          <div id="quickInfoUSD3"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD3" style="display:none"><p style="font-size:22px">{{ averageEmbryoPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+          {% for k in averageSpermPrice %}
+          {% if averageSpermPrice.average != None  %}
+          <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of IVF with Sperm donation: </p>
+          <div id="quickInfoUSD4"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'USD'|floatformat:'0'|intcomma }} <i class="fas fa-dollar-sign"></i></p></div>
+          <div id="quickInfoEUR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'EUR'|floatformat:'0'|intcomma }} <i class="fas fa-euro-sign"></i></p></div>
+          <div id="quickInfoGBP4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'GBP'|floatformat:'0'|intcomma }} <i class="fas fa-pound-sign"></i></p></div>
+          <div id="quickInfoCZK4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CZK'|floatformat:'0'|intcomma }} CZK</p></div>
+          <div id="quickInfoMXN4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'MXN'|floatformat:'0'|intcomma }} MXN</p></div>
+          <div id="quickInfoINR4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'INR'|floatformat:'0'|intcomma }} INR</p></div>
+          <div id="quickInfoCAD4" style="display:none"><p style="font-size:22px">{{ averageSpermPrice.average|convert:'CAD'|floatformat:'0'|intcomma }} CAD</p></div>
+          {% else %}
+          {% endif  %}
+          {% endfor %}
+
+
+          {% elif values.States == 'SK' %}
           {% for k in averageIVFPrice %}
           {% if averageIVFPrice.average != None  %}
           <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -1321,6 +1411,12 @@
                   <i class="fas fa-flag"></i> Czech Compare
                 </button>
               </a>
+              {% elif values.States == 'SK' %}
+              <a href="{% url 'locationsSKRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> Slovak Compare
+                </button>
+              </a>
               {% elif values.States == 'SP' %}
               <a href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;">
                 <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -1476,6 +1572,24 @@
     </li>
     <li hidden class="nav-item">
       <a class="nav-link" href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations in Czech Republic</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
+    </li>
+  </ul>
+  {% elif values.States == 'SK' %}
+  <ul class="nav justify-content-left">
+    <li hidden class="nav-item">
+      <a class="nav-link" href="#" style="font-size: 14px !important;"><i class="fas fa-chart-line"></i> How to increase IVF success?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blog1' %}" style="font-size: 14px !important;"><i class="far fa-question-circle"></i> Good to know about IVF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/groups/592514381347298/" style="font-size: 14px !important;"><i class="fab fa-facebook"></i> Facebook IVF Support Group</a>
+    </li>
+    <li hidden class="nav-item">
+      <a class="nav-link" href="{% url 'locationsSKRegions' %}" style="font-size: 14px !important;"><i class="fas fa-search-location"></i> IVF Clinic locations inSlovakia</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'locations' %}" style="font-size: 14px !important;"><i class="fas fa-globe"></i> Global IVF clinic locations</a>
@@ -1660,6 +1774,25 @@
         <br>
         <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
       </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'SK' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Slovakia</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicBratislava' %}">Bratislava IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsSKRegions' %}"><u>IVF and Fertility centers in Slovakia</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
     </div>
   </div>
 </div>

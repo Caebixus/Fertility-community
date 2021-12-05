@@ -11,6 +11,7 @@ urlpatterns = [
     path('fertility-clinics/czech-republic', views.fertilityClinicCzech, name='fertilityClinicCzech'),
     path('fertility-clinics/cyprus', views.fertilityClinicCyprus, name='fertilityClinicCyprus'),
     path('fertility-clinics/mexico', views.fertilityClinicMexico, name='fertilityClinicMexico'),
+    path('fertility-clinics/slovakia', views.fertilityClinicSlovakia, name='fertilityClinicSlovakia'),
 
     # --------------------------------------->>>>>>>> Redirects
     path('fertility-clinic-usa', views.fertilityClinicUSA1, name='fertilityClinicUSA1'),

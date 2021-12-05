@@ -13,6 +13,7 @@ urlpatterns = [
     path('ivf-cost/usa', views2.locationsUSRegions, name='locationsUSRegions'),
     path('ivf-cost/uk', views2.locationsUKRegions, name='locationsUKRegions'),
     path('ivf-cost/cz', views2.locationsCZRegions, name='locationsCZRegions'),
+    path('ivf-cost/sk', views2.locationsSKRegions, name='locationsSKRegions'),
     path('ivf-cost/spain', views2.locationsSPRegions, name='locationsSPRegions'),
     path('ivf-cost/india', views2.locationsINRegions, name='locationsINRegions'),
     path('ivf-cost/greece', views2.locationsGRRegions, name='locationsGRRegions'),

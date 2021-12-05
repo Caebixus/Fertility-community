@@ -19,6 +19,10 @@ my_total_count_cze = BasicClinic.objects.filter(clinicState__iexact='Czech Repub
 my_total_count_cze = my_total_count_cze.filter(is_published=True)
 my_total_count_cze = my_total_count_cze.count()
 
+my_total_count_slovakia = BasicClinic.objects.filter(clinicState__iexact='Slovakia')
+my_total_count_slovakia = my_total_count_slovakia.filter(is_published=True)
+my_total_count_slovakia = my_total_count_slovakia.count()
+
 my_total_count_spain = BasicClinic.objects.filter(clinicState__iexact='Spain')
 my_total_count_spain = my_total_count_spain.filter(is_published=True)
 my_total_count_spain = my_total_count_spain.count()
@@ -48,6 +52,7 @@ CATEGORY_CHOICES_STATES_NORTH_AMERICA = {
 CATEGORY_CHOICES_STATES_EUROPE = {
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
     'CZ': 'Czech Republic - ' + str(my_total_count_cze) + ' fertility clinics',
+    'SK': 'Slovakia - ' + str(my_total_count_slovakia) + ' fertility clinics',
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
     'CY': 'Cyprus - ' + str(my_total_count_cyprus) + ' fertility clinics',
@@ -67,6 +72,9 @@ my_total_package_count_uk = my_total_package_count_uk.count()
 
 my_total_package_count_cze = Package.objects.filter(packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
 my_total_package_count_cze = my_total_package_count_cze.count()
+
+my_total_package_count_slovakia = Package.objects.filter(packageclinic__clinicState__iexact='Slovakia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_slovakia = my_total_package_count_slovakia.count()
 
 my_total_package_count_spain = Package.objects.filter(packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
 my_total_package_count_spain = my_total_package_count_spain.count()
@@ -91,6 +99,7 @@ CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA = {
 CATEGORY_CHOICES_STATES_PACKAGES_EUROPE = {
     'UK': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
     'CZ': 'Czech Republic - ' + str(my_total_package_count_cze) + ' packages',
+    'SK': 'Slovakia - ' + str(my_total_package_count_slovakia) + ' packages',
     'SP': 'Spain - ' + str(my_total_package_count_spain) + ' packages',
     'GR': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
     'CY': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
@@ -112,6 +121,10 @@ CATEGORY_CHOICES_CZ_CITIES = {
     'Brno': 'Brno',
     }
 
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_SK_CITIES = {
+    'Bratislava': 'Bratislava',
+    }
 
 #----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_GR_CITIES = {

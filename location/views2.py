@@ -3253,6 +3253,57 @@ def locationsCZRegions(request):
 #--------------------------------------------------------------------------
 
 
+def locationsSKRegions(request):
+    queryset_list_sk = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_bratislava = queryset_list_sk.filter(clinicRegion__iexact='Bratislava')
+    my_total_clinic_count_bratislava = queryset_list_bratislava.count()
+
+    queryset_list_bratislava_ivf = queryset_list_bratislava.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_bratislava_ivf.items():
+        queryset_list_bratislava_ivf_val = val
+
+    queryset_list_bratislava_egg = queryset_list_bratislava.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_bratislava_egg.items():
+        queryset_list_bratislava_egg_val = val
+
+    queryset_list_bratislava_embryo = queryset_list_bratislava.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_bratislava_embryo.items():
+        queryset_list_bratislava_embryo_val = val
+
+    queryset_list_bratislava_sperm = queryset_list_bratislava.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_bratislava_sperm.items():
+        queryset_list_bratislava_sperm_val = val
+
+    queryset_list_bratislava_icsi = queryset_list_bratislava.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_bratislava_icsi.items():
+        queryset_list_bratislava_icsi_val = val
+
+    queryset_list_bratislava_iui = queryset_list_bratislava.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_bratislava_iui.items():
+        queryset_list_bratislava_iui_val = val
+
+    context = {
+        'my_total_clinic_count_bratislava': my_total_clinic_count_bratislava,
+        'queryset_list_bratislava_ivf_val': queryset_list_bratislava_ivf_val,
+        'queryset_list_bratislava_egg_val': queryset_list_bratislava_egg_val,
+        'queryset_list_bratislava_embryo_val': queryset_list_bratislava_embryo_val,
+        'queryset_list_bratislava_sperm_val': queryset_list_bratislava_sperm_val,
+        'queryset_list_bratislava_icsi_val': queryset_list_bratislava_icsi_val,
+        'queryset_list_bratislava_iui_val': queryset_list_bratislava_iui_val,
+        }
+    return render(request, 'main/Locations/SKLocations/sk-regions-ivf.html', context)
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 

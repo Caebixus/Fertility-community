@@ -427,6 +427,39 @@ def fertilityClinicMexico(request):
 
     return render(request, 'locations-states/Mexico/fertility-clinic-mexico.html', context)
 
+# ----------------------------------------------------------------------------
+def fertilityClinicSlovakia(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Slovakia')
+    guestblog = guestblog.filter(guestblogactive=True)
+
+    all_clinic_count = BasicClinic.objects.filter(is_published=True)
+    all_clinic_count = all_clinic_count.count()
+
+    basic_queryset = BasicClinic.objects.filter(clinicState__iexact='Slovakia').filter(is_published=True)
+
+    my_total_count = basic_queryset.count()
+
+    averageIVFPrice = basic_queryset.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = basic_queryset.aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = basic_queryset.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = basic_queryset.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = basic_queryset.aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
+
+    order_data = list(queryset_list)
+
+    paginator = Paginator(order_data, 10)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    #CY CITIES
+    bratislavaclinics = basic_queryset.count()
+
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'my_total_count': my_total_count, 'bratislavaclinics': bratislavaclinics, }
+
+    return render(request, 'locations-states/Slovakia/fertility-clinic-slovakia.html', context)
+
 # --------------------------------------->>>>>>>> Redirects
 def fertilityClinicUSA1(request):
     return HttpResponsePermanentRedirect(reverse('fertilityClinicUSA'))

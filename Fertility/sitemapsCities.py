@@ -14,6 +14,8 @@ class CitiesViewSitemap(sitemaps.Sitemap):
         'fertilityClinicPrague',
         'fertilityClinicBrno',
 
+        'fertilityClinicBratislava',
+
         'fertilityClinicsAberdeen',
         'fertilityClinicsBath',
         'fertilityClinicsBelfast',

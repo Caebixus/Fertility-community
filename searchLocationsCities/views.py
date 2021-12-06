@@ -2669,7 +2669,7 @@ def fertilityClinicCopenhagen(request):
     averageSpermPrice = average.aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = average.aggregate(average=Avg('icsi_treatment_cost'))
 
-    basic_queryset = BasicClinic.objects.filter(clinicCity__iexact='Copenhagen').filter(is_published=True)
+    basic_queryset = BasicClinic.objects.filter(clinicRegion__iexact='Copenhagen').filter(is_published=True)
 
     my_total_count = basic_queryset.filter(is_published=True)
     my_total_count = my_total_count.count()

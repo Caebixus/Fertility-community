@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django import template
 from clinic.models import BasicClinic
 from django.db.models import Avg
-from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_MX_CITIES
+from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_DK_CITIES, CATEGORY_CHOICES_MX_CITIES
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
@@ -75,7 +75,7 @@ def fertilityClinicUSA(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'my_total_count': my_total_count, 'texasclinics': texasclinics, 'newyorkclinics': newyorkclinics, 'floridaclinics': floridaclinics, 'newjerseyclinics': newjerseyclinics, 'illinoisclinics': illinoisclinics, 'pennsylvaniaclinics': pennsylvaniaclinics, 'michiganclinics': michiganclinics, 'georgiaclinics': georgiaclinics, 'arizonaclinics': arizonaclinics, 'massachusettsclinics': massachusettsclinics, 'washingtonclinics': washingtonclinics,}
 
-    return render(request, 'locations-states/USA/fertility-clinic-usa.html', context)
+    return render(request, 'locations-states/NorthAmerica/USA/fertility-clinic-usa.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicUK(request):
@@ -131,7 +131,7 @@ def fertilityClinicUK(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'my_total_count': my_total_count, 'londonclinics': londonclinics, 'bristolclinics': bristolclinics, 'birminghamclinics': birminghamclinics, 'liverpoolclinics': liverpoolclinics, 'swanseaclinics': swanseaclinics, 'cardiffclinics': cardiffclinics, 'manchesterclinics': manchesterclinics, 'oxfordclinics': oxfordclinics,}
 
-    return render(request, 'locations-states/UK/fertility-clinic-uk.html', context)
+    return render(request, 'locations-states/Europe/UK/fertility-clinic-uk.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicSpain(request):
@@ -189,7 +189,7 @@ def fertilityClinicSpain(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'alicanteclinics': alicanteclinics, 'barcelonaclinics': barcelonaclinics, 'madridclinics': madridclinics, 'malagaclinics': malagaclinics, 'sevilleclinics': sevilleclinics, 'valenciaclinics': valenciaclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
 
-    return render(request, 'locations-states/Spain/fertility-clinic-spain.html', context)
+    return render(request, 'locations-states/Europe/Spain/fertility-clinic-spain.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicIndia(request):
@@ -257,7 +257,7 @@ def fertilityClinicIndia(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'my_total_count': my_total_count, 'hyderabadclinics': hyderabadclinics, 'newdelhiclinics': newdelhiclinics, 'gachibowliclinics': gachibowliclinics, 'bangaloreclinics': bangaloreclinics, 'chennaiclinics': chennaiclinics, 'vadodaraclinics': vadodaraclinics, 'madhapurclinics': madhapurclinics, 'gwaliorclinics': gwaliorclinics, 'mumbaiclinics': mumbaiclinics, 'faridabadclinics': faridabadclinics, 'kolkataclinics': kolkataclinics, 'rohtakclinics': rohtakclinics,}
 
-    return render(request, 'locations-states/India/fertility-clinic-india.html', context)
+    return render(request, 'locations-states/Asia/India/fertility-clinic-india.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicGreece(request):
@@ -303,7 +303,7 @@ def fertilityClinicGreece(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'my_total_count': my_total_count, 'athensclinics': athensclinics, 'thessalonikiclinics': thessalonikiclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
 
-    return render(request, 'locations-states/Greece/fertility-clinic-greece.html', context)
+    return render(request, 'locations-states/Europe/Greece/fertility-clinic-greece.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicCzech(request):
@@ -349,7 +349,7 @@ def fertilityClinicCzech(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'my_total_count': my_total_count, 'pragueclinics': pragueclinics, 'brnoclinics': brnoclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
 
-    return render(request, 'locations-states/CZ/fertility-clinic-czech-republic.html', context)
+    return render(request, 'locations-states/Europe/CZ/fertility-clinic-czech-republic.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicCyprus(request):
@@ -387,7 +387,7 @@ def fertilityClinicCyprus(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'my_total_count': my_total_count, 'nicosiaclinics': nicosiaclinics, 'girneclinics': girneclinics,}
 
-    return render(request, 'locations-states/Cyprus/fertility-clinic-cyprus.html', context)
+    return render(request, 'locations-states/Europe/Cyprus/fertility-clinic-cyprus.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicMexico(request):
@@ -425,7 +425,7 @@ def fertilityClinicMexico(request):
 
     context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_MX_CITIES': CATEGORY_CHOICES_MX_CITIES, 'my_total_count': my_total_count, 'cancunclinics': cancunclinics, 'mexicocityclinics': mexicocityclinics,}
 
-    return render(request, 'locations-states/Mexico/fertility-clinic-mexico.html', context)
+    return render(request, 'locations-states/NorthAmerica/Mexico/fertility-clinic-mexico.html', context)
 
 # ----------------------------------------------------------------------------
 def fertilityClinicSlovakia(request):
@@ -453,13 +453,47 @@ def fertilityClinicSlovakia(request):
     page = request.GET.get('page')
     paginationing = paginator.get_page(page)
 
-    #CY CITIES
-    bratislavaclinics = basic_queryset.count()
+    #CITIES
+    bratislavaclinics = basic_queryset.filter(clinicCity__iexact='Bratislava')
+    bratislavaclinics = bratislavaclinics.count()
 
-    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'my_total_count': my_total_count, 'bratislavaclinics': bratislavaclinics, }
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'my_total_count': my_total_count, 'bratislavaclinics': bratislavaclinics, }
 
-    return render(request, 'locations-states/Slovakia/fertility-clinic-slovakia.html', context)
+    return render(request, 'locations-states/Europe/Slovakia/fertility-clinic-slovakia.html', context)
 
+# ----------------------------------------------------------------------------
+def fertilityClinicDenmark(request):
+    guestblog = GuestBlog.objects.filter(guestblogcountry__iexact='Denmark')
+    guestblog = guestblog.filter(guestblogactive=True)
+
+    all_clinic_count = BasicClinic.objects.filter(is_published=True)
+    all_clinic_count = all_clinic_count.count()
+
+    basic_queryset = BasicClinic.objects.filter(clinicState__iexact='Denmark').filter(is_published=True)
+
+    my_total_count = basic_queryset.count()
+
+    averageIVFPrice = basic_queryset.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    averageEggPrice = basic_queryset.aggregate(average=Avg('egg_donor_recipients_cost'))
+    averageEmbryoPrice = basic_queryset.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    averageSpermPrice = basic_queryset.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    averageICSIPrice = basic_queryset.aggregate(average=Avg('icsi_treatment_cost'))
+
+    queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
+
+    order_data = list(queryset_list)
+
+    paginator = Paginator(order_data, 10)
+    page = request.GET.get('page')
+    paginationing = paginator.get_page(page)
+
+    #CITIES
+    copenhagenclinics = basic_queryset.filter(clinicCity__iexact='Copenhagen')
+    copenhagenclinics = basic_queryset.count()
+
+    context = {'guestblog': guestblog, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'my_total_count': my_total_count, 'copenhagenclinics': copenhagenclinics, }
+
+    return render(request, 'locations-states/Europe/Denmark/fertility-clinic-denmark.html', context)
 # --------------------------------------->>>>>>>> Redirects
 def fertilityClinicUSA1(request):
     return HttpResponsePermanentRedirect(reverse('fertilityClinicUSA'))

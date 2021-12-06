@@ -33,6 +33,9 @@ def index(request):
     spclinics = clinicsall.filter(clinicState__iexact='Spain')
     spclinics = spclinics.count()
 
+    dkclinics = clinicsall.filter(clinicState__iexact='Denmark')
+    dkclinics = dkclinics.count()
+
     inclinics = clinicsall.filter(clinicState__iexact='India')
     inclinics = inclinics.count()
 
@@ -246,6 +249,10 @@ def index(request):
     mexicocityclinics = clinicsall.filter(clinicCity__iexact='Mexico City')
     mexicocityclinics = mexicocityclinics.count()
 
+    #DK REGIONS
+    copenhagenclinics = clinicsall.filter(clinicCity__iexact='Copenhagen')
+    copenhagenclinics = copenhagenclinics.count()
+
     context = {
         'blog': blog,
         'best_city': best_city,
@@ -261,6 +268,7 @@ def index(request):
         'czclinics': czclinics,
         'skclinics': skclinics,
         'spclinics': spclinics,
+        'dkclinics': dkclinics,
         'inclinics': inclinics,
         'grclinics': grclinics,
         'cyclinics': cyclinics,
@@ -329,6 +337,7 @@ def index(request):
         'girneclinics': girneclinics,
         'cancunclinics': cancunclinics,
         'mexicocityclinics': mexicocityclinics,
+        'copenhagenclinics': copenhagenclinics,
     }
 
     return render(request, 'main/index.html', context)

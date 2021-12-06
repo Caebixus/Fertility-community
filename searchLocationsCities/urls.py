@@ -10,6 +10,9 @@ urlpatterns = [
     # Slovakia
     path('fertility-clinics/slovakia/bratislava', views.fertilityClinicBratislava, name='fertilityClinicBratislava'),
 
+    # Denmark
+    path('fertility-clinics/denmark/copenhagen', views.fertilityClinicCopenhagen, name='fertilityClinicCopenhagen'),
+
     # United Kingdom
     path('fertility-clinics/uk/aberdeen', views.fertilityClinicsAberdeen, name='fertilityClinicsAberdeen'),
     path('fertility-clinics/uk/bath', views.fertilityClinicsBath, name='fertilityClinicsBath'),

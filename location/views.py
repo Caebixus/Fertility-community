@@ -118,6 +118,34 @@ def locationsStandardIVF(request):
     for key,val in queryset_list_sk_iui.items():
         queryset_list_sk_iui_val = val
 
+# -------------------------------------------------------------------------------
+
+    queryset_list_dk = queryset_list.filter(clinicState__iexact='Denmark')
+    my_total_clinic_count_dk = queryset_list_dk.count()
+    queryset_list_dk_ivf = queryset_list_dk.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key, val in queryset_list_dk_ivf.items():
+        queryset_list_dk_ivf_val = val
+
+    queryset_list_dk_egg = queryset_list_dk.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key, val in queryset_list_dk_egg.items():
+        queryset_list_dk_egg_val = val
+
+    queryset_list_dk_embryo = queryset_list_dk.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key, val in queryset_list_dk_embryo.items():
+        queryset_list_dk_embryo_val = val
+
+    queryset_list_dk_sperm = queryset_list_dk.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key, val in queryset_list_dk_sperm.items():
+        queryset_list_dk_sperm_val = val
+
+    queryset_list_dk_icsi = queryset_list_dk.aggregate(average=Avg('icsi_treatment_cost'))
+    for key, val in queryset_list_dk_icsi.items():
+        queryset_list_dk_icsi_val = val
+
+    queryset_list_dk_iui = queryset_list_dk.aggregate(average=Avg('iui_treatment_cost'))
+    for key, val in queryset_list_dk_iui.items():
+        queryset_list_dk_iui_val = val
+
 #-------------------------------------------------------------------------------
 
     queryset_list_sp = queryset_list.filter(clinicState__iexact='Spain')
@@ -290,6 +318,14 @@ def locationsStandardIVF(request):
         'queryset_list_sk_sperm_val': queryset_list_sk_sperm_val,
         'queryset_list_sk_icsi_val': queryset_list_sk_icsi_val,
         'queryset_list_sk_iui_val': queryset_list_sk_iui_val,
+
+        'my_total_clinic_count_dk': my_total_clinic_count_dk,
+        'queryset_list_dk_ivf_val': queryset_list_dk_ivf_val,
+        'queryset_list_dk_egg_val': queryset_list_dk_egg_val,
+        'queryset_list_dk_embryo_val': queryset_list_dk_embryo_val,
+        'queryset_list_dk_sperm_val': queryset_list_dk_sperm_val,
+        'queryset_list_dk_icsi_val': queryset_list_dk_icsi_val,
+        'queryset_list_dk_iui_val': queryset_list_dk_iui_val,
 
         'my_total_clinic_count_sp': my_total_clinic_count_sp,
         'queryset_list_sp_ivf_val': queryset_list_sp_ivf_val,

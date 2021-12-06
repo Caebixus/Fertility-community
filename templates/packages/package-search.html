@@ -89,12 +89,25 @@
               </div>
             </div>
             {% elif values.States == 'SK' %}
-            <div class="form-group" style="padding-top:1rem" id="regions-cz">
+            <div class="form-group" style="padding-top:1rem" id="regions-sk">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                     <option value="" selected>Select Slovak city</option>
                     {% for key, value in CATEGORY_CHOICES_SK_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'DK' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-dk">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Denmark city</option>
+                    {% for key, value in CATEGORY_CHOICES_DK_CITIES.items %}
                     <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                     {% endfor %}
                   </select>

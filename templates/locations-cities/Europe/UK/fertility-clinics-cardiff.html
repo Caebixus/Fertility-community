@@ -1,0 +1,440 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}Fertility clinics in Cardiff | Found {{ my_total_count }} clinics | 2021{% endblock %}
+{% block description %}Need to quickly compare the best IVF clinics in Cardiff to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/uk/cardiff{% endblock %}
+{% block meta_keywords %}search fertility clinic cardiff, search ivf clinics cardiff, search fertility doctor cardiff, search fertility specialist cardiff, search fertility center cardiff, search private fertility clinic cardiff{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='website' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/locations/cities/FertilityClinicsCardiff.webp" />{% endblock %}
+{% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
+{% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="Fertility clinics in Cardiff | Found {{ my_total_count }} clinics | 2021">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="Need to quickly compare the best IVF clinics in Cardiff to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="https://fertilitycommunity.com/static/img/locations/cities/FertilityClinicsCardiff.webp" />{% endblock %}
+
+{% block content %}
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
+      Compare {{ my_total_count }} fertility clinics in Cardiff
+    </h1>
+    <p style="font-size: 18px; color: white !important">There are <u><b>[{{ my_total_count }}]</b></u> fertility centers in Cardiff with different treatment pricings and IVF packages. The IVF clinics in Cardiff offer fertility treatment and diagnosis options including male and female infertility, intrauterine insemination, In Vitro Fertilization, egg donation, and other services.</p>
+  </div>
+
+  <!-- Filter section -->
+
+  <div class="container">
+    <button id="brandButtonGoalPackage" type="button" class="btn btn-outline-success btn-md" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filter location or treatments</button>
+    <br>
+    <br>
+    <div class="collapse" id="collapseExample">
+      <div class="accordion" id="accordionExample" style="padding-bottom:2rem">
+        <div class="lol" style="background-color: #286DA8">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <br>
+              <div hidden class="form-group" style="padding-top:1rem">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control">
+                      <option value="UK" selected>United Kingdom</option>
+                      {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem" id="regions-us">
+                <div class="card" style="border-radius: 8px;">
+                  <div class="card-header" style="background-color: white; border-radius: 8px;">
+                    <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                      <option value="Cardiff" selected>Cardiff</option>
+                      {% for key, value in CATEGORY_CHOICES_UK_CITIES.items %}
+                      <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" style="padding-top:1rem">
+                <div class="accordion" id="accordionExample">
+                  <div class="card" id="cardBox" style="border-radius: 8px;">
+                    <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                      <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {% if values.treatments == None %}Types of treatments
+                        {% elif values.treatments == '' %}Types of treatments
+                        {% elif values.treatments == 'Alltreatmentstrue' %}All treatments
+                        {% elif values.treatments == 'IVFtreatmenttrue' %}Natural IVF
+                        {% elif values.treatments == 'IVFtreatmentmildtrue' %}Mild (mini) IVF
+                        {% elif values.treatments == 'IVFtreatmentovariantrue' %}Standard IVF
+                        {% elif values.treatments == 'ICSItreatmenttrue' %}ICSI treatment
+                        {% elif values.treatments == 'Eggdonationrecipientstrue' %}IVF with Egg donation
+                        {% elif values.treatments == 'Spermdonationrecipientstrue' %}IVF with Sperm donation
+                        {% elif values.treatments == 'Embryodonationrecipientstrue' %}IVF with Embryo donation
+                        {% elif values.treatments == 'EggFreezingtrue' %}Egg freezing
+                        {% elif values.treatments == 'EmbryoFreezingtrue' %}Embryo freezing
+                        {% elif values.treatments == 'SpermFreezingtrue' %}Sperm freezing
+                        {% elif values.treatments == 'Surrogacytrue' %}Gestational surrogacy
+                        {% elif values.treatments == 'IUItreatmenttrue' %}IUI treatment
+                        {% elif values.treatments == 'Singlewomantreatmenttrue' %}Single woman treatment
+                        {% elif values.treatments == 'ReciprocalIVFtrue' %}Reciprocal IVF (LGBTQ)
+                        {% endif %}
+                      </button>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="All treatment" value="Alltreatmentstrue" name="treatments" {% if values.treatments == 'Alltreatmentstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="All treatment">All treatments</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IUI treatment" value="IUItreatmenttrue" name="treatments" {% if values.treatments == 'IUItreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IUI treatment">IUI treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment" value="IVFtreatmenttrue" name="treatments" {% if values.treatments == 'IVFtreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment">Natural IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment mild" value="IVFtreatmentmildtrue" name="treatments" {% if values.treatments == 'IVFtreatmentmildtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="IVF treatment ovarian" value="IVFtreatmentovariantrue" name="treatments" {% if values.treatments == 'IVFtreatmentovariantrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="IVF treatment ovarian">Standard IVF</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="ICSI treatment" value="ICSItreatmenttrue" name="treatments" {% if values.treatments == 'ICSItreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="ICSI treatment">ICSI treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Egg donation recipients" value="Eggdonationrecipientstrue" name="treatments" {% if values.treatments == 'Eggdonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Egg donation recipients">IVF with Egg donation</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Sperm donation recipients" value="Spermdonationrecipientstrue" name="treatments" {% if values.treatments == 'Spermdonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Sperm donation recipients">IVF with Sperm donation</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Embryo donation recipients" value="Embryodonationrecipientstrue" name="treatments" {% if values.treatments == 'Embryodonationrecipientstrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Embryo donation recipients">IVF with Embryo donation</label>
+                            </div>
+                          </div>
+
+                          <div class="col">
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Egg freezing" value="EggFreezingtrue" name="treatments" {% if values.treatments == 'EggFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Egg freezing">Egg freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Embryo freezing" value="EmbryoFreezingtrue" name="treatments" {% if values.treatments == 'EmbryoFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Embryo freezing">Embryo freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Sperm freezing" value="SpermFreezingtrue" name="treatments" {% if values.treatments == 'SpermFreezingtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Sperm freezing">Sperm freezing</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Surrogacy" value="Surrogacytrue" name="treatments" {% if values.treatments == 'Surrogacytrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Surrogacy">Gestational surrogacy</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Single woman treatment" value="Singlewomantreatmenttrue" name="treatments" {% if values.treatments == 'Singlewomantreatmenttrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Single woman treatment">Single woman treatment</label>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="radio" class="form-check-input" id="Reciprocal IVF" value="ReciprocalIVFtrue" name="treatments" {% if values.treatments == 'ReciprocalIVFtrue' %}checked{% endif %}>
+                              <label class="form-check-label" for="Reciprocal IVF">Reciprocal IVF (LGBTQ)</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:2rem">
+                <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
+                <br>
+              </div>
+            </div>
+          </form>
+          <hr noshade style="border-top: 1px solid white">
+          <form action="{% url 'search' %}">
+            <div class="mainbanner" id="mainhpbanner">
+              <h5 class="mb-0 text-left" id="headingOne">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-filter"></i> Change country
+                </button>
+              </h5>
+              <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                  <br>
+                  <div class="form-group" style="padding-top:1rem">
+                    <div class="card" style="border-radius: 8px;">
+                      <div class="card-header" style="background-color: white; border-radius: 8px;">
+                        <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                          <option value="" selected>Select state</option>
+                          <optgroup label="North America">
+                            {% for key, value in CATEGORY_CHOICES_STATES_NORTH_AMERICA.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
+                          <optgroup label="Europe">
+                            {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
+                          <optgroup label="Asia">
+                            {% for key, value in CATEGORY_CHOICES_STATES_ASIA.items %}
+                            <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3" style="padding-top:1rem;">
+                    <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change Country</button>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Interesting links section -->
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb" style="padding-top: 10px;">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fertility clinics in UK</li>
+        <li class="breadcrumb-item" aria-current="page">
+          <button class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#cityCollapse" role="button" aria-expanded="false" aria-controls="cityCollapse" style="text-decoration: none">
+            Cardiff fertility clinics
+          </button>
+        </li>
+      </ol>
+      <div class="collapse" id="cityCollapse">
+        <p class="lead">Most popular IVF UK cities</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLondon' %}">London fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsManchester' %}">Manchester fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLiverpool' %}">Liverpool fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBirmingham' %}">Birmingham fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCardiff' %}">Cardiff fertility clinics</a></li>
+          </div>
+          <div class="col-sm-4">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsOxford' %}">Oxford fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSwansea' %}">Swansea fertility clinics</a></li>
+          </div>
+        </div>
+        <hr>
+        <p class="lead">Other IVF UK cities</p>
+        <div class="row">
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsAberdeen' %}">Aberdeen fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBath' %}">Bath fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBelfast' %}">Belfast fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBournemouth' %}">Bournemouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsBrightonHove' %}">Brighton & Hove fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsCambridge' %}">Cambridge fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsColchester' %}">Colchester fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsDerby' %}">Derby fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsExeter' %}">Exeter fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsGlasgow' %}">Glasgow fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsHull' %}">Kingston upon Hull fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsChelmsford' %}">Chelmsford fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLeeds' %}">Leeds fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsLeicester' %}">Leicester fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsMiddlesbrough' %}">Middlesbrough fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNewcastle' %}">Newcastle fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNorwich' %}">Norwich fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsNottingham' %}">Nottingham fertility clinics</a></li>
+          </div>
+          <div class="col-sm-3">
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPeterborough' %}">Peterborough fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPlymouth' %}">Plymouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsPortsmouth' %}">Portsmouth fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSalisbury' %}">Salisbury fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSheffield' %}">Sheffield fertility clinics</a></li>
+            <li><a class="text-muted" href="{% url 'fertilityClinicsSouthampton' %}">Southampton fertility clinics</a></li>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- PRO Clinic listings section -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      {% if paginationing %}
+
+      {% include 'AllInclude/locations/ld-json.html' %}
+
+      {% include 'AllInclude/locations/clinic-boxes-dti.html' %}
+
+      {% else %}
+      <div class="container" style="background-color: white; padding-top: 0px; border-radius: 8px; border-color: #286DA8;">
+        <div class="container" style="padding-top: 20px">
+          <div class="header">
+            <div class="container" id="nameInfo" style="padding-bottom:5rem">
+              <div class="row align-self-center align-items-center">
+                <h2 class="display-5" style="padding-bottom:2rem">Sorry, there are no clinics for this search query.</h2>
+                <p>Please try different countries or treatment options</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Treatment average prices -->
+    <div class="col-sm-4">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2021:</h2>
+
+          {% include 'AllInclude/locations/quick-info.html' %}
+
+          <div class="row">
+            <div class="col-6 col-md">
+              <a href="{% url 'locationsUKRegions' %}" style="font-size: 14px !important;">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-flag"></i> UK Compare
+                </button>
+              </a>
+            </div>
+            <div class="col-6 col-md">
+              <a href="{% url 'locations' %}">
+                <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-globe"></i> World Compare
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<!-- Clinic additional locations -->
+<div class="container" style="text-align: center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        {% if paginationing.has_previous %}
+        <a class="page-link" href="?{% param_replace page=1 %}">&laquo; First</a>
+      </li>
+      <li class="page-item">
+        {% if page_obj.previous_page_number != 1 %}
+        <a class="page-link" href="?{% param_replace page=paginationing.previous_page_number %}">Previous</a>
+        {% endif %}
+      </li>
+      {% endif %}
+      <li class="page-item">
+        <a class="page-link">Page {{ paginationing.number }} of {{ paginationing.paginator.num_pages }}</a>
+      </li>
+
+      {% if paginationing.has_next %}
+      <li class="page-item">
+        {% if paginationing.next_page_number != paginator.num_pages %}
+        <a class="page-link" href="?{% param_replace page=paginationing.next_page_number %}">Next</a>
+        {% endif %}
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<br>
+<br>
+
+{% include 'AllInclude/locations/packages.html' %}
+
+<br>
+<br>
+
+{% if guestblog %}
+  {% include 'AllInclude/locations/guestblogging.html' %}
+{% endif %}
+
+<br>
+<br>
+
+<!-- Clinic additional locations -->
+<div class="container">
+  <a name="more_information"></a>
+  <h2>General Information</h2>
+  <p>Cardiff has been <b>the capital of Wales</b> since 1955. The city itself has a population of approximately 346,000, with other nearby locations of approximately 479,000, making it <u>the 11th largest city in the United Kingdom</u>. The river Taff flows through it, which flows into the sea here.</p>
+  <p>Cardiff has two centers. The first is the center of the city with Victorian and Edwardian streets and gardens. It includes a <b>neo-Gothic castle</b> and neoclassical town buildings, as well as shopping malls and a 19th-century covered market.</p>
+  <p>Today, the city is already mainly engaged in trade and administration of the country, and its appearance is gradually changing as plans for its restoration are implemented.</p>
+  <br>
+  <h2>History</h2>
+  <p><b>Cardiff Castle (Castell Caerdydd)</b> stands on the site of a <u>Roman fortress</u>, the remains of which are separated from the newer parts by a strip of red stone.</p>
+  <p>A fortress was built among <u>the Roman ruins in the 12th century</u>. Over the next 700 years, the castle was gradually handed over to various powerful families, until in 1766 it ended up in the hands of John Stuart, Count of Bute. His great-grandson hired the "eccentric genius" architect William Burges, who created a grand mansion between 1876 and 1881, decorated with many medieval elements and romantic details.</p>
+</div>
+
+<!-- Clinic additional locations -->
+<div class="container" id="locationsReferer" style="padding-top:3rem">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Others who viewed this location also viewed</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicsBristol' %}">Bristol fertility clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsSwansea' %}">Swansea fertility clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>IVF costs in UK</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicsSalisbury' %}">Salisbury fertility clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsDerby' %}">Derby fertility clinics</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/quick-info.js' %}"></script>{% endblock %}
+{% endblock  %}

@@ -197,6 +197,14 @@
   {% elif values.Region == 'Bratislava' %}
     Search IVF packages & deals in Bratislava, Slovakia
   {% endif %}
+{% elif values.States == 'DK' %}
+  {% if values.Region == '' %}
+    Search IVF packages & deals in Denmark
+  {% elif values.Region == None %}
+    Search IVF packages & deals in Denmark
+  {% elif values.Region == 'Copenhagen' %}
+    Search IVF packages & deals in Copenhagen, Denmark
+  {% endif %}
 {% elif values.States == 'SP' %}
   {% if values.Region == '' %}
     Search IVF packages & deals in Spain

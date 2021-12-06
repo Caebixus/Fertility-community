@@ -344,6 +344,24 @@
       </div>
       <hr>
       <p>
+        <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#denmark_fertility_clinics" role="button" aria-expanded="false" aria-controls="denmark_fertility_clinics">
+          <b>Denmark <i class="fas fa-angle-down"></i></b>
+          <p><span>Found {{dkclinics}} fertility clinics</span></p>
+        </a>
+      </p>
+      <div class="collapse" id="denmark_fertility_clinics" style="padding-bottom: 2rem">
+        <div class="card card-body">
+          <ul>
+            <li><a href="{% url 'fertilityClinicDenmark' %}"><b>Fertility clinics in Denmark ({{dkclinics}})</b></a></li>
+            <hr>
+            <li><a class="text-muted" href="{% url 'fertilityClinicCopenhagen' %}">Copenhagen fertility clinics ({{copenhagenclinics}})</a></li>
+            <hr>
+            <li><a href="{% url 'locationsDKRegions' %}"><u><b>Denmark IVF costs comparison</b></u></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p>
         <a class="text-muted" style="text-decoration: none; font-size: 80%" data-toggle="collapse" href="#spain_fertility_clinics" role="button" aria-expanded="false" aria-controls="spain_fertility_clinics">
           <b>Spain <i class="fas fa-angle-down"></i></b>
           <p><span>Found {{spclinics}} fertility clinics</span></p>

@@ -197,6 +197,14 @@
   {% elif values.Region == 'Bratislava' %}
     Search fertility clinics & agencies in Bratislava, Slovakia
   {% endif %}
+{% elif values.States == 'DK' %}
+  {% if values.Region == '' %}
+    Search fertility clinics & agencies in Denmark
+  {% elif values.Region == None %}
+    Search fertility clinics & agencies in Denmark
+  {% elif values.Region == 'Copenhagen' %}
+    Search fertility clinics & agencies in Copenhagen, Denmark
+  {% endif %}
 {% elif values.States == 'SP' %}
   {% if values.Region == '' %}
     Search fertility clinics & agencies in Spain

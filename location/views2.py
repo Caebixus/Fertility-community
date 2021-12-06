@@ -3304,6 +3304,56 @@ def locationsSKRegions(request):
 #--------------------------------------------------------------------------
 
 
+def locationsDKRegions(request):
+    queryset_list_dk = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_copenhagen = queryset_list_dk.filter(clinicRegion__iexact='Copenhagen')
+    my_total_clinic_count_copenhagen = queryset_list_copenhagen.count()
+
+    queryset_list_copenhagen_ivf = queryset_list_copenhagen.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_copenhagen_ivf.items():
+        queryset_list_copenhagen_ivf_val = val
+
+    queryset_list_copenhagen_egg = queryset_list_copenhagen.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_copenhagen_egg.items():
+        queryset_list_copenhagen_egg_val = val
+
+    queryset_list_copenhagen_embryo = queryset_list_copenhagen.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_copenhagen_embryo.items():
+        queryset_list_copenhagen_embryo_val = val
+
+    queryset_list_copenhagen_sperm = queryset_list_copenhagen.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_copenhagen_sperm.items():
+        queryset_list_copenhagen_sperm_val = val
+
+    queryset_list_copenhagen_icsi = queryset_list_copenhagen.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_copenhagen_icsi.items():
+        queryset_list_copenhagen_icsi_val = val
+
+    queryset_list_copenhagen_iui = queryset_list_copenhagen.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_copenhagen_iui.items():
+        queryset_list_copenhagen_iui_val = val
+
+    context = {
+        'my_total_clinic_count_copenhagen': my_total_clinic_count_copenhagen,
+        'queryset_list_copenhagen_ivf_val': queryset_list_copenhagen_ivf_val,
+        'queryset_list_copenhagen_egg_val': queryset_list_copenhagen_egg_val,
+        'queryset_list_copenhagen_embryo_val': queryset_list_copenhagen_embryo_val,
+        'queryset_list_copenhagen_sperm_val': queryset_list_copenhagen_sperm_val,
+        'queryset_list_copenhagen_icsi_val': queryset_list_copenhagen_icsi_val,
+        'queryset_list_copenhagen_iui_val': queryset_list_copenhagen_iui_val,
+        }
+    return render(request, 'main/Locations/DKLocations/dk-regions-ivf.html', context)
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 

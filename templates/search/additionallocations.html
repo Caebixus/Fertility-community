@@ -1,0 +1,266 @@
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+
+
+<!-- Clinic additional locations -->
+{% if values.States == 'UK' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United Kingdom</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicsLondon' %}">London clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsManchester' %}">Manchester clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsGlasgow' %}">Glasgow clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsUKRegions' %}"><u>IVF and Fertility centers in UK</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicsBirmingham' %}">Birmingham clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsLeeds' %}">Leeds clinics</a></li>
+        <li><a href="{% url 'fertilityClinicsLiverpool' %}">Liverpool clinics</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'US' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in United States</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular regions:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsCalifornia' %}">IVF and Fertility California centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsArizona' %}">IVF and Fertility Arizona centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewYork' %}">IVF and Fertility New York centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsTexas' %}">IVF and Fertility Texas centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsUSRegions' %}"><u>IVF and Fertility centers in USA</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular regions:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsIllinois' %}">IVF and Fertility Illinois centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsColorado' %}">IVF and Fertility Colorado centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsConnecticut' %}">IVF and Fertility Connecticut centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMaryland' %}">IVF and Fertility Maryland centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'CZ' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Czech Republic</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicPrague' %}">Prague IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsCZRegions' %}"><u>IVF and Fertility centers in Czech Republic</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicBrno' %}">Brno IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'SK' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Slovakia</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicBratislava' %}">Bratislava IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsSKRegions' %}"><u>IVF and Fertility centers in Slovakia</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+    </div>
+  </div>
+</div>
+{% elif values.States == 'DK' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Denmark</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicCopenhagen' %}">Copenhagen IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsDKRegions' %}"><u>IVF and Fertility centers in Denmark</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+    </div>
+  </div>
+</div>
+{% elif values.States == 'SP' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Spain</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsAlicante' %}">IVF and Fertility Alicante clinics</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsBarcelona' %}">IVF and Fertility Barcelona centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMadrid' %}">IVF and Fertility Madrid centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsSPRegions' %}"><u>IVF and Fertility centers in Spain</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMalaga' %}">IVF and Fertility Malaga centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsSeville' %}">IVF and Fertility Seville centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsValencia' %}">IVF and Fertility Valencia centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'IN' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in India</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsBangalore' %}">IVF and Fertility Bangalore centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsChennai' %}">IVF and Fertility Chennai centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGachibowli' %}">IVF and Fertility Gachibowli centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGurugram' %}">IVF and Fertility Gurugram centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsINRegions' %}"><u>IVF and Fertility centers in India</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsHyderabad' %}">IVF and Fertility Hyderabad centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNewDelhi' %}">IVF and Fertility New Delhi centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsRanchi' %}">IVF and Fertility Ranchi centers</a></li>
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsWarangal' %}">IVF and Fertility Warangal centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'GR' %}
+<div class="container" id="locationsReferer" >
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Greece</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsAthens' %}">IVF and Fertility Athens centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsGRRegions' %}"><u>IVF and Fertility centers in Greece</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsThessaloniki' %}">IVF and Fertility Thessaloniki centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'CY' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Cyprus</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsNicosia' %}">IVF and Fertility Nicosia centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsCYRegions' %}"><u>IVF and Fertility centers in Cyprus</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsGirne' %}">IVF and Fertility Girne centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif values.States == 'MX' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Mexico</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsCancun' %}">IVF and Fertility Cancún centers</a></li>
+        <br>
+        <li><a href="{% url 'locationsMXRegions' %}"><u>IVF and Fertility centers in Mexico</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li style="font-size: 13px !important;"><a href="{% url 'fertilityClinicsMexicoCity' %}">IVF and Fertility Mexico City centers</a></li>
+        <br>
+        <li><a href="{% url 'locations' %}"><u>IVF and Fertility centers Worldwide</u></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}

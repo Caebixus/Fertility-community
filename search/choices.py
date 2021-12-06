@@ -15,9 +15,9 @@ my_total_count_uk = BasicClinic.objects.filter(clinicState__iexact='United Kingd
 my_total_count_uk = my_total_count_uk.filter(is_published=True)
 my_total_count_uk = my_total_count_uk.count()
 
-my_total_count_dk = BasicClinic.objects.filter(clinicState__iexact='Denmark')
-my_total_count_dk = my_total_count_dk.filter(is_published=True)
-my_total_count_dk = my_total_count_dk.count()
+my_total_count_denmark = BasicClinic.objects.filter(clinicState__iexact='Denmark')
+my_total_count_denmark = my_total_count_denmark.filter(is_published=True)
+my_total_count_denmark = my_total_count_denmark.count()
 
 my_total_count_cze = BasicClinic.objects.filter(clinicState__iexact='Czech Republic')
 my_total_count_cze = my_total_count_cze.filter(is_published=True)
@@ -55,7 +55,7 @@ CATEGORY_CHOICES_STATES_NORTH_AMERICA = {
 
 CATEGORY_CHOICES_STATES_EUROPE = {
     'UK': 'United Kingdom - ' + str(my_total_count_uk) + ' fertility clinics',
-    'DK': 'Denmark - ' + str(my_total_count_dk) + ' fertility clinics',
+    'DK': 'Denmark - ' + str(my_total_count_denmark) + ' fertility clinics',
     'CZ': 'Czech Republic - ' + str(my_total_count_cze) + ' fertility clinics',
     'SK': 'Slovakia - ' + str(my_total_count_slovakia) + ' fertility clinics',
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',

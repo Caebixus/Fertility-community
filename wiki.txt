@@ -33,3 +33,4 @@ Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
 4) Přidat URLs do Sitemaps
 5) Dodat obrázky pro všechny lokace!
 6) Přidat location do Index homepage
+- při nahrávání na server, nezapomenou na collectstatic kvůli obrázkům

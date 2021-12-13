@@ -25,6 +25,8 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'bestivfclinicsinczech',
         'bestivfclinicsinspain',
         'bestivfclinicsingreece',
+
+        'best_ivf_clinics_world',
         ]
 
     def location(self, item):

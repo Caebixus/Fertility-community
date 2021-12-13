@@ -8,6 +8,7 @@ class AuthenticatedUserAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'is_activated')
 
 class SingleClinicBestArticleTextAdmin(admin.ModelAdmin):
+    autocomplete_fields = ["clinic_world"]
     list_display = ('id', 'clinic_world', 'best_clinic_world_text')
 
 #class UserAdmin(BaseUserAdmin):

@@ -1,0 +1,74 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Participate in the worlds best clinics article</h1>
+    <br>
+  </div>
+</div>
+<br>
+{% include 'partials/_alerts.html' %}
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 left">
+      Available article:
+    </div>
+    <div class="col-sm-6 text-center">
+      <a href="https://www.fertilitycommunity.com/blog/best-ivf-clinics-world">https://www.fertilitycommunity.com/blog/best-ivf-clinics-world</a>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-4">
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <p>Errors occurred in one or more fields - check below</p>
+    </div>
+  {% endif %}
+</div>
+
+<div class="container" style="text-align: center">
+  <form method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {{ form.source.errors }}
+  {{ form.source }}
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    <label>Choose a clinic to participate (in case of more locations, these will be still displayed alongside your chosen clinic):</label>
+    {% if form.clinic_world.errors %}<div class="alert alert-danger" role="alert">{{ form.clinic_world.errors }}</div>{% endif %}
+    {{ form.clinic_world }}
+  </div>
+  <br>
+  <hr>
+  <br>
+  <style> .django-ckeditor-widget { min-width:100% !important; } </style>
+  <div class="fieldWrapper" style="text-align: left">
+    <label>Unique description of your clinic (max 1000 characters):</label>
+    {% if form.best_clinic_world_text.errors %}<div class="alert alert-danger" role="alert">{{ form.best_clinic_world_text.errors }}</div>{% endif %}
+    {{ form.best_clinic_world_text }}
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="fieldWrapper" style="text-align: left">
+    <label>In case you don't want to display your clinic in this article, uncheck this:</label>
+    {% if form.best_clinic_world_activated.errors %}<div class="alert alert-danger" role="alert">{{ form.best_clinic_world_activated.errors }}</div>{% endif %}
+    {{ form.best_clinic_world_activated }}
+  </div>
+  <br>
+  <hr>
+  <br>
+  <input class="btn btn-success" type='submit' value='Update information' />
+  </form>
+</div>
+
+
+
+{% endblock  %}

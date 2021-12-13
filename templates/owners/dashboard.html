@@ -6,6 +6,7 @@
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
     <p style="color:white">In total you have created {{package}} packages. The maximum limit for running packages for every paid clinic on your account is {{ instance }}.</p>
+    <p>{% if authenticated.is_activated == True %} {{ authenticated.random_auth_string }} {% endif %}</p>
     <br>
     <a hidden href="{% url 'howtousefertilitycommunity' %}">
       <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>
@@ -16,6 +17,28 @@
 </div>
 
 <div class="container py-4">
+
+  <div class="row">
+  {% if all_published %}
+    {% if clinics_world %}
+      {% for clinics_worlds in clinics_world %}
+      <div class="col-6">
+        <a href="{% url 'bestclinicworldsettingsupdate' clinics_worlds.id %}">
+          <button class="btn btn-outline-dark" type="button" style="text-decoration: none">The best clinics in the World - Update your listing</button>
+        </a>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="col-6">
+        <a href="{% url 'bestclinicworldsettings' %}">
+          <button class="btn btn-outline-dark" type="button" style="text-decoration: none">The best clinics in the World - Participate</button>
+        </a>
+      </div>
+    {% endif %}
+  {% endif %}
+  </div>
+
+
   {% include 'partials/_alerts.html' %}
   {% for listings in listingsppq %}
     {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}

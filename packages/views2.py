@@ -4,7 +4,7 @@ HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.urls import reverse
 from django.core.paginator import Paginator
 from location.currencies import gbpToEur, gbpToUsd, gbpToInr, usdToGbp, usdToEur, usdToInr, eurToGbp, eurToUsd, eurToInr, inrToGbp, inrToEur, inrToUsd
-from .packageChoices import CATEGORY_PACKAGE, CATEGORY_CHOICES_STATES
+from .packageChoices import CATEGORY_PACKAGE
 from blog.models import Blog
 from django import template
 from contact.forms import WebsiteForm

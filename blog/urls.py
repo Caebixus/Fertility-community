@@ -1,7 +1,6 @@
-from django.urls import path, include
-from django.conf import settings
+from django.urls import path
 
-from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_cities
+from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_cities, views_best_ivf_clinics_world
 
 urlpatterns = [
     #Authors
@@ -25,6 +24,8 @@ urlpatterns = [
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),
 
+    #Best Clinics In World
+    path('blog/best-ivf-clinics-world', views_best_ivf_clinics_world.best_ivf_clinics_world, name='best_ivf_clinics_world'),
 
     #Best Clinics In Countries
     path('blog/best-ivf-clinics-czech', views_best_ivf_clinics_countries.bestivfclinicsinczech, name='bestivfclinicsinczech'),

@@ -1,15 +1,10 @@
+from urllib import request
 from django import forms
-from django.shortcuts import render, redirect, get_object_or_404, reverse
-from django.contrib.auth.models import User
-from clinic.models import BasicClinic, LIVE_CHAT_CHOICES, TRUSTPILOT_CHOICES, AcceptedPayment, AcceptedCurrency
-from .models import ownerProInterested
-from packages.models import Packages, Package
+
+from clinic.models import BasicClinic, LIVE_CHAT_CHOICES, TRUSTPILOT_CHOICES
+from .models import ownerProInterested, SingleClinicBestArticleText
+from packages.models import Package
 from packages.packageChoices import CATEGORY_PACKAGE
-from search.choices import CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_MX_CITIES
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from django.forms.widgets import HiddenInput
-from django.forms.widgets import datetime
 from ckeditor.widgets import CKEditorWidget
 
 CATEGORY_CHOICES_CURRENCY = (
@@ -1566,7 +1561,7 @@ class IndependentReviewForm(forms.ModelForm):
         'clinicTrustPilotDomain',
         ]
 
-class bestarticleproposition(forms.ModelForm):
+class Bestarticleproposition(forms.ModelForm):
     best_article_country_boolean = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
     best_article_country_actual_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - actual text'), max_length=3600)
     best_article_country_actual_prototype = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in Country - proposition text'), max_length=3600)
@@ -1591,7 +1586,7 @@ class bestarticleproposition(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['best_article_country_actual_text'].disabled = True
 
-class picclinicform(forms.ModelForm):
+class Picclinicform(forms.ModelForm):
     clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of your clinic'))
     clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
@@ -1611,3 +1606,37 @@ class picclinicform(forms.ModelForm):
         'clinic_pro_photo_2_del',
         'clinic_pro_photo_3_del',
         ]
+
+class Singleclinicbestarticleform(forms.ModelForm):
+    clinic_world = forms.ModelChoiceField(queryset=None, required=True, empty_label="Choose your primary clinic", to_field_name='clinicName',)
+    best_clinic_world_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in World - your introduction'), max_length=1000)
+    best_clinic_world_activated = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+
+    class Meta:
+        model = SingleClinicBestArticleText
+        fields = [
+        'clinic_world',
+        'best_clinic_world_text',
+        'best_clinic_world_activated',
+        ]
+
+    def __init__(self, current_user, *args, **kwargs):
+        super(Singleclinicbestarticleform, self).__init__(*args, **kwargs)
+        self.fields['clinic_world'].queryset = BasicClinic.objects.all().filter(clinicOwner=current_user)
+
+class Singleclinicbestarticleupdateform(forms.ModelForm):
+    clinic_world = forms.ModelChoiceField(queryset=None, required=True, empty_label="Choose different clinic", to_field_name='clinicName',)
+    best_clinic_world_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in World - your introduction'), max_length=1000)
+    best_clinic_world_activated = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
+
+    class Meta:
+        model = SingleClinicBestArticleText
+        fields = [
+        'clinic_world',
+        'best_clinic_world_text',
+        'best_clinic_world_activated',
+        ]
+
+    def __init__(self, current_user, *args, **kwargs):
+        super(Singleclinicbestarticleupdateform, self).__init__(*args, **kwargs)
+        self.fields['clinic_world'].queryset = BasicClinic.objects.all().filter(clinicOwner=current_user)

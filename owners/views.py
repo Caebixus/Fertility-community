@@ -8,17 +8,16 @@ from django.contrib.auth.forms import PasswordChangeForm
 from clinic.models import BasicClinic
 from packages.models import Package
 from payments.models import Customer
-from .models import ProUser, AuthenticatedUser
+from .models import AuthenticatedUser, SingleClinicBestArticleText
 from django.utils import timezone
-from datetime import datetime, timedelta
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro, CreateClinic, CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage, LiveChatForm, LiveChatForm2, IndependentReviewForm, bestarticleproposition, picclinicform
+from datetime import datetime
+from .forms import CreateClinic, LiveChatForm, LiveChatForm2, IndependentReviewForm
 from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
-from django.db.models import F
 from django.db.models import Count
 from .functions import get_random_string
 
-# Create your views here.
+
 def register(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -45,6 +44,10 @@ def register(request):
                 authenticateduser.user = auth_user
                 authenticateduser.random_auth_string = random_auth_number
                 authenticateduser.save()
+
+                bestarticleuser = SingleClinicBestArticleText()
+                bestarticleuser.user = auth_user
+                bestarticleuser.save()
 
                 send_mail(
                     "Confirm registration - fertilitycommunity.com",
@@ -147,11 +150,17 @@ def logout(request):
 def dashboard(request):
     todayDate = timezone.now()
     user = request.user
+    authenticated = AuthenticatedUser.objects.filter(pk=user.pk)
+
     try:
         if user.authenticateduser.is_activated == False:
             return redirect('notActiveUser')
         else:
             all = BasicClinic.objects.filter(clinicOwner_id=request.user)
+            all_published = all.filter(is_published='True')
+
+            clinics_world = SingleClinicBestArticleText.objects.filter(user=user)
+
             listingsbasic = BasicClinic.objects.filter(clinicOwner_id=request.user)
 
             listingspro = BasicClinic.objects.filter(clinicOwner_id=request.user).filter(pro_is_published=True)
@@ -175,6 +184,7 @@ def dashboard(request):
             userdata = User.objects.get(username=request.user).last_login
 
             context = {
+                'authenticated': authenticated,
                 'package_ppq_count': package_ppq_count,
                 'package_pro_count': package_pro_count,
                 'listingsbasic': listingsbasic,
@@ -184,6 +194,8 @@ def dashboard(request):
                 'package': package,
                 'userdata': userdata,
                 'instance': instance,
+                'all_published': all_published,
+                'clinics_world': clinics_world,
             }
 
             return render(request, 'owners/dashboard.html', context)
@@ -278,15 +290,15 @@ def create(request):
                 if 'egg_donation' in request.POST:
                     listing.egg_donation = True
                 else:
-                    egg_donation = False
+                    listing.egg_donation = False
                 if 'sperm_donation' in request.POST:
                     listing.sperm_donation = True
                 else:
-                    sperm_donation = False
+                    listing.sperm_donation = False
                 if 'embryo_donation' in request.POST:
                     listing.embryo_donation = True
                 else:
-                    embryo_donation = False
+                    listing.embryo_donation = False
 
                 if 'ivf_treatment_cost' in request.POST:
                     listing.ivf_treatment_cost = request.POST['ivf_treatment_cost']
@@ -308,19 +320,19 @@ def create(request):
                 if 'single_woman_treatment' in request.POST:
                     listing.single_woman_treatment = True
                 else:
-                    single_woman_treatment = False
+                    listing.single_woman_treatment = False
                 if 'reciprocal_ivf' in request.POST:
                     listing.reciprocal_ivf = True
                 else:
-                    reciprocal_ivf = False
+                    listing.reciprocal_ivf = False
                 if 'hiv_patients' in request.POST:
                     listing.hiv_patients = True
                 else:
-                    hiv_patients = False
+                    listing.hiv_patients = False
                 if 'fertility_preservation' in request.POST:
                     listing.fertility_preservation = True
                 else:
-                    fertility_preservation = False
+                    listing.fertility_preservation = False
 
                 listing.list_date = timezone.datetime.now()
                 listing.is_claimed = True
@@ -338,6 +350,7 @@ def create(request):
             }
 
             return render(request, 'owners/create.html', context)
+
     except ObjectDoesNotExist:
         return redirect('notActiveUser')
 
@@ -379,220 +392,6 @@ def create1(request):
     except ObjectDoesNotExist:
         return redirect('notActiveUser')
 
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def update(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = PostForm(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
-
-    if form.is_valid():
-        instance = form.save(commit=False)
-
-        if instance.clinic_pro_logo_pic_del == True:
-            instance.clinic_pro_logo_pic.delete()
-        if instance.clinic_pro_photo_1_del == True:
-            instance.clinic_pro_photo_1.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_2_del == True:
-            instance.clinic_pro_photo_2.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_3_del == True:
-            instance.clinic_pro_photo_3.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_4_del == True:
-            instance.clinic_pro_photo_4.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_5_del == True:
-            instance.clinic_pro_photo_5.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_6_del == True:
-            instance.clinic_pro_photo_6.delete()
-        else:
-            pass
-
-        instance.update_list_date = datetime.now()
-        instance.save()
-
-        data = form.cleaned_data
-
-        klinika = instance.clinicName
-
-        if instance.is_claimed == True:
-            send_mail(
-                'Change of clinics information',
-                'Someone just changed information detail in ' +
-                '\nClinic username: ' + str(klinika),
-                'info@fertilitycommunity.com',
-                ['David.langr@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-            messages.success(request, '- Clinics information successfully updated')
-            return redirect(dashboard)
-        else:
-            messages.success(request, '- Clinics information successfully updated')
-            return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/update.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def updatePricing(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = UpdatePrice(request.POST or None, request.FILES or None, instance=instance)
-
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.update_list_date = datetime.now()
-        instance.save()
-
-        data = form.cleaned_data
-        klinika = instance.clinicName
-
-        if instance.is_claimed == True:
-            send_mail(
-                'Change of clinic pricing detail',
-                'Someone just changed pricing detail in ' +
-                '\nClinic username: ' + str(klinika),
-                'info@fertilitycommunity.com',
-                ['David.langr@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-            messages.success(request, '- Clinics pricing successfully updated')
-            return redirect(dashboard)
-        else:
-            messages.success(request, '- Clinics pricing successfully updated')
-            return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/updateprice.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def updateproclinic(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
-
-    if form.is_valid():
-        instance = form.save(commit=False)
-        if instance.clinic_pro_logo_pic_del == True:
-            instance.clinic_pro_logo_pic.delete()
-        else:
-            pass
-        if instance.team1pic_del == True:
-            instance.team1pic.delete()
-        else:
-            pass
-        if instance.team2pic_del == True:
-            instance.team2pic.delete()
-        else:
-            pass
-        if instance.team3pic_del == True:
-            instance.team3pic.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_1_del == True:
-            instance.clinic_pro_photo_1.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_2_del == True:
-            instance.clinic_pro_photo_2.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_3_del == True:
-            instance.clinic_pro_photo_3.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_4_del == True:
-            instance.clinic_pro_photo_4.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_5_del == True:
-            instance.clinic_pro_photo_5.delete()
-        else:
-            pass
-        if instance.clinic_pro_photo_6_del == True:
-            instance.clinic_pro_photo_6.delete()
-        else:
-            pass
-        instance.pro_update_is_published_list_date = datetime.now()
-        instance.save()
-
-        data = form.cleaned_data
-        klinika = instance.clinicName
-
-        if instance.is_claimed == True:
-            send_mail(
-                'Change of clinic PRO information',
-                'Someone just changed information in ' +
-                '\nClinic username: ' + str(klinika),
-                'info@fertilitycommunity.com',
-                ['David.langr@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-            messages.success(request, '- Clinics information successfully updated')
-            return redirect(dashboard)
-
-        else:
-            messages.success(request, '- Clinics information successfully updated')
-            return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/updateproclinic.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def updatePricingPro(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = UpdatePricePro(request.POST or None, request.FILES or None, instance=instance)
-
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.pro_update_is_published_list_date = datetime.now()
-        instance.save()
-
-        data = form.cleaned_data
-        klinika = instance.clinicName
-
-        if instance.is_claimed == True:
-            send_mail(
-                'Change of clinic pricing detail',
-                'Someone just changed pricing detail in ' +
-                '\nClinic username: ' + str(klinika),
-                'info@fertilitycommunity.com',
-                ['David.langr@fertilitycommunity.com'],
-                fail_silently=False,
-                )
-            messages.success(request, '- Clinics pricing successfully updated')
-            return redirect(dashboard)
-        else:
-            messages.success(request, '- Clinics pricing successfully updated')
-            return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/updatepricepro.html', context)
-
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def contactClinic(request):
@@ -600,7 +399,7 @@ def contactClinic(request):
     if form.is_valid():
         form = form.save(commit=False)
         form.clinicOwner = request.user
-        form.save()
+        form.update()
 
         send_mail(
             'Klinika prosí o kontakt',
@@ -668,175 +467,6 @@ def change_password(request):
             'form': form,
             }
         return render(request, 'owners/change-password.html', args)
-
-
-# Packages SECTION
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def packages(request, listing_id):
-    instance = Packages.objects.filter(packageClinic=listing_id)
-    instance = instance.objects.filter(packageOwner_id=request.user)
-    instance = instance.first()
-
-    listing = Packages.objects.all()
-    listing = listing.filter(packageOwner_id=request.user)
-    listing = listing.filter(packageClinic=listing_id)
-    count = listing.count()
-
-    context = {
-        'instance': instance,
-        'listing': listing,
-        'count': count,
-    }
-
-    return render(request, 'owners/packages/packages.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def createpackage(request, listing_id):
-    clinic = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    listing = Package.objects.all()
-    listing = listing.filter(packageclinic_id=listing_id)
-    count = listing.count()
-
-    if clinic.pro_is_published == True:
-        instance = 2
-    else:
-        instance = 6
-
-    form = CreatePackage(request.POST or None, request.FILES or None, initial={'packageclinic': clinic.id}, prefix="form1")
-    emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
-
-    if count < instance:
-        if form.is_valid() and emailform.is_valid():
-            form = form.save(commit=False)
-            form.package_list_date = datetime.now()
-            if form.package_limit_days == '30 Days':
-                form.package_end_list_date = form.package_list_date + timedelta(days=30)
-            else:
-                form.package_end_list_date = form.package_list_date + timedelta(days=90)
-            form.packageclinic = clinic
-            form.is_package_active = True
-            form.save()
-            emailform.save()
-
-            clinic.packageClinicCounterNumber += int(1)
-            clinic.save()
-
-            messages.success(request, '- Package created')
-            return redirect(dashboard)
-    else:
-        messages.warning(request, '- the maximum number of packages for this clinic paid plan is {} ' .format(instance))
-        return redirect(dashboard)
-
-    context = {
-        'form': form,
-        'emailform': emailform,
-        'count': count,
-        'instance': instance,
-        'clinic': clinic,
-    }
-
-    return render(request, 'owners/packages/create-package.html', context)
-
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def clinicpackagesettings(request, listing_id):
-    todayDate = timezone.now()
-
-    all_packages = Package.objects.filter(packageclinic_id=listing_id)
-    package_count = all_packages.count()
-
-    listing = Package.objects.filter(package_end_list_date__gte=todayDate)
-    listing = listing.filter(packageclinic_id=listing_id)
-
-    notactivelisting = Package.objects.filter(package_end_list_date__lte=todayDate)
-    notactivelisting = notactivelisting.filter(packageclinic_id=listing_id)
-
-    instance = get_object_or_404(BasicClinic, pk=listing_id)
-
-    context = {
-        'all_packages': all_packages,
-        'listing': listing,
-        'package_count': package_count,
-        'notactivelisting': notactivelisting,
-        'instance': instance,
-    }
-    return render(request, 'owners/packages/clinic-package-settings.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def updatepropackage(request, package_id):
-    instance = get_object_or_404(Package, pk=package_id)
-    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic_id)
-
-    form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
-    emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
-
-    if form.is_valid() and emailform.is_valid():
-        instance = form.save(commit=False)
-        if instance.package_pic_delete == True:
-            instance.package_pic.delete()
-            instance.package_update_date = datetime.now()
-
-            instance.save()
-            emailform.save()
-
-            messages.success(request, '- Package information successfully updated')
-            return redirect(dashboard)
-        else:
-            instance.package_update_date = datetime.now()
-
-            instance.save()
-            emailform.save()
-
-            messages.success(request, '- Package information successfully updated')
-            return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'emailform': emailform,
-        'clinic': clinic,
-        'form': form,
-    }
-
-    return render(request, 'owners/packages/update-package.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def prolongpropackage(request, package_id):
-    instance = get_object_or_404(Package, pk=package_id)
-
-    form = ProlongPackage(request.POST or None, request.FILES or None, instance=instance,)
-
-    if form.is_valid():
-        form = form.save(commit=False)
-        form.package_list_date = datetime.now()
-        if form.package_limit_days == '30 Days':
-            form.package_end_list_date = form.package_list_date + timedelta(days=30)
-        else:
-            form.package_end_list_date = form.package_list_date + timedelta(days=90)
-        form.save()
-
-        messages.success(request, '- Package end date successfully prolonged')
-        return redirect(dashboard)
-
-    context = {
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/packages/prolong-package.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def deletepropackage(request, package_id):
-    instance = get_object_or_404(Package, pk=package_id)
-
-    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic.id)
-    clinic.packageClinicCounterNumber = F('packageClinicCounterNumber') - 1
-    clinic.save()
-
-    instance.delete()
-
-    messages.success(request, '- Package deleted')
-    return redirect(dashboard)
 
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
@@ -907,136 +537,3 @@ def fctrafficreport(request, listing_id):
     }
 
     return render(request, 'owners/fc-traffic.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def bestclinicarticles(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
-    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
-
-
-    if form.is_valid() and picform.is_valid():
-        form = form.save(commit=False)
-        form.save()
-        picform.save()
-
-        klinika = instance.clinicName
-
-        send_mail(
-            'Klinika updatovala Best IVF Clinic Blogpost -' + str(klinika),
-            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
-            'info@fertilitycommunity.com',
-            ['David.langr@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
-        return redirect(dashboard)
-
-    context = {
-        'picform': picform,
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/best-articles/owners-best-articles.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def bestclinicarticlescity(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
-    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
-
-    if form.is_valid() and picform.is_valid():
-        form = form.save(commit=False)
-        form.save()
-        picform.save()
-
-        klinika = instance.clinicName
-
-        send_mail(
-            'Klinika updatovala "Best IVF clinic - city" blogpost -' + str(klinika),
-            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
-            'info@fertilitycommunity.com',
-            ['David.langr@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
-        return redirect(dashboard)
-
-    context = {
-        'picform': picform,
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/best-articles/owners-best-articles-city.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def bestclinicarticlesstate(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
-    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
-
-    if form.is_valid() and picform.is_valid():
-        form = form.save(commit=False)
-        form.save()
-        picform.save()
-
-        klinika = instance.clinicName
-
-        send_mail(
-            'Klinika updatovala "Best IVF clinic - state" blogpost -' + str(klinika),
-            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
-            'info@fertilitycommunity.com',
-            ['David.langr@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
-        return redirect(dashboard)
-
-    context = {
-        'picform': picform,
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/best-articles/owners-best-articles-state.html', context)
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signin')
-def bestclinicarticlescountry(request, listing_id):
-    instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
-
-    form = bestarticleproposition(request.POST or None, instance=instance, prefix="form1")
-    picform = picclinicform(request.POST or None, request.FILES or None, instance=instance, prefix="form2")
-
-    if form.is_valid() and picform.is_valid():
-        form = form.save(commit=False)
-        form.save()
-        picform.save()
-
-        klinika = instance.clinicName
-
-        send_mail(
-            'Klinika updatovala "Best IVF clinic - country" blogpost -' + str(klinika),
-            'Buď někdo updatnul nový draft textu nebo unchecknul políčko',
-            'info@fertilitycommunity.com',
-            ['David.langr@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Update successful. If you post new draft, please wait for our team to review and publish it.')
-        return redirect(dashboard)
-
-    context = {
-        'picform': picform,
-        'instance': instance,
-        'form': form,
-    }
-
-    return render(request, 'owners/best-articles/owners-best-articles-country.html', context)

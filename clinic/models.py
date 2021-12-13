@@ -504,6 +504,9 @@ class BasicClinic(models.Model):
     def __str__(self):
         return self.clinicName
 
+    def user(self):
+        return self.user
+
 class AcceptedPayment(models.Model):
     accepted_payment = models.CharField(max_length=100, blank=True, null=True)
 

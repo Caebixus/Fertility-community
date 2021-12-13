@@ -32,6 +32,7 @@ class Blog(models.Model):
     last_modified = models.DateTimeField(default=datetime.now, blank=True)
     blog_url = models.URLField()
     minute_read = models.IntegerField(null=True, blank=True)
+    year = models.PositiveIntegerField(blank=True, null=True, default=2022)
 
     def __str__(self):
         return self.title

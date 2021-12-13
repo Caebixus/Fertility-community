@@ -1,0 +1,204 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in spain, ivf spain{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }} | {{blog.year}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  <hr>
+  <br>
+  <br>
+  <p>Many couples struggle with infertility and bringing home a bundle of joy. For some IVF is their saving grace, while others would love to participate in the fertility treatments, however find the costs too exuberant to afford. What many couples aren’t aware of are the drastic differences in cost depending on the country you get treatments in.</p>
+  <br>
+  <p>Spain is one of those countries that can offer a great reduction in IVF cost for the promise of being able to conceive and have a child of their own. In the following article, we’ll explore the cost, clinics, benefits, and limitations of choosing to receive IVF treatments in Spain.</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Why choose IVF in Spain</b></h2>
+    <br>
+    <p>There are many reasons to choose to get IVF treatments in Spain, the cost being a significant one, but there are many other reasons as well. Some may assume that due to the lower price that perhaps getting IVF in Spain is less safe, however, this is not the case. Spain has an impressive success rate and is required to report its success numbers to the Sociedad Española de Fertilidad. The birth rate for using own eggs is around 32.9% and donor eggs around 55.6%. </p>
+    <br>
+    <p>An additional benefit is that there are much fewer limitations in Spain. More will be said about that later. Spain is also known for its beautiful countryside and landscape, which can greatly reduce stress. Medical procedures including IVF can be quite stressful for all parties involved, so being in an environment that is beautiful and reduces stress can be beneficial. </p>
+    <br>
+    <p>Due to Spain being in high demand for IVF treatments for out-of-country patients, Spain has top-grade medical knowledge, experience, and technology. It also offers such a multitude of treatments, that there is something for everyone. There are also so many anonymous donors to choose from, that no matter what you’re looking for in terms of ethnicity, cultural or educational background, etc. you’re likely to find it there.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>IVF Clinics in Spain</b></h2>
+    <br>
+    <p>If you’re curious now about where to seek fertility help and treatment in Spain, there are a few clinics in Spain that are known for their superb success and reduced stress process. You can find treatment clinics in many different cities across the country.</p>
+    <div class="text-center">
+      <a href="{% url 'bestivfclinicsinspain' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Best IVF clinics in Spain</button>
+      </a>
+    </div>
+    <br>
+    <p>There are many more. For a more comprehensive and complete list, check it out here. Some considerations to take into account are their treatment practice (Do they offer a holistic approach or simply a medical approach?), whether or not they accept international patients, if they offer private treatment, what kind of treatments they offer, and whether or not they have packages at a reduced price encompassing all you’re looking for and need.</p>
+    <div class="text-center">
+      <a href="{% url 'fertilityClinicSpain' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Fertility clinics in Spain</button>
+      </a>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Expected costs for IVF in Spain</b></h2>
+    <br>
+    <p>If you aren’t local to Spain, there are going to be travel costs to consider when choosing to go through IVF treatments there. However, it is likely that you will still be able to save a great deal of money by doing so. In comparison to the UK, Spain charges 25-50% less of their rates per treatment cycle. </p>
+    <br>
+    <p>The cost is greatly different from the costs expected in countries like the US or UK. If you are limited in finances, or happen to live close to Spain, this may be a perfect option for you in order to make your family dreams a reality. </p>
+    <div class="text-center">
+      <a href="{% url 'locationsSPRegions' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">IVF costs in Spain</button>
+      </a>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">IVF Limitations in Spain</h2>
+    <br>
+    <p>Spain is known for its lax IVF limitations. While some countries have restrictions like marriage status, sexual orientation, and age, Spain is more generous in who can qualify for IVF treatments. Whether you are single or married, you will be able to receive treatment. No matter what your sexual orientation and whether you’re in a heterosexual or homosexual relationship, doesn’t matter and won’t impact the likelihood of you being able to receive IVF treatment.</p>
+    <br>
+    <p>In regards to age, women up until the age of 50 and in some cases 52, can benefit and qualify for fertility treatments in Spain. There are also very few age restrictions in terms of egg donation. When choosing an egg, the egg will come from someone as young as 18 up until 35 years old. Other countries may only accept egg donations from women ages 21 and up. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Other Information</h2>
+    <br>
+    <p>Spain is also a great country to choose for the cost-effective and affordable embryo or egg freezing. Sometimes couples or single women aren’t necessarily looking for starting an entire IVF cycle but are simply looking for affordable options in order to utilize their eggs while they still have healthy ones. </p>
+    <br>
+    <p>The most popular cities and treatment clinics are in the most frequently visited areas. Madrid, Barcelona, Valencia, and Alicante are just a few of the popular fertility treatment destinations. So if you’re looking to do some sightseeing at the same time, you’re able to do so.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>If looking for comprehensive medical care, a highly successful track record, and affordable treatment options accompanied by beautiful surroundings, Spain may be the ideal choice for many struggling couples or single women. Women don’t have to worry about factors like age, sexual orientation, and marital status which arguably shouldn’t impact their eligibility status, to begin with. </p>
+    <br>
+    <p>Thankfully, many that don’t qualify or can’t afford fertility treatments in the U.S. or other countries can choose to travel abroad in order to expand their family. While the travel costs and accommodations may seem like they’ll equate to the same as if you were paying for IVF full and out of pocket in your country, the price difference between the U.S. and Spain for example is so large that it’s highly unlikely that it would ever amount to the same exact price - unless you decided to stay in a five-star hotel and eat truffle pasta with lobster every single day.</p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

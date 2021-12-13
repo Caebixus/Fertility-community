@@ -3357,6 +3357,65 @@ def locationsDKRegions(request):
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 
+    queryset_list_sp = queryset_list_sp.filter(clinicState='Spain')
+    my_total_clinic_count_spain = queryset_list_sp.count()
+
+    queryset_list_sp_natural_ivf = queryset_list_sp.aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_sp_natural_ivf.items():
+        queryset_list_sp_natural_ivf_val = val
+
+    queryset_list_sp_mild_ivf = queryset_list_sp.aggregate(average=Avg('mild_ivf_treatment_cost'))
+    for key,val in queryset_list_sp_mild_ivf.items():
+        queryset_list_sp_mild_ivf_val = val
+
+    queryset_list_sp_standard_ivf = queryset_list_sp.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_sp_standard_ivf.items():
+        queryset_list_sp_standard_ivf_val = val
+
+
+    queryset_list_sp_egg_ivf = queryset_list_sp.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_sp_egg_ivf.items():
+        queryset_list_sp_egg_ivf_val = val
+
+    queryset_list_sp_known_egg_ivf = queryset_list_sp.aggregate(average=Avg('known_egg_donor_recipients_cost'))
+    for key,val in queryset_list_sp_known_egg_ivf.items():
+        queryset_list_sp_known_egg_ivf_val = val
+
+    queryset_list_sp_shared_egg_ivf = queryset_list_sp.aggregate(average=Avg('shared_egg_donor_recipients_cost'))
+    for key,val in queryset_list_sp_shared_egg_ivf.items():
+        queryset_list_sp_shared_egg_ivf_val = val
+
+
+    queryset_list_sp_embryo_ivf = queryset_list_sp.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_sp_embryo_ivf.items():
+        queryset_list_sp_embryo_ivf_val = val
+
+    queryset_list_sp_known_embryo_ivf = queryset_list_sp.aggregate(average=Avg('known_embryo_donor_recipients_cost'))
+    for key,val in queryset_list_sp_known_embryo_ivf.items():
+        queryset_list_sp_known_embryo_ivf_val = val
+
+
+    queryset_list_sp_sperm_ivf = queryset_list_sp.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_sp_sperm_ivf.items():
+        queryset_list_sp_sperm_ivf_val = val
+
+    queryset_list_sp_known_sperm_ivf = queryset_list_sp.aggregate(average=Avg('known_sperm_donor_recipients_cost'))
+    for key,val in queryset_list_sp_known_sperm_ivf.items():
+        queryset_list_sp_known_sperm_ivf_val = val
+
+
+    queryset_list_sp_icsi = queryset_list_sp.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_sp_icsi.items():
+        queryset_list_sp_icsi_val = val
+
+
+    queryset_list_sp_iui = queryset_list_sp.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_sp_iui.items():
+        queryset_list_sp_iui_val = val
+
+
+    #--------------------------------------------------------------------------
+
     #--------------------------------------------------------------------------
     queryset_list_alicante = queryset_list_sp.filter(clinicRegion__iexact='Alicante')
     my_total_clinic_count_alicante = queryset_list_alicante.count()
@@ -3526,6 +3585,25 @@ def locationsSPRegions(request):
         queryset_list_valencia_iui_val = val
 
     context = {
+        'my_total_clinic_count_spain': my_total_clinic_count_spain,
+
+        'queryset_list_sp_natural_ivf_val': queryset_list_sp_natural_ivf_val,
+        'queryset_list_sp_mild_ivf_val': queryset_list_sp_mild_ivf_val,
+        'queryset_list_sp_standard_ivf_val': queryset_list_sp_standard_ivf_val,
+
+        'queryset_list_sp_egg_ivf_val': queryset_list_sp_egg_ivf_val,
+        'queryset_list_sp_known_egg_ivf_val': queryset_list_sp_known_egg_ivf_val,
+        'queryset_list_sp_shared_egg_ivf_val': queryset_list_sp_shared_egg_ivf_val,
+
+        'queryset_list_sp_embryo_ivf_val': queryset_list_sp_embryo_ivf_val,
+        'queryset_list_sp_known_embryo_ivf_val': queryset_list_sp_known_embryo_ivf_val,
+
+        'queryset_list_sp_sperm_ivf_val': queryset_list_sp_sperm_ivf_val,
+        'queryset_list_sp_known_sperm_ivf_val': queryset_list_sp_known_sperm_ivf_val,
+
+        'queryset_list_sp_icsi_val': queryset_list_sp_icsi_val,
+        'queryset_list_sp_iui_val': queryset_list_sp_iui_val,
+
         'my_total_clinic_count_alicante': my_total_clinic_count_alicante,
         'queryset_list_alicante_ivf_val': queryset_list_alicante_ivf_val,
         'queryset_list_alicante_egg_val': queryset_list_alicante_egg_val,

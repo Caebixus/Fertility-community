@@ -6,9 +6,10 @@ urlpatterns = [
     #Authors
     path('authors/lisa-holliman', views.authorlisaholliman, name='authorlisaholliman'),
 
-    #Blogs
+    #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),
     path('blog/fertility-treatment-abroad-what-you-need-to-know', views.fertilityTreatmentAbroadWhatYouNeedToKnow, name='fertilityTreatmentAbroadWhatYouNeedToKnow'),
+    path('blog/ivf-in-spain', views.ivf_in_spain, name='ivf_in_spain'),
 
     #Packages
     path('blog/ivf-abroad-packages', views.ivfabroadpackages, name='ivfabroadpackages'),

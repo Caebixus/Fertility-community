@@ -196,3 +196,16 @@ def whatisivfwitheggdonation(request):
 
     return render(request, 'blog/educational/ivf-with-egg-donation-process.html', context)
 
+def ivf_in_spain(request):
+    blogpk=18
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    context = {
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+    }
+
+    return render(request, 'blog/IVF-abroad/ivf-in-spain.html', context)

@@ -70,7 +70,11 @@
 
 <div class="container">
   <br>
-  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
   <hr>
   <br>
   <br>
@@ -102,14 +106,14 @@
     <p>If you’re curious now about where to seek fertility help and treatment in Spain, there are a few clinics in Spain that are known for their superb success and reduced stress process. You can find treatment clinics in many different cities across the country.</p>
     <div class="text-center">
       <a href="{% url 'bestivfclinicsinspain' %}">
-        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Best IVF clinics in Spain</button>
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ best_clinics_count }} Best IVF clinics in Spain</button>
       </a>
     </div>
     <br>
     <p>There are many more. For a more comprehensive and complete list, check it out here. Some considerations to take into account are their treatment practice (Do they offer a holistic approach or simply a medical approach?), whether or not they accept international patients, if they offer private treatment, what kind of treatments they offer, and whether or not they have packages at a reduced price encompassing all you’re looking for and need.</p>
     <div class="text-center">
       <a href="{% url 'fertilityClinicSpain' %}">
-        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Fertility clinics in Spain</button>
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ numspclinics }} Fertility clinics in Spain</button>
       </a>
     </div>
   </div>

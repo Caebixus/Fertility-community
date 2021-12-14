@@ -3,10 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from clinic.models import BasicClinic
 from packages.models import Package
+from django.urls import reverse
 from django.utils import timezone
 from datetime import datetime, timedelta
 from .forms import CreatePackage, PostFormProUpdatePackage, CreatePackageEmail, ProlongPackage
 from django.db.models import F
+from .views import dashboard
 
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
@@ -105,6 +107,7 @@ def clinicpackagesettings(request, listing_id):
 def updatepropackage(request, package_id):
     instance = get_object_or_404(Package, pk=package_id)
     clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic_id)
+    listing_id=clinic.pk
 
     form = PostFormProUpdatePackage(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
     emailform = CreatePackageEmail(request.POST or None, request.FILES or None, instance=clinic, prefix="form2")
@@ -119,7 +122,7 @@ def updatepropackage(request, package_id):
             emailform.save()
 
             messages.success(request, '- Package information successfully updated')
-            return redirect(dashboard)
+            return redirect(reverse('clinicpackagesettings', kwargs={"listing_id": listing_id}))
         else:
             instance.package_update_date = datetime.now()
 
@@ -127,7 +130,7 @@ def updatepropackage(request, package_id):
             emailform.save()
 
             messages.success(request, '- Package information successfully updated')
-            return redirect(dashboard)
+            return redirect(reverse('clinicpackagesettings', kwargs={"listing_id": listing_id}))
 
     context = {
         'instance': instance,
@@ -141,6 +144,8 @@ def updatepropackage(request, package_id):
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def prolongpropackage(request, package_id):
     instance = get_object_or_404(Package, pk=package_id)
+    clinic = get_object_or_404(BasicClinic, pk=instance.packageclinic_id)
+    listing_id=clinic.pk
 
     form = ProlongPackage(request.POST or None, request.FILES or None, instance=instance,)
 
@@ -154,7 +159,7 @@ def prolongpropackage(request, package_id):
         form.save()
 
         messages.success(request, '- Package end date successfully prolonged')
-        return redirect(dashboard)
+        return redirect(reverse('clinicpackagesettings', kwargs={"listing_id": listing_id}))
 
     context = {
         'instance': instance,

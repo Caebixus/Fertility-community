@@ -16,9 +16,8 @@
   </div>
 </div>
 
-<div class="container py-4">
-
-  <div class="row">
+<div class="container pt-5">
+    <div class="row">
   {% if all_published %}
     {% if clinics_world %}
       {% for clinics_worlds in clinics_world %}
@@ -37,8 +36,9 @@
     {% endif %}
   {% endif %}
   </div>
+</div>
 
-
+<div class="container py-4">
   {% include 'partials/_alerts.html' %}
   {% for listings in listingsppq %}
     {% if listings.ppq_is_published == True and listings.pro_is_published == False and listings.is_published == True and listings.is_not_approved == False %}

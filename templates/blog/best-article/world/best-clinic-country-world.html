@@ -70,7 +70,7 @@
 
 <div class="container">
   <br>
-  By:<a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% if best_clinics_blogpost.author.author_page_url %}<a href="{{ best_clinics_blogpost.author.author_page_url }}" style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</a>{% else %}<p style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</p>{% endif %}
   <hr>
   <br>
   <br>
@@ -165,31 +165,8 @@
     {{ clinic.singleclinicbestarticletext.best_clinic_world_text|safe }}
   </div>
   {% endif %}
-  <div class="row text-center">
 
-    <div class="col-lg-4" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration:none">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Find out more</button>
-      </a>
-    </div>
-
-    <div class="col-lg-4" style="padding-top:1rem">
-      <a href="{{ clinic.contact_url }}" rel="noopener" style="text-decoration:none" target="_blank">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Clinic website</button>
-      </a>
-    </div>
-
-    {% if clinic.pro_is_published == True or clinic.ppq_is_published == True %}
-    <div class="col-lg-4" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#packages" rel="nofollow" style="text-decoration:none">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Packages</button>
-      </a>
-    </div>
-    {% else %}
-    <div class="col-lg-3" style="padding-top:1rem">
-    </div>
-    {% endif %}
-  </div>
+  {% include 'blog/best-article/footerbtns.html' %}
 </div>
 {% endfor %}
 

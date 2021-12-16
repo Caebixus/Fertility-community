@@ -177,42 +177,7 @@
   <br>
   <br>
 
-  <div class="row text-center">
-    <div class="col-lg-3" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration:none">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Find out more</button>
-      </a>
-    </div>
-
-    {% if clinic.ivf_treatment_cost != Null or clinic.mild_ivf_treatment_cost != Null or clinic.ovarian_ivf_treatment_cost != Null or clinic.icsi_treatment_cost != Null or clinic.egg_donor_recipients_cost != Null or clinic.sperm_donor_recipients_cost != Null or clinic.embryo_donor_recipients_cost != Null %}
-    <div class="col-lg-3" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#pricing" rel="nofollow" style="text-decoration:none">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Pricing</button>
-      </a>
-    </div>
-    {% else %}
-    <div class="col-lg-3" style="padding-top:1rem">
-    </div>
-    {% endif %}
-
-    <div class="col-lg-3" style="padding-top:1rem">
-      <a href="{{ clinic.contact_url }}" rel="noopener" style="text-decoration:none" target="_blank">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Website</button>
-      </a>
-    </div>
-
-    {% if clinic.pro_is_published == True or clinic.ppq_is_published == True %}
-    <div class="col-lg-3" style="padding-top:1rem">
-      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#packages" rel="nofollow" style="text-decoration:none">
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block">Packages</button>
-      </a>
-    </div>
-    {% else %}
-    <div class="col-lg-3" style="padding-top:1rem">
-    </div>
-    {% endif %}
-
-  </div>
+  {% include 'blog/best-article/footerbtns.html' %}
 
 </div>
 

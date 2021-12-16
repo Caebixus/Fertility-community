@@ -17,8 +17,8 @@
 <div class="background" style="background-color: #286DA8">
   <div class="homepageImage">
     <div class="container">
-      <h1 class="display-4" style="padding-top:3rem; color:white">Fertility clinics & agencies near me</h1>
-      <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a cost comparison. We have reviewed and categorized over <b><u>{{ listing }}</u></b> fertility clinics worldwide!</p>
+      <h1 class="display-4" style="padding-top:3rem; color:white">Fertility clinics & agencies around the world</h1>
+      <p class="lead" style="color:white">Search hundreds of IVF clinics at once around the globe with a detailed comparison. We have reviewed and categorized over <b><u>{{ listing }}</u></b> fertility clinics worldwide!</p>
     </div>
     <div class="container">
       <div class="searchBox">
@@ -145,14 +145,34 @@
 <!--Types of treatments-->
 <br>
 
+<section class="counters">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <p class="text-center" style="font-size: 175%">Categorized IVF clinics</p>
+        <div class="counter" data-target="{{ listing }}" style="font-size: 200%">0</div>
+      </div>
+      <div class="col-sm-4 text-center">
+        <p class="text-center" style="font-size: 175%">IVF Locations to compare</p>
+        <div class="counter" data-target="10" style="font-size: 200%">0</div>
+      </div>
+      <div class="col-sm-4 text-center">
+        <p class="text-center" style="font-size: 175%">Visitors last year</p>
+        <div class="counter" data-target="3688" style="font-size: 200%">0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+<!--Types of treatments-->
+<br>
+
 <div class="container py-5">
-  <h2>Fertility Community</h2>
-  <p>In today's world, it is no longer a problem to travel abroad for eye or tooth surgery, etc. Why should <u>IVF treatment</u> be different?</p>
-  <p>But the problem arises in finding the right fertility clinic in the local area or abroad.</p>
-  <p>In today's globalized world, it is hard to find <u>relevant</u> information about <b>Fertility Clinics</b> and compare them with each other. So we decided to change it!</p>
-  <br>
-  <p><b>Fertility Community</b> is a search engine and comparator for <u>near your location</u> fertility clinics as well as from <u>around the world</u>. We try to organize the most essential initial information, which is often decisive, for example, the location of the fertility clinic or office, what operations the clinic provides, the cost of treatments, LGBTQ and single parents, and other options.</p>
-  <p>The entire FertilityCommunity website is built to be impartial and <b>easy to read</b> & <b>compare</b> to help you choose the best fertility clinic and meet all your expectations about IVF treatments abroad.</p>
+  <h2>FertilityCommunity</h2>
+  <p><b>FertilityCommunity</b> is a search engine and comparator for fertility clinics around the globe.</p>
+  <p>We are organizing the most essential initial information for every IVF clinic and for this reason we invented the <b>Digital Transparency Index</b>, which tracks the quality and relevancy of IVF clinics on our website so that visitors can make the best choice!</p>
+  <p>The entire FertilityCommunity website is built to be impartial and easy to <b>read & compare</b> to help you choose the best fertility clinic and meet all your expectations about IVF treatment.</p>
 </div>
 
 <br>
@@ -185,7 +205,7 @@
 <div class="background py-5" style="background-color: #286DA8">
   <div class="container py-5">
     <div class="row">
-      <div class="col-6 col-sm" style="border-right: 2px solid white; border-left: 2px solid white">
+      <div class="col-sm-6 mt-5" style="border-right: 2px solid white; border-left: 2px solid white">
         <h2 class="card-title" style="color: white">IVF Packages & Deals</h2>
         <p class="card-text" style="color: white">Find out best fertility package treatments over the globe!</p>
         <br>
@@ -193,7 +213,7 @@
           <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">IVF packages</button>
         </a>
       </div>
-      <div class="col-6 col-sm">
+      <div class="col-sm-6 mt-5" style="border-right: 2px solid white; border-left: 2px solid white">
         <h2 class="card-title" style="color: white">IVF Costs WorldWide</h2>
         <p class="card-text" style="color: white">Have a look & compare IVF costs in different countries!</p>
         <br>
@@ -499,5 +519,6 @@
   </div>
 </div>
 
+<script src="{% static 'js/counter.js' %}"></script>
 
 {% endblock  %}

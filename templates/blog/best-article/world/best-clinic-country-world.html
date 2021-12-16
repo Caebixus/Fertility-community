@@ -70,7 +70,11 @@
 
 <div class="container">
   <br>
-  {% if best_clinics_blogpost.author.author_page_url %}<a href="{{ best_clinics_blogpost.author.author_page_url }}" style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</a>{% else %}<p style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</p>{% endif %}
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
   <hr>
   <br>
   <br>

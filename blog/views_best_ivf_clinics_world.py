@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from blog.models import Author, Blog
 from clinic.models import BasicClinic
-from owners.models import SingleClinicBestArticleText
 
 
 def best_ivf_clinics_world(request):

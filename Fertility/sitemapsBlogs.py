@@ -20,6 +20,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'whatisicsitreatment',
         'whydoesivfcostsomuch',
         'whatisivfwitheggdonation',
+        'ivf_in_spain',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

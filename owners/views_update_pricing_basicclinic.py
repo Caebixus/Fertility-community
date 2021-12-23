@@ -5,6 +5,7 @@ from clinic.models import BasicClinic
 from datetime import datetime
 from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro
 from django.core.mail import send_mail
+from .views import dashboard
 
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')

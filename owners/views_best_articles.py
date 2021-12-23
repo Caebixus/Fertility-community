@@ -4,6 +4,7 @@ from django.contrib import messages
 from clinic.models import BasicClinic
 from .forms import Bestarticleproposition, Picclinicform
 from django.core.mail import send_mail
+from .views import dashboard
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signin')
 def bestclinicarticles(request, listing_id):

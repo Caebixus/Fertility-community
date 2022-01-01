@@ -4,6 +4,8 @@ from django.urls import reverse
 from clinic.models import BasicClinic
 from django.db.models import Avg
 
+year = 2022
+
 def locationsStandardIVF(request):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
 
@@ -287,6 +289,8 @@ def locationsStandardIVF(request):
         queryset_list_mx_iui_val = val
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_us': my_total_clinic_count_us,
         'queryset_list_us_ivf_val': queryset_list_us_ivf_val,
         'queryset_list_us_egg_val': queryset_list_us_egg_val,

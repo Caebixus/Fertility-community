@@ -137,38 +137,30 @@
   {% endif %}
   </div>
 
-  {% if clinic.clinic_pro_photo_1 or clinic.clinic_pro_photo_2 or clinic.clinic_pro_photo_3 or clinic.clinic_pro_photo_4 or clinic.clinic_pro_photo_5 or clinic.clinic_pro_photo_6 %}
-  <br>
-  <br>
-
-  <div class="card-columns">
-    {% if clinic.clinic_pro_photo_1 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_1.url }}" class="card-img-top" alt="clinic photo 1">
-    </div>
-    {% else %}
-    {% endif %}
-    {% if clinic.clinic_pro_photo_2 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_2.url }}" class="card-img-top" alt="clinic photo 2">
-    </div>
-    {% else %}
-    {% endif %}
-    {% if clinic.clinic_pro_photo_3 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_3.url }}" class="card-img-top" alt="clinic photo 3">
-    </div>
-    {% else %}
-    {% endif %}
-  </div>
-  {% else %}
-  {% endif %}
-
   {% if clinic.singleclinicbestarticletext.best_clinic_world_text %}
   <div class="row text-center py-5">
     {{ clinic.singleclinicbestarticletext.best_clinic_world_text|safe }}
   </div>
   {% endif %}
+
+  <div class="row">
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item">Transparent treatment options</li>
+        <li class="list-group-item">Transparent treatment costs</li>
+        <li class="list-group-item">Transparent additional treatments</li>
+        <li class="list-group-item">Transparent treatments limitations</li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item">Active packages</li>
+        <li class="list-group-item">Filled conditions</li>
+        <li class="list-group-item">Filled independent reviews</li>
+        <li class="list-group-item">Active on site</li>
+      </ul>
+    </div>
+  </div>
 
   {% include 'blog/best-article/footerbtns.html' %}
 </div>

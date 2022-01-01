@@ -2,7 +2,7 @@ from django.shortcuts import render
 from clinic.models import BasicClinic
 from django.db.models import Avg, Max, Min
 
-
+year = 2022
 
 def locationsTexasRegions(request):
     queryset_list_texas = BasicClinic.objects.filter(clinicRegion__iexact='Texas').exclude(is_published=False)
@@ -68,6 +68,7 @@ def locationsTexasRegions(request):
 
 
     context = {
+        'year': year,
         'queryset_list_texas': queryset_list_texas,
         'my_total_count_texas': my_total_count_texas,
         'countIVFclinics': countIVFclinics,

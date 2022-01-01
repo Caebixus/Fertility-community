@@ -2,6 +2,8 @@ from django.shortcuts import render
 from clinic.models import BasicClinic
 from django.db.models import Avg
 
+year = 2022
+
 def locationsUSRegions(request):
     queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
 
@@ -1519,6 +1521,7 @@ def locationsUSRegions(request):
         queryset_list_districtofcolumbia_iui_val = val
 
     context = {
+        'year': year,
         'my_total_clinic_count_usa': my_total_clinic_count_usa,
         
         'queryset_list_us_natural_ivf_val': queryset_list_us_natural_ivf_val,
@@ -2897,6 +2900,8 @@ def locationsUKRegions(request):
 
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_aberdeen': my_total_clinic_count_aberdeen,
         'queryset_list_aberdeen_ivf_val': queryset_list_aberdeen_ivf_val,
         'queryset_list_aberdeen_egg_val': queryset_list_aberdeen_egg_val,
@@ -3226,6 +3231,8 @@ def locationsCZRegions(request):
         queryset_list_brno_iui_val = val
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_prague': my_total_clinic_count_prague,
         'queryset_list_prague_ivf_val': queryset_list_prague_ivf_val,
         'queryset_list_prague_egg_val': queryset_list_prague_egg_val,
@@ -3285,6 +3292,8 @@ def locationsSKRegions(request):
         queryset_list_bratislava_iui_val = val
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_bratislava': my_total_clinic_count_bratislava,
         'queryset_list_bratislava_ivf_val': queryset_list_bratislava_ivf_val,
         'queryset_list_bratislava_egg_val': queryset_list_bratislava_egg_val,
@@ -3336,6 +3345,8 @@ def locationsDKRegions(request):
         queryset_list_copenhagen_iui_val = val
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_copenhagen': my_total_clinic_count_copenhagen,
         'queryset_list_copenhagen_ivf_val': queryset_list_copenhagen_ivf_val,
         'queryset_list_copenhagen_egg_val': queryset_list_copenhagen_egg_val,
@@ -3585,6 +3596,7 @@ def locationsSPRegions(request):
         queryset_list_valencia_iui_val = val
 
     context = {
+        'year': year,
         'my_total_clinic_count_spain': my_total_clinic_count_spain,
 
         'queryset_list_sp_natural_ivf_val': queryset_list_sp_natural_ivf_val,
@@ -4732,6 +4744,8 @@ def locationsINRegions(request):
         queryset_list_haldwani_iui_val = val
 
     context = {
+        'year': year,
+
         'my_total_clinic_count_amdavad': my_total_clinic_count_amdavad,
         'queryset_list_amdavad_ivf_val': queryset_list_amdavad_ivf_val,
         'queryset_list_amdavad_egg_val': queryset_list_amdavad_egg_val,
@@ -5108,6 +5122,7 @@ def locationsGRRegions(request):
         queryset_list_thessaloniki_iui_val = val
 
     context = {
+        'year': year,
         'my_total_clinic_count_athens': my_total_clinic_count_athens,
         'queryset_list_athens_ivf_val': queryset_list_athens_ivf_val,
         'queryset_list_athens_egg_val': queryset_list_athens_egg_val,
@@ -5197,6 +5212,7 @@ def locationsCYRegions(request):
 
 
     context = {
+        'year': year,
         'my_total_clinic_count_nicosia': my_total_clinic_count_nicosia,
         'queryset_list_nicosia_ivf_val': queryset_list_nicosia_ivf_val,
         'queryset_list_nicosia_egg_val': queryset_list_nicosia_egg_val,
@@ -5284,6 +5300,7 @@ def locationsMXRegions(request):
         queryset_list_cancun_iui_val = val
 
     context = {
+        'year': year,
         'my_total_clinic_count_mexicocity': my_total_clinic_count_mexicocity,
         'queryset_list_mexicocity_ivf_val': queryset_list_mexicocity_ivf_val,
         'queryset_list_mexicocity_egg_val': queryset_list_mexicocity_egg_val,

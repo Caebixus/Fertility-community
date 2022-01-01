@@ -3,13 +3,13 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Spain IVF costs | 2021 Comparison{% endblock %}
+{% block title %}Spain IVF costs | {{year}} Comparison{% endblock %}
 {% block description %}Search hundreds of Spanish fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/spain{% endblock %}
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 style="padding-top:3rem; color:white">Standard IVF costs in Spain | 2021</h1>
+    <h1 style="padding-top:3rem; color:white">Standard IVF costs in Spain | {{year}}</h1>
     <p class="lead" style="color:white">Compare average IVF costs in Spain IVF & fertility clinics</p>
     <div class="row">
       <div class="col-4">
@@ -43,7 +43,7 @@
 <div class="container">
   <h2>What are the average IVF treatment costs in Spain?</h2>
   <p>IVF treatment, or <i>in vitro fertilization</i>, is now becoming a sought-after and increasingly successful way to have a child. If you are considering this treatment, see the average prices of individual procedures below.</p>
-  <p>Currently, there are <a href="{% url 'fertilityClinicSpain' %}"><u>{{my_total_clinic_count_spain}} IVF clinics in Spain</u></a> in 2021. Also read more about <a href="{% url 'ivf_in_spain' %}">IVF in Spain</a>, law limitation and other important information.</p>
+  <p>Currently, there are <a href="{% url 'fertilityClinicSpain' %}"><u>{{my_total_clinic_count_spain}} IVF clinics in Spain</u></a> in {{year}}. Also read more about <a href="{% url 'ivf_in_spain' %}">IVF in Spain</a>, law limitation and other important information.</p>
   <br>
   <h3>Average IVF treatment costs </h3>
   <p>These are average prices for IVF procedures at IVF clinics across Spain, so prices may vary. This price does not include medications and as a result may be very different from what the IVF clinic offers to you.</p>

@@ -3,7 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load currencytag %}
-{% block title %}Fertility clinics in Chennai | Found {{ my_total_count }} clinics | 2021{% endblock %}
+{% block title %}Fertility clinics in Chennai | Found {{ my_total_count }} clinics | {{year}}{% endblock %}
 {% block description %}Need to quickly compare the best IVF clinics in Chennai to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-clinics/india/tamil-nadu/chennai{% endblock %}
 {% block meta_keywords %}search fertility clinic chennai, search ivf clinics chennai, search fertility doctor chennai, search fertility specialist chennai, search fertility center chennai, search private fertility clinic chennai{% endblock %}
@@ -16,7 +16,7 @@
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
 {% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
-{% block twittertitle%}<meta name="twitter:title" content="Fertility clinics in Chennai | Found {{ my_total_count }} clinics | 2021">{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="Fertility clinics in Chennai | Found {{ my_total_count }} clinics | {{year}}">{% endblock %}
 {% block twitterdescription %}<meta name="twitter:description" content="Need to quickly compare the best IVF clinics in Chennai to choose the right one? We are already comparing {{all_clinic_count}} clinics from all over the world.">{% endblock %}
 {% block twitterimage %}<meta name="twitter:image" content="https://fertilitycommunity.com/static/img/locations/cities/FertilityClinicsChennai.webp" />{% endblock %}
 
@@ -331,7 +331,7 @@
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2021:</h2>
+          <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in {{year}}:</h2>
 
           {% include 'AllInclude/locations/quick-info.html' %}
 

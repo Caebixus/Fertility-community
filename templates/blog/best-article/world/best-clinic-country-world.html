@@ -143,21 +143,71 @@
   </div>
   {% endif %}
 
-  <div class="row">
+  <div class="row py-3">
     <div class="col-6">
-      <ul class="list-group">
-        <li class="list-group-item">Transparent treatment options</li>
-        <li class="list-group-item">Transparent treatment costs</li>
-        <li class="list-group-item">Transparent additional treatments</li>
-        <li class="list-group-item">Transparent treatments limitations</li>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          {% if clinic.ivf_treatment or clinic.mild_ivf_treatment or clinic.ovarian_ivf_treatment or clinic.icsi_treatment or clinic.egg_donor_recipients or clinic.sperm_donor_recipients or clinic.embryo_donor_recipients %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatment options
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatment options
+          {% endif %}
+        </li>
+        <li class="list-group-item">
+          {% if clinic.ivf_treatment_cost != Null or clinic.mild_ivf_treatment_cost != Null or clinic.ovarian_ivf_treatment_cost != Null or clinic.icsi_treatment_cost != Null or clinic.egg_donor_recipients_cost != Null or clinic.sperm_donor_recipients_cost != Null or clinic.embryo_donor_recipients_cost != Null %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatment costs
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatment costs
+          {% endif %}
+        </li>
+        <li class="list-group-item">
+          {% if clinic.egg_freezing or clinic.embryo_freezing or clinic.sperm_freezing or clinic.assisted_hatching or clinic.vasectomy_reversal or clinic.surrogacy or clinic.pgd %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Transparent additional treatments
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Transparent additional treatments
+          {% endif %}
+        </li>
+        <li class="list-group-item">
+          {% if clinic.treatmentLimitations %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatments limitations
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatments limitations
+          {% endif %}
+        </li>
       </ul>
     </div>
     <div class="col-6">
-      <ul class="list-group">
-        <li class="list-group-item">Active packages</li>
-        <li class="list-group-item">Filled conditions</li>
-        <li class="list-group-item">Filled independent reviews</li>
-        <li class="list-group-item">Active on site</li>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          {% if clinic.packageClinicCounterNumber >= 1 %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Active packages
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Active packages
+          {% endif %}
+        </li>
+
+        <li class="list-group-item">
+          {% if clinic.single_woman_treatment or clinic.reciprocal_treatment or clinic.hiv_patients_treatment or clinic.sex_selection or clinic.accepts_patients_from_abroad %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Filled conditions
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Filled conditions
+          {% endif %}
+        </li>
+
+        {% if clinic.clinicGoogleReviews != Null or clinic.clinicTrustPilotID != Null %}
+        <li class="list-group-item">
+            <i class="fas fa-plus-circle" style="color: green"></i> Independent reviews
+        </li>
+        {% else %}
+        {% endif %}
+
+        {% if clinic_last_login == True  %}
+        <li class="list-group-item">
+            <i class="fas fa-plus-circle" style="color: green"></i> Updated less than 3 months ago
+        </li>
+        {% else %}
+        {% endif %}
+
       </ul>
     </div>
   </div>

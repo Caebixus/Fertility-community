@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from blog.models import Author, Blog
 from clinic.models import BasicClinic
-from datetime import timedelta, datetime
 
 
 def best_ivf_clinics_world(request):
-    thirty_date = datetime.now() - timedelta(days=30)
     blogpk=17
+
     otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=7)
     blog = get_object_or_404(Blog, pk=blogpk)
@@ -16,16 +15,10 @@ def best_ivf_clinics_world(request):
 
     best_clinics = clinics.order_by('-digitalTransparencyIndex')[:20]
 
-    if clinics.filter(clinicOwner__last_login__lte=thirty_date):
-        clinic_last_login = True
-    else:
-        clinic_last_login = False
-
     best_clinics_count = best_clinics.count()
 
 
     context = {
-        'clinic_last_login': clinic_last_login,
         'author': author,
         'blog': blog,
         'otherBlogs': otherBlogs,

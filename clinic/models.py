@@ -215,6 +215,9 @@ class BasicClinic(models.Model):
     packageClinicCounterNumber = models.IntegerField(default=0,null=True, blank=True)
     guestBlogCounterNumber = models.IntegerField(default=0,null=True, blank=True)
     guestAuthorCounterNumber = models.IntegerField(default=0,null=True, blank=True)
+    active_30 = models.BooleanField(default=False,null=True, blank=True)
+    active_90 = models.BooleanField(default=False, null=True, blank=True)
+    active_180 = models.BooleanField(default=False, null=True, blank=True)
 
     ### Socials:
     clinicFacebook = models.URLField(null=True, blank=True, max_length=500)

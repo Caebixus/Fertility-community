@@ -13,6 +13,7 @@
     </div>
 
     {% if clinic.pro_is_published == True or clinic.ppq_is_published == True %}
+    {% if clinic.packageClinicCounterNumber >= 1 %}
     <div class="col-lg-4" style="padding-top:1rem">
       <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}#packages" rel="nofollow" style="text-decoration:none">
         <button type="button" class="btn btn-outline-dark btn-lg btn-block">Packages</button>
@@ -21,6 +22,7 @@
     {% else %}
     <div class="col-lg-3" style="padding-top:1rem">
     </div>
+    {% endif %}
     {% endif %}
 
 </div>

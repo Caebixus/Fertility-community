@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
         ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
         ('Slugs', {'fields': ('slug',)}),
-        ('Contact information', {'fields': ('clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email', 'fertilitycommunity_email', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber')}),
+        ('Contact information', {'fields': ('clinic_url', 'contact_url', 'contact_phone', 'contact_email', 'query_email', 'fertilitycommunity_email', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'active_30', 'active_90', 'active_180',)}),
         ('Address information', {'fields': ('clinicStreetAddress', 'clinicCity', 'clinicState', 'clinicRegion', 'clinicPostalCode',)}),
         ('Opening hours', {'fields': ('mondayOpens', 'mondayCloses', 'tuesdayOpens', 'tuesdayCloses', 'wednesdayOpens', 'wednesdayCloses', 'thursdayOpens', 'thursdayCloses', 'fridayOpens', 'fridayCloses', 'saturdayOpens', 'saturdayCloses', 'sundayOpens', 'sundayCloses',)}),
         ('Secondary information', {'fields': ('clinicSart', 'clinicHfea', 'clinicOwn', 'clinicEnglish', 'clinicSpanish', 'clinicPortuguese', 'clinicRussian', 'clinicGerman', 'clinicChinese',)}),

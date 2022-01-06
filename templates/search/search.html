@@ -209,11 +209,16 @@
               </a>
             </div>
             {% if order_datas.pro_is_published == True or order_datas.ppq_is_published == True %}
-            <div class="col-4 col-sm" style="padding-top:1rem">
-              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
-              </a>
-            </div>
+              {% if order_datas.packageClinicCounterNumber >= 1 %}
+              <div class="col-4 col-sm" style="padding-top:1rem">
+                <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
+                  <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+                </a>
+              </div>
+              {% else %}
+                <div class="col-4 col-sm" style="padding-top:1rem">
+                </div>
+              {% endif %}
             {% else %}
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
@@ -350,11 +355,16 @@
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>
             {% if order_datas.pro_is_published == True or order_datas.ppq_is_published == True %}
-            <div class="col-4 col-sm" style="padding-top:1rem">
-              <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
-              </a>
-            </div>
+              {% if order_datas.packageClinicCounterNumber >= 1 %}
+              <div class="col-4 col-sm" style="padding-top:1rem">
+                <a href="{% url 'clinics:clinic-detail' order_datas.pk order_datas.slug %}#packages" rel="nofollow">
+                  <button id="brandButton" type="button" class="btn btn-outline-success btn-md" style="max-width: 10rem; font-size: 16px"><i class="fas fa-archive"></i> Packages</button>
+                </a>
+              </div>
+              {% else %}
+                <div class="col-4 col-sm" style="padding-top:1rem">
+                </div>
+              {% endif %}
             {% else %}
             <div class="col-4 col-sm" style="padding-top:1rem">
             </div>

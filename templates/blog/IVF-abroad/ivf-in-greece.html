@@ -1,0 +1,220 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in spain, ivf spain{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }} | {{blog.year}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
+  <hr>
+  <br>
+  <br>
+  <p>Greece is one of the countries that significantly reduce infertility treatment costs with the promise of helping couples conceive their own child. In this article, we’ll be discussing the perks of IVF in Greece while highlighting the costs, success rates, clinics, benefits, and limitations. We’ll also go over the pros and cons of IVF in Greece to inform you about what you need to know before deciding where to undergo your IVF treatment. </p>
+  <br>
+  <p>Assisted reproduction requires more than just finding the right clinic and saving up to cover the expenses. IVF requires psychological preparation, ensuring you feel comfortable with the medical staff to guide you through the process, and a healthy environment to make this stressful procedure as easy as possible for you, your partner, and your child. Let’s look at some reasons to look into IVF in Greece. </p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>5 reasons to consider IVF in Greece</b></h2>
+    <br>
+    <p>Greece is considered a top IVF tourism country in Europe. Its high-quality advanced services, and reasonable rates, have made the country quite popular in the IVF communities. Reasons Greece ideal for assisted reproduction include:</p>
+    <br>
+    <ol>
+      <li>
+        <h3 style="font-size: 95%">One of the cheapest ways to do IVF in Europe</h3>
+        <p style="font-size: 95%"><a href="{% url 'locationsGRRegions' %}">IVF in Greece costs</a> is attractive compared to other European countries, with fees as low as ${{ clinicegg.average|convert:'USD'|floatformat:'0'|intcomma }} when using a donor egg. </p>
+        <p style="font-size: 95%">As well as saving money on treatment costs, travel expenses to Greece are typically very affordable as it is a popular holiday destination. Cut travel costs even more by avoiding summer high-seasons.</p>
+        <div class="text-center">
+          <a href="{% url 'locationsGRRegions' %}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How much for IVF treatment in Greece?</button>
+          </a>
+        </div>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Short waiting lists</h3>
+        <p style="font-size: 95%">Waiting lists can be a true challenge for couples trying to conceive. The time waiting to try IVF can seem like an eternity. Waiting lists prolong the treatment period and augment the age-related worries for conceiving. Luckily, the waiting period in Greece usually lasts up to 3 months, which is a massive bonus if you are anxious to get started. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">A friendly legislative framework</h3>
+        <p style="font-size: 95%">The legislation in Greece that governs IVF was established in 2005 for both sperm and egg donations, and it’s straightforward for you to understand at home. It enables women under the age of 50 and men without age limitations to access IVF. </p>
+        <p style="font-size: 95%">However, there are some limitations if you are in a lesbian relationship. Unfortunately, the fastest way to overcome this legal battle is for one partner to declare that they are straight. Therefore, this may not be the country you wish to opt for your IVF treatment due to these ethical barriers. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Top-quality IVF clinics</h3>
+        <p style="font-size: 95%">Low costs don’t signify poor treatment. In fact, clinics in Greece are some of the best IVF clinics in Europe in terms of reliability, expertise, and safety. All procedures follow international protocols of health and hygiene, combined with advanced medical equipment and high-trained staff. In addition, most doctors in Greece speak English and other languages fluently, so there is no need to worry if you are not a native Greek speaker.</p>
+        <div class="text-center">
+          <a href="{% url 'bestivfclinicsingreece' %}">
+            <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">What are the {{ best_clinics_count }} best IVF clinics in Greece?</button>
+          </a>
+        </div>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">A stress-free environment </h3>
+        <p style="font-size: 95%">Psychology is a huge factor when it comes to fertility treatment. Ideally, you’ll want your treatment in the right environment, with minimal stress. As Greece is such a tourist-friendly travel destination, you can arrange your trip to be relaxing and book some other excursions to enjoy your experience in Greece and lower your stress while you visit. This is also an excellent opportunity to create new memories and bond with your partner.</p>
+      </li>
+    </ol>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Greece’s IVF success rates</b></h2>
+    <br>
+    <p>The average success rate for IVF in Greece is estimated at around 55%. However, it can be hard to know how accurate this number is since there are no official statistics from the government on the number of successful treatments.</p>
+    <br>
+    <p>Additionally, the success rate is affected by multiple factors, such as the woman’s age, health, fertility, mental well-being, the quality of the donation, the quality of the embryo (fresh or frozen), and the clinic. So far, Greece’s success rates put the country high on the lists of possible IVF countries.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="text-center">
+    <a href="{% url 'fertilityClinicGreece' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">{{ numclinics }} Fertility clinics in Greece</button>
+    </a>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">IVF limitations in Greece</h2>
+    <br>
+    <p>As mentioned, IVF in Greece comes with limitations for women up to the age of 50 years old, which is considered the natural biological age limit of fertility in women. </p>
+    <br>
+    <p>Additionally, Greece is not as liberal as other countries such as the UK or the US regarding homosexual couples. It does not allow same-sex lesbian couples to undertake an IVF treatment unless one of them signs a legal deed that they are a straight woman receiving a sperm donation. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">More Statistics</h2>
+    <br>
+    <p>For couples going for a more unconventional way of fertility and choosing to freeze their eggs, Greece offers a 10 years egg freezing limit with an average of 99% survival rate. However, costs can range anywhere from €1,300 to €2,500. With this significant price difference, it is essential to check what’s included in the price when you are given your quote.</p>
+    <br>
+    <p>Most clinics in Greece will perform psychological and motivation tests on donors to make sure they understand the weight of their decision. In addition, IVF couples can access donor information related to physical characteristics (eye or hair color, height, weight, skin tone), education, and blood type. In addition, couples go through some tests for infectious diseases.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>Greece is one of the top destinations for IVF as it combines low costs with quality services and great surroundings. Its progressive legislation and lack of waiting lists will speed things up for you. With more than 50 IVF clinics and highly trained doctors, you are bound to make the right decision tailored to your needs. </p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

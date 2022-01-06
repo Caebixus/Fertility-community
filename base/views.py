@@ -10,6 +10,7 @@ from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, B
 
 def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:6]
+    count_blog = Blog.objects.all().count()
     best_city = BestClinicArticleCity.objects.all().order_by('-created_at')[:1]
     best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')[:1]
 
@@ -255,6 +256,7 @@ def index(request):
 
     context = {
         'blog': blog,
+        'count_blog': count_blog,
         'best_city': best_city,
         'best_country': best_country,
         'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA,

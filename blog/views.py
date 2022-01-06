@@ -203,7 +203,7 @@ def ivf_in_spain(request):
     author = get_object_or_404(Author, pk=7)
     blog = get_object_or_404(Blog, pk=blogpk)
 
-    spclinics = BasicClinic.objects.all()
+    spclinics = BasicClinic.objects.all().filter(clinicState__iexact='Spain')
     numspclinics = spclinics.filter(is_published=True).filter(clinicState__iexact='Spain')
     numspclinics = numspclinics.count()
 
@@ -220,3 +220,31 @@ def ivf_in_spain(request):
     }
 
     return render(request, 'blog/IVF-abroad/ivf-in-spain.html', context)
+
+def ivf_in_greece(request):
+    blogpk=19
+    pkid = 3
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    clinics = BasicClinic.objects.all().filter(clinicState__iexact='Greece')
+    numclinics = clinics.filter(is_published=True).filter(clinicState__iexact='Greece')
+    numclinics = numclinics.count()
+
+    clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
+
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
+
+    context = {
+        'clinicegg': clinicegg,
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+        'numclinics': numclinics,
+        'best_clinics_count': best_clinics_count,
+    }
+
+    return render(request, 'blog/IVF-abroad/ivf-in-greece.html', context)

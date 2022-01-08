@@ -3368,6 +3368,10 @@ def locationsDKRegions(request):
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 
+    pkid = 2
+    best_clinics = queryset_list_sp.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics_count = best_clinics.count()
+
     queryset_list_sp = queryset_list_sp.filter(clinicState='Spain')
     my_total_clinic_count_spain = queryset_list_sp.count()
 
@@ -3424,10 +3428,9 @@ def locationsSPRegions(request):
     for key,val in queryset_list_sp_iui.items():
         queryset_list_sp_iui_val = val
 
+    # -------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
 
-    #--------------------------------------------------------------------------
-
-    #--------------------------------------------------------------------------
     queryset_list_alicante = queryset_list_sp.filter(clinicRegion__iexact='Alicante')
     my_total_clinic_count_alicante = queryset_list_alicante.count()
 
@@ -3597,6 +3600,7 @@ def locationsSPRegions(request):
 
     context = {
         'year': year,
+        'best_clinics_count': best_clinics_count,
         'my_total_clinic_count_spain': my_total_clinic_count_spain,
 
         'queryset_list_sp_natural_ivf_val': queryset_list_sp_natural_ivf_val,
@@ -5065,7 +5069,69 @@ def locationsINRegions(request):
 def locationsGRRegions(request):
     queryset_list_gr = BasicClinic.objects.all().exclude(is_published=False)
 
-    #--------------------------------------------------------------------------
+    pkid = 3
+    best_clinics = queryset_list_gr.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics_count = best_clinics.count()
+
+    queryset_list_gr = queryset_list_gr.filter(clinicState='Greece')
+    my_total_clinic_count_greece = queryset_list_gr.count()
+
+    queryset_list_gr_natural_ivf = queryset_list_gr.aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_gr_natural_ivf.items():
+        queryset_list_gr_natural_ivf_val = val
+
+    queryset_list_gr_mild_ivf = queryset_list_gr.aggregate(average=Avg('mild_ivf_treatment_cost'))
+    for key,val in queryset_list_gr_mild_ivf.items():
+        queryset_list_gr_mild_ivf_val = val
+
+    queryset_list_gr_standard_ivf = queryset_list_gr.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_gr_standard_ivf.items():
+        queryset_list_gr_standard_ivf_val = val
+
+
+    queryset_list_gr_egg_ivf = queryset_list_gr.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_gr_egg_ivf.items():
+        queryset_list_gr_egg_ivf_val = val
+
+    queryset_list_gr_known_egg_ivf = queryset_list_gr.aggregate(average=Avg('known_egg_donor_recipients_cost'))
+    for key,val in queryset_list_gr_known_egg_ivf.items():
+        queryset_list_gr_known_egg_ivf_val = val
+
+    queryset_list_gr_shared_egg_ivf = queryset_list_gr.aggregate(average=Avg('shared_egg_donor_recipients_cost'))
+    for key,val in queryset_list_gr_shared_egg_ivf.items():
+        queryset_list_gr_shared_egg_ivf_val = val
+
+
+    queryset_list_gr_embryo_ivf = queryset_list_gr.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_gr_embryo_ivf.items():
+        queryset_list_gr_embryo_ivf_val = val
+
+    queryset_list_gr_known_embryo_ivf = queryset_list_gr.aggregate(average=Avg('known_embryo_donor_recipients_cost'))
+    for key,val in queryset_list_gr_known_embryo_ivf.items():
+        queryset_list_gr_known_embryo_ivf_val = val
+
+
+    queryset_list_gr_sperm_ivf = queryset_list_gr.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_gr_sperm_ivf.items():
+        queryset_list_gr_sperm_ivf_val = val
+
+    queryset_list_gr_known_sperm_ivf = queryset_list_gr.aggregate(average=Avg('known_sperm_donor_recipients_cost'))
+    for key,val in queryset_list_gr_known_sperm_ivf.items():
+        queryset_list_gr_known_sperm_ivf_val = val
+
+
+    queryset_list_gr_icsi = queryset_list_gr.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_gr_icsi.items():
+        queryset_list_gr_icsi_val = val
+
+
+    queryset_list_gr_iui = queryset_list_gr.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_gr_iui.items():
+        queryset_list_gr_iui_val = val
+
+    # --------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
+
     queryset_list_athens = queryset_list_gr.filter(clinicCity__iexact='Athens')
     my_total_clinic_count_athens = queryset_list_athens.count()
 
@@ -5123,6 +5189,26 @@ def locationsGRRegions(request):
 
     context = {
         'year': year,
+        'best_clinics_count': best_clinics_count,
+        'my_total_clinic_count_greece': my_total_clinic_count_greece,
+
+        'queryset_list_gr_natural_ivf_val': queryset_list_gr_natural_ivf_val,
+        'queryset_list_gr_mild_ivf_val': queryset_list_gr_mild_ivf_val,
+        'queryset_list_gr_standard_ivf_val': queryset_list_gr_standard_ivf_val,
+
+        'queryset_list_gr_egg_ivf_val': queryset_list_gr_egg_ivf_val,
+        'queryset_list_gr_known_egg_ivf_val': queryset_list_gr_known_egg_ivf_val,
+        'queryset_list_gr_shared_egg_ivf_val': queryset_list_gr_shared_egg_ivf_val,
+
+        'queryset_list_gr_embryo_ivf_val': queryset_list_gr_embryo_ivf_val,
+        'queryset_list_gr_known_embryo_ivf_val': queryset_list_gr_known_embryo_ivf_val,
+
+        'queryset_list_gr_sperm_ivf_val': queryset_list_gr_sperm_ivf_val,
+        'queryset_list_gr_known_sperm_ivf_val': queryset_list_gr_known_sperm_ivf_val,
+
+        'queryset_list_gr_icsi_val': queryset_list_gr_icsi_val,
+        'queryset_list_gr_iui_val': queryset_list_gr_iui_val,
+
         'my_total_clinic_count_athens': my_total_clinic_count_athens,
         'queryset_list_athens_ivf_val': queryset_list_athens_ivf_val,
         'queryset_list_athens_egg_val': queryset_list_athens_egg_val,

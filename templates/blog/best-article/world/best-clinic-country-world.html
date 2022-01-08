@@ -138,7 +138,7 @@
   </div>
 
   {% if clinic.singleclinicbestarticletext.best_clinic_world_text %}
-  <div class="row text-center py-5">
+  <div class="row text-center py-5 px-3">
     {{ clinic.singleclinicbestarticletext.best_clinic_world_text|safe }}
   </div>
   {% endif %}
@@ -148,30 +148,30 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           {% if clinic.ivf_treatment or clinic.mild_ivf_treatment or clinic.ovarian_ivf_treatment or clinic.icsi_treatment or clinic.egg_donor_recipients or clinic.sperm_donor_recipients or clinic.embryo_donor_recipients %}
-            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatment options
+            <i class="fas fa-plus-circle" style="color: green"></i> Filled treatment options
           {% else %}
-            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatment options
+            <i class="fas fa-minus-circle" style="color: red"></i> Filled treatment options
           {% endif %}
         </li>
         <li class="list-group-item">
           {% if clinic.ivf_treatment_cost != Null or clinic.mild_ivf_treatment_cost != Null or clinic.ovarian_ivf_treatment_cost != Null or clinic.icsi_treatment_cost != Null or clinic.egg_donor_recipients_cost != Null or clinic.sperm_donor_recipients_cost != Null or clinic.embryo_donor_recipients_cost != Null %}
-            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatment costs
+            <i class="fas fa-plus-circle" style="color: green"></i> Filled treatment costs
           {% else %}
-            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatment costs
+            <i class="fas fa-minus-circle" style="color: red"></i> Filled treatment costs
           {% endif %}
         </li>
         <li class="list-group-item">
           {% if clinic.egg_freezing or clinic.embryo_freezing or clinic.sperm_freezing or clinic.assisted_hatching or clinic.vasectomy_reversal or clinic.surrogacy or clinic.pgd %}
-            <i class="fas fa-plus-circle" style="color: green"></i> Transparent additional treatments
+            <i class="fas fa-plus-circle" style="color: green"></i> Filled additional treatments
           {% else %}
-            <i class="fas fa-minus-circle" style="color: red"></i> Transparent additional treatments
+            <i class="fas fa-minus-circle" style="color: red"></i> Filled additional treatments
           {% endif %}
         </li>
         <li class="list-group-item">
           {% if clinic.treatmentLimitations %}
-            <i class="fas fa-plus-circle" style="color: green"></i> Transparent treatments limitations
+            <i class="fas fa-plus-circle" style="color: green"></i> Filled treatments limitations
           {% else %}
-            <i class="fas fa-minus-circle" style="color: red"></i> Transparent treatments limitations
+            <i class="fas fa-minus-circle" style="color: red"></i> Filled treatments limitations
           {% endif %}
         </li>
       </ul>
@@ -183,6 +183,18 @@
             <i class="fas fa-plus-circle" style="color: green"></i> Active packages
           {% else %}
             <i class="fas fa-minus-circle" style="color: red"></i> Active packages
+          {% endif %}
+        </li>
+
+        <li class="list-group-item">
+          {% if clinic.active_30 == True %}
+            <i class="fas fa-plus-circle" style="color: green"></i> Updated 30 days ago
+          {% elif clinic.active_90 == True %}
+             <i class="fas fa-plus-circle" style="color: green"></i> Updated 3 months ago
+          {% elif clinic.active_180 == True %}
+             <i class="fas fa-plus-circle" style="color: orange"></i> Updated 6 months ago
+          {% else %}
+            <i class="fas fa-minus-circle" style="color: red"></i> Updated more than 6 months ago
           {% endif %}
         </li>
 

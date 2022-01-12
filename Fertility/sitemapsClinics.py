@@ -1,5 +1,4 @@
 from django.contrib import sitemaps
-from django.urls import reverse
 from clinic.models import BasicClinic
 
 class ClinicsViewSitemap(sitemaps.Sitemap):
@@ -9,3 +8,6 @@ class ClinicsViewSitemap(sitemaps.Sitemap):
 
     def items(self):
         return BasicClinic.objects.filter(is_published=True)
+
+    def location(self, item):
+        return item.get_absolute_url()

@@ -502,7 +502,7 @@ class BasicClinic(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('clinics:clinic-detail', kwargs={'pk': self.id, 'slug': self.slug()})
+        return reverse('clinics:clinic-detail', kwargs={'pk': self.id, 'slug': self.slug})
 
     def __str__(self):
         return self.clinicName

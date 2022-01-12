@@ -10,7 +10,7 @@ from .sitemaps import StaticViewSitemap
 from .sitemapsRegions import RegionsViewSitemap
 from .sitemapsCountries import CountriesViewSitemap
 from .sitemapsCities import CitiesViewSitemap
-#from .sitemapsClinics import ClinicsViewSitemap
+from .sitemapsClinics import ClinicsViewSitemap
 from .sitemapsCosts import CostsViewSitemap
 from .sitemapsBlogs import BlogsViewSitemap
 
@@ -25,7 +25,7 @@ sitemaps = {
     'countries': CountriesViewSitemap,
     'costs': CostsViewSitemap,
     'blogs': BlogsViewSitemap,
-    #'clinics': ClinicsViewSitemap,
+    'clinics': ClinicsViewSitemap,
 }
 
 urlpatterns = [

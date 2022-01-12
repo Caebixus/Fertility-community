@@ -1,0 +1,283 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}Germany IVF costs | {{year}} Comparison{% endblock %}
+{% block description %}Search hundreds of Germany fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/germany{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Standard IVF costs in Germany | {{year}}</h1>
+    <p class="lead" style="color:white">Compare average IVF costs in Germany IVF & fertility clinics</p>
+    <div class="row">
+      <div class="col-4">
+        <select class="form-control" id="ChooseCurrency">
+          <option value="" selected>Currency</option>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'locations' %}" style="text-decoration: none">IVF costs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Germany</li>
+      </ol>
+    </div>
+  </nav>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#standardIVF" role="tab" aria-controls="home" aria-selected="true" style="text-align: center; text-decoration: none">Standard IVF</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#eggDonation" role="tab" aria-controls="profile" aria-selected="false" style="text-align: center; text-decoration: none">IVF with egg donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#embryoDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with embryo donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#spermDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with sperm donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#icsi" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">ICSI</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#iui" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IUI</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="standardIVF" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation)</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_ivf_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_ivf_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBerlin' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Berlin IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="eggDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with egg donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_egg_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_egg_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_egg_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicsThessaloniki' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Thessaloniki IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="embryoDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with embryo donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_embryo_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_embryo_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_embryo_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBerlin' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Berlin IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="spermDonation" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with sperm donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_sperm_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_sperm_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_sperm_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBerlin' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Berlin IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="icsi" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of ICSI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_icsi_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_icsi_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_icsi_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBerlin' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Berlin IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="iui" role="tabpanel" aria-labelledby="home-tab">
+      <h2 style="padding-top:3rem">Average prices of IUI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <div class="table-responsive-xl">
+        <table class="table table-hover">
+          <thead class="thead" style="background-color: #286DA8; color: white">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col" style="text-align: center;">Average cost</th>
+              <th scope="col" style="text-align: right;">Clinics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="{% url 'fertilityClinicBerlin' %}"><u>Berlin ({{ my_total_clinic_count_berlin }} clinics)</u></a></th>
+              <td style="font-size: 14px">
+                {% if queryset_list_berlin_iui_val %}
+                  <div class="treatmentCostsUSDCurrency">{{ queryset_list_berlin_iui_val|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+                  <div class="treatmentCostsEURCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+                  <div class="treatmentCostsGBPCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+                  <div class="treatmentCostsCZKCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+                  <div class="treatmentCostsMXNCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+                  <div class="treatmentCostsINRCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+                  <div class="treatmentCostsCADCurrency" style="display:none">{{ queryset_list_berlin_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+                {% else %}
+                  Unknown
+                {% endif %}
+              </td>
+              <td style="font-size: 14px; text-align:right"><a href="{% url 'fertilityClinicBerlin' %}"><button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Berlin IVF Clinics</button></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
+{% endblock  %}

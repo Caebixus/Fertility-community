@@ -1,0 +1,292 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}IVF costs Comparison | {{year}}{% endblock %}
+{% block description %}Search hundreds of fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost{% endblock %}
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">Standard IVF costs & average prices (with ovarian stimulation)</h1>
+    <p class="lead" style="color:white">*Medications, pretests and additional procedures not included</p>
+    <div class="row">
+      <div class="col-4">
+        <select class="form-control" id="ChooseCurrency">
+          <option value="" selected>Currency</option>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="background" style="background-color: #e9ecef">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">IVF costs</li>
+      </ol>
+    </div>
+  </nav>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#standardIVF" role="tab" aria-controls="home" aria-selected="true" style="text-align: center; text-decoration: none">Standard IVF</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#eggDonation" role="tab" aria-controls="profile" aria-selected="false" style="text-align: center; text-decoration: none">IVF with egg donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#embryoDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with embryo donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#spermDonation" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IVF with sperm donation</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#icsi" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">ICSI</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#iui" role="tab" aria-controls="contact" aria-selected="false" style="text-align: center; text-decoration: none">IUI</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="standardIVF" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of standard IVF (with ovarian stimulation)</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/ivf.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/ivf.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/ivf.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+
+    <div class="tab-pane fade" id="eggDonation" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with egg donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/egg.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/egg.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/egg.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+
+    <div class="tab-pane fade" id="embryoDonation" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with embryo donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/embryo.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/embryo.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/embryo.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+
+    <div class="tab-pane fade" id="spermDonation" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IVF with sperm donation</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/sperm.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/sperm.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/sperm.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+
+    <div class="tab-pane fade" id="icsi" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of ICSI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/icsi.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/icsi.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/icsi.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+
+    <div class="tab-pane fade" id="iui" role="tabpanel" aria-labelledby="pills-ivf-tab">
+      <h2 style="padding-top:3rem">Average prices of IUI treatment</h2>
+      <p style="font-size: 15px"><i>*Medications, packages, pretests and additional procedures not included</i></p>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">North America</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/north-america/iui.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Europe</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/europe/iui.html' %}
+      </table>
+      <table class="table table-hover" id="UsdBoard">
+        <br>
+        <thead class="thead borderless" style="background-color: #286DA8; color: white">
+          <tr>
+            <th scope="col">Asia</th>
+            <th scope="col" style="text-align: center;">Average cost</th>
+          </tr>
+        </thead>
+        {% include 'main/Locations/Main/includes/asia/iui.html' %}
+      </table>
+      <p class="lead" style="text-align: right; font-size: 14px">*Change currency in top navigation menu</p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
+{% endblock  %}

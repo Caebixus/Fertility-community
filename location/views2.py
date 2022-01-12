@@ -3365,6 +3365,166 @@ def locationsDKRegions(request):
 #--------------------------------------------------------------------------
 #--------------------------------------------------------------------------
 
+
+def locationsDERegions(request):
+    queryset_list_de = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_berlin = queryset_list_de.filter(clinicRegion__iexact='Berlin')
+    my_total_clinic_count_berlin = queryset_list_berlin.count()
+
+    queryset_list_berlin_ivf = queryset_list_berlin.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_berlin_ivf.items():
+        queryset_list_berlin_ivf_val = val
+
+    queryset_list_berlin_egg = queryset_list_berlin.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_berlin_egg.items():
+        queryset_list_berlin_egg_val = val
+
+    queryset_list_berlin_embryo = queryset_list_berlin.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_berlin_embryo.items():
+        queryset_list_berlin_embryo_val = val
+
+    queryset_list_berlin_sperm = queryset_list_berlin.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_berlin_sperm.items():
+        queryset_list_berlin_sperm_val = val
+
+    queryset_list_berlin_icsi = queryset_list_berlin.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_berlin_icsi.items():
+        queryset_list_berlin_icsi_val = val
+
+    queryset_list_berlin_iui = queryset_list_berlin.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_berlin_iui.items():
+        queryset_list_berlin_iui_val = val
+
+    context = {
+        'year': year,
+
+        'my_total_clinic_count_berlin': my_total_clinic_count_berlin,
+        'queryset_list_berlin_ivf_val': queryset_list_berlin_ivf_val,
+        'queryset_list_berlin_egg_val': queryset_list_berlin_egg_val,
+        'queryset_list_berlin_embryo_val': queryset_list_berlin_embryo_val,
+        'queryset_list_berlin_sperm_val': queryset_list_berlin_sperm_val,
+        'queryset_list_berlin_icsi_val': queryset_list_berlin_icsi_val,
+        'queryset_list_berlin_iui_val': queryset_list_berlin_iui_val,
+        }
+    return render(request, 'main/Locations/DELocations/de-regions-ivf.html', context)
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+
+def locationsPTRegions(request):
+    queryset_list_pt = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_lisbon = queryset_list_pt.filter(clinicRegion__iexact='Lisbon')
+    my_total_clinic_count_lisbon = queryset_list_lisbon.count()
+
+    queryset_list_lisbon_ivf = queryset_list_lisbon.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_lisbon_ivf.items():
+        queryset_list_lisbon_ivf_val = val
+
+    queryset_list_lisbon_egg = queryset_list_lisbon.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_lisbon_egg.items():
+        queryset_list_lisbon_egg_val = val
+
+    queryset_list_lisbon_embryo = queryset_list_lisbon.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_lisbon_embryo.items():
+        queryset_list_lisbon_embryo_val = val
+
+    queryset_list_lisbon_sperm = queryset_list_lisbon.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_lisbon_sperm.items():
+        queryset_list_lisbon_sperm_val = val
+
+    queryset_list_lisbon_icsi = queryset_list_lisbon.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_lisbon_icsi.items():
+        queryset_list_lisbon_icsi_val = val
+
+    queryset_list_lisbon_iui = queryset_list_lisbon.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_lisbon_iui.items():
+        queryset_list_lisbon_iui_val = val
+
+    context = {
+        'year': year,
+
+        'my_total_clinic_count_lisbon': my_total_clinic_count_lisbon,
+        'queryset_list_lisbon_ivf_val': queryset_list_lisbon_ivf_val,
+        'queryset_list_lisbon_egg_val': queryset_list_lisbon_egg_val,
+        'queryset_list_lisbon_embryo_val': queryset_list_lisbon_embryo_val,
+        'queryset_list_lisbon_sperm_val': queryset_list_lisbon_sperm_val,
+        'queryset_list_lisbon_icsi_val': queryset_list_lisbon_icsi_val,
+        'queryset_list_lisbon_iui_val': queryset_list_lisbon_iui_val,
+        }
+    return render(request, 'main/Locations/PTLocations/pt-regions-ivf.html', context)
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+
+def locationsLVRegions(request):
+    queryset_list_lv = BasicClinic.objects.all().exclude(is_published=False)
+
+    #--------------------------------------------------------------------------
+    queryset_list_riga = queryset_list_lv.filter(clinicRegion__iexact='Riga')
+    my_total_clinic_count_riga = queryset_list_riga.count()
+
+    queryset_list_riga_ivf = queryset_list_riga.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_riga_ivf.items():
+        queryset_list_riga_ivf_val = val
+
+    queryset_list_riga_egg = queryset_list_riga.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_riga_egg.items():
+        queryset_list_riga_egg_val = val
+
+    queryset_list_riga_embryo = queryset_list_riga.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_riga_embryo.items():
+        queryset_list_riga_embryo_val = val
+
+    queryset_list_riga_sperm = queryset_list_riga.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_riga_sperm.items():
+        queryset_list_riga_sperm_val = val
+
+    queryset_list_riga_icsi = queryset_list_riga.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_riga_icsi.items():
+        queryset_list_riga_icsi_val = val
+
+    queryset_list_riga_iui = queryset_list_riga.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_riga_iui.items():
+        queryset_list_riga_iui_val = val
+
+    context = {
+        'year': year,
+
+        'my_total_clinic_count_riga': my_total_clinic_count_riga,
+        'queryset_list_riga_ivf_val': queryset_list_riga_ivf_val,
+        'queryset_list_riga_egg_val': queryset_list_riga_egg_val,
+        'queryset_list_riga_embryo_val': queryset_list_riga_embryo_val,
+        'queryset_list_riga_sperm_val': queryset_list_riga_sperm_val,
+        'queryset_list_riga_icsi_val': queryset_list_riga_icsi_val,
+        'queryset_list_riga_iui_val': queryset_list_riga_iui_val,
+        }
+    return render(request, 'main/Locations/LVLocations/lv-regions-ivf.html', context)
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+
+
 def locationsSPRegions(request):
     queryset_list_sp = BasicClinic.objects.all().exclude(is_published=False)
 

@@ -19,6 +19,18 @@ my_total_count_denmark = BasicClinic.objects.filter(clinicState__iexact='Denmark
 my_total_count_denmark = my_total_count_denmark.filter(is_published=True)
 my_total_count_denmark = my_total_count_denmark.count()
 
+my_total_count_germany = BasicClinic.objects.filter(clinicState__iexact='Germany')
+my_total_count_germany = my_total_count_germany.filter(is_published=True)
+my_total_count_germany = my_total_count_germany.count()
+
+my_total_count_latvia = BasicClinic.objects.filter(clinicState__iexact='Latvia')
+my_total_count_latvia = my_total_count_latvia.filter(is_published=True)
+my_total_count_latvia = my_total_count_latvia.count()
+
+my_total_count_portugal = BasicClinic.objects.filter(clinicState__iexact='Portugal')
+my_total_count_portugal = my_total_count_portugal.filter(is_published=True)
+my_total_count_portugal = my_total_count_portugal.count()
+
 my_total_count_cze = BasicClinic.objects.filter(clinicState__iexact='Czech Republic')
 my_total_count_cze = my_total_count_cze.filter(is_published=True)
 my_total_count_cze = my_total_count_cze.count()
@@ -61,6 +73,9 @@ CATEGORY_CHOICES_STATES_EUROPE = {
     'SP': 'Spain - ' + str(my_total_count_spain) + ' fertility clinics',
     'GR': 'Greece - ' + str(my_total_count_greece) + ' fertility clinics',
     'CY': 'Cyprus - ' + str(my_total_count_cyprus) + ' fertility clinics',
+    'DE': 'Germany - ' + str(my_total_count_germany) + ' fertility clinics',
+    'PT': 'Portugal - ' + str(my_total_count_portugal) + ' fertility clinics',
+    'LV': 'Latvia - ' + str(my_total_count_latvia) + ' fertility clinics',
     }
 
 CATEGORY_CHOICES_STATES_ASIA = {
@@ -77,6 +92,15 @@ my_total_package_count_uk = my_total_package_count_uk.count()
 
 my_total_package_count_denmark = Package.objects.filter(packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
 my_total_package_count_denmark = my_total_package_count_denmark.count()
+
+my_total_package_count_latvia = Package.objects.filter(packageclinic__clinicState__iexact='Latvia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_latvia = my_total_package_count_latvia.count()
+
+my_total_package_count_germany = Package.objects.filter(packageclinic__clinicState__iexact='Germany').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_germany = my_total_package_count_germany.count()
+
+my_total_package_count_portugal = Package.objects.filter(packageclinic__clinicState__iexact='Portugal').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+my_total_package_count_portugal = my_total_package_count_portugal.count()
 
 my_total_package_count_cze = Package.objects.filter(packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
 my_total_package_count_cze = my_total_package_count_cze.count()
@@ -105,13 +129,16 @@ CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA = {
     }
 
 CATEGORY_CHOICES_STATES_PACKAGES_EUROPE = {
-    'UK': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
-    'DK': 'Denmark - ' + str(my_total_package_count_denmark) + ' packages',
+    'CY': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
     'CZ': 'Czech Republic - ' + str(my_total_package_count_cze) + ' packages',
+    'DK': 'Denmark - ' + str(my_total_package_count_denmark) + ' packages',
+    'DE': 'Germany - ' + str(my_total_package_count_germany) + ' packages',
+    'GR': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
+    'LV': 'Latvia - ' + str(my_total_package_count_latvia) + ' packages',
+    'PT': 'Portugal - ' + str(my_total_package_count_portugal) + ' packages',
     'SK': 'Slovakia - ' + str(my_total_package_count_slovakia) + ' packages',
     'SP': 'Spain - ' + str(my_total_package_count_spain) + ' packages',
-    'GR': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
-    'CY': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
+    'UK': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
     }
 
 CATEGORY_CHOICES_STATES_PACKAGES_ASIA = {
@@ -165,6 +192,21 @@ CATEGORY_CHOICES_SP_CITIES = {
     'Seville': 'Seville',
     'Valencia': 'Valencia',
     }
+
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_DE_CITIES = {
+    'Berlin': 'Berlin',
+}
+
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_PT_CITIES = {
+    'Lisbon': 'Lisbon',
+}
+
+#----------------------------------------------------------------------------------------------------------------------------
+CATEGORY_CHOICES_LV_CITIES = {
+    'Riga': 'Riga',
+}
 
 #----------------------------------------------------------------------------------------------------------------------------
 CATEGORY_CHOICES_US_REGION = {

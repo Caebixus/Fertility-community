@@ -262,6 +262,90 @@ def locationsStandardIVF(request):
 
 #-------------------------------------------------------------------------------
 
+    queryset_list_de = queryset_list.filter(clinicState__iexact='Germany')
+    my_total_clinic_count_de = queryset_list_de.count()
+    queryset_list_de_ivf = queryset_list_de.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key, val in queryset_list_de_ivf.items():
+        queryset_list_de_ivf_val = val
+
+    queryset_list_de_egg = queryset_list_de.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key, val in queryset_list_de_egg.items():
+        queryset_list_de_egg_val = val
+
+    queryset_list_de_embryo = queryset_list_de.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key, val in queryset_list_de_embryo.items():
+        queryset_list_de_embryo_val = val
+
+    queryset_list_de_sperm = queryset_list_de.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key, val in queryset_list_de_sperm.items():
+        queryset_list_de_sperm_val = val
+
+    queryset_list_de_icsi = queryset_list_de.aggregate(average=Avg('icsi_treatment_cost'))
+    for key, val in queryset_list_de_icsi.items():
+        queryset_list_de_icsi_val = val
+
+    queryset_list_de_iui = queryset_list_de.aggregate(average=Avg('iui_treatment_cost'))
+    for key, val in queryset_list_de_iui.items():
+        queryset_list_de_iui_val = val
+
+# -------------------------------------------------------------------------------
+
+    queryset_list_pt = queryset_list.filter(clinicState__iexact='Portugal')
+    my_total_clinic_count_pt = queryset_list_pt.count()
+    queryset_list_pt_ivf = queryset_list_pt.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key, val in queryset_list_pt_ivf.items():
+        queryset_list_pt_ivf_val = val
+
+    queryset_list_pt_egg = queryset_list_pt.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key, val in queryset_list_pt_egg.items():
+        queryset_list_pt_egg_val = val
+
+    queryset_list_pt_embryo = queryset_list_pt.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key, val in queryset_list_pt_embryo.items():
+        queryset_list_pt_embryo_val = val
+
+    queryset_list_pt_sperm = queryset_list_pt.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key, val in queryset_list_pt_sperm.items():
+        queryset_list_pt_sperm_val = val
+
+    queryset_list_pt_icsi = queryset_list_pt.aggregate(average=Avg('icsi_treatment_cost'))
+    for key, val in queryset_list_pt_icsi.items():
+        queryset_list_pt_icsi_val = val
+
+    queryset_list_pt_iui = queryset_list_pt.aggregate(average=Avg('iui_treatment_cost'))
+    for key, val in queryset_list_pt_iui.items():
+        queryset_list_pt_iui_val = val
+
+# -------------------------------------------------------------------------------
+
+    queryset_list_lv = queryset_list.filter(clinicState__iexact='Latvia')
+    my_total_clinic_count_lv = queryset_list_lv.count()
+    queryset_list_lv_ivf = queryset_list_lv.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key, val in queryset_list_lv_ivf.items():
+        queryset_list_lv_ivf_val = val
+
+    queryset_list_lv_egg = queryset_list_lv.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key, val in queryset_list_lv_egg.items():
+        queryset_list_lv_egg_val = val
+
+    queryset_list_lv_embryo = queryset_list_lv.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key, val in queryset_list_lv_embryo.items():
+        queryset_list_lv_embryo_val = val
+
+    queryset_list_lv_sperm = queryset_list_lv.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key, val in queryset_list_lv_sperm.items():
+        queryset_list_lv_sperm_val = val
+
+    queryset_list_lv_icsi = queryset_list_lv.aggregate(average=Avg('icsi_treatment_cost'))
+    for key, val in queryset_list_lv_icsi.items():
+        queryset_list_lv_icsi_val = val
+
+    queryset_list_lv_iui = queryset_list_lv.aggregate(average=Avg('iui_treatment_cost'))
+    for key, val in queryset_list_lv_iui.items():
+        queryset_list_lv_iui_val = val
+
+# -------------------------------------------------------------------------------
+
     queryset_list_mx = queryset_list.filter(clinicState__iexact='Mexico')
     my_total_clinic_count_mx = queryset_list_mx.count()
     queryset_list_mx_ivf = queryset_list_mx.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
@@ -363,6 +447,30 @@ def locationsStandardIVF(request):
         'queryset_list_cy_icsi_val': queryset_list_cy_icsi_val,
         'queryset_list_cy_iui_val': queryset_list_cy_iui_val,
 
+        'my_total_clinic_count_de': my_total_clinic_count_de,
+        'queryset_list_de_ivf_val': queryset_list_de_ivf_val,
+        'queryset_list_de_egg_val': queryset_list_de_egg_val,
+        'queryset_list_de_embryo_val': queryset_list_de_embryo_val,
+        'queryset_list_de_sperm_val': queryset_list_de_sperm_val,
+        'queryset_list_de_icsi_val': queryset_list_de_icsi_val,
+        'queryset_list_de_iui_val': queryset_list_de_iui_val,
+
+        'my_total_clinic_count_pt': my_total_clinic_count_pt,
+        'queryset_list_pt_ivf_val': queryset_list_pt_ivf_val,
+        'queryset_list_pt_egg_val': queryset_list_pt_egg_val,
+        'queryset_list_pt_embryo_val': queryset_list_pt_embryo_val,
+        'queryset_list_pt_sperm_val': queryset_list_pt_sperm_val,
+        'queryset_list_pt_icsi_val': queryset_list_pt_icsi_val,
+        'queryset_list_pt_iui_val': queryset_list_pt_iui_val,
+
+        'my_total_clinic_count_lv': my_total_clinic_count_lv,
+        'queryset_list_lv_ivf_val': queryset_list_lv_ivf_val,
+        'queryset_list_lv_egg_val': queryset_list_lv_egg_val,
+        'queryset_list_lv_embryo_val': queryset_list_lv_embryo_val,
+        'queryset_list_lv_sperm_val': queryset_list_lv_sperm_val,
+        'queryset_list_lv_icsi_val': queryset_list_lv_icsi_val,
+        'queryset_list_lv_iui_val': queryset_list_lv_iui_val,
+
         'my_total_clinic_count_mx': my_total_clinic_count_mx,
         'queryset_list_mx_ivf_val': queryset_list_mx_ivf_val,
         'queryset_list_mx_egg_val': queryset_list_mx_egg_val,
@@ -372,7 +480,7 @@ def locationsStandardIVF(request):
         'queryset_list_mx_iui_val': queryset_list_mx_iui_val,
         }
 
-    return render(request, 'main/Locations/locations-standard-ivf.html', context)
+    return render(request, 'main/Locations/Main/locations-standard-ivf.html', context)
 
 
 # --------------------------------------->>>>>>>> Redirects

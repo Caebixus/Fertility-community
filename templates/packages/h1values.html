@@ -326,6 +326,30 @@
   {% elif values.Region == 'Girne'%}
     Search IVF packages & deals in Girne, Cyprus
   {% endif %}
+{% elif values.States == 'LV' %}
+  {% if values.Region == '' %}
+    Search IVF packages & deals in Latvia
+  {% elif values.Region == None %}
+    Search IVF packages & deals in Latvia
+  {% elif values.Region == 'Nicosia' %}
+    Search IVF packages & deals in Riga, Latvia
+  {% endif %}
+{% elif values.States == 'PT' %}
+  {% if values.Region == '' %}
+    Search IVF packages & deals in Portugal
+  {% elif values.Region == None %}
+    Search IVF packages & deals in Portugal
+  {% elif values.Region == 'Nicosia' %}
+    Search IVF packages & deals in Lisbon, Portugal
+  {% endif %}
+{% elif values.States == 'DE' %}
+  {% if values.Region == '' %}
+    Search IVF packages & deals in Germany
+  {% elif values.Region == None %}
+    Search IVF packages & deals in Germany
+  {% elif values.Region == 'Nicosia' %}
+    Search IVF packages & deals in Berlin, Germany
+  {% endif %}
 {% elif values.States == 'MX' %}
   {% if values.Region == '' %}
     Search IVF packages & deals in Mexico

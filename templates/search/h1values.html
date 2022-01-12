@@ -326,6 +326,14 @@
   {% elif values.Region == 'Girne'%}
     Search fertility clinics & agencies in Girne, Cyprus
   {% endif %}
+{% elif values.States == 'DE' %}
+  {% if values.Region == '' %}
+    Search fertility clinics & agencies in Germany
+  {% elif values.Region == None %}
+    Search fertility clinics & agencies in Germany
+  {% elif values.Region == 'Berlin' %}
+    Search fertility clinics & agencies in Berlin, Germany
+  {% endif %}
 {% elif values.States == 'MX' %}
   {% if values.Region == '' %}
     Search fertility clinics & agencies in Mexico

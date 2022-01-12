@@ -103,6 +103,15 @@ urlpatterns = [
     path('fertility-clinics/cyprus/nicosia', views.fertilityClinicsNicosia, name='fertilityClinicsNicosia'),
     path('fertility-clinics/cyprus/girne', views.fertilityClinicsGirne, name='fertilityClinicsGirne'),
 
+    # Germany
+    path('fertility-clinics/germany/berlin', views.fertilityClinicBerlin, name='fertilityClinicBerlin'),
+
+    # Portugal
+    path('fertility-clinics/portugal/lisbon', views.fertilityClinicLisbon, name='fertilityClinicLisbon'),
+
+    # Latvia
+    path('fertility-clinics/latvia/riga', views.fertilityClinicRiga, name='fertilityClinicRiga'),
+
     # Mexico
     path('fertility-clinics/mexico/cancun', views.fertilityClinicsCancun, name='fertilityClinicsCancun'),
     path('fertility-clinics/mexico/mexico-city', views.fertilityClinicsMexicoCity, name='fertilityClinicsMexicoCity'),

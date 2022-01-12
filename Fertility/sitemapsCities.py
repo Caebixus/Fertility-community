@@ -18,6 +18,12 @@ class CitiesViewSitemap(sitemaps.Sitemap):
 
         'fertilityClinicCopenhagen',
 
+        'fertilityClinicRiga',
+
+        'fertilityClinicBerlin',
+
+        'fertilityClinicLisbon',
+
         'fertilityClinicsAberdeen',
         'fertilityClinicsBath',
         'fertilityClinicsBelfast',

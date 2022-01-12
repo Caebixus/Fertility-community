@@ -166,6 +166,45 @@
                 </div>
               </div>
             </div>
+            {% elif values.States == 'DE' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select German city</option>
+                    {% for key, value in CATEGORY_CHOICES_DE_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'LV' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Latvian city</option>
+                    {% for key, value in CATEGORY_CHOICES_LV_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'PT' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Portuguese city</option>
+                    {% for key, value in CATEGORY_CHOICES_PT_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
             {% elif values.States == 'MX' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
@@ -247,7 +286,7 @@
 <div class="container py-3">
   <div class="row">
     <div class="col-8">
-      <p>Currently listed <b>{{ count }}</b> out of <b>{{countall}}</b> active packages.</p>
+      <p>Currently showing <b>{{ count }}</b> out of <b>{{countall}}</b> active packages.</p>
     </div>
     <div class="col-4">
       <select class="form-control" id="ChooseCurrency">

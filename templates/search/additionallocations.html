@@ -238,6 +238,63 @@
     </div>
   </div>
 </div>
+{% elif values.States == 'DE' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Germany</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicBerlin' %}">Berlin IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsDERegions' %}"><u>IVF and Fertility centers in Germany</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+    </div>
+  </div>
+</div>
+{% elif values.States == 'LV' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Latvia</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicRiga' %}">Riga IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsLVRegions' %}"><u>IVF and Fertility centers in Latvia</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+    </div>
+  </div>
+</div>
+{% elif values.States == 'PT' %}
+<div class="container" id="locationsReferer">
+  <hr>
+  <br>
+  <h2><i class="far fa-flag"></i> Specific fertility clinics locations in Portugal</h2>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md">
+      <h4>Popular cities:</h4>
+      <ul class="list-unstyled text-small">
+        <li><a href="{% url 'fertilityClinicLisbon' %}">Lisbon IVF clinics</a></li>
+        <br>
+        <li><a href="{% url 'locationsPTRegions' %}"><u>IVF and Fertility centers in Portugal</u></a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+    </div>
+  </div>
+</div>
 {% elif values.States == 'MX' %}
 <div class="container" id="locationsReferer">
   <hr>

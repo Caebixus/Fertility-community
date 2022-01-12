@@ -27,7 +27,7 @@
     <h1 class="display-5" style="padding-top:3rem; padding-bottom:1rem; color:white">
           Compare {{ my_total_count }} fertility clinics in Copenhagen
     </h1>
-    <p style="font-size: 18px; color: white !important">The fertility clinics in Denmark offer In Vitro Fertilization (IVF), blastocyst embryo transfers, embryo freezing, embryo donation, egg donation, assisted hatching, intracytoplasmic sperm injection, donor insemination, gestational surrogacy and other infertility treatment options. </p>
+    <p style="font-size: 18px; color: white !important">The fertility clinics in Copenhagen (Denmark) offer In Vitro Fertilization (IVF), blastocyst embryo transfers, embryo freezing, embryo donation, egg donation, assisted hatching, intracytoplasmic sperm injection, donor insemination, gestational surrogacy and other infertility treatment options. </p>
   </div>
 
   <!-- Filter section -->
@@ -59,7 +59,7 @@
                   <div class="card-header" style="background-color: white; border-radius: 8px;">
                     <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
                       <option value="Copenhagen" selected>Copenhagen</option>
-                      {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
+                      {% for key, value in CATEGORY_CHOICES_DK_CITIES.items %}
                       <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
                       {% endfor %}
                     </select>

@@ -14,7 +14,7 @@ from clinic.models import BasicClinic
 from .models import Package
 from datetime import datetime, timedelta
 from django.utils import timezone
-from search.choices import CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, CATEGORY_CHOICES_STATES_PACKAGES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_MX_CITIES, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SK_CITIES, CATEGORY_CHOICES_DK_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, AL_CITIES, AZ_CITIES, CA_CITIES, CO_CITIES, CT_CITIES, DE_CITIES, FL_CITIES, GA_CITIES, HI_CITIES, IL_CITIES, IN_CITIES, KY_CITIES, LA_CITIES, ME_CITIES, MA_CITIES, MO_CITIES, NV_CITIES, NJ_CITIES, NY_CITIES, NC_CITIES, OH_CITIES, OK_CITIES, OR_CITIES, PA_CITIES, TN_CITIES, TX_CITIES, VA_CITIES, WA_CITIES
+from search.choices import CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, CATEGORY_CHOICES_STATES_PACKAGES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_MX_CITIES, CATEGORY_CHOICES_UK_CITIES, CATEGORY_CHOICES_CZ_CITIES, CATEGORY_CHOICES_SK_CITIES, CATEGORY_CHOICES_DK_CITIES, CATEGORY_CHOICES_SP_CITIES, CATEGORY_CHOICES_IN_CITIES, CATEGORY_CHOICES_GR_CITIES, CATEGORY_CHOICES_CY_CITIES, CATEGORY_CHOICES_DE_CITIES, CATEGORY_CHOICES_LV_CITIES, CATEGORY_CHOICES_PT_CITIES, AL_CITIES, AZ_CITIES, CA_CITIES, CO_CITIES, CT_CITIES, DE_CITIES, FL_CITIES, GA_CITIES, HI_CITIES, IL_CITIES, IN_CITIES, KY_CITIES, LA_CITIES, ME_CITIES, MA_CITIES, MO_CITIES, NV_CITIES, NJ_CITIES, NY_CITIES, NC_CITIES, OH_CITIES, OK_CITIES, OR_CITIES, PA_CITIES, TN_CITIES, TX_CITIES, VA_CITIES, WA_CITIES
 
 
 def packages2(request):
@@ -14556,17 +14556,19 @@ def packagesearch(request):
 
                 return render(request, 'packages/package-search.html', context)
         elif states == 'CZ':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
             if 'Region' in request.GET:
                 region = request.GET['Region']
                 if region == 'Prague':
+                    prolisting = prolisting.filter(packageclinic__clinicRegion__iexact='Prague')
+                    ppqlisting = ppqlisting.filter(packageclinic__clinicRegion__iexact='Prague')
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
 
                             listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14585,8 +14587,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14605,8 +14607,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14625,8 +14627,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14645,8 +14647,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14665,8 +14667,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14685,8 +14687,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14705,8 +14705,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Prague').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -14724,14 +14722,16 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Brno':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
 
                             listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14750,8 +14750,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14770,8 +14770,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14790,8 +14790,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14810,8 +14810,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14830,8 +14830,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14850,8 +14850,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14870,8 +14868,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Brno').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -14889,14 +14885,13 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 else:
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
 
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14915,8 +14910,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14935,8 +14930,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14955,8 +14950,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14975,8 +14970,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -14995,8 +14990,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15015,8 +15010,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15035,8 +15028,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -15054,13 +15045,13 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
             elif 'packages' in request.GET:
+                prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                 packages = request.GET['packages']
                 if packages == 'Allpackagestrue':
                     todayDate = timezone.now()
 
                     listing = Package.objects.all()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15079,8 +15070,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'NaturalIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15099,8 +15090,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'MildMiniIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15119,8 +15110,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'StandardIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15139,8 +15130,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Eggdonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15159,8 +15150,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Embryodonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15179,8 +15170,6 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 else:
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -15199,8 +15188,6 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
             else:
                 todayDate = timezone.now()
-                prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Czech Republic').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -15716,17 +15703,17 @@ def packagesearch(request):
 
                 return render(request, 'packages/package-search.html', context)
         elif states == 'DK':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
             if 'Region' in request.GET:
                 region = request.GET['Region']
                 if region == 'Copenhagen':
+                    prolisting = prolisting.filter(packageclinic__clinicRegion__iexact='Copenhagen')
+                    ppqlisting = ppqlisting.filter(packageclinic__clinicRegion__iexact='Copenhagen')
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15745,8 +15732,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15765,8 +15752,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15785,8 +15772,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15805,8 +15792,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15825,8 +15812,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15845,8 +15832,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15865,8 +15850,970 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Copenhagen').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+
+                else:
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+            elif 'packages' in request.GET:
+                packages = request.GET['packages']
+                if packages == 'Allpackagestrue':
+                    todayDate = timezone.now()
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'NaturalIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'MildMiniIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'StandardIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Eggdonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Embryodonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                else:
+                    todayDate = timezone.now()
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+            else:
+                todayDate = timezone.now()
+                count = prolisting.count() + ppqlisting.count()
+
+                prolisting = prolisting.order_by('package_end_list_date')
+                ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                order_data = list(ppqlisting) + list(prolisting)
+
+                paginator = Paginator(order_data, 50)
+                page = request.GET.get('page')
+                paginationing = paginator.get_page(page)
+
+                context = {
+                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                }
+
+                return render(request, 'packages/package-search.html', context)
+        elif states == 'DE':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Germany').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Germany').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            if 'Region' in request.GET:
+                region = request.GET['Region']
+                if region == 'Berlin':
+                    prolisting = prolisting.filter(packageclinic__clinicRegion__iexact='Berlin')
+                    ppqlisting = ppqlisting.filter(packageclinic__clinicRegion__iexact='Berlin')
+                    count = prolisting.count() + ppqlisting.count()
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+
+                else:
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+            elif 'packages' in request.GET:
+                packages = request.GET['packages']
+                if packages == 'Allpackagestrue':
+                    todayDate = timezone.now()
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'NaturalIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'MildMiniIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'StandardIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Eggdonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Embryodonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                else:
+                    todayDate = timezone.now()
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+            else:
+                todayDate = timezone.now()
+                count = prolisting.count() + ppqlisting.count()
+
+                prolisting = prolisting.order_by('package_end_list_date')
+                ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                order_data = list(ppqlisting) + list(prolisting)
+
+                paginator = Paginator(order_data, 50)
+                page = request.GET.get('page')
+                paginationing = paginator.get_page(page)
+
+                context = {
+                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                }
+
+                return render(request, 'packages/package-search.html', context)
+        elif states == 'LV':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Latvia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Latvia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            if 'Region' in request.GET:
+                region = request.GET['Region']
+                if region == 'Riga':
+                    prolisting = prolisting.filter(packageclinic__clinicRegion__iexact='Riga')
+                    ppqlisting = ppqlisting.filter(packageclinic__clinicRegion__iexact='Riga')
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -15890,9 +16837,8 @@ def packagesearch(request):
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
 
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15911,8 +16857,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15931,8 +16877,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15951,8 +16897,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15971,8 +16917,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -15991,8 +16937,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16011,8 +16957,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16031,8 +16977,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -16054,9 +17000,6 @@ def packagesearch(request):
                 if packages == 'Allpackagestrue':
                     todayDate = timezone.now()
 
-                    listing = Package.objects.all()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16075,8 +17018,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'NaturalIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16095,8 +17038,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'MildMiniIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16115,8 +17058,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'StandardIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16135,8 +17078,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Eggdonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16155,8 +17098,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Embryodonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filtre(packagecategory = 'Embryo donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16175,8 +17118,6 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 else:
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -16195,8 +17136,499 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
             else:
                 todayDate = timezone.now()
-                prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Denmark').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                count = prolisting.count() + ppqlisting.count()
+
+                prolisting = prolisting.order_by('package_end_list_date')
+                ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                order_data = list(ppqlisting) + list(prolisting)
+
+                paginator = Paginator(order_data, 50)
+                page = request.GET.get('page')
+                paginationing = paginator.get_page(page)
+
+                context = {
+                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                }
+
+                return render(request, 'packages/package-search.html', context)
+        elif states == 'PT':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Portugal').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Portugal').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            if 'Region' in request.GET:
+                region = request.GET['Region']
+                if region == 'Lisbon':
+                    prolisting = prolisting.filter(packageclinic__clinicRegion__iexact='Lisbon')
+                    ppqlisting = ppqlisting.filter(packageclinic__clinicRegion__iexact='Lisbon')
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+
+                else:
+                    if 'packages' in request.GET:
+                        packages = request.GET['packages']
+                        if packages == 'Allpackagestrue':
+                            todayDate = timezone.now()
+
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'NaturalIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'MildMiniIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'StandardIVFpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Eggdonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        elif packages == 'Embryodonationpackages':
+                            todayDate = timezone.now()
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                        else:
+                            todayDate = timezone.now()
+                            prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            count = prolisting.count() + ppqlisting.count()
+
+                            prolisting = prolisting.order_by('package_end_list_date')
+                            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                            order_data = list(ppqlisting) + list(prolisting)
+
+                            paginator = Paginator(order_data, 50)
+                            page = request.GET.get('page')
+                            paginationing = paginator.get_page(page)
+
+                            context = {
+                                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                            }
+
+                            return render(request, 'packages/package-search.html', context)
+                    else:
+                        todayDate = timezone.now()
+                        prolisting = prolisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        ppqlisting = ppqlisting.exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                        count = prolisting.count() + ppqlisting.count()
+
+                        prolisting = prolisting.order_by('package_end_list_date')
+                        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                        order_data = list(ppqlisting) + list(prolisting)
+
+                        paginator = Paginator(order_data, 50)
+                        page = request.GET.get('page')
+                        paginationing = paginator.get_page(page)
+
+                        context = {
+                            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                        }
+
+                        return render(request, 'packages/package-search.html', context)
+            elif 'packages' in request.GET:
+                packages = request.GET['packages']
+                if packages == 'Allpackagestrue':
+                    todayDate = timezone.now()
+
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'NaturalIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'MildMiniIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'StandardIVFpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Eggdonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                elif packages == 'Embryodonationpackages':
+                    todayDate = timezone.now()
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filtre(packagecategory = 'Embryo donation packages')
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+                else:
+                    todayDate = timezone.now()
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET,
+                    }
+
+                    return render(request, 'packages/package-search.html', context)
+            else:
+                todayDate = timezone.now()
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -16214,17 +17646,18 @@ def packagesearch(request):
 
                 return render(request, 'packages/package-search.html', context)
         elif states == 'SP':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
             if 'Region' in request.GET:
                 region = request.GET['Region']
                 if region == 'Alicante':
+                    prolisting = Package.objects.filter(packageclinic__clinicRegion__iexact='Alicante')
+                    ppqlisting = Package.objects.filter(packageclinic__clinicRegion__iexact='Alicante')
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
 
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16243,8 +17676,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16263,8 +17696,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16283,8 +17716,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16303,8 +17736,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16323,8 +17756,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16343,8 +17776,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16363,8 +17794,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Alicante').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -16382,14 +17811,12 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Barcelona':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16408,8 +17835,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16428,8 +17855,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16448,8 +17875,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16468,8 +17895,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16488,8 +17915,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16508,8 +17935,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16528,8 +17953,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Barcelona').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -16547,14 +17970,12 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Madrid':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16573,8 +17994,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16593,8 +18014,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16613,8 +18034,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16633,8 +18054,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16653,8 +18074,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16673,8 +18094,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16693,8 +18112,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Madrid').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -16712,14 +18129,12 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Malaga':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16738,8 +18153,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16758,8 +18173,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16778,8 +18193,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16798,8 +18213,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16818,8 +18233,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16838,8 +18253,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16858,8 +18271,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Malaga').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -16877,14 +18288,12 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Seville':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16903,8 +18312,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16923,8 +18332,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16943,8 +18352,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16963,8 +18372,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -16983,8 +18392,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17003,8 +18412,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17023,8 +18430,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Seville').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -17042,14 +18447,12 @@ def packagesearch(request):
 
                         return render(request, 'packages/package-search.html', context)
                 elif region == 'Valencia':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     if 'packages' in request.GET:
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17068,8 +18471,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17088,8 +18491,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17108,8 +18511,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17128,8 +18531,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17148,8 +18551,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17168,8 +18571,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17188,8 +18589,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicRegion__iexact='Valencia').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -17211,10 +18610,6 @@ def packagesearch(request):
                         packages = request.GET['packages']
                         if packages == 'Allpackagestrue':
                             todayDate = timezone.now()
-
-                            listing = Package.objects.all()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17233,8 +18628,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'NaturalIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17253,8 +18648,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'MildMiniIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17273,8 +18668,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'StandardIVFpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17293,8 +18688,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Eggdonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17313,8 +18708,8 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         elif packages == 'Embryodonationpackages':
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                            prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                            ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17333,8 +18728,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                         else:
                             todayDate = timezone.now()
-                            prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                             count = prolisting.count() + ppqlisting.count()
 
                             prolisting = prolisting.order_by('package_end_list_date')
@@ -17353,8 +18746,6 @@ def packagesearch(request):
                             return render(request, 'packages/package-search.html', context)
                     else:
                         todayDate = timezone.now()
-                        prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                         count = prolisting.count() + ppqlisting.count()
 
                         prolisting = prolisting.order_by('package_end_list_date')
@@ -17375,10 +18766,6 @@ def packagesearch(request):
                 packages = request.GET['packages']
                 if packages == 'Allpackagestrue':
                     todayDate = timezone.now()
-
-                    listing = Package.objects.all()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17397,8 +18784,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'NaturalIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Natural IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Natural IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Natural IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17417,8 +18804,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'MildMiniIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Mild (Mini) IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Mild (Mini) IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Mild (Mini) IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17437,8 +18824,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'StandardIVFpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Standard IVF packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Standard IVF packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Standard IVF packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17457,8 +18844,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Eggdonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Egg donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Egg donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Egg donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17477,8 +18864,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 elif packages == 'Embryodonationpackages':
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain', packagecategory = 'Embryo donation packages').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+                    prolisting = prolisting.filter(packagecategory = 'Embryo donation packages')
+                    ppqlisting = ppqlisting.filter(packagecategory = 'Embryo donation packages')
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17497,8 +18884,6 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
                 else:
                     todayDate = timezone.now()
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -17517,8 +18902,6 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
             else:
                 todayDate = timezone.now()
-                prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False, packageclinic__clinicState__iexact='Spain').exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')

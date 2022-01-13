@@ -124,25 +124,25 @@ my_total_package_count_mexico = Package.objects.filter(packageclinic__clinicStat
 my_total_package_count_mexico = my_total_package_count_mexico.count()
 
 CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA = {
-    'US': 'United States - ' + str(my_total_package_count_usa) + ' packages',
-    'MX': 'Mexico - ' + str(my_total_package_count_mexico) + ' packages',
+    'United': 'United States - ' + str(my_total_package_count_usa) + ' packages',
+    'Mexico': 'Mexico - ' + str(my_total_package_count_mexico) + ' packages',
     }
 
 CATEGORY_CHOICES_STATES_PACKAGES_EUROPE = {
-    'CY': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
-    'CZ': 'Czech Republic - ' + str(my_total_package_count_cze) + ' packages',
-    'DK': 'Denmark - ' + str(my_total_package_count_denmark) + ' packages',
-    'DE': 'Germany - ' + str(my_total_package_count_germany) + ' packages',
-    'GR': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
-    'LV': 'Latvia - ' + str(my_total_package_count_latvia) + ' packages',
-    'PT': 'Portugal - ' + str(my_total_package_count_portugal) + ' packages',
-    'SK': 'Slovakia - ' + str(my_total_package_count_slovakia) + ' packages',
-    'SP': 'Spain - ' + str(my_total_package_count_spain) + ' packages',
-    'UK': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
+    'Cyprus': 'Cyprus - ' + str(my_total_package_count_cyprus) + ' packages',
+    'Czech Republic': 'Czech Republic - ' + str(my_total_package_count_cze) + ' packages',
+    'Denmark': 'Denmark - ' + str(my_total_package_count_denmark) + ' packages',
+    'Germany': 'Germany - ' + str(my_total_package_count_germany) + ' packages',
+    'Greece': 'Greece - ' + str(my_total_package_count_greece) + ' packages',
+    'Latvia': 'Latvia - ' + str(my_total_package_count_latvia) + ' packages',
+    'Portugal': 'Portugal - ' + str(my_total_package_count_portugal) + ' packages',
+    'Slovakia': 'Slovakia - ' + str(my_total_package_count_slovakia) + ' packages',
+    'Spain': 'Spain - ' + str(my_total_package_count_spain) + ' packages',
+    'United Kingdom': 'United Kingdom - ' + str(my_total_package_count_uk) + ' packages',
     }
 
 CATEGORY_CHOICES_STATES_PACKAGES_ASIA = {
-    'IN': 'India - ' + str(my_total_package_count_india) + ' packages',
+    'India': 'India - ' + str(my_total_package_count_india) + ' packages',
     }
 
 #----------------------------------------------------------------------------------------------------------------------------

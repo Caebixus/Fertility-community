@@ -25,7 +25,7 @@
       <div class="searchBox">
         <div class="mainbanner" id="mainhpbanner">
           <form action="{% url 'packagesearch' %}">
-            <div class="form-group" style="padding-top:3rem">
+            <div {% if search_origin_version == False %}hidden {% endif %}class="form-group" style="padding-top:3rem">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
@@ -49,7 +49,7 @@
                 </div>
               </div>
             </div>
-            {% if values.States == 'US' %}
+            {% if values.States == 'United States' %}
             <div class="form-group" style="padding-top:1rem" id="regions-us">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'UK' %}
+            {% elif values.States == 'United Kingdom' %}
             <div class="form-group" style="padding-top:1rem" id="regions-uk">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -75,7 +75,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'CZ' %}
+            {% elif values.States == 'Czech Republic' %}
             <div class="form-group" style="padding-top:1rem" id="regions-cz">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'SK' %}
+            {% elif values.States == 'Slovakia' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sk">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -101,7 +101,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'DK' %}
+            {% elif values.States == 'Denmark' %}
             <div class="form-group" style="padding-top:1rem" id="regions-dk">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'SP' %}
+            {% elif values.States == 'Spain' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -127,7 +127,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'IN' %}
+            {% elif values.States == 'India' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -140,7 +140,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'GR' %}
+            {% elif values.States == 'Greece' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -153,7 +153,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'CY' %}
+            {% elif values.States == 'Cyprus' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -166,7 +166,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'DE' %}
+            {% elif values.States == 'Germany' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -179,7 +179,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'LV' %}
+            {% elif values.States == 'Latvia' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -192,7 +192,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'PT' %}
+            {% elif values.States == 'Portugal' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -205,7 +205,7 @@
                 </div>
               </div>
             </div>
-            {% elif values.States == 'MX' %}
+            {% elif values.States == 'Mexico' %}
             <div class="form-group" style="padding-top:1rem" id="regions-sp">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -227,12 +227,12 @@
                     <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       {% if values.packages == None %}Types of packages
                       {% elif values.packages == '' %}Types of packages
-                      {% elif values.packages == 'Allpackagestrue' %}All packages
-                      {% elif values.packages == 'NaturalIVFpackages' %}Natural IVF packages
-                      {% elif values.packages == 'MildMiniIVFpackages' %}Mild (mini) IVF packages
-                      {% elif values.packages == 'StandardIVFpackages' %}Standard IVF packages
-                      {% elif values.packages == 'Eggdonationpackages' %}Egg donation packages
-                      {% elif values.packages == 'Embryodonationpackages' %}Embryo donation packages
+                      {% elif values.packages == 'All packages' %}All packages
+                      {% elif values.packages == 'Natural IVF packages' %}Natural IVF packages
+                      {% elif values.packages == 'Mild (mini) IVF packages' %}Mild (mini) IVF packages
+                      {% elif values.packages == 'Standard IVF packages' %}Standard IVF packages
+                      {% elif values.packages == 'Egg donation packages' %}Egg donation packages
+                      {% elif values.packages == 'Embryo donation packages' %}Embryo donation packages
                       {% endif %}
                   </div>
                   <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -240,30 +240,30 @@
                       <div class="row">
                         <div class="col">
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="All packages" value="Allpackagestrue" name="packages" {% if values.packages == 'Allpackagestrue' %}checked{% elif values.packages == None %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="All packages" value="All packages" name="packages" {% if values.packages == 'All packages' %}checked{% elif values.packages == None %}checked{% endif %}>
                             <label class="form-check-label" for="All treatment">All packages</label>
                           </div>
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Natural IVF packages" value="NaturalIVFpackages" name="packages" {% if values.packages == 'NaturalIVFpackages' %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="Natural IVF packages" value="Natural IVF packages" name="packages" {% if values.packages == 'Natural IVF packages' %}checked{% endif %}>
                             <label class="form-check-label" for="IVF treatment">Natural IVF packages</label>
                           </div>
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Mild (Mini) IVF packages" value="MildMiniIVFpackages" name="packages" {% if values.packages == 'MildMiniIVFpackages' %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="Mild (Mini) IVF packages" value="Mild (mini) IVF packages" name="packages" {% if values.packages == 'Mild (mini) IVF packages' %}checked{% endif %}>
                             <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF packages</label>
                           </div>
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Standard IVF packages" value="StandardIVFpackages" name="packages" {% if values.packages == 'StandardIVFpackages' %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="Standard IVF packages" value="Standard IVF packages" name="packages" {% if values.packages == 'Standard IVF packages' %}checked{% endif %}>
                             <label class="form-check-label" for="IVF treatment ovarian">Standard IVF packages</label>
                           </div>
                         </div>
 
                         <div class="col">
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Egg donation packages" value="Eggdonationpackages" name="packages" {% if values.packages == 'Eggdonationpackages' %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="Egg donation packages" value="Egg donation packages" name="packages" {% if values.packages == 'Egg donation packages' %}checked{% endif %}>
                             <label class="form-check-label" for="Egg freezing">Egg donation packages</label>
                           </div>
                           <div class="form-group form-check">
-                            <input type="radio" class="form-check-input" id="Embryo donation packages" value="Embryodonationpackages" name="packages" {% if values.packages == 'Embryodonationpackages' %}checked{% endif %}>
+                            <input type="radio" class="form-check-input" id="Embryo donation packages" value="Embryo donation packages" name="packages" {% if values.packages == 'Embryo donation packages' %}checked{% endif %}>
                             <label class="form-check-label" for="Embryo freezing">Embryo donation packages</label>
                           </div>
                         </div>
@@ -277,6 +277,50 @@
               <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search packages</button>
             </div>
           </form>
+          <div {% if search_origin_version == True %}hidden {% endif %}>
+            <hr noshade style="border-top: 1px solid white">
+            <form action="{% url 'packagesearch' %}">
+              <div class="mainbanner" id="mainhpbanner">
+                <h5 class="mb-0 text-left" id="headingOne">
+                  <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-filter"></i> Change country
+                  </button>
+                </h5>
+                <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                    <br>
+                    <div class="form-group" style="padding-top:3rem">
+                      <div class="card" style="border-radius: 8px;">
+                        <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                          <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                            <option value="" selected>Select state</option>
+                            <optgroup label="North America">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                            <optgroup label="Europe">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_EUROPE.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                            <optgroup label="Asia">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_ASIA.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:3rem">
+                      <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"> Change Country</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

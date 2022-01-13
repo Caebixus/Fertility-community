@@ -22,19 +22,41 @@ def packagesearch(request):
     allpackages = 'All packages'
 
     values = request.GET
-    if ("States", "Region", "packages") in values.items():
+    if "States" or "Region" or "packages" in values.keys():
         search_origin_version = True
     else:
         search_origin_version = False
 
-    if 'States' in request.GET:
+    states = 'empty'
+    region = 'empty'
+    packages = 'empty'
+
+    if 'States' in values.keys():
         states = request.GET['States']
+        if states == None or states == '':
+            states = 'empty'
+    else:
+        states = 'empty'
 
-        if 'Region' in request.GET:
-            region = request.GET['Region']
+    if 'Region' in values.keys():
+        region = request.GET['Region']
+        if region == None or region == '':
+            region = 'empty'
+    else:
+        region = 'empty'
 
-            if 'packages' in request.GET:
-                packages = request.GET['packages']
+    if 'packages' in values.keys():
+        packages = request.GET['packages']
+        if packages == None or packages == '':
+            packages = 'empty'
+    else:
+        packages = 'empty'
+
+    if states != 'empty':
+
+        if region != 'empty':
+
+            if packages != 'empty':
                 if packages == allpackages:
                     prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
                     ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
@@ -52,12 +74,11 @@ def packagesearch(request):
                     context = {
                         'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
                     }
-
                     return render(request, 'packages/package-search.html', context)
 
-                else:
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region, packagecategory=packages)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region, packagecategory=packages)
+                elif packages != 'empty':
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -72,7 +93,25 @@ def packagesearch(request):
                     context = {
                         'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
                     }
+                    return render(request, 'packages/package-search.html', context)
 
+                else:
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+                    count = prolisting.count() + ppqlisting.count()
+
+                    prolisting = prolisting.order_by('package_end_list_date')
+                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+                    order_data = list(ppqlisting) + list(prolisting)
+
+                    paginator = Paginator(order_data, 50)
+                    page = request.GET.get('page')
+                    paginationing = paginator.get_page(page)
+
+                    context = {
+                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+                    }
                     return render(request, 'packages/package-search.html', context)
 
             else:
@@ -96,48 +135,44 @@ def packagesearch(request):
                 return render(request, 'packages/package-search.html', context)
 
         else:
-            if 'packages' in request.GET:
-                packages = request.GET['packages']
-                if packages == allpackages:
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
-                    count = prolisting.count() + ppqlisting.count()
+            if packages == allpackages:
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
+                count = prolisting.count() + ppqlisting.count()
 
-                    prolisting = prolisting.order_by('package_end_list_date')
-                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+                prolisting = prolisting.order_by('package_end_list_date')
+                ppqlisting = ppqlisting.order_by('package_end_list_date')
 
-                    order_data = list(ppqlisting) + list(prolisting)
+                order_data = list(ppqlisting) + list(prolisting)
 
-                    paginator = Paginator(order_data, 50)
-                    page = request.GET.get('page')
-                    paginationing = paginator.get_page(page)
+                paginator = Paginator(order_data, 50)
+                page = request.GET.get('page')
+                paginationing = paginator.get_page(page)
 
-                    context = {
-                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
-                    }
+                context = {
+                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+                }
+                return render(request, 'packages/package-search.html', context)
 
-                    return render(request, 'packages/package-search.html', context)
 
-                else:
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
-                    count = prolisting.count() + ppqlisting.count()
+            elif packages != 'empty':
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
+                count = prolisting.count() + ppqlisting.count()
 
-                    prolisting = prolisting.order_by('package_end_list_date')
-                    ppqlisting = ppqlisting.order_by('package_end_list_date')
+                prolisting = prolisting.order_by('package_end_list_date')
+                ppqlisting = ppqlisting.order_by('package_end_list_date')
 
-                    order_data = list(ppqlisting) + list(prolisting)
+                order_data = list(ppqlisting) + list(prolisting)
 
-                    paginator = Paginator(order_data, 50)
-                    page = request.GET.get('page')
-                    paginationing = paginator.get_page(page)
+                paginator = Paginator(order_data, 50)
+                page = request.GET.get('page')
+                paginationing = paginator.get_page(page)
 
-                    context = {
-                        'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
-                    }
-
-                    return render(request, 'packages/package-search.html', context)
-
+                context = {
+                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+                }
+                return render(request, 'packages/package-search.html', context)
 
             else:
                 prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
@@ -156,51 +191,65 @@ def packagesearch(request):
                 context = {
                     'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
                 }
-
                 return render(request, 'packages/package-search.html', context)
+
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
+            count = prolisting.count() + ppqlisting.count()
+
+            prolisting = prolisting.order_by('package_end_list_date')
+            ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+            order_data = list(ppqlisting) + list(prolisting)
+
+            paginator = Paginator(order_data, 50)
+            page = request.GET.get('page')
+            paginationing = paginator.get_page(page)
+
+            context = {
+                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+            }
+
+            return render(request, 'packages/package-search.html', context)
 
     else:
-        if 'packages' in request.GET:
-            packages = request.GET['packages']
-            if packages == allpackages:
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
-                count = prolisting.count() + ppqlisting.count()
+        if packages == allpackages:
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+            count = prolisting.count() + ppqlisting.count()
 
-                prolisting = prolisting.order_by('package_end_list_date')
-                ppqlisting = ppqlisting.order_by('package_end_list_date')
+            prolisting = prolisting.order_by('package_end_list_date')
+            ppqlisting = ppqlisting.order_by('package_end_list_date')
 
-                order_data = list(ppqlisting) + list(prolisting)
+            order_data = list(ppqlisting) + list(prolisting)
 
-                paginator = Paginator(order_data, 50)
-                page = request.GET.get('page')
-                paginationing = paginator.get_page(page)
+            paginator = Paginator(order_data, 50)
+            page = request.GET.get('page')
+            paginationing = paginator.get_page(page)
 
-                context = {
-                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
-                }
+            context = {
+                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+            }
+            return render(request, 'packages/package-search.html', context)
 
-                return render(request, 'packages/package-search.html', context)
+        elif packages != 'empty':
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
+            count = prolisting.count() + ppqlisting.count()
 
-            else:
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
-                count = prolisting.count() + ppqlisting.count()
+            prolisting = prolisting.order_by('package_end_list_date')
+            ppqlisting = ppqlisting.order_by('package_end_list_date')
 
-                prolisting = prolisting.order_by('package_end_list_date')
-                ppqlisting = ppqlisting.order_by('package_end_list_date')
+            order_data = list(ppqlisting) + list(prolisting)
 
-                order_data = list(ppqlisting) + list(prolisting)
+            paginator = Paginator(order_data, 50)
+            page = request.GET.get('page')
+            paginationing = paginator.get_page(page)
 
-                paginator = Paginator(order_data, 50)
-                page = request.GET.get('page')
-                paginationing = paginator.get_page(page)
-
-                context = {
-                    'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
-                }
-
-                return render(request, 'packages/package-search.html', context)
+            context = {
+                'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+            }
+            return render(request, 'packages/package-search.html', context)
 
         else:
             prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
@@ -219,5 +268,23 @@ def packagesearch(request):
             context = {
                 'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
             }
-
             return render(request, 'packages/package-search.html', context)
+
+        prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
+        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+        count = prolisting.count() + ppqlisting.count()
+
+        prolisting = prolisting.order_by('package_end_list_date')
+        ppqlisting = ppqlisting.order_by('package_end_list_date')
+
+        order_data = list(ppqlisting) + list(prolisting)
+
+        paginator = Paginator(order_data, 50)
+        page = request.GET.get('page')
+        paginationing = paginator.get_page(page)
+
+        context = {
+            'count': count, 'countall': countall, 'order_data': paginationing, 'paginationing': paginationing, 'blog': blog, 'CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_PACKAGES_EUROPE': CATEGORY_CHOICES_STATES_PACKAGES_EUROPE, 'CATEGORY_CHOICES_STATES_PACKAGES_ASIA': CATEGORY_CHOICES_STATES_PACKAGES_ASIA, 'CATEGORY_CHOICES_US_REGION': CATEGORY_CHOICES_US_REGION, 'CATEGORY_CHOICES_UK_CITIES': CATEGORY_CHOICES_UK_CITIES, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'CATEGORY_CHOICES_DK_CITIES': CATEGORY_CHOICES_DK_CITIES, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'CATEGORY_CHOICES_IN_CITIES': CATEGORY_CHOICES_IN_CITIES, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'CATEGORY_CHOICES_CY_CITIES': CATEGORY_CHOICES_CY_CITIES, 'AL_CITIES': AL_CITIES, 'AZ_CITIES': AZ_CITIES, 'CA_CITIES': CA_CITIES, 'CO_CITIES': CO_CITIES, 'CT_CITIES': CT_CITIES, 'DE_CITIES': DE_CITIES, 'FL_CITIES': FL_CITIES, 'GA_CITIES': GA_CITIES, 'HI_CITIES': HI_CITIES, 'IL_CITIES': IL_CITIES, 'IN_CITIES': IN_CITIES, 'KY_CITIES': KY_CITIES, 'LA_CITIES': LA_CITIES, 'ME_CITIES': ME_CITIES, 'MA_CITIES': MA_CITIES, 'MO_CITIES': MO_CITIES, 'NV_CITIES': NV_CITIES, 'NJ_CITIES': NJ_CITIES, 'NY_CITIES': NY_CITIES, 'NC_CITIES': NC_CITIES, 'OH_CITIES': OH_CITIES, 'OK_CITIES': OK_CITIES, 'OR_CITIES': OR_CITIES, 'PA_CITIES': PA_CITIES, 'TN_CITIES': TN_CITIES, 'TX_CITIES': TX_CITIES, 'VA_CITIES': VA_CITIES, 'WA_CITIES': WA_CITIES, 'values': request.GET, 'search_origin_version': search_origin_version,
+        }
+
+        return render(request, 'packages/package-search.html', context)

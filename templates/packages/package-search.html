@@ -25,7 +25,7 @@
       <div class="searchBox">
         <div class="mainbanner" id="mainhpbanner">
           <form action="{% url 'packagesearch' %}">
-            <div {% if search_origin_version == False %}hidden {% endif %}class="form-group" style="padding-top:3rem">
+            <div {% if search_origin_version == True %}hidden {% endif %}class="form-group" style="padding-top:3rem">
               <div class="card" style="border-radius: 8px;">
                 <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
                   <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()">
@@ -277,7 +277,7 @@
               <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search packages</button>
             </div>
           </form>
-          <div {% if search_origin_version == True %}hidden {% endif %}>
+          <div {% if search_origin_version == False %}hidden {% endif %}>
             <hr noshade style="border-top: 1px solid white">
             <form action="{% url 'packagesearch' %}">
               <div class="mainbanner" id="mainhpbanner">

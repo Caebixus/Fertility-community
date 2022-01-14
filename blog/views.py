@@ -62,8 +62,8 @@ def ivfabroadpackages(request):
     ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
     count = listing.count()
 
-    prolisting = prolisting.order_by('package_end_list_date')[:3]
-    ppqlisting = ppqlisting.order_by('package_end_list_date')[:3]
+    prolisting = prolisting.order_by('-package_end_list_date')[:3]
+    ppqlisting = ppqlisting.order_by('-package_end_list_date')[:3]
 
     order_data = list(ppqlisting) + list(prolisting)
 

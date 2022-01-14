@@ -58,9 +58,12 @@ def ivfabroadpackages(request):
     todayDate = timezone.now()
 
     listing = Package.objects.all()
-    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)[:3]
-    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)[:3]
+    prolisting = Package.objects.filter(packageclinic__pro_is_published = True, packageclinic__ppq_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
+    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published = True, packageclinic__pro_is_published = False).exclude(package_end_list_date__lte=todayDate).exclude(is_package_active=False)
     count = listing.count()
+
+    prolisting = prolisting.order_by('package_end_list_date')[:3]
+    ppqlisting = ppqlisting.order_by('package_end_list_date')[:3]
 
     order_data = list(ppqlisting) + list(prolisting)
 

@@ -1,0 +1,223 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in spain, ivf spain{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }} | {{blog.year}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
+  <hr>
+  <br>
+  <br>
+  <p>With {{numclinics}} clinics offering IVF in the Czech Republic, it is no surprise this country is rapidly becoming an IVF hotspot in Europe. The abundant number of clinics to choose from makes it easy to find the right clinic for you and your partner so you can get your IVF procedure underway and get that little bit closer to creating your family. </p>
+  <br>
+  <p>The most popular destinations for people seeking IVF abroad in the Czech Republic are <a href="{% url 'fertilityClinicPrague' %}">Prague</a> and <a href="{% url 'fertilityClinicBrno' %}">Brno</a>, the capital city and the second-largest city in the country. However, some more quaint cities host well-established IVF clinics, such as the cities of Zlin, Olomouc and Hradec Králové. </p>
+  <br>
+  <p>This post will discuss why you should consider IVF in the Czech Republic, the average costs, and some limitations to be aware of when you are weighing up your options and narrowing down your search for IVF abroad. </p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Why You Should Choose IVF in the Czech Republic </b></h2>
+    <br>
+    <p>The Czech Republic is a notable travel destination for many couples and singles looking for a reputable location for their IVF treatments abroad. The top reasons to choose the Czech Republic include:</p>
+    <div class="text-center py-5">
+      <a href="{% url 'bestivfclinicsinczech' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">What are the {{ best_clinics_count }} best IVF clinics in Czech Republic?</button>
+      </a>
+    </div>
+    <ol>
+      <li>
+        <h3 style="font-size: 95%">Low costs compared to other IVF clinics in Europe </h3>
+        <p style="font-size: 95%">One of the main reasons many people opt for IVF in the Czech Republic is the low costs associated with the treatment at clinics. Therefore, the Czech Republic is an excellent option if you are looking for an affordable location to undergo IVF, yet you don’t want to compromise on the quality of your treatment or the safety of the procedure.</p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Anonymous egg donations and short waiting time for egg donors</h3>
+        <p style="font-size: 95%">By law, all eggs are donated anonymously by donors, and consequently, there is no opportunity for the child to contact the biological mothers. Generally, this is a safer approach as it avoids the children being disappointed when they reach out to a biological parent who would otherwise prefer to remain anonymous.</p>
+        <p style="font-size: 95%">This also means that egg donations in the Czech Republic are significantly higher than in countries, such as the UK, which allow children conceived by egg donation to contact biological parents at the age of 18. Therefore, you can expect shorter waiting times when considering IVF with egg donation in the Czech Republic. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Affordable travel costs </h3>
+        <p style="font-size: 95%">Many people discount the Czech Republic and other more Eastern European countries when travelling from France, the UK or anywhere West of Europe due to the expected costs of travelling to the clinics for treatment and any aftercare needed. However, you may be surprised to hear that travelling to the Czech Republic is more convenient and cheaper than you may presume. </p>
+        <p style="font-size: 95%">Flying into Prague, the nation’s capital, is generally not much longer than flying to Germany. The associated costs are lower due to the high level of tourism the country experiences. It is also not expensive to travel by bus to train within the borders once you arrive in Prague. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Less stressful environments which can improve success rates</h3>
+        <p style="font-size: 95%">Similarly to IVF in Greece, the Czech Republic offers a low-stress environment with clinics making the process as smooth as possible. The surrounding country and laidback cities provide an oasis of calm surrounding your trip. You may even wish to extend your stay to enjoy the attraction of the historical monuments, cultural interest and beautiful mountains and countryside areas that the other tourists appreciate. Of course, the whole experience of your IVF treatment can make a difference in the success rate of your fertility treatment, and your mentality during your visit is no exception. </p>
+      </li>
+    </ol>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Average Costs of IVF in the Czech Republic</b></h2>
+    <br>
+    <p>IVF in the Czech Republic is a sought after location for many Europeans due to the reasonable costs associated with treatments. However, the reduction in the price of IVF in Prague and IVF in Brno compared to other large cities in the continent doesn’t equate to a lack of safety and quality in procedures. </p>
+    <br>
+    <p><a href="{% url 'locationsCZRegions' %}">Here are some general costs</a> associated with IVF in the Czech Republic. Although, please bear in mind that these are rough treatment costs, and the prices will vary depending on the clinic and the service you require. </p>
+    <div class="text-center py-5">
+      <a href="{% url 'locationsCZRegions' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How much does IVF treatment cost in Czech Republic?</button>
+      </a>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Czech Republic’s IVF Success rates</h2>
+    <br>
+    <p>Unfortunately, the success rates for IVF in the Czech Republic aren’t readily available on a database to the public. Therefore, success rate statistics may not be a factor you can reliably use to decide what country to undergo your IVF treatment. </p>
+    <br>
+    <p>However, a few statistics have been published on the European Social of Human Reproduction and Embryology (ESHRE), indicating that, generally, success rates are good. Usually, the success rates in clinics in the Czech Republic are even better than those of IVF clinics in countries that are more renowned for their healthcare systems, such as the UK. </p>
+    <br>
+    <p>For example, the IVF Cube in Prague has a cumulative success rate of 85%. Including a low estimate of 13.6% for women using their eggs over the age of 40 and a 57.6% success rate for women with donor eggs under 36. Therefore, it is apparent that many factors can influence the success rate of individuals receiving IVF in the Czech Republic. </p>
+    <br>
+    <p>Visit this page about the four best IVF clinics in Prague for more information on the success rates of IVF in the Czech Republic. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="text-center py-5">
+    <a href="{% url 'fertilityClinicCzech' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How many fertility clinics are there in Czech Republic?</button>
+    </a>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">IVF Limitations in the Czech Republic </h2>
+    <br>
+    <p>The law in the Czech Republic states that an ‘infertile couple’ constitutes a man and a woman who live together. Therefore, there are limitations for homosexual couples looking to conceive through IVF in the Czech Republic.  </p>
+    <br>
+    <p>Moreover, there are additional limitations for mature women looking to conceive. The Czech Republic states that women receiving IVF with egg donation must be under 48 years and 364 days old. </p>
+    <br>
+    <p>As mentioned, all donors are anonymous, which may not suit parents who are keen to know a general profile of their sperm or egg donors.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>The Czech Republic is an excellent option for many couples and singletons looking for the best destination for their IVF treatment abroad due to the lower costs associated with clinics and the high-quality services the hospitals provide. With 30 clinics to choose from, you should be able to find the right clinic for you, and as a bonus, you can explore the beautiful country on your visit over to the Czech Republic. </p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

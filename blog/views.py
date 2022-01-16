@@ -251,3 +251,31 @@ def ivf_in_greece(request):
     }
 
     return render(request, 'blog/IVF-abroad/ivf-in-greece.html', context)
+
+def ivf_in_czech_republic(request):
+    blogpk=20
+    pkid = 1
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+    author = get_object_or_404(Author, pk=7)
+    blog = get_object_or_404(Blog, pk=blogpk)
+
+    clinics = BasicClinic.objects.all().filter(clinicState__iexact='Czech Republic')
+    numclinics = clinics.filter(is_published=True).filter(clinicState__iexact='Czech Republic')
+    numclinics = numclinics.count()
+
+    clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
+
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
+
+    context = {
+        'clinicegg': clinicegg,
+        'author': author,
+        'blog': blog,
+        'otherBlogs': otherBlogs,
+        'numclinics': numclinics,
+        'best_clinics_count': best_clinics_count,
+    }
+
+    return render(request, 'blog/IVF-abroad/ivf-in-czech-republic.html', context)

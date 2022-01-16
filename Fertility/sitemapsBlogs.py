@@ -22,6 +22,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'whatisivfwitheggdonation',
         'ivf_in_spain',
         'ivf_in_greece',
+        'ivf_in_czech_republic',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

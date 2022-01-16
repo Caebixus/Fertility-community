@@ -11,6 +11,7 @@ urlpatterns = [
     path('blog/fertility-treatment-abroad-what-you-need-to-know', views.fertilityTreatmentAbroadWhatYouNeedToKnow, name='fertilityTreatmentAbroadWhatYouNeedToKnow'),
     path('blog/ivf-in-spain', views.ivf_in_spain, name='ivf_in_spain'),
     path('blog/ivf-in-greece', views.ivf_in_greece, name='ivf_in_greece'),
+    path('blog/ivf-in-czech-republic', views.ivf_in_czech_republic, name='ivf_in_czech_republic'),
 
     #Packages
     path('blog/ivf-abroad-packages', views.ivfabroadpackages, name='ivfabroadpackages'),

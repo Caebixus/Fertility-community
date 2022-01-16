@@ -3174,6 +3174,66 @@ def locationsUKRegions(request):
 def locationsCZRegions(request):
     queryset_list_cz = BasicClinic.objects.all().exclude(is_published=False)
 
+    pkid = 3
+    best_clinics = queryset_list_cz.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics_count = best_clinics.count()
+
+    queryset_list_cz = queryset_list_cz.filter(clinicState='Czech Republic')
+    my_total_clinic_count_czech = queryset_list_cz.count()
+
+    queryset_list_cz_natural_ivf = queryset_list_cz.aggregate(average=Avg('ivf_treatment_cost'))
+    for key,val in queryset_list_cz_natural_ivf.items():
+        queryset_list_cz_natural_ivf_val = val
+
+    queryset_list_cz_mild_ivf = queryset_list_cz.aggregate(average=Avg('mild_ivf_treatment_cost'))
+    for key,val in queryset_list_cz_mild_ivf.items():
+        queryset_list_cz_mild_ivf_val = val
+
+    queryset_list_cz_standard_ivf = queryset_list_cz.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+    for key,val in queryset_list_cz_standard_ivf.items():
+        queryset_list_cz_standard_ivf_val = val
+
+
+    queryset_list_cz_egg_ivf = queryset_list_cz.aggregate(average=Avg('egg_donor_recipients_cost'))
+    for key,val in queryset_list_cz_egg_ivf.items():
+        queryset_list_cz_egg_ivf_val = val
+
+    queryset_list_cz_known_egg_ivf = queryset_list_cz.aggregate(average=Avg('known_egg_donor_recipients_cost'))
+    for key,val in queryset_list_cz_known_egg_ivf.items():
+        queryset_list_cz_known_egg_ivf_val = val
+
+    queryset_list_cz_shared_egg_ivf = queryset_list_cz.aggregate(average=Avg('shared_egg_donor_recipients_cost'))
+    for key,val in queryset_list_cz_shared_egg_ivf.items():
+        queryset_list_cz_shared_egg_ivf_val = val
+
+
+    queryset_list_cz_embryo_ivf = queryset_list_cz.aggregate(average=Avg('embryo_donor_recipients_cost'))
+    for key,val in queryset_list_cz_embryo_ivf.items():
+        queryset_list_cz_embryo_ivf_val = val
+
+    queryset_list_cz_known_embryo_ivf = queryset_list_cz.aggregate(average=Avg('known_embryo_donor_recipients_cost'))
+    for key,val in queryset_list_cz_known_embryo_ivf.items():
+        queryset_list_cz_known_embryo_ivf_val = val
+
+
+    queryset_list_cz_sperm_ivf = queryset_list_cz.aggregate(average=Avg('sperm_donor_recipients_cost'))
+    for key,val in queryset_list_cz_sperm_ivf.items():
+        queryset_list_cz_sperm_ivf_val = val
+
+    queryset_list_cz_known_sperm_ivf = queryset_list_cz.aggregate(average=Avg('known_sperm_donor_recipients_cost'))
+    for key,val in queryset_list_cz_known_sperm_ivf.items():
+        queryset_list_cz_known_sperm_ivf_val = val
+
+
+    queryset_list_cz_icsi = queryset_list_cz.aggregate(average=Avg('icsi_treatment_cost'))
+    for key,val in queryset_list_cz_icsi.items():
+        queryset_list_cz_icsi_val = val
+
+
+    queryset_list_cz_iui = queryset_list_cz.aggregate(average=Avg('iui_treatment_cost'))
+    for key,val in queryset_list_cz_iui.items():
+        queryset_list_cz_iui_val = val
+
     #--------------------------------------------------------------------------
     queryset_list_prague = queryset_list_cz.filter(clinicRegion__iexact='Prague')
     my_total_clinic_count_prague = queryset_list_prague.count()
@@ -3232,6 +3292,25 @@ def locationsCZRegions(request):
 
     context = {
         'year': year,
+        'best_clinics_count': best_clinics_count,
+        'my_total_clinic_count_czech': my_total_clinic_count_czech,
+
+        'queryset_list_cz_natural_ivf_val': queryset_list_cz_natural_ivf_val,
+        'queryset_list_cz_mild_ivf_val': queryset_list_cz_mild_ivf_val,
+        'queryset_list_cz_standard_ivf_val': queryset_list_cz_standard_ivf_val,
+
+        'queryset_list_cz_egg_ivf_val': queryset_list_cz_egg_ivf_val,
+        'queryset_list_cz_known_egg_ivf_val': queryset_list_cz_known_egg_ivf_val,
+        'queryset_list_cz_shared_egg_ivf_val': queryset_list_cz_shared_egg_ivf_val,
+
+        'queryset_list_cz_embryo_ivf_val': queryset_list_cz_embryo_ivf_val,
+        'queryset_list_cz_known_embryo_ivf_val': queryset_list_cz_known_embryo_ivf_val,
+
+        'queryset_list_cz_sperm_ivf_val': queryset_list_cz_sperm_ivf_val,
+        'queryset_list_cz_known_sperm_ivf_val': queryset_list_cz_known_sperm_ivf_val,
+
+        'queryset_list_cz_icsi_val': queryset_list_cz_icsi_val,
+        'queryset_list_cz_iui_val': queryset_list_cz_iui_val,
 
         'my_total_clinic_count_prague': my_total_clinic_count_prague,
         'queryset_list_prague_ivf_val': queryset_list_prague_ivf_val,

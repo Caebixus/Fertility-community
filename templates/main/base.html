@@ -66,6 +66,15 @@
   {% block twitterdescription %}{% endblock %}
   {% block twitterimage %}{% endblock %}
 
+  <script type='text/javascript'>
+  window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', 'e4daa2100bc597006b5df0a08fc40fcaeac04edd');
+  </script>
+
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 
@@ -160,13 +169,6 @@
     </div>
 
   {% endblock %}
-  {% if 'localhost' in request.get_host %}
-  {% else %}
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGKDGQV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  {% endif %}
 
   <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8739144.js"></script>

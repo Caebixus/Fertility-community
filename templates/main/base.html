@@ -69,26 +69,18 @@
 
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
-  {% if 'localhost' in request.get_host %}
-  {% else %}
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PGKDGQV');</script>
-  <!-- End Google Tag Manager -->
-  {% endif %}
 
-  {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
-    {% autoescape off %}
-        {% if cookies.analytical_cookies == True %}
-            {{ settings.cookies.CookieSettings.analytical_cookies_header }}
-        {% endif %}
-        {% if cookies.marketing_cookies == True %}
-            {{ settings.cookies.CookieSettings.marketing_cookies_header }}
-        {% endif %}
-    {% endautoescape %}
+  {% if 'localhost' not in request.get_host %}
+    {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
+      {% autoescape off %}
+          {% if cookies.analytical_cookies == True %}
+              {{ settings.cookies.CookieSettings.analytical_cookies_header }}
+          {% endif %}
+          {% if cookies.marketing_cookies == True %}
+              {{ settings.cookies.CookieSettings.marketing_cookies_header }}
+          {% endif %}
+      {% endautoescape %}
+    {% endif %}
   {% endif %}
 </head>
 
@@ -180,16 +172,18 @@
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8739144.js"></script>
   <!-- End of HubSpot Embed Code -->
 
-  {% if cookies_setting.analytical_cookies_footer is not None or cookies_setting.marketing_cookies_footer is not None %}
-    {% autoescape off %}
-        {% if cookies.analytical_cookies == True %}
-            {{ settings.cookies.CookieSettings.analytical_cookies_footer }}
-        {% endif %}
-        {% if cookies.marketing_cookies == True %}
-            {{ settings.cookies.CookieSettings.marketing_cookies_footer }}
-        {% endif %}
-    {% endautoescape %}
-{% endif %}
+  {% if 'localhost' not in request.get_host %}
+    {% if cookies_setting.analytical_cookies_footer is not None or cookies_setting.marketing_cookies_footer is not None %}
+      {% autoescape off %}
+          {% if cookies.analytical_cookies == True %}
+              {{ settings.cookies.CookieSettings.analytical_cookies_footer }}
+          {% endif %}
+          {% if cookies.marketing_cookies == True %}
+              {{ settings.cookies.CookieSettings.marketing_cookies_footer }}
+          {% endif %}
+      {% endautoescape %}
+    {% endif %}
+  {% endif %}
 
 </body>
 

@@ -12,7 +12,13 @@ def cookies(request):
     date = datetime.now()
 
     # ip_address = "10.10.50.10" (pro testování)
-    ip_address = request.META.get('REMOTE_ADDR')
+    # ip_address = request.META.get('REMOTE_ADDR')
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip_address = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip_address = request.META.get('REMOTE_ADDR')
+
     if not request.session.session_key:
         request.session.save()
     session_key = request.session.session_key

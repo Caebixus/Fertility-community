@@ -60,11 +60,11 @@
   {% block ogImageWidth %}{% endblock %}
   {% block ogImageHeight %}{% endblock %}
 
-{% block twittercard %}{% endblock %}
-{% block twittersite %}{% endblock %}
-{% block twittertitle%}{% endblock %}
-{% block twitterdescription %}{% endblock %}
-{% block twitterimage %}{% endblock %}
+  {% block twittercard %}{% endblock %}
+  {% block twittersite %}{% endblock %}
+  {% block twittertitle%}{% endblock %}
+  {% block twitterdescription %}{% endblock %}
+  {% block twitterimage %}{% endblock %}
 
 
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
@@ -79,13 +79,22 @@
   })(window,document,'script','dataLayer','GTM-PGKDGQV');</script>
   <!-- End Google Tag Manager -->
   {% endif %}
+
+  {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
+    {% autoescape off %}
+        {% if cookies.analytical_cookies == True %}
+            {{ settings.cookies.CookieSettings.analytical_cookies_header }}
+        {% endif %}
+        {% if cookies.marketing_cookies == True %}
+            {{ settings.cookies.CookieSettings.marketing_cookies_header }}
+        {% endif %}
+    {% endautoescape %}
+  {% endif %}
 </head>
 
 <body>
-  <div class="cookie-banner" style="display: none">
-    <p style="color: white; margin-bottom: 0px;">This&nbsp;website is&nbsp;using&nbsp;cookies. <a href="{% url 'cookies' %}"><u>More&nbsp;details</u></a></p>
-    <button class="close">&times;</button>
-  </div>
+  {% include 'cookies/include/cookies_modal.html' %}
+  {% include 'cookies/include/cookies_settings_modal.html' %}
 
   <nav id="mainNavContent" class="navbar navbar-expand-lg navbar-light" style="background-color: white">
     <div class="container">
@@ -171,6 +180,17 @@
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8739144.js"></script>
   <!-- End of HubSpot Embed Code -->
 
+  {% if cookies_setting.analytical_cookies_footer is not None or cookies_setting.marketing_cookies_footer is not None %}
+    {% autoescape off %}
+        {% if cookies.analytical_cookies == True %}
+            {{ settings.cookies.CookieSettings.analytical_cookies_footer }}
+        {% endif %}
+        {% if cookies.marketing_cookies == True %}
+            {{ settings.cookies.CookieSettings.marketing_cookies_footer }}
+        {% endif %}
+    {% endautoescape %}
+{% endif %}
+
 </body>
 
 
@@ -203,6 +223,7 @@
           <li><a href="{% url 'privacy' %}" style="text-decoration: none;">Privacy</a></li>
           <li><a href="{% url 'terms' %}" style="text-decoration: none;">Terms</a></li>
           <li><a href="{% url 'cookies' %}" style="text-decoration: none;">Cookies</a></li>
+          <li><a data-toggle="modal" href="#cookiesSettingsModal">Cookies settings</a></li>
         </ul>
       </div>
     </div>

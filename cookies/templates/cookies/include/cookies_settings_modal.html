@@ -1,0 +1,41 @@
+{% load i18n %}
+<div class="modal fade" id="cookiesSettingsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md cookiesContent" role="document">
+    <div class="modal-content">
+      <h5 class="modal-title py-3 text-center">
+        {% trans "Přizpůsobte si zde své nastavení cookies" %}
+        <hr>
+      </h5>
+      <form action="{% url 'cookies:cookies' %}" method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {{ form.source.errors }}
+        {{ form.source }}
+        <div class="form-check">
+          <input type="checkbox" name="technicalCookies" id="id_technicalCookies" Checked Disabled>
+          <label class="form-check-label px-1" for="technicalCookies"><strong> {% trans "Technické cookies" %}</strong></label>
+        </div>
+        <p>{% trans "Technické cookies jsou nezbytné pro správné fungování webu a všech funkcí, které nabízí. Jsou odpovědné mj. za uchovávání produktů v košíku, zobrazování seznamu oblíbených produktů (schránka), přizpůsobení filtrů, nákupní proces a ukládání nastavení soukromí. Technické cookies nemohou být individuálně deaktivovány nebo aktivovány." %}</p>
+        <hr>
+        <div class="form-check">
+          {{ form.analytical_cookies }}
+          <label class="form-check-label px-1" for="analytical_cookies"><strong> {% trans "Analytické cookies" %}</strong></label>
+        </div>
+        <p>{% trans "Analytické cookies nám umožňují měření výkonu našeho webu. Jejich pomocí určujeme počet návštěv a zdroje návštěv našich internetových stránek. Data získaná pomocí těchto cookies zpracováváme souhrnně, bez použití identifikátorů, které ukazují na konkrétní uživatele našeho webu. Pokud vypnete používání analytických cookies ve vztahu k Vaší návštěvě, ztrácíme možnost analýzy výkonu a tím následně k optimalizaci webu." %}</p>
+        <hr>
+        <div class="form-check">
+          {{ form.marketing_cookies }}
+          <label class="form-check-label px-1" for="marketing_cookies"><strong> {% trans "Marketingové cookies" %}</strong></label>
+        </div>
+        <p>{% trans "Marketingové (reklamní) cookies používáme my nebo naši partneři, abychom Vám mohli zobrazit vhodné obsahy nebo reklamy jak na našich stránkách, tak na stránkách třetích subjektů. Pokud nevyjádříte souhlas, nebudete příjemcem obsahů a reklam přizpůsobených Vašim zájmům." %}</p>
+        <br>
+        <div class="text-center">
+          <button class="button_accept text-center" name="cookies_changed_update" type="submit">
+            {% trans "Uložit" %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

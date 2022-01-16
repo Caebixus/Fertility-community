@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('/', include(('cookies.urls', 'cookies'), namespace='cookies')),
     path('fertility/sperm-donor-basics.html', views.businessinsiderbacklink, name='businessinsiderbacklink'),
     path('t/resetting-the-gonal-f-pen-help/124465', views.forumoldurlredirect, name='forumoldurlredirect'),
     path('infertility-male3.html', views.backlink2, name='backlink2'),

@@ -70,14 +70,15 @@
   <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 
-  {% if 'localhost' not in request.get_host %}
+  {% if 'localhost' in request.get_host %}
+  {% else %}
     {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
       {% autoescape off %}
           {% if cookies.analytical_cookies == True %}
-              {{ settings.cookies.CookieSettings.analytical_cookies_header }}
+              {{ CookieSettings.analytical_cookies_header }}
           {% endif %}
           {% if cookies.marketing_cookies == True %}
-              {{ settings.cookies.CookieSettings.marketing_cookies_header }}
+              {{ CookieSettings.marketing_cookies_header }}
           {% endif %}
       {% endautoescape %}
     {% endif %}
@@ -172,14 +173,15 @@
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8739144.js"></script>
   <!-- End of HubSpot Embed Code -->
 
-  {% if 'localhost' not in request.get_host %}
+  {% if 'localhost' in request.get_host %}
+  {% else %}
     {% if cookies_setting.analytical_cookies_footer is not None or cookies_setting.marketing_cookies_footer is not None %}
       {% autoescape off %}
           {% if cookies.analytical_cookies == True %}
-              {{ settings.cookies.CookieSettings.analytical_cookies_footer }}
+              {{ CookieSettings.analytical_cookies_footer }}
           {% endif %}
           {% if cookies.marketing_cookies == True %}
-              {{ settings.cookies.CookieSettings.marketing_cookies_footer }}
+              {{ CookieSettings.marketing_cookies_footer }}
           {% endif %}
       {% endautoescape %}
     {% endif %}

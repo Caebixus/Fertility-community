@@ -1,0 +1,248 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in slovakia, ivf slovakia{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }} | {{blog.year}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
+  <hr>
+  <br>
+  <br>
+  <p>Slovakia is a small country with a beautiful and pleasant countryside and incredibly lively cities. The city welcomes all kinds of people from different walks of life with open arms and the IVF clinics offer high quality of treatment, modern equipment, and reasonably low prices.</p>
+  <br>
+  <p>There are currently {{numclinics}} IVF clinics in Slovakia and the majority are located in its two biggest cities – Bratislava and Košice – with the rest spread across Nitra and Martin. Bratislava and Košice have international airports that are easily accessible via budget airlines which makes it that much easier and cheaper to visit Slovakia. Also, if you have a British passport, you would not need a visa to enter Slovakia. We highly recommend getting extensive travel insurance that would cover emergency treatments costs.</p>
+  <br>
+  <p>Slovakia is slowly becoming one of the most attractive destinations for fertility tourists to explore not only because of its low costs of treatment, travel, and shopping but also because it has magnificent mountains that makeup 80% of the landscape.</p>
+  <br>
+  <hr>
+  <br>
+  <div class="text-center">
+    <a href="{% url 'bestivfclinicsinslovakia' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">What are the {{ best_clinics_count }} best IVF clinics in Slovakia?</button>
+    </a>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <p>Nature lovers would have a wonderful time in Slovakia – even non-nature lovers would appreciate the beauty. The fresh air, lakes, waterfalls, and peaceful aura in Slovakia are some additional factors that can make the most amazing treatment journey ever. Who said getting infertility treatment can’t be fun and stress-free?</p>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>IVF Laws in Slovakia</b></h2>
+    <br>
+    <p>Being a member of the European Union, Slovak laws are based on international proclamations and European precepts. Slovakia allows various infertility treatment methods including IVF, ICSI, egg donation, sperm donation, and embryo donation. Slovak laws also permit social freezing and PGD/PGS for embryo screening.</p>
+    <br>
+    <p>Surrogacy and known egg/sperm/embryo donors are prohibited, while sex selection is permitted only for medical, experimental, or cloning purposes.</p>
+    <br>
+    <hr>
+    <br>
+    <div class="text-center">
+      <a href="{% url 'locationsSKRegions' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How much does IVF treatment cost in Slovakia?</button>
+      </a>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <p>While egg donation is permitted, it legally requires the consent of both parties of a couple. It is not permitted for same-sex couples or singles. It is also voluntary and anonymous on both sides. Every egg donor in Slovakia is allowed up to five children only and must be between the ages of 18-34. They should also be tested regularly for inherited diseases/disorders, genetics, and infections.</p>
+    <br>
+    <p>Finally, Slovak laws permit social freezing of oocytes, however, there is no defined or specific maximum number of eggs to fertilize and length of time to store frozen oocytes. The maximum number of embryos transferred is 2, however, the decision depends more on the European guidelines that uphold the significance of single embryo transfer as well as the doctor’s judgment and the patient’s health status.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>Donors and Donations in Slovakia</b></h2>
+    <br>
+    <p><strong>Donors</strong></p>
+    <p>As earlier stated, egg, sperm, or embryo donation is voluntary and anonymous. However, we should note that patients are given basic information about the donors. This information includes the following:</p>
+    <ul>
+      <li><p style="font-size: 95%">Age</p></li>
+      <li><p style="font-size: 95%">Race</p></li>
+      <li><p style="font-size: 95%">Education</p></li>
+      <li><p style="font-size: 95%">Number of children</p></li>
+      <li><p style="font-size: 95%">Hair</p></li>
+      <li><p style="font-size: 95%">Color of eyes</p></li>
+      <li><p style="font-size: 95%">Weight</p></li>
+      <li><p style="font-size: 95%">Height</p></li>
+      <li><p style="font-size: 95%">Blood type</p></li>
+      <li><p style="font-size: 95%">Skills or interests</p></li>
+      <li><p style="font-size: 95%">RH factor</p></li>
+    </ul>
+    <br>
+    <p>Donors also have to undergo a series of tests and screening for qualification purposes based on the EU tissue and cells directives. These tests include:</p>
+    <ul>
+      <li><p style="font-size: 95%">PAP smear</p></li>
+      <li><p style="font-size: 95%">Fertility evaluation</p></li>
+      <li><p style="font-size: 95%">Hepatitis B and C</p></li>
+      <li><p style="font-size: 95%">Syphilis</p></li>
+      <li><p style="font-size: 95%">HIV</p></li>
+      <li><p style="font-size: 95%">Gene mutation causing cystic fibrosis</p></li>
+      <li><p style="font-size: 95%">Karyotype</p></li>
+    </ul>
+    <br>
+    <p>Medical screening is then done to determine the donor’s family medical history to assess any serious diseases, disorders, or infections. A donor is paired with each patient based on phenotypic features. Donors may also receive compensation for travel expenses and any inconveniences experienced during the course of the donation.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Donations</h2>
+    <br>
+    <p>Egg donation in Slovakia cannot be done in the absence of the written consent of both parties involved. The entire process is strictly anonymous, donors cannot request the identity of the patients or the baby and the patients cannot request the identity of the donor. While the law does not define an age limit for patients, IVF clinics in Slovakia are permitted to decide on an age limit while carefully considering any and all issues related to assisted reproduction – the typical or most common age limit decided is 52.</p>
+    <br>
+    <p>In the case of embryo donation, frozen embryos are usually donated by patients who have had successful embryo transfers. The process is also anonymous similar to egg donation.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">IVF Success Rates in Slovakia</h2>
+    <br>
+    <p>It might be a herculean task to find sufficient data on the results of fertility treatments in Slovakia because the IVF clinics in the country are not legally compelled to give reports on their success rates. However, you might find some information on a clinic’s success rates by visiting their websites. You may also choose to contact the clinic for any questions or worries you might have concerning the treatment.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="text-center">
+    <a href="{% url 'fertilityClinicGreece' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How many fertility clinics are there in Greece?</button>
+    </a>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Safety and Quality of IVF treatment in Slovakia</h2>
+    <br>
+    <p>The regional ethics committees and local ethics committees appointed by the regional state authority and directors of health care facilities respectively are responsible for the ethics of treatment in the IVF clinics of Slovakia.</p>
+    <br>
+    <p>Slovakia’s legislation framework is made by Act No. 576/2004 Coll. on Health Care and amended by Acts No. 350/2005, 282/2006, 662/2007, 345/2009 Coll. (Table 2).17 Law No. 576/2004 Coll. on health care which encompasses genetic research and overall biomedical research. The act also governs ethics committees, organ/tissue donation, informed consent, patients’ rights, biomedical research, and transplantation questions.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Conclusion</h2>
+    <br>
+    <p>Not only do you get to go back home with a beautiful baby, but you would also have amazing memories wrapped around the mountains of Slovakia. Knowing that you had this journey and made a child in such a beautiful place would leave everlasting warmth in your heart. The doctors and physicians in Slovakian IVF clinics would be happy to have you.</p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

@@ -79,16 +79,6 @@
   <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 
   {% if 'localhost' in request.get_host %}
-    {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
-      {% autoescape off %}
-          {% if cookies.analytical_cookies == True %}
-              {{ cookies_setting.analytical_cookies_header }}
-          {% endif %}
-          {% if cookies.marketing_cookies == True %}
-              {{ cookies_setting.marketing_cookies_header }}
-          {% endif %}
-      {% endautoescape %}
-    {% endif %}
   {% else %}
     {% if cookies_setting.analytical_cookies_header is not None or cookies_setting.marketing_cookies_header is not None %}
       {% autoescape off %}

@@ -10,7 +10,14 @@ from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, B
 
 def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:6]
-    count_blog = Blog.objects.all().count()
+
+    count_blog1 = Blog.objects.all().count()
+    count_blog2 = BestClinicArticleCountry.objects.all().count()
+    count_blog3 = BestClinicArticleCity.objects.all().count()
+    count_blog4 = BestClinicArticleState.objects.all().count()
+    count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4
+
+
     best_city = BestClinicArticleCity.objects.all().order_by('-created_at')[:1]
     best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')[:1]
 

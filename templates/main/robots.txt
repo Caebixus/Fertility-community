@@ -5,9 +5,10 @@ Disallow: /account/*
 Disallow: /*?*
 
 Sitemap: https://www.fertilitycommunity.com/sitemap.xml
-Sitemap: https://fertilitycommunity.com/sitemap-static.xml
-Sitemap: https://fertilitycommunity.com/sitemap-regions.xml
-Sitemap: https://fertilitycommunity.com/sitemap-blogs.xml
-Sitemap: https://fertilitycommunity.com/sitemap-cities.xml
-Sitemap: https://fertilitycommunity.com/sitemap-costs.xml
-Sitemap: https://fertilitycommunity.com/sitemap-countries.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-static.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-regions.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-blogs.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-cities.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-costs.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-countries.xml
+Sitemap: https://www.fertilitycommunity.com/sitemap-clinics.xml

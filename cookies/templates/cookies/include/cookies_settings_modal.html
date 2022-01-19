@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-md cookiesContent" role="document">
     <div class="modal-content">
       <h5 class="modal-title py-3 text-center">
-        {% trans "Přizpůsobte si zde své nastavení cookies" %}
+        Customize your cookie settings here
         <hr>
       </h5>
       <form action="{% url 'cookies:cookies' %}" method="POST">
@@ -14,25 +14,25 @@
         {{ form.source }}
         <div class="form-check">
           <input type="checkbox" name="technicalCookies" id="id_technicalCookies" Checked Disabled>
-          <label class="form-check-label px-1" for="technicalCookies"><strong> {% trans "Technické cookies" %}</strong></label>
+          <label class="form-check-label px-1" for="technicalCookies"><strong> Technical cookies</strong></label>
         </div>
-        <p>{% trans "Technické cookies jsou nezbytné pro správné fungování webu a všech funkcí, které nabízí. Jsou odpovědné mj. za uchovávání produktů v košíku, zobrazování seznamu oblíbených produktů (schránka), přizpůsobení filtrů, nákupní proces a ukládání nastavení soukromí. Technické cookies nemohou být individuálně deaktivovány nebo aktivovány." %}</p>
+        <p>Technical cookies are essential for the proper functioning of the website and all the functions it offers. They are responsible for, among other things, storing products in the cart, displaying the list of favorite products (mailbox), customizing filters, the purchasing process and saving privacy settings. Technical cookies cannot be deactivated or activated individually.</p>
         <hr>
         <div class="form-check">
           {{ form.analytical_cookies }}
-          <label class="form-check-label px-1" for="analytical_cookies"><strong> {% trans "Analytické cookies" %}</strong></label>
+          <label class="form-check-label px-1" for="analytical_cookies"><strong> Analytical cookies</strong></label>
         </div>
-        <p>{% trans "Analytické cookies nám umožňují měření výkonu našeho webu. Jejich pomocí určujeme počet návštěv a zdroje návštěv našich internetových stránek. Data získaná pomocí těchto cookies zpracováváme souhrnně, bez použití identifikátorů, které ukazují na konkrétní uživatele našeho webu. Pokud vypnete používání analytických cookies ve vztahu k Vaší návštěvě, ztrácíme možnost analýzy výkonu a tím následně k optimalizaci webu." %}</p>
+        <p>Analytical cookies allow us to measure the performance of our website. They are used to determine the number of visits and sources of visits to our website. We process the data obtained through these cookies in a summary manner, without the use of identifiers that point to specific users of our website. If you turn off the use of analytics cookies in relation to your visit, we lose the ability to analyze performance and thus optimize the site.</p>
         <hr>
         <div class="form-check">
           {{ form.marketing_cookies }}
-          <label class="form-check-label px-1" for="marketing_cookies"><strong> {% trans "Marketingové cookies" %}</strong></label>
+          <label class="form-check-label px-1" for="marketing_cookies"><strong> Marketing cookies</strong></label>
         </div>
-        <p>{% trans "Marketingové (reklamní) cookies používáme my nebo naši partneři, abychom Vám mohli zobrazit vhodné obsahy nebo reklamy jak na našich stránkách, tak na stránkách třetích subjektů. Pokud nevyjádříte souhlas, nebudete příjemcem obsahů a reklam přizpůsobených Vašim zájmům." %}</p>
+        <p>Marketing cookies are used by us or our partners so that we can display suitable content or advertisements both on our website and on the websites of third parties. If you do not consent, you will not be the recipient of content and ads tailored to your interests.</p>
         <br>
         <div class="text-center">
           <button class="button_accept text-center" name="cookies_changed_update" type="submit">
-            {% trans "Uložit" %}
+            Save
           </button>
         </div>
       </form>

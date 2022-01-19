@@ -18,7 +18,6 @@ def cookies(request):
         ip_address = x_forwarded_for.split(',')[-1].strip()
     else:
         ip_address = request.META.get('REMOTE_ADDR')
-
     if not request.session.session_key:
         request.session.save()
     session_key = request.session.session_key

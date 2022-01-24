@@ -15,311 +15,6 @@ select.onchange = function () {
    location.reload()
 }
 
-$(document).ready(function (e) {
-    if(lastSelected){
-      if (lastSelected == 'USD') {
-          $('#usdBoard1a').show();
-          $('#usdBoard1b').show();
-          $('#usdBoard1c').show();
-          $('#usdBoard1d').show();
-          $('#usdBoard1e').show();
-          $('#usdBoard1f').show();
-          $('#usdBoard1g').show();
-          $('#usdBoard1h').show();
-
-          $('#eurBoard2a').hide();
-          $('#eurBoard2b').hide();
-          $('#eurBoard2c').hide();
-          $('#eurBoard2d').hide();
-          $('#eurBoard2e').hide();
-          $('#eurBoard2f').hide();
-          $('#eurBoard2g').hide();
-          $('#eurBoard2h').hide();
-
-          $('#gbpBoard3a').hide();
-          $('#gbpBoard3b').hide();
-          $('#gbpBoard3c').hide();
-          $('#gbpBoard3d').hide();
-          $('#gbpBoard3e').hide();
-          $('#gbpBoard3f').hide();
-          $('#gbpBoard3g').hide();
-          $('#gbpBoard3h').hide();
-
-          $('#defaultBoard1a').hide();
-          $('#defaultBoard1b').hide();
-          $('#defaultBoard1c').hide();
-          $('#defaultBoard1d').hide();
-          $('#defaultBoard1e').hide();
-          $('#defaultBoard1f').hide();
-          $('#defaultBoard1g').hide();
-          $('#defaultBoard1h').hide();
-
-      } else if (lastSelected == 'EUR') {
-          $('#usdBoard1a').hide();
-          $('#usdBoard1b').hide();
-          $('#usdBoard1c').hide();
-          $('#usdBoard1d').hide();
-          $('#usdBoard1e').hide();
-          $('#usdBoard1f').hide();
-          $('#usdBoard1g').hide();
-          $('#usdBoard1h').hide();
-
-          $('#eurBoard2a').show();
-          $('#eurBoard2b').show();
-          $('#eurBoard2c').show();
-          $('#eurBoard2d').show();
-          $('#eurBoard2e').show();
-          $('#eurBoard2f').show();
-          $('#eurBoard2g').show();
-          $('#eurBoard2h').show();
-
-          $('#gbpBoard3a').hide();
-          $('#gbpBoard3b').hide();
-          $('#gbpBoard3c').hide();
-          $('#gbpBoard3d').hide();
-          $('#gbpBoard3e').hide();
-          $('#gbpBoard3f').hide();
-          $('#gbpBoard3g').hide();
-          $('#gbpBoard3h').hide();
-
-          $('#defaultBoard1a').hide();
-          $('#defaultBoard1b').hide();
-          $('#defaultBoard1c').hide();
-          $('#defaultBoard1d').hide();
-          $('#defaultBoard1e').hide();
-          $('#defaultBoard1f').hide();
-          $('#defaultBoard1g').hide();
-          $('#defaultBoard1h').hide();
-
-      } else if (lastSelected == 'GBP') {
-          $('#usdBoard1a').hide();
-          $('#usdBoard1b').hide();
-          $('#usdBoard1c').hide();
-          $('#usdBoard1d').hide();
-          $('#usdBoard1e').hide();
-          $('#usdBoard1f').hide();
-          $('#usdBoard1g').hide();
-          $('#usdBoard1h').hide();
-
-          $('#eurBoard2a').hide();
-          $('#eurBoard2b').hide();
-          $('#eurBoard2c').hide();
-          $('#eurBoard2d').hide();
-          $('#eurBoard2e').hide();
-          $('#eurBoard2f').hide();
-          $('#eurBoard2g').hide();
-          $('#eurBoard2h').hide();
-
-          $('#gbpBoard3a').show();
-          $('#gbpBoard3b').show();
-          $('#gbpBoard3c').show();
-          $('#gbpBoard3d').show();
-          $('#gbpBoard3e').show();
-          $('#gbpBoard3f').show();
-          $('#gbpBoard3g').show();
-          $('#gbpBoard3h').show();
-
-          $('#defaultBoard1a').hide();
-          $('#defaultBoard1b').hide();
-          $('#defaultBoard1c').hide();
-          $('#defaultBoard1d').hide();
-          $('#defaultBoard1e').hide();
-          $('#defaultBoard1f').hide();
-          $('#defaultBoard1g').hide();
-          $('#defaultBoard1h').hide();
-
-      } else {
-          $('#usdBoard1a').hide();
-          $('#usdBoard1b').hide();
-          $('#usdBoard1c').hide();
-          $('#usdBoard1d').hide();
-          $('#usdBoard1e').hide();
-          $('#usdBoard1f').hide();
-          $('#usdBoard1g').hide();
-          $('#usdBoard1h').hide();
-
-          $('#eurBoard2a').hide();
-          $('#eurBoard2b').hide();
-          $('#eurBoard2c').hide();
-          $('#eurBoard2d').hide();
-          $('#eurBoard2e').hide();
-          $('#eurBoard2f').hide();
-          $('#eurBoard2g').hide();
-          $('#eurBoard2h').hide();
-
-          $('#gbpBoard3a').hide();
-          $('#gbpBoard3b').hide();
-          $('#gbpBoard3c').hide();
-          $('#gbpBoard3d').hide();
-          $('#gbpBoard3e').hide();
-          $('#gbpBoard3f').hide();
-          $('#gbpBoard3g').hide();
-          $('#gbpBoard3h').hide();
-
-          $('#defaultBoard1a').show();
-          $('#defaultBoard1b').show();
-          $('#defaultBoard1c').show();
-          $('#defaultBoard1d').show();
-          $('#defaultBoard1e').show();
-          $('#defaultBoard1f').show();
-          $('#defaultBoard1g').show();
-          $('#defaultBoard1h').show();
-      }
-    }
-    else{
-    $('#ChooseCurrency').change(function () {
-        if (($(this).val() == 'USD')) {
-            $('#usdBoard1a').show();
-            $('#usdBoard1b').show();
-            $('#usdBoard1c').show();
-            $('#usdBoard1d').show();
-            $('#usdBoard1e').show();
-            $('#usdBoard1f').show();
-            $('#usdBoard1g').show();
-            $('#usdBoard1h').show();
-
-            $('#eurBoard2a').hide();
-            $('#eurBoard2b').hide();
-            $('#eurBoard2c').hide();
-            $('#eurBoard2d').hide();
-            $('#eurBoard2e').hide();
-            $('#eurBoard2f').hide();
-            $('#eurBoard2g').hide();
-            $('#eurBoard2h').hide();
-
-            $('#gbpBoard3a').hide();
-            $('#gbpBoard3b').hide();
-            $('#gbpBoard3c').hide();
-            $('#gbpBoard3d').hide();
-            $('#gbpBoard3e').hide();
-            $('#gbpBoard3f').hide();
-            $('#gbpBoard3g').hide();
-            $('#gbpBoard3h').hide();
-
-            $('#defaultBoard1a').hide();
-            $('#defaultBoard1b').hide();
-            $('#defaultBoard1c').hide();
-            $('#defaultBoard1d').hide();
-            $('#defaultBoard1e').hide();
-            $('#defaultBoard1f').hide();
-            $('#defaultBoard1g').hide();
-            $('#defaultBoard1h').hide();
-
-        } else if (($(this).val() == 'EUR')) {
-            $('#usdBoard1a').hide();
-            $('#usdBoard1b').hide();
-            $('#usdBoard1c').hide();
-            $('#usdBoard1d').hide();
-            $('#usdBoard1e').hide();
-            $('#usdBoard1f').hide();
-            $('#usdBoard1g').hide();
-            $('#usdBoard1h').hide();
-
-            $('#eurBoard2a').show();
-            $('#eurBoard2b').show();
-            $('#eurBoard2c').show();
-            $('#eurBoard2d').show();
-            $('#eurBoard2e').show();
-            $('#eurBoard2f').show();
-            $('#eurBoard2g').show();
-            $('#eurBoard2h').show();
-
-            $('#gbpBoard3a').hide();
-            $('#gbpBoard3b').hide();
-            $('#gbpBoard3c').hide();
-            $('#gbpBoard3d').hide();
-            $('#gbpBoard3e').hide();
-            $('#gbpBoard3f').hide();
-            $('#gbpBoard3g').hide();
-            $('#gbpBoard3h').hide();
-
-            $('#defaultBoard1a').hide();
-            $('#defaultBoard1b').hide();
-            $('#defaultBoard1c').hide();
-            $('#defaultBoard1d').hide();
-            $('#defaultBoard1e').hide();
-            $('#defaultBoard1f').hide();
-            $('#defaultBoard1g').hide();
-            $('#defaultBoard1h').hide();
-
-        } else if (($(this).val() == 'GBP')) {
-            $('#usdBoard1a').hide();
-            $('#usdBoard1b').hide();
-            $('#usdBoard1c').hide();
-            $('#usdBoard1d').hide();
-            $('#usdBoard1e').hide();
-            $('#usdBoard1f').hide();
-            $('#usdBoard1g').hide();
-            $('#usdBoard1h').hide();
-
-            $('#eurBoard2a').hide();
-            $('#eurBoard2b').hide();
-            $('#eurBoard2c').hide();
-            $('#eurBoard2d').hide();
-            $('#eurBoard2e').hide();
-            $('#eurBoard2f').hide();
-            $('#eurBoard2g').hide();
-            $('#eurBoard2h').hide();
-
-            $('#gbpBoard3a').show();
-            $('#gbpBoard3b').show();
-            $('#gbpBoard3c').show();
-            $('#gbpBoard3d').show();
-            $('#gbpBoard3e').show();
-            $('#gbpBoard3f').show();
-            $('#gbpBoard3g').show();
-            $('#gbpBoard3h').show();
-
-            $('#defaultBoard1a').hide();
-            $('#defaultBoard1b').hide();
-            $('#defaultBoard1c').hide();
-            $('#defaultBoard1d').hide();
-            $('#defaultBoard1e').hide();
-            $('#defaultBoard1f').hide();
-            $('#defaultBoard1g').hide();
-            $('#defaultBoard1h').hide();
-
-        } else {
-            $('#usdBoard1a').hide();
-            $('#usdBoard1b').hide();
-            $('#usdBoard1c').hide();
-            $('#usdBoard1d').hide();
-            $('#usdBoard1e').hide();
-            $('#usdBoard1f').hide();
-            $('#usdBoard1g').hide();
-            $('#usdBoard1h').hide();
-
-            $('#eurBoard2a').hide();
-            $('#eurBoard2b').hide();
-            $('#eurBoard2c').hide();
-            $('#eurBoard2d').hide();
-            $('#eurBoard2e').hide();
-            $('#eurBoard2f').hide();
-            $('#eurBoard2g').hide();
-            $('#eurBoard2h').hide();
-
-            $('#gbpBoard3a').hide();
-            $('#gbpBoard3b').hide();
-            $('#gbpBoard3c').hide();
-            $('#gbpBoard3d').hide();
-            $('#gbpBoard3e').hide();
-            $('#gbpBoard3f').hide();
-            $('#gbpBoard3g').hide();
-            $('#gbpBoard3h').hide();
-
-            $('#defaultBoard1a').show();
-            $('#defaultBoard1b').show();
-            $('#defaultBoard1c').show();
-            $('#defaultBoard1d').show();
-            $('#defaultBoard1e').show();
-            $('#defaultBoard1f').show();
-            $('#defaultBoard1g').show();
-            $('#defaultBoard1h').show();
-          }
-      });
-  };
-});
-
 <!-- DISPLAY SELECTED CURRENCY ON US | MAIN/LOCATIONS --->
 $(document).ready(function (e) {
     if(lastSelected){
@@ -5071,6 +4766,296 @@ $(document).ready(function (e) {
 
           $('#defaultBoardCancun').show();
           $('#defaultBoardMexicoCity').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON DK | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdCopenhagen').show();
+        $('#eurCopenhagen').hide();
+        $('#gbpCopenhagen').hide();
+        $('#defaultBoardCopenhagen').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdCopenhagen').hide();
+        $('#eurCopenhagen').show();
+        $('#gbpCopenhagen').hide();
+        $('#defaultBoardCopenhagen').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdCopenhagen').hide();
+        $('#eurCopenhagen').hide();
+        $('#gbpCopenhagen').show();
+        $('#defaultBoardCopenhagen').hide();
+
+      } else {
+        $('#usdCopenhagen').hide();
+        $('#eurCopenhagen').hide();
+        $('#gbpCopenhagen').hide();
+        $('#defaultBoardCopenhagen').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+            $('#usdCopenhagen').show();
+            $('#eurCopenhagen').hide();
+            $('#gbpCopenhagen').hide();
+            $('#defaultBoardCopenhagen').hide();
+
+        } else if ($(this).val() == 'EUR') {
+            $('#usdCopenhagen').hide();
+            $('#eurCopenhagen').show();
+            $('#gbpCopenhagen').hide();
+            $('#defaultBoardCopenhagen').hide();
+
+        } else if ($(this).val() == 'GBP') {
+            $('#usdCopenhagen').hide();
+            $('#eurCopenhagen').hide();
+            $('#gbpCopenhagen').show();
+            $('#defaultBoardCopenhagen').hide();
+
+        } else {
+            $('#usdCopenhagen').hide();
+            $('#eurCopenhagen').hide();
+            $('#gbpCopenhagen').hide();
+            $('#defaultBoardCopenhagen').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON SK | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdBratislava').show();
+        $('#eurBratislava').hide();
+        $('#gbpBratislava').hide();
+        $('#defaultBoardBratislava').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdBratislava').hide();
+        $('#eurBratislava').show();
+        $('#gbpBratislava').hide();
+        $('#defaultBoardBratislava').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdBratislava').hide();
+        $('#eurBratislava').hide();
+        $('#gbpBratislava').show();
+        $('#defaultBoardBratislava').hide();
+
+      } else {
+        $('#usdBratislava').hide();
+        $('#eurBratislava').hide();
+        $('#gbpBratislava').hide();
+        $('#defaultBoardBratislava').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+            $('#usdBratislava').show();
+            $('#eurBratislava').hide();
+            $('#gbpBratislava').hide();
+            $('#defaultBoardBratislava').hide();
+
+        } else if ($(this).val() == 'EUR') {
+            $('#usdBratislava').hide();
+            $('#eurBratislava').show();
+            $('#gbpBratislava').hide();
+            $('#defaultBoardBratislava').hide();
+
+        } else if ($(this).val() == 'GBP') {
+            $('#usdBratislava').hide();
+            $('#eurBratislava').hide();
+            $('#gbpBratislava').show();
+            $('#defaultBoardBratislava').hide();
+
+        } else {
+            $('#usdBratislava').hide();
+            $('#eurBratislava').hide();
+            $('#gbpBratislava').hide();
+            $('#defaultBoardBratislava').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON LV | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdRiga').show();
+        $('#eurRiga').hide();
+        $('#gbpRiga').hide();
+        $('#defaultBoardRiga').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdRiga').hide();
+        $('#eurRiga').show();
+        $('#gbpRiga').hide();
+        $('#defaultBoardRiga').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdRiga').hide();
+        $('#eurRiga').hide();
+        $('#gbpRiga').show();
+        $('#defaultBoardRiga').hide();
+
+      } else {
+        $('#usdRiga').hide();
+        $('#eurRiga').hide();
+        $('#gbpRiga').hide();
+        $('#defaultBoardRiga').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+            $('#usdRiga').show();
+            $('#eurRiga').hide();
+            $('#gbpRiga').hide();
+            $('#defaultBoardRiga').hide();
+
+        } else if ($(this).val() == 'EUR') {
+            $('#usdRiga').hide();
+            $('#eurRiga').show();
+            $('#gbpRiga').hide();
+            $('#defaultBoardRiga').hide();
+
+        } else if ($(this).val() == 'GBP') {
+            $('#usdRiga').hide();
+            $('#eurRiga').hide();
+            $('#gbpRiga').show();
+            $('#defaultBoardRiga').hide();
+
+        } else {
+            $('#usdRiga').hide();
+            $('#eurRiga').hide();
+            $('#gbpRiga').hide();
+            $('#defaultBoardRiga').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON DE | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdBerlin').show();
+        $('#eurBerlin').hide();
+        $('#gbpBerlin').hide();
+        $('#defaultBoardBerlin').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdBerlin').hide();
+        $('#eurBerlin').show();
+        $('#gbpBerlin').hide();
+        $('#defaultBoardBerlin').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdBerlin').hide();
+        $('#eurBerlin').hide();
+        $('#gbpBerlin').show();
+        $('#defaultBoardBerlin').hide();
+
+      } else {
+        $('#usdBerlin').hide();
+        $('#eurBerlin').hide();
+        $('#gbpBerlin').hide();
+        $('#defaultBoardBerlin').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+            $('#usdBerlin').show();
+            $('#eurBerlin').hide();
+            $('#gbpBerlin').hide();
+            $('#defaultBoardBerlin').hide();
+
+        } else if ($(this).val() == 'EUR') {
+            $('#usdBerlin').hide();
+            $('#eurBerlin').show();
+            $('#gbpBerlin').hide();
+            $('#defaultBoardBerlin').hide();
+
+        } else if ($(this).val() == 'GBP') {
+            $('#usdBerlin').hide();
+            $('#eurBerlin').hide();
+            $('#gbpBerlin').show();
+            $('#defaultBoardBerlin').hide();
+
+        } else {
+            $('#usdBerlin').hide();
+            $('#eurBerlin').hide();
+            $('#gbpBerlin').hide();
+            $('#defaultBoardBerlin').show();
+        }
+    });
+  };
+});
+
+<!-- DISPLAY SELECTED CURRENCY ON PT | MAIN/LOCATIONS --->
+$(document).ready(function (e) {
+    if(lastSelected){
+      if (lastSelected == 'USD') {
+        $('#usdLisbon').show();
+        $('#eurLisbon').hide();
+        $('#gbpLisbon').hide();
+        $('#defaultBoardLisbon').hide();
+
+      } else if (lastSelected == 'EUR') {
+        $('#usdLisbon').hide();
+        $('#eurLisbon').show();
+        $('#gbpLisbon').hide();
+        $('#defaultBoardLisbon').hide();
+
+      } else if (lastSelected == 'GBP') {
+        $('#usdLisbon').hide();
+        $('#eurLisbon').hide();
+        $('#gbpLisbon').show();
+        $('#defaultBoardLisbon').hide();
+
+      } else {
+        $('#usdLisbon').hide();
+        $('#eurLisbon').hide();
+        $('#gbpLisbon').hide();
+        $('#defaultBoardLisbon').show();
+      }
+    }
+    else{
+    $('#ChooseCurrency').change(function () {
+        if ($(this).val() == 'USD') {
+            $('#usdLisbon').show();
+            $('#eurLisbon').hide();
+            $('#gbpLisbon').hide();
+            $('#defaultBoardLisbon').hide();
+
+        } else if ($(this).val() == 'EUR') {
+            $('#usdLisbon').hide();
+            $('#eurLisbon').show();
+            $('#gbpLisbon').hide();
+            $('#defaultBoardLisbon').hide();
+
+        } else if ($(this).val() == 'GBP') {
+            $('#usdLisbon').hide();
+            $('#eurLisbon').hide();
+            $('#gbpLisbon').show();
+            $('#defaultBoardLisbon').hide();
+
+        } else {
+            $('#usdLisbon').hide();
+            $('#eurLisbon').hide();
+            $('#gbpLisbon').hide();
+            $('#defaultBoardLisbon').show();
         }
     });
   };

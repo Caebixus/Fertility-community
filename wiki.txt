@@ -34,4 +34,6 @@ Setup by měl být hotový a nyní přidávání textu k jednotlivým klinikám:
 4) Přidat URLs do Sitemaps
 5) Dodat obrázky pro všechny lokace!
 6) Přidat location do Index homepage
+7) Dát do JS IVF costs nové lokace (jake města tak stát)!
+8) Myslet na to že ten stát možná nemá USD/EUR currency pro který je limit, tak se rozhoudnout zda-li to stojí za to naimplementovat do crona a stahovat exchange rate
 - při nahrávání na server, nezapomenou na collectstatic kvůli obrázkům

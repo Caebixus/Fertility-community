@@ -1,6 +1,9 @@
 from django import template
 from base.models import CurrenciesExchangeRates
 
+eur_to_usd_rate = 1.13
+eur_to_gbp_rate = 0.83
+
 register = template.Library()
 
 rate = CurrenciesExchangeRates.objects.get(pk=1)
@@ -23,3 +26,14 @@ def convert(value, arg):
     return new_value
 
 register.filter("convert", convert)
+
+def convertEUR(value, arg):
+    if arg == 'EUR':
+        return value
+    elif arg == 'USD':
+        new_value = value * eur_to_usd_rate
+    elif arg == 'GBP':
+        new_value = value * eur_to_gbp_rate
+    return new_value
+
+register.filter("convertEUR", convertEUR)

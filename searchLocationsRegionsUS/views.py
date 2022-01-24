@@ -268,7 +268,7 @@ def fertilityClinicsDelaware(request):
 
     return render(request, 'locations-regions/USA/fertility-clinics-delaware.html', context)
 
-    # ----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
 def fertilityClinicsFlorida(request):
     guestblog = GuestBlog.objects.filter(guestblogregion__iexact='Florida')
     guestblog = guestblog.filter(guestblogactive=True)

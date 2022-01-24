@@ -5,3 +5,8 @@ CATEGORY_PACKAGE = (
     ('Egg donation packages', 'Egg donation packages'),
     ('Embryo donation packages', 'Embryo donation packages'),
     )
+
+PACKAGE_TYPE = (
+    ('30 Days', '30 Days'),
+    ('90 Days', '90 Days'),
+    )

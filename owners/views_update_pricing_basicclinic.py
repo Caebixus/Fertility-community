@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from clinic.models import BasicClinic
 from datetime import datetime
-from .forms import PostForm, PostFormPro, UpdatePrice, UpdatePricePro
+from .forms import UpdateClinic, UpdateClinicPro, UpdatePrice, UpdatePricePro
 from django.core.mail import send_mail
 from .views import dashboard
 
@@ -12,7 +12,7 @@ from .views import dashboard
 def update(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
 
-    form = PostForm(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
+    form = UpdateClinic(request.POST or None, request.FILES or None, instance=instance, prefix="form1")
 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -113,7 +113,7 @@ def updatePricing(request, listing_id):
 def updateproclinic(request, listing_id):
     instance = get_object_or_404(BasicClinic, pk=listing_id, clinicOwner_id=request.user)
 
-    form = PostFormPro(request.POST or None, request.FILES or None, instance=instance)
+    form = UpdateClinicPro(request.POST or None, request.FILES or None, instance=instance)
 
     if form.is_valid():
         instance = form.save(commit=False)

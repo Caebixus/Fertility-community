@@ -15,31 +15,31 @@ def locationsMXRegions(request):
     my_total_clinic_count = country_count(country_name)
     clinic_count = my_total_clinic_count
 
-    queryset_list_mx_natural_ivf_val = procedure_country_average_value('ivf_treatment_cost', country_name, clinic_count)
-    queryset_list_mx_mild_ivf_val = procedure_country_average_value('mild_ivf_treatment_cost', country_name, clinic_count)
-    queryset_list_mx_standard_ivf_val = procedure_country_average_value('ovarian_ivf_treatment_cost', country_name, clinic_count)
-    queryset_list_mx_egg_ivf_val = procedure_country_average_value('egg_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_known_egg_ivf_val = procedure_country_average_value('known_egg_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_shared_egg_ivf_val = procedure_country_average_value('shared_egg_donor_recipients_cost', country_name, clinic_count)
+    queryset_list_mx_natural_ivf_val = procedure_country_average_value('ivf_treatment_cost', country_name)
+    queryset_list_mx_mild_ivf_val = procedure_country_average_value('mild_ivf_treatment_cost', country_name)
+    queryset_list_mx_standard_ivf_val = procedure_country_average_value('ovarian_ivf_treatment_cost', country_name)
+    queryset_list_mx_egg_ivf_val = procedure_country_average_value('egg_donor_recipients_cost', country_name)
+    queryset_list_mx_known_egg_ivf_val = procedure_country_average_value('known_egg_donor_recipients_cost', country_name)
+    queryset_list_mx_shared_egg_ivf_val = procedure_country_average_value('shared_egg_donor_recipients_cost', country_name)
 
-    queryset_list_mx_embryo_ivf_val = procedure_country_average_value('embryo_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_known_embryo_ivf_val = procedure_country_average_value('known_embryo_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_sperm_ivf_val = procedure_country_average_value('sperm_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_known_sperm_ivf_val = procedure_country_average_value('known_sperm_donor_recipients_cost', country_name, clinic_count)
-    queryset_list_mx_icsi_val = procedure_country_average_value('icsi_treatment_cost', country_name, clinic_count)
-    queryset_list_mx_iui_val = procedure_country_average_value('iui_treatment_cost', country_name, clinic_count)
+    queryset_list_mx_embryo_ivf_val = procedure_country_average_value('embryo_donor_recipients_cost', country_name)
+    queryset_list_mx_known_embryo_ivf_val = procedure_country_average_value('known_embryo_donor_recipients_cost', country_name)
+    queryset_list_mx_sperm_ivf_val = procedure_country_average_value('sperm_donor_recipients_cost', country_name)
+    queryset_list_mx_known_sperm_ivf_val = procedure_country_average_value('known_sperm_donor_recipients_cost', country_name)
+    queryset_list_mx_icsi_val = procedure_country_average_value('icsi_treatment_cost', country_name)
+    queryset_list_mx_iui_val = procedure_country_average_value('iui_treatment_cost', country_name)
 
     #--------------------------------------------------------------------------
     city_name = 'Mexico City'
     my_total_clinic_count_mexicocity = region_count(city_name)
     clinic_count = my_total_clinic_count_mexicocity
 
-    queryset_list_mexicocity_ivf_val = procedure_city_average_value('ivf_treatment_cost', city_name, clinic_count)
-    queryset_list_mexicocity_egg_val = procedure_city_average_value('mild_ivf_treatment_cost', city_name, clinic_count)
-    queryset_list_mexicocity_embryo_val = procedure_city_average_value('ovarian_ivf_treatment_cost', city_name, clinic_count)
-    queryset_list_mexicocity_sperm_val = procedure_city_average_value('egg_donor_recipients_cost', city_name, clinic_count)
-    queryset_list_mexicocity_icsi_val = procedure_city_average_value('known_egg_donor_recipients_cost', city_name, clinic_count)
-    queryset_list_mexicocity_iui_val = procedure_city_average_value('shared_egg_donor_recipients_cost', city_name, clinic_count)
+    queryset_list_mexicocity_ivf_val = procedure_city_average_value('ivf_treatment_cost', city_name)
+    queryset_list_mexicocity_egg_val = procedure_city_average_value('mild_ivf_treatment_cost', city_name)
+    queryset_list_mexicocity_embryo_val = procedure_city_average_value('ovarian_ivf_treatment_cost', city_name)
+    queryset_list_mexicocity_sperm_val = procedure_city_average_value('egg_donor_recipients_cost', city_name)
+    queryset_list_mexicocity_icsi_val = procedure_city_average_value('known_egg_donor_recipients_cost', city_name)
+    queryset_list_mexicocity_iui_val = procedure_city_average_value('shared_egg_donor_recipients_cost', city_name)
 
     context = {
         'year': year,

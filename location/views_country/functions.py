@@ -18,7 +18,8 @@ def procedure_country_average_value(cost_name, country_name):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list = queryset_list.filter(clinicState=country_name)
 
-    clinic_count = queryset_list.filter(ovarian_ivf_treatment_cost__isnull=False)
+    filter = cost_name + '__' + 'isnull'
+    clinic_count = queryset_list.filter(**{ filter: False })
     clinic_count = clinic_count.count()
 
     queryset_list_usd = queryset_list.filter(defaultClinicCurrency='USD').filter(ovarian_ivf_treatment_cost__isnull=False)
@@ -57,7 +58,8 @@ def procedure_region_average_value(cost_name, region_name):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list = queryset_list.filter(clinicRegion__iexact=region_name)
 
-    clinic_count = queryset_list.filter(ovarian_ivf_treatment_cost__isnull=False)
+    filter = cost_name + '__' + 'isnull'
+    clinic_count = queryset_list.filter(**{ filter: False })
     clinic_count = clinic_count.count()
 
     queryset_list_usd = queryset_list.filter(defaultClinicCurrency='USD').filter(ovarian_ivf_treatment_cost__isnull=False)
@@ -95,7 +97,8 @@ def procedure_city_average_value(cost_name, city_name):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
     queryset_list = queryset_list.filter(clinicCity__iexact=city_name)
 
-    clinic_count = queryset_list.filter(ovarian_ivf_treatment_cost__isnull=False)
+    filter = cost_name + '__' + 'isnull'
+    clinic_count = queryset_list.filter(**{ filter: False })
     clinic_count = clinic_count.count()
 
     queryset_list_usd = queryset_list.filter(defaultClinicCurrency='USD').filter(ovarian_ivf_treatment_cost__isnull=False)

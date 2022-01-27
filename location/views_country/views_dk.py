@@ -15,31 +15,31 @@ def locationsDKRegions(request):
     my_total_clinic_count = country_count(country_name)
     clinic_count = my_total_clinic_count
 
-    queryset_list_dk_natural_ivf_val = procedure_country_average_value('ivf_treatment_cost', country_name)
-    queryset_list_dk_mild_ivf_val = procedure_country_average_value('mild_ivf_treatment_cost', country_name)
-    queryset_list_dk_standard_ivf_val = procedure_country_average_value('ovarian_ivf_treatment_cost', country_name)
-    queryset_list_dk_egg_ivf_val = procedure_country_average_value('egg_donor_recipients_cost', country_name)
-    queryset_list_dk_known_egg_ivf_val = procedure_country_average_value('known_egg_donor_recipients_cost', country_name)
-    queryset_list_dk_shared_egg_ivf_val = procedure_country_average_value('shared_egg_donor_recipients_cost', country_name)
+    queryset_list_dk_natural_ivf_val = procedure_country_average_value(queryset_list, 'ivf_treatment_cost', country_name)
+    queryset_list_dk_mild_ivf_val = procedure_country_average_value(queryset_list, 'mild_ivf_treatment_cost', country_name)
+    queryset_list_dk_standard_ivf_val = procedure_country_average_value(queryset_list, 'ovarian_ivf_treatment_cost', country_name)
+    queryset_list_dk_egg_ivf_val = procedure_country_average_value(queryset_list, 'egg_donor_recipients_cost', country_name)
+    queryset_list_dk_known_egg_ivf_val = procedure_country_average_value(queryset_list, 'known_egg_donor_recipients_cost', country_name)
+    queryset_list_dk_shared_egg_ivf_val = procedure_country_average_value(queryset_list, 'shared_egg_donor_recipients_cost', country_name)
 
-    queryset_list_dk_embryo_ivf_val = procedure_country_average_value('embryo_donor_recipients_cost', country_name)
-    queryset_list_dk_known_embryo_ivf_val = procedure_country_average_value('known_embryo_donor_recipients_cost', country_name)
-    queryset_list_dk_sperm_ivf_val = procedure_country_average_value('sperm_donor_recipients_cost', country_name)
-    queryset_list_dk_known_sperm_ivf_val = procedure_country_average_value('known_sperm_donor_recipients_cost', country_name)
-    queryset_list_dk_icsi_val = procedure_country_average_value('icsi_treatment_cost', country_name)
-    queryset_list_dk_iui_val = procedure_country_average_value('iui_treatment_cost', country_name)
+    queryset_list_dk_embryo_ivf_val = procedure_country_average_value(queryset_list, 'embryo_donor_recipients_cost', country_name)
+    queryset_list_dk_known_embryo_ivf_val = procedure_country_average_value(queryset_list, 'known_embryo_donor_recipients_cost', country_name)
+    queryset_list_dk_sperm_ivf_val = procedure_country_average_value(queryset_list, 'sperm_donor_recipients_cost', country_name)
+    queryset_list_dk_known_sperm_ivf_val = procedure_country_average_value(queryset_list, 'known_sperm_donor_recipients_cost', country_name)
+    queryset_list_dk_icsi_val = procedure_country_average_value(queryset_list, 'icsi_treatment_cost', country_name)
+    queryset_list_dk_iui_val = procedure_country_average_value(queryset_list, 'iui_treatment_cost', country_name)
 
     #--------------------------------------------------------------------------
     region_name = 'Copenhagen'
     my_total_clinic_count_copenhagen = region_count(region_name)
     clinic_count = my_total_clinic_count_copenhagen
 
-    queryset_list_copenhagen__ivf_val = procedure_region_average_value('ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__egg_val = procedure_region_average_value('mild_ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__embryo_val = procedure_region_average_value('ovarian_ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__sperm_val = procedure_region_average_value('egg_donor_recipients_cost', region_name)
-    queryset_list_copenhagen__icsi_val = procedure_region_average_value('known_egg_donor_recipients_cost', region_name)
-    queryset_list_copenhagen__iui_val = procedure_region_average_value('shared_egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen__ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
+    queryset_list_copenhagen__egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
+    queryset_list_copenhagen__embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
+    queryset_list_copenhagen__sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen__icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen__iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
 
     context = {
         'year': year,

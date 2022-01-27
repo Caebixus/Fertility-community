@@ -14,8 +14,7 @@ def region_count(region_name):
     return queryset_list.count()
 
 
-def procedure_country_average_value(cost_name, country_name):
-    queryset_list = BasicClinic.objects.all().exclude(is_published=False)
+def procedure_country_average_value(queryset_list, cost_name, country_name):
     queryset_list = queryset_list.filter(clinicState=country_name)
 
     filter = cost_name + '__' + 'isnull'
@@ -54,8 +53,7 @@ def procedure_country_average_value(cost_name, country_name):
     return queryset_listknown_egg_ivf_val
 
 
-def procedure_region_average_value(cost_name, region_name):
-    queryset_list = BasicClinic.objects.all().exclude(is_published=False)
+def procedure_region_average_value(queryset_list, cost_name, region_name):
     queryset_list = queryset_list.filter(clinicRegion__iexact=region_name)
 
     filter = cost_name + '__' + 'isnull'
@@ -93,8 +91,7 @@ def procedure_region_average_value(cost_name, region_name):
 
     return queryset_listknown_egg_ivf_val
 
-def procedure_city_average_value(cost_name, city_name):
-    queryset_list = BasicClinic.objects.all().exclude(is_published=False)
+def procedure_city_average_value(queryset_list, cost_name, city_name):
     queryset_list = queryset_list.filter(clinicCity__iexact=city_name)
 
     filter = cost_name + '__' + 'isnull'

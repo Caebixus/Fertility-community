@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% load humanize %}
-{% block title %}{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
+{% block title %}The {{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
 {% block description %}{{best_clinics_blogpost.description}}{% endblock %}
 {% block noindexpage %}{% if best_clinics_blogpost.best_article_state_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}/{% endblock %}

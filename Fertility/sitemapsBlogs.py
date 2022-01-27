@@ -24,6 +24,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'ivf_in_greece',
         'ivf_in_czech_republic',
         'ivf_in_slovakia',
+        'ivf_in_prague',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

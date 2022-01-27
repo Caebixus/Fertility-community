@@ -1,0 +1,216 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in prague, ivf prague{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":
+        {
+          "@type":"WebPage",
+          "@id":"{{ blog.blog_url }}"
+        },
+      "headline": "{{ blog.title }} | {{blog.year}}",
+      "image":
+        {
+          "@type": "ImageObject",
+          "url": "{{ blog.pic_blog.url }}",
+          "height": 1080,
+          "width": 1480
+        },
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
+      "author":
+        {
+          "@type": "Person",
+          "name": "{{ author.author_name }} {{ author.author_lastname }}"
+        },
+      "publisher":
+        {
+          "@type": "Organization",
+          "name": "FertilityCommunity",
+          "logo":
+            {
+              "@type": "ImageObject",
+              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
+            }
+        },
+      "description": "{{ blog.description }}"
+    }
+</script>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% if author.author_name == 'FertilityCommunity' %}
+    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
+  {% else %}
+    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
+  {% endif %}
+  <hr>
+  <br>
+  <br>
+  <p>Prague is a culturally diverse city with a lively night scene and rich history. Although more recently, Prague has been making waves on the world map for being a sought after destination for many couples and singletons looking for IVF treatments abroad. There are currently {{numclinics}} IVF clinics in Prague boasting some of the most affordable, high-quality places on the continent, it is no surprise that many are flocking here for their fertility treatments. </p>
+  <br>
+  <div class="text-center py-3">
+    <a href="{% url 'bestivfclinicsinprague' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">What are the {{ best_clinics_count }} best IVF clinics in Prague?</button>
+    </a>
+  </div>
+  <br>
+  <p>At Fertility Community, we are passionate about giving you some information to help you make the best deciduous when seeking fertility treatment. So this post will go over the top reasons to consider IVF in Prague and the costs you can expect to be associated with the various treatments on offer. In the spirit of honestly, we will also highlight some limitations of IVF in Prague you may wish to consider. </p>
+  <br>
+  <br>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><b>3 Reasons To Choose IVF in Prague</b></h2>
+    <br>
+    <ol>
+      <li>
+        <h3 style="font-size: 95%">Short Waiting Time for IVF with Egg Donation</h3>
+        <p style="font-size: 95%">Due to the law in the Czech Republic, all donors are required to donate anonymously. This law can help encourage fertile young people to donate their eggs, leading to shorter waiting times for IVF in Prague with egg donation. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Affordable Treatments and Travel Costs</h3>
+        <p style="font-size: 95%">Due to the lower cost of living in Prague compared to other major European cities, such as London or Paris, the costs of IVF in Prague are more affordable. However, this price is not reflective of the quality. The standard of care is high as the clinics pride themselves on their incredible bedside manner and medical expertise. </p>
+        <p style="font-size: 95%">You also don’t need to worry about substantial travel costs to Prague when considering IVF abroad. As a popular tourist destination, flights and accommodation in Prague are generally within most couples budgets. Moreover, travel to Prague is incredibly convenient as most flights from Europe will go direct and won’t be longer than a few hours at most. </p>
+      </li>
+      <li>
+        <h3 style="font-size: 95%">Beautiful and Laidback City</h3>
+        <p style="font-size: 95%">Of course, when your main goal is finding the right clinic for you, the location matters less. However, it never hurts to be in a beautiful place where you feel at home and well-rested before your consultations and treatments. Therefore, we recommend a 7-10 day stay in Prague to have enough time to settle in, make all your appointments and do a spot of sightseeing in the meantime. </p>
+        <p style="font-size: 95%">Not only is this an excellent time to spend bonding with your partner, but you can also benefit from the low-stress environment, which may improve your treatment process. In addition, your physical and mental health state can impact your success rates, so this is a wonderful bonus to booking IVF in Prague. </p>
+      </li>
+    </ol>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Average Costs of IVF in Prague</h2>
+    <br>
+    <p>Prague is a fantastic destination for many people seeking fertility treatment. It is popular with those from the Czech Republic and Europeans who travel to save money on safe and high-quality therapies. </p>
+    <br>
+    <div class="text-center py-3">
+      <a href="{% url 'locationsCZRegions' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How much does IVF treatment cost in Prague?</button>
+      </a>
+    </div>
+    <br>
+    <p>Below are the general costs of IVF in Prague. Please be aware that although we try and provide the most accurate and up-to-date information about the associated costs of IVF treatments, the price may vary between clinics and are subject to change over time. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Success Rates of IVF in Prague</h2>
+    <br>
+    <p>As mentioned in our previous post on IVF in the Czech Republic, IVF success rates at various clinics are not on a public database. This lack of public data can make it more challenging to use success rates as a comparison factor when considering which country and clinic to undergo your fertility treatments. </p>
+    <br>
+    <p>However, the European Social of Human Reproduction and Embryology (ESHRE) has reported that success rates in the Czech Republic are good and generally better than countries that are more well-known for their health care, such as the UK.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="text-center">
+    <a href="{% url 'fertilityClinicPrague' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How many fertility clinics are there in Prague?</button>
+    </a>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">IVF Limitations in Prague </h2>
+    <br>
+    <p>As per the legal requirements for a couple to undergo IVF treatment within the Czech Republic, you must be in a heterosexual relationship and be living together. Therefore, this law prohibits homosexual couples from receiving fertility treatments in the country. </p>
+    <br>
+    <p>As a mature woman seeking fertility treatment in Prague, you must be under 48 years and 394 days old to receive an egg donation for your IVF treatments. </p>
+    <br>
+    <p>In Prague, all egg and sperm donors remain entirely anonymous, so you may wish to reconsider IVF in Prague if it is essential to you or your partner to know the biological profile of the donor. </p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Final Thoughts</h2>
+    <br>
+    <p>Prague is a superb destination for anyone seeking medical assistance with their fertility. It is a beautiful city, and the clinics within the city are some of the best in Europe. Especially when you consider the lower costs associated with treatments in the Czech Republic, Prague is a no brainer for regions to explore for treatment. </p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><b>Continue reading:</b></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

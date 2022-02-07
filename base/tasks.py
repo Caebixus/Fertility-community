@@ -700,6 +700,7 @@ def calculate_active_clinic():
             clinic.active_180 = False
             clinic.save()
 
+
 # @task()
 # def calculate_package_number
 #     todayDate = timezone.now()

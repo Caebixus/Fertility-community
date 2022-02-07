@@ -34,12 +34,12 @@ def locationsSKRegions(request):
     my_total_clinic_count_bratislava = region_count(region_name)
     clinic_count = my_total_clinic_count_bratislava
 
-    queryset_list_bratislava__ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
-    queryset_list_bratislava__egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
-    queryset_list_bratislava__embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
-    queryset_list_bratislava__sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
-    queryset_list_bratislava__icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
-    queryset_list_bratislava__iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
+    queryset_list_bratislava_ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
+    queryset_list_bratislava_egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
+    queryset_list_bratislava_embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
+    queryset_list_bratislava_sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
+    queryset_list_bratislava_icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
+    queryset_list_bratislava_iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
 
     context = {
         'year': year,
@@ -60,12 +60,12 @@ def locationsSKRegions(request):
         'queryset_list_sk_iui_val': queryset_list_sk_iui_val,
 
         'my_total_clinic_count_bratislava': my_total_clinic_count_bratislava,
-        'queryset_list_bratislava__ivf_val': queryset_list_bratislava__ivf_val,
-        'queryset_list_bratislava__egg_val': queryset_list_bratislava__egg_val,
-        'queryset_list_bratislava__embryo_val': queryset_list_bratislava__embryo_val,
-        'queryset_list_bratislava__sperm_val': queryset_list_bratislava__sperm_val,
-        'queryset_list_bratislava__icsi_val': queryset_list_bratislava__icsi_val,
-        'queryset_list_bratislava__iui_val': queryset_list_bratislava__iui_val,
+        'queryset_list_bratislava_ivf_val': queryset_list_bratislava_ivf_val,
+        'queryset_list_bratislava_egg_val': queryset_list_bratislava_egg_val,
+        'queryset_list_bratislava_embryo_val': queryset_list_bratislava_embryo_val,
+        'queryset_list_bratislava_sperm_val': queryset_list_bratislava_sperm_val,
+        'queryset_list_bratislava_icsi_val': queryset_list_bratislava_icsi_val,
+        'queryset_list_bratislava_iui_val': queryset_list_bratislava_iui_val,
         }
     return render(request, 'main/Locations/SKLocations/sk-regions-ivf.html', context)
 

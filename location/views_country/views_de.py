@@ -34,12 +34,12 @@ def locationsDERegions(request):
     my_total_clinic_count_berlin = region_count(region_name)
     clinic_count = my_total_clinic_count_berlin
 
-    queryset_list_berlin__ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
-    queryset_list_berlin__egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
-    queryset_list_berlin__embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
-    queryset_list_berlin__sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
-    queryset_list_berlin__icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
-    queryset_list_berlin__iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
+    queryset_list_berlin_ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
+    queryset_list_berlin_egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
+    queryset_list_berlin_embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
+    queryset_list_berlin_sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
+    queryset_list_berlin_icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
+    queryset_list_berlin_iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
 
     context = {
         'year': year,
@@ -60,12 +60,12 @@ def locationsDERegions(request):
         'queryset_list_de_iui_val': queryset_list_de_iui_val,
 
         'my_total_clinic_count_berlin': my_total_clinic_count_berlin,
-        'queryset_list_berlin__ivf_val': queryset_list_berlin__ivf_val,
-        'queryset_list_berlin__egg_val': queryset_list_berlin__egg_val,
-        'queryset_list_berlin__embryo_val': queryset_list_berlin__embryo_val,
-        'queryset_list_berlin__sperm_val': queryset_list_berlin__sperm_val,
-        'queryset_list_berlin__icsi_val': queryset_list_berlin__icsi_val,
-        'queryset_list_berlin__iui_val': queryset_list_berlin__iui_val,
+        'queryset_list_berlin_ivf_val': queryset_list_berlin_ivf_val,
+        'queryset_list_berlin_egg_val': queryset_list_berlin_egg_val,
+        'queryset_list_berlin_embryo_val': queryset_list_berlin_embryo_val,
+        'queryset_list_berlin_sperm_val': queryset_list_berlin_sperm_val,
+        'queryset_list_berlin_icsi_val': queryset_list_berlin_icsi_val,
+        'queryset_list_berlin_iui_val': queryset_list_berlin_iui_val,
         }
     return render(request, 'main/Locations/DELocations/de-regions-ivf.html', context)
 

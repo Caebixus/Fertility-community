@@ -34,12 +34,12 @@ def locationsDKRegions(request):
     my_total_clinic_count_copenhagen = region_count(region_name)
     clinic_count = my_total_clinic_count_copenhagen
 
-    queryset_list_copenhagen__ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
-    queryset_list_copenhagen__sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
-    queryset_list_copenhagen__icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
-    queryset_list_copenhagen__iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen_ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name)
+    queryset_list_copenhagen_egg_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name)
+    queryset_list_copenhagen_embryo_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name)
+    queryset_list_copenhagen_sperm_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen_icsi_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name)
+    queryset_list_copenhagen_iui_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name)
 
     context = {
         'year': year,
@@ -60,12 +60,12 @@ def locationsDKRegions(request):
         'queryset_list_dk_iui_val': queryset_list_dk_iui_val,
 
         'my_total_clinic_count_copenhagen': my_total_clinic_count_copenhagen,
-        'queryset_list_copenhagen__ivf_val': queryset_list_copenhagen__ivf_val,
-        'queryset_list_copenhagen__egg_val': queryset_list_copenhagen__egg_val,
-        'queryset_list_copenhagen__embryo_val': queryset_list_copenhagen__embryo_val,
-        'queryset_list_copenhagen__sperm_val': queryset_list_copenhagen__sperm_val,
-        'queryset_list_copenhagen__icsi_val': queryset_list_copenhagen__icsi_val,
-        'queryset_list_copenhagen__iui_val': queryset_list_copenhagen__iui_val,
+        'queryset_list_copenhagen_ivf_val': queryset_list_copenhagen_ivf_val,
+        'queryset_list_copenhagen_egg_val': queryset_list_copenhagen_egg_val,
+        'queryset_list_copenhagen_embryo_val': queryset_list_copenhagen_embryo_val,
+        'queryset_list_copenhagen_sperm_val': queryset_list_copenhagen_sperm_val,
+        'queryset_list_copenhagen_icsi_val': queryset_list_copenhagen_icsi_val,
+        'queryset_list_copenhagen_iui_val': queryset_list_copenhagen_iui_val,
         }
     return render(request, 'main/Locations/DKLocations/dk-regions-ivf.html', context)
 

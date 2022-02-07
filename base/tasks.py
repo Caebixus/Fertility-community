@@ -705,6 +705,22 @@ def calculate_active_clinic():
 
 @task()
 def calculate_average_country_costs():
+    country_name = {
+        'United States': 'AverageTreatmentCostUsa',
+        'Mexico': 'AverageTreatmentCostMexico',
+        'United Kingdom': 'AverageTreatmentCostUk',
+        'Spain': 'AverageTreatmentCostSpain',
+        'Slovakia': 'AverageTreatmentCostSlovakia',
+        'Portugal': 'AverageTreatmentCostPortugal',
+        'Latvia': 'AverageTreatmentCostLatvia',
+        'India': 'AverageTreatmentCostIndia',
+        'Greece': 'AverageTreatmentCostGreece',
+        'Denmark': 'AverageTreatmentCostDenmark',
+        'Germany': 'AverageTreatmentCostGermany',
+        'Czech Republic': 'AverageTreatmentCostCzech',
+        'Cyprus': 'AverageTreatmentCostCyprus',
+    }
+
     from location.models.country_models import *
     from location.views_country.functions import procedure_country_average_value,
     from django.apps import apps

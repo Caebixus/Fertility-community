@@ -15,7 +15,7 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
 django.setup()
 
-from .costs_tasks import tasks_country_average_treatment_costs
+from .costs_tasks.tasks_country_average_treatment_costs import calculate_average_country_costs
 
 import requests
 from base.models import CurrenciesExchangeRates

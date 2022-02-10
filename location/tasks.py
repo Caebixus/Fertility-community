@@ -85,7 +85,7 @@ def calculate_average_country_costs():
             costs.iui_val = queryset_list_iui_val
             costs.save()
 
-region_name = {
+us_region_name = {
     'Alabama': 'Alabama',
     'Alaska': 'Alaska',
     'Arizona': 'Arizona',
@@ -142,7 +142,7 @@ region_name = {
 
 @task()
 def calculate_average_north_america_region_costs():
-    for k, v in region_name.items():
+    for k, v in us_region_name.items():
         queryset_list = BasicClinic.objects.all().exclude(is_published=False)
         region_name_ = k
 
@@ -195,13 +195,13 @@ def calculate_average_north_america_region_costs():
             costs.save()
 
 
-city_name = {
+us_city_name = {
     'Mexico City': 'MexicoCity',
 }
 
 @task()
 def calculate_average_north_america_city_costs():
-    for k, v in city_name.items():
+    for k, v in us_city_name.items():
         queryset_list = BasicClinic.objects.all().exclude(is_published=False)
         city_name_ = k
 
@@ -254,7 +254,7 @@ def calculate_average_north_america_city_costs():
             costs.save()
 
 
-region_name = {
+eu_region_name = {
     'Prague': 'Prague',
     'Brno': 'Brno',
     'Alicante': 'Alicante',
@@ -308,7 +308,7 @@ region_name = {
 
 @task()
 def calculate_average_european_city_costs():
-    for k, v in region_name.items():
+    for k, v in eu_region_name.items():
         queryset_list = BasicClinic.objects.all().exclude(is_published=False)
         region_name_ = k
 
@@ -361,7 +361,7 @@ def calculate_average_european_city_costs():
             costs.save()
 
 
-city_name = {
+asia_city_name = {
     'Amdavad': 'Amdavad',
     'Bangalore': 'Bangalore',
     'Bhopal': 'Bhopal',
@@ -404,7 +404,7 @@ city_name = {
 
 @task()
 def calculate_average_asian_city_costs():
-    for k, v in city_name.items():
+    for k, v in asia_city_name.items():
         queryset_list = BasicClinic.objects.all().exclude(is_published=False)
         city_name_ = k
 

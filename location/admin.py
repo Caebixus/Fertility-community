@@ -61,3 +61,10 @@ class BangaloreAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Bangalore, BangaloreAdmin)
+
+class MontanaAdmin(admin.ModelAdmin):
+    model = Montana
+    list_display = ('id',)
+
+
+admin.site.register(Montana, MontanaAdmin)

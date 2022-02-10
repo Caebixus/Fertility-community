@@ -2,11 +2,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from . import views, views3
+from . import views, views2, views3
 from .views_country import views_cz, views_sk, views_cy, views_sp, views_gr, views_mx, views_lv, views_pt, views_de, views_dk, views_in, views_uk, views_us
 
 urlpatterns = [
-    path('ivf-cost', views.locationsStandardIVF, name='locations'),
+    path('ivf-cost', views2.locationsStandardIVF, name='locations'),
     path('egg-donation-cost', views.locationsIVFwithEggDonation, name='locationsIVFwithEggDonation'),
     path('embryo-donation-cost', views.locationsIVFwithEmbryoDonation, name='locationsIVFwithEmbryoDonation'),
     path('iui-cost', views.locationsIUI, name='locationsIUI'),

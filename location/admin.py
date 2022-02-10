@@ -68,3 +68,10 @@ class MontanaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Montana, MontanaAdmin)
+
+class AlabamaAdmin(admin.ModelAdmin):
+    model = Alabama
+    list_display = ('id',)
+
+
+admin.site.register(Alabama, AlabamaAdmin)

@@ -5,89 +5,77 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fertility.settings')
 django.setup()
 
 from clinic.models import BasicClinic
-from location.models.country_models import *
+from location.models.europe_city_models import *
 
 from location.views_country.functions import country_count, region_count, procedure_country_average_value, procedure_region_average_value, procedure_city_average_value
 from django.apps import apps
 
-us_region_name = {
-    'Alabama': 'Alabama',
-    'Alaska': 'Alaska',
-    'Arizona': 'Arizona',
-    'Arkansas': 'Arkansas',
-    'California': 'California',
-    'Colorado': 'Colorado',
-    'Connecticut': 'Connecticut',
-    'Delaware': 'Delaware',
-    'Florida': 'Florida',
-    'Georgia': 'Georgia',
-    'Hawaii': 'Hawaii',
-    'Idaho': 'Idaho',
-    'Illinois': 'Illinois',
-    'Indiana': 'Indiana',
-    'Iowa': 'Iowa',
-    'Kansas': 'Kansas',
-    'Kentucky': 'Kentucky',
-    'Louisiana': 'Louisiana',
-    'Maine': 'Maine',
-    'Maryland': 'Maryland',
-    'Massachusetts': 'Massachusetts',
-    'Michigan': 'Michigan',
-    'Minnesota': 'Minnesota',
-    'Mississippi': 'Mississippi',
-    'Missouri': 'Missouri',
-    'Montana': 'Montana',
-    'Nebraska': 'Nebraska',
-    'New Hampshire': 'NewHampshire',
-    'New Jersey': 'NewJersey',
-    'New Mexico': 'NewMexico',
-    'New York': 'NewYork',
-    'North Carolina': 'NorthCarolina',
-    'North Dakota': 'NorthDakota',
-    'Nevada': 'Nevada',
-    'Ohio': 'Ohio',
-    'Oklahoma': 'Oklahoma',
-    'Oregon': 'Oregon',
-    'Pennsylvania': 'Pennsylvania',
-    'Puerto Rico': 'PuertoRico',
-    'Rhode Island': 'RhodeIsland',
-    'South Carolina': 'SouthCarolina',
-    'South Dakota': 'SouthDakota',
-    'Tennessee': 'Tennessee',
-    'Texas': 'Texas',
-    'Utah': 'Utah',
-    'Vermont': 'Vermont',
-    'Virginia': 'Virginia',
-    'Washington': 'Washington',
-    'West Virginia': 'WestVirginia',
-    'Wisconsin': 'Wisconsin',
-    'Wyoming': 'Wyoming',
-    'District of Columbia': 'DistrictOfColumbia',
+eu_region_name = {
+    'Prague': 'Prague',
+    'Brno': 'Brno',
+    'Alicante': 'Alicante',
+    'Barcelona': 'Barcelona',
+    'Madrid': 'Madrid',
+    'Malaga': 'Malaga',
+    'Seville': 'Seville',
+    'Valencia': 'Valencia',
+    'Bratislava': 'Bratislava',
+    'Lisbon': 'Lisbon',
+    'Riga': 'Riga',
+    'Thessaloniki': 'Thessaloniki',
+    'Athens': 'Athens',
+    'Copenhagen': 'Copenhagen',
+    'Berlin': 'Berlin',
+    'Girne': 'Girne',
+    'Nicosia': 'Nicosia',
+    'Aberdeen': 'Aberdeen',
+    'Bath': 'Bath',
+    'Belfast': 'Belfast',
+    'Birmingham': 'Birmingham',
+    'Bournemouth': 'Bournemouth',
+    'Brighton': 'Brighton',
+    'Bristol': 'Bristol',
+    'Cambridge': 'Cambridge',
+    'Cardiff': 'Cardiff',
+    'Colchester': 'Colchester',
+    'Derby': 'Derby',
+    'Exeter': 'Exeter',
+    'Glasgow': 'Glasgow',
+    'Hull': 'Hull',
+    'Chelmsford': 'Chelmsford',
+    'Leeds': 'Leeds',
+    'Leicester': 'Leicester',
+    'Liverpool': 'Liverpool',
+    'London': 'London',
+    'Manchester': 'Manchester',
+    'Middlesbrough': 'Middlesbrough',
+    'Newcastle': 'Newcastle',
+    'Norwich': 'Norwich',
+    'Nottingham': 'Nottingham',
+    'Oxford': 'Oxford',
+    'Peterborough': 'Peterborough',
+    'Plymouth': 'Plymouth',
+    'Portsmouth': 'Portsmouth',
+    'Salisbury': 'Salisbury',
+    'Sheffield': 'Sheffield',
+    'Southampton': 'Southampton',
+    'Swansea': 'Swansea',
 }
 
-for k, v in us_region_name.items():
+for k, v in eu_region_name.items():
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
     region_name_ = k
 
     queryset_list_natural_ivf_val = procedure_region_average_value(queryset_list, 'ivf_treatment_cost', region_name_)
     queryset_list_mild_ivf_val = procedure_region_average_value(queryset_list, 'mild_ivf_treatment_cost', region_name_)
-    queryset_list_standard_ivf_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost',
-                                                                    region_name_)
+    queryset_list_standard_ivf_val = procedure_region_average_value(queryset_list, 'ovarian_ivf_treatment_cost', region_name_)
     queryset_list_egg_ivf_val = procedure_region_average_value(queryset_list, 'egg_donor_recipients_cost', region_name_)
-    queryset_list_known_egg_ivf_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost',
-                                                                     region_name_)
-    queryset_list_shared_egg_ivf_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost',
-                                                                      region_name_)
-    queryset_list_embryo_ivf_val = procedure_region_average_value(queryset_list, 'embryo_donor_recipients_cost',
-                                                                  region_name_)
-    queryset_list_known_embryo_ivf_val = procedure_region_average_value(queryset_list,
-                                                                        'known_embryo_donor_recipients_cost',
-                                                                        region_name_)
-    queryset_list_sperm_ivf_val = procedure_region_average_value(queryset_list, 'sperm_donor_recipients_cost',
-                                                                 region_name_)
-    queryset_list_known_sperm_ivf_val = procedure_region_average_value(queryset_list,
-                                                                       'known_sperm_donor_recipients_cost',
-                                                                       region_name_)
+    queryset_list_known_egg_ivf_val = procedure_region_average_value(queryset_list, 'known_egg_donor_recipients_cost', region_name_)
+    queryset_list_shared_egg_ivf_val = procedure_region_average_value(queryset_list, 'shared_egg_donor_recipients_cost', region_name_)
+    queryset_list_embryo_ivf_val = procedure_region_average_value(queryset_list, 'embryo_donor_recipients_cost', region_name_)
+    queryset_list_known_embryo_ivf_val = procedure_region_average_value(queryset_list, 'known_embryo_donor_recipients_cost', region_name_)
+    queryset_list_sperm_ivf_val = procedure_region_average_value(queryset_list, 'sperm_donor_recipients_cost', region_name_)
+    queryset_list_known_sperm_ivf_val = procedure_region_average_value(queryset_list, 'known_sperm_donor_recipients_cost', region_name_)
     queryset_list_icsi_val = procedure_region_average_value(queryset_list, 'icsi_treatment_cost', region_name_)
     queryset_list_iui_val = procedure_region_average_value(queryset_list, 'iui_treatment_cost', region_name_)
 

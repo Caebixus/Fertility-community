@@ -41,6 +41,172 @@
 <br>
 
 <div class="container">
+  <h2>What are the average IVF treatment costs in UK?</h2>
+  <p>IVF treatment, or <i>in vitro fertilization</i>, is now becoming a sought-after and increasingly successful way to have a child. If you are considering this treatment, see the average prices of individual procedures below.</p>
+  <p>Currently, there are <a href="{% url 'fertilityClinicUK' %}"><u>{{my_total_clinic_count}} IVF clinics in the UK</u></a> in {{year}}.</p>
+  <br>
+  <h3>Average IVF treatment costs </h3>
+  <p>These are average prices for IVF procedures at IVF clinics across the United Kingdom, so prices may vary. This price does not include medications and as a result may be very different from what the IVF clinic offers to you.</p>
+  {% if queryset_list_uk_natural_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_natural_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a natural IVF procedure</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_natural_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a natural IVF procedure</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_natural_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a natural IVF procedure</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_natural_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a natural IVF procedure</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_natural_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a natural IVF procedure</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_natural_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a natural IVF procedure</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_natural_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a natural IVF procedure</p></div>
+  {% else %}
+    <p>Unknown</p>
+  {% endif %}
+
+  {% if queryset_list_uk_mild_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_mild_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a mild IVF procedure</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_mild_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a mild IVF procedure</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_mild_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a mild IVF procedure</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_mild_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a mild IVF procedure</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_mild_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a mild IVF procedure</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_mild_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a mild IVF procedure</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_mild_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a mild IVF procedure</p></div>
+  {% else %}
+  {% endif %}
+
+  {% if queryset_list_uk_standard_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_standard_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a standard IVF procedure</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_standard_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a standard IVF procedure</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_standard_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a standard IVF procedure</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_standard_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a standard IVF procedure</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_standard_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a standard IVF procedure</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_standard_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a standard IVF procedure</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_standard_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a standard IVF procedure</p></div>
+  {% else %}
+  {% endif %}
+
+  <br>
+
+  <h3>Average IVF with egg donation treatment costs </h3>
+  <p>IVF with egg donation is an IVF treatment that uses another woman’s eggs (usually a young fertile and healthy donor) which is then fertilized and implanted into the recipient’s uterus.</p>
+  {% if queryset_list_uk_egg_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_egg_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_egg_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_egg_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_egg_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_egg_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_egg_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with anonymous egg donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_egg_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with anonymous egg donation</p></div>
+  {% else %}
+  {% endif %}
+
+  {% if queryset_list_uk_known_egg_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_known_egg_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_known_egg_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_known_egg_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_known_egg_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_known_egg_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_known_egg_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with known egg donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_known_egg_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with known egg donation</p></div>
+  {% else %}
+  {% endif %}
+
+  {% if queryset_list_uk_shared_egg_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_shared_egg_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_shared_egg_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_shared_egg_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_shared_egg_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_shared_egg_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_shared_egg_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with shared egg donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_shared_egg_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with shared egg donation</p></div>
+  {% else %}
+  {% endif %}
+
+  <br>
+
+  <h3>Average IVF with embryo donation treatment costs </h3>
+  <p>IVF with embryo donation is a type of third-party reproduction in which unused embryos remaining from one person/couple’s IVF treatment are donated to another person or couple because IVF procedure often creates an excess of fertilized eggs(embryos).</p>
+  {% if queryset_list_uk_embryo_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_embryo_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_embryo_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_embryo_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_embryo_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_embryo_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_embryo_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with anonymous embryo donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_embryo_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with anonymous embryo donation</p></div>
+  {% else %}
+  {% endif %}
+
+  {% if queryset_list_uk_known_embryo_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_known_embryo_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_known_embryo_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_known_embryo_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_known_embryo_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_known_embryo_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_known_embryo_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with known embryo donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_known_embryo_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with known embryo donation</p></div>
+  {% else %}
+  {% endif %}
+
+  <br>
+
+  <h3>Average IVF with sperm donation treatment costs </h3>
+  <p>Donor sperm can be used with IVF or intrauterine insemination (IUI). If you are using a sperm donor along with your IVF procedure, you will still receive fertility medications to prepare your eggs for retrieval.</p>
+  {% if queryset_list_uk_sperm_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_sperm_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_sperm_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_sperm_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_sperm_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_sperm_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_sperm_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with anonymous sperm donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_sperm_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with anonymous sperm donation</p></div>
+  {% else %}
+  {% endif %}
+
+  {% if queryset_list_uk_known_sperm_ivf_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_known_sperm_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_known_sperm_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_known_sperm_ivf_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_known_sperm_ivf_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_known_sperm_ivf_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_known_sperm_ivf_val|convert:'INR'|floatformat:'0'|intcomma}} INR for a IVF with known sperm donation</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_known_sperm_ivf_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for a IVF with known sperm donation</p></div>
+  {% else %}
+  {% endif %}
+
+  <br>
+
+  <h3>Average ICSI treatment costs </h3>
+  <p>ICSI is a type of treatment for men with infertility. It's performed as part of in vitro fertilization (IVF) and it involves the sperm being injected directly into the egg. Sometimes, men may need their sperm to be surgically extracted first.</p>
+  {% if queryset_list_uk_icsi_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_icsi_val|convert:'USD'|floatformat:'0'|intcomma }} for ICSI treatment</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_icsi_val|convert:'EUR'|floatformat:'0'|intcomma}} for ICSI treatment</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_icsi_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for ICSI treatment</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_icsi_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for ICSI treatment</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_icsi_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for ICSI treatment</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_icsi_val|convert:'INR'|floatformat:'0'|intcomma}} INR for ICSI treatment</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_icsi_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for ICSI treatment</p></div>
+  {% else %}
+  {% endif %}
+
+
+  <br>
+
+  <h3>Average IUI treatment costs </h3>
+  <p>Intrauterine insemination (IUI) is a simple and fast way to try for a baby using donor sperm. Usually performed without the use of any medication, a typical cycle of treatment takes just four weeks.</p>
+  {% if queryset_list_uk_iui_val %}
+    <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_uk_iui_val|convert:'USD'|floatformat:'0'|intcomma }} for IUI treatment</p></div>
+    <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_uk_iui_val|convert:'EUR'|floatformat:'0'|intcomma}} for IUI treatment</p></div>
+    <div class="treatmentCostsGBPCurrency" style="display:none"><p>- {{ queryset_list_uk_iui_val|convert:'GBP'|floatformat:'0'|intcomma}} GBP for IUI treatment</p></div>
+    <div class="treatmentCostsCZKCurrency" style="display:none"><p>- {{ queryset_list_uk_iui_val|convert:'CZK'|floatformat:'0'|intcomma}} CZK for IUI treatment</p></div>
+    <div class="treatmentCostsMXNCurrency" style="display:none"><p>- {{ queryset_list_uk_iui_val|convert:'MXN'|floatformat:'0'|intcomma}} MXN for IUI treatment</p></div>
+    <div class="treatmentCostsINRCurrency" style="display:none"><p>- {{ queryset_list_uk_iui_val|convert:'INR'|floatformat:'0'|intcomma}} INR for IUI treatment</p></div>
+    <div class="treatmentCostsCADCurrency" style="display:none"><p>- {{ queryset_list_uk_iui_val|convert:'CAD'|floatformat:'0'|intcomma}} CAD for IUI treatment</p></div>
+  {% else %}
+  {% endif %}
+
+</div>
+
+<br>
+<br>
+
+<div class="container">
   <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#standardIVF" role="tab" aria-controls="home" aria-selected="true" style="text-align: center; text-decoration: none">Standard IVF</a>

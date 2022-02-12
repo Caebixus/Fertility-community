@@ -4,7 +4,6 @@ from .functions import country_count, region_count, procedure_country_average_va
 from base.constant_variables import year
 from location.models.country_models import *
 from location.models.north_america_region_models import *
-from django.apps import apps
 
 
 def locationsUSRegions(request):
@@ -34,8 +33,7 @@ def locationsUSRegions(request):
     queryset_list_us_iui_val = us_average_costs_model.iui_val
 
 
-
-    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False)
+    queryset_list_us = BasicClinic.objects.all().exclude(is_published=False).filter(clinicState__iexact='United States')
 
     queryset_list_alabama = queryset_list_us.filter(clinicRegion__iexact='Alabama')
     my_total_clinic_count_alabama = queryset_list_alabama.count()

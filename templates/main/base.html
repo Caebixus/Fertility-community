@@ -33,7 +33,7 @@
   <link rel="preload" href="{% static 'css/font.css' %}" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link href="{% static 'fontAwesome/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -142,6 +142,7 @@
           </li>
           {% else %}
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packagesearch' %}"><i class="fas fa-archive"></i><strong> Packages</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="fa-solid fa-user-check"></i><strong> IVF Coaches</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i><strong> IVF Costs</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog' %}"><i class="far fa-newspaper"></i><strong> Blog</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i><strong> IVF Explained</strong></a>

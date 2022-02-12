@@ -38,13 +38,6 @@ urlpatterns = [
 
     path('clinics/', include('clinic.urls', namespace='clinic')),
 
-    path('', include('clinicsUK.urls')),
-    path('', include('clinicsCZ.urls')),
-    path('', include('clinicsSP.urls')),
-    path('', include('clinicsIN.urls')),
-    path('', include('clinicsGR.urls')),
-    path('', include('clinicsCY.urls')),
-    path('', include('clinicsMX.urls')),
     path('', include('searchLocationsCities.urls')),
     path('', include('searchLocationsCountries.urls')),
     path('', include('searchLocationsRegionsUS.urls')),

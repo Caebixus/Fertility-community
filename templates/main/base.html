@@ -118,34 +118,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i> Dashboard</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'dashboard' %}"><i class="fas fa-clinic-medical"></i><strong> Dashboard</strong></a>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: black">
-              Account
+              <strong>Account</strong>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'settings' %}">Account settings</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'settings' %}"><strong> Account settings</strong></a>
               <a hidden class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'howtousefertilitycommunity' %}">How to use FertilityCommunity</a>
-              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'create1' %}">Add clinic</a>
-              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'claim' %}">Claim clinic</a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'create1' %}"><strong> Add clinic</strong></a>
+              <a class="dropdown-item" style="text-decoration: none; color: black" href="{% url 'claim' %}"><strong> Claim clinic</strong></a>
               <a hidden class="dropdown-item" href="{% url 'banners' %}">Banners & badges</a>
             </div>
           </div>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i> Settings</a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contactus' %}"><i class="far fa-envelope"></i> Contact us</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" hidden href="{% url 'settings' %}"><i class="far fa-envelope"></i><strong> Settings</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contactus' %}"><i class="far fa-envelope"></i><strong> Contact us</strong></a>
           <li>
-            <a class="nav-item nav-link" style="text-decoration: none; color: black" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a class="nav-item nav-link" style="text-decoration: none; color: black" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i><strong> Logout</strong></a>
             <form id="logout" action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
               <input type="hidden">
             </form>
           </li>
           {% else %}
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packagesearch' %}"><i class="fas fa-archive"></i> Packages</a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i> IVF Costs</a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog' %}"><i class="far fa-newspaper"></i> Blog</a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i> IVF Explained</a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contact' %}"><i class="far fa-envelope"></i> Contact</a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packagesearch' %}"><i class="fas fa-archive"></i><strong> Packages</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i><strong> IVF Costs</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog' %}"><i class="far fa-newspaper"></i><strong> Blog</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i><strong> IVF Explained</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contact' %}"><i class="far fa-envelope"></i><strong> Contact</strong></a>
           {% endif %}
         </div>
       </div>

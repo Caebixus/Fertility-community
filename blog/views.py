@@ -48,7 +48,7 @@ def ivfabroadcosts(request):
 
         return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
     elif count_snippets > 1:
-        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+        snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'author': author,
@@ -330,11 +330,11 @@ def ivf_in_slovakia(request):
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
-    snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+    snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
     count_snippets = snippets.count()
 
     if count_snippets == 1:
-        snippets = Snippet.objects.get(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+        snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'clinicegg': clinicegg,
@@ -349,7 +349,7 @@ def ivf_in_slovakia(request):
 
         return render(request, 'blog/IVF-abroad/ivf-in-slovakia.html', context)
     elif count_snippets > 1:
-        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+        snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'clinicegg': clinicegg,
@@ -393,11 +393,11 @@ def ivf_in_prague(request):
     best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
-    snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+    snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
     count_snippets = snippets.count()
 
     if count_snippets == 1:
-        snippets = Snippet.objects.get(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+        snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'clinicegg': clinicegg,
@@ -412,7 +412,7 @@ def ivf_in_prague(request):
 
         return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)
     elif count_snippets > 1:
-        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+        snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'clinicegg': clinicegg,

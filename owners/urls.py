@@ -1,17 +1,28 @@
 from django.urls import path
-from . import views, views_worlds_best_clinic, views_best_articles, views_packages, views_update_pricing_basicclinic
+from . import views, views_worlds_best_clinic, views_best_articles, views_packages, views_update_pricing_basicclinic, views_coach
 
 
 urlpatterns = [
     path('signup', views.register, name='register'),
+    path('signup-as-coach', views_coach.register_as_coach, name='register_as_coach'),
+
     path('signin', views.login, name='login'),
+
     path('logout', views.logout, name='logout'),
     path('not-active-user', views.notActiveUser, name='notActiveUser'),
+
     path('dashboard', views.dashboard, name='dashboard'),
+    path('coach-dashboard', views_coach.coach_dashboard, name='coach_dashboard'),
+
     path('settings', views.settings, name='settings'),
     path('banners', views.banners, name='banners'),
+
     path('create1', views.create1, name='create1'),
     path('create', views.create, name='create'),
+
+    path('create-coach', views_coach.create_coach_profile, name='create_coach_profile'),
+    path('update-coach/<int:coaches_id>', views_coach.update_coach_profile, name='update_coach_profile'),
+
     path('howtousefertilitycommunity', views.howtousefertilitycommunity, name='howtousefertilitycommunity'),
     path('fc-traffic/<int:listing_id>', views.fctrafficreport, name='fctrafficreport'),
 

@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}{{coach.coach_full_name}}{% endblock %}
+{% block description %} XXXXXX XXXXXXX XXXXXX {% endblock %}
+{% block noindexpage %}{% if coach.coach_is_published == False %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-specialist/{{coach.pk}}/{{coach.coach_username}}/{% endblock %}
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<!-- ================================================== -->
+
+{% include 'ivfcoach/coach-detail-view/1header.html' %}
+
+<!-- ================================================== -->
+
+{% include 'ivfcoach/coach-detail-view/2bio.html' %}
+
+<!-- ================================================== -->
+
+{% include 'ivfcoach/coach-detail-view/3contact.html' %}
+
+<!-- ================================================== -->
+
+{% include 'ivfcoach/coach-detail-view/4premium.html' %}
+
+<!-- ================================================== -->
+
+{% include 'ivfcoach/coach-detail-view/5snippets.html' %}
+
+<!-- ================================================== -->
+
+
+
+<!-- ================================================== -->
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
+
+{% endblock  %}

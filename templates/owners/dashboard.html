@@ -6,7 +6,6 @@
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
     <p style="color:white">In total you have created {{package}} packages. The maximum limit for running packages for every paid clinic on your account is {{ instance }}.</p>
-    <p>{% if authenticated.is_activated == True %} {{ authenticated.random_auth_string }} {% endif %}</p>
     <br>
     <a hidden href="{% url 'howtousefertilitycommunity' %}">
       <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>

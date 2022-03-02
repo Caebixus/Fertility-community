@@ -33,10 +33,12 @@ urlpatterns = [
     path('', include('base.urls')),
     path('', include('search.urls')),
     path('', include('packages.urls')),
+    path('', include('coaches.urls', namespace='coach_search')),
     path('', include('location.urls')),
     path('', include('blog.urls')),
 
     path('clinics/', include('clinic.urls', namespace='clinic')),
+
 
     path('', include('searchLocationsCities.urls')),
     path('', include('searchLocationsCountries.urls')),

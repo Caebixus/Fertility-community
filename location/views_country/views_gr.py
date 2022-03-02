@@ -34,7 +34,7 @@ def locationsGRRegions(request):
 
     queryset_list_set = BasicClinic.objects.all().exclude(is_published=False).filter(clinicState__iexact=country_name)
 
-    queryset_list_athens = queryset_list_set.filter(clinicRegion__iexact='Athens')
+    queryset_list_athens = queryset_list_set.filter(clinicCity__iexact='Athens')
     my_total_clinic_count_athens = queryset_list_athens.count()
     athens_average_costs_model = Athens.objects.get(pk=1)
     queryset_list_athens_ivf_val = athens_average_costs_model.standard_ivf_val
@@ -44,7 +44,7 @@ def locationsGRRegions(request):
     queryset_list_athens_icsi_val = athens_average_costs_model.icsi_val
     queryset_list_athens_iui_val = athens_average_costs_model.iui_val
 
-    queryset_list_thessaloniki = queryset_list_set.filter(clinicRegion__iexact='Thessaloniki')
+    queryset_list_thessaloniki = queryset_list_set.filter(clinicCity__iexact='Thessaloniki')
     my_total_clinic_count_thessaloniki = queryset_list_thessaloniki.count()
     thessaloniki_average_costs_model = Thessaloniki.objects.get(pk=1)
     queryset_list_thessaloniki_ivf_val = thessaloniki_average_costs_model.standard_ivf_val

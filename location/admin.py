@@ -75,3 +75,19 @@ class AlabamaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Alabama, AlabamaAdmin)
+
+
+class AthensAdmin(admin.ModelAdmin):
+    model = Athens
+    list_display = ('id',)
+
+
+admin.site.register(Athens, AthensAdmin)
+
+
+class NicosiaAdmin(admin.ModelAdmin):
+    model = Nicosia
+    list_display = ('id',)
+
+
+admin.site.register(Nicosia, NicosiaAdmin)

@@ -1,0 +1,17 @@
+{% if author.author_name == 'FertilityCommunity' %}
+    <p>Authors: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}</p>
+{% else %}
+    <p>Authors: <a href="{{ author.author_page_url }}">{{ author.author_name }} {{ author.author_lastname }}</a></p>
+{% endif %}
+{% if snippets %}
+    <p>Co-authors:
+    {% if one_snippet %}
+        <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank">{{ snippets.owner.coach_full_name }}</a>
+    {% else %}
+        {% for snippet in snippets %}
+            <a href="{% url 'coach:coach-detail' snippet.owner.pk snippet.owner.coach_username %}" rel="noopener" target="_blank">{{ snippet.owner.coach_full_name }}{% if forloop.last %}{%else%},{% endif %}</a>
+        {% endfor %}
+    {% endif %}
+    </p>
+{% endif %}
+<p style="font-size: 13px">Updated: {{ blog.last_modified }}</p>

@@ -1,0 +1,540 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load mathfilters %}
+{% load currencytag %}
+{% block title %}Discover fertility coaches & experts | 2022{% endblock %}
+{% block description %}Search hundreds of IVF coaches, experts and advisors throughout the world at once to help you with your fertility journey.{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-coaches{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='website' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity/' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/ivf-coaches.webp" />{% endblock %}
+{% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
+{% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block content %}
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">
+      {% include 'ivfcoach/h1values.html' %}
+    </h1>
+    <p class="lead" style="color:white">Search different fertility coaches & experts at once.
+    <div class="container">
+      <div class="searchBox">
+        <div class="mainbanner" id="mainhpbanner">
+          <form action="{% url 'packagesearch' %}">
+            <div {% if search_origin_version == True %}hidden {% endif %}class="form-group" style="padding-top:3rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()">
+                    <option value="" selected>Select state</option>
+                    <optgroup label="North America">
+                      {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </optgroup>
+                    <optgroup label="Europe">
+                      {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_EUROPE.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </optgroup>
+                    <optgroup label="Asia">
+                      {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_ASIA.items %}
+                      <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% if values.States == 'United States' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-us">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select US State</option>
+                    {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'United Kingdom' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-uk">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select UK city</option>
+                    {% for key, value in CATEGORY_CHOICES_UK_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Czech Republic' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-cz">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Czech city</option>
+                    {% for key, value in CATEGORY_CHOICES_CZ_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Slovakia' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sk">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Slovak city</option>
+                    {% for key, value in CATEGORY_CHOICES_SK_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Denmark' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-dk">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Denmark city</option>
+                    {% for key, value in CATEGORY_CHOICES_DK_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Spain' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Spain city</option>
+                    {% for key, value in CATEGORY_CHOICES_SP_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'India' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Indian city</option>
+                    {% for key, value in CATEGORY_CHOICES_IN_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Greece' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Greek city</option>
+                    {% for key, value in CATEGORY_CHOICES_GR_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Cyprus' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Cyprus city</option>
+                    {% for key, value in CATEGORY_CHOICES_CY_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Germany' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select German city</option>
+                    {% for key, value in CATEGORY_CHOICES_DE_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Latvia' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Latvian city</option>
+                    {% for key, value in CATEGORY_CHOICES_LV_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Portugal' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Portuguese city</option>
+                    {% for key, value in CATEGORY_CHOICES_PT_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% elif values.States == 'Mexico' %}
+            <div class="form-group" style="padding-top:1rem" id="regions-sp">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                    <option value="" selected>Select Mexico city</option>
+                    {% for key, value in CATEGORY_CHOICES_MX_CITIES.items %}
+                    <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {% else %}
+            {% endif %}
+            <div class="form-group" style="padding-top:1rem">
+              <div class="accordion" id="accordionExample">
+                <div class="card" id="cardBox" style="border-radius: 8px;">
+                  <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                    <button id="treatmentsBtn" class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      {% if values.packages == None %}Types of packages
+                      {% elif values.packages == '' %}Types of packages
+                      {% elif values.packages == 'All packages' %}All packages
+                      {% elif values.packages == 'Natural IVF packages' %}Natural IVF packages
+                      {% elif values.packages == 'Mild (mini) IVF packages' %}Mild (mini) IVF packages
+                      {% elif values.packages == 'Standard IVF packages' %}Standard IVF packages
+                      {% elif values.packages == 'Egg donation packages' %}Egg donation packages
+                      {% elif values.packages == 'Embryo donation packages' %}Embryo donation packages
+                      {% endif %}
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="All packages" value="All packages" name="packages" {% if values.packages == 'All packages' %}checked{% elif values.packages == None %}checked{% endif %}>
+                            <label class="form-check-label" for="All treatment">All packages</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Natural IVF packages" value="Natural IVF packages" name="packages" {% if values.packages == 'Natural IVF packages' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment">Natural IVF packages</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Mild (Mini) IVF packages" value="Mild (mini) IVF packages" name="packages" {% if values.packages == 'Mild (mini) IVF packages' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment mild">Mild (mini) IVF packages</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Standard IVF packages" value="Standard IVF packages" name="packages" {% if values.packages == 'Standard IVF packages' %}checked{% endif %}>
+                            <label class="form-check-label" for="IVF treatment ovarian">Standard IVF packages</label>
+                          </div>
+                        </div>
+
+                        <div class="col">
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Egg donation packages" value="Egg donation packages" name="packages" {% if values.packages == 'Egg donation packages' %}checked{% endif %}>
+                            <label class="form-check-label" for="Egg freezing">Egg donation packages</label>
+                          </div>
+                          <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="Embryo donation packages" value="Embryo donation packages" name="packages" {% if values.packages == 'Embryo donation packages' %}checked{% endif %}>
+                            <label class="form-check-label" for="Embryo freezing">Embryo donation packages</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:3rem">
+              <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search packages</button>
+            </div>
+          </form>
+          <div {% if search_origin_version == False %}hidden {% endif %}>
+            <hr noshade style="border-top: 1px solid white">
+            <form action="{% url 'packagesearch' %}">
+              <div class="mainbanner" id="mainhpbanner">
+                <h5 class="mb-0 text-left" id="headingOne">
+                  <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-filter"></i> Change country
+                  </button>
+                </h5>
+                <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                    <br>
+                    <div class="form-group" style="padding-top:3rem">
+                      <div class="card" style="border-radius: 8px;">
+                        <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                          <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                            <option value="" selected>Select state</option>
+                            <optgroup label="North America">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_NORTH_AMERICA.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                            <optgroup label="Europe">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_EUROPE.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                            <optgroup label="Asia">
+                              {% for key, value in CATEGORY_CHOICES_STATES_PACKAGES_ASIA.items %}
+                              <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                              {% endfor %}
+                            </optgroup>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:3rem">
+                      <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"> Change Country</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-3">
+  <div class="row">
+    <div class="col-8">
+      <p>Currently showing <b>{{ count }}</b> out of <b>{{countall}}</b> active packages.</p>
+    </div>
+    <div class="col-4">
+      <select class="form-control" id="ChooseCurrency">
+        <option value="" selected>Currency</option>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-5">
+  <div class="row row-cols-1 row-cols-md-3">
+    {% if paginationing %}
+    {% for order_datas in order_data %}
+    {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
+    <div class="col mb-5">
+      <div class="card shadow">
+        {% if order_datas.package_pic %}
+        <img src="{{ order_datas.package_pic.url }}" class="card-img-top" alt="...">
+        {% else%}
+        {% endif %}
+        <div class="card-body">
+          {% if order_datas.packageclinic.clinic_pro_logo_pic %}
+          <p style="font-size: 15px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ order_datas.packageclinic.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{% url 'clinics:clinic-detail' order_datas.packageclinic.pk order_datas.packageclinic.slug %}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% else %}
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' order_datas.packageclinic.pk order_datas.packageclinic.slug %}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% endif %}
+          <p style="font-size: 15px; margin-bottom: 0px; margin-top: 12px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+          <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ order_datas.package_end_list_date|naturaltime}}</span>
+          <hr>
+          <p class="card-title">{{ order_datas.packagetitle }}</p>
+          <hr>
+          <p style="color: #CD5360; text-align: center; font-weight: 900">
+            <div class="treatmentCostsUSDCurrency">{{ order_datas.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+            <div class="treatmentCostsEURCurrency" style="display:none">{{ order_datas.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+            <div class="treatmentCostsGBPCurrency" style="display:none">{{ order_datas.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+            <div class="treatmentCostsCZKCurrency" style="display:none">{{ order_datas.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+            <div class="treatmentCostsMXNCurrency" style="display:none">{{ order_datas.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+            <div class="treatmentCostsINRCurrency" style="display:none">{{ order_datas.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+            <div class="treatmentCostsCADCurrency" style="display:none">{{ order_datas.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+          </p>
+          <hr>
+          <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
+          <div class="collapse multi-collapse" id="multiCollapseExample1{{ order_datas.id }}">
+            <p class="card-text">{{ order_datas.packagedesc|safe }}</p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+          Learn more
+        </button>
+        <div class="collapse multi-collapse" id="contact{{ order_datas.id }}">
+
+          {% if order_datas.package_url %}
+          <br>
+          <a href="{{ order_datas.package_url }}" rel="sponsored noopener" target="_blank" style="text-decoration: none">
+            <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
+          </a>
+          {% endif %}
+
+          {% if order_datas.packageclinic.query_email %}
+          <br>
+          <a href="mailto:{{ order_datas.packageclinic.query_email }}" style="text-decoration: none">
+            <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-envelope"></i> Contact me</button>
+          </a>
+          {% endif %}
+
+          {% if order_datas.package_phone %}
+          <br>
+          <a href="tel:{{ order_datas.package_phone }}" style="text-align:center; text-decoration: none">
+            <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-phone"></i> Call us</button>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% elif order_datas.packageclinic.pro_is_published == True and order_datas.packageclinic.ppq_is_published != True %}
+    <div class="col mb-5">
+      <div class="card">
+        {% if order_datas.package_pic %}
+        <img src="{{ order_datas.package_pic.url }}" class="card-img-top" alt="...">
+        {% else%}
+        {% endif %}
+        <div class="card-body">
+          {% if order_datas.packageclinic.clinic_pro_logo_pic %}
+          <p style="font-size: 15px; margin-bottom: 0px"><img class="imgHoverLogo" src="{{ order_datas.packageclinic.clinic_pro_logo_pic.url }}" alt="Clinic's logo" style="height:70px; width:70px"> <a href="{% url 'clinics:clinic-detail' order_datas.packageclinic.pk order_datas.packageclinic.slug %}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% else %}
+          <p style="font-size: 15px; margin-bottom: 0px"><i class="fas fa-clinic-medical"></i> <a href="{% url 'clinics:clinic-detail' order_datas.packageclinic.pk order_datas.packageclinic.slug %}">{{ order_datas.packageclinic.clinicName }}</a></p>
+          {% endif %}
+          <p style="font-size: 15px; margin-bottom: 0px; margin-top: 12px"><i class="fas fa-chart-pie"></i> Category: {{ order_datas.packagecategory }} </p>
+          <span class="badge badge-danger text-right"><i class="fas fa-calendar-times"></i> Expire in: {{ order_datas.package_end_list_date|naturaltime}}</span>
+          <hr>
+          <p class="card-title">{{ order_datas.packagetitle }}</p>
+          <hr>
+          <p style="color: #CD5360; text-align: center; font-weight: 900">
+            <div class="treatmentCostsUSDCurrency">{{ order_datas.packagecost|convert:'USD'|floatformat:'0'|intcomma}} USD</div>
+            <div class="treatmentCostsEURCurrency" style="display:none">{{ order_datas.packagecost|convert:'EUR'|floatformat:'0'|intcomma}} EUR</div>
+            <div class="treatmentCostsGBPCurrency" style="display:none">{{ order_datas.packagecost|convert:'GBP'|floatformat:'0'|intcomma}} GBP</div>
+            <div class="treatmentCostsCZKCurrency" style="display:none">{{ order_datas.packagecost|convert:'CZK'|floatformat:'0'|intcomma}} CZK</div>
+            <div class="treatmentCostsMXNCurrency" style="display:none">{{ order_datas.packagecost|convert:'MXN'|floatformat:'0'|intcomma}} MXN</div>
+            <div class="treatmentCostsINRCurrency" style="display:none">{{ order_datas.packagecost|convert:'INR'|floatformat:'0'|intcomma}} INR</div>
+            <div class="treatmentCostsCADCurrency" style="display:none">{{ order_datas.packagecost|convert:'CAD'|floatformat:'0'|intcomma}} CAD</div>
+          </p>
+          <hr>
+          <a data-toggle="collapse" href="#multiCollapseExample1{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Details</a>
+          <div class="collapse multi-collapse" id="multiCollapseExample1{{ order_datas.id }}">
+            <p class="card-text">{{ order_datas.packagedesc|safe }}</p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-link btn-block btn-md shadow" data-toggle="collapse" href="#contact{{ order_datas.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+          Learn more
+        </button>
+        <div class="collapse multi-collapse" id="contact{{ order_datas.id }}">
+
+          {% if order_datas.package_url %}
+          <br>
+          <a href="{{ order_datas.package_url }}" rel="sponsored noopener" target="_blank" style="text-decoration: none">
+            <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-desktop"></i> Website</button>
+          </a>
+          {% endif %}
+
+          {% if order_datas.packageclinic.query_email %}
+          <br>
+          <a href="mailto:{{ order_datas.packageclinic.query_email }}" style="text-decoration: none">
+            <button id="brandButtonGoalPackageEmail" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-envelope"></i> Contact me</button>
+          </a>
+          {% endif %}
+
+          {% if order_datas.package_phone %}
+          <br>
+          <a href="tel:{{ order_datas.package_phone }}" style="text-align:center; text-decoration: none">
+            <button id="brandButtonGoalPackageCall" type="button" class="btn btn-outline-success btn-block btn-md shadow"><i class="fas fa-phone"></i> Call us</button>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% empty %}
+    <div class="card shadow">
+      <div class="card-body">
+        <p class="display-5" style="padding-bottom:2rem">Sorry, there are no packages for this search query. Try to change filter preferences or locations.</p>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="card shadow">
+      <div class="card-body">
+        <p class="display-5">Sorry, there are no packages for this search query. Try to change filter preferences or locations.</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<br>
+<div class="container">
+  <hr>
+</div>
+<br>
+
+<div class="container py-5">
+  <h2>What is IVF package?</h2>
+  <p>The IVF package is used by fertility clinics to create a special or limited offer for clients who are looking for the most interesting fertiltiy treatment offer on the market.</p>
+  <p>For an IVF package, the customer pays one payment, which usually includes the main steps of the fertility treatment process, as well as, for example, special procedures, accommodation, transport or medication.</p>
+  <br>
+  <div class="container py-5">
+    <p style="font-size: 200%"><b>Read more:</b></p>
+    <div class="row row-cols-1 row-cols-md-3">
+      {% for blogs in blog %}
+      {% if blogs.author != None %}
+      <div class="col-sm" style="padding-top: 5px;">
+        <div class="card shadow-sm" style="border-radius: 25px;">
+          <a href="{{ blogs.blog_url }}">
+            {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+            {% else %}
+            {% endif %}
+          </a>
+          <div class="card-body">
+            <a href="{{ blogs.blog_url }}">
+              <h3 class="card-title">{{ blogs.title }}</h3>
+            </a>
+            <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href="https://www.fertilitycommunity.com/blog/ivf-abroad-packages">
+                  <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                </a>
+              </div>
+              <small class="text-muted">{{ blogs.minute_read }} mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary-treatments-clinics.js' %}"></script>{% endblock %}
+{% endblock  %}

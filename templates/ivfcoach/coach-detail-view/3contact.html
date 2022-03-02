@@ -1,0 +1,38 @@
+{% load static %}
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+
+
+<div class="container py-5">
+  <div class="d-flex flex-row justify-content-around">
+    {% if coach.coach_social_instagram %}
+    <div>
+      <a href="{{ coach.coach_social_instagram }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-instagram-square fa-3x"></div></a>
+    </div>
+    {% endif %}
+
+    {% if coach.coach_social_facebook %}
+    <div>
+      <a href="{{ coach.coach_social_facebook }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-facebook-square fa-3x"></div></a>
+    </div>
+    {% endif %}
+
+    {% if coach.coach_social_linkedin %}
+      <div>
+        <a href="{{ coach.coach_social_linkedin }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-linkedin fa-3x"></div></a>
+      </div>
+    {% endif %}
+
+    {% if coach.coach_social_pinterest %}
+    <div>
+      <a href="{{ coach.coach_social_pinterest }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-pinterest-square fa-3x"></div></a>
+    </div>
+    {% endif %}
+
+    {% if coach.coach_social_twitter %}
+    <div>
+      <a href="{{ coach.coach_social_twitter }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-twitter-square fa-3x"></div></a>
+    </div>
+    {% endif %}
+
+  </div>
+</div>

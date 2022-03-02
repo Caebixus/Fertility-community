@@ -1,0 +1,41 @@
+{% if coach.coach_is_premium == True %}
+    {% if snippets %}
+      {% for snippet in snippets %}
+      <div class="container">
+        <h2 class="pt-3"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h2>
+        <div class="card" style="margin-left: 25px; margin-right: 25px;">
+          <div class="card-header">
+            <div class="row pt-1 pb-1 custom-carousel-content custom-carousel-header-row">
+              <div class="col-md-6 col-lg-1 text-center-until-md">
+                {% if snippet.owner.coach_profile_photo %}
+                <div id="imgInfo" class="img align-self-center align-items-center pr-2">
+                    <img class="imgHoverLogo" src="{{ snippet.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6 col-lg-11 text-center-until-md">
+                <strong>{{ snippet.owner.coach_full_name }}</strong>
+                <div style="font-size: 80%">
+                  {% if snippet.owner.job_fertility_coach %}Fertility coach {% endif %}
+                  {% if snippet.owner.job_fertility_specialist %}Fertility Specialist {% endif %}
+                  {% if snippet.owner.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
+                  {% if snippet.owner.job_andrologist %}Andrologist {% endif %}
+                  {% if snippet.owner.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
+                  {% if snippet.owner.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
+                  {% if snippet.owner.job_obstetrician %}Obstetrician {% endif %}
+                  {% if snippet.owner.job_gynecologist %}Gynecologist {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="row custom-carousel-content" style="margin-left:5px;margin-right:5px">
+              {{ snippet.text|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+{% endif %}

@@ -5,6 +5,9 @@ from django.utils import timezone
 from clinic.models import BasicClinic
 from django.db.models import Avg
 
+from coaches.models import Snippet, TypeJobs, Coaches
+
+
 #Authors
 def authorlisaholliman(request):
     blogpk=6
@@ -25,15 +28,45 @@ def ivfabroadcosts(request):
     blogpk=7
     otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
     author = get_object_or_404(Author, pk=6)
+
     blog = get_object_or_404(Blog, pk=blogpk)
+    test = Snippet.objects.filter(blog=blogpk)
+    print(test)
+    snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    context = {
-        'author': author,
-        'blog': blog,
-        'otherBlogs': otherBlogs,
-    }
+    if count_snippets == 1:
+        snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
-    return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
+        context = {
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
+    elif count_snippets > 1:
+        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
+    else:
+        context = {
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-abroad-costs.html', context)
+
 
 def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
     blogpk=8
@@ -297,16 +330,51 @@ def ivf_in_slovakia(request):
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
-    context = {
-        'clinicegg': clinicegg,
-        'author': author,
-        'blog': blog,
-        'otherBlogs': otherBlogs,
-        'numclinics': numclinics,
-        'best_clinics_count': best_clinics_count,
-    }
+    snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/IVF-abroad/ivf-in-slovakia.html', context)
+    if count_snippets == 1:
+        snippets = Snippet.objects.get(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-slovakia.html', context)
+    elif count_snippets > 1:
+        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-slovakia.html', context)
+    else:
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-slovakia.html', context)
+
+
 
 def ivf_in_prague(request):
     blogpk=22
@@ -325,13 +393,46 @@ def ivf_in_prague(request):
     best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
-    context = {
-        'clinicegg': clinicegg,
-        'author': author,
-        'blog': blog,
-        'otherBlogs': otherBlogs,
-        'numclinics': numclinics,
-        'best_clinics_count': best_clinics_count,
-    }
+    snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)
+    if count_snippets == 1:
+        snippets = Snippet.objects.get(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)
+    elif count_snippets > 1:
+        snippets = Snippet.objects.filter(snippet_blog_relationship=blogpk, status='is published', snippet_owner__coach_is_premium=True, snippet_owner__coach_is_published=True)
+
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)
+    else:
+        context = {
+            'clinicegg': clinicegg,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'numclinics': numclinics,
+            'best_clinics_count': best_clinics_count,
+        }
+
+        return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)

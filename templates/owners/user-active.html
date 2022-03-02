@@ -9,7 +9,7 @@
 </div>
 <br>
 <div class="container py-4">
-  <p>Your account is now active. You can continue to your <a href="{% url 'dashboard' %}"><u>Dashboard</u></a></p>
+  <p>Your account is now active. You can continue to your {% if auth_user.register_as_clinic == True %}<a href="{% url 'dashboard' %}"><u>Dashboard</u></a>{% elif auth_user.register_as_coach == True %}<a href="{% url 'coach_dashboard' %}"><u>Dashboard</u></a>{% endif %}</p>
 </div>
 
 {% endblock  %}

@@ -3,6 +3,19 @@ from django.shortcuts import get_object_or_404
 from cookies.forms import AllCookiesAccepted
 from cookies.models import CookiesConsents, CookieSettings
 
+from owners.models import AuthenticatedUser
+
+def authentication_clinic_coach(request):
+    user = request.user
+    if user.id != None:
+        auth_user = AuthenticatedUser.objects.get(user__id=user.pk)
+        return {
+            "auth_user": auth_user,
+        }
+    else:
+        return {
+            "auth_user": False,
+        }
 
 def cookies_check(request):
     session_key = request.session.session_key

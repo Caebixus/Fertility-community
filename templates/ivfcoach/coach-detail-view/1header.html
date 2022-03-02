@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-md-6 col-lg-3 text-center-until-md">
+      {% if coach.coach_profile_photo %}
+        <div id="imgInfo" class="img align-self-center align-items-center">
+          <img class="imgHoverLogo" src="{{ coach.coach_profile_photo.url }}" alt="profile picture of {{ coach.coach_full_name}}" style="max-height:200px; max-width:200px; border-radius: 50%; border-width:5px; border-style:solid; border-color: #286DA8;">
+        </div>
+      {% else %}
+        <div id="imgInfo" class="img align-self-center align-items-center">
+          <img class="imgHoverLogo" src="{% static 'img/hospital.svg' %}" alt="alternate logo" style="max-height:70px; max-width:70px; border-radius: 50%; border-width:thin; border-style:solid;">
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-md-6 col-lg-9">
+      <h1 class="text-center-until-md" style="font-size:200%">
+        <a href="{{ coach.coach_social_website}}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %}><strong>{{ coach.coach_full_name}}</strong></a>
+      </h1>
+      <div class="d-flex flex-column py-2">
+        <div>
+          <div class="fas fa-briefcase fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Specialization"></div>
+          {% if coach.job_fertility_coach %}Fertility coach {% endif %}
+          {% if coach.job_fertility_specialist %}Fertility Specialist {% endif %}
+          {% if coach.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
+          {% if coach.job_andrologist %}Andrologist {% endif %}
+          {% if coach.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
+          {% if coach.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
+          {% if coach.job_obstetrician %}Obstetrician {% endif %}
+          {% if coach.job_gynecologist %}Gynecologist {% endif %}
+        </div>
+        <div>
+          <div class="fas fa-language fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Preferred languages"></div>
+          {% for language in languages %}
+            {% if not forloop.last %}
+              {{ language }} |
+            {% else %}
+              {{ language }}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div>
+          <div class="fas fa-flag fa-1sx pr-2"></div> {{ coach.coach_preferred_client_country}}
+        </div>
+      </div>
+      <hr>
+      <a href="{{ coach.coach_social_website}}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %} style="text-decoration: none">
+        <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-md shadow"><i class="fas fa-desktop"></i> Visit my website</button>
+      </a>
+    </div>
+  </div>
+</div>

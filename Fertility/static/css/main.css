@@ -442,7 +442,7 @@ a {
   font-weight: 300;
   color: #282c34;
   text-align: left;
-  text-decoration: underline;
+  text-decoration: underline 1px;
 }
 
 #anonedecoration {
@@ -488,6 +488,8 @@ footer {
   background-size: 100%, 100%;
   border-radius: 50%;
   background-image: none;
+  color: black;
+  background-color: black;
 }
 
 .carousel-control-next-icon:after
@@ -505,6 +507,7 @@ footer {
 
 .carousel-item{
   text-align: center;
+  vertical-align: middle;
 }
 
 .carousel-inner img{
@@ -765,4 +768,36 @@ border-radius:0 4px 4px 0;
 
 .no-underline {
     text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+    text-align: right;
+}
+
+.navbar-collapse {
+    text-align: right;
+}
+
+@media (max-width: 992px) {
+    .text-center-until-md {
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    #brandButtonGoalPackagePrimary {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 993px) {
+    .text-center-until-md {
+        text-align: left;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    #brandButtonGoalPackagePrimary {
+        display: block;
+        width: 100%;
+    }
 }

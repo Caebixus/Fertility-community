@@ -1,0 +1,13 @@
+<div class="container py-5">
+  <div class="d-flex-inline">
+      {% if coach.coach_bio %}
+      <div class="card border-0">
+        <div class="card-body">
+          <h5 class="card-title">BIO:</h5>
+          <hr>
+          <p class="card-text">{{ coach.coach_bio|safe }}</p>
+        </div>
+      </div>
+      {% endif %}
+  </div>
+</div>

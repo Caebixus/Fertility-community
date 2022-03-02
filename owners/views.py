@@ -16,6 +16,7 @@ from contact.forms import ContactForm, ClaimForm
 from django.core.mail import send_mail
 from django.db.models import Count
 from .functions import get_random_string
+from coaches.models import Coaches
 
 
 def register(request):
@@ -38,10 +39,13 @@ def register(request):
 
                 random_auth_number = get_random_string(10)
                 print(random_auth_number)
+
                 auth_user = request.user
 
                 authenticateduser = AuthenticatedUser()
                 authenticateduser.user = auth_user
+                authenticateduser.register_as_clinic = True
+
                 authenticateduser.random_auth_string = random_auth_number
                 authenticateduser.save()
 
@@ -70,6 +74,7 @@ def register(request):
     else:
         return render(request, 'owners/signup.html')
 
+
 def login(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -83,7 +88,12 @@ def login(request):
                 if user.authenticateduser.is_activated == True:
                     auth.login(request, user)
                     messages.success(request, '- You are now logged in')
-                    return redirect('dashboard')
+                    if user.authenticateduser.register_as_clinic == True and user.authenticateduser.register_as_coach == False:
+                        return redirect('dashboard')
+                    elif user.authenticateduser.register_as_coach == True and user.authenticateduser.register_as_clinic == False:
+                        return redirect('coach_dashboard')
+                    else:
+                        return redirect()
                 else:
                     auth.login(request, user)
                     return redirect('notActiveUser')
@@ -95,6 +105,7 @@ def login(request):
             return redirect('login')
     else:
         return render(request, 'owners/signin.html')
+
 
 def upgrade2(request):
     return render(request, 'owners/upgrade2.html')
@@ -114,10 +125,16 @@ def notActiveUser(request):
         if activateaccount == auth_user.random_auth_string:
             auth_user.is_activated = True
             auth_user.save()
-            return render(request, 'owners/user-active.html')
+
+            context = {
+                'auth_user': auth_user,
+            }
+
+            return render(request, 'owners/user-active.html', context)
         else:
             messages.error(request, ' this code is wrong. Check your email or contact us.')
             return redirect('notActiveUser')
+
 
     return render(request, 'owners/not-active-user.html')
 
@@ -132,7 +149,12 @@ def activateUser(request):
         if activateaccount == auth_user.random_auth_string:
             auth_user.is_activated = True
             auth_user.save()
-            return render(request, 'owners/user-active.html')
+
+            context = {
+                'auth_user': auth_user,
+            }
+
+            return render(request, 'owners/user-active.html', context)
         else:
             messages.error(request, ' this code is wrong. Check your email or contact us.')
             return redirect('notActiveUser')

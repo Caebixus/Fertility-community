@@ -1,0 +1,56 @@
+{% load static %}
+
+{% if coach.coach_is_premium == True %}
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+            {% if coach.coach_education %}
+            <div class="card border-0">
+              <div class="card-body">
+                <h5 class="card-title">Education</h5>
+                <hr>
+                <p class="card-text">{{ coach.coach_education|safe }}</p>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-12 col-lg-6">
+            {% if coach.coach_specialization %}
+            <div class="card border-0">
+              <div class="card-body">
+                <h5 class="card-title">Specialization</h5>
+                <hr>
+                <p class="card-text">{{ coach.coach_specialization|safe }}</p>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="container pb-5 pt-2">
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+            {% if coach.coach_certification %}
+            <div class="card border-0">
+              <div class="card-body">
+                <h5 class="card-title">Certification</h5>
+                <hr>
+                <p class="card-text">{{ coach.coach_certification|safe }}</p>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-12 col-lg-6">
+            {% if coach.coach_other %}
+            <div class="card border-0">
+              <div class="card-body">
+                <h5 class="card-title">Other</h5>
+                <hr>
+                <p class="card-text">{{ coach.coach_other|safe }}</p>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+{% endif %}

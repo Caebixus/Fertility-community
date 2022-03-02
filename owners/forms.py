@@ -5,8 +5,10 @@ from .models import ownerProInterested, SingleClinicBestArticleText
 from packages.models import Package
 from packages.packageChoices import CATEGORY_PACKAGE, PACKAGE_TYPE
 from ckeditor.widgets import CKEditorWidget
+from coaches.models import Coaches, PreferredLanguage
 
-from clinic.choices import CATEGORY_CHOICES_CURRENCY, HOURS, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_STATES
+from clinic.choices import CATEGORY_CHOICES_CURRENCY, HOURS, CATEGORY_CHOICES_STATES
+from coaches.choices import CATEGORY_CHOICES_LANGUAGES
 
 
 class CreateClinic(forms.ModelForm):
@@ -257,6 +259,7 @@ class UpdateClinic(forms.ModelForm):
         'payment_type_cryptocurrency',
         'payment_type_wire_transfer',
         ]
+
 
 class UpdatePrice(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
@@ -566,6 +569,7 @@ class UpdateClinicPro(forms.ModelForm):
         'payment_type_wire_transfer',
         ]
 
+
 class UpdatePricePro(forms.ModelForm):
     clinicName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Clinics Name'), required=False)
     defaultClinicCurrency = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_CURRENCY, attrs={'class': 'form-control', }), label=('Clinics default currency'))
@@ -681,6 +685,7 @@ class UpdatePricePro(forms.ModelForm):
         'pro_is_published_list_date',
         ]
 
+
 class OwnerProInterestedForm(forms.ModelForm):
     owner_interested = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Check to be notified'))
 
@@ -724,12 +729,14 @@ class CreatePackage(forms.ModelForm):
         'is_package_active',
         ]
 
+
 class CreatePackageEmail(forms.ModelForm):
     query_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
 
     class Meta:
         model = BasicClinic
         fields = ['query_email']
+
 
 class PostFormProUpdatePackage(forms.ModelForm):
     packagetitle = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Package name'))
@@ -756,6 +763,7 @@ class PostFormProUpdatePackage(forms.ModelForm):
         'package_pic_delete',
         ]
 
+
 class ProlongPackage(forms.ModelForm):
     package_limit_days = forms.CharField(widget=forms.Select(choices=PACKAGE_TYPE, attrs={'class': 'form-control',}))
 
@@ -765,6 +773,7 @@ class ProlongPackage(forms.ModelForm):
         'package_limit_days',
         ]
 
+
 class LiveChatForm(forms.ModelForm):
     clinicLiveChatChoice = forms.CharField(widget=forms.Select(choices=LIVE_CHAT_CHOICES, attrs={'class': 'form-control',}), required=False)
 
@@ -773,6 +782,7 @@ class LiveChatForm(forms.ModelForm):
         fields = [
         'clinicLiveChatChoice',
         ]
+
 
 class LiveChatForm2(forms.ModelForm):
     clinicChatraCode = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Snippet Code'), required=False)
@@ -788,6 +798,7 @@ class LiveChatForm2(forms.ModelForm):
         'clinicTidioCode',
         ]
 
+
 class IndependentReviewForm(forms.ModelForm):
     clinicGoogleReviews = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Google reviews link'), required=False)
     clinicTrustPilotChoice = forms.CharField(widget=forms.Select(choices=TRUSTPILOT_CHOICES, attrs={'class': 'form-control',}), required=False)
@@ -802,6 +813,7 @@ class IndependentReviewForm(forms.ModelForm):
         'clinicTrustPilotID',
         'clinicTrustPilotDomain',
         ]
+
 
 class Bestarticleproposition(forms.ModelForm):
     best_article_country_boolean = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False)
@@ -828,6 +840,7 @@ class Bestarticleproposition(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['best_article_country_actual_text'].disabled = True
 
+
 class Picclinicform(forms.ModelForm):
     clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of your clinic'))
     clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
@@ -849,6 +862,7 @@ class Picclinicform(forms.ModelForm):
         'clinic_pro_photo_3_del',
         ]
 
+
 class Singleclinicbestarticleform(forms.ModelForm):
     clinic_world = forms.ModelChoiceField(queryset=None, required=True, empty_label="Choose your primary clinic", to_field_name='clinicName',)
     best_clinic_world_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in World - your introduction'), max_length=1000)
@@ -866,6 +880,7 @@ class Singleclinicbestarticleform(forms.ModelForm):
         super(Singleclinicbestarticleform, self).__init__(*args, **kwargs)
         self.fields['clinic_world'].queryset = BasicClinic.objects.all().filter(clinicOwner=current_user)
 
+
 class Singleclinicbestarticleupdateform(forms.ModelForm):
     clinic_world = forms.ModelChoiceField(queryset=None, required=True, empty_label="Choose different clinic", to_field_name='clinicName',)
     best_clinic_world_text = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Best IVF clinics in World - your introduction'), max_length=1000)
@@ -882,3 +897,69 @@ class Singleclinicbestarticleupdateform(forms.ModelForm):
     def __init__(self, current_user, *args, **kwargs):
         super(Singleclinicbestarticleupdateform, self).__init__(*args, **kwargs)
         self.fields['clinic_world'].queryset = BasicClinic.objects.all().filter(clinicOwner=current_user)
+
+
+class CreateNewCoachForm(forms.ModelForm):
+    coach_full_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_username = forms.SlugField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_bestclinicarticles"), required=False, label=('Fertility coach BIO information'), max_length=150)
+
+    coach_contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
+    coach_preferred_client_country = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control', }),label=('Clinics state'))
+
+    coach_preferred_languages = forms.ModelMultipleChoiceField(queryset=PreferredLanguage.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-control','size': '5'}), required=False)
+
+    coach_profile_photo = forms.ImageField(widget=forms.FileInput(), required=False, label=('Profile picture'))
+    coach_profile_photo_delete = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete profile picture'))
+
+    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_social_facebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_linkedin = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_pinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_twitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_website = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
+    job_gynecologist = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_obstetrician = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_reproductive_immunologist = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_reproductive_surgeon = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_andrologist = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_reproductive_endocrinologist = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_fertility_specialist = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+    job_fertility_coach = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
+
+    class Meta:
+        model = Coaches
+        fields = [
+            'coach_full_name',
+            'coach_username',
+            'coach_bio',
+            'coach_contact_email',
+            'coach_phone',
+            'coach_preferred_client_country',
+            'coach_preferred_languages',
+            'coach_profile_photo',
+            'coach_profile_photo_delete',
+            'coach_social_instagram',
+            'coach_social_facebook',
+            'coach_social_linkedin',
+            'coach_social_pinterest',
+            'coach_social_twitter',
+            'coach_social_website',
+
+            'job_gynecologist',
+            'job_obstetrician',
+            'job_reproductive_immunologist',
+            'job_reproductive_surgeon',
+            'job_andrologist',
+            'job_reproductive_endocrinologist',
+            'job_fertility_specialist',
+            'job_fertility_coach',
+        ]
+
+    def __init__(self, user, *args, **kwargs):
+        super(CreateNewCoachForm, self).__init__(*args, **kwargs)
+        language_list = list(PreferredLanguage.objects.filter(coaches_relationship__coach_user=user))
+        self.initial['coach_preferred_languages'] = language_list

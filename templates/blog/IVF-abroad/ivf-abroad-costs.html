@@ -13,6 +13,8 @@
 
 {% block content %}
 
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+
 <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -62,11 +64,7 @@
 
 <div class="container">
   <br>
-  {% if author.author_name == 'FertilityCommunity' %}
-    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
-  {% else %}
-    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
-  {% endif %}
+  {% include 'blog/authors.html' %}
   <hr>
   <br>
   <br>
@@ -156,6 +154,7 @@
   <br>
   <hr>
   <br>
+  {% include 'blog/snippet_carousel.html' %}
   <div class="feature" id="bod6">
     <h2 style="font-size: 160%"><b>What do IVF costs cover?</b></h2>
     <br>

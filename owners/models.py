@@ -19,6 +19,10 @@ class ProUser(models.Model):
 class AuthenticatedUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_activated = models.BooleanField(default=False)
+
+    register_as_clinic = models.BooleanField(null=True, blank=True, default=False)
+    register_as_coach = models.BooleanField(null=True, blank=True, default=False)
+
     random_auth_string = models.CharField(max_length=10, null=True, blank=True)
 
     def __str__(self):

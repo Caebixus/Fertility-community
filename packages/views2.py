@@ -60,8 +60,8 @@ def packagesearch(request):
             if packages != 'empty':
 
                 if packages == allpackages:
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -79,8 +79,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
 
                 elif packages != 'empty':
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packagecategory=packages)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packagecategory=packages)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -98,8 +98,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
 
                 else:
-                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+                    prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False)
+                    ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False)
                     count = prolisting.count() + ppqlisting.count()
 
                     prolisting = prolisting.order_by('package_end_list_date')
@@ -117,8 +117,8 @@ def packagesearch(request):
                     return render(request, 'packages/package-search.html', context)
 
             else:
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -138,8 +138,8 @@ def packagesearch(request):
 
         else:
             if packages == allpackages:
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -158,8 +158,8 @@ def packagesearch(request):
 
 
             elif packages != 'empty':
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packagecategory=packages)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -177,8 +177,8 @@ def packagesearch(request):
                 return render(request, 'packages/package-search.html', context)
 
             else:
-                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
-                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
+                prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
+                ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
                 count = prolisting.count() + ppqlisting.count()
 
                 prolisting = prolisting.order_by('package_end_list_date')
@@ -195,8 +195,8 @@ def packagesearch(request):
                 }
                 return render(request, 'packages/package-search.html', context)
 
-            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
-            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states)
             count = prolisting.count() + ppqlisting.count()
 
             prolisting = prolisting.order_by('package_end_list_date')
@@ -216,8 +216,8 @@ def packagesearch(request):
 
     else:
         if packages == allpackages:
-            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False)
             count = prolisting.count() + ppqlisting.count()
 
             prolisting = prolisting.order_by('package_end_list_date')
@@ -235,8 +235,8 @@ def packagesearch(request):
             return render(request, 'packages/package-search.html', context)
 
         elif packages != 'empty':
-            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False, packagecategory=packages)
-            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False, packagecategory=packages)
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packagecategory=packages)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packagecategory=packages)
             count = prolisting.count() + ppqlisting.count()
 
             prolisting = prolisting.order_by('package_end_list_date')
@@ -254,8 +254,8 @@ def packagesearch(request):
             return render(request, 'packages/package-search.html', context)
 
         else:
-            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+            prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False)
+            ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False)
             count = prolisting.count() + ppqlisting.count()
 
             prolisting = prolisting.order_by('package_end_list_date')
@@ -272,8 +272,8 @@ def packagesearch(request):
             }
             return render(request, 'packages/package-search.html', context)
 
-        prolisting = Package.objects.filter(packageclinic__pro_is_published=True, packageclinic__ppq_is_published=False)
-        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, packageclinic__pro_is_published=False)
+        prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False)
+        ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False)
         count = prolisting.count() + ppqlisting.count()
 
         prolisting = prolisting.order_by('package_end_list_date')

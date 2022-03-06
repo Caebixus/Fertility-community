@@ -1,10 +1,11 @@
 from django.urls import path
 
 from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_cities, views_best_ivf_clinics_world
+from .views import AuthorDetailView
 
 urlpatterns = [
     #Authors
-    path('authors/lisa-holliman', views.authorlisaholliman, name='authorlisaholliman'),
+    path('authors/<int:pk>/', AuthorDetailView.as_view(), name='authorDetailView'),
 
     #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),

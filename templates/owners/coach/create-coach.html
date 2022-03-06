@@ -46,49 +46,6 @@
         <label for="{{ form.coach_preferred_client_country.id_for_label}}">Country you live in:</label>
         {{ form.coach_preferred_client_country }}
       </div>
-      <div class="fieldWrapper py-3" style="text-align: left">
-        <label>Choose your specialization*:</label>
-        <div class="row">
-          <div class="col-4">
-            {{ form.job_fertility_coach }}
-            <label>Fertility Coach</label>
-          </div>
-          <div class="col-4">
-            {{ form.job_fertility_specialist }}
-            <label>Fertility Specialist</label>
-          </div>
-          <div class="col-4">
-            {{ form.job_reproductive_endocrinologist }}
-            <label>Reproductive Endocrinologist</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            {{ form.job_andrologist }}
-            <label>Andrologist</label>
-          </div>
-          <div class="col-4">
-            {{ form.job_reproductive_surgeon }}
-            <label>Reproductive Surgeon</label>
-          </div>
-          <div class="col-4">
-            {{ form.job_reproductive_immunologist }}
-            <label>Reproductive Immunologist</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            {{ form.job_obstetrician }}
-            <label>Obstetrician</label>
-          </div>
-          <div class="col-4">
-            {{ form.job_gynecologist }}
-            <label>Gynecologist</label>
-          </div>
-          <div class="col-4">
-          </div>
-        </div>
-      </div>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper py-2" style="text-align:">
         {% if form.coach_bio.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_bio.errors }}</div>{% endif %}
@@ -119,15 +76,21 @@
     <section class="py-5">
       <h2 >Preferred settings:</h2>
       <div class="fieldWrapper py-3" style="text-align: left">
-        {% if form.coach_preferred_languages.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_preferred_languages.errors }}</div>{% endif %}
-        <label for="{{ form.coach_preferred_languages.id_for_label}}">Preferred language:</label>
-        <div class="row">
-          {% for checkbox in form.coach_preferred_languages %}
-          <div class="col-4 text-center">
-            {{ checkbox }}
-          </div>
-          {% endfor %}
-        </div>
+        {% if form.m2m_jobs.errors %}<div class="alert alert-danger" role="alert">{{ form.m2m_jobs.errors }}</div>{% endif %}
+        <label for="{{ form.m2m_jobs.id_for_label}}">Select preferred specialization:</label>
+        {{ form.m2m_jobs }}
+      </div>
+      <div class="fieldWrapper py-3" style="text-align: left">
+        {% if form.m2m_languages.errors %}<div class="alert alert-danger" role="alert">{{ form.m2m_languages.errors }}</div>{% endif %}
+        <label for="{{ form.m2m_languages.id_for_label}}">Select preferred languages:</label>
+<!--        <div class="row">-->
+<!--          {% for checkbox in form.m2m_languages %}-->
+<!--          <div class="col-4 text-center">-->
+<!--            {{ checkbox }}-->
+<!--          </div>-->
+<!--          {% endfor %}-->
+<!--        </div>-->
+        {{ form.m2m_languages }}
       </div>
     </section>
 

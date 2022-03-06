@@ -70,11 +70,7 @@
 
 <div class="container">
   <br>
-  {% if author.author_name == 'FertilityCommunity' %}
-    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
-  {% else %}
-    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
-  {% endif %}
+  {% include 'blog/authors.html' %}
   <hr>
   <br>
   <br>
@@ -88,6 +84,7 @@
   <hr>
   <br>
   <br>
+  {% include 'blog/snippet_carousel.html' %}
   <div class="feature">
     <h2 style="font-size: 160%"><b>Why choose IVF in Spain</b></h2>
     <br>

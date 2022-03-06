@@ -15,6 +15,9 @@ class Author(models.Model):
     additional_url = models.URLField(blank=True, null=True)
     author_page_url = models.URLField(blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.author_name} {self.author_lastname}"
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries')

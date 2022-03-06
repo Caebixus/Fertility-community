@@ -9,7 +9,7 @@ from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, 
 
 class Coaches(models.Model):
     coach_user = models.OneToOneField(User, on_delete=models.CASCADE)
-    coach_profile_photo = models.ImageField(upload_to='fertility_coach', validators=[validate_file_size])
+    coach_profile_photo = models.ImageField(upload_to='fertility_coach', validators=[validate_file_size], blank=True, null=True)
     coach_profile_photo_delete = models.BooleanField(default=False, blank=True, null=True)
 
     coach_category = models.CharField(max_length=256, blank=True, null=True)
@@ -27,15 +27,6 @@ class Coaches(models.Model):
     coach_social_pinterest = models.URLField(blank=True, null=True)
     coach_social_twitter = models.URLField(blank=True, null=True)
     coach_social_website = models.URLField(blank=True, null=True)
-
-    job_gynecologist = models.BooleanField(default=False)
-    job_obstetrician = models.BooleanField(default=False)
-    job_reproductive_immunologist = models.BooleanField(default=False)
-    job_reproductive_surgeon = models.BooleanField(default=False)
-    job_andrologist = models.BooleanField(default=False)
-    job_reproductive_endocrinologist = models.BooleanField(default=False)
-    job_fertility_specialist = models.BooleanField(default=False)
-    job_fertility_coach = models.BooleanField(default=False)
 
     coach_preferred_client_country = models.CharField(max_length=256, blank=True, null=True)
     coach_preferred_client_city = models.CharField(max_length=256, blank=True, null=True)
@@ -102,14 +93,46 @@ class Snippet(models.Model):
         return self.blog.title
 
 
-class SnippetNew(models.Model):
-    snippet_owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='type_of_jobs')
-    snippet_blog_relationship = models.ForeignKey(Blog, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_blog_conn')
+class SnippetCity(models.Model):
+    owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_city_owner')
+    blog = models.ForeignKey(BestClinicArticleCity, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_city_blog')
     text = models.TextField(blank=True, null=True)
-
     STATUS = (
         ('wait for review', 'wait for review'),
         ('is published', 'is published'),
         ('is not approved', 'is not approved'),
         )
     status = models.CharField(max_length=40, choices=STATUS, null=True, default='wait for review')
+
+    def __str__(self):
+        return self.blog.title
+
+
+class SnippetState(models.Model):
+    owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_state_owner')
+    blog = models.ForeignKey(BestClinicArticleState, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_state_blog')
+    text = models.TextField(blank=True, null=True)
+    STATUS = (
+        ('wait for review', 'wait for review'),
+        ('is published', 'is published'),
+        ('is not approved', 'is not approved'),
+        )
+    status = models.CharField(max_length=40, choices=STATUS, null=True, default='wait for review')
+
+    def __str__(self):
+        return self.blog.title
+
+
+class SnippetCountry(models.Model):
+    owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_country_owner')
+    blog = models.ForeignKey(BestClinicArticleCountry, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_country_blog')
+    text = models.TextField(blank=True, null=True)
+    STATUS = (
+        ('wait for review', 'wait for review'),
+        ('is published', 'is published'),
+        ('is not approved', 'is not approved'),
+        )
+    status = models.CharField(max_length=40, choices=STATUS, null=True, default='wait for review')
+
+    def __str__(self):
+        return self.blog.title

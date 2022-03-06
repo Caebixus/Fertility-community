@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block title %}{{coach.coach_full_name}}{% endblock %}
-{% block description %} XXXXXX XXXXXXX XXXXXX {% endblock %}
+{% block description %}{{coach.coach_full_name}} is a member of Fertility Specialists on the FertilityCommunity website {% if snippets %}{% else %}Find out more.{% endif %}{% endblock %}
 {% block noindexpage %}{% if coach.coach_is_published == False %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/fertility-specialist/{{coach.pk}}/{{coach.coach_username}}/{% endblock %}
 {% block content %}

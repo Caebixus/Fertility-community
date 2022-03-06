@@ -19,15 +19,14 @@
       </h1>
       <div class="d-flex flex-column py-2">
         <div>
-          <div class="fas fa-briefcase fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Specialization"></div>
-          {% if coach.job_fertility_coach %}Fertility coach {% endif %}
-          {% if coach.job_fertility_specialist %}Fertility Specialist {% endif %}
-          {% if coach.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
-          {% if coach.job_andrologist %}Andrologist {% endif %}
-          {% if coach.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
-          {% if coach.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
-          {% if coach.job_obstetrician %}Obstetrician {% endif %}
-          {% if coach.job_gynecologist %}Gynecologist {% endif %}
+          <div class="fas fa-briefcase fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Preferred specialization"></div>
+          {% for job in jobs %}
+            {% if not forloop.last %}
+              {{ job }} |
+            {% else %}
+              {{ job }}
+            {% endif %}
+          {% endfor %}
         </div>
         <div>
           <div class="fas fa-language fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Preferred languages"></div>

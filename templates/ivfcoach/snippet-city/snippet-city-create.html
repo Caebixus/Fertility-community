@@ -8,7 +8,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Create snippets</h1>
-    <p  style="color:white">Create short snippets on the topics of our blogspots.</p>
+    <p  style="color:white">Create short snippets on the topics of our general articles. Write as much relevant information as possible and get better positions among other snippets.</p>
     <br>
   </div>
 </div>
@@ -29,7 +29,6 @@
     {{ form.source.errors }}
     {{ form.source }}
     <section class="py-5">
-      <label>Create snippet for article: <a href="{{ blog.blog_url }}">{{ blog.blog_url }}</label></a>
       <div class="fieldWrapper py-3" style="text-align: left">
         {% if form.blog.errors %}<div class="alert alert-danger" role="alert">{{ form.blog.errors }}</div>{% endif %}
         <label for="{{ form.blog.id_for_label}}">Choose blogpost:</label>
@@ -39,7 +38,7 @@
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper py-3" style="text-align: left">
         {% if form.text.errors %}<div class="alert alert-danger" role="alert">{{ form.text.errors }}</div>{% endif %}
-        <label for="{{ form.text.id_for_label}}">Text (max 600 characters):</label>
+        <label for="{{ form.text.id_for_label}}">Text (max 1200 characters):</label>
         {{ form.text }}
       </div>
     </section>

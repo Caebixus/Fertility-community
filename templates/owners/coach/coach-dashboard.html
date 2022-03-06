@@ -6,13 +6,11 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
-    <h3 style="color:white">Fertility coach & expert</h3>
+    <p style="color:white">Offer your services to the community of people on our website. Increase your online presence and authority through short snippets on our articles.</p>
     <br>
     <a hidden href="{% url 'howtousefertilitycommunity' %}">
       <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>
     </a>
-    <br>
-    <br>
   </div>
 </div>
 
@@ -25,115 +23,89 @@
 {% endif %}
 
 {% if coaches %}
-<div class="container py-4">
-{% include 'partials/_alerts.html' %}
-  <div class="card mt-5">
-    <div class="card-header">
-      <div class="d-flex flex-row justify-content-between">
-        <div class="p-2">
-          {% if coaches.coach_is_premium == True %}<span class="badge badge-primary text-left mb-2">PREMIUM</span>{% else %}<span class="badge badge-secondary text-left mb-2">BASIC</span>{% endif %}
-          <h2>Profile: {{ coaches.coach_full_name }}</h2>
-        </div>
-        <div class="p-2">
-          <div class="col-sm-1" style="padding-top: 1rem;">
-            <a href="{% url 'coach:coach-delete' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
-              <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
-            </a>
+  <div class="container py-4">
+  {% include 'partials/_alerts.html' %}
+    <div class="card mt-5">
+      <div class="card-header">
+        <div class="d-flex flex-row justify-content-between">
+          <div class="p-2">
+            {% if coaches.coach_is_premium == True %}<span class="badge badge-primary text-left mb-2">PREMIUM</span>{% else %}<span class="badge badge-secondary text-left mb-2">BASIC</span>{% endif %}
+            <h2>Profile: {{ coaches.coach_full_name }}</h2>
+          </div>
+          <div class="p-2">
+            <div class="col-sm-1" style="padding-top: 1rem;">
+              <a href="{% url 'coach:coach-delete' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
+                <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm" style="padding-top: 1rem;">
-          <a href="{% url 'update_coach_profile' coaches.id %}" style="text-decoration: none">
-            <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Update profile</button>
-          </a>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a href="{% url 'update_coach_profile' coaches.id %}" style="text-decoration: none">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Update profile</button>
+            </a>
+          </div>
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a href="{% url 'coach:coach-detail' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View profile</button>
+            </a>
+          </div>
+          {% if coaches.coach_is_premium != True %}
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a hidden href="" style="text-decoration: none; !important">
+              <button class="btn btn-success text-light btn-block" type="button">Why upgrade?</button>
+            </a>
+          </div>
+          {% else %}
+          {% endif %}
         </div>
-        <div class="col-sm" style="padding-top: 1rem;">
-          <a href="{% url 'coach:coach-detail' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
-            <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View profile</button>
-          </a>
+        {% if coaches.coach_is_premium == True %}
+        <div class="pt-5">
+          <h3>Add snippets to articles:</h3>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'coach:snippet-create' coaches.pk %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-warning" type="button"><i class="fas fa-plus"></i> General articles</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'coach:snippet-city-create' coaches.pk %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-warning" type="button"><i class="fas fa-plus"></i> The best IVF clinic in the cities</button>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'coach:snippet-state-create' coaches.pk %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-warning" type="button"><i class="fas fa-plus"></i> The best IVF clinics in the states</button>
+              </a>
+            </div>
+            <div class="col-sm" style="padding-top: 1rem;">
+              <a href="{% url 'coach:snippet-country-create' coaches.pk %}" style="text-decoration: none; !important">
+                <button class="btn btn-block btn-warning" type="button"><i class="fas fa-plus"></i> The best IVF clinics in the countries</button>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="col-sm" style="padding-top: 1rem;">
-          <a href="" style="text-decoration: none; !important">
-            <button class="btn btn-success text-light btn-block" type="button">Why upgrade?</button>
-          </a>
-        </div>
-      </div>
-      <div class="row py-3">
-        <div class="col-sm" style="padding-top: 1rem;">
-          <a href="{% url 'coach:snippet-create-with-coach' coaches.pk %}" style="text-decoration: none; !important">
-            <button class="btn btn-block btn-warning" type="button"><i class="fas fa-plus"></i> Add snippet</button>
-          </a>
-        </div>
+        {% else %}
+        {% endif %}
       </div>
     </div>
   </div>
-</div>
 
-{% if snippets %}
-<div class="container py-4 text-center">
-    <div class="card mt-5">
-      <div class="card-header">
-        <h2>Snippets and available articles</h2>
-        <p>Snippets are your short professional comments relevant to articles on our site. They may contain expert knowledge, your experience, or additional data. It serves to build the authority, relevance and credibility of your profiles.</p>
-      </div>
-      <div class="table-responsive-lg">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Article published</th>
-              <th scope="col">Newest articles</th>
-              <th scope="col">Status</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
+  {% if coaches.coach_is_premium == True %}
+    {% include 'owners/coach/include/snippet-general.html' %}
 
-          {% if snippets %}
-          {% for snippet in snippets %}
-            <tbody>
-              <tr>
-                <td>
-                  <label>{{ snippet.blog.created_at|date:"SHORT_DATE_FORMAT"}}</label>
-                </td>
-                <td>
-                  <a href="{{ snippet.blog.blog_url }}"> {{ snippet.blog.title }}</a>
-                </td>
-                <td>
-                  {% if snippet.status == 'wait for review' %}
-                    <div class="fa-solid fa-question" style="color:orange" data-toggle="tooltip" data-placement="top" title="Wait for our team to review your snippet (usually within 48 hours)"></div>
-                  {% elif snippet.status == 'is published' %}
-                    <div class="fa-solid fa-check" style="color:green" data-toggle="tooltip" data-placement="top" title="This snippet is published and can be seen in a selected article"></div>
-                  {% else %}
-                    <div class="fa-solid fa-ban" style="color:red" data-toggle="tooltip" data-placement="top" title="This snippet was not approved. Usually because of the irelevant or very general content of the snippet. Please edit snippet or contact us directly."></div>
-                  {% endif %}
-                </td>
-                <td>
-                  {% if snippet.status == 'wait for review' %}
-                  {% else %}
-                  <a href="{% url 'coach:snippet-update' snippet.blog.id snippet.id %}" style="text-decoration: none">
-                    <button class="btn btn-sm btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Edit snippet of this article"><i class="fa fa-edit"></i></button>
-                  </a>
-                  {% endif %}
-                </td>
-                <td>
-                  {% if snippet %}
-                    <a href="{% url 'coach:snippet-delete' snippet.pk %}" style="text-decoration: none; !important">
-                      <button class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
-                    </a>
-                  {% endif %}
-                </td>
-              </tr>
-            </tbody>
-          {% endfor %}
-          {% endif %}
-        </table>
-      </div>
-    </div>
-</div>
-{% endif %}
+    {% include 'owners/coach/include/snippet-city.html' %}
+
+    {% include 'owners/coach/include/snippet-state.html' %}
+
+    {% include 'owners/coach/include/snippet-country.html' %}
+
+  {% endif %}
 {% endif %}
 
 

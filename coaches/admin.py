@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Coaches, TypeJobs, PreferredLanguage, PreferredCountry, SnippetNew, Snippet
+from .models import Coaches, TypeJobs, PreferredLanguage, PreferredCountry, Snippet, SnippetCity, SnippetCountry, SnippetState
 
 
 class CoachesAdmin(admin.ModelAdmin):
@@ -15,13 +15,23 @@ class SnippetAdmin(admin.ModelAdmin):
 
 admin.site.register(Snippet, SnippetAdmin)
 
+class SnippetCityAdmin(admin.ModelAdmin):
+    model = SnippetCity
+    list_display = ('id', 'owner', 'blog', 'blog_id', 'status')
 
-class SnippetNewAdmin(admin.ModelAdmin):
-    model = SnippetNew
-    list_display = ('id', 'snippet_owner', 'snippet_blog_relationship', 'snippet_blog_relationship_id', 'status')
+admin.site.register(SnippetCity, SnippetCityAdmin)
 
-admin.site.register(SnippetNew, SnippetNewAdmin)
+class SnippetCountryAdmin(admin.ModelAdmin):
+    model = SnippetCountry
+    list_display = ('id', 'owner', 'blog', 'blog_id', 'status')
 
+admin.site.register(SnippetCountry, SnippetCountryAdmin)
+
+class SnippetStateAdmin(admin.ModelAdmin):
+    model = SnippetState
+    list_display = ('id', 'owner', 'blog', 'blog_id', 'status')
+
+admin.site.register(SnippetState, SnippetStateAdmin)
 
 class TypeJobsAdmin(admin.ModelAdmin):
     model = TypeJobs

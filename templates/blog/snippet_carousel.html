@@ -19,14 +19,13 @@
                 <div class="col-md-6 col-lg-11 text-center-until-md">
                   <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none; font-size: 130%;"><strong>{{ snippets.owner.coach_full_name }}</strong></a>
                   <div style="font-size: 80%">
-                    {% if snippets.owner.job_fertility_coach %}Fertility coach {% endif %}
-                    {% if snippets.owner.job_fertility_specialist %}Fertility Specialist {% endif %}
-                    {% if snippets.owner.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
-                    {% if snippets.owner.job_andrologist %}Andrologist {% endif %}
-                    {% if snippets.owner.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
-                    {% if snippets.owner.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
-                    {% if snippets.owner.job_obstetrician %}Obstetrician {% endif %}
-                    {% if snippets.owner.job_gynecologist %}Gynecologist {% endif %}
+                  {% for job in snippets.owner.jobs.all %}
+                    {% if not forloop.last %}
+                      {{ job }} |
+                    {% else %}
+                      {{ job }}
+                    {% endif %}
+                  {% endfor %}
                   </div>
                 </div>
               </div>
@@ -42,7 +41,7 @@
       </div>
     </div>
   {% else %}
-    <h2>What fertility specialists say about IVF costs abroad?</h2>
+    <h2>What fertility specialists say?</h2>
     <div id="carouselSnippet" class="carousel slide" data-interval="false" data-ride="carousel">
       <div class="carousel-inner">
         {% for snippet in snippets %}

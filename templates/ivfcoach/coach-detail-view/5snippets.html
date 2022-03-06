@@ -1,8 +1,9 @@
 {% if coach.coach_is_premium == True %}
     {% if snippets %}
+    <div class="container py-5">
+    <h5 class="card-title">Commented articles:</h5>
       {% for snippet in snippets %}
-      <div class="container">
-        <h2 class="pt-3"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h2>
+        <h6 class="pt-3"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
         <div class="card" style="margin-left: 25px; margin-right: 25px;">
           <div class="card-header">
             <div class="row pt-1 pb-1 custom-carousel-content custom-carousel-header-row">
@@ -16,14 +17,13 @@
               <div class="col-md-6 col-lg-11 text-center-until-md">
                 <strong>{{ snippet.owner.coach_full_name }}</strong>
                 <div style="font-size: 80%">
-                  {% if snippet.owner.job_fertility_coach %}Fertility coach {% endif %}
-                  {% if snippet.owner.job_fertility_specialist %}Fertility Specialist {% endif %}
-                  {% if snippet.owner.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
-                  {% if snippet.owner.job_andrologist %}Andrologist {% endif %}
-                  {% if snippet.owner.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
-                  {% if snippet.owner.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
-                  {% if snippet.owner.job_obstetrician %}Obstetrician {% endif %}
-                  {% if snippet.owner.job_gynecologist %}Gynecologist {% endif %}
+                  {% for job in snippet.owner.jobs.all %}
+                    {% if not forloop.last %}
+                      {{ job }} |
+                    {% else %}
+                      {{ job }}
+                    {% endif %}
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-      </div>
       {% endfor %}
-    {% endif %}
+    </div>
+  {% endif %}
 {% endif %}

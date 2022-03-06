@@ -70,11 +70,7 @@
 
 <div class="container">
   <br>
-  {% if author.author_name == 'FertilityCommunity' %}
-    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
-  {% else %}
-    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
-  {% endif %}
+  {% include 'blog/authors.html' %}
   <hr>
   <br>
   <br>
@@ -94,6 +90,7 @@
   <br>
   <hr>
   <br>
+  {% include 'blog/snippet_carousel.html' %}
   <p>Nature lovers would have a wonderful time in Slovakia – even non-nature lovers would appreciate the beauty. The fresh air, lakes, waterfalls, and peaceful aura in Slovakia are some additional factors that can make the most amazing treatment journey ever. Who said getting infertility treatment can’t be fun and stress-free?</p>
   <br>
   <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">

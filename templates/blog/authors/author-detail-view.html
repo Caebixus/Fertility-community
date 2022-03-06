@@ -1,17 +1,17 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% block title %}Lisa Holliman - IVF author | FertilityCommunity{% endblock %}
-{% block description %}Lisa Holliman is a teacher and writer. She went through several infertility treatments before getting pregnant with her first child. Read more{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/authors/lisa-holliman{% endblock %}
-{% block meta_keywords %}Lisa Holliman - IVF author{% endblock %}
+{% block title %}{{ author.author_name }} {{ author.author_lastname }} - IVF author | FertilityCommunity{% endblock %}
+{% block description %}{{ author.author_description }}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/authors/{{author.pk}}/{% endblock %}
+{% block meta_keywords %}{{ author.author_name }} {{ author.author_lastname }} - {{ author.author_small_bio }}{% endblock %}
 {% block noindexpage %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block content %}
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
-    <h1 style="padding-top:3rem; color:white">Lisa Holliman</h1>
-    <span style="color:white">IVF author</span>
+    <h1 style="padding-top:3rem; color:white"> {{ author.author_name }} {{ author.author_lastname }}</h1>
+    <span style="color:white"> {{ author.author_small_bio }}</span>
     <br>
     <br>
   </div>
@@ -22,7 +22,7 @@
   <p>{{ author.author_description }}</p>
   <br>
   <br>
-  <h2>Lisa's Blogs:</h2>
+  <h2>{{ author.author_name }}'s articles:</h2>
   <div class="row row-cols-1 row-cols-md-3">
     {% for blogs in blog %}
     {% if blogs.author != None %}

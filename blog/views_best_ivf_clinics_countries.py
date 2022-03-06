@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
+from coaches.models import SnippetCountry
 from .models import BestClinicArticleCountry
 from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse
@@ -19,17 +20,50 @@ def bestivfclinicsinczech(request):
     clinics_location_count = clinics_location_count.count()
 
     best_clinics_count = best_clinics.count()
-
     best_clinics_blogpost = get_object_or_404(BestClinicArticleCountry, pk=pkid)
+    author = best_clinics_blogpost.author
 
-    context = {
-        'best_clinics': best_clinics,
-        'best_clinics_blogpost': best_clinics_blogpost,
-        'best_clinics_count': best_clinics_count,
-        'clinics_location_count': clinics_location_count,
-    }
+    snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+    if count_snippets == 1:
+        snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+    elif count_snippets > 1:
+        snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+    else:
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+        }
+
+        return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
+
 
 def bestivfclinicsinspain(request):
     pkid = 2
@@ -41,17 +75,51 @@ def bestivfclinicsinspain(request):
     clinics_location_count = clinics_location_count.count()
 
     best_clinics_count = best_clinics.count()
-
     best_clinics_blogpost = get_object_or_404(BestClinicArticleCountry, pk=pkid)
+    author = best_clinics_blogpost.author
 
-    context = {
-        'best_clinics': best_clinics,
-        'best_clinics_blogpost': best_clinics_blogpost,
-        'best_clinics_count': best_clinics_count,
-        'clinics_location_count': clinics_location_count,
-    }
+    snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
+    if count_snippets == 1:
+        snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
+    elif count_snippets > 1:
+        snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True,
+                                                 owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
+    else:
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+        }
+
+        return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
+
 
 def bestivfclinicsingreece(request):
     pkid = 3
@@ -63,17 +131,51 @@ def bestivfclinicsingreece(request):
     clinics_location_count = clinics_location_count.count()
 
     best_clinics_count = best_clinics.count()
-
     best_clinics_blogpost = get_object_or_404(BestClinicArticleCountry, pk=pkid)
+    author = best_clinics_blogpost.author
 
-    context = {
-        'best_clinics': best_clinics,
-        'best_clinics_blogpost': best_clinics_blogpost,
-        'best_clinics_count': best_clinics_count,
-        'clinics_location_count': clinics_location_count,
-    }
+    snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
+    if count_snippets == 1:
+        snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
+    elif count_snippets > 1:
+        snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True,
+                                                 owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
+    else:
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+        }
+
+        return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
+
 
 def bestivfclinicsinslovakia(request):
     pkid = 4
@@ -85,14 +187,47 @@ def bestivfclinicsinslovakia(request):
     clinics_location_count = clinics_location_count.count()
 
     best_clinics_count = best_clinics.count()
-
     best_clinics_blogpost = get_object_or_404(BestClinicArticleCountry, pk=pkid)
+    author = best_clinics_blogpost.author
 
-    context = {
-        'best_clinics': best_clinics,
-        'best_clinics_blogpost': best_clinics_blogpost,
-        'best_clinics_count': best_clinics_count,
-        'clinics_location_count': clinics_location_count,
-    }
+    snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
 
-    return render(request, 'blog/best-article/countries/slovakia/best-clinic-country-SK.html', context)
+    if count_snippets == 1:
+        snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/best-article/countries/slovakia/best-clinic-country-SK.html', context)
+    elif count_snippets > 1:
+        snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True,
+                                                 owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/best-article/countries/slovakia/best-clinic-country-SK.html', context)
+    else:
+        context = {
+            'best_clinics': best_clinics,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+        }
+
+        return render(request, 'blog/best-article/countries/slovakia/best-clinic-country-SK.html', context)

@@ -3,24 +3,24 @@
 {% load humanize %}
 
 {% block ogType %}<meta property='og:type' content='article' />{% endblock %}
-{% block articleAuthor %}<meta property='article:author' content='{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ blog.author.author_name }} {{ blog.author.author_lastname }}' />{% endblock %}
 {% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
 {% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
-{% block ogImage %}<meta property="og:image" content="https://www.fertilitycommunity.com/media/{{ best_clinics_blogpost.pic_blog }}" />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://www.fertilitycommunity.com/media/{{ blog.pic_blog }}" />{% endblock %}
 {% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
 {% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
 
-{% block title %}The {{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}{% endblock %}
-{% block description %}These are the best IVF clinics in Greece for {{ best_clinics_blogpost.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
-{% block noindexpage %}{% if best_clinics_blogpost.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}{% endblock %}
+{% block title %}The {{best_clinics_count}} {{blog.title}} | {{ blog.year }}{% endblock %}
+{% block description %}These are the best IVF clinics in Greece for {{ blog.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
+{% block noindexpage %}{% if blog.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{blog.slug}}{% endblock %}
 {% block meta_keywords %}best ivf clinics in Greece, best fertility clinics Greece{% endblock %}
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
 {% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
-{% block twittertitle%}<meta name="twitter:title" content="{{best_clinics_count}} {{best_clinics_blogpost.title}} | {{ best_clinics_blogpost.year }}">{% endblock %}
-{% block twitterdescription %}<meta name="twitter:description" content="{{best_clinics_blogpost.description}}">{% endblock %}
-{% block twitterimage %}<meta name="twitter:image" content="https://www.fertilitycommunity.com/media/{{ best_clinics_blogpost.pic_blog }}" />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{best_clinics_count}} {{blog.title}} | {{ blog.year }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{blog.description}}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="https://www.fertilitycommunity.com/media/{{ blog.pic_blog }}" />{% endblock %}
 
 {% block content %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
@@ -34,22 +34,22 @@
       "mainEntityOfPage":
         {
           "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/{{best_clinics_blogpost.slug}}"
+          "@id":"https://www.fertilitycommunity.com/blog/{{blog.slug}}"
         },
-      "headline": "{{best_clinics_blogpost.title}}",
+      "headline": "{{blog.title}}",
       "image":
         {
           "@type": "ImageObject",
-          "url": "{{ best_clinics_blogpost.pic_blog.url }}",
+          "url": "{{ blog.pic_blog.url }}",
           "height": 1080,
           "width": 1480
         },
-      "datePublished": "{{ best_clinics_blogpost.created_at }}",
-      "dateModified": "{{ best_clinics_blogpost.last_modified }}",
+      "datePublished": "{{ blog.created_at }}",
+      "dateModified": "{{ blog.last_modified }}",
       "author":
         {
           "@type": "Person",
-          "name": "{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}"
+          "name": "{{ blog.author.author_name }} {{ blog.author.author_lastname }}"
         },
       "publisher":
         {
@@ -61,7 +61,7 @@
               "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
             }
         },
-      "description": "{{ best_clinics_blogpost.description }}"
+      "description": "{{ blog.description }}"
     }
 </script>
 
@@ -69,22 +69,15 @@
 
 <div class="background" style="background-color: #286DA8">
   <div class="container py-5">
-    <h1 style="padding-top:3rem; color:white">{{best_clinics_count}} {{ best_clinics_blogpost.title }} | {{ best_clinics_blogpost.year }}</h1>
-    <br>
-   {% if best_clinics_blogpost.author.author_page_url %}<a href="{{ best_clinics_blogpost.author.author_page_url }}" style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</a>{% else %}<p style="color:white">By: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }} | Updated: {{ best_clinics_blogpost.last_modified }}</p>{% endif %}
+    <h1 style="padding-top:3rem; color:white">{{best_clinics_count}} {{ blog.title }} | {{ blog.year }}</h1>
   </div>
 </div>
 
 <div class="container mt-5">
-
-  <p>In this article, we would be discussing the best <a href="{% url 'fertilityClinicGreece' %}">fertility clinics in Greece</a>. Greece is one of the most popular countries for IVF treatments mainly because of the anonymity laws put in place and the <a href="{% url 'locationsGRRegions' %}">cost of IVF treatment in greece</a>. Getting treatment at one of the IVF clinics in Greece means that you would not have to wait to get a donor and you will not need to break the bank to pay for the treatment as the cost of treatment in Greece is rather low compared to other countries. The cost of travel is fair as well and considering how beautiful Greece is, you would be returning home with several amazing pictures that mark a beautiful time in your life.</p>
-  <br>
-  <p>If you are considering a clinic in Greece for your IVF treatment, then this guide is for you. We will be highlighting <a href="{% url 'ivf_in_greece' %}">IVF in Greece</a> with the most innovative technologies, high success rates, and a lot of other important factors to ensure you have options that are not only guaranteed to give you a breakthrough but will also make the journey a great experience.</p>
-  <p>Here is our list of the <b>{{best_clinics_count}} {{best_clinics_blogpost.title}}:</b></p>
-  <br>
+  {% include 'blog/authors.html' %}
   <i>Select currency for treatment pricings</i>
   <div class="row">
-    <div class="col-6">
+    <div class="col-4">
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
         <option>USD</option>
@@ -92,14 +85,23 @@
         <option>GBP</option>
       </select>
     </div>
-    <div class="col-6">
+    <div class="col-4 offset-4">
     </div>
   </div>
+  <hr class="py-3">
+  <p>In this article, we would be discussing the best <a href="{% url 'fertilityClinicGreece' %}">fertility clinics in Greece</a>. Greece is one of the most popular countries for IVF treatments mainly because of the anonymity laws put in place and the <a href="{% url 'locationsGRRegions' %}">cost of IVF treatment in greece</a>. Getting treatment at one of the IVF clinics in Greece means that you would not have to wait to get a donor and you will not need to break the bank to pay for the treatment as the cost of treatment in Greece is rather low compared to other countries. The cost of travel is fair as well and considering how beautiful Greece is, you would be returning home with several amazing pictures that mark a beautiful time in your life.</p>
+  <br>
+  <p>If you are considering a clinic in Greece for your IVF treatment, then this guide is for you. We will be highlighting <a href="{% url 'ivf_in_greece' %}">IVF in Greece</a> with the most innovative technologies, high success rates, and a lot of other important factors to ensure you have options that are not only guaranteed to give you a breakthrough but will also make the journey a great experience.</p>
+  <div class="pt-5 pb-4">
+    {% include 'blog/snippet_carousel.html' %}
+  </div>
+  <p>Here is our list of the <b>{{best_clinics_count}} {{blog.title}}:</b></p>
 </div>
 
 
 {% for clinic in best_clinics %}
-
+<br>
+<hr>
 {% if clinic.best_article_country_actual_text %}
 <div class="container py-3" id="best-clinic-{{forloop.counter}}">
 

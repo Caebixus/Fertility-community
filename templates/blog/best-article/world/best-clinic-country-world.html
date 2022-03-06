@@ -70,11 +70,7 @@
 
 <div class="container">
   <br>
-  {% if author.author_name == 'FertilityCommunity' %}
-    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
-  {% else %}
-    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
-  {% endif %}
+  {% include 'blog/authors.html' %}
   <hr>
   <br>
   <br>
@@ -82,6 +78,7 @@
   <p>We have dissected each of these top IVF clinics to give you thorough information about each venue, who they are, and what they offer. For your convenience in comparing these clinics as a prospecting IVF patient, we have also included a rough cost estimate and the success rate statistics.</p>
   <p>If you are still unsure whether you want to find a clinic local to you or go abroad for your treatment, we have put together this basic guide as to why you may wish to travel overseas for an IVF package and what these packages include.</p>
   <br>
+  {% include 'blog/snippet_carousel.html' %}
   <p><strong>Here is our list of the best IVF clinics in the world:</strong></p>
 </div>
 

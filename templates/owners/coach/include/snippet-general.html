@@ -1,0 +1,62 @@
+{% if snippets %}
+  <div class="container pt-4 text-center">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h2>Snippets and available articles</h2>
+          <p>Snippets are your short professional comments relevant to articles on our site. They may contain expert knowledge, your experience, or additional data. It serves to build the authority, relevance and credibility of your profiles.</p>
+        </div>
+        <div class="table-responsive-lg">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Article published</th>
+                <th scope="col">General articles</th>
+                <th scope="col">Status</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+
+            {% if snippets %}
+            {% for snippet in snippets %}
+              <tbody>
+                <tr>
+                  <td>
+                    <label>{{ snippet.blog.created_at|date:"SHORT_DATE_FORMAT"}}</label>
+                  </td>
+                  <td>
+                    <a href="{{ snippet.blog.blog_url }}"> {{ snippet.blog.title }}</a>
+                  </td>
+                  <td>
+                    {% if snippet.status == 'wait for review' %}
+                      <div class="fa-solid fa-question" style="color:orange" data-toggle="tooltip" data-placement="top" title="Wait for our team to review your snippet (usually within 48 hours)"></div>
+                    {% elif snippet.status == 'is published' %}
+                      <div class="fa-solid fa-check" style="color:green" data-toggle="tooltip" data-placement="top" title="This snippet is published and can be seen in a selected article"></div>
+                    {% else %}
+                      <div class="fa-solid fa-ban" style="color:red" data-toggle="tooltip" data-placement="top" title="This snippet was not approved. Usually because of the irelevant or very general content of the snippet. Please edit snippet or contact us directly."></div>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if snippet.status == 'wait for review' %}
+                    {% else %}
+                    <a href="{% url 'coach:snippet-update' snippet.blog.id snippet.id %}" style="text-decoration: none">
+                      <button class="btn btn-sm btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Edit snippet of this article"><i class="fa fa-edit"></i></button>
+                    </a>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if snippet %}
+                      <a href="{% url 'coach:snippet-delete' snippet.pk %}" style="text-decoration: none; !important">
+                        <button class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
+                      </a>
+                    {% endif %}
+                  </td>
+                </tr>
+              </tbody>
+            {% endfor %}
+            {% endif %}
+          </table>
+        </div>
+      </div>
+  </div>
+{% endif %}

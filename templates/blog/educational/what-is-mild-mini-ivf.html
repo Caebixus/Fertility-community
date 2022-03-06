@@ -63,11 +63,7 @@
 
 <div class="container">
   <br>
-  {% if author.author_name == 'FertilityCommunity' %}
-    By: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}
-  {% else %}
-    By:<a href="{{ author.author_page_url }}"> {{ author.author_name }} {{ author.author_lastname }}</a> Updated: {{ blog.last_modified }}
-  {% endif %}
+  {% include 'blog/authors.html' %}
   <hr>
   <br>
   <br>
@@ -80,6 +76,7 @@
   <br>
   <hr>
   <br>
+  {% include 'blog/snippet_carousel.html' %}
   <ol style="font-size: 135%;">
     <li><p style="font-size: 100%"><a href="#bod1"><u>What is Mild (mini) IVF?</u></a></p></li>
     <li><p style="font-size: 100%"><a href="#bod2"><u>Pros and Cons of Mild (mini) IVF</u></a></p></li>

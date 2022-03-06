@@ -6,13 +6,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 
-from blog.models import Blog
 from .models import AuthenticatedUser
 from django.core.mail import send_mail
 from .functions import get_random_string
-from coaches.models import Coaches, Snippet, PreferredLanguage
-from .forms import CreateNewCoachForm
-from coaches.forms import UpdateCoachForm
+from coaches.models import Coaches, Snippet, SnippetCity, SnippetState, SnippetCountry
+from coaches.forms import UpdateCoachForm, CreateNewCoachForm
 
 
 def register_as_coach(request):
@@ -79,11 +77,17 @@ def coach_dashboard(request):
             if Coaches.objects.filter(coach_user=user).exists():
                 coaches = Coaches.objects.get(coach_user=user)
                 snippets = Snippet.objects.filter(owner=coaches)
+                snippets_city = SnippetCity.objects.filter(owner=coaches)
+                snippets_state = SnippetState.objects.filter(owner=coaches)
+                snippets_country = SnippetCountry.objects.filter(owner=coaches)
 
                 context = {
                     'authenticated': authenticated,
                     'coaches': coaches,
                     'snippets': snippets,
+                    'snippets_city': snippets_city,
+                    'snippets_state': snippets_state,
+                    'snippets_country': snippets_country,
                 }
 
                 return render(request, 'owners/coach/coach-dashboard.html', context)
@@ -107,8 +111,12 @@ def create_coach_profile(request):
 
     if form.is_valid():
         obj = form.save(commit=False)
+        obj.coach_updated = datetime.now()
+        obj.coach_created = datetime.now()
+        obj.coach_user = user
         obj.save()
-        form.save_m2m()
+        obj.languages.set(form.cleaned_data.get("m2m_languages"))
+        obj.jobs.set(form.cleaned_data.get("m2m_jobs"))
 
         # send_mail(
         #     'Coach profile vytvořen -' + str(form.coach_user),
@@ -145,7 +153,8 @@ def update_coach_profile(request, coaches_id):
         obj.coach_updated = datetime.now()
         obj.coach_user = user
         obj.save()
-        form.save_m2m()
+        obj.languages.set(form.cleaned_data.get("m2m_languages"))
+        obj.jobs.set(form.cleaned_data.get("m2m_jobs"))
 
         # send_mail(
         #     'Coach profile upraven -' + str(form.coach_user),

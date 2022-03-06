@@ -525,11 +525,13 @@ def ivf_in_spain(request):
     pkid = 2
     otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
 
-    spclinics = BasicClinic.objects.all().filter(clinicState__iexact='Spain')
-    numclinics = spclinics.filter(is_published=True).filter(clinicState__iexact='Spain')
+    clinics = BasicClinic.objects.all().filter(clinicState__iexact='Spain')
+    numclinics = clinics.filter(is_published=True).filter(clinicState__iexact='Spain')
     numclinics = numclinics.count()
 
-    best_clinics = spclinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
+
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
@@ -543,7 +545,6 @@ def ivf_in_spain(request):
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
-            'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,

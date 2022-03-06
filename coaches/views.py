@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -52,7 +53,15 @@ def SnippetCreateFormView(request, coach_id):
             obj = form.save(commit=False)
             obj.owner=coach
             obj.save()
-            form.save_m2m()
+
+            send_mail(
+                'Snippet vytvořen -' + str(obj.owner),
+                'Právě někdo upravil svůj profile a je třeba jej ověřit ' +
+                '\nUser username: ' + str(user.email),
+                'info@fertilitycommunity.com',
+                ['David.langr@fertilitycommunity.com'],
+                fail_silently=False,
+            )
 
             messages.success(request, '- Snippet successfully created. Wait for our team to review and publish it.')
             return redirect('coach_dashboard')
@@ -79,14 +88,14 @@ def SnippetUpdateFormView(request, blog_id, snippet_id):
             form.owner=coach
             form.save()
 
-        # send_mail(
-        #     'Coach profile upraven -' + str(form.coach_user),
-        #     'Právě někdo upravil svůj profile a je třeba jej ověřit ' +
-        #     '\nUser username: ' + str(user.email),
-        #     'info@fertilitycommunity.com',
-        #     ['David.langr@fertilitycommunity.com'],
-        #     fail_silently=False,
-        #     )
+            send_mail(
+                'Snippet upraven -' + str(form.owner),
+                'Právě někdo upravil svůj profile a je třeba jej ověřit ' +
+                '\nUser username: ' + str(user.email),
+                'info@fertilitycommunity.com',
+                ['David.langr@fertilitycommunity.com'],
+                fail_silently=False,
+                )
 
             messages.success(request, '- Snippet successfully created. Wait for our team to review and publish it.')
             return redirect('coach_dashboard')

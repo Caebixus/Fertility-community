@@ -118,14 +118,14 @@ def create_coach_profile(request):
         obj.languages.set(form.cleaned_data.get("m2m_languages"))
         obj.jobs.set(form.cleaned_data.get("m2m_jobs"))
 
-        # send_mail(
-        #     'Coach profile vytvořen -' + str(form.coach_user),
-        #     'Právě někdo vytvořil nový coach profile a je třeba jej ověřit ' +
-        #     '\nUser username: ' + str(user.email),
-        #     'info@fertilitycommunity.com',
-        #     ['David.langr@fertilitycommunity.com'],
-        #     fail_silently=False,
-        #     )
+        send_mail(
+            'Coach profil vytvořen -' + str(obj.coach_user),
+            'Právě někdo vytvořil nový coach profil a je třeba jej ověřit ' +
+            '\nUser username: ' + str(user.email),
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
 
         messages.success(request, '- Coach profile successfully created. Wait for our team to review and publish it.')
         return redirect('coach_dashboard')
@@ -156,14 +156,14 @@ def update_coach_profile(request, coaches_id):
         obj.languages.set(form.cleaned_data.get("m2m_languages"))
         obj.jobs.set(form.cleaned_data.get("m2m_jobs"))
 
-        # send_mail(
-        #     'Coach profile upraven -' + str(form.coach_user),
-        #     'Právě někdo upravil svůj profile a je třeba jej ověřit ' +
-        #     '\nUser username: ' + str(user.email),
-        #     'info@fertilitycommunity.com',
-        #     ['David.langr@fertilitycommunity.com'],
-        #     fail_silently=False,
-        #     )
+        send_mail(
+            'Coach profil upraven -' + str(obj.coach_user),
+            'Právě někdo upraven coach profil a je třeba jej ověřit ' +
+            '\nUser username: ' + str(user.email),
+            'info@fertilitycommunity.com',
+            ['David.langr@fertilitycommunity.com'],
+            fail_silently=False,
+            )
 
         messages.success(request, '- Coach profile successfully updated. Wait for our team to review and publish it.')
         return redirect('coach_dashboard')

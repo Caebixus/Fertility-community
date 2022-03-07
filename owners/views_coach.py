@@ -150,6 +150,9 @@ def update_coach_profile(request, coaches_id):
 
     if form.is_valid():
         obj = form.save(commit=False)
+        if obj.coach_profile_photo_delete == True:
+            obj.coach_profile_photo.delete()
+
         obj.coach_updated = datetime.now()
         obj.coach_user = user
         obj.save()
@@ -170,6 +173,7 @@ def update_coach_profile(request, coaches_id):
 
     context = {
         'form': form,
+        'instance': instance,
     }
 
     return render(request, 'owners/coach/update-coach.html', context)

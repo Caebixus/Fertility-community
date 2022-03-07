@@ -52,11 +52,28 @@
         <label>Your BIO (max 300 characters):</label>
         {{ form.coach_bio }}
       </div>
-      <div class="fieldWrapper py-2" style="text-align: left">
-          <label for="{{ form.coach_profile_photo.id_for_label}}"></label>
-          <label>Upload profile image (1080x1080 px)*:</label>
-          <p style="font-size:10px">{{ form.coach_profile_photo }}</p>
+
+      {% if instance.coach_profile_photo %}
+      <div class="col-6 col-md" style="text-align: left">
+        <p>Currently uploaded profile image: </p>
+        <img src="{{ instance.coach_profile_photo.url }}" alt="Uploaded profile image" style="width:100px; height 100px;">
       </div>
+      <br>
+      <div class="col-6 col-md" style="text-align: left">
+          <label for="{{ form.coach_profile_photo.id_for_label}}"><p>Re-upload profile image (1080x1080 px)*:</p></label>
+        <p style="font-size:10px">{{ form.coach_profile_photo }}</p>
+      </div>
+      <div class="col-4 col-md" style="text-align: left">
+        <label for="{{ form.coach_profile_photo_delete.id_for_label}}"><p>Check to delete</p></label>
+        {{ form.coach_profile_photo_delete }}
+      </div>
+      {% else %}
+      <div class="fieldWrapper" style="text-align: left">
+        <label for="{{ form.coach_profile_photo.id_for_label}}"><p>Upload profile image (1080x1080 px)*:</p></label>
+        <p style="font-size:10px">{{ form.coach_profile_photo }}</p>
+      </div>
+      {% endif %}
+
     </section>
 
     <section class="py-5">

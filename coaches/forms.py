@@ -15,7 +15,7 @@ LANGUAGE_CHOICES = (
 class CreateNewCoachForm(forms.ModelForm):
     coach_full_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     coach_username = forms.SlugField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_snippet"), required=False, label=('Fertility coach BIO information'), max_length=150)
+    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_snippet"), required=False, label=('Fertility coach BIO information'), max_length=300)
 
     coach_contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
@@ -72,7 +72,7 @@ class CreateNewCoachForm(forms.ModelForm):
 class UpdateCoachForm(forms.ModelForm):
     coach_full_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
     coach_username = forms.SlugField(widget=forms.TextInput(attrs={'class': 'form-control',}))
-    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_snippet"), required=False, label=('Fertility coach BIO information'), max_length=150)
+    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_snippet"), required=False, label=('Fertility coach BIO information'), max_length=300)
 
     coach_contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)

@@ -6,7 +6,7 @@
 <div class="background" style="background-color: #286DA8">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Dashboard</h1>
-    <p style="color:white">Offer your services to the community of people on our website. Increase your online presence and authority through short snippets on our articles.</p>
+    <p style="color:white">Offer your fertility & IVF services to the community of people on our website. Increase your online presence and authority through short snippets on our articles.</p>
     <br>
     <a hidden href="{% url 'howtousefertilitycommunity' %}">
       <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>
@@ -17,12 +17,12 @@
 {% if no_model %}
 <div class="container py-5">
   <div class="jumbotron">
-    <p>You have not created any Fertility Coach profile yet. <a href="{% url 'create_coach_profile' %}"><u>Add</u></a> new one.</p>
+    <p>You haven't created a profile yet. <a href="{% url 'create_coach_profile' %}"><u>Create</u></a> new one.</p>
   </div>
 </div>
 {% endif %}
 
-{% if coaches %}
+{% if coaches.coach_is_published == True %}
   <div class="container py-4">
   {% include 'partials/_alerts.html' %}
     <div class="card mt-5">
@@ -106,6 +106,44 @@
     {% include 'owners/coach/include/snippet-country.html' %}
 
   {% endif %}
+{% else %}
+  <div class="container py-4">
+  {% include 'partials/_alerts.html' %}
+    <div class="card mt-5">
+      <div class="card-header">
+        <div class="alert alert-warning" role="alert">
+          This profile is not published yet. Please wait for our team to review it (usually within 48 hours).
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="p-2">
+            {% if coaches.coach_is_premium == True %}<span class="badge badge-primary text-left mb-2">PREMIUM</span>{% else %}<span class="badge badge-secondary text-left mb-2">BASIC</span>{% endif %}
+            <h2>Profile: {{ coaches.coach_full_name }}</h2>
+          </div>
+          <div class="p-2">
+            <div class="col-sm-1" style="padding-top: 1rem;">
+              <a href="{% url 'coach:coach-delete' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
+                <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a href="{% url 'update_coach_profile' coaches.id %}" style="text-decoration: none">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Update profile</button>
+            </a>
+          </div>
+          <div class="col-sm" style="padding-top: 1rem;">
+            <a href="{% url 'coach:coach-detail' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
+              <button class="btn btn-block btn-info" type="button"><i class="fas fa-eye"></i> View profile</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endif %}
 
 

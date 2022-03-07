@@ -38,7 +38,8 @@
       </div>
       <div class="fieldWrapper py-3" style="text-align: left">
         {% if form.coach_username.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_username.errors }}</div>{% endif %}
-        <label for="{{ form.coach_username.id_for_label}}">Username (will be used in slug for your profile URL)*:</label>
+        <label for="{{ form.coach_username.id_for_label}}">Username (will be used in slug for your profile URL, should not co)*:</label>
+        <labe>Slug should not contain special characters or numbers</labe>
         {{ form.coach_username }}
       </div>
       <div class="fieldWrapper py-3" style="text-align: left">
@@ -49,7 +50,7 @@
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper py-2" style="text-align:">
         {% if form.coach_bio.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_bio.errors }}</div>{% endif %}
-        <label>Your BIO (max 150 characters):</label>
+        <label>Your BIO (max 300 characters):</label>
         {{ form.coach_bio }}
       </div>
       <div class="fieldWrapper py-2" style="text-align: left">

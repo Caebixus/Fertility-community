@@ -113,6 +113,8 @@ def create_coach_profile(request):
         obj = form.save(commit=False)
         obj.coach_updated = datetime.now()
         obj.coach_created = datetime.now()
+        obj.coach_is_published = True
+        obj.coach_is_premium = True
         obj.coach_user = user
         obj.save()
         obj.languages.set(form.cleaned_data.get("m2m_languages"))

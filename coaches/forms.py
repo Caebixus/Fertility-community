@@ -35,6 +35,9 @@ class CreateNewCoachForm(forms.ModelForm):
     coach_social_twitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_website = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
+    coach_is_published = forms.BooleanField(required=False)
+    coach_is_premium = forms.BooleanField(required=False)
+
     class Meta:
         model = Coaches
         fields = [

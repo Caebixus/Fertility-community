@@ -11,6 +11,7 @@
 <div class="container py-4">
   {% include 'partials/_alerts.html' %}
   <p>Your account is now locked out. We have sent you code to your email ({{ user.username }}) that will activate your account.</p>
+  <p>If you did not receive the code, check the spam folders in your email. If it is not here either, please contact us via chat or via the <a href="{% url 'contactus' %}">contact form</a>.</p>
   <br>
   <form action="{% url 'notActiveUser' %}" method="POST">
     {% csrf_token %}

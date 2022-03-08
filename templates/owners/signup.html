@@ -3,45 +3,60 @@
 {% block noindexpage %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block content %}
 
-<section id="register" class="bg-light py-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="card">
-          <div class="card-header" style="background-color: #286DA8">
-            <h4>
-              <p style="color: white">1) Create clinic's account</p>
-              <p style="color: white">2) Add new clinic or claim an existing one</p>
-            </h4>
-          </div>
-          <div class="card-body">
-            <!-- Alerts -->
-            {% include 'partials/_alerts.html' %}
 
-            <form action="{% url 'register' %}" method="POST">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input type="password" name="password2" class="form-control" required>
-              </div>
-              <input id="brandButton" type="submit" value="Register" class="btn btn-outline-success btn-lg">
-            </form>
-          </div>
-          <div style="text-align:left; padding-left:2rem">
-            <a href="{% url 'login' %}">Or login</a>
-          </div>
+<div class="background" style="background-color: #286DA8">
+  <div class="container">
+    <h1 class="display-4" style="padding-top:3rem; color:white">Sign-up as IVF Clinic</h1>
+    <p style="color:white">Offer your fertility & IVF services to the community of people on our website. </p>
+    <br>
+    <a hidden href="{% url 'howtousefertilitycommunity' %}">
+      <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>
+    </a>
+  </div>
+</div>
+{% include 'partials/_alerts.html' %}
+
+
+
+<div class="container py-5">
+  <div class="row justify-content-around">
+    <div class="col-md-8 col-sm-6">
+      <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control" required>
         </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="password" name="password2" class="form-control" required>
+        </div>
+        <input id="brandButton" type="submit" value="Register" class="btn btn-outline-success btn-lg">
+      </form>
+      <div class="py-2">
+        <a href="{% url 'login' %}">Or login</a>
       </div>
     </div>
+    <div class="col-md-4 col-sm-6">
+      <ul>
+        <li class="py-2">
+          Create a profile and fill in the information so that people looking for Fertility services can choose you.
+        </li>
+        <li class="py-2">
+          Rank in the rankings of the best clinics in the world
+        </li>
+        <li class="py-2">
+          Offer IVF packages, write articles and increase awareness, credibility among potential clients.
+        </li>
+      </ul>
+    </div>
   </div>
-</section>
+</div>
+
+
 
 {% endblock  %}

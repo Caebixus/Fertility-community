@@ -2,45 +2,57 @@
 {% load static %}
 {% block noindexpage %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block content %}
-
-<section id="register" class="bg-light py-4">
+<div class="background" style="background-color: #286DA8">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="card">
-          <div class="card-header" style="background-color: #286DA8">
-            <h4>
-              <p style="color: white">Signup as Fertility Coach</p>
-            </h4>
-          </div>
-          <div class="card-body">
-            <!-- Alerts -->
-            {% include 'partials/_alerts.html' %}
+    <h1 class="display-4" style="padding-top:3rem; color:white">Sign-up as Fertility Coach</h1>
+    <p style="color:white">Offer your fertility & IVF services to the community of people on our website. Increase your online presence and authority through short snippets on our articles.</p>
+    <br>
+    <a hidden href="{% url 'howtousefertilitycommunity' %}">
+      <button class="btn btn-outline-light" type="button" style="text-decoration: none">How to use FertilityCommunity</button>
+    </a>
+  </div>
+</div>
+{% include 'partials/_alerts.html' %}
 
-            <form action="{% url 'register_as_coach' %}" method="POST">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input type="password" name="password2" class="form-control" required>
-              </div>
-              <input id="brandButton" type="submit" value="Register" class="btn btn-outline-success btn-lg">
-            </form>
-          </div>
-          <div style="text-align:left; padding-left:2rem">
-            <a href="{% url 'login' %}">Or login</a>
-          </div>
+
+
+<div class="container py-5">
+  <div class="row justify-content-around">
+    <div class="col-md-8 col-sm-6">
+      <form action="{% url 'register_as_coach' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control" required>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="password" name="password2" class="form-control" required>
+        </div>
+        <div class="py-3">
+          <input id="brandButton" type="submit" value="Register" class="btn btn-outline-success btn-lg">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <ul>
+        <li class="py-2">
+          Create a profile and get a public URL on which you can build links mainly to or from your other social networks and your official website.
+        </li>
+        <li class="py-2">
+          Create text snippets for selected articles on our blog section and thus ensure your brand visibility, authority and credibility.
+        </li>
+        <li class="py-2">
+          Be visible and searchable whenever visitors of our site search for your services.
+        </li>
+      </ul>
     </div>
   </div>
-</section>
+</div>
+
 
 {% endblock  %}

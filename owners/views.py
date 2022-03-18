@@ -90,10 +90,8 @@ def login(request):
                     messages.success(request, '- You are now logged in')
                     if user.authenticateduser.register_as_clinic == True and user.authenticateduser.register_as_coach == False:
                         return redirect('dashboard')
-                    elif user.authenticateduser.register_as_coach == True and user.authenticateduser.register_as_clinic == False:
-                        return redirect('coach_dashboard')
                     else:
-                        return redirect()
+                        return redirect('coach_dashboard')
                 else:
                     auth.login(request, user)
                     return redirect('notActiveUser')

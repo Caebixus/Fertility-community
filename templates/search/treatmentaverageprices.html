@@ -7,7 +7,7 @@
 <div class="col-sm-4">
   <div class="jumbotron jumbotron-fluid" style="background-color: #dedede;">
     <div class="container">
-      {% if values.States == 'UK' %}
+      {% if values.States == 'United Kingdom' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - UK fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -16,7 +16,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'US' %}
+      {% elif values.States == 'United States' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - USA fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -25,7 +25,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'CZ' %}
+      {% elif values.States == 'Czech Republic' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Czech fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -34,7 +34,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'SK' %}
+      {% elif values.States == 'Slovakia' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Slovak fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -43,7 +43,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'DE' %}
+      {% elif values.States == 'Germany' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Germany fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -52,7 +52,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'LV' %}
+      {% elif values.States == 'Latvia' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Latvian fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -61,7 +61,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'PT' %}
+      {% elif values.States == 'Portugal' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Portuguese fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -70,7 +70,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'DK' %}
+      {% elif values.States == 'Denmark' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Danish fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -79,7 +79,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'SP' %}
+      {% elif values.States == 'Spain' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Spanish fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -88,7 +88,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'IN' %}
+      {% elif values.States == 'India' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Indian fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -97,7 +97,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'GR' %}
+      {% elif values.States == 'Greece' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Greek fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -106,7 +106,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'CY' %}
+      {% elif values.States == 'Cyprus' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Cypriot fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -115,7 +115,7 @@
         <option>GBP</option>
       </select>
       <br>
-      {% elif values.States == 'MX' %}
+      {% elif values.States == 'Mexico' %}
       <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Mexican fertility treatment costs in 2022:</h2>
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
@@ -129,7 +129,7 @@
       <p style="font-size:12px"><i>Please note that ADDITIONAL FEES MAY APPLY based on your unique needs.</i></p>
       <br>
 
-      {% if values.States == 'UK' %}
+      {% if values.States == 'United Kingdom' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -202,7 +202,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'US' %}
+      {% elif values.States == 'United States' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -270,7 +270,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'CZ' %}
+      {% elif values.States == 'Czech Republic' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -338,7 +338,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'SK' %}
+      {% elif values.States == 'Slovakia' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -406,7 +406,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'DK' %}
+      {% elif values.States == 'Denmark' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -678,7 +678,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'SP' %}
+      {% elif values.States == 'Spain' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -746,7 +746,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'IN' %}
+      {% elif values.States == 'India' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -814,7 +814,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'GR' %}
+      {% elif values.States == 'Greece' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -882,7 +882,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'CY' %}
+      {% elif values.States == 'Cyprus' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -950,7 +950,7 @@
       {% endfor %}
 
 
-      {% elif values.States == 'MX' %}
+      {% elif values.States == 'Mexico' %}
       {% for k in averageIVFPrice %}
       {% if averageIVFPrice.average != None  %}
       <p style="font-size:22px"><i class="fas fa-circle"></i> Average price of standard IVF with ovarian stimulation: </p>
@@ -1021,61 +1021,61 @@
       <br>
       <div class="row">
         <div class="col-6 col-md">
-          {% if values.States == 'UK' %}
+          {% if values.States == 'United Kingdom' %}
           <a href="{% url 'locationsUKRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <i class="fas fa-flag"></i> UK locations
             </button>
           </a>
-          {% elif values.States == 'US' %}
+          {% elif values.States == 'United States' %}
           <a href="{% url 'locationsUSRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> USA Compare
             </button>
           </a>
-          {% elif values.States == 'CZ' %}
+          {% elif values.States == 'Czech Republic' %}
           <a href="{% url 'locationsCZRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Czech Compare
             </button>
           </a>
-          {% elif values.States == 'SK' %}
+          {% elif values.States == 'Slovakia' %}
           <a href="{% url 'locationsSKRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Slovak Compare
             </button>
           </a>
-          {% elif values.States == 'DK' %}
+          {% elif values.States == 'Denmark' %}
           <a href="{% url 'locationsDKRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Denmark Compare
             </button>
           </a>
-          {% elif values.States == 'SP' %}
+          {% elif values.States == 'Spain' %}
           <a href="{% url 'locationsSPRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Spain Compare
             </button>
           </a>
-          {% elif values.States == 'IN' %}
+          {% elif values.States == 'India' %}
           <a href="{% url 'locationsINRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> India Compare
             </button>
           </a>
-          {% elif values.States == 'GR' %}
+          {% elif values.States == 'Greece' %}
           <a href="{% url 'locationsGRRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Greece Compare
             </button>
           </a>
-          {% elif values.States == 'CY' %}
+          {% elif values.States == 'Cyprus' %}
           <a href="{% url 'locationsCYRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Cyprus Compare
             </button>
           </a>
-          {% elif values.States == 'MX' %}
+          {% elif values.States == 'Mexico' %}
           <a href="{% url 'locationsMXRegions' %}" style="font-size: 14px !important;">
             <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-flag"></i> Mexico Compare

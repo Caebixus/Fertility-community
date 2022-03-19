@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-        {% if values.States == 'US' %}
+        {% if values.States == 'United States' and values.Region == None %}
         <div class="form-group" style="padding-top:1rem" id="regions-us">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -46,7 +46,23 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'UK' %}
+        {% elif values.States == 'United States' and values.Region %}
+          <div hidden class="form-group" style="padding-top:1rem" id="regions-us">
+            <div class="card" style="border-radius: 8px;">
+              <div class="card-header" style="background-color: white; border-radius: 8px;">
+                <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                  <option value="" selected>Select US State</option>
+                  {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                  <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          {% include 'search/searchusacities.html' %}
+
+
+        {% elif values.States == 'United Kingdom' %}
         <div class="form-group" style="padding-top:1rem" id="regions-uk">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -59,7 +75,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'CZ' %}
+        {% elif values.States == 'Czech Republic' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -72,7 +88,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'SK' %}
+        {% elif values.States == 'Slovakia' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -85,7 +101,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'DK' %}
+        {% elif values.States == 'Denmark' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -98,7 +114,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'DE' %}
+        {% elif values.States == 'Germany' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -111,7 +127,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'LV' %}
+        {% elif values.States == 'Latvia' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -124,7 +140,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'PT' %}
+        {% elif values.States == 'Portugal' %}
         <div class="form-group" style="padding-top:1rem" id="regions-cz">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -137,7 +153,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'SP' %}
+        {% elif values.States == 'Spain' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -150,7 +166,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'IN' %}
+        {% elif values.States == 'India' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -163,7 +179,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'GR' %}
+        {% elif values.States == 'Greece' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -176,7 +192,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'CY' %}
+        {% elif values.States == 'Cyprus' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -189,7 +205,7 @@
             </div>
           </div>
         </div>
-        {% elif values.States == 'MX' %}
+        {% elif values.States == 'Mexico' %}
         <div class="form-group" style="padding-top:1rem" id="regions-sp">
           <div class="card" style="border-radius: 8px;">
             <div class="card-header" style="background-color: white; border-radius: 8px;">
@@ -204,7 +220,7 @@
         </div>
         {% else %}
         {% endif %}
-        {% include 'search/searchusacities.html' %}
+
         <div class="form-group" style="padding-top:1rem">
           <div class="accordion" id="accordionExample">
             <div class="card" id="cardBox" style="border-radius: 8px;">
@@ -312,6 +328,106 @@
       </div>
     </form>
     <hr noshade style="border-top: 1px solid white">
+    {% if values.States == 'United States' %}
+      <div class="d-flex flex-row justify-content-start">
+        <form action="{% url 'search' %}">
+          <div class="mainbanner" id="mainhpbanner">
+            <h5 class="mb-0 text-left" id="headingOne">
+              <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-filter"></i> Change country
+              </button>
+            </h5>
+            <div class="accordion" id="accordion1Example" style="padding-bottom:2rem">
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1Example">
+                <br>
+                <div class="form-group" style="padding-top:1rem">
+                  <div class="card" style="border-radius: 8px;">
+                    <div class="card-header" style="background-color: white; border-radius: 8px;">
+                      <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                        <option value="" selected>Select state</option>
+                        <optgroup label="North America">
+                          {% for key, value in CATEGORY_CHOICES_STATES_NORTH_AMERICA.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                        <optgroup label="Europe">
+                          {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                        <optgroup label="Asia">
+                          {% for key, value in CATEGORY_CHOICES_STATES_ASIA.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-3" style="padding-top:1rem;">
+                  <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change Country</button>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form action="{% url 'search' %}" style="margin-left: 20px;">
+          <div class="mainbanner" id="mainhpbanner">
+            <h5 class="mb-0 text-left" id="headingOne">
+              <button class="btn" id="brandButton" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <i class="fas fa-filter"></i> Change US state
+              </button>
+            </h5>
+            <div class="accordion" id="accordionUsStates" style="padding-bottom:2rem">
+              <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionUsStates">
+                <br>
+                <div hidden class="form-group" style="padding-top:1rem">
+                  <div class="card" style="border-radius: 8px;">
+                    <div class="card-header" style="background-color: white; border-radius: 8px;">
+                      <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                        <option value="" selected>Select state</option>
+                        <optgroup label="North America">
+                          {% for key, value in CATEGORY_CHOICES_STATES_NORTH_AMERICA.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                        <optgroup label="Europe">
+                          {% for key, value in CATEGORY_CHOICES_STATES_EUROPE.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                        <optgroup label="Asia">
+                          {% for key, value in CATEGORY_CHOICES_STATES_ASIA.items %}
+                          <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ value }}</option>
+                          {% endfor %}
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" style="padding-top:1rem" id="regions-us">
+                  <div class="card" style="border-radius: 8px;">
+                    <div class="card-header" style="background-color: white; border-radius: 8px;">
+                      <select class="browser-default custom-select custom-select-md" id="Region" name="Region" class="form-control">
+                        <option value="" selected>Select US State</option>
+                        {% for key, value in CATEGORY_CHOICES_US_REGION.items %}
+                        <option value="{{ key }}" {% if key == values.Region %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-3" style="padding-top:1rem;">
+                  <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg">Change US state</button>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    {% else %}
     <form action="{% url 'search' %}">
       <div class="mainbanner" id="mainhpbanner">
         <h5 class="mb-0 text-left" id="headingOne">
@@ -354,5 +470,6 @@
         </div>
       </div>
     </form>
+    {% endif %}
   </div>
 </div>

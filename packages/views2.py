@@ -54,11 +54,8 @@ def packagesearch(request):
 
 
     if states != 'empty':
-
         if region != 'empty':
-
             if packages != 'empty':
-
                 if packages == allpackages:
                     prolisting = Package.objects.filter(packageclinic__pro_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__ppq_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)
                     ppqlisting = Package.objects.filter(packageclinic__ppq_is_published=True, package_end_list_date__date__gte=todayDate, packageclinic__pro_is_published=False, packageclinic__clinicState__iexact=states, packageclinic__clinicRegion__iexact=region)

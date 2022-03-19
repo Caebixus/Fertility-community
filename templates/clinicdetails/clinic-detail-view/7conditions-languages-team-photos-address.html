@@ -190,20 +190,20 @@
   <hr>
   <div class="row">
     <div class="col-sm-6" style="padding-top:2rem">
-      <p style="margin-bottom: 0px; font-size: 22px;"><b>Street address:</b> {{ clinic.clinicStreetAddress }}</p>
-      <p style="margin-bottom: 0px; font-size: 22px;"><b>City/town:</b> {{ clinic.clinicCity }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><strong>Street address:</strong> {{ clinic.clinicStreetAddress }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><strong>City/town:</strong> {{ clinic.clinicCity }}</p>
 
       {% if clinic.clinicPostalCode and clinic.clinicPostalCode != "None" %}
-        <p style="margin-bottom: 0px; font-size: 22px;"><b>Postcode:</b> {{ clinic.clinicPostalCode }}</p>
+        <p style="margin-bottom: 0px; font-size: 22px;"><strong>Postcode:</strong> {{ clinic.clinicPostalCode }}</p>
       {% else %}
         <p></p>
       {% endif %}
 
-      <p style="margin-bottom: 0px; font-size: 22px;"><b>Country:</b> {{ clinic.clinicState }}</p>
+      <p style="margin-bottom: 0px; font-size: 22px;"><strong>Country:</strong> {{ clinic.clinicState }}</p>
       <br>
 
       {% if clinic.clinicRegion %}
-        <p style="margin-bottom: 0px; font-size: 20px;"><b>Clinic Region:</b> {{clinic.clinicRegion}}</p>
+        <p style="margin-bottom: 0px; font-size: 20px;"><strong>Clinic Region:</strong> {{clinic.clinicRegion}}</p>
       {% endif %}
 
     </div>

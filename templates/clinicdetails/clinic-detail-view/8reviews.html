@@ -101,7 +101,7 @@
     <div class="col-4 col-md">
       {% if clinic.team1name and clinic.team1pic %}
       <img class="imgHoverTeam" src="{{ clinic.team1pic.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
-      <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><b>{{ clinic.team1name }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><strong>{{ clinic.team1name }}</strong></p>
       {% if clinic.team1position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ clinic.team1position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}
@@ -109,7 +109,7 @@
     <div class="col-4 col-md">
       {% if clinic.team2name and clinic.team2pic %}
       <img class="imgHoverTeam" src="{{ clinic.team2pic.url }}" alt="image of team second member" style="max-height:120px; max-width:120px">
-      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ clinic.team2name }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><strong>{{ clinic.team2name }}</strong></p>
       {% if clinic.team2position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ clinic.team2position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}
@@ -117,7 +117,7 @@
     <div class="col-4 col-md">
       {% if clinic.team3name and clinic.team3pic %}
       <img class="imgHoverTeam" src="{{ clinic.team3pic.url }}" alt="image of team third member" style="max-height:120px; max-width:120px">
-      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><b>{{ clinic.team3name }}</b></p>
+      <p style="margin-bottom: 0px; font-size: 20px; text-align: center"><strong>{{ clinic.team3name }}</strong></p>
       {% if clinic.team3position is not None %}<p style="margin-bottom: 0px; font-size: 18px; text-align: center">{{ clinic.team3position}}</p>{% else %}{% endif %}
       {% else %}
       {% endif %}

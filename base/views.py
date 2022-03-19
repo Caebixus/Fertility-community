@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse
+
+from coaches.models import Snippet, SnippetCity, SnippetState, SnippetCountry, Coaches
 from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
 from contact.forms import WebsiteForm
 from django.core.mail import send_mail
@@ -394,7 +396,13 @@ def robots(request):
     return render(request, 'main/robots.txt')
 
 def team(request):
-    return render(request, 'main/team.html')
+    contributors = Coaches.objects.filter(coach_is_published=True, coach_is_premium=True)
+
+    context = {
+        'contributors': contributors,
+    }
+
+    return render(request, 'main/team.html', context)
 
 def form(request):
     return render(request, 'main/form.html')

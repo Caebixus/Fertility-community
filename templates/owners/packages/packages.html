@@ -41,12 +41,12 @@
     <div class="col-sm-6">
       <div class="card mb-6 shadow-lg">
         <div class="card-header" style="background-color: #efefef;">
-          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <b>{{ listings.packagestitle }}</b></p>
+          <p style="font-size: 30px;"><img class="imgHoverLogo" src="{% static 'img/box.svg' %}" alt="alternative logo for PRO clinic" style="height:30px; width:30px"> <strong>{{ listings.packagestitle }}</strong></p>
           <hr>
           <div class="row">
             <div class="col-sm-8">
-              <p><b>Name of the clinic:</b> <a href="{% url 'clinics:clinic-detail' listings.packageclinic.pk listings.packageclinic.slug %}">{{ listings.packageClinic.clinicName }}</a></p>
-              <p><b>Category:</b> <i>{{ listings.packagescategory }}</i></p>
+              <p><strong>Name of the clinic:</strong> <a href="{% url 'clinics:clinic-detail' listings.packageclinic.pk listings.packageclinic.slug %}">{{ listings.packageClinic.clinicName }}</a></p>
+              <p><strong>Category:</strong> <i>{{ listings.packagescategory }}</i></p>
             </div>
             <div class="col-sm-4">
               <p style="font-size: 30px; color: #CD5360; text-align: right"><u>{{ listings.packagescost|floatformat:'0' }} {% if listing.defaultClinicCurrency == 'GBP' %}£{% elif listing.defaultClinicCurrency == 'EUR' %}€{% else %}${% endif %}</u></p>

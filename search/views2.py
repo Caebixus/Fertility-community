@@ -779,6 +779,13 @@ def search_new(request):
             return render(request, 'search/search.html', context)
 
     else:
+        averageIVFPrice = queryset_list.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+        averageEggPrice = queryset_list.aggregate(average=Avg('egg_donor_recipients_cost'))
+        averageEmbryoPrice = queryset_list.aggregate(average=Avg('embryo_donor_recipients_cost'))
+        averageSpermPrice = queryset_list.aggregate(average=Avg('sperm_donor_recipients_cost'))
+        averageICSIPrice = queryset_list.aggregate(average=Avg('icsi_treatment_cost'))
+
+
         if treatments == 'Alltreatmentstrue':
             queryset_list = queryset_list.order_by('-digitalTransparencyIndex')
             order_data = list(queryset_list)
@@ -1004,6 +1011,13 @@ def search_new(request):
             return render(request, 'search/search.html', context)
 
         queryset_list = queryset_list.order_by('-digitalTransparencyIndex')
+
+        averageIVFPrice = queryset_list.aggregate(average=Avg('ovarian_ivf_treatment_cost'))
+        averageEggPrice = queryset_list.aggregate(average=Avg('egg_donor_recipients_cost'))
+        averageEmbryoPrice = queryset_list.aggregate(average=Avg('embryo_donor_recipients_cost'))
+        averageSpermPrice = queryset_list.aggregate(average=Avg('sperm_donor_recipients_cost'))
+        averageICSIPrice = queryset_list.aggregate(average=Avg('icsi_treatment_cost'))
+
         order_data = list(queryset_list)
 
         my_total_count = queryset_list.count()

@@ -57,7 +57,7 @@ def SnippetCreateFormView(request, coach_id):
             send_mail(
                 'Snippet vytvořen -' + str(obj.owner),
                 'Právě někdo upravil svůj profile a je třeba jej ověřit ' +
-                '\nUser username: ' + str(user.email),
+                '\nUser username: ' + str(coach.coach_user),
                 'info@fertilitycommunity.com',
                 ['David.langr@fertilitycommunity.com'],
                 fail_silently=False,

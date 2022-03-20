@@ -1,3 +1,4 @@
+{% load static %}
 {% if snippets %}
   {% if one_snippet %}
     <h2 style="font-size: 160%">What fertility specialists say?</h2>
@@ -11,7 +12,11 @@
                   {% if snippets.owner.coach_profile_photo %}
                   <div id="imgInfo" class="img align-self-center align-items-center pr-2">
                     <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
-                      <img class="imgHoverLogo" src="{{ snippets.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                      {% if snippets.owner.coach_profile_photo %}
+                        <img class="imgHoverLogo" src="{{ snippets.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                      {% else %}
+                        <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                      {% endif %}
                     </a>
                   </div>
                   {% endif %}
@@ -71,20 +76,36 @@
                       <img class="imgHoverLogo" src="{{ snippet.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
                     </a>
                   </div>
+                  {% else %}
+                  <div id="imgInfo" class="img align-self-center align-items-center pr-2">
+                    <a href="{% url 'coach:coach-detail' snippet.owner.pk snippet.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
+                      <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                    </a>
+                  </div>
                   {% endif %}
                 </div>
                 <div class="col-md-6 col-lg-11 text-center-until-md">
                   <a href="{% url 'coach:coach-detail' snippet.owner.pk snippet.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none; font-size: 130%;"><strong>{{ snippet.owner.coach_full_name }}</strong></a>
                   <div style="font-size: 80%">
-                    {% if snippet.owner.job_fertility_coach %}Fertility coach {% endif %}
-                    {% if snippet.owner.job_fertility_specialist %}Fertility Specialist {% endif %}
-                    {% if snippet.owner.job_reproductive_endocrinologist %}Reproductive endocrinologist {% endif %}
-                    {% if snippet.owner.job_andrologist %}Andrologist {% endif %}
-                    {% if snippet.owner.job_reproductive_surgeon %}Reproductive surgeon {% endif %}
-                    {% if snippet.owner.job_reproductive_immunologist %}Reproductive immunologist {% endif %}
-                    {% if snippet.owner.job_obstetrician %}Obstetrician {% endif %}
-                    {% if snippet.owner.job_gynecologist %}Gynecologist {% endif %}
+                  {% for job in snippet.owner.jobs.all %}
+                    {% if not forloop.last %}
+                      {{ job }} |
+                    {% else %}
+                      {{ job }}
+                    {% endif %}
+                  {% endfor %}
                   </div>
+                  {% if snippet.owner.experts_from_clinic.all %}
+                  <div style="font-size: 80%">
+                    {% for clinic in snippet.owner.experts_from_clinic.all %}
+                      {% if not forloop.last %}
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+                      {% else %}
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>

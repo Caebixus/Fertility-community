@@ -102,7 +102,11 @@
       {% for expert in clinic.experts.all %}
         <div class="col-sm-6 col-md-6 col-lg-4 py-3 px-3">
             <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
-              <img class="imgHoverTeam" {% if expert.coach_profile_photo %} src="{{ expert.coach_profile_photo.url }}" {% else %} {% endif %} alt="image of team first member" style="max-height:120px; max-width:120px">
+              {% if expert.coach_profile_photo %}
+                <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
+              {% else %}
+                <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:120px; max-width:120px">
+              {% endif %}
               <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><strong>{{ expert.coach_full_name }}</strong></p>
             </a>
             <div>

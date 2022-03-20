@@ -63,14 +63,18 @@
 <div class="container marketing py-5" style="text-align: center">
   <h2>Contributors:</h2>
   <div class="row py-4">
-    {% for contributor in contributors %}
+    {% for expert in contributors %}
       <div class="col-4">
-        <a href="{% url 'coach:coach-detail' contributor.pk contributor.coach_username %}">
-          <img class="rounded-circle" src="{{ contributor.coach_profile_photo.url }}" alt="contributor profile photo" width="100" height="100">
-          <h3 style="padding-top:2rem; text-align: center">{{ contributor.coach_full_name }}</h3>
+        <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}">
+        {% if expert.coach_profile_photo %}
+          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
+        {% else %}
+          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:120px; max-width:120px">
+        {% endif %}
+          <h3 style="padding-top:2rem; text-align: center">{{ expert.coach_full_name }}</h3>
         </a>
         <p style="font-size: 100%; text-align: center">
-        {% for job in contributor.jobs.all %}
+        {% for job in expert.jobs.all %}
           {% if not forloop.last %}
             {{ job }} |
           {% else %}

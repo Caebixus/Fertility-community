@@ -3,11 +3,11 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
-from ckeditor.fields import RichTextField
 from blog.models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
 from .validators import validate_file_size
 
 from .choices import CATEGORY_CHOICES_CURRENCY
+from coaches.models import Coaches
 
 # Create your models here.
 
@@ -27,19 +27,20 @@ class BasicClinic(models.Model):
     ### Basic information
     clinicOwner = models.ForeignKey(User, on_delete=models.CASCADE)
     clinicName = models.CharField(max_length=80)
-    clinicTitle = models.CharField(max_length=100, blank=True, null = True)
+    clinicTitle = models.CharField(max_length=100, blank=True, null=True)
     clinicGoogleReviewsUrl = models.URLField(max_length=600, null=True, blank=True)
     TYPE = (
         ('Clinic', 'Clinic'),
         ('Agency', 'Agency'),
         ('DonorBank', 'DonorBank'),
         )
-    type = models.CharField(max_length=40, choices=TYPE, null = True, default='Clinic')
-    description = models.TextField(max_length=1300, blank=True, null = True)
-    treatmentLimitations = models.TextField(max_length=800, blank=True, null = True)
+    type = models.CharField(max_length=40, choices=TYPE, null=True, default='Clinic')
+    description = models.TextField(max_length=1300, blank=True, null=True)
+    treatmentLimitations = models.TextField(max_length=800, blank=True, null=True)
 
     ### Clinic's digital transparency index
-    digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null = True)
+    digitalTransparencyIndex = models.PositiveSmallIntegerField(default=0, blank=True, null=True)
+    experts = models.ManyToManyField(Coaches, related_name='experts_from_clinic', blank=True)
 
     ### Contact information
     slug = models.SlugField(max_length=100, null=True)

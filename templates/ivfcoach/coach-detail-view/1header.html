@@ -41,11 +41,25 @@
         <div>
           <div class="fas fa-flag fa-1sx pr-2"></div> {{ coach.coach_preferred_client_country}}
         </div>
+        {% if coach.experts_from_clinic.all %}
+        <div>
+          <div class="fas fa-hospital fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Working with"></div>
+          {% for clinic in coach.experts_from_clinic.all %}
+            {% if not forloop.last %}
+              <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+            {% else %}
+              <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
       <hr>
-      <a href="{{ coach.coach_social_website}}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %} style="text-decoration: none">
-        <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-md shadow"><i class="fas fa-desktop"></i> Visit my website</button>
-      </a>
+      <div style="width:40%">
+        <a href="{{ coach.coach_social_website}}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %} style="text-decoration: none">
+          <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-md shadow"><i class="fas fa-desktop"></i> Visit my website</button>
+        </a>
+      </div>
     </div>
   </div>
 </div>

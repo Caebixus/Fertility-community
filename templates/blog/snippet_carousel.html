@@ -27,6 +27,17 @@
                     {% endif %}
                   {% endfor %}
                   </div>
+                  {% if snippets.owner.experts_from_clinic.all %}
+                  <div style="font-size: 80%">
+                    {% for clinic in snippets.owner.experts_from_clinic.all %}
+                      {% if not forloop.last %}
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+                      {% else %}
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>

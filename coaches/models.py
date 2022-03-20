@@ -8,7 +8,7 @@ from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, 
 
 
 class Coaches(models.Model):
-    coach_user = models.OneToOneField(User, on_delete=models.CASCADE)
+    coach_user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     coach_profile_photo = models.ImageField(upload_to='fertility_coach', validators=[validate_file_size], blank=True, null=True)
     coach_profile_photo_delete = models.BooleanField(default=False, blank=True, null=True)
 

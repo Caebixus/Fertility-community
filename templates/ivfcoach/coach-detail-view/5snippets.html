@@ -2,8 +2,13 @@
     {% if snippets %}
     <div class="container py-5">
     <h5 class="card-title">Commented articles:</h5>
+      <hr>
       {% for snippet in snippets %}
-        <h6 class="pt-3"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
+        {% if forloop.first %}
+        <h6 class="pt-1" style="margin-left: 25px;"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
+        {% else %}
+        <h6 class="pt-5" style="margin-left: 25px;"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
+        {% endif %}
         <div class="card" style="margin-left: 25px; margin-right: 25px;">
           <div class="card-header">
             <div class="row pt-1 pb-1 custom-carousel-content custom-carousel-header-row">
@@ -25,6 +30,17 @@
                     {% endif %}
                   {% endfor %}
                 </div>
+                {% if coach.experts_from_clinic.all %}
+                <div style="font-size: 80%">
+                  {% for clinic in coach.experts_from_clinic.all %}
+                    {% if not forloop.last %}
+                      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+                    {% else %}
+                      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
               </div>
             </div>
           </div>

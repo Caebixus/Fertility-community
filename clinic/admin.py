@@ -12,7 +12,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'is_claimed', 'clinicRegion', 'clinicState', 'clinicCity')
     search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
     fieldsets = (
-        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex', 'defaultClinicCurrency',)}),
+        ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex', 'defaultClinicCurrency', 'experts',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
         ('Slugs', {'fields': ('slug',)}),
         ('Counters', {'fields': ('packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'active_30', 'active_90', 'active_180',)}),

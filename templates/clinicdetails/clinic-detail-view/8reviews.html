@@ -93,38 +93,38 @@
 </div>
 {% endif %}
 
-
-{% if clinic.pro_is_published == True or clinic.ppq_is_published == True and clinic.experts %}
-<div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
-  <h2>Our Fertility experts</h2>
-  <hr>
-  <div class="row" style="text-align: center">
-    {% for expert in clinic.experts.all %}
-      <div class="col-sm-6 col-md-6 col-lg-4 py-3 px-3">
-          <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
-            <img class="imgHoverTeam" {% if expert.coach_profile_photo %} src="{{ expert.coach_profile_photo.url }}" {% else %} {% endif %} alt="image of team first member" style="max-height:120px; max-width:120px">
-            <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><strong>{{ expert.coach_full_name }}</strong></p>
-          </a>
-          <div>
-            <span style="font-size: 15px; text-align: center">
-              {% for job in expert.jobs.all %}
-                {% if not forloop.last %}
-                  {{ job }} |
-                {% else %}
-                  {{ job }}
-                {% endif %}
-              {% endfor %}
-            </span>
-          </div>
-      </div>
-    {% endfor %}
-  </div>
-  <br>
-  <div class="container">
+{% if clinic.experts.all %}
+  {% if clinic.is_published == True %}
+  <div class="container py-5" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
+    <h2>Our Fertility experts</h2>
+    <hr>
+    <div class="row" style="text-align: center">
+      {% for expert in clinic.experts.all %}
+        <div class="col-sm-6 col-md-6 col-lg-4 py-3 px-3">
+            <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
+              <img class="imgHoverTeam" {% if expert.coach_profile_photo %} src="{{ expert.coach_profile_photo.url }}" {% else %} {% endif %} alt="image of team first member" style="max-height:120px; max-width:120px">
+              <p style="margin-bottom: 0px; font-size: 18px; text-align: center"><strong>{{ expert.coach_full_name }}</strong></p>
+            </a>
+            <div>
+              <span style="font-size: 15px; text-align: center">
+                {% for job in expert.jobs.all %}
+                  {% if not forloop.last %}
+                    {{ job }} |
+                  {% else %}
+                    {{ job }}
+                  {% endif %}
+                {% endfor %}
+              </span>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
     <br>
-    {{ clinic.clinic_staff|safe }}
+    <div class="container">
+      <br>
+      {{ clinic.clinic_staff|safe }}
+    </div>
+    <br>
   </div>
-  <br>
-</div>
-{% else %}
+  {% endif %}
 {% endif %}

@@ -349,7 +349,7 @@
     {% if paginationing %}
     {% for order_datas in order_data %}
     {% if order_datas.packageclinic.ppq_is_published == True and order_datas.packageclinic.pro_is_published != True %}
-    <div class="col mb-5">
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
       <div class="card shadow">
         {% if order_datas.package_pic %}
         <img src="{{ order_datas.package_pic.url }}" class="card-img-top" alt="...">

@@ -413,21 +413,6 @@ class UpdateClinicPro(forms.ModelForm):
     clinicGerman = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('German speaking personal'))
     clinicChinese = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-control',}), required=False, label=('Chinese speaking personal'))
 
-    team1name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('First team member'), required=False)
-    team1pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
-    team1pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
-    team1position = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Position of first team member'), required=False)
-
-    team2name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Second team member'), required=False)
-    team2pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of second team member'))
-    team2pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
-    team2position = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Position of second team member'), required=False)
-
-    team3name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Third team member'), required=False)
-    team3pic = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of third team member'))
-    team3pic_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
-    team3position = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), label=('Position of third team member'), required=False)
-
     clinic_pro_photo_1 = forms.ImageField(widget=forms.FileInput(), required=False, label=('Picture of first team member'))
     clinic_pro_photo_1_del = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete image'))
 
@@ -526,18 +511,6 @@ class UpdateClinicPro(forms.ModelForm):
         'saturdayCloses',
         'sundayOpens',
         'sundayCloses',
-        'team1name',
-        'team1pic',
-        'team1pic_del',
-        'team1position',
-        'team2name',
-        'team2pic',
-        'team2pic_del',
-        'team2position',
-        'team3name',
-        'team3pic',
-        'team3pic_del',
-        'team3position',
         'clinic_pro_photo_1',
         'clinic_pro_photo_1_del',
         'clinic_pro_photo_2',

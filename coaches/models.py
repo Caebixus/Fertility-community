@@ -26,6 +26,7 @@ class Coaches(models.Model):
     coach_social_linkedin = models.URLField(blank=True, null=True)
     coach_social_pinterest = models.URLField(blank=True, null=True)
     coach_social_twitter = models.URLField(blank=True, null=True)
+    coach_social_youtube = models.URLField(blank=True, null=True)
     coach_social_website = models.URLField(blank=True, null=True)
 
     coach_preferred_client_country = models.CharField(max_length=256, blank=True, null=True)

@@ -28,11 +28,12 @@ class CreateNewCoachForm(forms.ModelForm):
     coach_profile_photo = forms.ImageField(widget=forms.FileInput(), required=False, label=('Profile picture'))
     coach_profile_photo_delete = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete profile picture'))
 
-    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_facebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_linkedin = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_pinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_twitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_youtube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control', }), required=False)
     coach_social_website = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     coach_is_published = forms.BooleanField(required=False)
@@ -44,6 +45,7 @@ class CreateNewCoachForm(forms.ModelForm):
             'coach_full_name',
             'coach_username',
             'coach_bio',
+
             'coach_contact_email',
             'coach_phone',
             'coach_preferred_client_country',
@@ -53,11 +55,13 @@ class CreateNewCoachForm(forms.ModelForm):
 
             'coach_profile_photo',
             'coach_profile_photo_delete',
+
             'coach_social_instagram',
             'coach_social_facebook',
             'coach_social_linkedin',
             'coach_social_pinterest',
             'coach_social_twitter',
+            'coach_social_youtube',
             'coach_social_website',
         ]
 
@@ -88,11 +92,12 @@ class UpdateCoachForm(forms.ModelForm):
     coach_profile_photo = forms.ImageField(widget=forms.FileInput(), required=False, label=('Profile picture'))
     coach_profile_photo_delete = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete profile picture'))
 
-    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_facebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_linkedin = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_pinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
     coach_social_twitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_youtube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control', }), required=False)
     coach_social_website = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
 
     class Meta:
@@ -101,6 +106,7 @@ class UpdateCoachForm(forms.ModelForm):
             'coach_full_name',
             'coach_username',
             'coach_bio',
+
             'coach_contact_email',
             'coach_phone',
             'coach_preferred_client_country',
@@ -110,16 +116,91 @@ class UpdateCoachForm(forms.ModelForm):
 
             'coach_profile_photo',
             'coach_profile_photo_delete',
+
             'coach_social_instagram',
             'coach_social_facebook',
             'coach_social_linkedin',
             'coach_social_pinterest',
             'coach_social_twitter',
+            'coach_social_youtube',
             'coach_social_website',
         ]
 
     def __init__(self, coaches_id, *args, **kwargs):
         super(UpdateCoachForm, self).__init__(*args, **kwargs)
+        coach = Coaches.objects.get(pk=coaches_id)
+        language_filtered_obj = PreferredLanguage.objects.filter(coaches_relationship=coach.pk)
+        jobs_filtered_obj = TypeJobs.objects.filter(coaches_relationship=coach.pk)
+
+        self.fields['m2m_languages'].queryset = PreferredLanguage.objects.all()
+        self.fields['m2m_jobs'].queryset = TypeJobs.objects.all()
+
+        self.initial['m2m_languages'] = language_filtered_obj
+        self.initial['m2m_jobs'] = jobs_filtered_obj
+
+
+class UpdateCoachPremiumForm(forms.ModelForm):
+    coach_full_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_username = forms.SlugField(widget=forms.TextInput(attrs={'class': 'form-control',}))
+    coach_bio = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control',}, config_name="toolbar_snippet"), required=False, label=('Fertility coach BIO information'), max_length=300)
+
+    coach_education = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control', }, config_name="toolbar_snippet"), required=False, label=('Education relevant to your profession'), max_length=900)
+    coach_specialization = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control', }, config_name="toolbar_snippet"), required=False, label=('Introduce your specialization (how you help your clients)'), max_length=900)
+    coach_certification = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control', }, config_name="toolbar_snippet"), required=False, label=('Do you have any special certifications?'), max_length=900)
+    coach_other = forms.CharField(widget=CKEditorWidget(attrs={'class': 'form-control', }, config_name="toolbar_snippet"), required=False, label=('Other relevant information'), max_length=900)
+
+    coach_contact_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
+    coach_preferred_client_country = forms.CharField(widget=forms.Select(choices=CATEGORY_CHOICES_STATES, attrs={'class': 'form-control', }),label=('Clinics state'))
+
+    m2m_jobs = forms.ModelMultipleChoiceField(queryset=TypeJobs.objects.all(), widget=forms.SelectMultiple(attrs={'class': 'form-control', 'size': '10'}), required=False)
+    m2m_languages = forms.ModelMultipleChoiceField(queryset=PreferredLanguage.objects.all(), widget=forms.SelectMultiple(attrs={'class': 'form-control','size': '10'}), required=False)
+
+    coach_profile_photo = forms.ImageField(widget=forms.FileInput(), required=False, label=('Profile picture'))
+    coach_profile_photo_delete = forms.BooleanField(widget=forms.CheckboxInput(), required=False, label=('Delete profile picture'))
+
+    coach_social_instagram = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_facebook = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_linkedin = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_pinterest = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_twitter = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+    coach_social_youtube = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control', }), required=False)
+    coach_social_website = forms.URLField(widget=forms.TextInput(attrs={'class': 'form-control',}), required=False)
+
+    class Meta:
+        model = Coaches
+        fields = [
+            'coach_full_name',
+            'coach_username',
+            'coach_bio',
+
+            'coach_education',
+            'coach_specialization',
+            'coach_certification',
+            'coach_other',
+
+            'coach_contact_email',
+            'coach_phone',
+            'coach_preferred_client_country',
+
+            'm2m_jobs',
+            'm2m_languages',
+
+            'coach_profile_photo',
+            'coach_profile_photo_delete',
+
+            'coach_social_instagram',
+            'coach_social_facebook',
+            'coach_social_linkedin',
+            'coach_social_pinterest',
+            'coach_social_twitter',
+            'coach_social_youtube',
+            'coach_social_website',
+        ]
+
+    def __init__(self, coaches_id, *args, **kwargs):
+        super(UpdateCoachPremiumForm, self).__init__(*args, **kwargs)
         coach = Coaches.objects.get(pk=coaches_id)
         language_filtered_obj = PreferredLanguage.objects.filter(coaches_relationship=coach.pk)
         jobs_filtered_obj = TypeJobs.objects.filter(coaches_relationship=coach.pk)

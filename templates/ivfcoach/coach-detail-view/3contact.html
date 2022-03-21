@@ -28,6 +28,12 @@
     </div>
     {% endif %}
 
+    {% if coach.coach_social_youtube %}
+    <div>
+      <a href="{{ coach.coach_social_youtube }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-youtube-square fa-3x"></div></a>
+    </div>
+    {% endif %}
+
     {% if coach.coach_social_twitter %}
     <div>
       <a href="{{ coach.coach_social_twitter }}" rel="nofollow" style="text-decoration:none"><div class="fa-brands fa-twitter-square fa-3x"></div></a>

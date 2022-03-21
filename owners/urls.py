@@ -22,6 +22,7 @@ urlpatterns = [
 
     path('create-coach', views_coach.create_coach_profile, name='create_coach_profile'),
     path('update-coach/<int:coaches_id>', views_coach.update_coach_profile, name='update_coach_profile'),
+    path('update-coach-premium/<int:coaches_id>', views_coach.update_coach_profile_premium, name='update_coach_profile_premium'),
 
     path('howtousefertilitycommunity', views.howtousefertilitycommunity, name='howtousefertilitycommunity'),
     path('fc-traffic/<int:listing_id>', views.fctrafficreport, name='fctrafficreport'),

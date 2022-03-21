@@ -54,17 +54,17 @@
       </div>
 
       {% if instance.coach_profile_photo %}
-      <div class="col-6 col-md" style="text-align: left">
+      <div class="col-12 pt-3" style="text-align: left">
         <p>Currently uploaded profile image: </p>
         <img src="{{ instance.coach_profile_photo.url }}" alt="Uploaded profile image" style="width:100px; height 100px;">
       </div>
       <br>
-      <div class="col-6 col-md" style="text-align: left">
+      <div class="col-6" style="text-align: left">
           <label for="{{ form.coach_profile_photo.id_for_label}}"><p>Re-upload profile image (1080x1080 px)*:</p></label>
         <p style="font-size:10px">{{ form.coach_profile_photo }}</p>
       </div>
-      <div class="col-4 col-md" style="text-align: left">
-        <label for="{{ form.coach_profile_photo_delete.id_for_label}}"><p>Check to delete</p></label>
+      <div class="col-6" style="text-align: left">
+        <label for="{{ form.coach_profile_photo_delete.id_for_label}}"> Check to delete</label>
         {{ form.coach_profile_photo_delete }}
       </div>
       {% else %}
@@ -74,6 +74,43 @@
       </div>
       {% endif %}
 
+    </section>
+
+
+    <section class="py-5">
+      <h2>About you</h2>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="fieldWrapper py-2" style="text-align:">
+            {% if form.coach_education.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_education.errors }}</div>{% endif %}
+            <label>Education relevant to your profession (max 900 characters):</label>
+            {{ form.coach_education }}
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="fieldWrapper py-2" style="text-align:">
+            {% if form.coach_specialization.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_specialization.errors }}</div>{% endif %}
+            <label>Introduce your specialization (max 900 characters):</label>
+            {{ form.coach_specialization }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="fieldWrapper py-2" style="text-align:">
+            {% if form.coach_certification.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_certification.errors }}</div>{% endif %}
+            <label>Share your relevant certifications (max 900 characters):</label>
+            {{ form.coach_certification }}
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="fieldWrapper py-2" style="text-align:">
+            {% if form.coach_other.errors %}<div class="alert alert-danger" role="alert">{{ form.coach_other.errors }}</div>{% endif %}
+            <label>Other relevant information (max 900 characters):</label>
+            {{ form.coach_other }}
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="py-5">

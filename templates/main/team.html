@@ -4,7 +4,7 @@
 {% block description %}Our Team behind FertiltyCommunity. Contact us for more information about joining your fertility clinic to our seach engine{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/team{% endblock %}
 {% block meta_keywords %}fertilitycommunity team{% endblock %}
-{% block noindexpage %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block noindexpage %}{% endblock %}
 {% block content %}
 <div class="background" style="background-color: #286DA8">
   <div class="container">
@@ -60,16 +60,17 @@
   </div>
 </div>
 
+
 <div class="container marketing py-5" style="text-align: center">
   <h2>Contributors:</h2>
   <div class="row py-4">
     {% for expert in contributors %}
-      <div class="col-4">
+      <div class="col-sm-4 col-md-3 col-lg-2">
         <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}">
         {% if expert.coach_profile_photo %}
-          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:120px; max-width:120px">
+          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:80px; max-width:80px">
         {% else %}
-          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:120px; max-width:120px">
+          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:80px; max-width:80px">
         {% endif %}
           <h3 style="padding-top:2rem; text-align: center">{{ expert.coach_full_name }}</h3>
         </a>

@@ -1,7 +1,7 @@
 function setCookie(c_name, value, exdays) {
 	var exdate = new Date();
 	exdate.setDate(exdate.getDate() + exdays);
-	var c_value = escape(value) + (exdays == null ? '' : '; expires=' + exdate.toUTCString());
+	var c_value = escape(value) + (exdays == null ? '' : '; expires=' + exdate.toUTCString() + ';path=/');
 	document.cookie = c_name + '=' + c_value;
 }
 function getCookie(c_name) {
@@ -26,14 +26,19 @@ function delCookie(name) {
 	document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
+function cookie_variable_value_generator() {
+    //This Function generates very unique IDs that are sorted by its generated Date. Also useable for IDs in Databases. (It can have different lenghts)
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+
 $(document).ready(function() {
 	//Checks if the cookie already exists
-	if (!getCookie('firsttime')) {
+	if (!getCookie('cookie_variable')) {
 		//Runs the code because the cookie doesn't exist and it's the user's first time
 		$('.cookies-popup-banner').show();
 		$('#cookiesModal').show();
 		//Set's the cookie to true so there is a value and the code shouldn't run again.
-		setCookie('firsttime', true, 365);
+		setCookie('cookie_variable', cookie_variable_value_generator(), 365)
 	}
 });
 
@@ -60,7 +65,3 @@ $(document).ready(function() {
 		});
 	});
 });
-
-// onclick = function () {
-// 	document.querySelector('.cookiesContent');
-// });

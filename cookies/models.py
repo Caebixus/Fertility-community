@@ -16,6 +16,7 @@ class CookieSettings(models.Model):
 
 class CookiesConsents(models.Model):
     session_id = models.CharField(_("Session ID cookie"), max_length=256, blank=True, null=True, unique=True)
+    custom_cookie = models.CharField(_("Custom cookie value"), max_length=256, blank=True, null=True, unique=True)
     ip_address = models.CharField(_("IP Adresa"), max_length=64, blank=True, null=True)
     analytical_cookies = models.BooleanField(default=False)
     marketing_cookies = models.BooleanField(default=False)

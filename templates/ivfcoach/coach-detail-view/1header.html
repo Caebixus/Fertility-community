@@ -38,9 +38,11 @@
             {% endif %}
           {% endfor %}
         </div>
+        {% if coach.coach_preferred_client_country != Empty%}
         <div>
-          <div class="fas fa-flag fa-1sx pr-2"></div> {{ coach.coach_preferred_client_country}}
+          <div class="fas fa-flag fa-1sx pr-2"></div> {{ coach.coach_preferred_client_country }}
         </div>
+        {% endif %}
         {% if coach.experts_from_clinic.all %}
         <div>
           <div class="fas fa-hospital fa-1sx pr-2" data-toggle="tooltip" data-placement="top" title="Working with"></div>
@@ -55,11 +57,13 @@
         {% endif %}
       </div>
       <hr>
+      {% if coach.coach_social_website %}
       <div style="width: 50%">
-        <a href="{{ coach.coach_social_website}}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %} style="text-decoration: none">
+        <a href="{{ coach.coach_social_website }}" {% if coach.coach_is_premium == False %}rel="nofollow, noopener" target="_blank" {% else %} rel="noopener" target="_blank"{% endif %} style="text-decoration: none">
           <button id="brandButtonGoalPackagePrimary" type="button" class="btn btn-outline-success btn-md shadow"><i class="fas fa-desktop"></i> Visit my website</button>
         </a>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>

@@ -18,7 +18,6 @@ def authentication_clinic_coach(request):
 
 
 def cookies_check(request):
-    session_key = request.session.session_key
     cookies_list = request.COOKIES
     cookies_setting = get_object_or_404(CookieSettings, pk=1)
 
@@ -40,18 +39,8 @@ def cookies_check(request):
             }
 
     else:
-        if CookiesConsents.objects.filter(session_id=session_key).exists():
-            cookies = get_object_or_404(CookiesConsents, session_id=session_key)
-            formupdate = AllCookiesAccepted(instance=cookies)
-            return {
-                "cookies": cookies,
-                "formupdate": formupdate,
-                "cookies_setting": cookies_setting,
-            }
-
-        else:
-            formNew = AllCookiesAccepted(request.GET)
-            return {
-                "formNew": formNew,
-                "cookies_setting": cookies_setting,
-            }
+        formNew = AllCookiesAccepted(request.GET)
+        return {
+            "formNew": formNew,
+            "cookies_setting": cookies_setting,
+        }

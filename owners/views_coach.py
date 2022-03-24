@@ -10,7 +10,7 @@ from .models import AuthenticatedUser
 from django.core.mail import send_mail
 from .functions import get_random_string
 from coaches.models import Coaches, Snippet, SnippetCity, SnippetState, SnippetCountry
-from coaches.forms import UpdateCoachForm, CreateNewCoachForm, UpdateCoachPremiumForm
+from coaches.forms import UpdateCoachForm, CreateNewCoachForm
 
 
 def register_as_coach(request):
@@ -144,7 +144,7 @@ def create_coach_profile(request):
 def update_coach_profile(request, coaches_id):
     user = request.user
     instance = get_object_or_404(Coaches, pk=coaches_id)
-    
+
     form = UpdateCoachForm(coaches_id, request.POST or None, request.FILES or None, instance=instance)
 
     if form.is_valid():
@@ -160,46 +160,7 @@ def update_coach_profile(request, coaches_id):
 
         send_mail(
             'Coach profil upraven -' + str(obj.coach_user),
-            'Právě někdo upravil free coach profil a je třeba jej ověřit ' +
-            '\nUser email: ' + str(user.email) +
-            '\nUser username: ' +str(user.username),
-            'info@fertilitycommunity.com',
-            ['David.langr@fertilitycommunity.com'],
-            fail_silently=False,
-            )
-
-        messages.success(request, '- Coach profile successfully updated.')
-        return redirect('coach_dashboard')
-
-    context = {
-        'form': form,
-        'instance': instance,
-    }
-
-    return render(request, 'owners/coach/update-coach.html', context)
-
-
-@login_required(login_url='https://www.fertilitycommunity.com/account/signup-as-coach')
-def update_coach_profile_premium(request, coaches_id):
-    user = request.user
-    instance = get_object_or_404(Coaches, pk=coaches_id)
-
-    form = UpdateCoachPremiumForm(coaches_id, request.POST or None, request.FILES or None, instance=instance)
-
-    if form.is_valid():
-        obj = form.save(commit=False)
-        if obj.coach_profile_photo_delete == True:
-            obj.coach_profile_photo.delete()
-
-        obj.coach_updated = datetime.now()
-        obj.coach_user = user
-        obj.save()
-        obj.languages.set(form.cleaned_data.get("m2m_languages"))
-        obj.jobs.set(form.cleaned_data.get("m2m_jobs"))
-
-        send_mail(
-            'Coach profil upraven -' + str(obj.coach_user),
-            'Právě někdo upravil premium coach profil a je třeba jej ověřit ' +
+            'Právě někdo upravil coach profil a je třeba jej ověřit ' +
             '\nUser email: ' + str(user.email) +
             '\nUser username: ' + str(user.username),
             'info@fertilitycommunity.com',
@@ -215,4 +176,4 @@ def update_coach_profile_premium(request, coaches_id):
         'instance': instance,
     }
 
-    return render(request, 'owners/coach/update-coach-premium.html', context)
+    return render(request, 'owners/coach/update-coach.html', context)

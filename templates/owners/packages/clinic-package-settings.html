@@ -4,7 +4,7 @@
 {% load humanize %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-<div class="background" style="background-color: #286DA8">
+<div class="background background-color-gradient">
   <div class="container">
     <h1 class="display-4" style="padding-top:3rem; color:white">Packages - {{ instance.clinicName }}</h1>
     <p style="color:white">You have {{package_count}} packages. Your maximum limit for live packages is {% if instance.pro_is_published == True and instance.ppq_is_published == False %} 2. {% elif instance.ppq_is_published == True and instance.pro_is_published == False %} 6. {% else %} 0. {% endif %}</p>

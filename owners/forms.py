@@ -5,10 +5,8 @@ from .models import ownerProInterested, SingleClinicBestArticleText
 from packages.models import Package
 from packages.packageChoices import CATEGORY_PACKAGE, PACKAGE_TYPE
 from ckeditor.widgets import CKEditorWidget
-from coaches.models import Coaches, PreferredLanguage
 
 from clinic.choices import CATEGORY_CHOICES_CURRENCY, HOURS, CATEGORY_CHOICES_STATES
-from coaches.choices import CATEGORY_CHOICES_LANGUAGES
 
 
 class CreateClinic(forms.ModelForm):

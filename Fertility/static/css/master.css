@@ -70,6 +70,10 @@ select {
 
 
 
+.logo-css {
+  max-height: 60px;
+}
+
 .button_accept:hover {
   border-color: #CD5360;
   background-color: white;

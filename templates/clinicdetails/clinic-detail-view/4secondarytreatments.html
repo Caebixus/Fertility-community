@@ -48,8 +48,8 @@
                 <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convert:'INR'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} INR</p></div>
                 <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convert:'CAD'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} CAD</p></div>
               {% elif clinic.defaultClinicCurrency == 'EUR' %}
-                <div class="EURtreatmentCostsEURCurrency"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} USD</p></div>
-                <div class="EURtreatmentCostsUSDCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
+                <div class="EURtreatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} USD</p></div>
+                <div class="EURtreatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
                 <div class="EURtreatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with egg_freezing_cost=clinic.egg_freezing_cost|convertEUR:'GBP'|floatformat:'0' %}{{ egg_freezing_cost|intcomma }}{% endwith %} GBP</p></div>
               {% endif %}
             {% else %}
@@ -89,8 +89,8 @@
                 <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convert:'INR'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} INR</p></div>
                 <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convert:'CAD'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} CAD</p></div>
               {% elif clinic.defaultClinicCurrency == 'EUR' %}
-                <div class="EURtreatmentCostsEURCurrency"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} USD</p></div>
-                <div class="EURtreatmentCostsUSDCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
+                <div class="EURtreatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} USD</p></div>
+                <div class="EURtreatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
                 <div class="EURtreatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with embryo_freezing_cost=clinic.embryo_freezing_cost|convertEUR:'GBP'|floatformat:'0' %}{{ embryo_freezing_cost|intcomma }}{% endwith %} GBP</p></div>
               {% endif %}
             {% else %}
@@ -130,8 +130,8 @@
                 <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convert:'INR'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} INR</p></div>
                 <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convert:'CAD'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} CAD</p></div>
               {% elif clinic.defaultClinicCurrency == 'EUR' %}
-                <div class="EURtreatmentCostsEURCurrency"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} USD</p></div>
-                <div class="EURtreatmentCostsUSDCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
+                <div class="EURtreatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convertEUR:'USD'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} USD</p></div>
+                <div class="EURtreatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convertEUR:'EUR'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} EUR</p></div>
                 <div class="EURtreatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with sperm_freezing_cost=clinic.sperm_freezing_cost|convertEUR:'GBP'|floatformat:'0' %}{{ sperm_freezing_cost|intcomma }}{% endwith %} GBP</p></div>
               {% endif %}
             {% else %}
@@ -171,8 +171,8 @@
                 <div class="treatmentCostsINRCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convert:'INR'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} INR</p></div>
                 <div class="treatmentCostsCADCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convert:'CAD'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} CAD</p></div>
               {% elif clinic.defaultClinicCurrency == 'EUR' %}
-                <div class="EURtreatmentCostsEURCurrency"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convertEUR:'USD'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} USD</p></div>
-                <div class="EURtreatmentCostsUSDCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convertEUR:'EUR'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} EUR</p></div>
+                <div class="EURtreatmentCostsUSDCurrency"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convertEUR:'USD'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} USD</p></div>
+                <div class="EURtreatmentCostsEURCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convertEUR:'EUR'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} EUR</p></div>
                 <div class="EURtreatmentCostsGBPCurrency" style="display:none"><p style="text-align: center; font-size: 22px">{% with surrogacy_cost=clinic.surrogacy_cost|convertEUR:'GBP'|floatformat:'0' %}{{ surrogacy_cost|intcomma }}{% endwith %} GBP</p></div>
               {% endif %}
             {% else %}

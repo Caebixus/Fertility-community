@@ -13,9 +13,16 @@ var myTreatmentCostsEURCurrency = document.querySelectorAll('.treatmentCostsEURC
 var myTreatmentCostsGBPCurrency = document.querySelectorAll('.treatmentCostsGBPCurrency'),
     i = 0,
     l = myTreatmentCostsGBPCurrency.length;
-var myTreatmentCostsCZKCurrency = document.querySelectorAll('.treatmentCostsCZKCurrency'),
+
+var myEURTreatmentCostsEURCurrency = document.querySelectorAll('.EURtreatmentCostsEURCurrency'),
     i = 0,
-    l = myTreatmentCostsCZKCurrency.length;
+    l = myEURTreatmentCostsEURCurrency.length;
+var myUSDTreatmentCostsUSDCurrency = document.querySelectorAll('.EURtreatmentCostsUSDCurrency'),
+    i = 0,
+    l = myUSDTreatmentCostsUSDCurrency.length;
+var myGBPTreatmentCostsGBPCurrency = document.querySelectorAll('.EURtreatmentCostsGBPCurrency'),
+    i = 0,
+    l = myGBPTreatmentCostsGBPCurrency.length;
 
 if(lastSelected) {
     select.value = lastSelected;
@@ -33,33 +40,41 @@ $(document).ready(function (e) {
       if (lastSelected == 'USD') {
         for (i; i < l; i++) {
             myTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'initial';
             myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
             myTreatmentCostsGBPCurrency[i].style.display = 'none';
-            myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
         }
 
       } else if (lastSelected == 'EUR') {
         for (i; i < l; i++) {
             myTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'none';
             myTreatmentCostsEURCurrency[i].style.display = 'initial';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'initial';
             myTreatmentCostsGBPCurrency[i].style.display = 'none';
-            myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
         }
 
       } else if (lastSelected == 'GBP') {
         for (i; i < l; i++) {
             myTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'none';
             myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
             myTreatmentCostsGBPCurrency[i].style.display = 'initial';
-            myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'initial';
         }
 
       } else {
         for (i; i < l; i++) {
             myTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'initial';
             myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
             myTreatmentCostsGBPCurrency[i].style.display = 'none';
-            myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
         }
       }
     }
@@ -67,34 +82,42 @@ $(document).ready(function (e) {
     $('#ChooseCurrency').change(function () {
         if ($(this).val() == 'USD') {
           for (i; i < l; i++) {
-              myTreatmentCostsUSDCurrency[i].style.display = 'initial';
-              myTreatmentCostsEURCurrency[i].style.display = 'none';
-              myTreatmentCostsGBPCurrency[i].style.display = 'none';
-              myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
+            myTreatmentCostsGBPCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
           }
 
         } else if ($(this).val() == 'EUR') {
           for (i; i < l; i++) {
-              myTreatmentCostsUSDCurrency[i].style.display = 'none';
-              myTreatmentCostsEURCurrency[i].style.display = 'initial';
-              myTreatmentCostsGBPCurrency[i].style.display = 'none';
-              myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myTreatmentCostsEURCurrency[i].style.display = 'initial';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'initial';
+            myTreatmentCostsGBPCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
           }
 
         } else if ($(this).val() == 'GBP') {
           for (i; i < l; i++) {
-              myTreatmentCostsUSDCurrency[i].style.display = 'none';
-              myTreatmentCostsEURCurrency[i].style.display = 'none';
-              myTreatmentCostsGBPCurrency[i].style.display = 'initial';
-              myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'none';
+            myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
+            myTreatmentCostsGBPCurrency[i].style.display = 'initial';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'initial';
           }
 
         } else {
           for (i; i < l; i++) {
-              myTreatmentCostsUSDCurrency[i].style.display = 'initial';
-              myTreatmentCostsEURCurrency[i].style.display = 'none';
-              myTreatmentCostsGBPCurrency[i].style.display = 'none';
-              myTreatmentCostsCZKCurrency[i].style.display = 'none';
+            myTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myUSDTreatmentCostsUSDCurrency[i].style.display = 'initial';
+            myTreatmentCostsEURCurrency[i].style.display = 'none';
+            myEURTreatmentCostsEURCurrency[i].style.display = 'none';
+            myTreatmentCostsGBPCurrency[i].style.display = 'none';
+            myGBPTreatmentCostsGBPCurrency[i].style.display = 'none';
           }
         }
     });

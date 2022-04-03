@@ -1,0 +1,22 @@
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      {% include 'blog/authors.html' %}
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      {% include 'blog/reviewed_by.html' %}
+    </div>
+  </div>
+  <p style="font-size: 13px">Updated: {{ blog.last_modified }}</p>
+  <i>Select currency for treatment pricings</i>
+  <div class="row">
+    <div class="col-4">
+      <select class="form-control" id="ChooseCurrency">
+        <option value="" selected>Currency</option>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
+    </div>
+    <div class="col-4 offset-4">
+    </div>
+  </div>

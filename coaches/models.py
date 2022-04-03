@@ -12,7 +12,10 @@ class Coaches(models.Model):
     coach_profile_photo = models.ImageField(upload_to='fertility_coach', validators=[validate_file_size], blank=True, null=True)
     coach_profile_photo_delete = models.BooleanField(default=False, blank=True, null=True)
 
-    coach_category = models.CharField(max_length=256, blank=True, null=True)
+    blog_review = models.ManyToManyField(Blog, related_name='blog_reviewed_by', blank=True)
+    blog_best_country_review = models.ManyToManyField(BestClinicArticleCountry, related_name='country_reviewed_by', blank=True)
+    blog_best_city_review = models.ManyToManyField(BestClinicArticleCity, related_name='city_reviewed_by', blank=True)
+    blog_best_state_review = models.ManyToManyField(BestClinicArticleState, related_name='state_reviewed_by', blank=True)
 
     coach_full_name = models.CharField(max_length=40)
     coach_username = models.SlugField(max_length=25, help_text='Use as slug in URL')
@@ -32,8 +35,6 @@ class Coaches(models.Model):
     coach_preferred_client_country = models.CharField(max_length=256, blank=True, null=True)
     coach_preferred_client_city = models.CharField(max_length=256, blank=True, null=True)
 
-    coach_preferred_languages = models.CharField(max_length=256, blank=True, null=True)
-
     #PREMIUM
     coach_education = models.TextField(blank=True, null=True)
     coach_specialization = models.TextField(blank=True, null=True)
@@ -50,7 +51,7 @@ class Coaches(models.Model):
     coach_subscription_update = models.DateTimeField(default=datetime.now, blank=True)
 
     def get_absolute_coach_url(self):
-        return reverse('coaches:fertility-coach-detail', kwargs={'pk': self.id, 'slug': self.coach_username})
+        return reverse('coach:coach-detail', kwargs={'pk': self.id, 'slug': self.coach_username})
 
     def __str__(self):
         return self.coach_full_name

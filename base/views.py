@@ -395,14 +395,14 @@ def backlink3(request):
 def robots(request):
     return render(request, 'main/robots.txt')
 
-def team(request):
+def about(request):
     contributors = Coaches.objects.filter(coach_is_published=True, coach_is_premium=True)
 
     context = {
         'contributors': contributors,
     }
 
-    return render(request, 'main/team.html', context)
+    return render(request, 'main/about.html', context)
 
 def form(request):
     return render(request, 'main/form.html')

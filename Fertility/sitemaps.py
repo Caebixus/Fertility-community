@@ -15,7 +15,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'blog1',
         'blog',
         'packagesearch',
-        'team',
+        'about',
         ]
 
     def location(self, item):

@@ -1,10 +1,10 @@
 {% if author.author_name == 'FertilityCommunity' %}
-    <p>Authors: {{ author.author_name }} {{ author.author_lastname }} Updated: {{ blog.last_modified }}</p>
+    <p style="font-size: 85%">Authors: {{ author.author_name }} {{ author.author_lastname }}</p>
 {% else %}
-    <p>Authors: <a href="{% url 'authorDetailView' author.id %}">{{ author.author_name }} {{ author.author_lastname }}</a></p>
+    <p style="font-size: 85%">Authors: <a href="{% url 'authorDetailView' author.id %}">{{ author.author_name }} {{ author.author_lastname }}</a></p>
 {% endif %}
 {% if snippets %}
-    <p>Co-authors:
+    <p style="font-size: 85%">Contributors:
     {% if one_snippet %}
         <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank">{{ snippets.owner.coach_full_name }}</a>
     {% else %}
@@ -14,4 +14,3 @@
     {% endif %}
     </p>
 {% endif %}
-<p style="font-size: 13px">Updated: {{ blog.last_modified }}</p>

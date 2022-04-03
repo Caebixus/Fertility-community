@@ -1,0 +1,7 @@
+{% if reviewed_by %}
+    <p style="font-size: 85%">Article reviewed by:
+    {% for authors in reviewed_by %}
+        <a href="{% url 'coach:coach-detail' authors.pk authors.coach_username %}" rel="noopener" target="_blank">{{ authors.coach_full_name }}{% if forloop.last %}{%else%},{% endif %}</a>
+    {% endfor %}
+    </p>
+{% endif %}

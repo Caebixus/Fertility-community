@@ -6,7 +6,7 @@ from clinic.models import BasicClinic
 from django.db.models import Avg
 from django.views.generic.detail import DetailView
 
-from coaches.models import Snippet
+from coaches.models import Snippet, Coaches
 
 
 #Authors

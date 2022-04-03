@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
-from coaches.models import SnippetCity
+from coaches.models import SnippetCity, Coaches
 from .models import BestClinicArticleCity
 
 

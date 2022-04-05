@@ -38,7 +38,6 @@ def register(request):
                 auth.login(request, user)
 
                 random_auth_number = get_random_string(10)
-                print(random_auth_number)
 
                 auth_user = request.user
 

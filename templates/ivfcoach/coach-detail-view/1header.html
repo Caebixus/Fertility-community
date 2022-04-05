@@ -38,7 +38,7 @@
             {% endif %}
           {% endfor %}
         </div>
-        {% if coach.coach_preferred_client_country != Empty%}
+        {% if coach.coach_preferred_client_country != Empty and coach.coach_preferred_client_country != "Select State" %}
         <div>
           <div class="fas fa-flag fa-1sx pr-2"></div> {{ coach.coach_preferred_client_country }}
         </div>

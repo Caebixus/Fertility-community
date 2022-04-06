@@ -7,8 +7,8 @@
 
 <div class="background background-color-gradient">
   <div class="container">
-    <h1 class="display-4" style="padding-top:3rem; color:white">Update snippet</h1>
-    <p  style="color:white">Edit your short snippet on the topics of our blogspots.</p>
+    <h1 class="display-4" style="padding-top:3rem; color:white">Update comment</h1>
+    <p  style="color:white">Edit your short comment on the topics of our articles.</p>
     <br>
   </div>
 </div>
@@ -29,7 +29,7 @@
     {{ form.source.errors }}
     {{ form.source }}
     <section class="py-5">
-      <label>Update snippet for article: <a href="{{ blog.blog_url }}">{{ blog.blog_url }}</label></a>
+      <label>Update comment for article: <a href="{{ blog.blog_url }}">{{ blog.blog_url }}</label></a>
       <style> .django-ckeditor-widget { min-width:100% !important; } </style>
       <div class="fieldWrapper py-3" style="text-align: left">
         {% if form.text.errors %}<div class="alert alert-danger" role="alert">{{ form.text.errors }}</div>{% endif %}

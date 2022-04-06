@@ -67,7 +67,8 @@
           </div>
           {% if coaches.coach_is_premium == True %}
           <div class="pt-5">
-            <h3>Add snippets to articles:</h3>
+            <h3>Add comments to articles:</h3>
+            <p>These are your short professional comments relevant to articles on our site. They may contain expert knowledge, your experience, or additional data. It serves to build the authority, relevance and credibility of your profiles.</p>
             <div class="row">
               <div class="col-sm" style="padding-top: 1rem;">
                 <a href="{% url 'coach:snippet-create' coaches.pk %}" style="text-decoration: none; !important">
@@ -125,7 +126,7 @@
             <div class="p-2">
               <div class="col-sm-1" style="padding-top: 1rem;">
                 <a href="{% url 'coach:coach-delete' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">
-                  <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and comments in it"><i class="fa fa-trash"></i></button>
                 </a>
               </div>
             </div>

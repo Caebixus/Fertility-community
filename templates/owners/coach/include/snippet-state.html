@@ -25,25 +25,25 @@
                     </td>
                     <td>
                       {% if snippet.status == 'wait for review' %}
-                        <div class="fa-solid fa-question" style="color:orange" data-toggle="tooltip" data-placement="top" title="Wait for our team to review your snippet (usually within 48 hours)"></div>
+                        <div class="fa-solid fa-question" style="color:orange" data-toggle="tooltip" data-placement="top" title="Wait for our team to review your comment (usually within 48 hours)"></div>
                       {% elif snippet.status == 'is published' %}
-                        <div class="fa-solid fa-check" style="color:green" data-toggle="tooltip" data-placement="top" title="This snippet is published and can be seen in a selected article"></div>
+                        <div class="fa-solid fa-check" style="color:green" data-toggle="tooltip" data-placement="top" title="This comment is published and can be seen in a selected article"></div>
                       {% else %}
-                        <div class="fa-solid fa-ban" style="color:red" data-toggle="tooltip" data-placement="top" title="This snippet was not approved. Usually because of the irelevant or very general content of the snippet. Please edit snippet or contact us directly."></div>
+                        <div class="fa-solid fa-ban" style="color:red" data-toggle="tooltip" data-placement="top" title="This comment was not approved. Usually because of the irelevant or very general content of the comment. Please edit comment or contact us directly."></div>
                       {% endif %}
                     </td>
                     <td>
                       {% if snippet.status == 'wait for review' %}
                       {% else %}
                       <a href="{% url 'coach:snippet-state-update' snippet.blog.id snippet.id %}" style="text-decoration: none">
-                        <button class="btn btn-sm btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Edit snippet of this article"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-sm btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Edit comment of this article"><i class="fa fa-edit"></i></button>
                       </a>
                       {% endif %}
                     </td>
                     <td>
                       {% if snippet %}
                         <a href="{% url 'coach:snippet-state-delete' snippet.pk %}" style="text-decoration: none; !important">
-                          <button class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and snippets in it"><i class="fa fa-trash"></i></button>
+                          <button class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete profile and comments in it"><i class="fa fa-trash"></i></button>
                         </a>
                       {% endif %}
                     </td>

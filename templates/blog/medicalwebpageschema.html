@@ -37,6 +37,21 @@
             ],
         "headline":"{{ blog.title }}",
         "description":"{{ blog.description }}",
+        {% if reviewed_by %}
+        "reviewedBy":
+            [
+                {% for coach in reviewed_by %}
+                {
+                    "@type":"Person",
+                    "name":"{{ coach.coach_full_name }}",
+                    "jobTitle":"{% for job in coach.jobs.all %}{% if not forloop.last %}{{ job }}, {% else %}{{ job }}{% endif %}{% endfor %}",
+                    "knowsLanguage":"{% for language in coach.languages.all %}{% if not forloop.last %}{{ language }}, {% else %}{{ language }}{% endif %}{% endfor %}",
+                    {% if coach.coach_profile_photo %}"image":"{{ coach.coach_profile_photo.url }}",{% endif %}
+                    "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}"
+                }{% if forloop.last %}{% else %},{% endif %}
+                {% endfor %}
+            ],
+        {% else %}
         "reviewedBy":
             [
                 {% for coach in coach_premium %}
@@ -50,6 +65,7 @@
                 }{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
             ],
+        {% endif %}
         "author":
             {
                 "@type":"Person",

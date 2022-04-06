@@ -47,15 +47,9 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm" style="padding-top: 1rem;">
-              {% if coaches.coach_is_premium == True %}
               <a href="{% url 'update_coach_profile' coaches.id %}" style="text-decoration: none">
                 <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Update profile</button>
               </a>
-              {% else %}
-              <a href="{% url 'update_coach_profile' coaches.id %}" style="text-decoration: none">
-                <button class="btn btn-block btn-info" type="button"><i class="fas fa-tools"></i> Update profile</button>
-              </a>
-              {% endif %}
             </div>
             <div class="col-sm" style="padding-top: 1rem;">
               <a href="{% url 'coach:coach-detail' coaches.pk coaches.coach_username %}" style="text-decoration: none; !important">

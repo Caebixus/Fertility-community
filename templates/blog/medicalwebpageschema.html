@@ -44,7 +44,6 @@
                     "@type":"Person",
                     "name":"{{ coach.coach_full_name }}",
                     "jobTitle":"{% for job in coach.jobs.all %}{% if not forloop.last %}{{ job }}, {% else %}{{ job }}{% endif %}{% endfor %}",
-                    "knowsAbout":"{{ coach.coach_bio|safe }}",
                     "knowsLanguage":"{% for language in coach.languages.all %}{% if not forloop.last %}{{ language }}, {% else %}{{ language }}{% endif %}{% endfor %}",
                     {% if coach.coach_profile_photo %}"image":"{{ coach.coach_profile_photo.url }}",{% endif %}
                     "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}"

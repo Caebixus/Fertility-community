@@ -12,44 +12,10 @@
 {% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
 
 {% block content %}
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/fertility-treatment-abroad-what-you-need-to-know"
-        },
-      "headline": "Fertility Treatment Abroad: What You Need to Know in 2022?",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ author.author_name }} {{ author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "In many cases, it's better to have your fertility treatment abroad. You may be facing many stumbling blocks in your home country that are much easier to overcome in another country."
-    }
-</script>
 
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}

@@ -15,43 +15,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
 
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/ivf-abroad-costs"
-        },
-      "headline": "What Does IVF Cost Abroad in 2022?",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ author.author_name }} {{ author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "Read on to learn more about some of the countries that offer the lowest IVF prices and what you can expect to pay."
-    }
-</script>
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}

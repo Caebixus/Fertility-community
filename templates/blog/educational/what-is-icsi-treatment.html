@@ -20,43 +20,9 @@
 
 {% block content %}
 
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"{{ blog.blog_url }}"
-        },
-      "headline": "{{ blog.title }}",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ author.author_name }} {{ author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "{{ blog.description }}"
-    }
-</script>
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}

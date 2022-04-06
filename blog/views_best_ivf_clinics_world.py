@@ -22,6 +22,7 @@ def best_ivf_clinics_world(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -30,6 +31,7 @@ def best_ivf_clinics_world(request):
             'author': author,
             'blog': blog,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'otherBlogs': otherBlogs,
             'best_clinics': best_clinics,
             'best_clinics_count': best_clinics_count,
@@ -45,6 +47,7 @@ def best_ivf_clinics_world(request):
             'author': author,
             'blog': blog,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'otherBlogs': otherBlogs,
             'best_clinics': best_clinics,
             'best_clinics_count': best_clinics_count,
@@ -57,6 +60,7 @@ def best_ivf_clinics_world(request):
             'author': author,
             'blog': blog,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'otherBlogs': otherBlogs,
             'best_clinics': best_clinics,
             'best_clinics_count': best_clinics_count,

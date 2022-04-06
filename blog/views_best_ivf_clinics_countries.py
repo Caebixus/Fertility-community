@@ -27,6 +27,7 @@ def bestivfclinicsinczech(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -34,6 +35,7 @@ def bestivfclinicsinczech(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -49,6 +51,7 @@ def bestivfclinicsinczech(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -61,6 +64,7 @@ def bestivfclinicsinczech(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -87,6 +91,7 @@ def bestivfclinicsinspain(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -94,6 +99,7 @@ def bestivfclinicsinspain(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -110,6 +116,7 @@ def bestivfclinicsinspain(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -122,6 +129,7 @@ def bestivfclinicsinspain(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -148,6 +156,7 @@ def bestivfclinicsingreece(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -155,6 +164,7 @@ def bestivfclinicsingreece(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -171,6 +181,7 @@ def bestivfclinicsingreece(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -183,6 +194,7 @@ def bestivfclinicsingreece(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -209,6 +221,7 @@ def bestivfclinicsinslovakia(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -216,6 +229,7 @@ def bestivfclinicsinslovakia(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -232,6 +246,7 @@ def bestivfclinicsinslovakia(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,
@@ -244,6 +259,7 @@ def bestivfclinicsinslovakia(request):
         context = {
             'best_clinics': best_clinics,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'blog': best_clinics_blogpost,
             'author': author,
             'best_clinics_count': best_clinics_count,

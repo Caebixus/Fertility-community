@@ -23,6 +23,7 @@ def bestivfclinicsinprague(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = SnippetCity.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -31,6 +32,7 @@ def bestivfclinicsinprague(request):
             'best_clinics': best_clinics,
             'blog': best_clinics_blogpost,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
@@ -47,6 +49,7 @@ def bestivfclinicsinprague(request):
             'best_clinics': best_clinics,
             'blog': best_clinics_blogpost,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
@@ -59,6 +62,7 @@ def bestivfclinicsinprague(request):
             'best_clinics': best_clinics,
             'blog': best_clinics_blogpost,
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,

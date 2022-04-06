@@ -16,43 +16,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.js" ></script>
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/how-americans-ivf-compare-with-the-world"
-        },
-      "headline": "Fertility Treatments: How Americans Compare With the World in 2022",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ author.author_name }} {{ author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "Fertility Community recently surveyed our users to get an idea of how Americans compare with the world when it comes to fertility treatments. Read more."
-    }
-</script>
+
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}

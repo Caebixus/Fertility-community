@@ -27,43 +27,9 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 <!-- ================================================== -->
 
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/{{blog.slug}}"
-        },
-      "headline": "{{blog.title}}",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ blog.author.author_name }} {{ blog.author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "{{ blog.description }}"
-    }
-</script>
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 
 

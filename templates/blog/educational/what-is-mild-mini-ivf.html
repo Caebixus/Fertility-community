@@ -14,43 +14,9 @@
 
 {% block content %}
 
-<script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage":
-        {
-          "@type":"WebPage",
-          "@id":"https://www.fertilitycommunity.com/blog/what-is-mild-mini-ivf"
-        },
-      "headline": "What is MILD (MINI) IVF?",
-      "image":
-        {
-          "@type": "ImageObject",
-          "url": "{{ blog.pic_blog.url }}",
-          "height": 1080,
-          "width": 1480
-        },
-      "datePublished": "{{ blog.created_at }}",
-      "dateModified": "{{ blog.last_modified }}",
-      "author":
-        {
-          "@type": "Person",
-          "name": "{{ author.author_name }} {{ author.author_lastname }}"
-        },
-      "publisher":
-        {
-          "@type": "Organization",
-          "name": "FertilityCommunity",
-          "logo":
-            {
-              "@type": "ImageObject",
-              "url": "https://fertilitycommunity.com/static/img/LOGO.jpg"
-            }
-        },
-      "description": "Natural IVF is an alternative to conventional IVF, which uses medicines to stimulate follicular growth. You may be wondering just what natural IVF entails and if it's a good option for you. Read on to learn more."
-    }
-</script>
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
 
 <!-- Alerts -->
 {% include 'partials/_alerts.html' %}

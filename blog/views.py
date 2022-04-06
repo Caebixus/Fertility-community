@@ -39,12 +39,14 @@ def ivfabroadcosts(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -58,6 +60,7 @@ def ivfabroadcosts(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -68,6 +71,7 @@ def ivfabroadcosts(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -87,12 +91,14 @@ def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -106,6 +112,7 @@ def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -116,6 +123,7 @@ def fertilityTreatmentAbroadWhatYouNeedToKnow(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -147,12 +155,14 @@ def ivfabroadpackages(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'listing': listing,
             'count': count,
             'order_data': order_data,
@@ -169,6 +179,7 @@ def ivfabroadpackages(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'listing': listing,
             'count': count,
             'order_data': order_data,
@@ -182,6 +193,7 @@ def ivfabroadpackages(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'listing': listing,
             'count': count,
             'order_data': order_data,
@@ -204,12 +216,14 @@ def everythingYouNeedToKnowAboutNaturalIvf(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -223,6 +237,7 @@ def everythingYouNeedToKnowAboutNaturalIvf(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -233,6 +248,7 @@ def everythingYouNeedToKnowAboutNaturalIvf(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -252,12 +268,14 @@ def whatismildminiivf(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -271,6 +289,7 @@ def whatismildminiivf(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -281,6 +300,7 @@ def whatismildminiivf(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -300,12 +320,14 @@ def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -319,6 +341,7 @@ def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -329,6 +352,7 @@ def fertilitytreatmentshowamericanscomparewiththerestoftheworld(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -348,12 +372,14 @@ def whydoesivffails(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -367,6 +393,7 @@ def whydoesivffails(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -377,6 +404,7 @@ def whydoesivffails(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -396,12 +424,14 @@ def whatisicsitreatment(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -415,6 +445,7 @@ def whatisicsitreatment(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -425,6 +456,7 @@ def whatisicsitreatment(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -458,12 +490,14 @@ def whydoesivfcostsomuch(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -486,6 +520,7 @@ def whydoesivfcostsomuch(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -505,6 +540,7 @@ def whydoesivfcostsomuch(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -533,12 +569,14 @@ def whatisivfwitheggdonation(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -552,6 +590,7 @@ def whatisivfwitheggdonation(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -562,6 +601,7 @@ def whatisivfwitheggdonation(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -592,12 +632,14 @@ def ivf_in_spain(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'author': author,
             'blog': blog,
             'otherBlogs': otherBlogs,
@@ -613,6 +655,7 @@ def ivf_in_spain(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -626,6 +669,7 @@ def ivf_in_spain(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -659,12 +703,14 @@ def ivf_in_greece(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -681,6 +727,7 @@ def ivf_in_greece(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -694,6 +741,7 @@ def ivf_in_greece(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -727,12 +775,14 @@ def ivf_in_czech_republic(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -749,6 +799,7 @@ def ivf_in_czech_republic(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -762,6 +813,7 @@ def ivf_in_czech_republic(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -795,12 +847,14 @@ def ivf_in_slovakia(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -817,6 +871,7 @@ def ivf_in_slovakia(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -830,6 +885,7 @@ def ivf_in_slovakia(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -862,7 +918,6 @@ def ivf_in_prague(request):
     count_snippets = snippets.count()
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
-
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
     if count_snippets == 1:

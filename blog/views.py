@@ -863,11 +863,14 @@ def ivf_in_prague(request):
 
     reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
 
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
+
     if count_snippets == 1:
         snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -884,6 +887,7 @@ def ivf_in_prague(request):
 
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,
@@ -897,6 +901,7 @@ def ivf_in_prague(request):
     else:
         context = {
             'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
             'clinicegg': clinicegg,
             'author': author,
             'blog': blog,

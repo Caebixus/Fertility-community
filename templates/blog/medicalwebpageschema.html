@@ -1,0 +1,62 @@
+<script type="application/ld+json">
+    {
+        "@context":"http://schema.org/",
+        "@type":"MedicalWebPage",
+        "name":"{{ blog.title }}",
+        "datePublished":"{{ blog.created_at }}",
+        "publisher":
+            {
+                "@type":"Organization",
+                "name":"FertilityCommunity",
+                "url":"https://www.fertilitycommunity.com/",
+                "legalName":"FertilityCommunity",
+                "vatID":"9103120290",
+                "numberOfEmployees":3,
+                "address":"V Olšinách 1451/20, 100 00 Prague, Czech Republic",
+                "founder":"David Langr",
+                "foundingDate":"2020-01-01",
+                "knowsAbout":"Organizing the most essential initial information for every IVF clinic and for this reason we invented the Digital Transparency Index, which tracks the quality and relevancy of IVF clinics on our website so that visitors can make the best choice!",
+                "logo":"https://www.fertilitycommunity.com/static/img/logo/New_simple_logo_height.webp",
+                "sameAs":
+                    [
+                        "https://www.facebook.com/fertilitycommunity/",
+                        "https://www.linkedin.com/company/fertilitycommunity/?viewAsMember=true",
+                        "https://cz.pinterest.com/fertilitycommunity/"
+                    ]
+            },
+        "mainEntityOfPage":"{{ blog.blog_url }}",
+        "dateModified":"{{ blog.last_modified }}",
+        "image":
+            [
+                {
+                    "@type":"ImageObject",
+                    {% if blog.pic_blog %}"url":"{{ blog.pic_blog.url }}",{% endif %}
+                    "width":1080,
+                    "height":1480
+                }
+            ],
+        "headline":"{{ blog.title }}",
+        "description":"{{ blog.description }}",
+        "reviewedBy":
+            [
+                {% for coach in coach_premium %}
+                {
+                    "@type":"Person",
+                    "name":"{{ coach.coach_full_name }}",
+                    {% if coach.coach_profile_photo %}"image":"{{ coach.coach_profile_photo.url }}",{% endif %}
+                    "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}"
+                }{% if forloop.last %}{% else %},{% endif %}
+                {% endfor %}
+            ],
+        "author":
+            {
+                "@type":"Person",
+                "name":"{{ author.author_name }} {{ author.author_lastname }}",
+                "url":"{% url 'authorDetailView' author.id %}",
+                {% if author.author_pic %}"image":"{{ author.author_pic.url }}",{% endif%}
+                "jobTitle":"{{ author.author_small_bio }}"
+            },
+        "specialty":"Gynecologic",
+        "lastReviewed":"{{ blog.last_modified }}"
+    }
+</script>

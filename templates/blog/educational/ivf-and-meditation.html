@@ -1,0 +1,113 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in prague, ivf prague{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+{% include 'schemas/organization.html' %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background background-color-gradient">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% include 'blog/blog_header_no_currency.html' %}
+  <hr>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong>Stress and Fertility</strong></h2>
+    <p>Stress: We know far too well as a society what levels of damage this physical tension can impose upon the body. We have all felt it, suffered from it and sought after dozens upon dozens of remedies to attempt to alleviate it. <strong>Inevitably, every single person experiences stress throughout their lifetime</strong>. What research is continuing to expand upon is what exactly these consistent doses of stress do to our minds and bodies.</p>
+    <br>
+    <p>Undergoing the process of IVF, short for in vitro fertilization, is becoming an increasingly <strong>common stressor</strong> for women. As fertility decreases with age, women are feeling the race against the biological clock which can ultimately cause undue stress in and of itself. Infact, according to the <a href="https://www.sart.org/">Society for Assisted Reproductive Technology</a>, success rates for IVF decline dramatically after age 37.</p>
+    <p>As women enter their 30s and continue to progress towards their 40s they are facing immense stressors that ultimately decrease their fertility levels even further. Similarly, fertility rates have been shown to have drastically decreased in the previous decades, particularly in the USA. Research has shown this is linked to environmental factors, economical stresses and overall lifestyle choices such as consuming alcohol or smoking.</p>
+    <p>What was once hardly a concern for youthful and supposedly fertile women has now become a serious stressor for women of all reproductive ages.</p>
+    <br>
+    <h3>So how exactly does stress affect fertility?</h3>
+    <p>Stress has a direct effect on our brains and triggers the release of our stress hormone known as cortisol. Cortisol has proven to have <strong>devastating effects on the human body</strong> during prolonged periods of release.</p>
+    <p>From decreased sex drive, lowered immune fuction, irregular menstrual cycles and even severe depression. Stress has been shown to even shut down activity in the hypothalamic-pituitary-gonadal axis, which exerts direct control over the reproductive system.</p>
+    <p>This has the ability to disturb the vital connection between the brain and the ovaries and cause delayed or absent ovulation and sporadic or altogether missed periods.</p>
+  </div>
+
+  {% include 'blog/snippet_carousel.html' %}
+
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong>Meditation To Promote IVF Success</strong></h2>
+    <p>Here enters the vitally important question: What can be done to decrease stress levels and simultaneously increase the success rate of IVF?</p>
+    <br>
+    <p>The concept of meditation is far from novel and can be traced back thousands of years to ancient India. In more recent years, meditation has become popular in many of the Western nations, most notably the USA.</p>
+    <p>As its popularity soared, the field of medicine began to study the effects and quickly realized how incredibly beneficial this practice can be on both the body and the mind. Some of the most miraculous benefits of meditation are:</p>
+    <ul>
+      <li>Reduced cortisol</li>
+      <li>Decreased blood pressure</li>
+      <li>Improved memory</li>
+      <li>Increased blood flow</li>
+      <li>Pain reduction (both psychological and physical)</li>
+      <li>Increased production of neurotransmitters oxytocin and serotonin</li>
+    </ul>
+    <br>
+    <p>Fascinatingly, many of these factors listed above <strong>work together to increase overall fertility in women</strong>. While cortisol has the ability to shut down critical processes such as the HPGA for reproduction, meditation has the ability to counteract such phenomenon.</p>
+    <p>Meditation not only improves the quality of life of women undergoing the process of IVF but also has proven positive effects on those that have not yet begun their IVF journey. A study published in Journal of Endometriosis and Pelvic Pain Disorders proposed that a 12-week program may improve the general well-being of infertile women awaiting IVF.</p>
+    <p>Once the process has begun, the average time it takes to complete the necessary steps is around <strong>4 months or 16 weeks</strong>. During this time, women are undergoing often painful and psychologically draining processes that negatively impact their overall mental health. <u>Meditation has been proven to decrease the anxiety and high levels of cortisol that can be expected when progressing through an IVF journey</u>.</p>
+    <br>
+    <p>For women that have already begun their IVF process, they are likely confronting the often experienced emotional and physical burden that comes along with such an intricate (and often highly painful) process.</p>
+    <p>Regular meditation, commonly defined as a <strong>minimum of 10 minutes per day</strong>, was shown to increase self-compassion, effective coping strategies and adaptive emotional regulation amongst those actively engaged in the IVF process. These three benefits work together to increase quality of life and overall well-being in those affected.</p>
+  </div>
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong>IVF Meditation Sources</strong></h2>
+    <p>Thankfully, there is a wealth of sources that can allow women to practice meditation from the comfort of their own home.</p>
+    <p><u>Yoga studios</u> are a well-known location to practice meditation outside of the home and in the presence of others. Often, though, these meditation sessions are unguided and can be costly.</p>
+    <p>For those new to mediation, it can require not only guidance but consistent implementation to become more successful with the practice. It is suggested that engaging in a daily practice of meditation for a minimum of ten minutes is crucial for reaping the benefits mentioned.</p>
+    <p><u>Apps</u> such as <a href="https://www.headspace.com/" rel="nofollow noopener">Headspace</a>, <a href="https://circlebloom.com/" rel="nofollow noopener">Circle + Bloom</a>, <a href="https://www.mindfulivf.com/" rel="nofollow noopener">Mindful IVF</ą> and <a href="https://insighttimer.com/" rel="nofollow noopener">Insight Timer</a> provide specific guidance for users and can be utilized as a far less costly option.</p>
+    <p>Another interesting option is to use a <strong>fertility coach</strong> who is specially trained in meditation. Sometimes it's good to have someone to advise you and not be alone on this journey.</p>
+    <br>
+    <p>Another often underutilized method of meditation to support the IVF journey can be found in the form of <strong>written books</strong>. In many cases, reading can be considered a form of meditation in and of itself as we are removing ourselves from the constant stimulation that is provided by screens and sounds. Some of the most popular books written on this topic are:</p>
+    <ul>
+      <li>A Fertile Path: Guiding the Journey with Mindfulness and Compassion by Janetti Marotta Ph.D.</li>
+      <li>Mindful Pregnancy: Meditation, Yoga, Hypnobirthing, Natural Remedies and Nutrition by Tracy Donegan</li>
+      <li>Practicing Mindfulness: 75 Essential Meditations to Reduce Stress, Improve Mental Health, and Find Peace in the Everyday by Matthew Sockolov</li>
+    </ul>
+    <br>
+    <p>Between guided meditations via an app such as Headspace or written word in a book such as A Fertile Path: Guiding the Journey with Mindfulness and Compassion, it can be seen that there are countless options available to engage in and begin practicing the art of meditation for the purpose of increasing IVF success.</p>
+    <p>Regardless of what method appeals to each specific individual, it can be counted on that the options out there are numerous and readily accessible.</p>
+  </div>
+  <div class="py-5">
+    <h3>Sources</h3>
+    <ul>
+      <li class="small-font">American Psychological Association. (2018, November 1). Stress effects on the body. http://www.apa.org/topics/stress/body</li>
+      <li class="small-font">Domar AD, Gross J, Rooney K, Boivin J. Exploratory randomized trial on the effect of abrief psychological intervention on emotions, quality of life, discontinuation, and pregnancy rates in in vitro fertilization patients. Fertil Steril. 2015 Aug;104(2):440-51.e7.doi: 10.1016/j.fertnstert.2015.05.009. Epub 2015 Jun 13. PMID: 26072382.</li>
+      <li class="small-font">Kellie M. Breen, Fred J. Karsch, New insights regarding glucocorticoids, stress and gonadotropin suppression, Frontiers in Neuroendocrinology, Volume 27, Issue 2, 2006, Pages 233-245, ISSN 0091-3022, <a href="https://doi.org/10.1016/j.yfrne.2006.03.335" rel="nofollow noopener">website</a>. (<a href="https://www.sciencedirect.com/science/article/pii/S0091302206003402" rel="nofollow noopener">website</a>)</li>
+      <li class="small-font">Li J, Long L, Liu Y, He W, Li M. Effects of a mindfulness-based intervention on fertility quality of life and pregnancy rates among women subjected to first in vitro fertilization treatment. Behav Res Ther. 2016 Feb;77:96-104. doi: 10.1016/j.brat.2015.12.010. Epub 2015 Dec 19. PMID: 26742022.</li>
+      <li class="small-font">Ockhuijsen HD, van den Hoogen A, Macklon NS, Boivin J. The PRCI study: design of a randomized clinical trial to evaluate a coping intervention for medical waiting periods used by women undergoing a fertility treatment. BMC Womens Health. 2013 Sep 3;13:35. doi: 10.1186/1472-6874-13-35. PMID: 24004640; PMCID: PMC3766696.</li>
+      <li class="small-font">Yoga Can Improve Assisted Reproduction Technology Outcomes in Couples With Infertility. Available from: <a href="https://www.researchgate.net/publication/320958174_Yoga_Can_Improve_Assisted_Re production_Technology_Outcomes_in_Couples_With_Infertility" rel="nofollow noopener">Here</a></li>
+    </ul>
+  </div>
+  {% include 'blog/continue_reading.html' %}
+</div>
+{% endblock  %}

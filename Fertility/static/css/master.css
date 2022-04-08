@@ -762,8 +762,8 @@ border-radius:0 4px 4px 0;
 @media (max-width: 992px) {
     .text-center-until-md {
         text-align: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     #brandButtonGoalPackagePrimary {
         display: block;
@@ -774,8 +774,8 @@ border-radius:0 4px 4px 0;
 @media (min-width: 993px) {
     .text-center-until-md {
         text-align: left;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     #brandButtonGoalPackagePrimary {
         display: block;
@@ -798,4 +798,20 @@ border-radius:0 4px 4px 0;
     background: -webkit-linear-gradient(0deg, rgba(110,170,221,1) 0%, rgba(80,144,198,1) 15%, rgba(58,124,181,1) 35%, rgba(50,117,175,1) 50%, rgba(58,124,181,1) 65%, rgba(80,144,198,1) 85%, rgba(110,170,221,1) 100%);
     background: linear-gradient(0deg, rgba(110,170,221,1) 0%, rgba(80,144,198,1) 15%, rgba(58,124,181,1) 35%, rgba(50,117,175,1) 50%, rgba(58,124,181,1) 65%, rgba(80,144,198,1) 85%, rgba(110,170,221,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6eaadd",endColorstr="#6eaadd",GradientType=1);
+}
+
+.small-font {
+    font-size: 85% !important;
+}
+
+.feature {
+    padding: 40px 0px;
+}
+
+.snippet-textarea {
+    color: #282c34;
+    text-align: left;
+    font-size: 115%;
+    font-family: 'Josefin Sans';
+    font-weight: 300;
 }

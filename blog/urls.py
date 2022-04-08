@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/what-is-icsi-treatment', views.whatisicsitreatment, name='whatisicsitreatment'),
     path('blog/why-does-ivf-cost-so-much-usa', views.whydoesivfcostsomuch, name='whydoesivfcostsomuch'),
     path('blog/ivf-with-egg-donation-process', views.whatisivfwitheggdonation, name='whatisivfwitheggdonation'),
+    path('blog/ivf-and-meditation', views.ivfmeditation, name='ivfmeditation'),
 
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),

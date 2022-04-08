@@ -1,13 +1,15 @@
 {% load static %}
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+
 {% if snippets %}
   {% if one_snippet %}
     <h2 style="font-size: 160%">What fertility specialists say?</h2>
     <div id="carouselSnippet" class="carousel slide" data-interval="false" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item carousel-item-custom active">
-          <div class="card" style="margin-left: 25px; margin-right: 25px;">
-            <div class="card-header">
-              <div class="row pt-1 pb-1 custom-carousel-content custom-carousel-header-row">
+          <div class="card " style="margin-left: 25px; margin-right: 25px;">
+            <div class="card-header center-background-color-gradient text-white">
+              <div class="row custom-carousel-content custom-carousel-header-row">
                 <div class="col-md-6 col-lg-1 text-center-until-md">
                   {% if snippets.owner.coach_profile_photo %}
                   <div id="imgInfo" class="img align-self-center align-items-center pr-2">
@@ -22,7 +24,7 @@
                   {% endif %}
                 </div>
                 <div class="col-md-6 col-lg-11 text-center-until-md">
-                  <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none; font-size: 130%;"><strong>{{ snippets.owner.coach_full_name }}</strong></a>
+                  <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none; font-size: 140%;"><strong class="text-white">{{ snippets.owner.coach_full_name }}</strong></a>
                   <div style="font-size: 80%">
                   {% for job in snippets.owner.jobs.all %}
                     {% if not forloop.last %}
@@ -32,23 +34,64 @@
                     {% endif %}
                   {% endfor %}
                   </div>
+
                   {% if snippets.owner.experts_from_clinic.all %}
                   <div style="font-size: 80%">
                     {% for clinic in snippets.owner.experts_from_clinic.all %}
                       {% if not forloop.last %}
-                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" class="text-white">{{ clinic.clinicName }}</a> |
                       {% else %}
-                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+                        <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" class="text-white">{{ clinic.clinicName }}</a>
                       {% endif %}
                     {% endfor %}
                   </div>
                   {% endif %}
+
+                  {% if snippets.owner.coach_social_instagram or snippets.owner.coach_social_facebook or snippets.owner.coach_social_linkedin or snippets.owner.coach_social_pinterest or snippets.owner.coach_social_youtube or snippets.owner.coach_social_twitter %}
+                  <div class="d-flex justify-content-start">
+                    {% if snippets.owner.coach_social_instagram %}
+                    <div class="px-1">
+                      <a href="{{ snippets.owner.coach_social_instagram }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-instagram-square" style="font-size: 25px;"></div></a>
+                    </div>
+                    {% endif %}
+                    {% if snippets.owner.coach_social_facebook %}
+                    <div class="px-1">
+                      <a href="{{ snippets.owner.coach_social_facebook }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-facebook-square" style="font-size: 25px;"></div></a>
+                    </div>
+                    {% endif %}
+
+                    {% if snippets.owner.coach_social_linkedin %}
+                      <div class="px-1">
+                        <a href="{{ snippets.owner.coach_social_linkedin }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-linkedin" style="font-size: 25px;"></div></a>
+                      </div>
+                    {% endif %}
+
+                    {% if snippets.owner.coach_social_pinterest %}
+                    <div class="px-1">
+                      <a href="{{ snippets.owner.coach_social_pinterest }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-pinterest-square" style="font-size: 25px;"></div></a>
+                    </div>
+                    {% endif %}
+
+                    {% if snippets.owner.coach_social_youtube %}
+                    <div class="px-1">
+                      <a href="{{ snippets.owner.coach_social_youtube }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-youtube-square" style="font-size: 25px;"></div></a>
+                    </div>
+                    {% endif %}
+
+                    {% if snippets.owner.coach_social_twitter %}
+                    <div class="px-1">
+                      <a href="{{ snippets.owner.coach_social_twitter }}" rel="nofollow" style="text-decoration:none; color:white;"><div class="fa-brands fa-twitter-square" style="font-size: 25px;"></div></a>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+
                 </div>
               </div>
             </div>
 
             <div class="card-body">
-              <div class="row custom-carousel-content" style="margin-left:5px;margin-right:5px">
+              <div class="row custom-carousel-content snippet-textarea " style="margin-left:5px;margin-right:5px">
                 {{ snippets.text|safe }}
               </div>
             </div>

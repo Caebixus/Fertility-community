@@ -966,3 +966,55 @@ def ivf_in_prague(request):
         }
 
         return render(request, 'blog/IVF-abroad/ivf-in-prague.html', context)
+
+
+def ivfmeditation(request):
+    blogpk=23
+    otherBlogs = Blog.objects.order_by('-created_at').exclude(pk=blogpk)[:3]
+
+    blog = get_object_or_404(Blog, pk=blogpk)
+    author = blog.author
+
+    snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
+
+    reviewed_by = Coaches.objects.filter(blog_best_country_review=blogpk)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
+
+    if count_snippets == 1:
+        snippets = Snippet.objects.get(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/educational/ivf-and-meditation.html', context)
+    elif count_snippets > 1:
+        snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/educational/ivf-and-meditation.html', context)
+    else:
+        context = {
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'author': author,
+            'blog': blog,
+            'otherBlogs': otherBlogs,
+        }
+
+        return render(request, 'blog/educational/ivf-and-meditation.html', context)

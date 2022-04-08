@@ -15,9 +15,9 @@
                   <div id="imgInfo" class="img align-self-center align-items-center pr-2">
                     <a href="{% url 'coach:coach-detail' snippets.owner.pk snippets.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
                       {% if snippets.owner.coach_profile_photo %}
-                        <img class="imgHoverLogo" src="{{ snippets.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                        <img class="imgHoverLogo" src="{{ snippets.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: white;">
                       {% else %}
-                        <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                        <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippets.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: white;">
                       {% endif %}
                     </a>
                   </div>
@@ -116,13 +116,13 @@
                   {% if snippet.owner.coach_profile_photo %}
                   <div id="imgInfo" class="img align-self-center align-items-center pr-2">
                     <a href="{% url 'coach:coach-detail' snippet.owner.pk snippet.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
-                      <img class="imgHoverLogo" src="{{ snippet.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                      <img class="imgHoverLogo" src="{{ snippet.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #white;">
                     </a>
                   </div>
                   {% else %}
                   <div id="imgInfo" class="img align-self-center align-items-center pr-2">
                     <a href="{% url 'coach:coach-detail' snippet.owner.pk snippet.owner.coach_username %}" rel="noopener" target="_blank" style="text-decoration: none;">
-                      <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                      <img class="imgHoverLogo" src="{% static 'img/profile_custom.png' %}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #white;">
                     </a>
                   </div>
                   {% endif %}

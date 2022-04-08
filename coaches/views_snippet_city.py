@@ -29,7 +29,7 @@ def SnippetCityCreateFormView(request, coach_id):
                 fail_silently=False,
                 )
 
-            messages.success(request, '- Snippet successfully created. Wait for our team to review and publish it.')
+            messages.success(request, '- Comment successfully created. Wait for our team to review and publish it.')
             return redirect('coach_dashboard')
 
     context = {
@@ -63,7 +63,7 @@ def SnippetCityUpdateFormView(request, blog_id, snippet_id):
                 fail_silently=False,
             )
 
-            messages.success(request, '- Snippet successfully created. Wait for our team to review and publish it.')
+            messages.success(request, '- Comment successfully created. Wait for our team to review and publish it.')
             return redirect('coach_dashboard')
 
     context = {

@@ -1,7 +1,6 @@
 from django.contrib import sitemaps
 from django.urls import reverse
-from base import views
-from blog import views
+
 
 class BlogsViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
@@ -25,6 +24,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'ivf_in_czech_republic',
         'ivf_in_slovakia',
         'ivf_in_prague',
+        'ivfmeditation',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

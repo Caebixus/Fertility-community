@@ -49,7 +49,7 @@
             {% if coach.coach_profile_photo %}
             "image":"{{ coach.coach_profile_photo.url }}",
             {% endif %}
-            {% if coach.experts_from_clinic.all %}
+            {% if jobs %}
             "jobTitle":
                     {% for job in jobs %}
                         {% if forloop.first %}

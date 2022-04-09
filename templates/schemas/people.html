@@ -1,4 +1,4 @@
-{% if Gynecologist in jobs %}
+{% if gynecologist == True %}
     <script type='application/ld+json'>
         {
             "@context": "https://schema.org",
@@ -8,9 +8,13 @@
             {% if coach.coach_profile_photo %}
             "image":"{{ coach.coach_profile_photo.url }}",
             {% endif %}
-            "description":"{{ coach.coach_bio|safe }}",
+            "description":"{{ coach.coach_bio|escapejs }}",
+            {% if coach.coach_contact_email %}
             "email": "{{ coach.coach_contact_email }}",
+            {% endif %}
+            {% if coach.coach_phone %}
             "telephone":"{{ coach.coach_phone }}",
+            {% endif %}
             "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
             {% if coach.experts_from_clinic.all %}
             "member":
@@ -52,12 +56,16 @@
                         {
                             "@type": "DefinedTerm",
                             "name": "{{job}}"
-                        }{% endif %}{% if forloop.last %}{% else %},{% endif %}
+                        }{% endif %}
                     {% endfor %}
             {% endif %}
             "name":"{{ coach.coach_full_name }}",
+            {% if coach.coach_contact_email %}
             "email": "{{ coach.coach_contact_email }}",
+            {% endif %}
+            {% if coach.coach_phone %}
             "telephone":"{{ coach.coach_phone }}",
+            {% endif %}
             "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
             {% if coach.experts_from_clinic.all %}
             "memberOf":

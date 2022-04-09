@@ -26,6 +26,9 @@ class CoachDetailView(DetailView):
         jobs = TypeJobs.objects.filter(coaches_relationship__coach_user=coach.coach_user)
         context['jobs'] = jobs
 
+        if jobs.filter(type_of_job="Gynecologist"):
+            context['gynecologist'] = True
+
         snippets = Snippet.objects.filter(owner=coach, status='is published')
         context['snippets'] = snippets
 

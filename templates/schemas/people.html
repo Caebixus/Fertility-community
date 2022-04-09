@@ -1,0 +1,83 @@
+{% if "Gynecologist" in jobs %}
+    <script type='application/ld+json'>
+        {
+            "@context": "https://schema.org",
+            "@type":"Physician",
+            "name":"{{ coach.coach_full_name }}",
+            "medicalSpecialty":"Gynecologic",
+            "image":"{{ coach.coach_profile_photo.url }}",
+            "description":"{{ coach.coach_bio|safe }}",
+            "email": "{{ coach.coach_contact_email }}",
+            "telephone":"{{ coach.coach_phone }}",
+            "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
+            {% if coach.experts_from_clinic.all %}
+            "member":
+                [
+                    {% for clinic in coach.experts_from_clinic.all %}
+                    {
+                        "@type":"Organization",
+                        "name":"{{ clinic.clinicName }}",
+                        "url":"{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}"
+                    }{% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %}
+                ],
+            {% endif %}
+            {% if languages %}
+            "knowsLanguage":
+                [
+                    {% for language in languages %}
+                    {
+                        "@type":"language",
+                        "name":"{{ language }}"
+                    }{% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %}
+                ]
+            {% endif %}
+        }
+    </script>
+{% else %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "image":"{{ coach.coach_profile_photo.url }}",
+            {% if coach.experts_from_clinic.all %}
+            "jobTitle":
+                    {% for job in jobs %}
+                        {% if forloop.first %}
+                        {
+                            "@type": "DefinedTerm",
+                            "name": "{{job}}"
+                        }{% endif %}{% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %},
+            {% endif %}
+            "name":"{{ coach.coach_full_name }}",
+            "email": "{{ coach.coach_contact_email }}",
+            "telephone":"{{ coach.coach_phone }}",
+            "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
+            {% if coach.experts_from_clinic.all %}
+            "member":
+                [
+                    {% for clinic in coach.experts_from_clinic.all %}
+                    {
+                        "@type":"Organization",
+                        "name":"{{ clinic.clinicName }}",
+                        "url":"{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}"
+                    }{% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %}
+                ],
+            {% endif %}
+            {% if languages %}
+            "knowsLanguage":
+                [
+                    {% for language in languages %}
+                    {
+                        "@type":"language",
+                        "name":"{{ language }}"
+                    }{% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %}
+                ]
+            {% endif %}
+        }
+    </script>
+{% endif %}

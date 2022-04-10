@@ -1,0 +1,29 @@
+{% load static %}
+{% if coach.coach_education %}
+<div class="container py-5">
+    <h5 class="card-title">Education</h5>
+    <hr>
+    <p class="card-text">{{ coach.coach_education|safe }}</p>
+</div>
+{% endif %}
+{% if coach.coach_specialization %}
+<div class="container py-5">
+    <h5 class="card-title">Specialization</h5>
+    <hr>
+    <p class="card-text">{{ coach.coach_specialization|safe }}</p>
+</div>
+{% endif %}
+{% if coach.coach_certification %}
+<div class="container py-5">
+    <h5 class="card-title">Certification</h5>
+    <hr>
+    <p class="card-text">{{ coach.coach_certification|safe }}</p>
+</div>
+{% endif %}
+{% if coach.coach_other %}
+<div class="container py-5">
+    <h5 class="card-title">Other</h5>
+    <hr>
+    <p class="card-text">{{ coach.coach_other|safe }}</p>
+</div>
+{% endif %}

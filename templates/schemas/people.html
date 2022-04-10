@@ -16,6 +16,31 @@
             "telephone":"{{ coach.coach_phone }}",
             {% endif %}
             "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
+            "sameAs":
+                [
+                    {% if coach.coach_social_instagram %}
+                    "{{ coach.coach_social_instagram }}",
+                    {% endif %}
+                    {% if coach.coach_social_facebook %}
+                    "{{ coach.coach_social_facebook }}",
+                    {% endif %}
+                    {% if coach.coach_social_linkedin %}
+                    "{{ coach.coach_social_linkedin }}",
+                    {% endif %}
+                    {% if coach.coach_social_pinterest %}
+                    "{{ coach.coach_social_pinterest }}",
+                    {% endif %}
+                    {% if coach.coach_social_twitter %}
+                    "{{ coach.coach_social_twitter }}",
+                    {% endif %}
+                    {% if coach.coach_social_youtube %}
+                    "{{ coach.coach_social_youtube }}",
+                    {% endif %}
+                    {% if coach.coach_social_website %}
+                    "{{ coach.coach_social_website }}",
+                    {% endif %}
+                    ""
+                  ],
             {% if coach.experts_from_clinic.all %}
             "member":
                 [
@@ -67,8 +92,6 @@
             "telephone":"{{ coach.coach_phone }}",
             {% endif %}
             "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
-
-
             "sameAs":
                 [
                     {% if coach.coach_social_instagram %}
@@ -77,10 +100,23 @@
                     {% if coach.coach_social_facebook %}
                     "{{ coach.coach_social_facebook }}",
                     {% endif %}
+                    {% if coach.coach_social_linkedin %}
+                    "{{ coach.coach_social_linkedin }}",
+                    {% endif %}
+                    {% if coach.coach_social_pinterest %}
+                    "{{ coach.coach_social_pinterest }}",
+                    {% endif %}
+                    {% if coach.coach_social_twitter %}
+                    "{{ coach.coach_social_twitter }}",
+                    {% endif %}
+                    {% if coach.coach_social_youtube %}
+                    "{{ coach.coach_social_youtube }}",
+                    {% endif %}
+                    {% if coach.coach_social_website %}
+                    "{{ coach.coach_social_website }}",
+                    {% endif %}
                     ""
                   ],
-
-
             {% if coach.experts_from_clinic.all %}
             "memberOf":
                 [

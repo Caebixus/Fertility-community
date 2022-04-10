@@ -69,15 +69,16 @@
             "url":"{% url 'coach:coach-detail' coach.pk coach.coach_username %}",
 
 
-            "sameAs": [
-                {% if coach.coach_social_instagram %}
-                "{{ coach.coach_social_instagram }}",
-                {% endif %}
-                {% if coach.coach_social_facebook %}
-                "{{ coach.coach_social_instagram }}",
-                {% endif %}
-                "",
-              ],
+            "sameAs":
+                [
+                    {% if coach.coach_social_instagram %}
+                    "{{ coach.coach_social_instagram }}",
+                    {% endif %}
+                    {% if coach.coach_social_facebook %}
+                    "{{ coach.coach_social_instagram }}",
+                    {% endif %}
+                    ""
+                  ],
 
 
             {% if coach.experts_from_clinic.all %}

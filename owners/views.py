@@ -95,10 +95,10 @@ def login(request):
                     auth.login(request, user)
                     return redirect('notActiveUser')
             except ObjectDoesNotExist:
-                auth.login(request, user)
-                return redirect('notActiveUser')
+                messages.error(request, 'User is not authenticated. Please contact us via contact form.')
+                return redirect('login')
         else:
-            messages.error(request, '- Invalid credentials')
+            messages.error(request, 'Invalid credentials')
             return redirect('login')
     else:
         return render(request, 'owners/signin.html')

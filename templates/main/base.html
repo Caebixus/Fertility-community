@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  {% include 'main/base_cookies_inline_css.html' %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Favicons -->
@@ -48,7 +49,6 @@
   <link rel="preload" href="{% static 'fontAwesome/webfonts/fa-brands-400.woff2' %}" as="font" crossorigin>
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/cookies.css' %}">
 
   <title>{% block title %}{% endblock %}</title>
   <meta name="description" content="{% block description %}{% endblock %}">

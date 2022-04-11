@@ -267,3 +267,68 @@ def bestivfclinicsinslovakia(request):
         }
 
         return render(request, 'blog/best-article/countries/slovakia/best-clinic-country-SK.html', context)
+
+
+def bestivfclinicsinportugal(request):
+    pkid = 5
+
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:5]
+
+    clinics_location_count = clinics.filter(clinicState='Portugal').exclude(is_published=False)
+    clinics_location_count = clinics_location_count.count()
+
+    best_clinics_count = best_clinics.count()
+    best_clinics_blogpost = get_object_or_404(BestClinicArticleCountry, pk=pkid)
+    author = best_clinics_blogpost.author
+
+    snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+    count_snippets = snippets.count()
+
+    reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
+    coach_premium = Coaches.objects.filter(coach_is_premium=True)
+
+    if count_snippets == 1:
+        snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+            'one_snippet': 'one_snippet',
+        }
+
+        return render(request, 'blog/best-article/countries/portugal/best-clinic-country-PT.html', context)
+    elif count_snippets > 1:
+        snippets = SnippetCountry.objects.filter(blog=pkid, status='is published', owner__coach_is_premium=True,
+                                                 owner__coach_is_published=True)
+
+        context = {
+            'best_clinics': best_clinics,
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+            'snippets': snippets,
+        }
+
+        return render(request, 'blog/best-article/countries/portugal/best-clinic-country-PT.html', context)
+    else:
+        context = {
+            'best_clinics': best_clinics,
+            'reviewed_by': reviewed_by,
+            'coach_premium': coach_premium,
+            'blog': best_clinics_blogpost,
+            'author': author,
+            'best_clinics_count': best_clinics_count,
+            'clinics_location_count': clinics_location_count,
+        }
+
+        return render(request, 'blog/best-article/countries/portugal/best-clinic-country-PT.html', context)

@@ -40,6 +40,7 @@ urlpatterns = [
     path('blog/best-ivf-clinics-spain', views_best_ivf_clinics_countries.bestivfclinicsinspain, name='bestivfclinicsinspain'),
     path('blog/best-ivf-clinics-greece', views_best_ivf_clinics_countries.bestivfclinicsingreece, name='bestivfclinicsingreece'),
     path('blog/best-ivf-clinics-slovakia', views_best_ivf_clinics_countries.bestivfclinicsinslovakia, name='bestivfclinicsinslovakia'),
+    path('blog/best-ivf-clinics-portugal', views_best_ivf_clinics_countries.bestivfclinicsinportugal, name='bestivfclinicsinportugal'),
 
     #Best Clinics In Cities
     path('blog/best-ivf-clinics-prague', views_best_ivf_clinics_cities.bestivfclinicsinprague, name='bestivfclinicsinprague'),

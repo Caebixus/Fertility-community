@@ -1,0 +1,199 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}ivf in portugal, ivf portugal{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background background-color-gradient">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% include 'blog/blog_header_no_currency.html' %}
+  <hr>
+  <br>
+  <br>
+  <p>Finding and deciding on an IVF clinic abroad is almost as complex as the journey itself, knowing that the decision can make or break your dreams.</p>
+  <br>
+  <p>Several locations are known to be the best for IVF treatment. Countries like Greece, the Czech Republic, Spain, and a few others have some of the best IVF clinics in the world. While Portugal used to be at the bottom of the list of IVF locations, it has since changed the narrative, becoming the country with one of the most patient-friendly IVF laws in Europe.</p>
+  <br>
+  <p>Portugal IVF clinics are the go-to clinics for non-anonymous egg/sperm/embryo donation. With the country finally climbing up the list, it is worth it to take a look at what it offers IVF patients.</p>
+  <br>
+  <br>
+  <br>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong>Why choose IVF in Portugal?</strong></h2>
+    <br>
+    <p>Asides from its beauty, all-year sunshine, and fantastic tourist attractions, Portugal now has one of the most liberal IVF laws in Europe. From non-anonymous egg/sperm/embryo donation to flexible age limits, availability of donors, high-quality facilities, and refreshing hospitality.</p>
+    <br>
+    <p>IVF in Portugal is not only patient-friendly, but it is also reasonably priced and fully transparent.</p>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="{% url 'fertilityClinicPortugal' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How many fertility clinics are there in Portugal?</button>
+      </a>
+    </div>
+    <br>
+    <br>
+    <p>Those who visit Portugal for IVF treatment get publicly funded IVF/ICSI cycles for the first three cycles. This option is available to both public and private IVF clinics. Almost all IVF methods are practiced in Portugal, which gives you a wide range of treatment options.</p>
+    <br>
+    <p>In addition, most IVF clinics in Portugal have very advanced centers with experienced staff, impressive success rates, and high-quality patient care.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  {% include 'blog/snippet_carousel.html' %}
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong>What IVF clinics are there in Portugal?</strong></h2>
+    <br>
+    <p>The majority of the public and private IVF clinics in Portugal are located in Porto, Lisbon, and Coimbra. Some of the best IVF clinics in Portugal are Ferticentro, Avaclinic, and Clinimer.</p>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="{% url 'bestivfclinicsinportugal' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">What are the {{ best_clinics_count }} best IVF clinics in Portugal?</button>
+      </a>
+    </div>
+    <br>
+    <br>
+    <p>Others include IVI, IERA, Cemeare, Ferticare, CEIE, and more. These are only a few of the many promising IVF clinics in Portugal. Along with other clinics in the country, these three clinics prioritize patients by offering personalized and unique treatment plans and assigning medical teams to each case.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Egg donation in Portugal</h2>
+    <br>
+    <p>As usual, egg donors are meticulously selected, examined, and interviewed. They are checked for hereditary/genetic diseases or infections during the screening and are typically between the ages of 18-35. They are required to undergo a range of blood tests and gynecological and psychological evaluations. Their general information, identity, and physical characteristics are also noted.</p>
+    <br>
+    <p>It is also important to note that egg donors can only donate up to 4 times in a lifetime, while sperm donors can donate up to 8 times. Furthermore, egg donors are compensated with a fixed price of 878 euros.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Portugal IVF costs</h2>
+    <br>
+    <p>Portugal's IVF costs can be placed in the mid-range, which is relatively affordable for most. When choosing a clinic, it is important to confirm the prices for additional services and the costs of the treatments.</p>
+    <br>
+    <p>Other services like ICSI, donor fee/medication/screening, frozen embryo transfer, egg retrieval, IVF lab techniques, storage/transfer/vitrification of embryos, and sperm collection/preparation are usually communicated to patients by the clinics. However, not all clinics will be as transparent.</p>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="{% url 'locationsPTRegions' %}">
+        <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">How much does IVF treatment cost in Portugal?</button>
+      </a>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Portugal IVF success rates</h2>
+    <br>
+    <p>The success rates for ICSI, IVF with own eggs, freshly donated oocytes, thawed oocytes, and frozen oocytes are 23.0%, 29.4%, 55.5%, 42.4%, and 45.9%, respectively. These figures were recorded according to the ESHRE report for 2016, published in 2020.</p>
+    <br>
+    <p>While general success rates can entice one seeking IVF treatment, the final decision should not be based on the recorded success rates alone. Every patient is different. Their medical history, diagnosis, number of tests, failed cycles, and procedures contribute to their individual success rate, which is why it is highly recommended to call the clinic before scheduling an appointment and have them suggest a personal success rate.</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Fertility treatment law limitations in Portugal:</h2>
+    <br>
+    <ul>
+      <li>In Portugal, commercial surrogacy is banned as well as donor anonymity.</li>
+      <li>The age limit for IVF patients is 18-50 for women and 18-60 for men. The age limit for egg donors is 18-35.</li>
+      <li>Frozen embryos can only be stored for three years.</li>
+      <li>Donor egg/sperm /embryo is only permitted as a last option when a woman cannot get pregnant by any other means.</li>
+      <li>PGD can be performed only for serious illnesses.</li>
+      <li>Sex selection is allowed for only medical reasons.</li>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature">
+    <h2 style="font-size: 160%">Conclusion</h2>
+    <br>
+    <p>Unlike old times, Portugal has become an excellent location for IVF treatment. Whether it's the tourist attractions, the people's hospitality, high-quality facilities, experienced doctors/physicians, donor information, success rates, modern clinics, or liberal IVF laws, there are now several reasons to visit Portugal for IVF treatment.</p>
+    <br>
+    <p>Some clinics even help with travel and accommodation plans, offering arranged discounts for transport and hotels.</p>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div class="feature" id="bod8">
+    <h2 style="font-size: 160%"><strong>Continue reading:</strong></h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for otherBlog in otherBlogs %}
+        {% if otherBlog %}
+
+          {% if otherBlog.author != None %}
+          <div class="col-sm" style="padding-top: 2rem;">
+            <div class="card shadow-sm" style="border-radius: 25px;">
+              <a href="{{ otherBlog.blog_url }}">
+                {% if otherBlog.pic_blog %}<img src="{{ otherBlog.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                {% else %}
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <a href="{{ otherBlog.blog_url }}">
+                  <h3 class="card-title">{{ otherBlog.title }}</h3>
+                </a>
+                <p class="card-text" style="font-size: 17px">{{ otherBlog.description|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ otherBlog.blog_url }}">
+                      <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                    </a>
+                  </div>
+                  <small class="text-muted">{{ otherBlog.minute_read }} mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

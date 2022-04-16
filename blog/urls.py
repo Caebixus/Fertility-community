@@ -15,6 +15,7 @@ urlpatterns = [
     path('blog/ivf-in-czech-republic', views.ivf_in_czech_republic, name='ivf_in_czech_republic'),
     path('blog/ivf-in-slovakia', views.ivf_in_slovakia, name='ivf_in_slovakia'),
     path('blog/ivf-in-prague', views.ivf_in_prague, name='ivf_in_prague'),
+    path('blog/ivf-in-portugal', views.ivf_in_portugal, name='ivf_in_portugal'),
 
     #Packages
     path('blog/ivf-abroad-packages', views.ivfabroadpackages, name='ivfabroadpackages'),

@@ -305,7 +305,7 @@ def locationsUSRegions(request):
     queryset_list_nebraska_icsi_val = nebraska_average_costs_model.icsi_val
     queryset_list_nebraska_iui_val = nebraska_average_costs_model.iui_val
 
-    queryset_list_newhampshire = queryset_list_us.filter(clinicRegion__iexact='NewHampshire')
+    queryset_list_newhampshire = queryset_list_us.filter(clinicRegion__iexact='New Hampshire')
     my_total_clinic_count_newhampshire = queryset_list_newhampshire.count()
     newhampshire_average_costs_model = NewHampshire.objects.get(pk=1)
     queryset_list_newhampshire_ivf_val = newhampshire_average_costs_model.standard_ivf_val
@@ -315,7 +315,7 @@ def locationsUSRegions(request):
     queryset_list_newhampshire_icsi_val = newhampshire_average_costs_model.icsi_val
     queryset_list_newhampshire_iui_val = newhampshire_average_costs_model.iui_val
 
-    queryset_list_newjersey = queryset_list_us.filter(clinicRegion__iexact='NewJersey')
+    queryset_list_newjersey = queryset_list_us.filter(clinicRegion__iexact='New Jersey')
     my_total_clinic_count_newjersey = queryset_list_newjersey.count()
     newjersey_average_costs_model = NewJersey.objects.get(pk=1)
     queryset_list_newjersey_ivf_val = newjersey_average_costs_model.standard_ivf_val
@@ -325,7 +325,7 @@ def locationsUSRegions(request):
     queryset_list_newjersey_icsi_val = newjersey_average_costs_model.icsi_val
     queryset_list_newjersey_iui_val = newjersey_average_costs_model.iui_val
 
-    queryset_list_newmexico = queryset_list_us.filter(clinicRegion__iexact='NewMexico')
+    queryset_list_newmexico = queryset_list_us.filter(clinicRegion__iexact='New Mexico')
     my_total_clinic_count_newmexico = queryset_list_newmexico.count()
     newmexico_average_costs_model = NewMexico.objects.get(pk=1)
     queryset_list_newmexico_ivf_val = newmexico_average_costs_model.standard_ivf_val
@@ -335,7 +335,7 @@ def locationsUSRegions(request):
     queryset_list_newmexico_icsi_val = newmexico_average_costs_model.icsi_val
     queryset_list_newmexico_iui_val = newmexico_average_costs_model.iui_val
 
-    queryset_list_newyork = queryset_list_us.filter(clinicRegion__iexact='NewYork')
+    queryset_list_newyork = queryset_list_us.filter(clinicRegion__iexact='New York')
     my_total_clinic_count_newyork = queryset_list_newyork.count()
     newyork_average_costs_model = NewYork.objects.get(pk=1)
     queryset_list_newyork_ivf_val = newyork_average_costs_model.standard_ivf_val
@@ -345,7 +345,7 @@ def locationsUSRegions(request):
     queryset_list_newyork_icsi_val = newyork_average_costs_model.icsi_val
     queryset_list_newyork_iui_val = newyork_average_costs_model.iui_val
 
-    queryset_list_northcarolina = queryset_list_us.filter(clinicRegion__iexact='NorthCarolina')
+    queryset_list_northcarolina = queryset_list_us.filter(clinicRegion__iexact='North Carolina')
     my_total_clinic_count_northcarolina = queryset_list_northcarolina.count()
     northcarolina_average_costs_model = NorthCarolina.objects.get(pk=1)
     queryset_list_northcarolina_ivf_val = northcarolina_average_costs_model.standard_ivf_val
@@ -355,7 +355,7 @@ def locationsUSRegions(request):
     queryset_list_northcarolina_icsi_val = northcarolina_average_costs_model.icsi_val
     queryset_list_northcarolina_iui_val = northcarolina_average_costs_model.iui_val
 
-    queryset_list_northdakota = queryset_list_us.filter(clinicRegion__iexact='NorthDakota')
+    queryset_list_northdakota = queryset_list_us.filter(clinicRegion__iexact='North Dakota')
     my_total_clinic_count_northdakota = queryset_list_northdakota.count()
     northdakota_average_costs_model = NorthDakota.objects.get(pk=1)
     queryset_list_northdakota_ivf_val = northdakota_average_costs_model.standard_ivf_val
@@ -415,7 +415,7 @@ def locationsUSRegions(request):
     queryset_list_pennsylvania_icsi_val = pennsylvania_average_costs_model.icsi_val
     queryset_list_pennsylvania_iui_val = pennsylvania_average_costs_model.iui_val
 
-    queryset_list_puertorico = queryset_list_us.filter(clinicRegion__iexact='PuertoRico')
+    queryset_list_puertorico = queryset_list_us.filter(clinicRegion__iexact='Puerto Rico')
     my_total_clinic_count_puertorico = queryset_list_puertorico.count()
     puertorico_average_costs_model = PuertoRico.objects.get(pk=1)
     queryset_list_puertorico_ivf_val = puertorico_average_costs_model.standard_ivf_val
@@ -425,7 +425,7 @@ def locationsUSRegions(request):
     queryset_list_puertorico_icsi_val = puertorico_average_costs_model.icsi_val
     queryset_list_puertorico_iui_val = puertorico_average_costs_model.iui_val
 
-    queryset_list_rhodeisland = queryset_list_us.filter(clinicRegion__iexact='RhodeIsland')
+    queryset_list_rhodeisland = queryset_list_us.filter(clinicRegion__iexact='Rhode Island')
     my_total_clinic_count_rhodeisland = queryset_list_rhodeisland.count()
     rhodeisland_average_costs_model = RhodeIsland.objects.get(pk=1)
     queryset_list_rhodeisland_ivf_val = rhodeisland_average_costs_model.standard_ivf_val
@@ -435,7 +435,7 @@ def locationsUSRegions(request):
     queryset_list_rhodeisland_icsi_val = rhodeisland_average_costs_model.icsi_val
     queryset_list_rhodeisland_iui_val = rhodeisland_average_costs_model.iui_val
 
-    queryset_list_southcarolina = queryset_list_us.filter(clinicRegion__iexact='SouthCarolina')
+    queryset_list_southcarolina = queryset_list_us.filter(clinicRegion__iexact='South Carolina')
     my_total_clinic_count_southcarolina = queryset_list_southcarolina.count()
     southcarolina_average_costs_model = SouthCarolina.objects.get(pk=1)
     queryset_list_southcarolina_ivf_val = southcarolina_average_costs_model.standard_ivf_val
@@ -445,7 +445,7 @@ def locationsUSRegions(request):
     queryset_list_southcarolina_icsi_val = southcarolina_average_costs_model.icsi_val
     queryset_list_southcarolina_iui_val = southcarolina_average_costs_model.iui_val
 
-    queryset_list_southdakota = queryset_list_us.filter(clinicRegion__iexact='SouthDakota')
+    queryset_list_southdakota = queryset_list_us.filter(clinicRegion__iexact='South Dakota')
     my_total_clinic_count_southdakota = queryset_list_southdakota.count()
     southdakota_average_costs_model = SouthDakota.objects.get(pk=1)
     queryset_list_southdakota_ivf_val = southdakota_average_costs_model.standard_ivf_val
@@ -515,7 +515,7 @@ def locationsUSRegions(request):
     queryset_list_washington_icsi_val = washington_average_costs_model.icsi_val
     queryset_list_washington_iui_val = washington_average_costs_model.iui_val
 
-    queryset_list_westvirginia = queryset_list_us.filter(clinicRegion__iexact='WestVirginia')
+    queryset_list_westvirginia = queryset_list_us.filter(clinicRegion__iexact='West Virginia')
     my_total_clinic_count_westvirginia = queryset_list_westvirginia.count()
     westvirginia_average_costs_model = WestVirginia.objects.get(pk=1)
     queryset_list_westvirginia_ivf_val = westvirginia_average_costs_model.standard_ivf_val
@@ -545,7 +545,7 @@ def locationsUSRegions(request):
     queryset_list_wyoming_icsi_val = wyoming_average_costs_model.icsi_val
     queryset_list_wyoming_iui_val = wyoming_average_costs_model.iui_val
 
-    queryset_list_districtofcolumbia = queryset_list_us.filter(clinicRegion__iexact='DistrictOfColumbia')
+    queryset_list_districtofcolumbia = queryset_list_us.filter(clinicRegion__iexact='District Of Columbia')
     my_total_clinic_count_districtofcolumbia = queryset_list_districtofcolumbia.count()
     districtofcolumbia_average_costs_model = DistrictOfColumbia.objects.get(pk=1)
     queryset_list_districtofcolumbia_ivf_val = districtofcolumbia_average_costs_model.standard_ivf_val

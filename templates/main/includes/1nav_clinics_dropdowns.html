@@ -1,0 +1,36 @@
+<!--https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation-->
+
+<style>
+    .dropdown-divider-country {
+        height: 0;
+        margin: 0.5rem 0;
+        overflow: hidden;
+        border-top: 3px solid #e9ecef;
+    }
+</style>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black">
+      <strong>IVF clinics</strong>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" style="text-decoration: none; color: black">Europe</a>
+        <ul class="dropdown-menu">
+          {% include 'main/includes/europe_part.html' %}
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" style="text-decoration: none; color: black">North America</a>
+        <ul class="dropdown-menu">
+          {% include 'main/includes/north_america_part.html' %}
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" style="text-decoration: none; color: black">Asia</a>
+        <ul class="dropdown-menu">
+          {% include 'main/includes/asia_part.html' %}
+        </ul>
+      </li>
+    </ul>
+  </li>

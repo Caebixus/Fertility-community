@@ -23,7 +23,7 @@ class Package(models.Model):
     package_end_list_date = models.DateTimeField(blank=True, null=True)
 
     package_url = models.URLField(null=True, blank=True, max_length=500)
-    package_phone = models.CharField(max_length=15, null=True, blank=True)
+    package_phone = models.CharField(max_length=25, null=True, blank=True)
 
     is_package_active = models.BooleanField(default=False, null=True, blank=True)
 

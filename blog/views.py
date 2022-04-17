@@ -1033,8 +1033,8 @@ def ivf_in_portugal(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics = clinics.filter(best_article_city_blogpost_obj=pkid).exclude(best_article_city_actual_text__isnull=True).exclude(best_article_city_actual_text__exact='')
-    best_clinics = best_clinics.filter(best_article_city_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
     best_clinics_count = best_clinics.count()
 
     snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)

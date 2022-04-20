@@ -31,6 +31,10 @@ function cookie_variable_value_generator() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
+$('#reject_cookies').click(function() {
+    location.reload();
+});
+
 $(document).ready(function() {
 	//Checks if the cookie already exists
 	if (!getCookie('cookie_variable')) {

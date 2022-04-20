@@ -28,6 +28,7 @@ class Blog(models.Model):
         ('IVF Packages', 'IVF Packages'),
         ('IVF Costs', 'IVF Costs'),
         ('Educational', 'Educational'),
+        ('Informational&Supportive', 'Informational&Supportive'),
         ('Research', 'Research'),
         )
     tag = models.CharField(max_length=40, choices=TAG_CHOICES, null=True)

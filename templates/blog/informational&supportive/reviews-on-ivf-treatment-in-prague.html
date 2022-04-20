@@ -1,0 +1,106 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load currencytag %}
+{% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
+{% block description %}{{ blog.description }}{% endblock %}
+{% block canonical_url %}{{ blog.blog_url }}{% endblock %}
+{% block meta_keywords %}prague ivf reviews{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ author.author_name }} {{ author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+
+{% block content %}
+
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<div class="background background-color-gradient">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">{{ blog.title }} | {{blog.year}}</h1>
+    <br>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+  {% include 'blog/blog_header_no_currency.html' %}
+  <hr>
+  <img src="{{ blog.pic_blog.url }}" alt="{{ blog.pic_blog.name }}" width="100%">
+  <br>
+  <br>
+  <div class="feature">
+    <p>It is true some couples have a hard and challenging time trying to conceive. They wait expectantly to see if they are successful “this time.” The ache in their hearts carries over from month to month as they hope to make their dream of being parents a reality. Often, however, they have to turn to alternative methods.</p>
+    <br>
+    <p>One city that is making a name for itself when it comes to IVF (in vitro fertilization) is Prague. This city is the capital of the Czech Republic. Known for its baroque buildings, gothic churches, castles, and very ornate and diverse architecture, Prague is a beautiful city anyone would want to visit, and it is becoming even more attractive because of its <strong>IVF clinics</strong>.</p>
+    <br>
+    <p>Rather than talk specifically about <a href="{% url 'bestivfclinicsinprague' %}"><strong>the best fertility clinics in Prague</strong></a>, this article will focus on why people choose to come to Prague in search of making their dreams of starting a family come true.</p>
+    <br>
+    <p>Bear in mind, many of the singles or couples who come to Prague for IVF procedures have already been trying to conceive on their own or have already had some experience with other clinics without success. They spend a lot of time researching and evaluating clinics because they are placing all of their hope, and oftentimes all of their money, in the clinic, so they want the clinic that is going to give them the best chance at a pregnancy, and this requires a top-level clinic. </p>
+  </div>
+
+  {% include 'blog/snippet_carousel.html' %}
+
+  <div class="feature">
+    <h2 style="font-size: 160%"><strong><p>After perusing through reviews about IVF treatment at various clinics in Prague, these main points stand out:</p></strong></h2>
+    <ul>
+      <li>
+        <p style="font-size: 95%">The clinics here that work with egg donation and IVF are <strong>very professional</strong>. Most people reported receiving daily updates regarding how their embryos were developing. Couples appreciated the transparency of the clinics and expressed gratitude that their questions were answered clearly.</p>
+        <p style="font-size: 95%">A patient is assigned a coordinator that stays with her through the entire process (so you don’t have to keep explaining your situation to several people) and explains the details from the very beginning.</p>
+        <p style="font-size: 95%">Coordinators also organize everything and help patients maneuver hurdles during the process. The doctors and staff are professional, competent, and reassuring.</p>
+      </li>
+      <hr>
+      <li>
+        <p style="font-size: 95%"><strong>Patients feel at home</strong>. Some of the clinics are not big, so they feel comfortable and cozy, not sterile and stuffy. And since the coordinator stays with the patient through the entire process, and the patient communicates frequently with both the coordinator and the doctor, a closer personal relationship develops, and this brings much comfort also.</p>
+      </li>
+      <hr>
+      <li>
+        <p style="font-size: 95%"><strong>Patients are treated like humans</strong>. One patient referenced how Americans view privacy and nakedness and acknowledged the cultural differences between America and Czech Republic but stated she never felt disrespected or uncomfortable.</p>
+        <p style="font-size: 95%">Another patient stated she felt people cared about her situation.  “We, as many others, had been down the disappointed road of despair after almost five years and three cycles of negative results when attempting to expand our family. From the moment we began conversing with the clinic, we grew to trust them and became excited at the possibilities again.” </p>
+      </li>
+      <hr>
+      <li>
+        <p style="font-size: 95%"><strong>Communication</strong>. Patients felt the communication with the clinics was exceptional, stating they were pleasantly surprised at how well the staff communicated with them and their home clinics. They raved about good organization and information skills.</p>
+        <p style="font-size: 95%">The clinics have staff that are multilingual, and many of their patients come from all over the world. What also stands out among the reviews is that the clinics’ staff understand what is at stake for these patients, and they offer hope to them through this journey.</p>
+        <p style="font-size: 95%">One clinic states, “We consider patient satisfaction our number one priority and that is why we want to make their journey towards a baby as easy and pleasant as possible.”</p>
+      </li>
+      <hr>
+      <li>
+        <p style="font-size: 95%"><strong>Affordability</strong>. One couple stated that including the cost to travel to Prague and their lodging costs, they still spent the same it would have cost them for just one IVF treatment in America. Many patients stated the clinics care more about patient care and helping couples get pregnant than they do about profit.</p>
+      </li>
+      <hr>
+      <li>
+        <p style="font-size: 95%">Other points that were repeated throughout numerous reviews were <strong>how experienced the doctors and specialists are</strong> and how convenient and easy the trip to Prague was to arrange. </p>
+        <p style="font-size: 95%">One patient raved about the warmth expressed toward her and the knowledge of the staff and how it gave her confidence throughout the journey. She felt her needs were met and that the entire team left her feeling that all of the Czech Republic is beautiful, organized, and skilled. </p>
+      </li>
+    </ul>
+  </div>
+  <div class="feature">
+    <h2>Independent review sources:</h2>
+      <ul>
+        <li><a href="https://www.google.co.uk/search?q=Prague+fertility+centre&source=hp&ei=mKxfYorTMMqEhbIPkOuUKA&iflsig=AHkkrS4AAAAAYl-6qM3GpakCmTjd3p0IB7WVYbSYmU1X&ved=0ahUKEwiK__n6haL3AhVKQkEAHZA1BQUQ4dUDCAg&uact=5&oq=Prague+fertility+centre&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoOCC4QjwEQ6gIQjAMQ5QI6DggAEI8BEOoCEIwDEOUCOgsILhCABBCxAxCDAToLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBEKMCOggILhCABBCxAzoOCC4QgAQQsQMQxwEQowI6DggAEIAEELEDEIMBEMkDOgUIABCSAzoRCC4QgAQQsQMQgwEQxwEQ0QM6CAgAEIAEELEDOhEILhCABBCxAxCDARDHARCvAToFCC4QgAQ6CwguEIAEEMcBEK8BOggIABCABBDJAzoHCAAQgAQQClD0CljTJ2CNKWgCcAB4AYABoAKIAfgQkgEGMjAuMy4xmAEAoAEBsAEK&sclient=gws-wiz#lrd=0x470becb424f6ca09:0xa9981eedf1ada7b9,1,,,">Google reviews – Prague fertility center</a></li>
+        <li><a href="https://www.google.co.uk/search?q=IVF+cube&ei=oKxfYrmfNMf5gQbM74foDg&ved=0ahUKEwi57-X-haL3AhXHfMAKHcz3Ae0Q4dUDCA0&uact=5&oq=IVF+cube&gs_lcp=Cgdnd3Mtd2l6EAMyCgguEMcBEK8BEEMyBQgAEJECMgUIABCRAjIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBggAEBYQHjIGCAAQFhAeMgYIABAWEB46BAgAEEM6CwgAEIAEELEDEIMBOg4ILhCABBCxAxDHARCjAjoUCC4QgAQQsQMQgwEQxwEQ0QMQ1AI6CAgAEIAEELEDOgcIABCxAxBDOgcIABDJAxBDOgUIABCSAzoQCC4QsQMQgwEQxwEQrwEQQzoHCAAQgAQQCkoECEEYAEoECEYYAFDdBViTDGDoDGgBcAF4AIABqAGIAYgGkgEDMi41mAEAoAEBwAEB&sclient=gws-wiz#lrd=0x470bbfdbddb2b15f:0x998a9033cf5f18ff,1,,,">Google reviews – IVF cube</a></li>
+        <li><a href="https://www.google.co.uk/search?q=gynem+fertility+clinic+prague&ei=sqxfYruBOtK4gQbwhZFI&gs_ssp=eJwFwUsOQDAQANDYcgZJN9adUb_2CC4hpkZNQiNSwu29lxc6aHwm2DZEyFwFb9MDMaEBa2oL2Dp4mahreVhqQLsab8cyfJEPtfKVZJf0Kb9LFK_Oaw43_8p5GXE&oq=Gynem+fertility&gs_lcp=Cgdnd3Mtd2l6EAMYADILCC4QxwEQrwEQkQIyBQgAEIAEMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeOgoILhDHARCvARBDOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToRCC4QgAQQsQMQgwEQxwEQ0QM6BQgAEJECOgcIABCxAxBDOgQIABBDOg4ILhCABBCxAxDHARDRAzoICAAQsQMQgwE6CAgAEIAEELEDOhEILhCABBCxAxDHARCvARDUAjoNCAAQsQMQgwEQyQMQQzoFCAAQkgM6BwgAEMkDEEM6BwguEIAEEAo6BwgAEIAEEAo6CwguEIAEEMcBEK8BSgQIQRgASgQIRhgAULQGWMATYIQfaAJwAXgAgAHzAYgBpAySAQYxMS4zLjGYAQCgAQHAAQE&sclient=gws-wiz#lrd=0x470beb1309329015:0xebb65e8d2019f3c9,1,,,">Google reviews - Gynem</a></li>
+        <li><a href="https://www.reddit.com/r/infertility/comments/8t1klc/ivf_czech_republic_review_prague_fertility_centre/">reddit.com/r/infertility/comments/8t1klc/ivf_czech_republic_review_prague_fertility_centre/</a></li>
+        <li><a href="https://www.trustpilot.com/review/www.pragamedica.com">trustpilot.com/review/www.pragamedica.com</a></li>
+      </ul>
+  </div>
+  <div class="feature">
+    <p>It is evident from reviews that the IVFs clinics in Prague practice medicine but also practice ministering to and serving the patients who come to them for help starting a family. They have the ability to empathize with the patients who come to them, and they show genuine care and concern for each of their stories. They share in their disappointments and are overjoyed to share in their successes. </p>
+    <br>
+    <p>What is also apparent is that the doctors <strong>at most clinics have 20 years or more of experience</strong>, and some with as much as 60 years combined experience. The average success rate amongst the clinics is anywhere from 52-85%. If you are considering IVF with or without egg donation, you won’t go wrong choosing one of the many clinics in Prague.</p>
+  </div>
+  {% include 'blog/continue_reading.html' %}
+</div>
+{% endblock  %}

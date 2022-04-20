@@ -29,6 +29,9 @@ urlpatterns = [
     path('blog/ivf-with-egg-donation-process', views.whatisivfwitheggdonation, name='whatisivfwitheggdonation'),
     path('blog/ivf-and-meditation', views.ivfmeditation, name='ivfmeditation'),
 
+    #Information & support
+    path('blog/prague-ivf-reviews', views.pragueivfreviews, name='pragueivfreviews'),
+
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),
 

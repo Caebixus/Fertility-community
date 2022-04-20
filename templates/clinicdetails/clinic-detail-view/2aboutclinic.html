@@ -2,23 +2,24 @@
 <div class="background" style="background-color: #e9ecef">
   <nav aria-label="breadcrumb">
     <div class="container">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></li>
+      <div class="d-flex flex-wrap flex-row justify-content-between align-items-center align-self-center">
+
+        <a href="{% url 'index' %}" style="text-decoration: none">Home </a>|
         {% if clinic.clinicStateLink %}
-        <li class="breadcrumb-item" aria-current="page"><a href="{{clinic.clinicStateLink}}">Fertility clinics in {{clinic.clinicState}}</a></li>
+        <a href="{{clinic.clinicStateLink}}"> Clinics in {{clinic.clinicState}} </a>|
         {% else %}
         {% endif %}
 
         {% if clinic.clinicRegionLink %}
-        <li class="breadcrumb-item" aria-current="page"><a href="{{clinic.clinicRegionLink}}">{{clinic.clinicRegion}}</a></li>
+        <a href="{{clinic.clinicRegionLink}}"> Clinics in {{clinic.clinicRegion}} </a>|
         {% else %}
         {% endif %}
 
         {% if clinic.clinicCityLink %}
-        <li class="breadcrumb-item" aria-current="page"><a href="{{clinic.clinicCityLink}}">{{clinic.clinicCity}}</a></li>
+        <a href="{{clinic.clinicCityLink}}"> Clinics in {{clinic.clinicCity}}</a>
         {% else %}
         {% endif %}
-      </ol>
+      </div>
     </div>
   </nav>
 </div>

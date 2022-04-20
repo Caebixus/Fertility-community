@@ -3,7 +3,7 @@
 {% load currencytag %}
 <br>
 
-<div class="container py-3">
+<div class="container py-5">
   <h2>
     <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="The Digital Transparency Index (DTI) is published by FertilityCommunity. This index appreciates the transparency of data and content of individual IVF clinics from around the world in the clinic-client relationship. Paid membership can affect the index.">
       Digital transparency index
@@ -16,17 +16,12 @@
   </div>
 </div>
 
-<br>
-<div class="container py-3" style="text-align: center;">
-  {% if clinic.accepts_patients_from_abroad == True %}<button type="button" class="btn btn-info btn-block btn-lg">Accepts international patients</button> {% else %}{% endif %}
-</div>
-
 <div class="container py-5" style="text-align: center; z-index: -1;" id="pricing">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8">
       <h2>Primary treatments & costs (single cycle)</h2>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <select class="form-control" id="ChooseCurrency">
         <option value="" selected>Currency</option>
         <option>USD</option>
@@ -248,7 +243,7 @@
 
 <div class="container py-3" style="text-align: center; z-index: -1;" id="pricing">
   <div class="row">
-    <div class="col-8">
+    <div class="col">
       <h2>IVF with donation & costs (single cycle)</h2>
     </div>
   </div>

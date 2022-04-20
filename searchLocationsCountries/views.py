@@ -9,6 +9,7 @@ from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOIC
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
+from .functions import count_best_clinics_in_article
 
 year = 2022
 
@@ -433,6 +434,8 @@ def fertilityClinicSlovakia(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
+    best_country_article_count = count_best_clinics_in_article(basic_queryset)
+
     order_data = list(queryset_list)
 
     paginator = Paginator(order_data, 10)
@@ -443,7 +446,7 @@ def fertilityClinicSlovakia(request):
     bratislavaclinics = basic_queryset.filter(clinicCity__iexact='Bratislava')
     bratislavaclinics = bratislavaclinics.count()
 
-    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'my_total_count': my_total_count, 'bratislavaclinics': bratislavaclinics, }
+    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SK_CITIES': CATEGORY_CHOICES_SK_CITIES, 'my_total_count': my_total_count, 'bratislavaclinics': bratislavaclinics, 'best_country_article_count': best_country_article_count,}
 
     return render(request, 'locations-states/Europe/Slovakia/fertility-clinic-slovakia.html', context)
 

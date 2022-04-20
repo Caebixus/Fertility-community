@@ -281,7 +281,13 @@
     <div class="col-sm-4">
       <div class="jumbotron jumbotron-fluid" style="background-color: #dedede;">
         <div class="container">
-
+          {% if best_country_article_count %}
+          <div class="alert alert-warning" role="alert">
+            <a href="{% url 'bestivfclinicsinspain' %}">
+              <h2 style="font-size: 22px !important;"><i class="fas fa-medal"></i> Read about best {{ best_country_article_count }} IVF clinics in Slovakia</h2>
+            </a>
+          </div>
+          {% endif %}
           <h2 style="font-size: 22px !important;"><i class="fas fa-info-circle"></i> Quick info - Slovakian fertility treatment costs in {{year}}:</h2>
 
           {% include 'AllInclude/locations/quick-info.html' %}

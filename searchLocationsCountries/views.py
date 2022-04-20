@@ -155,13 +155,8 @@ def fertilityClinicSpain(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True)
+    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
     best_country_article_count = best_country_article_count.count()
-
-    pkid = 2
-    best_clinics = basic_queryset.filter(best_article_country_blogpost_obj=pkid)
-    best_clinics = best_clinics.filter(best_article_country_boolean=True)
-    best_clinics_count = best_clinics.count()
 
     order_data = list(queryset_list)
 
@@ -188,7 +183,7 @@ def fertilityClinicSpain(request):
     valenciaclinics = basic_queryset.filter(clinicRegion__iexact='Valencia').exclude(is_published=False)
     valenciaclinics = valenciaclinics.count()
 
-    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'alicanteclinics': alicanteclinics, 'barcelonaclinics': barcelonaclinics, 'madridclinics': madridclinics, 'malagaclinics': malagaclinics, 'sevilleclinics': sevilleclinics, 'valenciaclinics': valenciaclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
+    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_SP_CITIES': CATEGORY_CHOICES_SP_CITIES, 'my_total_count': my_total_count, 'alicanteclinics': alicanteclinics, 'barcelonaclinics': barcelonaclinics, 'madridclinics': madridclinics, 'malagaclinics': malagaclinics, 'sevilleclinics': sevilleclinics, 'valenciaclinics': valenciaclinics, 'best_country_article_count': best_country_article_count}
 
     return render(request, 'locations-states/Europe/Spain/fertility-clinic-spain.html', context)
 
@@ -281,13 +276,8 @@ def fertilityClinicGreece(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True)
+    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
     best_country_article_count = best_country_article_count.count()
-
-    pkid = 3
-    best_clinics = basic_queryset.filter(best_article_country_blogpost_obj=pkid)
-    best_clinics = best_clinics.filter(best_article_country_boolean=True)
-    best_clinics_count = best_clinics.count()
 
     order_data = list(queryset_list)
 
@@ -302,7 +292,7 @@ def fertilityClinicGreece(request):
     thessalonikiclinics = basic_queryset.filter(clinicCity__iexact='Thessaloniki').exclude(is_published=False)
     thessalonikiclinics = thessalonikiclinics.count()
 
-    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'my_total_count': my_total_count, 'athensclinics': athensclinics, 'thessalonikiclinics': thessalonikiclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
+    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_GR_CITIES': CATEGORY_CHOICES_GR_CITIES, 'my_total_count': my_total_count, 'athensclinics': athensclinics, 'thessalonikiclinics': thessalonikiclinics, 'best_country_article_count': best_country_article_count}
 
     return render(request, 'locations-states/Europe/Greece/fertility-clinic-greece.html', context)
 
@@ -327,13 +317,8 @@ def fertilityClinicCzech(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True)
+    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
     best_country_article_count = best_country_article_count.count()
-
-    pkid = 1
-    best_clinics = basic_queryset.filter(best_article_country_blogpost_obj=pkid)
-    best_clinics = best_clinics.filter(best_article_country_boolean=True)
-    best_clinics_count = best_clinics.count()
 
     order_data = list(queryset_list)
 
@@ -348,7 +333,7 @@ def fertilityClinicCzech(request):
     brnoclinics = basic_queryset.filter(clinicRegion__iexact='Brno').exclude(is_published=False)
     brnoclinics = brnoclinics.count()
 
-    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'my_total_count': my_total_count, 'pragueclinics': pragueclinics, 'brnoclinics': brnoclinics, 'best_clinics_count': best_clinics_count, 'best_country_article_count': best_country_article_count}
+    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_CZ_CITIES': CATEGORY_CHOICES_CZ_CITIES, 'my_total_count': my_total_count, 'pragueclinics': pragueclinics, 'brnoclinics': brnoclinics, 'best_country_article_count': best_country_article_count}
 
     return render(request, 'locations-states/Europe/CZ/fertility-clinic-czech-republic.html', context)
 

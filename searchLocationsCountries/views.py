@@ -540,6 +540,8 @@ def fertilityClinicPortugal(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
+    best_country_article_count = count_best_clinics_in_article(basic_queryset)
+
     order_data = list(queryset_list)
 
     paginator = Paginator(order_data, 10)
@@ -550,7 +552,7 @@ def fertilityClinicPortugal(request):
     lisbonclinics = basic_queryset.filter(clinicCity__iexact='Lisbon')
     lisbonclinics = lisbonclinics.count()
 
-    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_PT_CITIES': CATEGORY_CHOICES_PT_CITIES, 'my_total_count': my_total_count, 'lisbonclinics': lisbonclinics, }
+    context = {'guestblog': guestblog, 'year': year, 'all_clinic_count': all_clinic_count, 'order_data': paginationing, 'paginationing': paginationing, 'averageIVFPrice': averageIVFPrice, 'averageEggPrice': averageEggPrice, 'averageEmbryoPrice': averageEmbryoPrice, 'averageSpermPrice': averageSpermPrice, 'averageICSIPrice': averageICSIPrice,  'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA, 'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE, 'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA, 'CATEGORY_CHOICES_PT_CITIES': CATEGORY_CHOICES_PT_CITIES, 'my_total_count': my_total_count, 'lisbonclinics': lisbonclinics, 'best_country_article_count': best_country_article_count,}
 
     return render(request, 'locations-states/Europe/Portugal/fertility-clinic-portugal.html', context)
 

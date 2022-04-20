@@ -59,7 +59,7 @@
 <br>
 <hr>
 {% if clinic.best_article_country_actual_text %}
-<div class="container py-3" id="best-clinic-{{forloop.counter}}">
+<div class="container py-3" id="best-clinic-{{ clinic.pk }}">
 
   {% include 'blog/best-article/header.html' %}
 

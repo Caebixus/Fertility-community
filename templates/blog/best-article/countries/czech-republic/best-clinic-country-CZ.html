@@ -57,7 +57,7 @@
 <hr>
 {% if clinic.best_article_country_actual_text %}
 
-<div class="container py-3" id="best-clinic-{{forloop.counter}}">
+<div class="container py-3" id="best-clinic-{{ clinic.pk }}">
   <div class="header" style="padding-top:3rem; min-height:80px;">
   {% if clinic.clinic_pro_logo_pic %}
     <div id="imgInfo" class="img align-self-center align-items-center">

@@ -9,7 +9,7 @@ from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOIC
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
-from .functions import count_best_clinics_in_article
+from .functions import count_best_clinics_in_article_country
 
 year = 2022
 
@@ -156,8 +156,7 @@ def fertilityClinicSpain(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
-    best_country_article_count = best_country_article_count.count()
+    best_country_article_count = count_best_clinics_in_article_country(basic_queryset)
 
     order_data = list(queryset_list)
 
@@ -277,8 +276,7 @@ def fertilityClinicGreece(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
-    best_country_article_count = best_country_article_count.count()
+    best_country_article_count = count_best_clinics_in_article_country(basic_queryset)
 
     order_data = list(queryset_list)
 
@@ -318,8 +316,7 @@ def fertilityClinicCzech(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = basic_queryset.filter(best_article_country_boolean=True).exclude(best_article_country_actual_text__exact='')
-    best_country_article_count = best_country_article_count.count()
+    best_country_article_count = count_best_clinics_in_article_country(basic_queryset)
 
     order_data = list(queryset_list)
 
@@ -434,7 +431,7 @@ def fertilityClinicSlovakia(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = count_best_clinics_in_article(basic_queryset)
+    best_country_article_count = count_best_clinics_in_article_country(basic_queryset)
 
     order_data = list(queryset_list)
 
@@ -540,7 +537,7 @@ def fertilityClinicPortugal(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_country_article_count = count_best_clinics_in_article(basic_queryset)
+    best_country_article_count = count_best_clinics_in_article_country(basic_queryset)
 
     order_data = list(queryset_list)
 

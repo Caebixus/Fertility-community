@@ -9,6 +9,7 @@ from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOIC
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from guestblogging.models import GuestBlog, GuestAuthor
+from .functions import count_best_clinics_in_article_city
 
 year = 2022
 
@@ -34,8 +35,7 @@ def fertilityClinicPrague(request):
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_city_article_count = basic_queryset.filter(best_article_city_boolean=True)
-    best_city_article_count = best_city_article_count.count()
+    best_city_article_count = count_best_clinics_in_article_city(basic_queryset)
 
     order_data = list(queryset_list)
 

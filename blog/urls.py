@@ -31,6 +31,7 @@ urlpatterns = [
 
     #Information & support
     path('blog/prague-ivf-reviews', views.pragueivfreviews, name='pragueivfreviews'),
+    path('blog/ivf-step-by-step', views.ivfstepbystep, name='ivfstepbystep'),
 
     #Research
     path('blog/how-americans-ivf-compare-with-the-world', views.fertilitytreatmentshowamericanscomparewiththerestoftheworld, name='fertilitytreatmentshowamericanscomparewiththerestoftheworld'),

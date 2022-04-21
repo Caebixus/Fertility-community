@@ -20,8 +20,9 @@ def index(request):
     count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4
 
 
-    best_city = BestClinicArticleCity.objects.all().order_by('-created_at')[:1]
-    best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')[:1]
+    best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')
+    best_city = BestClinicArticleCity.objects.all().order_by('-created_at')
+    best_state = BestClinicArticleState.objects.all().order_by('-created_at')
 
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count
@@ -32,6 +33,7 @@ def index(request):
         'count_blog': count_blog,
         'best_city': best_city,
         'best_country': best_country,
+        'best_state': best_state,
         'CATEGORY_CHOICES_STATES_NORTH_AMERICA': CATEGORY_CHOICES_STATES_NORTH_AMERICA,
         'CATEGORY_CHOICES_STATES_EUROPE': CATEGORY_CHOICES_STATES_EUROPE,
         'CATEGORY_CHOICES_STATES_ASIA': CATEGORY_CHOICES_STATES_ASIA,

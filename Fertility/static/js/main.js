@@ -352,7 +352,7 @@ $('#vasectomy_reversal').on('change', function(){
 });
 
 $('#myCarousel').carousel({
-    interval: 10000
+    interval: 100000
 })
 
 $(function () {

@@ -1,0 +1,14 @@
+.btn-brand-red {
+  border-color: #CD5360;
+  background-color: #CD5360;
+  border-radius: 8px;
+  border-width:2px;
+  color: white;
+}
+
+.btn-brand-red:hover {
+  border-color: #CD5360;
+  background-color: white;
+  color: #CD5360;
+  border-radius: 8px;
+}

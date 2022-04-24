@@ -34,6 +34,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'bestivfclinicsingreece',
         'bestivfclinicsinslovakia',
         'bestivfclinicsinportugal',
+        'bestivfclinicsingermany',
 
         'best_ivf_clinics_world',
         ]

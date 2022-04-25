@@ -27,6 +27,7 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'ivf_in_portugal',
         'ivfmeditation',
         'bestivfclinicsinprague',
+        'ivfstepbystep',
 
         'bestivfclinicsinprague',
         'bestivfclinicsinczech',

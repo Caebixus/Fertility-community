@@ -3,10 +3,10 @@
   <div class="modal-dialog modal-md modal-dialog-centered cookiesContentSettings" role="document">
     <div class="modal-content">
       <div class="container">
-        <h5 class="modal-title padding-top-bot text-center">
-          Customize your cookie settings here
+        <p style="font-size:110%" class="modal-title padding-top-bot text-center">
+          <strong>Customize your cookie settings here</strong>
           <hr>
-        </h5>
+        </p>
         <form action="{% url 'cookies:cookies' %}" method="POST">
           {% csrf_token %}
           {{ formupdate.non_field_errors }}

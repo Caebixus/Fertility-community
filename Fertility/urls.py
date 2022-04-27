@@ -13,6 +13,7 @@ from .sitemapsCities import CitiesViewSitemap
 from .sitemapsClinics import ClinicsViewSitemap
 from .sitemapsCosts import CostsViewSitemap
 from .sitemapsBlogs import BlogsViewSitemap
+from .sitemapsFaqBlogs import FaqBlogsViewSitemap
 from .sitemapsCoaches import CoachesViewSitemap
 
 handler404 = 'base.views.error404'
@@ -26,6 +27,7 @@ sitemaps = {
     'countries': CountriesViewSitemap,
     'costs': CostsViewSitemap,
     'blogs': BlogsViewSitemap,
+    'faqblogs': FaqBlogsViewSitemap,
     'clinics': ClinicsViewSitemap,
     'experts': CoachesViewSitemap,
 }

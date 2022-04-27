@@ -4,12 +4,13 @@ from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_ci
 from .views import AuthorDetailView
 from .views_faq_blogs import FaqDetailView
 
+
 urlpatterns = [
     #Authors
     path('authors/<int:pk>/', AuthorDetailView.as_view(), name='authorDetailView'),
 
     #FAQBlog
-    path('<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
+    path('blog/<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
 
     #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),

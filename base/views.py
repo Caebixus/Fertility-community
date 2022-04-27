@@ -1,14 +1,15 @@
-from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.core.mail import send_mail
 from django.http import HttpResponsePermanentRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from coaches.models import Snippet, SnippetCity, SnippetState, SnippetCountry, Coaches
-from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
-from contact.forms import WebsiteForm
-from django.core.mail import send_mail
-from django.contrib import messages
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState, FAQBlog
 from clinic.models import BasicClinic
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState
+from coaches.models import Coaches
+from contact.forms import WebsiteForm
+from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOICES_STATES_EUROPE, CATEGORY_CHOICES_STATES_ASIA, CATEGORY_CHOICES_US_REGION, CATEGORY_CHOICES_UK_CITIES
+
 
 def index(request):
     blog = Blog.objects.all().order_by('-created_at')[:6]
@@ -78,12 +79,17 @@ def blog(request):
     BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
     BestClinicBlogCity = BestClinicArticleCity.objects.filter(best_article_city_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
 
+    faq = FAQBlog.objects.filter(active=True).order_by('-created_at')[:6]
+
+
     context = {
         'blog': blog,
 
         'BestClinicBlogCountry': BestClinicBlogCountry,
         'BestClinicBlogState': BestClinicBlogState,
         'BestClinicBlogCity': BestClinicBlogCity,
+
+        'faq_blog': faq,
     }
 
     return render(request, 'main/blog.html', context)

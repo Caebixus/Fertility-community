@@ -140,5 +140,51 @@
   </div>
 </div>
 
+{% if faq_blog %}
+<div class="container py-3">
+  <hr>
+</div>
+
+<div class="container py-5">
+  <h2>Discover most asked questions:</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for blogs in faq_blog %}
+    {% if blogs.author != None %}
+    <div class="col-sm" style="padding-top: 2rem;">
+      <div class="card shadow-sm" style="border-radius: 25px;">
+        <a href="{{ blogs.blog_url }}">
+          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+          {% else %}
+          {% endif %}
+        </a>
+        <div class="card-body">
+          <a href="{{ blogs.blog_url }}">
+            <h3 class="card-title">{{ blogs.title }}</h3>
+          </a>
+          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{% url 'FaqDetailView' blogs.slug %}">
+                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+              </a>
+            </div>
+            <small class="text-muted">{{ blogs.minute_read }} mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <br>
+  <br>
+  <div class="text-right" hidden>
+    <a href="" style="text-decoration: none;">
+      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all posts</button>
+    </a>
+  </div>
+</div>
+{% endif %}
+
 
 {% endblock  %}

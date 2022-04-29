@@ -11,13 +11,13 @@
 {% block articleAuthor %}<meta property='article:author' content='{{ blog.author.author_name }} {{ blog.author.author_lastname }}' />{% endblock %}
 {% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
 {% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
-{% block ogImage %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+{% block ogImage %}{% if blog.pic_blog %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% else %}<meta property="og:image" content="https://fertilitycommunity.com{% static 'img/default-blog-pic.jpg' %}" />{% endif%}{% endblock %}
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
 {% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
 {% block twittertitle%}<meta name="twitter:title" content="{{ blog.title }} | {{blog.year}}">{% endblock %}
 {% block twitterdescription %}<meta name="twitter:description" content="{{ blog.description }}">{% endblock %}
-{% block twitterimage %}<meta name="twitter:image" content="{{ blog.pic_blog.url }}" />{% endblock %}
+{% block twitterimage %}{% if blog.pic_blog %}<meta property="og:image" content="{{ blog.pic_blog.url }}" />{% else %}<meta property="og:image" content="https://fertilitycommunity.com{% static 'img/default-blog-pic.jpg' %}" />{% endif%}{% endblock %}
 
 {% block content %}
 

@@ -4,7 +4,7 @@ from clinic.validators import validate_file_size
 from datetime import datetime
 from django.urls import reverse
 
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog
 
 
 class Coaches(models.Model):
@@ -16,6 +16,7 @@ class Coaches(models.Model):
     blog_best_country_review = models.ManyToManyField(BestClinicArticleCountry, related_name='country_reviewed_by', blank=True)
     blog_best_city_review = models.ManyToManyField(BestClinicArticleCity, related_name='city_reviewed_by', blank=True)
     blog_best_state_review = models.ManyToManyField(BestClinicArticleState, related_name='state_reviewed_by', blank=True)
+    blog_faq_review = models.ManyToManyField(FAQBlog, related_name='blog_faq_reviewed_by', blank=True)
 
     coach_full_name = models.CharField(max_length=40)
     coach_username = models.SlugField(max_length=25, help_text='Use as slug in URL')

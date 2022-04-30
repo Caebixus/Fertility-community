@@ -22,4 +22,10 @@ class FaqDetailView(DetailView):
         author = Author.objects.get(pk=faq.author.pk)
         context['author'] = author
 
+        reviewed_by = Coaches.objects.filter(blog_faq_review=faq.pk)
+        context['reviewed_by'] = reviewed_by
+
+        coach_premium = Coaches.objects.filter(coach_is_premium=True)
+        context['coach_premium'] = coach_premium
+
         return context

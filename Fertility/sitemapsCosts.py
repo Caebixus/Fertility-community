@@ -15,10 +15,15 @@ class CostsViewSitemap(sitemaps.Sitemap):
         'locationsUSRegions',
         'locationsUKRegions',
         'locationsCZRegions',
+        'locationsCYRegions',
+        'locationsMXRegions',
         'locationsSKRegions',
         'locationsSPRegions',
         'locationsINRegions',
         'locationsGRRegions',
+        'locationsDERegions',
+        'locationsPTRegions',
+        'locationsLTRegions',
 
         'locationsTexasRegions',
         ]

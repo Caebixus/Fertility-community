@@ -9,7 +9,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class BlogAdmin(admin.ModelAdmin):
     model = Blog
-    list_display = ('id', 'title', 'created_at', 'last_modified', 'blog_url')
+    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'blog_url')
 
 
 class BestClinicArticleCountryAdmin(admin.ModelAdmin):
@@ -33,7 +33,7 @@ class BestClinicArticleCityAdmin(admin.ModelAdmin):
 class FAQBlogAdmin(admin.ModelAdmin):
     model = FAQBlog
     prepopulated_fields = {'slug': ('title',), }
-    list_display = ('id', 'title', 'created_at', 'last_modified', 'slug')
+    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'slug')
 
 
 admin.site.register(Author, AuthorAdmin)

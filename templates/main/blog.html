@@ -16,174 +16,270 @@
   </div>
 </div>
 
-<div class="container py-5">
-  <h2>The latest articles on the best IVF clinics in different countries:</h2>
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for blogs in BestClinicBlogCountry %}
-    <div class="col-sm" style="padding-top: 2rem;">
-      <div class="card shadow-sm" style="border-radius: 25px;">
-        <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="{{ blogs.pic_blog.name }}" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
-          {% else %}
-          {% endif %}
-        </a>
-        <div class="card-body">
-          <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-            <h3 class="card-title">{{ blogs.title }} in {{ blogs.year }}</h3>
-          </a>
-          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
-              </a>
+
+<section class="best-articles-section py-5">
+  <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-7 col-md-6">
+                <h2 class="mb-3">Best IVF clinics in different countries:</h2>
             </div>
-            <small class="text-muted">{{ blogs.minute_read }} mins</small>
-          </div>
+            <div class="col-xs-4 col-sm-5 col-md-6 text-right">
+                <a class="btn btn-brand-red mb-3 mr-1" href="#carousel_blogs_best_ivf_clinics_countries" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-brand-red mb-3 " href="#carousel_blogs_best_ivf_clinics_countries" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carousel_blogs_best_ivf_clinics_countries" class="carousel slide" data-interval="5000" data-ride="False">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for article in BestClinicBlogCountry %}
+                                {% if article.author != None %}
+                                <div class="col-md-4 mb-3">
+                                  <div class="card shadow-sm" style="border-radius: 25px;">
+                                    <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                      {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                                      {% else %}
+                                      {% endif %}
+                                    </a>
+                                    <div class="card-body">
+                                      <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}">
+                                        <h3 class="card-title">{{ article.title }}</h3>
+                                      </a>
+                                      <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                          <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                            <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                                          </a>
+                                        </div>
+                                        <small class="text-muted">{{ article.minute_read }} mins</small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:3 %}
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    {% endfor %}
-  </div>
-  <br>
-  <br>
-  <div class="text-right" hidden>
-    <a href="" style="text-decoration: none;">
-      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all articles</button>
-    </a>
-  </div>
-</div>
+</section>
 
 <div class="container py-3">
   <hr>
 </div>
 
-<div class="container py-5">
-  <h2>The latest articles on the best IVF clinics in different cities:</h2>
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for blogs in BestClinicBlogCity %}
-    <div class="col-sm" style="padding-top: 2rem;">
-      <div class="card shadow-sm" style="border-radius: 25px;">
-        <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="{{ blogs.pic_blog.name }}" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
-          {% else %}
-          {% endif %}
-        </a>
-        <div class="card-body">
-          <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-            <h3 class="card-title">{{ blogs.title }} in {{ blogs.year }}</h3>
-          </a>
-          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href="https://www.fertilitycommunity.com/blog/{{ blogs.slug }}">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
-              </a>
+
+<section class="best-articles-section py-5">
+  <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-7 col-md-6">
+                <h2 class="mb-3">Best IVF clinics in different cities:</h2>
             </div>
-            <small class="text-muted">{{ blogs.minute_read }} mins</small>
-          </div>
+            <div class="col-xs-4 col-sm-5 col-md-6 text-right">
+                <a class="btn btn-brand-red mb-3 mr-1" href="#carousel_blogs_best_ivf_clinics_countries" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-brand-red mb-3 " href="#carousel_blogs_best_ivf_clinics_countries" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carousel_blogs_best_ivf_clinics_countries" class="carousel slide" data-interval="5000" data-ride="False">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for article in BestClinicBlogCity %}
+                                {% if article.author != None %}
+                                <div class="col-md-4 mb-3">
+                                  <div class="card shadow-sm" style="border-radius: 25px;">
+                                    <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                      {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                                      {% else %}
+                                      {% endif %}
+                                    </a>
+                                    <div class="card-body">
+                                      <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}">
+                                        <h3 class="card-title">{{ article.title }}</h3>
+                                      </a>
+                                      <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                          <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                            <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                                          </a>
+                                        </div>
+                                        <small class="text-muted">{{ article.minute_read }} mins</small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:3 %}
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    {% endfor %}
-  </div>
-  <br>
-  <br>
-  <div class="text-right" hidden>
-    <a href="" style="text-decoration: none;">
-      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all articles</button>
-    </a>
-  </div>
-</div>
+</section>
 
 <div class="container py-3">
   <hr>
 </div>
 
-<div class="container py-5">
-  <h2>Explore tips and tricks for IVF treatment:</h2>
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for blogs in blog %}
-    {% if blogs.author != None %}
-    <div class="col-sm" style="padding-top: 2rem;">
-      <div class="card shadow-sm" style="border-radius: 25px;">
-        <a href="{{ blogs.blog_url }}">
-          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
-          {% else %}
-          {% endif %}
-        </a>
-        <div class="card-body">
-          <a href="{{ blogs.blog_url }}">
-            <h3 class="card-title">{{ blogs.title }}</h3>
-          </a>
-          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href="{{ blogs.blog_url }}">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
-              </a>
+<section class="best-articles-section py-5">
+  <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-7 col-md-6">
+                <h2 class="mb-3">Explore tips and tricks for IVF treatment:</h2>
             </div>
-            <small class="text-muted">{{ blogs.minute_read }} mins</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <br>
-  <br>
-  <div class="text-right" hidden>
-    <a href="" style="text-decoration: none;">
-      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all posts</button>
-    </a>
-  </div>
-</div>
+            <div class="col-xs-4 col-sm-5 col-md-6 text-right">
+                <a class="btn btn-brand-red mb-3 mr-1" href="#carousel_blogs_tips_tricks" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-brand-red mb-3 " href="#carousel_blogs_tips_tricks" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carousel_blogs_tips_tricks" class="carousel slide" data-interval="5000" data-ride="False">
 
-{% if faq_blog %}
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for article in blog_tips_tricks %}
+                                {% if article.author != None %}
+                                <div class="col-md-4 mb-3">
+                                  <div class="card shadow-sm" style="border-radius: 25px;">
+                                    <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                      {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                                      {% else %}
+                                      {% endif %}
+                                    </a>
+                                    <div class="card-body">
+                                      <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}">
+                                        <h3 class="card-title">{{ article.title }}</h3>
+                                      </a>
+                                      <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                          <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                            <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                                          </a>
+                                        </div>
+                                        <small class="text-muted">{{ article.minute_read }} mins</small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:3 %}
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% if blog_faq %}
 <div class="container py-3">
   <hr>
 </div>
 
-<div class="container py-5">
-  <h2>Discover most asked questions:</h2>
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for blogs in faq_blog %}
-    {% if blogs.author != None %}
-    <div class="col-sm" style="padding-top: 2rem;">
-      <div class="card shadow-sm" style="border-radius: 25px;">
-        <a href="{% url 'FaqDetailView' blogs.slug %}">
-          {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
-          {% else %}
-          {% endif %}
-        </a>
-        <div class="card-body">
-          <a href="{% url 'FaqDetailView' blogs.slug %}">
-            <h3 class="card-title">{{ blogs.title }}</h3>
-          </a>
-          <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href="{% url 'FaqDetailView' blogs.slug %}">
-                <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
-              </a>
+
+<section class="best-articles-section py-5">
+  <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-7 col-md-6">
+                <h2 class="mb-3">Most asked questions about Fertility treatment:</h2>
             </div>
-            <small class="text-muted">{{ blogs.minute_read }} mins</small>
-          </div>
+            <div class="col-xs-4 col-sm-5 col-md-6 text-right">
+                <a class="btn btn-brand-red mb-3 mr-1" href="#carousel_faq_blogs" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-brand-red mb-3 " href="#carousel_faq_blogs" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carousel_faq_blogs" class="carousel slide" data-interval="5000" data-ride="False">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for article in blog_faq %}
+                                {% if article.author != None %}
+                                <div class="col-md-4 mb-3">
+                                  <div class="card shadow-sm" style="border-radius: 25px;">
+                                    <a href="{% url 'FaqDetailView' article.slug %}">
+                                      {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+                                      {% else %}
+                                      {% endif %}
+                                    </a>
+                                    <div class="card-body">
+                                      <a href="{% url 'FaqDetailView' article.slug %}">
+                                        <h3 class="card-title">{{ article.title }}</h3>
+                                      </a>
+                                      <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                          <a href="{% url 'FaqDetailView' article.slug %}">
+                                            <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                                          </a>
+                                        </div>
+                                        <small class="text-muted">{{ article.minute_read }} mins</small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:3 %}
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-  <br>
-  <br>
-  <div class="text-right" hidden>
-    <a href="" style="text-decoration: none;">
-      <button id="brandButtonGoalPrimary" type="button" class="btn btn-lg shadow"> Read all posts</button>
-    </a>
-  </div>
-</div>
+</section>
 {% endif %}
 
 

@@ -75,21 +75,21 @@ def form(request):
 def blog(request):
     blog = Blog.objects.all().order_by('-created_at')
 
-    BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
-    BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
-    BestClinicBlogCity = BestClinicArticleCity.objects.filter(best_article_city_noindex_sitemap_boolean=True).order_by('-created_at')[:6]
+    blog_tips_tricks = Blog.objects.exclude(tag='IVF-Abroad').order_by('-created_at')
+    blog_faq = FAQBlog.objects.all().order_by('-created_at')
 
-    faq = FAQBlog.objects.filter(active=True).order_by('-created_at')[:6]
-
+    BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')
+    BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')
+    BestClinicBlogCity = BestClinicArticleCity.objects.filter(best_article_city_noindex_sitemap_boolean=True).order_by('-created_at')
 
     context = {
         'blog': blog,
+        'blog_tips_tricks': blog_tips_tricks,
+        'blog_faq': blog_faq,
 
         'BestClinicBlogCountry': BestClinicBlogCountry,
         'BestClinicBlogState': BestClinicBlogState,
         'BestClinicBlogCity': BestClinicBlogCity,
-
-        'faq_blog': faq,
     }
 
     return render(request, 'main/blog.html', context)

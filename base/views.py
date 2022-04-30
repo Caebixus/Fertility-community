@@ -3,8 +3,9 @@ from django.core.mail import send_mail
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.db.models import Q
 
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState, FAQBlog
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState, FAQBlog, SimpleBlog
 from clinic.models import BasicClinic
 from coaches.models import Coaches
 from contact.forms import WebsiteForm
@@ -12,14 +13,15 @@ from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOIC
 
 
 def index(request):
-    blog = Blog.objects.all().order_by('-created_at')[:6]
+    blog_simple = SimpleBlog.objects.all().order_by('-created_at')
+    blog_original = Blog.objects.all().order_by('-created_at')
+    blog = list(blog_simple) + list(blog_original)
 
     count_blog1 = Blog.objects.all().count()
     count_blog2 = BestClinicArticleCountry.objects.all().count()
     count_blog3 = BestClinicArticleCity.objects.all().count()
     count_blog4 = BestClinicArticleState.objects.all().count()
     count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4
-
 
     best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')
     best_city = BestClinicArticleCity.objects.all().order_by('-created_at')
@@ -30,7 +32,7 @@ def index(request):
 
 
     context = {
-        'blog': blog,
+        'blog': blog[:6],
         'count_blog': count_blog,
         'best_city': best_city,
         'best_country': best_country,
@@ -75,8 +77,15 @@ def form(request):
 def blog(request):
     blog = Blog.objects.all().order_by('-created_at')
 
+    blog_simple_exclude = SimpleBlog.objects.exclude(tag='IVF-Abroad').order_by('-created_at')
     blog_tips_tricks = Blog.objects.exclude(tag='IVF-Abroad').order_by('-created_at')
+    querylist_tips_tricks = list(blog_simple_exclude) + list(blog_tips_tricks)
+
     blog_faq = FAQBlog.objects.all().order_by('-created_at')
+
+    blog_simple_include = SimpleBlog.objects.filter(tag='IVF-Abroad').order_by('-created_at')
+    blog_abroad = Blog.objects.filter(tag='IVF-Abroad').order_by('-created_at')
+    querylist_abroad = list(blog_simple_include) + list(blog_abroad)
 
     BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')
     BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')
@@ -84,8 +93,10 @@ def blog(request):
 
     context = {
         'blog': blog,
-        'blog_tips_tricks': blog_tips_tricks,
+        'blog_tips_tricks': querylist_tips_tricks,
         'blog_faq': blog_faq,
+
+        'blog_abroad': querylist_abroad,
 
         'BestClinicBlogCountry': BestClinicBlogCountry,
         'BestClinicBlogState': BestClinicBlogState,

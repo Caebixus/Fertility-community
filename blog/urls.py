@@ -3,6 +3,7 @@ from django.urls import path
 from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_cities, views_best_ivf_clinics_world
 from .views import AuthorDetailView
 from .views_faq_blogs import FaqDetailView
+from .views_simple_blogs import SimpleDetailView
 
 
 urlpatterns = [
@@ -11,6 +12,9 @@ urlpatterns = [
 
     #FAQBlog
     path('blog/<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
+
+    #SimpleBlog
+    path('blog/<slug:slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
 
     #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),

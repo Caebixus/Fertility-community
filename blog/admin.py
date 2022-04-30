@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog
+from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -36,9 +36,16 @@ class FAQBlogAdmin(admin.ModelAdmin):
     list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'slug')
 
 
+class SimpleBlogAdmin(admin.ModelAdmin):
+    model = SimpleBlog
+    prepopulated_fields = {'slug': ('title',), }
+    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'slug')
+
+
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(BestClinicArticleCountry, BestClinicArticleCountryAdmin)
 admin.site.register(BestClinicArticleState, BestClinicArticleStateAdmin)
 admin.site.register(BestClinicArticleCity, BestClinicArticleCityAdmin)
 admin.site.register(FAQBlog, FAQBlogAdmin)
+admin.site.register(SimpleBlog, SimpleBlogAdmin)

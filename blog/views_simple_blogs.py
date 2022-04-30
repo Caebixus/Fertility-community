@@ -1,13 +1,13 @@
-from blog.models import Author, FAQBlog, BestClinicArticleCountry
+from blog.models import Author, SimpleBlog
 from django.views.generic.detail import DetailView
 
 from coaches.models import Coaches
 
 
 
-class FaqDetailView(DetailView):
-    model = FAQBlog
-    template_name = '../templates/blog/faq/faq-detail-view.html'
+class SimpleDetailView(DetailView):
+    model = SimpleBlog
+    template_name = '../templates/blog/simple/simple-detail-view.html'
     context_object_name = 'blog'
 
     def get_context_data(self, **kwargs):

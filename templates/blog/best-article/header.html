@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-sm-10">
           <h2>
-            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
+            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
           </h2>
           {% if clinic.clinicTitle %}<p class="lead">{{ clinic.clinicTitle }}</p>{% else %}<br>{% endif %}
         </div>
@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-sm-10">
           <h2>
-            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
+            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
           </h2>
           {% if clinic.clinicTitle %}<p class="lead">{{ clinic.clinicTitle }}</p>{% else %}<br>{% endif %}
         </div>

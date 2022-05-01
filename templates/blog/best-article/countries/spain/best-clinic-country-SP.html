@@ -117,14 +117,18 @@
       <div class="card-header" id="headingTwo">
         <h2 class="mb-0">
           <button class="btn btn-link-brand btn-block text-left" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapseOne">
-            What are the different types of IVF clinics in Spain?
+            From which clinics did we compile this ranking?
           </button>
         </h2>
       </div>
 
       <div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <p> Forloop clinics + Titles</p>
+          <ul>
+          {% for clinic in best_clinics %}
+            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" style="text-decoration: none"><li>{{ clinic.clinicName}} - DTI {{clinic.digitalTransparencyIndex}}% {% if clinic.Title %} - {{ clinic.clinicTitle }}{% endif%}</li></a>
+          {% endfor %}
+          </ul>
         </div>
       </div>
     </div>

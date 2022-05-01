@@ -12,3 +12,15 @@
   color: #CD5360;
   border-radius: 8px;
 }
+
+.btn-link-brand {
+  font-weight: 400;
+  color: #286DA8;
+  text-decoration: none;
+}
+
+.btn-link-brand:hover {
+  font-weight: 400;
+  color: #CD5360;
+  text-decoration: none;
+}

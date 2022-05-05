@@ -38,116 +38,42 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container py-5">
   {% include 'blog/blog_header.html' %}
   <hr class="py-3">
   <p>Fertility clinics in the Prague are among the world's best. People come here from abroad to receive professional treatment for a reasonable price, and they also learn about the country's broad history. Also have a look why is <a href="{% url 'ivf_in_prague' %}">IVF in Prague</a> so popular.</p>
   <p>There are many <a href="{% url 'fertilityClinicPrague' %}">IVF clinics in Prague</a> and some are better than others. We have reviewed and compared several clinics and compare them below based on our digital transparency index.</p>
-  <br>
+  {% if snippets %}
   <div class="pt-5 pb-4">
     {% include 'blog/snippet_carousel.html' %}
   </div>
-  <p>Here is our list of the <strong>{{best_clinics_count}} {{blog.title}}:</strong></p>
+  {% endif %}
 </div>
 
+<div class="container pt-5">
+  <h2 class="pt-5 heading-2-brand-red-color">Best <strong>{{best_clinics_count}}</strong> IVF clinics by DTI</h2>
+</div>
 {% for clinic in best_clinics %}
+  {% if clinic.best_article_city_actual_text %}
+  <div class="container py-1" id="best-clinic-{{ clinic.pk }}">
 
-{% if clinic.best_article_city_actual_text %}
-<br>
-<hr>
-<div class="container py-3" id="best-clinic-{{ clinic.pk }}">
-  <div class="header" style="padding-top:3rem; min-height:80px;">
-  {% if clinic.clinic_pro_logo_pic %}
-    <div id="imgInfo" class="img align-self-center align-items-center">
-      <a target="_blank" rel="noopener noreferrer" href="{{ clinic.clinic_url }}">
-        <img class="imgHoverLogo" src="{{ clinic.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
-      </a>
-    </div>
+    {% include 'blog/best-article/header.html' %}
 
-    <div class="container ml-2" id="nameInfo">
-      <div class="row">
-        <div class="col-sm-10">
-          <h2>
-            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
-          </h2>
-          {% if clinic.clinicTitle %}<p class="lead">{{ clinic.clinicTitle }}</p>{% else %}<br>{% endif %}
-        </div>
-      </div>
-    </div>
+    {% if blog.google_reviews_section or blog.pricing_section or blog.distance_section or blog.accommodation_section or blog.packages_section %}
+      {% include 'blog/best-article/best-ivf-clinics-single-section.html' %}
+      <hr>
+    {% endif %}
 
-    <p style="font-size: 18px;">
-      <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="The Digital Transparency Index (DTI) is published by FertilityCommunity. This index appreciates the transparency of data and content of individual IVF clinics from around the world in the clinic-client relationship. Paid membership can affect the index."> Digital transparency index</i>
-    </p>
+    {{ clinic.best_article_city_actual_text|safe }}
 
-    <div class="progress">
-      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{clinic.digitalTransparencyIndex}}%" aria-valuenow="{{clinic.digitalTransparencyIndex}}" aria-valuemin="0" aria-valuemax="100"><strong>{{clinic.digitalTransparencyIndex}}%</strong></div>
-    </div>
+    {% include 'blog/best-article/treatmentsinblogposts.html' %}
 
-  {% else %}
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10">
-          <h2>
-            <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}" rel="nofollow" style="text-decoration: none">{{forloop.counter}}. <u><strong>{{ clinic.clinicName }}</strong></u></a>
-          </h2>
-          {% if clinic.clinicTitle %}<p class="lead">{{ clinic.clinicTitle }}</p>{% else %}<br>{% endif %}
-        </div>
-      </div>
-    </div>
+    {% include 'blog/best-article/finalthoughts.html' %}
 
-    <p style="font-size: 18px;">
-      <i class="far fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="The Digital Transparency Index (DTI) is published by FertilityCommunity. This index appreciates the transparency of data and content of individual IVF clinics from around the world in the clinic-client relationship. Paid membership can affect the index."> Digital transparency index</i>
-    </p>
+    {% include 'blog/best-article/footerbtns.html' %}
 
-    <div class="progress">
-      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{clinic.digitalTransparencyIndex}}%" aria-valuenow="{{clinic.digitalTransparencyIndex}}" aria-valuemin="0" aria-valuemax="100"><strong>{{clinic.digitalTransparencyIndex}}%</strong></div>
-    </div>
-
-  {% endif %}
   </div>
-
-  {% if clinic.clinic_pro_photo_1 or clinic.clinic_pro_photo_2 or clinic.clinic_pro_photo_3 or clinic.clinic_pro_photo_4 or clinic.clinic_pro_photo_5 or clinic.clinic_pro_photo_6 %}
-  <br>
-  <br>
-
-  <div class="card-columns">
-    {% if clinic.clinic_pro_photo_1 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_1.url }}" class="card-img-top" alt="clinic photo 1">
-    </div>
-    {% else %}
-    {% endif %}
-    {% if clinic.clinic_pro_photo_2 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_2.url }}" class="card-img-top" alt="clinic photo 2">
-    </div>
-    {% else %}
-    {% endif %}
-    {% if clinic.clinic_pro_photo_3 %}
-    <div class="card">
-      <img src="{{ clinic.clinic_pro_photo_3.url }}" class="card-img-top" alt="clinic photo 3">
-    </div>
-    {% else %}
-    {% endif %}
-  </div>
-  {% else %}
   {% endif %}
-
-  <br>
-  <hr>
-  <br>
-
-  {{ clinic.best_article_city_actual_text|safe }}
-
-  {{ clinic.best_article_city_fcreview_text|safe}}
-
-  <br>
-  <br>
-
-  {% include 'blog/best-article/footerbtns.html' %}
-</div>
-
-{% endif %}
 
 <br>
 <br>

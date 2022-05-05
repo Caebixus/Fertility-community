@@ -336,6 +336,14 @@ class BasicClinic(models.Model):
     best_article_city_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     best_article_city_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
     best_article_city_blogpost_obj = models.ForeignKey(BestClinicArticleCity, on_delete=models.PROTECT, blank=True, null=True, related_name='best_article_city_fk')
+    best_article_city_google_reviews_section_content = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_city_pricing_section_content = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_city_distance_section_content = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_city_accommodation_section_content = models.TextField(max_length=3750, blank=True, null = True)
+    best_article_city_packages_section_content = models.TextField(max_length=3750, blank=True, null = True)
+
+    class Meta:
+        ordering = ["id"]
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -345,8 +353,8 @@ class BasicClinic(models.Model):
     def get_absolute_url(self):
         return reverse('clinics:clinic-detail', kwargs={'pk': self.id, 'slug': self.slug})
 
-    def __str__(self):
-        return self.clinicName
+    def __int__(self):
+        return self.pk
 
     def user(self):
         return self.user

@@ -4,6 +4,9 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+
+import clinic
+
 from clinic.validators import validate_file_size
 
 TAG_CHOICES = (
@@ -102,6 +105,12 @@ class BestClinicArticleCity(models.Model):
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_best_clinic_article_city')
     description = models.TextField(max_length=1000, blank=True, null=True)
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
+
+    google_reviews_section = models.ForeignKey("clinic.BasicClinic", on_delete=models.PROTECT, blank=True, null=True, related_name='best_clinic_article_city_reviews_section')
+    pricing_section = models.ForeignKey("clinic.BasicClinic", on_delete=models.PROTECT, blank=True, null=True, related_name='best_clinic_article_city_pricing_section')
+    distance_section = models.ForeignKey("clinic.BasicClinic", on_delete=models.PROTECT, blank=True, null=True, related_name='best_clinic_article_city_distance_section')
+    accommodation_section = models.ForeignKey("clinic.BasicClinic", on_delete=models.PROTECT, blank=True, null=True, related_name='best_clinic_article_city_accommodation_section')
+    packages_section = models.ForeignKey("clinic.BasicClinic", on_delete=models.PROTECT, blank=True, null=True, related_name='best_clinic_article_city_packages_section')
 
     year = models.PositiveIntegerField(blank=True, null=True)
 

@@ -1,4 +1,7 @@
+@import 'button.css';
 @import url("button.css");
+@import 'custom.css';
+@import url("custom.css");
 
 html {
   scroll-behavior: smooth;

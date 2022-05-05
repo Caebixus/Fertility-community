@@ -1,30 +1,30 @@
 
 {% if blog.google_reviews_section.pk == clinic.pk %}
-    <h2 class="heading-2-brand-red-color">Best IVF Clinic by Google Review Score</h2>
+    <h3 class="heading-2-brand-red-color">Best IVF Clinic by Google Review Score</h3>
     <p>{{ clinic.best_article_city_google_reviews_section_content|safe }}</p>
     <br>
 {% endif %}
 
 {% if blog.pricing_section.pk == clinic.pk %}
-    <h2 class="heading-2-brand-red-color">Best IVF Clinic for most affordable pricing</h2>
+    <h3 class="heading-2-brand-red-color">Best IVF Clinic for most affordable pricing</h3>
     <p>{{ clinic.best_article_city_pricing_section_content|safe }}</p>
     <br>
 {% endif %}
 
 {% if blog.distance_section.pk == clinic.pk %}
-    <h2 class="heading-2-brand-red-color">Best IVF Clinic According to distance from the Prague International Airport</h2>
+    <h3 class="heading-2-brand-red-color">Best IVF Clinic According to distance from the Prague International Airport</h3>
     <p>{{ clinic.best_article_city_distance_section_content|safe }}</p>
     <br>
 {% endif %}
 
 {% if blog.accommodation_section.pk == clinic.pk %}
-    <h2 class="heading-2-brand-red-color">Best IVF clinic according to accommodations</h2>
+    <h3 class="heading-2-brand-red-color">Best IVF clinic according to accommodations</h3>
     <p>{{ clinic.best_article_city_accommodation_section_content|safe }}</p>
     <br>
 {% endif %}
 
 {% if blog.packages_section.pk == clinic.pk %}
-    <h2 class="heading-2-brand-red-color">Best Clinic for IVF packages offered</h2>
+    <h3 class="heading-2-brand-red-color">Best Clinic for IVF packages offered</h3>
     <p>{{ clinic.best_article_city_packages_section_content|safe }}</p>
     <br>
 {% endif %}

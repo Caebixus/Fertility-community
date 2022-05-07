@@ -4,20 +4,21 @@ from django.views.generic.detail import DetailView
 from coaches.models import Coaches
 
 
-
 class SimpleDetailView(DetailView):
     model = SimpleBlog
     template_name = '../templates/blog/simple/simple-detail-view.html'
     context_object_name = 'blog'
+    slug_field = 'simple_slug'
+    slug_url_kwarg = 'simple_slug'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        faq = self.get_object()
+        simple = self.get_object()
 
-        author = Author.objects.get(pk=faq.author.pk)
+        author = Author.objects.get(pk=simple.author.pk)
         context['author'] = author
 
-        reviewed_by = Coaches.objects.filter(blog_faq_review=faq.pk)
+        reviewed_by = Coaches.objects.filter(blog_faq_review=simple.pk)
         context['reviewed_by'] = reviewed_by
 
         coach_premium = Coaches.objects.filter(coach_is_premium=True)

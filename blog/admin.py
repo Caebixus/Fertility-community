@@ -38,8 +38,8 @@ class FAQBlogAdmin(admin.ModelAdmin):
 
 class SimpleBlogAdmin(admin.ModelAdmin):
     model = SimpleBlog
-    prepopulated_fields = {'slug': ('title',), }
-    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'slug')
+    prepopulated_fields = {'simple_slug': ('title',), }
+    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'simple_slug')
 
 
 admin.site.register(Author, AuthorAdmin)

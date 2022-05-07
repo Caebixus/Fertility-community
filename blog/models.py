@@ -179,7 +179,7 @@ class SimpleBlog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(default=datetime.now, blank=True)
 
-    slug = models.SlugField(max_length=100, null=True)
+    simple_slug = models.SlugField(max_length=100, null=True)
     minute_read = models.IntegerField(null=True, blank=True)
     year = models.PositiveIntegerField(blank=True, null=True, default=2022)
     active = models.BooleanField(default=False, blank=True, null=True)
@@ -188,12 +188,12 @@ class SimpleBlog(models.Model):
     content = RichTextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        if not self.simple_slug:
+            self.simple_slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('SimpleDetailView', kwargs={'slug': self.slug})
+        return reverse('SimpleDetailView', kwargs={'simple_slug': self.simple_slug})
 
     def __str__(self):
         return self.title

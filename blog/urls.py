@@ -11,10 +11,10 @@ urlpatterns = [
     path('authors/<int:pk>/', AuthorDetailView.as_view(), name='authorDetailView'),
 
     #FAQBlog
-    path('blog/<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
+    path('faq/<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
 
     #SimpleBlog
-    path('blog/<slug:slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
+    path('blog/<slug:simple_slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
 
     #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),

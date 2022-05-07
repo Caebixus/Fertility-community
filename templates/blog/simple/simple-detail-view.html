@@ -40,10 +40,14 @@
   <br>
   <br>
   {{ blog.introduction|safe|escape }}
+  <br>
+  <br>
   {{ blog.content|safe|escape }}
+  <br>
+  <br>
 </div>
 
-<div class="container">
+<div class="container py-5">
   {% include 'blog/carousel_best_ivf_clinics_country.html' %}
 </div>
 {% endblock  %}

@@ -21,7 +21,9 @@ def index(request):
     count_blog2 = BestClinicArticleCountry.objects.all().count()
     count_blog3 = BestClinicArticleCity.objects.all().count()
     count_blog4 = BestClinicArticleState.objects.all().count()
-    count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4
+    count_blog5 = FAQBlog.objects.all().count()
+    count_blog6 = SimpleBlog.objects.all().count()
+    count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4 + count_blog5 + count_blog6
 
     best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')
     best_city = BestClinicArticleCity.objects.all().order_by('-created_at')

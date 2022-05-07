@@ -1,4 +1,4 @@
-from blog.models import Author, SimpleBlog
+from blog.models import Author, SimpleBlog, BestClinicArticleCountry
 from django.views.generic.detail import DetailView
 
 from coaches.models import Coaches

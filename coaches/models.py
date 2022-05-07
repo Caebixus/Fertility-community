@@ -4,7 +4,7 @@ from clinic.validators import validate_file_size
 from datetime import datetime
 from django.urls import reverse
 
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog
 
 
 class Coaches(models.Model):
@@ -129,6 +129,21 @@ class SnippetState(models.Model):
 class SnippetCountry(models.Model):
     owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_country_owner')
     blog = models.ForeignKey(BestClinicArticleCountry, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_country_blog')
+    text = models.TextField(blank=True, null=True)
+    STATUS = (
+        ('wait for review', 'wait for review'),
+        ('is published', 'is published'),
+        ('is not approved', 'is not approved'),
+        )
+    status = models.CharField(max_length=40, choices=STATUS, null=True, default='wait for review')
+
+    def __str__(self):
+        return self.blog.title
+
+
+class SnippetSimpleBlog(models.Model):
+    owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_simple_blog_owner')
+    blog = models.ForeignKey(SimpleBlog, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_simple_blog')
     text = models.TextField(blank=True, null=True)
     STATUS = (
         ('wait for review', 'wait for review'),

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Coaches, TypeJobs, PreferredLanguage, PreferredCountry, Snippet, SnippetCity, SnippetCountry, SnippetState
+
+from .models import Coaches, TypeJobs, PreferredLanguage, PreferredCountry, Snippet, SnippetCity, SnippetCountry, SnippetState, SnippetSimpleBlog
 
 
 class CoachesAdmin(admin.ModelAdmin):
@@ -38,6 +39,12 @@ class SnippetStateAdmin(admin.ModelAdmin):
     list_display = ('id', 'owner', 'blog', 'blog_id', 'status')
 
 admin.site.register(SnippetState, SnippetStateAdmin)
+
+class SnippetSimpleBlogAdmin(admin.ModelAdmin):
+    model = SnippetSimpleBlog
+    list_display = ('id', 'owner', 'blog', 'blog_id', 'status')
+
+admin.site.register(SnippetSimpleBlog, SnippetSimpleBlogAdmin)
 
 class TypeJobsAdmin(admin.ModelAdmin):
     model = TypeJobs

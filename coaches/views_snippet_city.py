@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-from .models import Coaches, Snippet, SnippetCity
+from .models import Coaches, SnippetCity
 from django.views.generic.edit import DeleteView
 from .forms import SnippetCityUpdateForm, SnippetCityCreateForm
 from blog.models import BestClinicArticleCity

@@ -1,9 +1,12 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils.text import slugify
 from django.urls import reverse
 from blog.models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
+from .calculate_dti import calculate_dti_single
 from .validators import validate_file_size
 
 from .choices import CATEGORY_CHOICES_CURRENCY
@@ -358,6 +361,12 @@ class BasicClinic(models.Model):
 
     def user(self):
         return self.user
+
+
+@receiver(pre_save, sender=BasicClinic)
+def dti_calculate_on_save(sender, instance, *args, **kwargs):
+    calculate_dti_single(instance=instance)
+
 
 class AcceptedPayment(models.Model):
     accepted_payment = models.CharField(max_length=100, blank=True, null=True)

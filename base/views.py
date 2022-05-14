@@ -13,9 +13,8 @@ from search.choices import CATEGORY_CHOICES_STATES_NORTH_AMERICA, CATEGORY_CHOIC
 
 
 def index(request):
-    blog_simple = SimpleBlog.objects.all().order_by('-created_at')
-    blog_original = Blog.objects.all().order_by('-created_at')
-    blog = list(blog_simple) + list(blog_original)
+    blog_simple = FAQBlog.objects.all().order_by('-created_at')
+    blog = Blog.objects.all().order_by('-created_at')
 
     count_blog1 = Blog.objects.all().count()
     count_blog2 = BestClinicArticleCountry.objects.all().count()
@@ -35,6 +34,7 @@ def index(request):
 
     context = {
         'blog': blog[:6],
+        'blog_simple': blog_simple[:6],
         'count_blog': count_blog,
         'best_city': best_city,
         'best_country': best_country,

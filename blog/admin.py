@@ -33,7 +33,13 @@ class BestClinicArticleCityAdmin(admin.ModelAdmin):
 class FAQBlogAdmin(admin.ModelAdmin):
     model = FAQBlog
     prepopulated_fields = {'slug': ('title',), }
-    list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'slug')
+    list_display = ('id', 'title', 'created_at', 'last_modified', 'slug')
+
+    fieldsets = (
+        ('Basic information', {'fields': ('title', 'author', 'description', 'keywords', 'pic_blog', 'last_modified', 'slug', 'minute_read', 'year', 'active',)}),
+        ('Content', {'fields': ('content',)}),
+        ('FAQ', {'fields': ('faq_simple_blog', 'faq_question', 'faq_answer', )}),
+    )
 
 
 class SimpleBlogAdmin(admin.ModelAdmin):

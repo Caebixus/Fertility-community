@@ -48,6 +48,13 @@
   {{ blog.content|safe|escape }}
   <br>
   <br>
+  {% if blog.faq_simple_blog_reverse %}
+    <hr>
+    <h2>Frequently asked questions:</h2>
+    {% for faq in blog.faq_simple_blog_reverse.all %}
+      {% include 'blog/include/faq-simple-blog-snippet.html' %}
+    {% endfor %}
+  {% endif %}
 </div>
 
 <div class="container py-5">

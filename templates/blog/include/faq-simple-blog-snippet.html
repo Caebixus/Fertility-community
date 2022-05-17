@@ -1,0 +1,9 @@
+<br>
+<h3>{{ faq.faq_question }}?</h3>
+<br>
+<p>{{ faq.faq_answer|safe }}</p>
+<a href="{% url 'FaqDetailView' faq.slug %}">
+    <p>Read more about {{ faq.faq_question }}</p>
+</a>
+<hr>
+<br>

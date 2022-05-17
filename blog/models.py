@@ -131,41 +131,6 @@ class BestClinicArticleCity(models.Model):
         return self.title
 
 
-class FAQBlog(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_faq_article')
-
-    description = models.CharField(max_length=150)
-    keywords = models.CharField(max_length=150, blank=True, null=True)
-
-    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
-    TAG_CHOICES_FAQ = (
-        ('FAQ', 'FAQ'),
-        )
-    tag = models.CharField(max_length=40, choices=TAG_CHOICES_FAQ, null=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(default=datetime.now, blank=True)
-
-    slug = models.SlugField(max_length=100, null=True)
-    minute_read = models.IntegerField(null=True, blank=True)
-    year = models.PositiveIntegerField(blank=True, null=True, default=2022)
-    active = models.BooleanField(default=False, blank=True, null=True)
-
-    content = RichTextField(blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return reverse('FaqDetailView', kwargs={'slug': self.slug})
-
-    def __str__(self):
-        return self.title
-
-
 class SimpleBlog(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_simple_article')
@@ -194,6 +159,42 @@ class SimpleBlog(models.Model):
 
     def get_absolute_url(self):
         return reverse('SimpleDetailView', kwargs={'simple_slug': self.simple_slug})
+
+    def __str__(self):
+        return self.title
+
+
+class FAQBlog(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries_faq_article')
+
+    description = models.CharField(max_length=150)
+    keywords = models.CharField(max_length=150, blank=True, null=True)
+
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(default=datetime.now, blank=True)
+
+    slug = models.SlugField(max_length=100, null=True)
+    minute_read = models.IntegerField(null=True, blank=True)
+    year = models.PositiveIntegerField(blank=True, null=True, default=2022)
+    active = models.BooleanField(default=False, blank=True, null=True)
+
+    content = RichTextField(blank=True, null=True)
+
+    faq_simple_blog = models.ForeignKey(SimpleBlog, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_simple_blog_reverse')
+    faq_question = models.CharField(max_length=200, blank=True, null=True)
+    faq_answer = RichTextField(blank=True, null=True)
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('FaqDetailView', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

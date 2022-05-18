@@ -14,7 +14,7 @@ urlpatterns = [
     path('faq/<slug:slug>/', FaqDetailView.as_view(), name='FaqDetailView'),
 
     #SimpleBlog
-    path('article/<slug:simple_slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
+    path('blog/<slug:simple_slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
 
     #IVF Abroad
     path('blog/ivf-abroad-costs', views.ivfabroadcosts, name='ivfabroadcosts'),

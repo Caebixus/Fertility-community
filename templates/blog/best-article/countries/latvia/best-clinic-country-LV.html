@@ -1,0 +1,103 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block ogType %}<meta property='og:type' content='article' />{% endblock %}
+{% block articleAuthor %}<meta property='article:author' content='{{ blog.author.author_name }} {{ blog.author.author_lastname }}' />{% endblock %}
+{% block articlePublisher %}<meta property='article:publisher' content='https://www.facebook.com/fertilitycommunity' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://www.fertilitycommunity.com/media/{{ blog.pic_blog }}" />{% endblock %}
+{% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
+{% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block title %}The {{best_clinics_count}} {{blog.title}} | {{ blog.year }}{% endblock %}
+{% block description %}These are the best IVF clinics in Latvia for {{ blog.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
+{% block noindexpage %}{% if blog.best_article_country_noindex_sitemap_boolean == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/blog/{{blog.slug}}{% endblock %}
+{% block meta_keywords %}best ivf clinics in Latvia, best fertility clinics Latvia{% endblock %}
+
+{% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
+{% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}
+{% block twittertitle%}<meta name="twitter:title" content="{{best_clinics_count}} {{blog.title}} | {{ blog.year }}">{% endblock %}
+{% block twitterdescription %}<meta name="twitter:description" content="{{blog.description}}">{% endblock %}
+{% block twitterimage %}<meta name="twitter:image" content="https://www.fertilitycommunity.com/media/{{ blog.pic_blog }}" />{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<!-- ================================================== -->
+
+<!-- Schemas -->
+{% include 'schemas/medicalwebpageschema.html' %}
+
+
+
+<div class="background background-color-gradient">
+  <div class="container py-5">
+    <h1 style="padding-top:3rem; color:white">{{best_clinics_count}} {{ blog.title }} | {{ blog.year }}</h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  {% include 'blog/blog_header.html' %}
+
+  <hr class="py-3">
+  <p>Even as Latvia only has about 2 million people, it remains one of the top locations for <a href="{% url 'fertilityClinicLatvia' %}">IVF treatment</a> in Europe. The beauty and coziness of the city and its low cost of IVF bring in patients from the UK, France, Germany, and Scandinavia.</p>
+  <br>
+  <p><a href="{% url 'ivf_in_portugal' %}">Latvia offers its IVF patients</a> the European level of quality of treatments conforming to the recommendations of the European society of human reproduction and embryology (ESHRE) and the international federation of Fertility Societies (IFFS).</p>
+  <br>
+  <p>According to Latvian laws, clinics welcome female couples, single parents, and non-married couples to participate in IVF treatments. Although there is no upper age limit for female and male patients, each clinic decides the age limit. Egg donors are anonymous and Latvian, although some genetic data can be provided. Surrogacy is not allowed, and sex selection is only allowed for medical reasons.</p>
+  <div class="pt-5 pb-4">
+    {% include 'blog/snippet_carousel.html' %}
+  </div>
+  <p>Here is our list of the <strong>{{best_clinics_count}} {{blog.title}}:</strong></p>
+</div>
+
+
+{% for clinic in best_clinics %}
+<br>
+<hr>
+{% if clinic.best_article_country_actual_text %}
+<div class="container py-3" id="best-clinic-{{ clinic.pk }}">
+
+  {% include 'blog/best-article/header.html' %}
+
+  {{ clinic.best_article_country_actual_text|safe }}
+
+  {% include 'blog/best-article/treatmentsinblogposts.html' %}
+
+  {% include 'blog/best-article/finalthoughts.html' %}
+
+  {% include 'blog/best-article/footerbtns.html' %}
+
+</div>
+{% endif %}
+
+<br>
+<br>
+
+{% endfor %}
+
+<div class="container py-5 text-center">
+  <a href="{% url 'fertilityClinicLatvia' %}" rel="dofollow">
+    <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of {{clinics_location_count}} IVF clinics in Latvia </button>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================================================== -->
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary.js' %}"></script>{% endblock %}
+
+{% endblock  %}

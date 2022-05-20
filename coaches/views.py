@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.views.generic import ListView
 
 from .models import Coaches, PreferredLanguage, Snippet, TypeJobs
 from django.views.generic.detail import DetailView
@@ -40,10 +41,6 @@ class CoachDeleteView(DeleteView):
     template_name = '../templates/ivfcoach/coaches-delete.html'
     success_url = reverse_lazy('coach_dashboard')
     success_message = "- Coach successfully deleted."
-
-
-def coach_search(request):
-    return render(request, 'ivfcoach/fertility-coach-search.html')
 
 
 @login_required(login_url='https://www.fertilitycommunity.com/account/signup-as-coach')
@@ -120,3 +117,25 @@ class SnippetDeleteView(DeleteView):
         response = super().delete(request, *args, **kwargs)
         messages.success(self.request, '- Snippet successfully deleted.')
         return response
+
+class CoachListView(ListView):
+    model = Coaches
+    template_name = 'ivfcoach/fertility-specialists.html'
+    order_by = 'order_by'
+    context_object_name = 'order_data'
+    paginate_by = 100
+    allow_empty = True
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachListView, self).get_context_data(**kwargs)
+        count_coaches = Coaches.objects.filter(coach_is_published=True, coach_is_claimed=True).count()
+        context['count_coaches'] = count_coaches
+        return context
+
+    def get_queryset(self, **kwargs):
+        queryset = super(CoachListView, self).get_queryset(**kwargs)
+        if kwargs:
+            queryset = queryset.filter(**kwargs)
+        queryset = queryset.filter(coach_is_published=True, coach_is_claimed=True)
+
+        return queryset

@@ -11,7 +11,7 @@ class CoachesAdmin(admin.ModelAdmin):
         ('Contact', {'fields': ('coach_contact_email', 'coach_phone',)}),
         ('Reviewed blogs', {'fields': ('blog_review', 'blog_best_country_review', 'blog_best_city_review', 'blog_best_state_review',)}),
         ('Social', {'fields': ('coach_social_instagram', 'coach_social_facebook', 'coach_social_linkedin', 'coach_social_pinterest', 'coach_social_twitter', 'coach_social_youtube', 'coach_social_website',)}),
-        ('Intern', {'fields': ('coach_is_published', 'coach_is_not_approved', 'coach_is_premium', 'coach_created', 'coach_updated', 'coach_subscription_update',)}),
+        ('Intern', {'fields': ('coach_is_claimed', 'coach_is_published', 'coach_is_not_approved', 'coach_is_premium', 'coach_created', 'coach_updated', 'coach_subscription_update',)}),
     )
 admin.site.register(Coaches, CoachesAdmin)
 

@@ -1,7 +1,7 @@
 from . import views, views_snippet_city, views_snippet_state, views_snippet_country
 from django.urls import path
 
-from .views import CoachDetailView, CoachDeleteView, SnippetDeleteView
+from .views import CoachDetailView, CoachDeleteView, SnippetDeleteView, CoachListView
 from .views_snippet_city import SnippetCityUpdateFormView, SnippetCityCreateFormView, SnippetCityDeleteView
 from .views_snippet_state import SnippetStateUpdateFormView, SnippetStateCreateFormView, SnippetStateDeleteView
 from .views_snippet_country import SnippetCountryUpdateFormView, SnippetCountryCreateFormView, SnippetCountryDeleteView
@@ -9,7 +9,7 @@ from .views_snippet_country import SnippetCountryUpdateFormView, SnippetCountryC
 app_name = 'coach'
 
 urlpatterns = [
-    path('fertility-specialists', views.coach_search, name='coach_search'),
+    path('fertility-specialists', CoachListView.as_view(), name='coach_search'),
     path('fertility-specialist/<int:pk>/<slug>/', CoachDetailView.as_view(), name='coach-detail'),
     path('fertility-specialist/delete/<int:pk>/<slug>/', CoachDeleteView.as_view(), name='coach-delete'),
 

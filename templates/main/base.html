@@ -182,10 +182,10 @@
           {% else %}
           {% include 'main/includes/1nav_clinics_dropdowns.html' %}
 
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packagesearch' %}"><i class="fas fa-archive"></i><strong> Packages</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'packagesearch' %}"><i class="fas fa-archive"></i><strong> IVF Packages</strong></a>
+          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'coach:coach_search' %}"><i class="fas fa-user-check"></i><strong> Fertility coaches</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'locations' %}"><i class="fas fa-dollar-sign"></i><strong> IVF Costs</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog' %}"><i class="far fa-newspaper"></i><strong> Blog</strong></a>
-          <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'blog1' %}"><i class="far fa-question-circle"></i><strong> IVF Explained</strong></a>
           <a class="nav-item nav-link" style="text-decoration: none; color: black" href="{% url 'contact' %}"><i class="far fa-envelope"></i><strong> Contact</strong></a>
           {% endif %}
         </div>

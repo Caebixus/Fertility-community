@@ -1,8 +1,5 @@
 from django.contrib import sitemaps
 from django.urls import reverse
-from base import views
-from searchLocationsRegionsUS import views
-from location import views
 
 class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
@@ -16,6 +13,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'blog',
         'packagesearch',
         'about',
+        'coach_search',
         ]
 
     def location(self, item):

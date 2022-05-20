@@ -1,0 +1,87 @@
+{% extends "main/base.html" %}
+{% load filter_pagination_tag %}
+{% load static %}
+{% load humanize %}
+{% load mathfilters %}
+{% load currencytag %}
+{% block title %}Discover fertility & IVF coaches | 2022{% endblock %}
+{% block description %}Search hundreds of Fertility & IVF professional coaches at once and discover new ways to support your journey to pregnancy{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-specialists{% endblock %}
+
+{% block ogType %}<meta property='og:type' content='website' />{% endblock %}
+{% block siteName %}<meta property='og:site_name' content='FertilityCommunity/' />{% endblock %}
+{% block ogImage %}<meta property="og:image" content="https://fertilitycommunity.com/static/img/fertility-specialists.webp" />{% endblock %}
+{% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
+{% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
+
+{% block content %}
+<div class="background background-color-gradient">
+  <div class="container">
+    <h1 style="padding-top:3rem; color:white">
+      Discover Fertility & IVF coaches
+    </h1>
+    <p class="lead" style="color:white">
+    <div class="container">
+      <div class="searchBox">
+        <div class="mainbanner pb-4" id="mainhpbanner">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-3">
+  <div class="row">
+    <div class="col-8">
+      <p>Currently showing <strong>{{ count_coaches }}</strong> verified coaches.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-5">
+  <div class="row row-cols-1 row-cols-md-3">
+    {% if order_data %}
+    {% for expert in order_data %}
+      <div class="col-sm-4 col-md-3 col-lg-2 text-center">
+        <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}">
+        {% if expert.coach_profile_photo %}
+          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:80px; max-width:80px">
+        {% else %}
+          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:80px; max-width:80px">
+        {% endif %}
+          <h3 style="padding-top:2rem; text-align: center">{{ expert.coach_full_name }}</h3>
+        </a>
+        <p style="font-size: 100%; text-align: center">
+        {% for job in expert.jobs.all %}
+          {% if not forloop.last %}
+            {{ job }} |
+          {% else %}
+            {{ job }}
+          {% endif %}
+        {% endfor %}
+        </p>
+      </div>
+      {% empty %}
+      <div class="card shadow">
+        <div class="card-body">
+          <p class="display-5" style="padding-bottom:2rem">Sorry, there are no packages for this search query. Try to change filter preferences or locations.</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    {% else %}
+    <div class="card shadow">
+      <div class="card-body">
+        <p class="display-5">Sorry, there are no packages for this search query. Try to change filter preferences or locations.</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+
+{% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary.js' %}"></script>{% endblock %}
+{% endblock  %}

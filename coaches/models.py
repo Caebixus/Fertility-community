@@ -43,6 +43,7 @@ class Coaches(models.Model):
     coach_other = models.TextField(blank=True, null=True)
 
     #INTERN
+    coach_is_claimed = models.BooleanField(default=False)
     coach_is_published = models.BooleanField(default=False)
     coach_is_not_approved = models.BooleanField(default=False)
     coach_is_premium = models.BooleanField(default=False)

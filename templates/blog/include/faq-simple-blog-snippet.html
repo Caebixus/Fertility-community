@@ -1,3 +1,4 @@
+{% for faq in blog.faq_simple_blog_reverse.all %}
 <br>
 <h3>{{ faq.faq_question }}?</h3>
 <br>
@@ -7,3 +8,4 @@
 </a>
 <hr>
 <br>
+{% endfor %}

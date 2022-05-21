@@ -22,6 +22,13 @@ class SimpleDetailView(DetailView):
         reviewed_by = Coaches.objects.filter(blog_faq_review=blogpk)
         context['reviewed_by'] = reviewed_by
 
+
+
+        faq_simple_blog_objects = SimpleBlog.objects.filter(pk=blogpk, faq_simple_blog_reverse__isnull=True)
+        context['faq_simple_blog_objects'] = faq_simple_blog_objects
+
+
+
         coach_premium = Coaches.objects.filter(coach_is_premium=True)
         context['coach_premium'] = coach_premium
 

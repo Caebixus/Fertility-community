@@ -15,19 +15,27 @@
             </div>
             <div class="row flex-item row-custom-item">
               <div class="col">
-                <form action="{% url 'cookies:cookies' %}" method="POST">
+                <form action="{% url 'cookies:cookies' %}" id="recaptcha-form" method="POST">
                   {% csrf_token %}
                   {{ formNew.non_field_errors }}
                   {{ formNew.source.errors }}
                   {{ formNew.source }}
-                  <button class="btn btn-success btn-md text-center" name="all_cookies_accepted" type="submit" style="min-width: 150px;">
+                  <button
+                          class="btn btn-success btn-md text-center g-recaptcha"
+                          name="all_cookies_accepted"
+                          type="submit"
+                          style="min-width: 150px;"
+                          data-sitekey={{recaptcha_site_key}}
+                          data-callback='onSubmit'
+                          data-action='submit'
+                  >
                     Allow all
                   </button>
                 </form>
               </div>
 
               <div class="col">
-                <button id="reject_cookies" class="button_edit" type="button" style="text-decoration: none">
+                <button id="reject_cookies" class="button_edit g-recaptcha" type="button" style="text-decoration: none" data-sitekey={{recaptcha_site_key}} data-callback='onSubmit' data-action='submit'>
                   Reject
                 </button>
               </div>
@@ -40,7 +48,7 @@
             </div>
           </div>
 
-          <form action="{% url 'cookies:cookies' %}" method="POST" class="py-3">
+          <form action="{% url 'cookies:cookies' %}" method="POST" class="py-3" id="recaptcha-option-form">
             {% csrf_token %}
             {{ formNew.non_field_errors }}
 
@@ -67,7 +75,7 @@
               <p class="font-size-cookies-modal">Marketing cookies are used by us or our partners so that we can display suitable content or advertisements both on our website and on the websites of third parties. If you do not consent, you will not be the recipient of content and ads tailored to your interests.</p>
               <br>
               <div class="text-center">
-                <button class="button_accept text-center" name="cookies_changed" type="submit">
+                <button class="button_accept text-center g-recaptcha" name="cookies_changed" type="submit" data-sitekey={{recaptcha_site_key}} data-callback='onSubmit' data-action='submit'>
                   Save
                 </button>
               </div>

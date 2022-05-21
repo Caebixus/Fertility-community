@@ -1,9 +1,17 @@
 from django.shortcuts import get_object_or_404
 
+from Fertility.settings import reCAPTCHA
 from clinic.models import BasicClinic
 from cookies.forms import AllCookiesAccepted
 from cookies.models import CookiesConsents, CookieSettings
 from owners.models import AuthenticatedUser
+
+
+def recaptcha(request):
+    recaptcha_site_key = reCAPTCHA
+    return {
+        "recaptcha_site_key": recaptcha_site_key,
+    }
 
 
 def authentication_clinic_coach(request):

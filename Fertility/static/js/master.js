@@ -377,3 +377,10 @@ if (localStorage.getItem('popup') != 'shown') {
   $('#formModal').modal('show')
   localStorage.setItem('popup','shown')
 };
+
+function onSubmit(token) {
+  document.getElementById("recaptcha-form").submit();
+}
+function onSubmit(token) {
+  document.getElementById("recaptcha-option-form").submit();
+}

@@ -39,6 +39,7 @@ class FAQBlogAdmin(admin.ModelAdmin):
         ('Basic information', {'fields': ('title', 'author', 'description', 'keywords', 'pic_blog', 'last_modified', 'slug', 'minute_read', 'year', 'active',)}),
         ('Content', {'fields': ('content',)}),
         ('FAQ', {'fields': ('faq_simple_blog', 'faq_question', 'faq_answer', )}),
+        ('FAQ Old blog', {'fields': ('faq_old_blog', 'faq_old_blog_question', 'faq_old_blog_answer',)}),
     )
 
 

@@ -187,6 +187,9 @@ class FAQBlog(models.Model):
     faq_question = models.CharField(max_length=200, blank=True, null=True)
     faq_answer = RichTextField(blank=True, null=True)
 
+    faq_old_blog = models.ForeignKey(Blog, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_old_blog_reverse')
+    faq_old_blog_question = models.CharField(max_length=200, blank=True, null=True)
+    faq_old_blog_answer = RichTextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

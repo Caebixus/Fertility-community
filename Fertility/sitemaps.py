@@ -13,7 +13,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'blog',
         'packagesearch',
         'about',
-        'coach_search',
+        'coach:coach_search',
         ]
 
     def location(self, item):

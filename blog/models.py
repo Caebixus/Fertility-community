@@ -191,6 +191,10 @@ class FAQBlog(models.Model):
     faq_old_blog_question = models.CharField(max_length=200, blank=True, null=True)
     faq_old_blog_answer = RichTextField(blank=True, null=True)
 
+    faq_bestclinicarticlecity = models.ForeignKey(BestClinicArticleCity, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_bestclinicarticlecity_reverse')
+    faq_bestclinicarticlecity_question = models.CharField(max_length=200, blank=True, null=True)
+    faq_bestclinicarticlecity_answer = RichTextField(blank=True, null=True)
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)

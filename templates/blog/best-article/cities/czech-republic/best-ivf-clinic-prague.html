@@ -81,6 +81,10 @@
 {% endfor %}
 
 <div class="container py-3 text-center">
+  {% include 'blog/include/faq-bestclinicarticlecity-snippet.html' %}
+</div>
+
+<div class="container py-3 text-center">
   <a href="{% url 'fertilityClinicPrague' %}" rel="dofollow" style="text-decoration:none">
     <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg btn-block">Full list of {{clinics_location_count}} IVF clinics in Prague </button>
   </a>

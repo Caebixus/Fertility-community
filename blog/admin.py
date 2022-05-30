@@ -40,6 +40,7 @@ class FAQBlogAdmin(admin.ModelAdmin):
         ('Content', {'fields': ('content',)}),
         ('FAQ', {'fields': ('faq_simple_blog', 'faq_question', 'faq_answer', )}),
         ('FAQ Old blog', {'fields': ('faq_old_blog', 'faq_old_blog_question', 'faq_old_blog_answer',)}),
+        ('FAQ BestClinicArticleCity', {'fields': ('faq_bestclinicarticlecity', 'faq_bestclinicarticlecity_question', 'faq_bestclinicarticlecity_answer',)}),
     )
 
 

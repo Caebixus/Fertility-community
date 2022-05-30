@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
 from coaches.models import SnippetCity, Coaches, SnippetCountry
-from .models import BestClinicArticleCity
+from .models import BestClinicArticleCity, FAQBlog
 
 
 def bestivfclinicsinprague(request):
@@ -25,6 +25,8 @@ def bestivfclinicsinprague(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecity=pkid)
+
     if count_snippets == 1:
         snippets = SnippetCity.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
@@ -38,6 +40,7 @@ def bestivfclinicsinprague(request):
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
             'one_snippet': 'one_snippet',
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/cities/czech-republic/best-ivf-clinic-prague.html', context)
@@ -54,6 +57,7 @@ def bestivfclinicsinprague(request):
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/cities/czech-republic/best-ivf-clinic-prague.html', context)
@@ -66,6 +70,7 @@ def bestivfclinicsinprague(request):
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/cities/czech-republic/best-ivf-clinic-prague.html', context)

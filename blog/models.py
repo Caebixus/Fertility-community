@@ -68,6 +68,8 @@ class ModularBestClinics(models.Model):
 
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
 
+    link_fertility_clinics = models.CharField(max_length=150, blank=True, null=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(default=datetime.now, blank=True)
 

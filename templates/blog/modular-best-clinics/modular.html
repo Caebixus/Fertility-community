@@ -100,7 +100,7 @@
 {% endfor %}
 
 <div class="container py-5 text-center">
-  <a href="{{ blog.link_fertility_clinics }}" rel="dofollow">
+  <a href={{ blog.link_fertility_clinics }} rel="dofollow">
     <button id="brandButton" type="button" class="btn btn-outline-dark btn-lg">Full list of {{clinics_location_count}} IVF clinics in {% if blog.country %}{{ blog.country }}{% elif blog.state %}{{ blog.state }}{% else %}{{ blog.city}}{% endif %}</button>
   </a>
 </div>

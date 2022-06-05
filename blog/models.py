@@ -34,6 +34,7 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.author_name} {self.author_lastname}"
 
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='entries')
@@ -48,6 +49,47 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ModularBestClinics(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='author_modular_article')
+
+    #relationship_country = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_country_article')
+    #relationship_state = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_state_article')
+    #relationship_city = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_city_article')
+
+    country = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky
+    state = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky ze regions
+    city = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky
+
+    description = models.CharField(max_length=150)
+    keywords = models.CharField(max_length=150, blank=True, null=True)
+
+    pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(default=datetime.now, blank=True)
+
+    modular_slug = models.SlugField(max_length=100, null=True)
+    minute_read = models.IntegerField(null=True, blank=True)
+    year = models.PositiveIntegerField(blank=True, null=True, default=2022)
+    active = models.BooleanField(default=False, blank=True, null=True)
+
+    content = RichTextField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.modular_slug:
+            self.modular_slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('ModularBestClinicsDetailView', kwargs={'slug': self.modular_slug})
+
+    def __str__(self):
+        return self.title
+
+
 
 class BestClinicArticleCountry(models.Model):
     title = models.CharField(max_length=200)
@@ -73,6 +115,7 @@ class BestClinicArticleCountry(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class BestClinicArticleState(models.Model):
     title = models.CharField(max_length=200)
@@ -194,6 +237,10 @@ class FAQBlog(models.Model):
     faq_bestclinicarticlecity = models.ForeignKey(BestClinicArticleCity, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_bestclinicarticlecity_reverse')
     faq_bestclinicarticlecity_question = models.CharField(max_length=200, blank=True, null=True)
     faq_bestclinicarticlecity_answer = RichTextField(blank=True, null=True)
+
+    faq_best_clinic_article_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_modular_best_clinics_reverse')
+    faq_best_clinic_article_state_question = models.CharField(max_length=200, blank=True, null=True)
+    faq_best_clinic_article_state_answer = RichTextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

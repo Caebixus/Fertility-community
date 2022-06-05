@@ -5,7 +5,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 from django.urls import reverse
-from blog.models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity
+from blog.models import BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, ModularBestClinics
 from .calculate_dti import calculate_dti_single
 from .validators import validate_file_size
 
@@ -344,6 +344,28 @@ class BasicClinic(models.Model):
     best_article_city_distance_section_content = models.TextField(max_length=3750, blank=True, null = True)
     best_article_city_accommodation_section_content = models.TextField(max_length=3750, blank=True, null = True)
     best_article_city_packages_section_content = models.TextField(max_length=3750, blank=True, null = True)
+
+
+    # Country - Modular
+    modular_country_active = models.BooleanField(default=False, blank=True, null=True)
+    modular_country = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_country')
+    modular_country_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    modular_country_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
+    modular_country_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
+
+    # State - Modular
+    modular_state_active = models.BooleanField(default=False, blank=True, null=True)
+    modular_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_state')
+    modular_state_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    modular_state_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
+    modular_state_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
+
+    # City - Modular
+    modular_city_active = models.BooleanField(default=False, blank=True, null=True)
+    modular_city = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_city')
+    modular_city_actual_text = models.TextField(max_length=3750, blank=True, null = True)
+    modular_city_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
+    modular_city_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
 
     class Meta:
         ordering = ["id"]

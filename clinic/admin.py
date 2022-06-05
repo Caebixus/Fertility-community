@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     save_as = True
     list_display = ('id', 'digitalTransparencyIndex', 'clinicName', 'clinicOwner', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'clinicCity', 'clinicRegion', 'clinicState', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'best_article_country_boolean', 'contact_url')
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'is_claimed', 'clinicRegion', 'clinicState', 'clinicCity')
-    search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity')
+    search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity', 'contact_url')
     fieldsets = (
         ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex', 'defaultClinicCurrency', 'experts',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),
@@ -29,6 +29,11 @@ class PostAdmin(admin.ModelAdmin):
         ('Best Articles Country', {'fields': ('best_article_country_boolean', 'best_article_country_actual_text', 'best_article_country_actual_prototype', 'best_article_country_fcreview_text', 'best_article_country_blogpost_obj', )}),
         ('Best Articles State', {'fields': ('best_article_state_boolean', 'best_article_state_actual_text', 'best_article_state_actual_prototype', 'best_article_state_fcreview_text', 'best_article_state_blogpost_obj', )}),
         ('Best Articles City', {'fields': ('best_article_city_boolean', 'best_article_city_actual_text', 'best_article_city_actual_prototype', 'best_article_city_fcreview_text', 'best_article_city_blogpost_obj', 'best_article_city_google_reviews_section_content', 'best_article_city_pricing_section_content', 'best_article_city_distance_section_content', 'best_article_city_accommodation_section_content', 'best_article_city_packages_section_content',)}),
+
+        ('Best Modular Country Articles', {'fields': ('modular_country_active', 'modular_country', 'modular_country_actual_text', 'modular_country_actual_prototype', 'modular_country_fcreview_text',)}),
+        ('Best Modular State Articles', {'fields': ('modular_state_active', 'modular_state', 'modular_state_actual_text', 'modular_state_actual_prototype', 'modular_state_fcreview_text',)}),
+        ('Best Modular City Articles', {'fields': ('modular_city_active', 'modular_city', 'modular_city_actual_text', 'modular_city_actual_prototype', 'modular_city_fcreview_text',)}),
+
         ('Team', {'fields': ('team1name', 'team1pic', 'team1position', 'team2name', 'team2pic', 'team2position', 'team3name', 'team3pic', 'team3position',)}),
         ('Socials', {'fields': ('clinicFacebook', 'clinicInstagram', 'clinicYoutube', 'clinicTwitter', 'clinicLinkedIn', 'clinicPinterest',)}),
         ('Images', {'fields': ('clinic_pro_logo_pic', 'clinic_pro_main_pic', 'clinic_pro_photo_1', 'clinic_pro_photo_2', 'clinic_pro_photo_3', 'clinic_pro_photo_4', 'clinic_pro_photo_5', 'clinic_pro_photo_6',)}),

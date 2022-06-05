@@ -4,7 +4,7 @@ from clinic.validators import validate_file_size
 from datetime import datetime
 from django.urls import reverse
 
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog, ModularBestClinics
 
 
 class Coaches(models.Model):
@@ -16,7 +16,10 @@ class Coaches(models.Model):
     blog_best_country_review = models.ManyToManyField(BestClinicArticleCountry, related_name='country_reviewed_by', blank=True)
     blog_best_city_review = models.ManyToManyField(BestClinicArticleCity, related_name='city_reviewed_by', blank=True)
     blog_best_state_review = models.ManyToManyField(BestClinicArticleState, related_name='state_reviewed_by', blank=True)
+
     blog_faq_review = models.ManyToManyField(FAQBlog, related_name='blog_faq_reviewed_by', blank=True)
+    blog_simple_review = models.ManyToManyField(SimpleBlog, related_name='blog_simple_reviewed_by', blank=True)
+    blog_modular_best_clinics_review = models.ManyToManyField(ModularBestClinics, related_name='blog_modular_best_clinics_review_reviewed_by', blank=True)
 
     coach_full_name = models.CharField(max_length=40)
     coach_username = models.SlugField(max_length=25, help_text='Use as slug in URL')
@@ -145,6 +148,21 @@ class SnippetCountry(models.Model):
 class SnippetSimpleBlog(models.Model):
     owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_simple_blog_owner')
     blog = models.ForeignKey(SimpleBlog, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_simple_blog')
+    text = models.TextField(blank=True, null=True)
+    STATUS = (
+        ('wait for review', 'wait for review'),
+        ('is published', 'is published'),
+        ('is not approved', 'is not approved'),
+        )
+    status = models.CharField(max_length=40, choices=STATUS, null=True, default='wait for review')
+
+    def __str__(self):
+        return self.blog.title
+
+
+class SnippetModularBestClinicsBlog(models.Model):
+    owner = models.ForeignKey(Coaches, on_delete=models.CASCADE, related_name='snippet_modular_best_clinics_blog_owner')
+    blog = models.ForeignKey(ModularBestClinics, on_delete=models.CASCADE, blank=True, null=True, related_name='snippet_modular_best_clinics_blog')
     text = models.TextField(blank=True, null=True)
     STATUS = (
         ('wait for review', 'wait for review'),

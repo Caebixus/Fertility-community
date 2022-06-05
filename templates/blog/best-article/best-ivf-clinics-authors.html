@@ -14,4 +14,4 @@
     {% endif %}
     </p>
 {% endif %}
-<p style="font-size: 13px">Updated: {{ best_clinics_blogpost.last_modified }}</p>
+<p style="font-size: 13px">Updated: {{ best_clinics_blogpost.last_modified|date:"SHORT_DATE_FORMAT" }} | Originally published on {{ best_clinics_blogpost.created_at|date:"SHORT_DATE_FORMAT" }}</p>

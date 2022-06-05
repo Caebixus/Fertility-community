@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.db.models import Q
 
-from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState, FAQBlog, SimpleBlog
+from blog.models import Blog, BestClinicArticleCountry, BestClinicArticleCity, BestClinicArticleState, FAQBlog, SimpleBlog, ModularBestClinics
 from clinic.models import BasicClinic
 from coaches.models import Coaches
 from contact.forms import WebsiteForm
@@ -89,6 +89,8 @@ def blog(request):
     blog_abroad = Blog.objects.filter(tag='IVF-Abroad').order_by('-created_at')
     querylist_abroad = list(blog_simple_include) + list(blog_abroad)
 
+    blog_modular_state = ModularBestClinics.objects.filter(active=True).exclude(state='')
+
     BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')
     BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')
     BestClinicBlogCity = BestClinicArticleCity.objects.filter(best_article_city_noindex_sitemap_boolean=True).order_by('-created_at')
@@ -97,6 +99,7 @@ def blog(request):
         'blog': blog,
         'blog_tips_tricks': querylist_tips_tricks,
         'blog_faq': blog_faq,
+        'blog_modular_state': blog_modular_state,
 
         'blog_abroad': querylist_abroad,
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog
+from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog, ModularBestClinics
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -50,6 +50,11 @@ class SimpleBlogAdmin(admin.ModelAdmin):
     list_display = ('id', 'tag', 'title', 'created_at', 'last_modified', 'simple_slug')
 
 
+class ModularBestClinicsAdmin(admin.ModelAdmin):
+    model = ModularBestClinics
+    list_display = ('id', 'title', 'created_at', 'last_modified')
+
+
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(BestClinicArticleCountry, BestClinicArticleCountryAdmin)
@@ -57,3 +62,4 @@ admin.site.register(BestClinicArticleState, BestClinicArticleStateAdmin)
 admin.site.register(BestClinicArticleCity, BestClinicArticleCityAdmin)
 admin.site.register(FAQBlog, FAQBlogAdmin)
 admin.site.register(SimpleBlog, SimpleBlogAdmin)
+admin.site.register(ModularBestClinics, ModularBestClinicsAdmin)

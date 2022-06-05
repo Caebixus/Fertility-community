@@ -6,4 +6,4 @@
       {% include 'blog/reviewed_by.html' %}
     </div>
   </div>
-  <p style="font-size: 13px">Updated: {{ blog.last_modified }}</p>
+  <p style="font-size: 13px">Updated: {{ blog.last_modified|date:"SHORT_DATE_FORMAT" }} | Originally published on {{ blog.created_at|date:"SHORT_DATE_FORMAT" }}</p>

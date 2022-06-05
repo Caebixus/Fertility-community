@@ -7,6 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import views
 from django.contrib import sitemaps
 from .sitemaps import StaticViewSitemap
+from .sitemapsModularBlogs import ModularBlogsViewSitemap
 from .sitemapsRegions import RegionsViewSitemap
 from .sitemapsCountries import CountriesViewSitemap
 from .sitemapsCities import CitiesViewSitemap
@@ -32,6 +33,7 @@ sitemaps = {
     'simple-blogs': SimpleBlogsViewSitemap,
     'clinics': ClinicsViewSitemap,
     'experts': CoachesViewSitemap,
+    'modular-blogs': ModularBlogsViewSitemap,
 }
 
 urlpatterns = [

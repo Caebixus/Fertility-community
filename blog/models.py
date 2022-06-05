@@ -84,7 +84,7 @@ class ModularBestClinics(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('ModularBestClinicsDetailView', kwargs={'slug': self.modular_slug})
+        return reverse('ModularDetailView', kwargs={'modular_slug': self.modular_slug})
 
     def __str__(self):
         return self.title

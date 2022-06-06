@@ -1,7 +1,7 @@
 <div class="header" style="padding-top:3rem; min-height:80px;">
   {% if clinic.clinic_pro_logo_pic %}
     <div id="imgInfo" class="img align-self-center align-items-center">
-      <a target="_blank" rel="noopener noreferrer" href="{{ clinic.clinic_url }}">
+      <a target="_blank" rel="noopener noreferrer" href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">
         <img class="imgHoverLogo" src="{{ clinic.clinic_pro_logo_pic.url }}" alt="alternative logo for PRO clinic" style="max-height:70px; max-width:70px">
       </a>
     </div>

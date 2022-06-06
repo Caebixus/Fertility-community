@@ -4,7 +4,7 @@
 {% block description %}Browse all the necessary data about the selected IVF clinic {{clinic.clinicName}} and compare with others from all over the world.{% endblock %}
 {% block noindexpage %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/clinics/{{clinic.pk}}/{{clinic.slug}}/{% endblock %}
-{% block clinicdetailtrustpilotwidgetscript %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endblock %}
+{% block clinicdetailtrustpilotwidgetscript %}{% if clinic.clinicTrustPilotID %}<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>{% endif %}{% endblock %}
 {% block content %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>

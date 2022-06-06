@@ -4,7 +4,7 @@
 
 {% block title %}{{ blog.title }} | {{blog.year}}{% endblock %}
 {% block description %}{{ blog.description }}{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/article/{{blog.slug}}/{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/article/{{blog.simple_slug}}/{% endblock %}
 {% block meta_keywords %}{{ blog.keywords }}{% endblock %}
 
 {% block ogType %}<meta property='og:type' content='article' />{% endblock %}

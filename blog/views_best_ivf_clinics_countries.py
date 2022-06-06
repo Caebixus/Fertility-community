@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from clinic.models import BasicClinic
 from coaches.models import SnippetCountry, Coaches
-from .models import BestClinicArticleCountry
+from .models import BestClinicArticleCountry, FAQBlog
 from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse
 
@@ -93,6 +93,8 @@ def bestivfclinicsinspain(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecity=pkid)
+
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
@@ -106,6 +108,7 @@ def bestivfclinicsinspain(request):
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
             'one_snippet': 'one_snippet',
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
@@ -122,6 +125,7 @@ def bestivfclinicsinspain(request):
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)
@@ -134,6 +138,7 @@ def bestivfclinicsinspain(request):
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/spain/best-clinic-country-SP.html', context)

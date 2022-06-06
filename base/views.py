@@ -89,7 +89,7 @@ def blog(request):
     blog_abroad = Blog.objects.filter(tag='IVF-Abroad').order_by('-created_at')
     querylist_abroad = list(blog_simple_include) + list(blog_abroad)
 
-    blog_modular_state = ModularBestClinics.objects.filter(active=True).exclude(state='')
+    blog_modular_state = ModularBestClinics.objects.filter(active=True).exclude(state__isnull=True)
 
     BestClinicBlogCountry = BestClinicArticleCountry.objects.filter(best_article_country_noindex_sitemap_boolean=True).order_by('-created_at')
     BestClinicBlogState = BestClinicArticleState.objects.filter(best_article_state_noindex_sitemap_boolean=True).order_by('-created_at')

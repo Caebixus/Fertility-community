@@ -240,6 +240,10 @@ class FAQBlog(models.Model):
     faq_bestclinicarticlecity_question = models.CharField(max_length=200, blank=True, null=True)
     faq_bestclinicarticlecity_answer = RichTextField(blank=True, null=True)
 
+    faq_bestclinicarticlecountry = models.ForeignKey(BestClinicArticleCountry, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_bestclinicarticlecountry_reverse')
+    faq_bestclinicarticlecountry_question = models.CharField(max_length=200, blank=True, null=True)
+    faq_bestclinicarticlecountry_answer = RichTextField(blank=True, null=True)
+
     faq_best_clinic_article_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='faq_modular_best_clinics_reverse')
     faq_best_clinic_article_state_question = models.CharField(max_length=200, blank=True, null=True)
     faq_best_clinic_article_state_answer = RichTextField(blank=True, null=True)

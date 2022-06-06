@@ -41,6 +41,8 @@ class FAQBlogAdmin(admin.ModelAdmin):
         ('FAQ', {'fields': ('faq_simple_blog', 'faq_question', 'faq_answer', )}),
         ('FAQ Old blog', {'fields': ('faq_old_blog', 'faq_old_blog_question', 'faq_old_blog_answer',)}),
         ('FAQ BestClinicArticleCity', {'fields': ('faq_bestclinicarticlecity', 'faq_bestclinicarticlecity_question', 'faq_bestclinicarticlecity_answer',)}),
+        ('FAQ BestClinicArticleCountry', {'fields': ('faq_bestclinicarticlecountry', 'faq_bestclinicarticlecountry_question', 'faq_bestclinicarticlecountry_answer',)}),
+        ('FAQ Modular', {'fields': ('faq_best_clinic_article_state', 'faq_best_clinic_article_state_question', 'faq_best_clinic_article_state_answer',)}),
     )
 
 

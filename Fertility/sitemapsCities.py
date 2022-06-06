@@ -1,8 +1,6 @@
 from django.contrib import sitemaps
 from django.urls import reverse
-from base import views
-from searchLocationsCities import views
-from location import views
+
 
 class CitiesViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"

@@ -10,7 +10,7 @@ from .models import CookiesConsents
 def cookies(request):
     # Je potřeba zrefaktorovat if & else větve na fce
 
-    redirect_to = request.META.get("HTTP_REFERER", "/")
+    redirect_to = request.META.get("HTTP_REFERER")
     date = datetime.now()
 
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -85,7 +85,7 @@ def cookies(request):
                 return HttpResponseRedirect(redirect_to)
             else:
                 pass
-        return redirect("/")
+        return redirect(redirect_to)
 
     else:
-        return redirect("/")
+        return redirect(redirect_to)

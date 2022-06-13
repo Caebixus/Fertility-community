@@ -1,6 +1,5 @@
 from django.views.generic.detail import DetailView
 
-from coaches.models import TypeJobs
 from .models import BasicClinic
 from django.contrib.auth.models import User
 from packages.models import Package
@@ -16,7 +15,6 @@ class ClinicDetailView(DetailView):
     def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
-        clinic = self.get_object()
 
         allcliniclisting = BasicClinic.objects.all()
 

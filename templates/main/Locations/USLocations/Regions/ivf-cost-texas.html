@@ -2,7 +2,7 @@
 {% load filter_pagination_tag %}
 {% load static %}
 {% load humanize %}
-{% block title %}USA IVF costs | {{year}} Comparison{% endblock %}
+{% block title %}Texas IVF costs | {{year}} Comparison{% endblock %}
 {% block description %}Search hundreds of Texas fertility clinics at once to discover the information you need to make the best decisions on your IVF fertility treatment{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/ivf-cost/usa/texas{% endblock %}
 {% block content %}
@@ -11,7 +11,7 @@
 <div class="background background-color-gradient">
   <div class="container">
     <h1 style="padding-top:3rem; color:white">Fertility treatment costs in Texas | {{year}}</h1>
-    <p>Choosing the right infertility clinic is one of the most important decisions that you'll make during your pregnancy journey. <a href="https://www.fertilitycommunity.com/blog/best-ivf-clinics-in-texas/">Have a look on our ranking of the best fertility clinics in Texas.</a></p>
+    <p class="text-color-white">Choosing the right infertility clinic is one of the most important decisions that you'll make during your pregnancy journey. <a href="https://www.fertilitycommunity.com/blog/best-ivf-clinics-in-texas/" class="text-color-white">Have a look on our ranking of the best fertility clinics in Texas.</a></p>
     <br>
     <ul>
       <li style="color:white; font-size: 135% !important"><a href="#ivf-costs" style="color: white">IVF Costs in Texas - {% if texasIVF.average == None %} No information {% else %}{{ texasIVF.average|floatformat:'0'|intcomma }} ${% endif %}</a></li>

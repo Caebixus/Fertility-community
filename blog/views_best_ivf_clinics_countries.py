@@ -29,6 +29,8 @@ def bestivfclinicsinczech(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid)
+
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
@@ -42,6 +44,7 @@ def bestivfclinicsinczech(request):
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
             'one_snippet': 'one_snippet',
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
@@ -57,6 +60,7 @@ def bestivfclinicsinczech(request):
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)
@@ -69,6 +73,7 @@ def bestivfclinicsinczech(request):
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/czech-republic/best-clinic-country-CZ.html', context)

@@ -29,7 +29,7 @@ def bestivfclinicsinczech(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
-    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid)
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid, active=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
@@ -98,7 +98,7 @@ def bestivfclinicsinspain(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
-    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid)
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid, active=True)
 
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)

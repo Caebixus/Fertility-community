@@ -168,6 +168,8 @@ def bestivfclinicsingreece(request):
     reviewed_by = Coaches.objects.filter(blog_best_country_review=pkid)
     coach_premium = Coaches.objects.filter(coach_is_premium=True)
 
+    faq = FAQBlog.objects.filter(faq_bestclinicarticlecountry=pkid, active=True)
+
     if count_snippets == 1:
         snippets = SnippetCountry.objects.get(blog=pkid, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
 
@@ -181,6 +183,7 @@ def bestivfclinicsingreece(request):
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
             'one_snippet': 'one_snippet',
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
@@ -197,6 +200,7 @@ def bestivfclinicsingreece(request):
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
             'snippets': snippets,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)
@@ -209,6 +213,7 @@ def bestivfclinicsingreece(request):
             'author': author,
             'best_clinics_count': best_clinics_count,
             'clinics_location_count': clinics_location_count,
+            'faq': faq,
         }
 
         return render(request, 'blog/best-article/countries/greece/best-clinic-country-GR.html', context)

@@ -58,24 +58,25 @@ def calculate_active_clinic():
     last_6_months = timezone.now() - timedelta(days=180)
     clinics = BasicClinic.objects.filter(is_published=True, is_claimed=True)
     for clinic in clinics:
-        if clinic.clinicOwner.last_login > last_month:
-            clinic.active_30 = True
-            clinic.save()
-        else:
-            clinic.active_30 = False
-            clinic.save()
-        if clinic.clinicOwner.last_login > last_3_months:
-            clinic.active_90 = True
-            clinic.save()
-        else:
-            clinic.active_90 = False
-            clinic.save()
-        if clinic.clinicOwner.last_login > last_6_months:
-            clinic.active_180 = True
-            clinic.save()
-        else:
-            clinic.active_180 = False
-            clinic.save()
+        if clinic.clinicOwner.last_login is not None:
+            if clinic.clinicOwner.last_login > last_month:
+                clinic.active_30 = True
+                clinic.save()
+            else:
+                clinic.active_30 = False
+                clinic.save()
+            if clinic.clinicOwner.last_login > last_3_months:
+                clinic.active_90 = True
+                clinic.save()
+            else:
+                clinic.active_90 = False
+                clinic.save()
+            if clinic.clinicOwner.last_login > last_6_months:
+                clinic.active_180 = True
+                clinic.save()
+            else:
+                clinic.active_180 = False
+                clinic.save()
 
 
 # @task()

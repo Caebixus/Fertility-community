@@ -7,7 +7,7 @@ from base.constant_variables import year
 def locationsINRegions(request):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
 
-    pkid = 3
+    pkid = 3 #doplnit správné pkid blogu
     best_clinics = queryset_list.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics_count = best_clinics.count()
 

@@ -9,7 +9,7 @@ from location.models.europe_city_models import *
 def locationsPTRegions(request):
     queryset_list = BasicClinic.objects.all().exclude(is_published=False)
 
-    pkid = 3
+    pkid = 5
     best_clinics = queryset_list.filter(best_article_country_blogpost_obj=pkid).exclude(best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
     best_clinics_count = best_clinics.count()
 

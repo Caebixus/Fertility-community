@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-
+from django.utils.timezone import now
 import clinic
 
 from clinic.validators import validate_file_size
@@ -70,8 +70,7 @@ class ModularBestClinics(models.Model):
 
     link_fertility_clinics = models.CharField(max_length=150, blank=True, null=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    created_at.editable = True
+    created_at = models.DateTimeField(default=now)
     last_modified = models.DateTimeField(default=datetime.now, blank=True)
 
     modular_slug = models.SlugField(max_length=100, null=True)

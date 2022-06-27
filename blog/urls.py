@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_cities, views_best_ivf_clinics_world
+from . import views, views_best_ivf_clinics_countries, views_best_ivf_clinics_world
 from .views import AuthorDetailView
 from .views_faq_blogs import FaqDetailView
 from .views_modular_best_clinics_blogs import ModularBestClinicsDetailView

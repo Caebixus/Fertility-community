@@ -26,8 +26,8 @@ class ModularBestClinicsDetailView(DetailView):
         reviewed_by = Coaches.objects.filter(blog_modular_best_clinics_review=blogpk)
         context['reviewed_by'] = reviewed_by
 
-        faq_modular_best_clinics_blog_objects = FAQBlog.objects.filter(pk=blogpk, faq_best_clinic_article_state__isnull=True)
-        context['faq'] = faq_modular_best_clinics_blog_objects
+        faq_modular_best_clinics_blog_objects = FAQBlog.objects.filter(faq_best_clinic_article_state=blogpk, active=True)
+        context['faqs'] = faq_modular_best_clinics_blog_objects
 
         coach_premium = Coaches.objects.filter(coach_is_premium=True)
         context['coach_premium'] = coach_premium

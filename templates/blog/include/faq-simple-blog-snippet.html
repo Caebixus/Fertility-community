@@ -1,10 +1,10 @@
-{% for faq in blog.faq_simple_blog_reverse.all %}
+{% for faq in faqs %}
 <br>
-<h3>{{ faq.faq_question }}?</h3>
+<h3>{{ faq.faq_best_clinic_article_state_question }}?</h3>
 <br>
-<p>{{ faq.faq_answer|safe }}</p>
+<p>{{ faq.faq_best_clinic_article_state_answer|safe }}</p>
 <a href="{% url 'FaqDetailView' faq.slug %}">
-    <p>Read more about {{ faq.faq_question }}</p>
+    <p>Read more about {{ faq.faq_best_clinic_article_state_question }}</p>
 </a>
 <hr>
 <br>

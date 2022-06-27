@@ -71,6 +71,7 @@ class ModularBestClinics(models.Model):
     link_fertility_clinics = models.CharField(max_length=150, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+    created_at.editable = True
     last_modified = models.DateTimeField(default=datetime.now, blank=True)
 
     modular_slug = models.SlugField(max_length=100, null=True)

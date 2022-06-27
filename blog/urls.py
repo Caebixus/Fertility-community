@@ -62,5 +62,5 @@ urlpatterns = [
     path('blog/best-ivf-clinics-germany', views_best_ivf_clinics_countries.bestivfclinicsingermany, name='bestivfclinicsingermany'),
 
     #Best Clinics In Cities
-    path('blog/best-ivf-clinics-prague', views_best_ivf_clinics_cities.bestivfclinicsinprague, name='bestivfclinicsinprague'),
+    #path('blog/best-ivf-clinics-prague', views_best_ivf_clinics_cities.bestivfclinicsinprague, name='bestivfclinicsinprague'),
 ]

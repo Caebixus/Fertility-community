@@ -353,14 +353,14 @@ class BasicClinic(models.Model):
     modular_country_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     modular_country_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
 
-    # State - Modular
+    # State - Modular - DEPRECIATED
     modular_state_active = models.BooleanField(default=False, blank=True, null=True)
     modular_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_state')
     modular_state_actual_text = models.TextField(max_length=3750, blank=True, null = True)
     modular_state_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     modular_state_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
 
-    # City - Modular
+    # City - Modular - DEPRECIATED
     modular_city_active = models.BooleanField(default=False, blank=True, null=True)
     modular_city = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_city')
     modular_city_actual_text = models.TextField(max_length=3750, blank=True, null = True)

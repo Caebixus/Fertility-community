@@ -15,7 +15,8 @@ year = 2022
 
 # Create your views here.
 def fertilityClinicPrague(request):
-    guestblog = GuestBlog.objects.filter(guestblogcity__iexact='Prague')
+    place = "Prague"
+    guestblog = GuestBlog.objects.filter(guestblogcity__iexact=place)
     guestblog = guestblog.filter(guestblogactive=True)
 
     all_clinic_count = BasicClinic.objects.filter(is_published=True)
@@ -28,14 +29,15 @@ def fertilityClinicPrague(request):
     averageSpermPrice = average.aggregate(average=Avg('sperm_donor_recipients_cost'))
     averageICSIPrice = average.aggregate(average=Avg('icsi_treatment_cost'))
 
-    basic_queryset = BasicClinic.objects.filter(clinicRegion__iexact='Prague').filter(is_published=True)
+    basic_queryset = BasicClinic.objects.filter(clinicRegion__iexact=place).filter(is_published=True)
 
     my_total_count = basic_queryset.filter(is_published=True)
     my_total_count = my_total_count.count()
 
     queryset_list = basic_queryset.order_by('-digitalTransparencyIndex')
 
-    best_city_article_count = count_best_clinics_in_article_city(basic_queryset)
+
+    best_city_article_count = count_best_clinics_in_article_city(basic_queryset, place)
 
     order_data = list(queryset_list)
 

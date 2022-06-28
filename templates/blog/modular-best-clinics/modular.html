@@ -10,11 +10,11 @@
 {% block ogImageWidth %}<meta property="og:image:width" content="1200" />{% endblock %}
 {% block ogImageHeight %}<meta property="og:image:height" content="630" />{% endblock %}
 
-{% block title %}The {{best_clinics_count}} {{blog.title}} | {{ blog.year }}{% endblock %}
-{% block description %}These are the best IVF clinics in Latvia for {{ blog.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
+{% block title %}The {{best_clinics_count}} {{blog.title}} | Detailed Comparison | {{ blog.year }}{% endblock %}
+{% block description %}These are the best IVF clinics in {% if blog.country %}{{ blog.country }}{% elif blog.state %}{{blog.state}}{% else %}{{blog.city}}{% endif %} for {{ blog.year }}. Find out who has the highest DTI index and read more about their team, IVF treatments and pricing.{% endblock %}
 {% block noindexpage %}{% if blog.active == True %}{% else %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block canonical_url %}https://www.fertilitycommunity.com/blog/{{blog.modular_slug}}{% endblock %}
-{% block meta_keywords %}best ivf clinics in Latvia, best fertility clinics Latvia{% endblock %}
+{% block meta_keywords %}best ivf clinics in {% if blog.country %}{{ blog.country }}{% elif blog.state %}{{blog.state}}{% else %}{{blog.city}}{% endif %}, best fertility clinics {% if blog.country %}{{ blog.country }}{% elif blog.state %}{{blog.state}}{% else %}{{blog.city}}{% endif %}{% endblock %}
 
 {% block twittercard %}<meta name="twitter:card" content="summary_large_image">{% endblock %}
 {% block twittersite %}<meta name="twitter:site" content='FertilityCommunity' />{% endblock %}

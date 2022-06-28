@@ -59,11 +59,11 @@ class ModularBestClinics(models.Model):
     #relationship_state = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_state_article')
     #relationship_city = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_city_article')
 
-    country = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky
-    state = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky ze regions
-    city = models.CharField(max_length=100, blank=True, null=True) # aby se správně vyhledali kliniky
+    country = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky
+    state = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky ze regions
+    city = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky
 
-    description = models.CharField(max_length=150)
+    description = models.CharField(max_length=150, blank=True, null=True)
     keywords = models.CharField(max_length=150, blank=True, null=True)
 
     pic_blog = models.ImageField(upload_to='blogPhotos', blank=True, null=True, validators=[validate_file_size])

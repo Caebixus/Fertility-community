@@ -1,7 +1,7 @@
 {% if author.author_name == 'FertilityCommunity' %}
     <p style="font-size: 85%">Authors: {{ author.author_name }} {{ author.author_lastname }}</p>
 {% else %}
-    <p style="font-size: 85%">Authors: <a href="{% url 'authorDetailView' author.id %}">{{ author.author_name }} {{ author.author_lastname }}</a></p>
+    <p style="font-size: 85%">Authors: <a href="{% url 'blog:authorDetailView' author.id %}">{{ author.author_name }} {{ author.author_lastname }}</a></p>
 {% endif %}
 {% if snippets %}
     <p style="font-size: 85%">Contributors:

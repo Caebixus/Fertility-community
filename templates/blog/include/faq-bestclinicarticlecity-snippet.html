@@ -4,7 +4,7 @@
 <h3>{{ faqs.faq_bestclinicarticlecity_question }}?</h3>
 <br>
 <p>{{ faqs.faq_bestclinicarticlecity_answer|safe }}</p>
-<a href="{% url 'FaqDetailView' faqs.slug %}">
+<a href="{% url 'blog:FaqDetailView' faqs.slug %}">
     <p>Read more about {{ faqs.faq_bestclinicarticlecity_question }}</p>
 </a>
 <hr>

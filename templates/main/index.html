@@ -168,19 +168,19 @@
                                 {% if article.author != None %}
                                 <div class="col-md-4 mb-3">
                                   <div class="card shadow-sm" style="border-radius: 25px;">
-                                    <a href="{% url 'ModularDetailView' article.modular_slug %}" style="text-decoration:none">
+                                    <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
                                       {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
                                       {% else %}
                                       {% endif %}
                                     </a>
                                     <div class="card-body">
-                                      <a href="{% url 'ModularDetailView' article.modular_slug %}">
+                                      <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}">
                                         <h3 class="card-title">{{ article.title }}</h3>
                                       </a>
                                       <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
                                       <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                          <a href="{% url 'ModularDetailView' article.modular_slug %}" style="text-decoration:none">
+                                          <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
                                             <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
                                           </a>
                                         </div>
@@ -230,19 +230,19 @@
                                 {% if article.author != None %}
                                 <div class="col-md-4 mb-3">
                                   <div class="card shadow-sm" style="border-radius: 25px;">
-                                    <a href="{% url 'ModularDetailView' article.modular_slug %}" style="text-decoration:none">
+                                    <a href="{% url 'blog:ModularDetailView' article.modular_slug %}" style="text-decoration:none">
                                       {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
                                       {% else %}
                                       {% endif %}
                                     </a>
                                     <div class="card-body">
-                                      <a href="{% url 'ModularDetailView' article.modular_slug %}">
+                                      <a href="{% url 'blog:ModularDetailView' article.modular_slug %}">
                                         <h3 class="card-title">{{ article.title }}</h3>
                                       </a>
                                       <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
                                       <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                          <a href="{% url 'ModularDetailView' article.modular_slug %}" style="text-decoration:none">
+                                          <a href="{% url 'blog:ModularDetailView' article.modular_slug %}" style="text-decoration:none">
                                             <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
                                           </a>
                                         </div>
@@ -292,19 +292,19 @@
                                 {% if article.author != None %}
                                 <div class="col-md-4 mb-3">
                                   <div class="card shadow-sm" style="border-radius: 25px;">
-                                    <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                    <a href="{% url 'blog:ModularDetailView' article.modular_slug %}" style="text-decoration:none">
                                       {% if article.pic_blog %}<img src="{{ article.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
                                       {% else %}
                                       {% endif %}
                                     </a>
                                     <div class="card-body">
-                                      <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}">
+                                      <a href="{% url 'blog:ModularDetailView' article.modular_slug %}">
                                         <h3 class="card-title">{{ article.title }}</h3>
                                       </a>
                                       <p class="card-text" style="font-size: 17px">{{ article.description|truncatechars:100 }}</p>
                                       <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                          <a href="https://www.fertilitycommunity.com/blog/{{ article.slug }}" style="text-decoration:none">
+                                          <a href="{% url 'blog:ModularDetailView' article.modular_slug %}" style="text-decoration:none">
                                             <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
                                           </a>
                                         </div>

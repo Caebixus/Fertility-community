@@ -1,7 +1,7 @@
 {% if best_clinics_blogpost.author.author_name == 'FertilityCommunity' %}
     <p>Authors: {{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}</p>
 {% else %}
-    <p>Authors: <a href="{% url 'authorDetailView' best_clinics_blogpost.author..id %}">{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}</a></p>
+    <p>Authors: <a href="{% url 'blog:authorDetailView' best_clinics_blogpost.author..id %}">{{ best_clinics_blogpost.author.author_name }} {{ best_clinics_blogpost.author.author_lastname }}</a></p>
 {% endif %}
 {% if snippets %}
     <p>Co-authors:

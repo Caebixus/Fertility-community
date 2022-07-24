@@ -70,7 +70,7 @@
             {
                 "@type":"Person",
                 "name":"{{ author.author_name }} {{ author.author_lastname }}",
-                "url":"{% url 'authorDetailView' author.id %}",
+                "url":"{% url 'blog:authorDetailView' author.id %}",
                 {% if author.author_pic %}"image":"{{ author.author_pic.url }}",{% endif%}
                 "jobTitle":"{{ author.author_small_bio }}"
             },

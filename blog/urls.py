@@ -6,7 +6,7 @@ from .views_faq_blogs import FaqDetailView
 from .views_modular_best_clinics_blogs import ModularBestClinicsDetailView
 from .views_simple_blogs import SimpleDetailView
 
-
+app_name = 'blog'
 urlpatterns = [
     #Authors
     path('authors/<int:pk>/', AuthorDetailView.as_view(), name='authorDetailView'),

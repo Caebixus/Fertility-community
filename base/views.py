@@ -24,9 +24,9 @@ def index(request):
     count_blog6 = SimpleBlog.objects.all().count()
     count_blog = count_blog1 + count_blog2 + count_blog3 + count_blog4 + count_blog5 + count_blog6
 
-    best_country = BestClinicArticleCountry.objects.all().order_by('-created_at')
-    best_city = BestClinicArticleCity.objects.all().order_by('-created_at')
-    best_state = BestClinicArticleState.objects.all().order_by('-created_at')
+    best_country = BestClinicArticleCountry.objects.all().order_by('created_at')
+    best_city = ModularBestClinics.objects.filter(city__isnull=False).order_by('created_at')
+    best_state = ModularBestClinics.objects.filter(state__isnull=False).order_by('created_at')
 
     listing = BasicClinic.objects.all().exclude(is_published=False)
     listing = listing.count

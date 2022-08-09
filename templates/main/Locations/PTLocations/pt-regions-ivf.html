@@ -89,7 +89,7 @@
   <br>
 
   <h3>Average IVF with egg donation treatment costs </h3>
-  <p>IVF with <a href="{% url 'whatisivfwitheggdonation' %}" style="text-decoration: none">egg donation </a> is an IVF treatment that uses another woman’s eggs (usually a young fertile and healthy donor) which is then fertilized and implanted into the recipient’s uterus.</p>
+  <p>IVF with <a href="{% url 'blog:whatisivfwitheggdonation' %}" style="text-decoration: none">egg donation </a> is an IVF treatment that uses another woman’s eggs (usually a young fertile and healthy donor) which is then fertilized and implanted into the recipient’s uterus.</p>
   {% if queryset_list_pt_egg_ivf_val %}
     <div class="treatmentCostsUSDCurrency"><p>- ${{ queryset_list_pt_egg_ivf_val|convert:'USD'|floatformat:'0'|intcomma }} for a IVF with anonymous egg donation</p></div>
     <div class="treatmentCostsEURCurrency" style="display:none"><p>- €{{ queryset_list_pt_egg_ivf_val|convert:'EUR'|floatformat:'0'|intcomma}} for a IVF with anonymous egg donation</p></div>

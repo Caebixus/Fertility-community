@@ -86,7 +86,7 @@ class ModularBestClinics(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('ModularDetailView', kwargs={'modular_slug': self.modular_slug})
+        return reverse('blog:ModularDetailView', kwargs={'modular_slug': self.modular_slug})
 
     def __str__(self):
         return self.title
@@ -203,7 +203,7 @@ class SimpleBlog(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('SimpleDetailView', kwargs={'simple_slug': self.simple_slug})
+        return reverse('blog:SimpleDetailView', kwargs={'simple_slug': self.simple_slug})
 
     def __str__(self):
         return self.title
@@ -254,7 +254,7 @@ class FAQBlog(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('FaqDetailView', kwargs={'slug': self.slug})
+        return reverse('blog:FaqDetailView', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

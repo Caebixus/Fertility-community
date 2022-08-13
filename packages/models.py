@@ -13,7 +13,7 @@ class Package(models.Model):
     package_pic = models.ImageField(upload_to='ownerPhotos', blank=True, null=True, validators=[validate_file_size])
     package_pic_delete = models.BooleanField(default=False, blank=True, null=True)
     packagetitle = models.CharField(max_length=30, blank=True, null = True)
-    packagecategory = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null = True, default=CATEGORY_PACKAGE[0][0])
+    packagecategory = models.CharField(max_length=40, choices=CATEGORY_PACKAGE, null=True, default=CATEGORY_PACKAGE[0][0])
     packagedesc = RichTextField(blank=True, null=True, max_length=800)
     packagecost = models.FloatField(blank=True, null=True)
 

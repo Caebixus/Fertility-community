@@ -8,7 +8,7 @@ from django.urls import reverse
 clinics = BasicClinic.objects.all()
 
 def bestivfclinicsinczechbezin(request):
-    return HttpResponsePermanentRedirect(reverse('bestivfclinicsinczech'))
+    return HttpResponsePermanentRedirect(reverse('blog:bestivfclinicsinczech'))
 
 def bestivfclinicsinczech(request):
     pkid = 1

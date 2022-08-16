@@ -207,6 +207,18 @@
     wait-open="true"
   ></df-messenger>
 
+  <script>
+  const dfMessenger = document.querySelector('df-messenger');
+  dfMessenger.addEventListener('df-messenger-loaded', function () {
+          $r1 = document.querySelector("df-messenger");
+          $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+
+          var style = document.createElement( 'style' );
+          style.innerHTML = 'div.chat-wrapper[opened="true"]{height:480px;max-height:480px;max-width:80%;}';
+          $r2.shadowRoot.appendChild( style );
+  });
+  </script>
+
   {% block content %}
     <div class="popup-banner" style="display: none">
       <div class="modal" id="formModal" tabindex="-1" role="dialog">

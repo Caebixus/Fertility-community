@@ -36,29 +36,28 @@ class ModularBestClinicsDetailView(DetailView):
         count_snippets = snippets.count()
 
         clinics = BasicClinic.objects.all()
-        clinics_modular_country = clinics.filter(modular_country=blogpk)
-        clinics_modular_state = clinics.filter(modular_state=blogpk)
-        clinics_modular_city = clinics.filter(modular_city=blogpk)
+        if ModularBestClinics.objects.filter(best_modular_country=blogpk):
+             clinics_modular_country = clinics.filter(modular_country=blogpk)
+             best_clinics = clinics.filter(modular_country=blogpk).exclude(modular_country_actual_text__exact='').exclude(modular_country_active=False)
+             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
+             context['clinics_modular_country'] = clinics_modular_country
+             context['best_clinics'] = best_clinics
+             context['best_clinics_count'] = best_clinics.count()
 
-        if clinics_modular_country:
-            best_clinics = clinics.filter(modular_country=blogpk).exclude(modular_country_actual_text__exact='').exclude(modular_country_active=False)
-            best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
-            context['clinics_modular_country'] = clinics_modular_country
-            context['best_clinics'] = best_clinics
-            context['best_clinics_count'] = best_clinics.count()
-        elif clinics_modular_state:
+        elif ModularBestClinics.objects.filter(best_modular_state=blogpk):
+            clinics_modular_state = clinics.filter(modular_state=blogpk)
             best_clinics = clinics.filter(modular_state=blogpk).exclude(modular_state_actual_text__exact='').exclude(modular_state_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
             context['clinics_modular_state'] = clinics_modular_state
             context['best_clinics'] = best_clinics
             context['best_clinics_count'] = best_clinics.count()
-        elif clinics_modular_city:
+        elif ModularBestClinics.objects.filter(best_modular_city=blogpk):
+            clinics_modular_city = clinics.filter(modular_city=blogpk)
             best_clinics = clinics.filter(modular_city=blogpk).exclude(modular_city_actual_text__exact='').exclude(modular_city_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
             context['clinics_modular_city'] = clinics_modular_city
             context['best_clinics'] = best_clinics
             context['best_clinics_count'] = best_clinics.count()
-        pass
 
         if country:
             clinics_location_count = clinics.filter(clinicState=country).exclude(is_published=False)

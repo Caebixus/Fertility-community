@@ -79,11 +79,11 @@
 
   {% include 'blog/best-article/header.html' %}
 
-  {% if clinics_modular_country %}
+  {% if geo == 'country' %}
     {{ clinic.modular_country_actual_text|safe }}
-  {% elif clinics_modular_state %}
+  {% elif geo == 'state' %}
     {{ clinic.modular_state_actual_text|safe }}
-  {% elif clinics_modular_state %}
+  {% elif geo == 'city' %}
     {{ clinic.modular_city_actual_text|safe }}
   {% endif %}
 

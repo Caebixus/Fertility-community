@@ -36,26 +36,28 @@ class ModularBestClinicsDetailView(DetailView):
         count_snippets = snippets.count()
 
         clinics = BasicClinic.objects.all()
-        if ModularBestClinics.objects.filter(best_modular_country=blogpk):
-             clinics_modular_country = clinics.filter(modular_country=blogpk)
+
+        Country = clinics.filter(modular_country=blogpk)
+        State = clinics.filter(modular_state=blogpk)
+        City = clinics.filter(modular_city=blogpk)
+
+        if Country:
              best_clinics = clinics.filter(modular_country=blogpk).exclude(modular_country_actual_text__exact='').exclude(modular_country_active=False)
              best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
-             context['clinics_modular_country'] = clinics_modular_country
+             context['geo'] = 'country'
              context['best_clinics'] = best_clinics
              context['best_clinics_count'] = best_clinics.count()
 
-        elif ModularBestClinics.objects.filter(best_modular_state=blogpk):
-            clinics_modular_state = clinics.filter(modular_state=blogpk)
+        elif State:
             best_clinics = clinics.filter(modular_state=blogpk).exclude(modular_state_actual_text__exact='').exclude(modular_state_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
-            context['clinics_modular_state'] = clinics_modular_state
+            context['geo'] = 'state'
             context['best_clinics'] = best_clinics
             context['best_clinics_count'] = best_clinics.count()
-        elif ModularBestClinics.objects.filter(best_modular_city=blogpk):
-            clinics_modular_city = clinics.filter(modular_city=blogpk)
+        elif City:
             best_clinics = clinics.filter(modular_city=blogpk).exclude(modular_city_actual_text__exact='').exclude(modular_city_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
-            context['clinics_modular_city'] = clinics_modular_city
+            context['geo'] = 'city'
             context['best_clinics'] = best_clinics
             context['best_clinics_count'] = best_clinics.count()
 

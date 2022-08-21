@@ -5,7 +5,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.timezone import now
-import clinic
 
 from clinic.validators import validate_file_size
 

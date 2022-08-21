@@ -28,7 +28,6 @@ class BlogsViewSitemap(sitemaps.Sitemap):
         'blog:ivfmeditation',
         'blog:ivfstepbystep',
 
-        'blog:bestivfclinicsinczech',
         'blog:bestivfclinicsinspain',
         'blog:bestivfclinicsingreece',
         'blog:bestivfclinicsinslovakia',

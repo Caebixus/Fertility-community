@@ -9,7 +9,7 @@ class CoachesAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Basic information', {'fields': ('coach_user', 'coach_full_name', 'coach_username', 'coach_profile_photo', 'coach_preferred_client_country', 'coach_bio', 'coach_education', 'coach_specialization', 'coach_certification', 'coach_other',)}),
         ('Contact', {'fields': ('coach_contact_email', 'coach_phone',)}),
-        ('Reviewed blogs', {'fields': ('blog_review', 'blog_best_country_review', 'blog_best_city_review', 'blog_best_state_review',)}),
+        ('Reviewed blogs', {'fields': ('blog_review', 'blog_best_country_review', 'blog_best_city_review', 'blog_best_state_review', 'blog_modular_best_clinics_review')}),
         ('Social', {'fields': ('coach_social_instagram', 'coach_social_facebook', 'coach_social_linkedin', 'coach_social_pinterest', 'coach_social_twitter', 'coach_social_youtube', 'coach_social_website',)}),
         ('Intern', {'fields': ('coach_is_claimed', 'coach_is_published', 'coach_is_not_approved', 'coach_is_premium', 'coach_created', 'coach_updated', 'coach_subscription_update',)}),
     )

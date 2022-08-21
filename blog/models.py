@@ -18,7 +18,6 @@ TAG_CHOICES = (
     ('Research', 'Research'),
 )
 
-
 class Author(models.Model):
     author_name = models.CharField(max_length=40)
     author_lastname = models.CharField(max_length=40)
@@ -55,12 +54,8 @@ class ModularBestClinics(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, blank=True, null=True, related_name='author_modular_article')
 
-    #relationship_country = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_country_article')
-    #relationship_state = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_state_article')
-    #relationship_city = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='relationship_with_best_city_article')
-
     country = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky
-    state = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky ze regions
+    state = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky z regions
     city = models.CharField(max_length=100, blank=True, null=True)#aby se správně vyhledali kliniky
 
     description = models.CharField(max_length=150, blank=True, null=True)
@@ -80,6 +75,7 @@ class ModularBestClinics(models.Model):
 
     content = RichTextField(blank=True, null=True)
 
+
     def save(self, *args, **kwargs):
         if not self.modular_slug:
             self.modular_slug = slugify(self.title)
@@ -90,7 +86,6 @@ class ModularBestClinics(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 class BestClinicArticleCountry(models.Model):

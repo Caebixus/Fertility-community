@@ -346,26 +346,42 @@ class BasicClinic(models.Model):
     best_article_city_packages_section_content = models.TextField(max_length=3750, blank=True, null = True)
 
 
+    DEMO_CHOICES = (
+        ("Value for money", "Value for money"),
+        ("Renowned surgeons", "Renowned surgeons"),
+        ("Professional staff", "Professional staff"),
+        ("Honest expectations", "Honest expectations"),
+        ("Brilliant attention from staff", "Brilliant attention from staff"),
+        ("Excellent customer care", "Excellent customer care"),
+        ("Friendly staff", "Friendly staff"),
+        ("Stress-free treatment", "Stress-free treatment"),
+        ("Outstanding aftercare", "Outstanding aftercare"),
+    )
+
     # Country - Modular
     modular_country_active = models.BooleanField(default=False, blank=True, null=True)
-    modular_country = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_country')
+    modular_country = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_country', limit_choices_to={'state': None, 'city': None})
     modular_country_actual_text = models.TextField(max_length=3750, blank=True, null = True)
     modular_country_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     modular_country_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
+    choices_of_best_list_country = models.CharField(max_length=500, choices=DEMO_CHOICES, blank=True, null=True)
 
-    # State - Modular - DEPRECIATED
+    # State - Modular
     modular_state_active = models.BooleanField(default=False, blank=True, null=True)
-    modular_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_state')
+    modular_state = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_state', limit_choices_to={'country': None, 'city': None})
     modular_state_actual_text = models.TextField(max_length=3750, blank=True, null = True)
     modular_state_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     modular_state_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
+    choices_of_best_list_state = models.CharField(max_length=500, choices=DEMO_CHOICES, blank=True, null=True)
 
-    # City - Modular - DEPRECIATED
+    # City - Modular
     modular_city_active = models.BooleanField(default=False, blank=True, null=True)
-    modular_city = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_city')
+    modular_city = models.ForeignKey(ModularBestClinics, on_delete=models.PROTECT, blank=True, null=True, related_name='best_modular_city', limit_choices_to={'state': None, 'country': None})
     modular_city_actual_text = models.TextField(max_length=3750, blank=True, null = True)
     modular_city_actual_prototype = models.TextField(max_length=3750, blank=True, null = True)
     modular_city_fcreview_text = models.TextField(max_length=1000, blank=True, null = True)
+    choices_of_best_list_city = models.CharField(max_length=500, choices=DEMO_CHOICES, blank=True, null=True)
+
 
     class Meta:
         ordering = ["id"]

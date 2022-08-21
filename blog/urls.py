@@ -17,7 +17,7 @@ urlpatterns = [
     #SimpleBlog
     path('article/<slug:simple_slug>/', SimpleDetailView.as_view(), name='SimpleDetailView'),
 
-    # ModularBlog
+    #ModularBlogs
     path('blog/<slug:modular_slug>/', ModularBestClinicsDetailView.as_view(), name='ModularDetailView'),
 
     #IVF Abroad
@@ -53,8 +53,8 @@ urlpatterns = [
     path('blog/best-ivf-clinics-world', views_best_ivf_clinics_world.best_ivf_clinics_world, name='best_ivf_clinics_world'),
 
     #Best Clinics In Countries
-    path('blog/best-ivf-clinics-czech', views_best_ivf_clinics_countries.bestivfclinicsinczech, name='bestivfclinicsinczech'),
-    path('blog/best-ivf-clinics-in-czech', views_best_ivf_clinics_countries.bestivfclinicsinczechbezin, name='bestivfclinicsinczechbezin'),
+    #path('blog/best-ivf-clinics-czech', views_best_ivf_clinics_countries.bestivfclinicsinczech, name='bestivfclinicsinczech'),
+    #path('blog/best-ivf-clinics-in-czech', views_best_ivf_clinics_countries.bestivfclinicsinczechbezin, name='bestivfclinicsinczechbezin'),
     path('blog/best-ivf-clinics-spain', views_best_ivf_clinics_countries.bestivfclinicsinspain, name='bestivfclinicsinspain'),
     path('blog/best-ivf-clinics-greece', views_best_ivf_clinics_countries.bestivfclinicsingreece, name='bestivfclinicsingreece'),
     path('blog/best-ivf-clinics-slovakia', views_best_ivf_clinics_countries.bestivfclinicsinslovakia, name='bestivfclinicsinslovakia'),

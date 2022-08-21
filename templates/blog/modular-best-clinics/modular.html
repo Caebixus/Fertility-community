@@ -65,7 +65,9 @@
   <div class="pt-3 pb-4">
     {% include 'blog/snippet_carousel.html' %}
   </div>
-  <p>Here is our list of the <strong>{{best_clinics_count}} {{blog.title}}:</strong></p>
+
+    {% include 'blog/modular-best-clinics/quick-summary.html' %}
+  <p class="pt-5">Here is our detailed list of the <strong>{{best_clinics_count}} {{blog.title}}:</strong></p>
 </div>
 
 

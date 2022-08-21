@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, SimpleBlog, ModularBestClinics
+from .models import Blog, Author, BestClinicArticleCountry, BestClinicArticleState, BestClinicArticleCity, FAQBlog, \
+    SimpleBlog, ModularBestClinics
 
 
 class AuthorAdmin(admin.ModelAdmin):

@@ -1,0 +1,67 @@
+{% if clinics_modular_country %}
+<div class="py-3">
+  <p><strong>Quick summary:</strong></p>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="custom-table table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Best for</th>
+            <th scope="col">Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for clinic in best_clinics %}
+        <tr>
+            <td>{{forloop.counter}}.</td>
+            <td><strong>{{ clinic.choices_of_best_list_country }}</strong></td>
+            <td><a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% elif clinics_modular_state %}
+<div class="py-3">
+  <p><strong>Quick summary:</strong></p>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="custom-table table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Best for</th>
+            <th scope="col">Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for clinic in best_clinics %}
+        <tr>
+            <td>{{forloop.counter}}.</td>
+            <td><strong>{{ clinic.choices_of_best_list_state }}</strong></td>
+            <td><a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% elif clinics_modular_state %}
+<div class="py-3">
+  <p><strong>Quick summary:</strong></p>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="custom-table table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Best for</th>
+            <th scope="col">Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for clinic in best_clinics %}
+        <tr>
+            <td>{{forloop.counter}}.</td>
+            <td><strong>{{ clinic.choices_of_best_list_state }}</strong></td>
+            <td><a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}

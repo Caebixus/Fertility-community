@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     save_as = True
     list_display = ('id', 'digitalTransparencyIndex', 'clinicName', 'clinicOwner', 'is_published', 'is_claimed', 'pro_is_published', 'ppq_is_published', 'clinicCity', 'clinicRegion', 'clinicState', 'packageClinicCounterNumber', 'guestBlogCounterNumber', 'guestAuthorCounterNumber', 'best_article_country_boolean', 'contact_url')
     list_filter = ('is_published', 'pro_is_published', 'verified_is_published', 'is_claimed', 'clinicRegion', 'clinicState', 'clinicCity')
-    search_fields = ('clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity', 'contact_url')
+    search_fields = ('id', 'clinicName', 'clinicOwner__username', 'clinicRegion', 'clinicState', 'clinicCity', 'contact_url')
     fieldsets = (
         ('Basic information', {'fields': ('clinicOwner', 'clinicName', 'clinicTitle', 'clinicGoogleReviewsUrl', 'digitalTransparencyIndex', 'defaultClinicCurrency', 'experts',)}),
         ('Links', {'fields': ('clinicCityLink', 'clinicRegionLink', 'clinicStateLink', 'clinicLocationLink',)}),

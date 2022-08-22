@@ -37,24 +37,23 @@ class ModularBestClinicsDetailView(DetailView):
 
         clinics = BasicClinic.objects.all()
 
-        Country = clinics.filter(modular_country=blogpk)
-        State = clinics.filter(modular_state=blogpk)
-        City = clinics.filter(modular_city=blogpk)
+        geo_country = clinics.filter(modular_country=blogpk)
+        geo_state = clinics.filter(modular_state=blogpk)
+        geo_city = clinics.filter(modular_city=blogpk)
 
-        if Country:
+        if geo_country:
              best_clinics = clinics.filter(modular_country=blogpk).exclude(modular_country_actual_text__exact='').exclude(modular_country_active=False)
              best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
              context['geo'] = 'country'
              context['best_clinics'] = best_clinics
              context['best_clinics_count'] = best_clinics.count()
-
-        elif State:
+        elif geo_state:
             best_clinics = clinics.filter(modular_state=blogpk).exclude(modular_state_actual_text__exact='').exclude(modular_state_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
             context['geo'] = 'state'
             context['best_clinics'] = best_clinics
             context['best_clinics_count'] = best_clinics.count()
-        elif City:
+        elif geo_city:
             best_clinics = clinics.filter(modular_city=blogpk).exclude(modular_city_actual_text__exact='').exclude(modular_city_active=False)
             best_clinics = best_clinics.order_by('-digitalTransparencyIndex')
             context['geo'] = 'city'

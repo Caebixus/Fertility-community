@@ -356,6 +356,9 @@ class BasicClinic(models.Model):
         ("Friendly staff", "Friendly staff"),
         ("Stress-free treatment", "Stress-free treatment"),
         ("Outstanding aftercare", "Outstanding aftercare"),
+        ("Personalized and Tailored Treatment", "Personalized and Tailored Treatment"),
+        ("Renowned Team of Fertility Specialists", "Renowned Team of Fertility Specialists"),
+        ("Technologically latest Services", "Technologically latest Services"),
     )
 
     # Country - Modular

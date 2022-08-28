@@ -5,11 +5,15 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import ListView
 
-from .models import Coaches, PreferredLanguage, Snippet, TypeJobs
+from .models import Coaches, PreferredLanguage, Snippet, TypeJobs, SnippetCity, SnippetState, SnippetCountry, SnippetSimpleBlog, SnippetModularBestClinicsBlog
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView
 from .forms import SnippetUpdateForm, SnippetCreateForm2
-from blog.models import Blog
+from blog.models import Blog, FAQBlog
+
+from coaches.choices import coach_country_search
+from itertools import chain
+
 
 
 class CoachDetailView(DetailView):
@@ -31,7 +35,13 @@ class CoachDetailView(DetailView):
             context['gynecologist'] = True
 
         snippets = Snippet.objects.filter(owner=coach, status='is published')
-        context['snippets'] = snippets
+        snippetCity = SnippetCity.objects.filter(owner=coach, status='is published')
+        snippetState = SnippetState.objects.filter(owner=coach, status='is published')
+        snippetCountry = SnippetCountry.objects.filter(owner=coach, status='is published')
+        snippetSimpleBlog = SnippetSimpleBlog.objects.filter(owner=coach, status='is published')
+        snippetModularBestClinicsBlog = SnippetModularBestClinicsBlog.objects.filter(owner=coach, status='is published')
+
+        context['snippets'] = list(chain(snippets, snippetCity, snippetState, snippetCountry, snippetSimpleBlog, snippetModularBestClinicsBlog))
 
         return context
 
@@ -128,8 +138,26 @@ class CoachListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CoachListView, self).get_context_data(**kwargs)
-        count_coaches = Coaches.objects.filter(coach_is_published=True, coach_is_claimed=True).count()
-        context['count_coaches'] = count_coaches
+        context['countries'] = coach_country_search()
+        context['values'] = self.request.GET
+        context['blog'] = FAQBlog.objects.filter(id=29)
+
+        snippets = Snippet.objects.filter(status='is published')[:3]
+        snippetCity = SnippetCity.objects.filter(status='is published')[:1]
+        snippetState = SnippetState.objects.filter(status='is published')[:1]
+        snippetCountry = SnippetCountry.objects.filter(status='is published')[:1]
+        snippetSimpleBlog = SnippetSimpleBlog.objects.filter(status='is published')[:3]
+        snippetModularBestClinicsBlog = SnippetModularBestClinicsBlog.objects.filter(status='is published')[:3]
+
+        context['snippets'] = list(chain(snippets, snippetCity, snippetState, snippetCountry, snippetSimpleBlog, snippetModularBestClinicsBlog))
+
+        if "States" in self.request.GET.keys():
+            count_coaches = Coaches.objects.filter(coach_is_published=True, coach_is_claimed=True, coach_preferred_client_country=self.request.GET['States']).count()
+            context['count_coaches'] = count_coaches
+        else:
+            count_coaches = Coaches.objects.filter(coach_is_published=True, coach_is_claimed=True).count()
+            context['count_coaches'] = count_coaches
+
         return context
 
     def get_queryset(self, **kwargs):
@@ -137,5 +165,17 @@ class CoachListView(ListView):
         if kwargs:
             queryset = queryset.filter(**kwargs)
         queryset = queryset.filter(coach_is_published=True, coach_is_claimed=True)
+
+
+        values = self.request.GET
+        if 'States' in values.keys():
+            states = self.request.GET['States']
+            if states == None or states == '':
+                states = 'empty'
+        else:
+            states = 'empty'
+
+        if states != 'empty':
+            queryset = queryset.filter(coach_preferred_client_country__iexact=states)
 
         return queryset

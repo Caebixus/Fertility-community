@@ -6,7 +6,7 @@
 {% load currencytag %}
 {% block title %}Discover fertility & IVF coaches | 2022{% endblock %}
 {% block description %}Search hundreds of Fertility & IVF professional coaches at once and discover new ways to support your journey to pregnancy{% endblock %}
-{% block canonical_url %}https://www.fertilitycommunity.com/fertility-specialists{% endblock %}
+{% block canonical_url %}https://www.fertilitycommunity.com/fertility-coaches{% endblock %}
 
 {% block ogType %}<meta property='og:type' content='website' />{% endblock %}
 {% block siteName %}<meta property='og:site_name' content='FertilityCommunity/' />{% endblock %}
@@ -23,14 +23,36 @@
     <p class="lead" style="color:white">
     <div class="container">
       <div class="searchBox">
-        <div class="mainbanner pb-4" id="mainhpbanner">
+        <div class="mainbanner" id="mainhpbanner">
+          <form action="{% url 'coach:coach_search' %}">
+            <div class="form-group" style="padding-top:3rem">
+              <div class="card" style="border-radius: 8px;">
+                <div class="card-header" id="headingOne" style="background-color: white; border-radius: 8px;">
+                  <select class="browser-default custom-select custom-select-md" id="States" name="States" class="form-control" onchange="showDiv()" required>
+                    <option value="" selected>Select state</option>
+                    {% for key, value in countries.items %}
+                      {% if value == 1 %}
+                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ key }} - {{ value }} coach</option>
+                      {% else %}
+                        <option value="{{ key }}" {% if key == values.States %}selected{% endif %}>{{ key }} - {{ value }} coaches</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3" style="padding-top:1rem; padding-bottom:7rem">
+              <button id="brandButton" type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i> Search</button>
+              <br>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container py-3">
+<div class="container pt-3">
   <div class="row">
     <div class="col-8">
       <p>Currently showing <strong>{{ count_coaches }}</strong> verified coaches.</p>
@@ -40,28 +62,58 @@
 
 
 <div class="container py-5">
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1">
     {% if order_data %}
     {% for expert in order_data %}
-      <div class="col-sm-4 col-md-3 col-lg-2 text-center">
-        <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}">
-        {% if expert.coach_profile_photo %}
-          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:80px; max-width:80px">
-        {% else %}
-          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:80px; max-width:80px">
-        {% endif %}
-          <h3 style="padding-top:2rem; text-align: center">{{ expert.coach_full_name }}</h3>
-        </a>
-        <p style="font-size: 100%; text-align: center">
-        {% for job in expert.jobs.all %}
-          {% if not forloop.last %}
-            {{ job }} |
-          {% else %}
-            {{ job }}
-          {% endif %}
-        {% endfor %}
-        </p>
+
+<!--      <div class="col-sm-4 col-md-3 col-lg-2 text-center">-->
+<!--        <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}">-->
+<!--        {% if expert.coach_profile_photo %}-->
+<!--          <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:80px; max-width:80px">-->
+<!--        {% else %}-->
+<!--          <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:80px; max-width:80px">-->
+<!--        {% endif %}-->
+<!--          <h3 style="padding-top:2rem; text-align: center">{{ expert.coach_full_name }}</h3>-->
+<!--        </a>-->
+<!--        <p style="font-size: 100%; text-align: center">-->
+<!--        {% for job in expert.jobs.all %}-->
+<!--          {% if not forloop.last %}-->
+<!--            {{ job }} |-->
+<!--          {% else %}-->
+<!--            {{ job }}-->
+<!--          {% endif %}-->
+<!--        {% endfor %}-->
+<!--        </p>-->
+<!--      </div>-->
+
+
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm col-md-2 text-center">
+            {% if expert.coach_profile_photo %}
+              <img class="imgHoverTeam" src="{{ expert.coach_profile_photo.url }}" alt="image of team first member" style="max-height:80px; max-width:80px">
+            {% else %}
+              <img class="imgHoverTeam" src="{% static 'img/profile_custom.png' %}" alt="image of team first member" style="max-height:80px; max-width:80px">
+            {% endif %}
+          </div>
+          <div class="col-sm col-md-10">
+            <a href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}"><p class="text-center-until-md" style="font-size: 35px"><strong>{{ expert.coach_full_name }}</strong></p></a>
+            <p>
+              {% for job in expert.jobs.all %}
+                {% if not forloop.last %}
+                  {{ job }} |
+                {% else %}
+                  {{ job }}
+                {% endif %}
+              {% endfor %}
+            </p>
+            <p class="lead">{{ expert.coach_bio|safe }}</p>
+            <a class="btn btn-outline-secondary btn-md" href="/docs/4.6/components/navbar/" role="button" style="text-decoration: none;"><i class="fas fa-info-circle"></i> Detail</a>
+          </div>
+        </div>
       </div>
+
+
       {% empty %}
       <div class="card shadow">
         <div class="card-body">
@@ -80,7 +132,128 @@
   </div>
 </div>
 
+<div class="container py-5">
+  <h2>Who is fertility coach?</h2>
+  <p>A fertility coach can help alongside your IVF specialist with extra physical, mental, and emotional support while navigating fertility issues. Learn more:</p>
+  <br>
+  <div class="container pb-5">
+    <div class="row row-cols-1 row-cols-md-3">
+      {% for blogs in blog %}
+      {% if blogs.author != None %}
+      <div class="col-sm" style="padding-top: 5px;">
+        <div class="card shadow-sm" style="border-radius: 25px;">
+          <a href="{{ blogs.blog_url }}">
+            {% if blogs.pic_blog %}<img src="{{ blogs.pic_blog.url }}" alt="Standard IVF process timeline" width="100%" style="border-top-left-radius: 25px; border-top-right-radius: 25px">
+            {% else %}
+            {% endif %}
+          </a>
+          <div class="card-body">
+            <a href="{{ blogs.blog_url }}">
+              <h3 class="card-title">{{ blogs.title }}</h3>
+            </a>
+            <p class="card-text" style="font-size: 17px">{{ blogs.description|truncatechars:100 }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href="https://www.fertilitycommunity.com/faq/what-is-a-fertility-coach-and-why-do-i-need-one/">
+                  <button id="brandButton" type="button" class="btn btn-outline-success btn-sm">Read more</button>
+                </a>
+              </div>
+              <small class="text-muted">{{ blogs.minute_read }} mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-around py-3">
+    <a href="{% url 'register_as_coach' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Sign up as fertility coach</button>
+    </a>
+    <a href="{% url 'login' %}">
+      <button id="brandButton" type="button" class="btn btn-outline-success btn-lg">Sign in as fertility coach</button>
+    </a>
+  </div>
+</div>
 
+
+<div class="container py-5">
+  <h2>Fertility coach newest contributions:</h2>
+    {% if snippets %}
+      <hr style="margin-left: 1.25rem; margin-right: 1.25rem;">
+      {% for snippet in snippets %}
+        {% if snippet.blog.blog_url %}
+          {% if forloop.first %}
+          <h6 class="pt-1" style="margin-left: 25px;"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
+          {% else %}
+          <h6 class="pt-5" style="margin-left: 25px;"><a href="{{ snippet.blog.blog_url }}">{{ snippet.blog.title }}:</a></h6>
+          {% endif %}
+        {% elif snippet.blog.simple_slug %}
+          {% if forloop.first %}
+          <h6 class="pt-1" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/article/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% else %}
+          <h6 class="pt-5" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/article/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% endif %}
+        {% elif snippet.blog.slug and snippet.blog.active == True or snippet.blog.active == False %}
+          {% if forloop.first %}
+          <h6 class="pt-1" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/faq/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% else %}
+          <h6 class="pt-5" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/faq/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% endif %}
+        {% elif snippet.blog.slug and snippet.blog.country or snippet.blog.state or snippet.blog.city %}
+          {% if forloop.first %}
+          <h6 class="pt-1" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/blog/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% else %}
+          <h6 class="pt-5" style="margin-left: 25px;"><a href="https://www.fertilitycommunity.com/blog/{{ snippet.blog.simple_slug }}">{{ snippet.blog.title }}:</a></h6>
+          {% endif %}
+        {% endif %}
+        <div class="card" style="margin-left: 25px; margin-right: 25px;">
+          <div class="card-header">
+            <div class="row pt-1 pb-1 custom-carousel-content custom-carousel-header-row">
+              <div class="col-md-6 col-lg-1 text-center-until-md">
+                {% if snippet.owner.coach_profile_photo %}
+                <div id="imgInfo" class="img align-self-center align-items-center pr-2">
+                    <img class="imgHoverLogo" src="{{ snippet.owner.coach_profile_photo.url }}" alt="profile picture of {{ snippet.owner.coach_full_name}}" style="max-height:50px; max-width:50px; border-radius: 50%; border-width:2px; border-style:solid; border-color: #286DA8;">
+                </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6 col-lg-11 text-center-until-md">
+                <strong>{{ snippet.owner.coach_full_name }}</strong>
+                <div style="font-size: 80%">
+                  {% for job in snippet.owner.jobs.all %}
+                    {% if not forloop.last %}
+                      {{ job }} |
+                    {% else %}
+                      {{ job }}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                {% if coach.experts_from_clinic.all %}
+                <div style="font-size: 80%">
+                  {% for clinic in coach.experts_from_clinic.all %}
+                    {% if not forloop.last %}
+                      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a> |
+                    {% else %}
+                      <a href="{% url 'clinics:clinic-detail' clinic.pk clinic.slug %}">{{ clinic.clinicName }}</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="row custom-carousel-content" style="margin-left:5px;margin-right:5px">
+              {{ snippet.text|safe }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+</div>
 
 
 {% block otherDifPageJs %}<script language="JavaScript" type="text/javascript" src="{% static 'js/primary-secondary.js' %}"></script>{% endblock %}

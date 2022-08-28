@@ -131,7 +131,7 @@ class SnippetDeleteView(DeleteView):
 class CoachListView(ListView):
     model = Coaches
     template_name = 'ivfcoach/fertility-specialists.html'
-    order_by = 'order_by'
+    ordering = ['-coach_created']
     context_object_name = 'order_data'
     paginate_by = 100
     allow_empty = True

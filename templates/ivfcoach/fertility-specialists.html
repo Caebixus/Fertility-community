@@ -108,7 +108,7 @@
               {% endfor %}
             </p>
             <p class="lead">{{ expert.coach_bio|safe }}</p>
-            <a class="btn btn-outline-secondary btn-md" href="/docs/4.6/components/navbar/" role="button" style="text-decoration: none;"><i class="fas fa-info-circle"></i> Detail</a>
+            <a class="btn btn-outline-secondary btn-md" href="{% url 'coach:coach-detail' expert.pk expert.coach_username %}" role="button" style="text-decoration: none;"><i class="fas fa-info-circle"></i> Detail</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from blog.functions import count_best_clinics
+from blog.functions import count_best_clinics_city, count_best_clinics_country
 from blog.models import Author, Blog
 from packages.models import Package
 from django.utils import timezone
@@ -623,7 +623,10 @@ def ivf_in_spain(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(
+        best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
 
     blog = get_object_or_404(Blog, pk=blogpk)
     author = blog.author
@@ -692,7 +695,10 @@ def ivf_in_greece(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(
+        best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
 
     blog = get_object_or_404(Blog, pk=blogpk)
     author = blog.author
@@ -762,7 +768,10 @@ def ivf_in_czech_republic(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(
+        best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
 
     blog = get_object_or_404(Blog, pk=blogpk)
     author = blog.author
@@ -832,7 +841,10 @@ def ivf_in_slovakia(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(
+        best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
 
     blog = get_object_or_404(Blog, pk=blogpk)
     author = blog.author
@@ -904,7 +916,7 @@ def ivf_in_prague(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics_count = count_best_clinics_city(clinics)
 
     snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
     count_snippets = snippets.count()
@@ -1025,7 +1037,10 @@ def ivf_in_portugal(request):
 
     clinicegg = clinics.aggregate(average=Avg('egg_donor_recipients_cost'))
 
-    best_clinics_count = count_best_clinics(clinics)
+    best_clinics = clinics.filter(best_article_country_blogpost_obj=pkid).exclude(
+        best_article_country_actual_text__isnull=True).exclude(best_article_country_actual_text__exact='')
+    best_clinics = best_clinics.filter(best_article_country_boolean=True).order_by('-digitalTransparencyIndex')[:8]
+    best_clinics_count = best_clinics.count()
 
     snippets = Snippet.objects.filter(blog=blogpk, status='is published', owner__coach_is_premium=True, owner__coach_is_published=True)
     count_snippets = snippets.count()
